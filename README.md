@@ -1,6 +1,6 @@
 # Daily Zine
 
-Generate a zine from your Readwise Reader feed.
+Generate a daily zine from your news feed. Currently only supports Readwise Reader.
 
 ## Setup
 
@@ -61,3 +61,9 @@ Print the default zine PDF:
 - actual size / 100%
 
 Then keep the sheets in order, nest later sheets inside earlier sheets, fold the stack in half, and staple on the fold if desired.
+
+## Publishing
+
+The repository includes a daily publishing workflow at `.github/workflows/daily-zine.yml`.
+
+Zines are served via [GitHub Pages](https://fglass.github.io/daily-zine/).
