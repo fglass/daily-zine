@@ -14,7 +14,7 @@ PDF_RE = re.compile(r"^zine-(\d{4}-\d{2}-\d{2})(-fullsize)?\.pdf$")
 
 @dataclass(frozen=True)
 class IssueFiles:
-    booklet: str | None = None
+    zine: str | None = None
     fullsize: str | None = None
 
 
@@ -29,9 +29,9 @@ def collect_issues(directory: Path) -> list[tuple[str, IssueFiles]]:
         issue_date, fullsize_suffix = match.groups()
         issue = issues.get(issue_date, IssueFiles())
         if fullsize_suffix:
-            issue = IssueFiles(booklet=issue.booklet, fullsize=path.name)
+            issue = IssueFiles(zine=issue.zine, fullsize=path.name)
         else:
-            issue = IssueFiles(booklet=path.name, fullsize=issue.fullsize)
+            issue = IssueFiles(zine=path.name, fullsize=issue.fullsize)
         issues[issue_date] = issue
 
     return sorted(issues.items(), reverse=True)
@@ -41,15 +41,14 @@ def build_html(issues: list[tuple[str, IssueFiles]]) -> str:
     items = []
     for issue_date, files in issues:
         links = []
-        if files.booklet:
-            links.append(
-                f'<a href="{escape(files.booklet)}">booklet</a>'
-            )
+
+        if files.zine:
+            links.append(f'<a href="{escape(files.zine)}">zine</a>')
         if files.fullsize:
-            links.append(
-                f'<a href="{escape(files.fullsize)}">full size</a>'
-            )
-        link_markup = " · ".join(links) if links else '<span class="muted">missing files</span>'
+            links.append(f'<a href="{escape(files.fullsize)}">full</a>')
+        link_markup = (
+            " · ".join(links) if links else '<span class="muted">missing files</span>'
+        )
         items.append(
             "      <li>"
             f"<span>{escape(issue_date)}</span>"
@@ -57,7 +56,11 @@ def build_html(issues: list[tuple[str, IssueFiles]]) -> str:
             "</li>"
         )
 
-    listing = "\n".join(items) if items else "      <li><span>No zines published yet.</span></li>"
+    listing = (
+        "\n".join(items)
+        if items
+        else "      <li><span>No zines published yet.</span></li>"
+    )
     return f"""<!doctype html>
 <html lang="en">
   <head>
@@ -86,7 +89,7 @@ def build_html(issues: list[tuple[str, IssueFiles]]) -> str:
           radial-gradient(circle at top, rgba(163, 58, 43, 0.16), transparent 34rem),
           linear-gradient(180deg, #ede5d4 0%, var(--bg) 52%, #e8deca 100%);
         color: var(--ink);
-        font-family: Georgia, "Times New Roman", serif;
+        font-family: "Times New Roman", Times, serif;
       }}
 
       main {{
@@ -168,8 +171,8 @@ def build_html(issues: list[tuple[str, IssueFiles]]) -> str:
   <body>
     <main>
       <p class="kicker">Daily archive</p>
-      <h1>Fred Talks</h1>
-      <p class="deck">Automated daily zines from the Readwise Reader feed. Each issue is published in booklet form for printing and a full-size version for normal reading.</p>
+      <h1>FRED<br>TALKS</h1>
+      <p class="deck">Automated daily zines curated from my news feed.</p>
       <ul>
 {listing}
       </ul>

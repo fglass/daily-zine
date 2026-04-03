@@ -15,16 +15,14 @@ from ziner.layout import LayoutArticle, TocEntry
 TEMPLATE_DIR = Path(__file__).with_name("templates")
 
 
-def _ordinal_day(day: int) -> str:
+def _ordinal_suffix(day: int) -> str:
     if 10 <= day % 100 <= 20:
-        suffix = "th"
-    else:
-        suffix = {1: "st", 2: "nd", 3: "rd"}.get(day % 10, "th")
-    return f"{day}{suffix}"
+        return "th"
+    return {1: "st", 2: "nd", 3: "rd"}.get(day % 10, "th")
 
 
-def _display_date(issue_date: date) -> str:
-    return f"{_ordinal_day(issue_date.day)} {issue_date.strftime('%B %Y')}"
+def _display_date_parts(issue_date: date) -> tuple[int, str, str]:
+    return issue_date.day, _ordinal_suffix(issue_date.day), issue_date.strftime("%B %Y")
 
 
 def render_html(
@@ -39,10 +37,13 @@ def render_html(
         autoescape=select_autoescape(["html", "xml"]),
     )
     template = env.get_template("zine.html")
+    issue_day, issue_suffix, issue_month_year = _display_date_parts(issue_date)
     return template.render(
         title=title,
         issue_date=issue_date,
-        issue_date_display=_display_date(issue_date),
+        issue_day=issue_day,
+        issue_suffix=issue_suffix,
+        issue_month_year=issue_month_year,
         articles=articles,
         toc=toc,
     )

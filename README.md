@@ -1,4 +1,6 @@
-# Daily Zine
+# daily-zine
+
+[![GitHub Pages](https://img.shields.io/badge/site-live-2ea44f?style=flat-square)](https://fglass.github.io/daily-zine/)
 
 Generate a daily zine from your news feed. Currently only supports Readwise Reader.
 
@@ -10,9 +12,7 @@ Install Python dependencies:
 uv sync
 ```
 
-Install native PDF rendering libraries.
-
-On macOS:
+Install native PDF rendering libraries. On macOS:
 
 ```bash
 brew install pango gdk-pixbuf libffi
@@ -32,7 +32,7 @@ Preview article selection without rendering:
 uv run ziner --dry
 ```
 
-Render the PDF:
+Render the default zine PDF:
 
 ```bash
 uv run ziner
@@ -48,22 +48,20 @@ Flags:
 
 - `-s, --max-sheets` sets the sheet budget. Each sheet represents 2 printed page sides. Default: `5`
 - `-o, --output` sets the output file
-- `--title` sets the zine title. Default: `Fred Talks`
 - `--fullsize` writes the normal sequential PDF instead of the imposed zine sheets
+- `--title` sets the zine title
 - `--dry` prints the selected articles without rendering
-
-## Print and Fold
-
-Print the default zine PDF:
-
-- double-sided
-- flip on short edge
-- actual size / 100%
-
-Then keep the sheets in order, nest later sheets inside earlier sheets, fold the stack in half, and staple on the fold if desired.
 
 ## Publishing
 
-The repository includes a daily publishing workflow at `.github/workflows/daily-zine.yml`.
+The repository includes a daily publishing workflow at `.github/workflows/daily-zine.yml`. Zines are served via [GitHub Pages](https://fglass.github.io/daily-zine/).
 
-Zines are served via [GitHub Pages](https://fglass.github.io/daily-zine/).
+## Printing
+
+Print the default zine PDF with the following settings:
+
+- Double-sided
+- Flip on short edge
+- Actual size / 100%
+
+Then keep the sheets in order, fold the stack in half, and staple on the fold if desired.
