@@ -21,7 +21,21 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Compute issue date
+        run: echo "ISSUE_DATE=$(date -u +%F)" >> "$GITHUB_ENV"
+
+      - name: Check if already published
+        id: guard
+        run: |
+          if git ls-tree --name-only origin/gh-pages -- "zine-${ISSUE_DATE}.pdf" | grep -q .; then
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+            echo "Zine for ${ISSUE_DATE} already published — skipping."
+          else
+            echo "skip=false" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Install WeasyPrint system dependencies
+        if: steps.guard.outputs.skip == 'false'
         run: |
           sudo apt-get update
           sudo apt-get install -y \
@@ -32,20 +46,21 @@ jobs:
             libcairo2
 
       - name: Set up Python
+        if: steps.guard.outputs.skip == 'false'
         uses: actions/setup-python@v6
         with:
           python-version: "3.13"
 
       - name: Set up uv
+        if: steps.guard.outputs.skip == 'false'
         uses: astral-sh/setup-uv@v7
 
       - name: Install dependencies
+        if: steps.guard.outputs.skip == 'false'
         run: uv sync --frozen
 
-      - name: Compute issue date
-        run: echo "ISSUE_DATE=$(date -u +%F)" >> "$GITHUB_ENV"
-
       - name: Generate PDFs
+        if: steps.guard.outputs.skip == 'false'
         env:
           READWISE_TOKEN: ${{ secrets.READWISE_TOKEN }}
         run: |
@@ -53,6 +68,7 @@ jobs:
           uv run ziner --fullsize --output "output/zine-${ISSUE_DATE}-fullsize.pdf"
 
       - name: Check out gh-pages
+        if: steps.guard.outputs.skip == 'false'
         uses: actions/checkout@v6
         with:
           ref: gh-pages
@@ -60,11 +76,13 @@ jobs:
           fetch-depth: 0
 
       - name: Publish files
+        if: steps.guard.outputs.skip == 'false'
         run: |
           cp output/*.pdf gh-pages/
           python .github/scripts/generate-index.py gh-pages
 
       - name: Commit and push
+        if: steps.guard.outputs.skip == 'false'
         working-directory: gh-pages
         run: |
           git config user.name "github-actions[bot]"
