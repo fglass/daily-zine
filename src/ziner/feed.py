@@ -29,7 +29,7 @@ def _parse_datetime(value: str) -> datetime:
 
 
 def fetch_feed(token: str, *, max_items: int = 50) -> list[Article]:
-    """Fetch the current Reader feed window and return it oldest-first."""
+    """Fetch the current Reader feed window and return it newest-first."""
     headers = {"Authorization": f"Token {token}"}
     params: dict = {
         # Explicitly limit results to the Reader feed and exclude inbox/later queues.
@@ -75,4 +75,4 @@ def fetch_feed(token: str, *, max_items: int = 50) -> list[Article]:
                 break
             params["pageCursor"] = cursor
 
-    return list(reversed(articles[:max_items]))
+    return articles[:max_items]

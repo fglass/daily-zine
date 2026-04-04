@@ -361,7 +361,7 @@ def select_articles(
     max_sheets: int,
     words_per_page: int = WORDS_PER_PAGE,
 ) -> tuple[list[LayoutArticle], list[TocEntry]]:
-    """Select oldest-first articles that fit within the sheet budget."""
+    """Select articles that fit within the sheet budget (newest-first)."""
     budget_words = (max_sheets * 4) * words_per_page
     remaining_words = budget_words
     selected: list[LayoutArticle] = []
