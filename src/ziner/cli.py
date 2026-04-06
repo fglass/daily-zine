@@ -17,6 +17,7 @@ from ziner.render import (
     check_pdf_dependencies,
     fit_articles_to_page_limit,
     render_pdf,
+    render_issue_html,
 )
 
 
@@ -49,14 +50,19 @@ def main(max_sheets: int, output: Path | None, title: str, fullsize: bool, dry: 
 
     issue_date = date.today()
     destination = output or Path(_default_output(issue_date))
+    output_is_html = destination.suffix.lower() == ".html"
+    
     max_logical_pages = max_sheets * 4
     max_imposed_sides = max_sheets * 2
+
+    if output_is_html and fullsize:
+        raise click.BadParameter("--fullsize cannot be used when writing HTML output.")
 
     articles = fetch_feed(token)
     selected, toc = select_articles(articles, max_sheets=max_sheets)
 
     dependencies_ok, dependency_error = check_pdf_dependencies()
-    if not dependencies_ok and not dry:
+    if not dependencies_ok and not dry and not output_is_html:
         raise click.ClickException(dependency_error or "PDF dependencies are unavailable.")
 
     if dependencies_ok:
@@ -92,14 +98,23 @@ def main(max_sheets: int, output: Path | None, title: str, fullsize: bool, dry: 
             )
         return
 
-    render_pdf(
-        output_path=destination,
-        issue_date=issue_date,
-        articles=selected,
-        toc=toc,
-        title=title,
-        fullsize=fullsize,
-    )
+    if output_is_html:
+        render_issue_html(
+            output_path=destination,
+            issue_date=issue_date,
+            articles=selected,
+            toc=toc,
+            title=title,
+        )
+    else:
+        render_pdf(
+            output_path=destination,
+            issue_date=issue_date,
+            articles=selected,
+            toc=toc,
+            title=title,
+            fullsize=fullsize,
+        )
     click.echo(f"Wrote {destination}")
 
 

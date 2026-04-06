@@ -49,6 +49,23 @@ def render_html(
     )
 
 
+def render_issue_html(
+    *,
+    output_path: str | Path,
+    title: str,
+    issue_date: date,
+    articles: list[LayoutArticle],
+    toc: list[TocEntry],
+) -> Path:
+    destination = Path(output_path)
+    destination.parent.mkdir(parents=True, exist_ok=True)
+    destination.write_text(
+        render_html(title=title, issue_date=issue_date, articles=articles, toc=toc),
+        encoding="utf-8",
+    )
+    return destination
+
+
 def build_toc(articles: list[LayoutArticle]) -> list[TocEntry]:
     return [
         TocEntry(

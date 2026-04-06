@@ -10,29 +10,44 @@ from pathlib import Path
 import re
 import sys
 
-PDF_RE = re.compile(r"^zine-(\d{4}-\d{2}-\d{2})(-fullsize)?\.pdf$")
+ISSUE_FILE_RE = re.compile(r"^zine-(\d{4}-\d{2}-\d{2})(-fullsize)?\.(html|pdf)$")
 
 
 @dataclass(frozen=True)
 class IssueFiles:
     zine: str | None = None
     fullsize: str | None = None
+    html: str | None = None
 
 
 def collect_issues(directory: Path) -> list[tuple[str, IssueFiles]]:
     issues: dict[str, IssueFiles] = {}
 
-    for path in sorted(directory.glob("zine-*.pdf")):
-        match = PDF_RE.fullmatch(path.name)
+    for path in sorted(directory.glob("zine-*.*")):
+        match = ISSUE_FILE_RE.fullmatch(path.name)
         if not match:
             continue
 
-        issue_date, fullsize_suffix = match.groups()
+        issue_date, fullsize_suffix, extension = match.groups()
         issue = issues.get(issue_date, IssueFiles())
-        if fullsize_suffix:
-            issue = IssueFiles(zine=issue.zine, fullsize=path.name)
+        if extension == "html":
+            issue = IssueFiles(
+                html=path.name,
+                zine=issue.zine,
+                fullsize=issue.fullsize,
+            )
+        elif fullsize_suffix:
+            issue = IssueFiles(
+                html=issue.html,
+                zine=issue.zine,
+                fullsize=path.name,
+            )
         else:
-            issue = IssueFiles(zine=path.name, fullsize=issue.fullsize)
+            issue = IssueFiles(
+                html=issue.html,
+                zine=path.name,
+                fullsize=issue.fullsize,
+            )
         issues[issue_date] = issue
 
     return sorted(issues.items(), reverse=True)
@@ -47,6 +62,8 @@ def build_html(issues: list[tuple[str, IssueFiles]], title: str = "Fred Talks") 
             links.append(f'<a href="{escape(files.zine)}">zine</a>')
         if files.fullsize:
             links.append(f'<a href="{escape(files.fullsize)}">full</a>')
+        if files.html:
+            links.append(f'<a href="{escape(files.html)}">html</a>')
         link_markup = (
             " · ".join(links) if links else '<span class="muted">missing files</span>'
         )
@@ -184,13 +201,15 @@ def build_html(issues: list[tuple[str, IssueFiles]], title: str = "Fred Talks") 
 """
 
 
-def build_rss(issues: list[tuple[str, IssueFiles]], base_url: str, title: str = "Fred Talks") -> str:
+def build_rss(
+    issues: list[tuple[str, IssueFiles]], base_url: str, title: str = "Fred Talks"
+) -> str:
     now = datetime.now(timezone.utc).strftime("%a, %d %b %Y %H:%M:%S %z")
     items = []
     for issue_date, files in issues:
-        pdf = files.fullsize or files.zine
+        artifact = files.html or files.fullsize or files.zine
 
-        if not pdf:
+        if not artifact:
             continue
 
         pub_date = (
@@ -198,10 +217,10 @@ def build_rss(issues: list[tuple[str, IssueFiles]], base_url: str, title: str = 
             .replace(tzinfo=timezone.utc)
             .strftime("%a, %d %b %Y %H:%M:%S %z")
         )
-        link = f"{base_url}{pdf}"
+        link = f"{base_url}{artifact}"
         items.append(
             f"    <item>\n"
-            f"      <title>Zine - {escape(issue_date)}</title>\n"
+            f"      <title>Daily Read - {escape(issue_date)}</title>\n"
             f"      <link>{link}</link>\n"
             f'      <guid isPermaLink="true">{link}</guid>\n'
             f"      <pubDate>{pub_date}</pubDate>\n"
@@ -213,7 +232,7 @@ def build_rss(issues: list[tuple[str, IssueFiles]], base_url: str, title: str = 
   <channel>
     <title>{escape(title)}</title>
     <link>{escape(base_url)}</link>
-    <description>Automated daily zines curated from my feed.</description>
+    <description>Automated daily reads.</description>
     <lastBuildDate>{now}</lastBuildDate>
 {items_xml}
   </channel>

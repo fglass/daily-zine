@@ -68,6 +68,7 @@ jobs:
         run: |
           uv run ziner --title "${ZINE_TITLE}" --output "output/zine-${ISSUE_DATE}.pdf"
           uv run ziner --title "${ZINE_TITLE}" --fullsize --output "output/zine-${ISSUE_DATE}-fullsize.pdf"
+          uv run ziner --title "${ZINE_TITLE}" --output "output/zine-${ISSUE_DATE}.html"
 
       - name: Check out gh-pages
         if: steps.guard.outputs.skip == 'false'
@@ -81,6 +82,7 @@ jobs:
         if: steps.guard.outputs.skip == 'false'
         run: |
           cp output/*.pdf gh-pages/
+          cp output/*.html gh-pages/
           python .github/scripts/generate-index.py gh-pages "https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/" "${ZINE_TITLE}"
 
       - name: Commit and push
