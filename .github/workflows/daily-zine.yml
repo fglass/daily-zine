@@ -15,6 +15,8 @@ concurrency:
 jobs:
   publish:
     runs-on: ubuntu-latest
+    env:
+      ZINE_TITLE: "Fred Talks"
     steps:
       - name: Check out main
         uses: actions/checkout@v6
@@ -64,8 +66,8 @@ jobs:
         env:
           READWISE_TOKEN: ${{ secrets.READWISE_TOKEN }}
         run: |
-          uv run ziner --output "output/zine-${ISSUE_DATE}.pdf"
-          uv run ziner --fullsize --output "output/zine-${ISSUE_DATE}-fullsize.pdf"
+          uv run ziner --title "${ZINE_TITLE}" --output "output/zine-${ISSUE_DATE}.pdf"
+          uv run ziner --title "${ZINE_TITLE}" --fullsize --output "output/zine-${ISSUE_DATE}-fullsize.pdf"
 
       - name: Check out gh-pages
         if: steps.guard.outputs.skip == 'false'
@@ -79,7 +81,7 @@ jobs:
         if: steps.guard.outputs.skip == 'false'
         run: |
           cp output/*.pdf gh-pages/
-          python .github/scripts/generate-index.py gh-pages
+          python .github/scripts/generate-index.py gh-pages "https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/" "${ZINE_TITLE}"
 
       - name: Commit and push
         if: steps.guard.outputs.skip == 'false'

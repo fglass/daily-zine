@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
+from datetime import datetime, timezone
 from html import escape
 from pathlib import Path
 import re
@@ -37,7 +38,7 @@ def collect_issues(directory: Path) -> list[tuple[str, IssueFiles]]:
     return sorted(issues.items(), reverse=True)
 
 
-def build_html(issues: list[tuple[str, IssueFiles]]) -> str:
+def build_html(issues: list[tuple[str, IssueFiles]], title: str = "Fred Talks") -> str:
     items = []
     for issue_date, files in issues:
         links = []
@@ -66,7 +67,8 @@ def build_html(issues: list[tuple[str, IssueFiles]]) -> str:
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Fred Talks</title>
+    <title>{escape(title)}</title>
+    <link rel="alternate" type="application/rss+xml" title="{escape(title)} RSS" href="feed.xml">
     <style>
       :root {{
         color-scheme: light;
@@ -170,9 +172,9 @@ def build_html(issues: list[tuple[str, IssueFiles]]) -> str:
   </head>
   <body>
     <main>
-      <p class="kicker">Daily archive</p>
-      <h1>FRED<br>TALKS</h1>
-      <p class="deck">Automated daily zines curated from my news feed.</p>
+      <p class="kicker">Daily archive · <a href="feed.xml">RSS</a></p>
+      <h1>{escape(title).upper().replace(" ", "<br>")}</h1>
+      <p class="deck">Automated daily zines curated from my feed.</p>
       <ul>
 {listing}
       </ul>
@@ -182,11 +184,57 @@ def build_html(issues: list[tuple[str, IssueFiles]]) -> str:
 """
 
 
+def build_rss(issues: list[tuple[str, IssueFiles]], base_url: str, title: str = "Fred Talks") -> str:
+    now = datetime.now(timezone.utc).strftime("%a, %d %b %Y %H:%M:%S %z")
+    items = []
+    for issue_date, files in issues:
+        pdf = files.fullsize or files.zine
+
+        if not pdf:
+            continue
+
+        pub_date = (
+            datetime.strptime(issue_date, "%Y-%m-%d")
+            .replace(tzinfo=timezone.utc)
+            .strftime("%a, %d %b %Y %H:%M:%S %z")
+        )
+        link = f"{base_url}{pdf}"
+        items.append(
+            f"    <item>\n"
+            f"      <title>Zine - {escape(issue_date)}</title>\n"
+            f"      <link>{link}</link>\n"
+            f'      <guid isPermaLink="true">{link}</guid>\n'
+            f"      <pubDate>{pub_date}</pubDate>\n"
+            f"    </item>"
+        )
+    items_xml = "\n".join(items)
+    return f"""<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>{escape(title)}</title>
+    <link>{escape(base_url)}</link>
+    <description>Automated daily zines curated from my feed.</description>
+    <lastBuildDate>{now}</lastBuildDate>
+{items_xml}
+  </channel>
+</rss>
+"""
+
+
 def main() -> int:
     output_dir = Path(sys.argv[1]) if len(sys.argv) > 1 else Path.cwd()
+    base_url = sys.argv[2] if len(sys.argv) > 2 else ""
+    title = sys.argv[3] if len(sys.argv) > 3 else "Fred Talks"
     output_dir.mkdir(parents=True, exist_ok=True)
+
     issues = collect_issues(output_dir)
-    (output_dir / "index.html").write_text(build_html(issues), encoding="utf-8")
+    (output_dir / "index.html").write_text(build_html(issues, title), encoding="utf-8")
+
+    if base_url:
+        (output_dir / "feed.xml").write_text(
+            build_rss(issues, base_url, title), encoding="utf-8"
+        )
+
     return 0
 
 
