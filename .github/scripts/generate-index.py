@@ -61,7 +61,7 @@ def build_html(issues: list[tuple[str, IssueFiles]], title: str = "Fred Talks") 
         if files.zine:
             links.append(f'<a href="{escape(files.zine)}">zine</a>')
         if files.fullsize:
-            links.append(f'<a href="{escape(files.fullsize)}">full</a>')
+            links.append(f'<a href="{escape(files.fullsize)}">pdf</a>')
         if files.html:
             links.append(f'<a href="{escape(files.html)}">html</a>')
         link_markup = (
@@ -207,7 +207,7 @@ def build_rss(
     now = datetime.now(timezone.utc).strftime("%a, %d %b %Y %H:%M:%S %z")
     items = []
     for issue_date, files in issues:
-        artifact = files.html or files.fullsize or files.zine
+        artifact = files.html
 
         if not artifact:
             continue
