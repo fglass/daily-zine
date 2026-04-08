@@ -9,7 +9,7 @@ from pathlib import Path
 import click
 from dotenv import load_dotenv
 
-from ziner.feed import fetch_feed
+from ziner.feed import fetch_feed, fetch_inbox
 from ziner.layout import select_articles
 from ziner.render import (
     booklet_sheet_count,
@@ -35,7 +35,9 @@ def _default_output(issue_date: date) -> str:
     help="Write a plain sequential reading PDF instead of the imposed zine PDF.",
 )
 @click.option("--dry", is_flag=True, help="Show selected articles without rendering.")
-def main(max_sheets: int, output: Path | None, title: str, fullsize: bool, dry: bool) -> None:
+def main(
+    max_sheets: int, output: Path | None, title: str, fullsize: bool, dry: bool
+) -> None:
     """Fetch recent Reader articles and turn them into a printable zine PDF."""
     if max_sheets < 1:
         raise click.BadParameter("--max-sheets must be at least 1.")
@@ -51,19 +53,24 @@ def main(max_sheets: int, output: Path | None, title: str, fullsize: bool, dry: 
     issue_date = date.today()
     destination = output or Path(_default_output(issue_date))
     output_is_html = destination.suffix.lower() == ".html"
-    
+
     max_logical_pages = max_sheets * 4
     max_imposed_sides = max_sheets * 2
 
     if output_is_html and fullsize:
         raise click.BadParameter("--fullsize cannot be used when writing HTML output.")
 
-    articles = fetch_feed(token)
+    inbox_articles = fetch_inbox(token, limit=1)
+    feed_articles = fetch_feed(token)
+    articles = inbox_articles + feed_articles
+
     selected, toc = select_articles(articles, max_sheets=max_sheets)
 
     dependencies_ok, dependency_error = check_pdf_dependencies()
     if not dependencies_ok and not dry and not output_is_html:
-        raise click.ClickException(dependency_error or "PDF dependencies are unavailable.")
+        raise click.ClickException(
+            dependency_error or "PDF dependencies are unavailable."
+        )
 
     if dependencies_ok:
         selected, toc, actual_pages = fit_articles_to_page_limit(
