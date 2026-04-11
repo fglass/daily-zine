@@ -1,0 +1,974 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Fred Talks - 2026-04-11</title>
+    <style>
+      @page {
+        size: A5;
+        margin: 8mm 9mm 9mm;
+      }
+
+      :root {
+        color: #111;
+        font-family: "Times New Roman", Times, serif;
+        --body-text-size: 9.5pt;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        color: #111;
+        background: #fff;
+        font-family: "Times New Roman", Times, serif;
+        line-height: 1.45;
+      }
+
+      a,
+      a:visited {
+        color: #111;
+        text-decoration: underline;
+      }
+
+      .cover {
+        min-height: calc(210mm - 17mm);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        page-break-after: always;
+        border: 1px solid #111;
+        padding: 8mm;
+        background: #fff;
+      }
+
+      .toc-item-meta,
+      .article-meta {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .masthead {
+        margin: 0;
+        font-size: 40pt;
+        line-height: 0.95;
+        text-transform: uppercase;
+      }
+
+      .issue-date {
+        margin: 4mm 0 0;
+        font-size: 14pt;
+      }
+
+      .issue-date sup {
+        font-size: 0.58em;
+        vertical-align: super;
+        line-height: 0;
+      }
+
+      .cover-deck {
+        max-width: 90mm;
+        font-size: 12pt;
+        margin: 0;
+      }
+
+      .toc {
+        border-top: 3px solid #111;
+        padding-top: 6mm;
+      }
+
+      .toc h2 {
+        margin: 0 0 4mm;
+        font-size: 11pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .toc-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .toc-item {
+        padding: 3mm 0;
+        border-bottom: 1px solid rgba(17, 17, 17, 0.2);
+      }
+
+      .toc-item-title {
+        font-size: 12pt;
+        margin: 0 0 1mm;
+      }
+
+      .toc-item-meta {
+        font-size: 8pt;
+      }
+
+      article + article {
+        margin-top: 10mm;
+        padding-top: 6mm;
+        border-top: 2px solid #111;
+      }
+
+      h1 {
+        margin: 0 0 2mm;
+        font-size: 18pt;
+        line-height: 1.1;
+      }
+
+      .article-meta {
+        font-size: 8.5pt;
+        margin-bottom: 6mm;
+        padding-bottom: 3mm;
+        border-bottom: 1px solid #111;
+      }
+
+      .article-body {
+        font-size: var(--body-text-size);
+        font-family: "Times New Roman", Times, serif;
+      }
+
+      .article-body p,
+      .article-body li,
+      .article-body blockquote,
+      .article-body dd,
+      .article-body dt {
+        margin: 0 0 4mm;
+        orphans: 3;
+        widows: 3;
+      }
+
+      .article-body ul,
+      .article-body ol,
+      .article-body dl {
+        margin: 0 0 4mm 5mm;
+        padding: 0;
+      }
+
+      .article-body h2,
+      .article-body h3,
+      .article-body h4 {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        margin: 7mm 0 3mm;
+        line-height: 1.2;
+      }
+
+      .article-body blockquote {
+        margin-left: 6mm;
+        padding-left: 4mm;
+        border-left: 2px solid #111;
+      }
+
+      .article-body .media-omitted {
+        margin: 0 0 4mm;
+        font-size: 8.5pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(17, 17, 17, 0.65);
+      }
+
+      .article-body figure,
+      .article-body .article-figure,
+      .article-body picture,
+      .article-body .article-picture {
+        display: block;
+        max-width: 72mm;
+        margin: 0 auto 4mm;
+        break-inside: avoid;
+      }
+
+      .article-body img,
+      .article-body .article-image {
+        display: block;
+        max-width: min(100%, 72mm);
+        max-height: 34mm;
+        height: auto;
+        width: auto;
+        object-fit: contain;
+        margin: 0 auto 3mm;
+      }
+
+      .article-body figcaption {
+        margin-top: 1.5mm;
+        font-size: 8.5pt;
+        line-height: 1.3;
+        color: rgba(17, 17, 17, 0.8);
+      }
+
+      .article-note {
+        margin-top: 6mm;
+        padding-top: 3mm;
+        border-top: 1px solid #111;
+        font-size: 9pt;
+        font-style: italic;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="cover">
+      <div>
+        <h1 class="masthead">Fred<br>Talks</h1>
+        <p class="issue-date">11<sup>th</sup> April 2026</p>
+      </div>
+
+      <div class="toc">
+        <h2>Contents</h2>
+        <ol class="toc-list">
+          
+          <li class="toc-item">
+            <div class="toc-item-title">Scaling Managed Agents: Decoupling the brain from the hands</div>
+            <div class="toc-item-meta">
+              anthropic.com
+              · 2024 words
+            </div>
+          </li>
+          
+          <li class="toc-item">
+            <div class="toc-item-title">[Daily article] April 11: Relief of Douglas MacArthur</div>
+            <div class="toc-item-meta">
+              English Wikipedia Article of the Day
+              · 386 words
+            </div>
+          </li>
+          
+          <li class="toc-item">
+            <div class="toc-item-title">-</div>
+            <div class="toc-item-meta">
+              Sam Altman
+              · 1071 words
+            </div>
+          </li>
+          
+          <li class="toc-item">
+            <div class="toc-item-title">mist is now open source and looking for interop</div>
+            <div class="toc-item-meta">
+              Interconnected
+              · 294 words
+            </div>
+          </li>
+          
+          <li class="toc-item">
+            <div class="toc-item-title">Issue #706</div>
+            <div class="toc-item-meta">
+              Pointer
+              · 797 words
+            </div>
+          </li>
+          
+          <li class="toc-item">
+            <div class="toc-item-title">[Daily article] April 10: Ojos del Salado</div>
+            <div class="toc-item-meta">
+              English Wikipedia Article of the Day
+              · 365 words
+            </div>
+          </li>
+          
+        </ol>
+      </div>
+    </section>
+
+    
+    <article>
+      <h1>Scaling Managed Agents: Decoupling the brain from the hands</h1>
+      <div class="article-meta">
+        anthropic.com
+        · 09 Apr 2026
+        · <a href="https://www.anthropic.com/engineering/managed-agents">Source</a>
+      </div>
+      <div class="article-body"><p><em>Get started with Claude Managed Agents by following our <a href="https://platform.claude.com/docs/en/managed-agents/overview">docs</a>.</em></p>
+<p>A running topic on the Engineering Blog is how to <a href="https://www.anthropic.com/engineering/building-effective-agents">build effective agents</a> and <a href="https://www.staging.ant.dev/engineering/effective-harnesses-for-long-running-agents">design harnesses</a> for <a href="https://www.anthropic.com/engineering/harness-design-long-running-apps">long-running work</a>. A common thread across this work is that harnesses encode assumptions about what Claude can’t do on its own. However, those assumptions need to be frequently questioned because they can <a href="http://www.incompleteideas.net/IncIdeas/BitterLesson.html">go stale</a> as models improve.</p>
+<p>As just one example, in prior work <a href="https://www.anthropic.com/engineering/harness-design-long-running-apps">we found</a> that Claude Sonnet 4.5 would wrap up tasks prematurely as it sensed its context limit approaching—a behavior sometimes called “context anxiety.” We addressed this by adding context resets to the harness. But when we used the same harness on Claude Opus 4.5, we found that the behavior was gone. The resets had become dead weight.</p>
+<p>We expect harnesses to continue evolving. So we built Managed Agents: a hosted service in the Claude Platform that runs long-horizon agents on your behalf through a small set of interfaces meant to outlast any particular implementation—including the ones we run today.</p>
+<p>Building Managed Agents meant solving an old problem in computing: how to design a system for “<a href="http://www.catb.org/esr/writings/taoup/html/ch03s01.html">programs as yet unthought of</a>.” Decades ago, operating systems solved this problem by virtualizing hardware into abstractions—<em>process, file</em>—general enough for programs that didn't exist yet. The abstractions outlasted the hardware. The <code>read()</code> command is agnostic as to whether it’s accessing a disk pack from the 1970s or a modern SSD. The abstractions on top stayed stable while the implementations underneath changed freely.</p>
+<p>Managed Agents follow the same pattern. We virtualized the components of an agent: a session (the append-only log of everything that happened), a harness (the loop that calls Claude and routes Claude’s tool calls to the relevant infrastructure), and a sandbox (an execution environment where Claude can run code and edit files). This allows the implementation of each to be swapped without disturbing the others. We're opinionated about the shape of these interfaces, not about what runs behind them.</p>
+<figure class="article-figure"><img data-nimg="1" src="https://www.anthropic.com/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F903b624ada206b10753a24c6a1367e74a869165d-1080x1080.png&amp;w=3840&amp;q=75" srcset="https://www.anthropic.com/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F903b624ada206b10753a24c6a1367e74a869165d-1080x1080.png&amp;w=1080&amp;q=75 1x," class="article-image"/></figure>
+<p>We started by placing all agent components into a single container, which meant the session, agent harness, and sandbox all shared an environment. There were benefits to this approach, including that file edits are direct syscalls, and there were no service boundaries to design.</p>
+<p>But by coupling everything into one container, we ran into an old infrastructure problem: we’d adopted a <a href="https://cloudscaling.com/blog/cloud-computing/the-history-of-pets-vs-cattle/"><em>pet</em></a>. In the pets-vs-cattle analogy, a pet is a named, hand-tended individual you can’t afford to lose, while cattle are interchangeable. In our case, the server became that pet; if a container failed, the session was lost. If a container was unresponsive, we had to nurse it back to health.</p>
+<p>Nursing containers meant debugging unresponsive stuck sessions. Our only window in was the WebSocket event stream, but that couldn’t tell us <em>where</em> failures arose, which meant that a bug in the harness, a packet drop in the event stream, or a container going offline all presented the same. To figure out what went wrong, an engineer had to open a shell inside the container, but because that container often also held user data, that approach essentially meant we lacked the ability to debug.</p>
+<p>A second issue was that the harness assumed that whatever Claude worked on lived in the container with it. When customers asked us to connect Claude to their virtual private cloud, they had to either peer their network with ours, or run our harness in their own environment. An assumption baked into the harness became a problem when we wanted to connect it to different infrastructure.</p>
+<p>The solution we arrived at was to decouple what we thought of as the “brain” (Claude and its harness) from both the “hands” (sandboxes and tools that perform actions) and the “session” (the log of session events). Each became an interface that made few assumptions about the others, and each could fail or be replaced independently.</p>
+<p><strong>The harness leaves the container. </strong>Decoupling the brain from the hands meant the harness no longer lived inside the container. It called the container the way it called any other tool: <code>execute(name, input) → string</code>. The container became cattle. If the container died, the harness caught the failure as a tool-call error and passed it back to Claude. If Claude decided to retry, a new container could be reinitialized with a standard recipe: <code>provision({resources})</code>. We no longer had to nurse failed containers back to health.</p>
+<p><strong>Recovering from harness failure. </strong>The harness also became cattle. Because the session log sits outside the harness, nothing in the harness needs to survive a crash. When one fails, a new one can be rebooted with <code>wake(sessionId)</code>, use <code>getSession(id)</code> to get back the event log, and resume from the last event. During the agent loop, the harness writes to the session with <code>emitEvent(id, event)</code> in order to keep a durable record of events.</p>
+<figure class="article-figure"><img data-nimg="1" src="https://www.anthropic.com/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F73e900af5b9d6ed8c64db0a8e74d4465963556b7-1640x1596.png&amp;w=3840&amp;q=75" srcset="https://www.anthropic.com/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F73e900af5b9d6ed8c64db0a8e74d4465963556b7-1640x1596.png&amp;w=1920&amp;q=75 1x," class="article-image"/></figure>
+<p><strong>The security boundary.</strong> In the coupled design, any untrusted code that Claude generated was run in the same container as credentials—so a prompt injection only had to convince Claude to read its own environment. Once an attacker has those tokens, they can spawn fresh, unrestricted sessions and delegate work to them. Narrow scoping is an obvious mitigation, but this encodes an assumption about what Claude can't do with a limited token—and Claude is getting increasingly smart. The structural fix was to make sure the tokens are never reachable from the sandbox where Claude’s generated code runs.</p>
+<p>We used two patterns to ensure this. Auth can be bundled with a resource or held in a vault outside the sandbox. For Git, we use each repository’s access token to clone the repo during sandbox initialization and wire it into the local git remote. Git <code>push</code> and <code>pull</code> work from inside the sandbox without the agent ever handling the token itself. For custom tools, we support MCP and store OAuth tokens in a secure vault. Claude calls MCP tools via a dedicated proxy; this proxy takes in a token associated with the session. The proxy can then fetch the corresponding credentials from the vault and make the call to the external service. The harness is never made aware of any credentials.</p>
+<h2>The session is not Claude’s context window</h2>
+<p>Long-horizon tasks often exceed the length of Claude’s context window, and the standard ways to address this all involve irreversible decisions about what to keep. We’ve explored these techniques in <a href="https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents">prior work</a> on context engineering. For example, compaction lets Claude save a summary of its context window and the memory tool lets Claude write context to files, enabling learning across sessions. This can be paired with context trimming, which selectively removes tokens such as old tool results or thinking blocks.</p>
+<p>But irreversible decisions to selectively retain or discard context can lead to failures. It is difficult to know which tokens the future turns will need. If messages are transformed by a compaction step, the harness removes compacted messages from Claude’s context window, and these are recoverable only if they are stored. Prior work <a href="https://arxiv.org/pdf/2512.24601">has explored</a> ways to address this by storing context as an object that lives <em>outside</em> the context window. For example, context can be an object in a REPL that the LLM programmatically accesses by writing code to filter or slice it.</p>
+<figure class="article-figure"><img data-nimg="1" src="https://www.anthropic.com/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fcf0719d7832b1f577b7393c84a7c53eecc725ca4-760x200.png&amp;w=1920&amp;q=75" srcset="https://www.anthropic.com/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fcf0719d7832b1f577b7393c84a7c53eecc725ca4-760x200.png&amp;w=828&amp;q=75 1x," class="article-image"/></figure>
+<p>In Managed Agents, the session provides this same benefit, serving as a context object that lives outside Claude’s context window. But rather than be stored within the sandbox or REPL, context is durably stored in the session log. The interface, <code>getEvents(),</code> allows the brain to interrogate context by selecting positional slices of the event stream. The interface can be used flexibly, allowing the brain to pick up from wherever it last stopped reading, rewinding a few events before a specific moment to see the lead up, or rereading context before a specific action.</p>
+<p>Any fetched events can also be transformed in the harness before being passed to Claude’s context window. These transformations can be whatever the harness encodes, including context organization to achieve a high prompt cache hit rate and context engineering. We separated the concerns of recoverable context storage in the session and arbitrary context management in the harness because we can’t predict what specific context engineering will be required in future models. The interfaces push that context management into the harness, and only guarantee that the session is durable and available for interrogation.</p>
+<p><strong>Many brains. </strong>Decoupling the brain from the hands solved one of our earliest customer complaints. When teams wanted Claude to work against resources in their own VPC, the only path was to peer their network with ours, because the container holding the harness assumed every resource sat next to it. Once the harness was no longer in the container, that assumption went away. The same change had a performance payoff. When we initially put the brain in a container, it meant that many brains required as many containers. For each brain, no inference could happen until that container was provisioned; every session paid the full container setup cost up front. Every session, even ones that would never touch the sandbox, had to clone the repo, boot the process, fetch pending events from our servers.</p>
+<p>That dead time is expressed in time-to-first-token (TTFT), which measures how long a session waits between accepting work and producing its first response token. TTFT is the latency the user most acutely <em>feels</em>.</p>
+<p>Decoupling the brain from the hands means that containers are provisioned by the brain via a tool call <code>(execute(name, input) → string)</code> only if they are needed. So a session that didn't need a container right away didn't wait for one. Inference could start as soon as the orchestration layer pulled pending events from the session log. Using this architecture, our p50 TTFT dropped roughly 60% and p95 dropped over 90%. Scaling to many brains just meant starting many stateless harnesses, and connecting them to hands only if needed.</p>
+<p><strong>Many hands. </strong>We also wanted the ability to connect each brain to many hands. In practice, this means Claude must reason about many execution environments and decide where to send work—a harder cognitive task than operating in a single shell. We started with the brain in a single container because earlier models weren't capable of this. As intelligence scaled, the single container became the limitation instead: when that container failed, we lost state for every hand that the brain was reaching into.</p>
+<p>Decoupling the brain from the hands makes each hand a tool, <code>execute(name, input) → string</code>: a name and input go in, and a string is returned. That interface supports any custom tool, any MCP server, and our own tools. The harness doesn’t know whether the sandbox is a container, a phone, or a Pokémon emulator. And because no hand is coupled to any brain, brains can pass hands to one another.</p>
+<figure class="article-figure"><img data-nimg="1" src="https://www.anthropic.com/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F4f67b1c10566552aec514a716ea43544ab330e0b-668x243.png&amp;w=1920&amp;q=75" srcset="https://www.anthropic.com/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F4f67b1c10566552aec514a716ea43544ab330e0b-668x243.png&amp;w=750&amp;q=75 1x," class="article-image"/></figure>
+<p>The challenge we faced is an old one: how to design a system for “programs as yet unthought of.” Operating systems have lasted decades by virtualizing the hardware into abstractions general enough for programs that didn't exist yet. With Managed Agents, we aimed to design a system that accommodates future harnesses, sandboxes, or other components around Claude.</p>
+<p>Managed Agents is a meta-harness in the same spirit, unopinionated about the <em>specific</em> harness that Claude will need in the future. Rather, it is a system with general interfaces that allow many different harnesses. For example, Claude Code is an excellent harness that we use widely across tasks. We’ve also shown that task-specific agent harnesses excel in narrow domains. Managed Agents can accommodate any of these, matching Claude’s intelligence over time.</p>
+<p>Meta-harness design means being opinionated about the interfaces around Claude: we expect that Claude will need the ability to manipulate state (the session) and perform computation (the sandbox). We also expect that Claude will require the ability to scale to many brains and many hands. We designed the interfaces so that these can be run reliably and securely over long time horizons. But we make no assumptions about the number or location of brains or hands that Claude will need.</p>
+<p>Written by Lance Martin, Gabe Cemaj and Michael Cohen. Special thanks to the Agents API team and Jake Eaton for their contributions.</p></div>
+      
+    </article>
+    
+    <article>
+      <h1>[Daily article] April 11: Relief of Douglas MacArthur</h1>
+      <div class="article-meta">
+        English Wikipedia Article of the Day
+        · 11 Apr 2026
+        · <a href="mailto:reader-forwarded-email/681faf513541c307a1f5acad9b2f03e9">Source</a>
+      </div>
+      <div class="article-body"><div class="rw-email-parsed">
+ <p>
+  On 11 April 1951, General Douglas MacArthur was relieved of command by
+U.S. president Harry S. Truman (both pictured) after making statements
+that contradicted the administration's policies. MacArthur was a popular
+hero of World War II, achieving the rank of General of the Army, and
+his relief remains a controversial topic in civil–military relations.
+After North Korea invaded South Korea in June 1950, starting the Korean
+War, MacArthur won the Battle of Inchon, but the following invasion of
+North Korea on Truman's orders led to China inflicting a series of
+defeats. MacArthur was compelled to withdraw from North Korea and, after
+the military situation had stabilized, Truman relieved him, creating a
+constitutional crisis. The United States Senate held an inquiry into the
+military situation and the circumstances surrounding MacArthur's relief,
+and concluded that "the removal of General MacArthur was within the
+constitutional powers of the President but the circumstances were a
+shock to national pride". (Full article...).
+ </p>
+ <p>
+  Read more:
+  <a href="https://en.wikipedia.org/wiki/Relief_of_Douglas_MacArthur">
+   https://en.wikipedia.org/wiki/Relief_of_Douglas_MacArthur
+  </a>
+ </p>
+ <hr/>
+ <p>
+  Today's selected anniversaries:
+ </p>
+ <p>
+  1885:
+ </p>
+ <p>
+  Luton Town Football Club was founded in England.
+  <a href="https://en.wikipedia.org/wiki/Luton_Town_F.C.">
+   https://en.wikipedia.org/wiki/Luton_Town_F.C.
+  </a>
+ </p>
+ <p>
+  1951:
+ </p>
+ <p>
+  The Stone of Scone, removed months earlier by Scottish
+students, was found on the altar of Arbroath Abbey.
+  <a href="https://en.wikipedia.org/wiki/Stone_of_Scone">
+   https://en.wikipedia.org/wiki/Stone_of_Scone
+  </a>
+ </p>
+ <p>
+  1973:
+ </p>
+ <p>
+  On the Art of the Cinema, a treatise on film propaganda in
+support of the ruling Workers' Party of Korea written by the future
+North Korean leader Kim Jong Il, was published.
+  <a href="https://en.wikipedia.org/wiki/On_the_Art_of_the_Cinema">
+   https://en.wikipedia.org/wiki/On_the_Art_of_the_Cinema
+  </a>
+ </p>
+ <p>
+  2011:
+ </p>
+ <p>
+  A bomb exploded at Kastryčnickaja station on the Minsk Metro
+in Belarus, killing 15 people and injuring more than 200.
+  <a href="https://en.wikipedia.org/wiki/2011_Minsk_Metro_bombing">
+   https://en.wikipedia.org/wiki/2011_Minsk_Metro_bombing
+  </a>
+ </p>
+ <hr/>
+ <p>
+  Wiktionary's word of the day:
+ </p>
+ <p>
+  befriend:
+1. (also figurative) To become a friend of (someone), to make friends
+with (someone).
+2. (dated except social work) To act as a friend to (someone, especially
+a client) by providing companionship and support; to assist, to help.
+3. (figurative) To benefit or favour (someone or something); also, to
+advocate or promote (someone or something).
+4. About Word of the Day
+5. Nominate a word
+6. Leave feedback
+  <a href="https://en.wiktionary.org/wiki/befriend">
+   https://en.wiktionary.org/wiki/befriend
+  </a>
+ </p>
+ <hr/>
+ <p>
+  Wikiquote quote of the day:
+ </p>
+ <p>
+  She entered heaven; she climbed the stair  And knelt down at the mercy-
+seat.  Seraphs and saints with one great voice Welcomed that soul that
+knew not fear.Amazed to find it could rejoice, Hell raised a hoarse,
+half-human cheer.
+  --John Davidson
+  <a href="https://en.wikiquote.org/wiki/John_Davidson">
+   https://en.wikiquote.org/wiki/John_Davidson
+  </a>
+ </p></div></div>
+      
+    </article>
+    
+    <article>
+      <h1>-</h1>
+      <div class="article-meta">
+        Sam Altman
+        · 10 Apr 2026
+        · <a href="https://blog.samaltman.com/2279512">Source</a>
+      </div>
+      <div class="article-body"><div><div class="posthaven-post-body"><p>Here is a photo of my family. I love them more than anything.<br/><br/> <div class="posthaven-gallery" id="posthaven_gallery[2305119]">
+<p class="posthaven-file posthaven-file-image posthaven-file-state-pending">
+<img class="posthaven-gallery-image article-image" src="https://phaven-prod.s3.amazonaws.com/uploads%2F2026-04-10%2F21%2F1989%2FUI82cGoVh4ZR_EhDVTMc7nTbJe0%2Fs3ul40%2FB5C7C06D-634A-4822-9CD6-0474A0AD9C62_1_105_c.jpeg"/>
+</p>
+</div>
+</p><p>Images have power, I hope. Normally we try to be pretty private, but in this case I am sharing a photo in the hopes that it might dissuade the next person from throwing a Molotov cocktail at our house, no matter what they think about me.</p><p>The first person did it last night, at 3:45 am in the morning. Thankfully it bounced off the house and no one got hurt.</p><p>Words have power too. There was an incendiary article about me a few days ago. Someone said to me yesterday they thought it was coming at a time of great anxiety about AI and that it made things more dangerous for me. I brushed it aside.</p><p>Now I am awake in the middle of the night and pissed, and thinking that I have underestimated the power of words and narratives. This seems like as good of a time as any to address a few things. </p><p><b>First</b>, what I believe.</p><p>*Working towards prosperity for everyone, empowering all people, and advancing science and technology are moral obligations for me.</p><p>*AI will be the most powerful tool for expanding human capability and potential that anyone has ever seen. Demand for this tool will be essentially uncapped, and people will do incredible things with it. The world deserves huge amounts of AI and we must figure out how to make it happen.</p><p>*It will not all go well. The fear and anxiety about AI is justified; we are in the process of witnessing the largest change to society in a long time, and perhaps ever. We have to get safety right, which is not just about aligning a model—we urgently need a society-wide response to be resilient to new threats. This includes things like new policy to help navigate through a difficult economic transition in order to get to a much better future.</p><p> *AI has to be democratized; power cannot be too concentrated. Control of the future belongs to all people and their institutions. AI needs to empower people individually, and we need to make decisions about our future and the new rules collectively. I do not think it is right that a few AI labs would make the most consequential decisions about the shape of our future.</p><p>*Adaptability is critical. We are all learning about something new very quickly; some of our beliefs will be right and some will be wrong, and sometimes we will need to change our mind quickly as the technology develops and society evolves. No one understands the impacts of superintelligence yet, but they will be immense.</p><p> </p><p><b>Second</b>, some personal reflections.</p><p>As I reflect on my own work in the first decade of OpenAI, I can point to a lot of things I’m proud of and a bunch of mistakes.</p><p>I was thinking about our upcoming trial with Elon and remembering how much I held the line on not being willing to agree to the unilateral control he wanted over OpenAI. I’m proud of that, and the narrow path we navigated then to allow the continued existence of OpenAI, and all the achievements that followed.</p><p>I am not proud of being conflict-averse, which has caused great pain for me and OpenAI. I am not proud of handling myself badly in a conflict with our previous board that led to a huge mess for the company. I have made many other mistakes throughout the insane trajectory of OpenAI; I am a flawed person in the center of an exceptionally complex situation, trying to get a little better each year, always working for the mission. We knew going into this how huge the stakes of AI were, and that the personal disagreements between well-meaning people I cared about would be amplified greatly. But it’s another thing to live through these bitter conflicts and often to have to arbitrate them, and the costs have been serious. I am sorry to people I’ve hurt and wish I had learned more faster.</p><p>I am also very aware that OpenAI is now a major platform, not a scrappy startup, and we need to operate in a more predictable way now. It has been an extremely intense, chaotic, and high-pressure few years. </p><p>Mostly though, I am extremely proud that we are delivering on our mission, which seemed incredibly unlikely when we started. Against all odds, we figured out how to build very powerful AI, figured out how to amass enough capital to build the infrastructure to deliver it, figured out how to build a product company and business, figured out how to deliver reasonably safe and robust services at a massive scale, and much more.<br/><br/>A lot of companies say they are going to change the world; we actually did.</p><p><b><br/></b></p><p><b>Third</b>, some thoughts about the industry.</p><p>My personal takeaway from the last several years, and take on why there has been so much Shakespearean drama between the companies in our field, comes down to this: “Once you see AGI you can’t unsee it.” It has a real "ring of power” dynamic to it, and makes people do crazy things. I don’t mean that AGI is the ring itself, but instead the totalizing philosophy of “being the one to control AGI”.</p><p>The only solution I can come up with is to orient towards sharing the technology with people broadly, and for no one to have the ring. The two obvious ways to do this are individual empowerment and making sure democratic system stays in control.</p><p>It is important that the democratic process remains more powerful than companies. Laws and norms are going to change, but we have to work within the democratic process, even though it will be messy and slower than we’d like. We want to be a voice and a stakeholder, but not to have all the power.</p><p>A lot of the criticism of our industry comes from sincere concern about the incredibly high stakes of this technology. This is quite valid, and we welcome good-faith criticism and debate. I empathize with anti-technology sentiments and clearly technology isn’t always good for everyone. But overall, I believe technological progress can make the future unbelievably good, for your family and mine. </p><p></p><p>While we have that debate, we should de-escalate the rhetoric and tactics and try to have fewer explosions in fewer homes, figuratively and literally.</p></div></div></div>
+      
+    </article>
+    
+    <article>
+      <h1>mist is now open source and looking for interop</h1>
+      <div class="article-meta">
+        Interconnected
+        · 10 Apr 2026
+        · <a href="https://interconnected.org/home/2026/04/10/open-mist">Source</a>
+      </div>
+      <div class="article-body"><p>A brief update on <strong>mist,</strong> my ephemeral Markdown editor with Google Docs-style comments and suggested edits:</p>
+<p>mist is now open source with an MIT license, and the <a href="https://github.com/inanimate-tech/mist">mist repo is here on GitHub</a>.</p>
+<p><em>(<a href="https://mist.inanimate.tech">Try mist now</a> and <a href="https://interconnected.org/home/2026/02/12/mist">here’s my write-up from February</a>.)</em></p>
+<p>What I love about Markdown is that it’s document-first. The formatting travels with the doc. I can’t tell you how many note-taking apps I’ve jumped between with my exact same folder of Markdown notes.</p>
+<p>The same should be true for collaboration features like suggested edits. If somebody makes an edit to your doc, you should be able to download it and upload to a wholly different app before you accept the edit; you shouldn’t be tied to a single service just because you want comments.</p>
+<p>(And of course the doc should still be human-readable/writeable, and it’s cheating to just stuff a massive data-structure in a document header.)</p>
+<p>So <a href="https://github.com/inanimate-tech/mist/blob/main/docs/markdown-and-criticmarkup.md">mist mixes Markdown and CriticMarkup</a> – and I would love it if others picked up the same format. If apps are cheap and abundant in the era of vibing, then let’s focus on interop!</p>
+<p>With mist itself:</p>
+<p>Several people have asked for the ability to self-host it. The README says how (it’s all on Cloudflare naturally). You can add new features to your own fork, though please do share upstream if you think others could benefit.</p>
+<p>And yes, contributions welcome! We’ve already received and merged <a href="https://github.com/inanimate-tech/mist/pull/4">our first pull request</a> – thank you <a href="https://lazyatom.com">James Adam</a>!</p>
+<p>No, a document editor is not what we’re building at Inanimate. But it’s neat to release small useful projects that get made along the way. btw <a href="https://news.inanimate.tech">subscribe to our newsletter</a>.</p>
+<p>If you enjoyed this post, please consider sharing it by email or on social media. <a href="https://interconnected.org/home/2026/04/10/open-mist">Here’s the link.</a> Thanks, —Matt.</p></div>
+      
+    </article>
+    
+    <article>
+      <h1>Issue #706</h1>
+      <div class="article-meta">
+        Pointer
+        · 10 Apr 2026
+        · <a href="mailto:reader-forwarded-email/66b5a4e45e49ab80dca42ee42f8aae52">Source</a>
+      </div>
+      <div class="article-body"><div class="rw-email-parsed">
+ <p>
+  April 10th, 2026   |
+  <a data-read-online-tooltip="true" href="https://link.mail.beehiiv.com/ss/c/u001.PFjHD-ii0vvUj1FcNnOS5qqF3eJEkrxympSzSDDZUB1kSG6ilFapKJxZ4vmiyfgqZl2JcSFr2eR9dBLIKcG2_7bwH6TqZzcgC1dspS-tXkq0IU6z8UVVSPaWq8WtwDWcGrUoK8f1AL8mwoLsBGARF7EM-RMo_9QhIC1vX-ZHXW0PJNVt--bY6HTGt1FFkZ_2UI2zqoRkI30gLTUGguuXngl96Q6rnotx9xKhNkwIRliB1Ve2xVtwtPD3DVeH-18D2Dob7X08aKl1spd1if7b5dxL1Ds9NLMy_e60Mt0E30lxPgweaXQr-bO2rVyVXQpowTib9-9H3rrHOx5lQEfjF5W6g3QjWpLF-pRmaPQn0n3CmciEgD7r-_HJxMTGb-VvyQL_tLgGsTdSWajnZV_4PoxLLKRLXCZqr4nZ5Lzw3fywoL4zNYhWVpf4ru2EI6k3xgoddeJbUSg7KLaPZxG8sB60r_IMPsimqwHqWFioD4L66Dyw_hnKOvJimgidld-ta0zhvMSJasgLYFtQxmzhLEnon4Sfr3kCf383ExKje4TANlqIfJisVviLd0sS8FT7jF8mGQd3LvRBotHhWQ9eG4FFKs-wdtZaLdumD07uO6I/4po/ATnHJ0RGTraTR9Hc1FjdvQ/h0/h001.9rs75yllg__gEPvMSn4ZpksDF3ZcHFIEuE6ZkIi8Nqk">
+   Read online
+  </a>
+ </p>
+ <p>
+  <a href="https://link.mail.beehiiv.com/ss/c/u001.PFjHD-ii0vvUj1FcNnOS5q_YCB9v_9ais7bHpn0n0l06sz26Z8FvnwPMbyRd7Nn8LQR1OeWX6mKJYYPpU3ujggMDgmTo3uirtbiMVXlZA8s/4po/ATnHJ0RGTraTR9Hc1FjdvQ/h1/h001.sWYVFtAo3YeBryRt9-iFWcaLWrnBct0a9RiXXD1ZJr8">
+   <img alt="" border="0" height="auto" src="https://media.beehiiv.com/cdn-cgi/image/fit=scale-down,format=auto,onerror=redirect,quality=80/uploads/asset/file/0e19a781-9451-497c-8305-2d53c38ac0e6/Frame_10.png?t=1723724930" style="width:100%;height:auto;border:0;display:block;outline:none;text-decoration:none;margin:0 auto;" width="650" class="article-image"/>
+  </a>
+ </p>
+ <p style="mso-line-height-alt:150.0%;">
+  Friday 10th April’s issue is presented by SerpApi
+ </p>
+ <p>
+  <a href="https://link.mail.beehiiv.com/ss/c/u001.T-cngy-HiLjOztVyxmCjHM8UokAe60efBD08o85if4_Qzm9lwyhDLatdtP96dInKFcV75WEbfJhKb4d2JqrJpK4KxZ6Gw_PsqoR2Rqu-SbnYvxy5D_f-7CZr2gEZn5EiutYxpo2-s7nCCiEsEhxZeb7CR5cRTglcXtPPYH3sESNQ9Jy_w8Bfj5rFH59cqbaQ/4po/ATnHJ0RGTraTR9Hc1FjdvQ/h2/h001.nOzlEJxxMv4bVPWNtPthoNXft1NSItBv4hNGjHMTWOM" rel="noopener noreferrer nofollow" style="text-decoration:none;" target="_blank">
+   <img alt="" border="0" height="auto" src="https://media.beehiiv.com/cdn-cgi/image/fit=scale-down,format=auto,onerror=redirect,quality=80/uploads/asset/file/0b1e02a9-e5db-453a-b480-b8bfc0dc7416/serpapi.png?t=1775175939" style="display:block;width:100%;border-radius:0px 0px 0px 0px;border-style:solid;border-width:0px 0px 0px 0px;box-sizing:border-box;border-color:#E5E7EB;" width="162" class="article-image"/>
+  </a>
+ </p>
+ <h2 style="color:#000000;font-weight:Bold;mso-line-height-alt:150.0%;">
+  <a class="link" href="https://link.mail.beehiiv.com/ss/c/u001.T-cngy-HiLjOztVyxmCjHM8UokAe60efBD08o85if4_Qzm9lwyhDLatdtP96dInKFcV75WEbfJhKb4d2JqrJpNUQGrhe79QCK0eNhWZkeXUJNfPHXirg2F7OjN51n5kOaj3JXY4NA6VLBNl96emmf-pWUZ3w43ch4ZyjuLSHzy64xbReUB4eXYvKQTFRpzDu/4po/ATnHJ0RGTraTR9Hc1FjdvQ/h3/h001.ygrDtnnK7o3FoCIP5vbJEcKGv85s-plMW-ol2HlLevg" rel="noopener noreferrer nofollow" target="_blank">
+   <span>
+    Add Real-Time Web Search To Your AI Apps
+   </span>
+  </a>
+ </h2>
+ <p style="mso-line-height-alt:150.0%;">
+  AI is smarter when it can search the web. How are AI companies doing it? Meet the worst-kept secret in the AI industry: the
+  <a class="link" href="https://link.mail.beehiiv.com/ss/c/u001.T-cngy-HiLjOztVyxmCjHM8UokAe60efBD08o85if4_Qzm9lwyhDLatdtP96dInKFcV75WEbfJhKb4d2JqrJpBYEV0mPLaZiMrf26TUlfm6IRUr2e16ZlyDqLOTRz7XKVDkjrPU1co2-aqm595KN7kEa5qzugEqMp2h34lpRLXXF7lejVwtW1XwTLtCcAiFM/4po/ATnHJ0RGTraTR9Hc1FjdvQ/h4/h001.E63CEe7ewJ2k8KK5znjBCbCXZSs6SLPR7onlW4rfJ2M" rel="noopener noreferrer nofollow" target="_blank">
+   SerpApi
+  </a>
+  web search API:
+ </p>
+ <ul style="font-weight:normal;list-style-type:disc;margin-bottom:12px !important;margin-top:12px !important;padding:0px 0px 0px 0px;">
+  <li class="listItem ultext">
+   👉 Scrape Google and other search engines (including AI overviews, Maps, Shopping, Amazon, and more)
+  </li>
+  <li class="listItem ultext">
+   👉 Integrate with a dead-simple GET request that any agent can make.
+  </li>
+  <li class="listItem ultext">
+   👉 Used by NVIDIA, Uber, Adobe, and even the United Nations.
+  </li>
+ </ul>
+ <p style="mso-line-height-alt:150.0%;">
+  Give it a try now;
+  <a class="link" href="https://link.mail.beehiiv.com/ss/c/u001.T-cngy-HiLjOztVyxmCjHM8UokAe60efBD08o85if4_Qzm9lwyhDLatdtP96dInKFcV75WEbfJhKb4d2JqrJpEQ4K6ASl6w_XHPgRn6ds-0ilaJTrH1IPfHebYuhywMhVOTs7zXKFhfjMHjzttZXnWx_OZft7nMsAtlSuPqWoduEFwLALJkyqgZYMpIeh3Zt/4po/ATnHJ0RGTraTR9Hc1FjdvQ/h5/h001.XxCoR7lreDptsiJJLTK2aVLd-OXIOyV2gy3Br7m3SXc" rel="noopener noreferrer nofollow" target="_blank">
+   no sign-up needed
+  </a>
+  .
+ </p>
+ <h1 style="color:#000000;font-weight:Bold;mso-line-height-alt:125.0%;">
+  <a class="link" href="https://link.mail.beehiiv.com/ss/c/u001.T-cngy-HiLjOztVyxmCjHM8UokAe60efBD08o85if4_Qzm9lwyhDLatdtP96dInKFcV75WEbfJhKb4d2JqrJpOQfYU6M37xzNurTZVSoMyLs2fc4khwjBhSlREd-6CKUq_Xe84gKtJr4aLKLwqp_2ZslAcP_6YCTzhZV-WTL3rZWPJJLgZuowdiezUSsKnjE/4po/ATnHJ0RGTraTR9Hc1FjdvQ/h6/h001.mEKUPkFMdhtve7Nc_36ENRo7LyrN1G7kfEi5Da5VuQg" rel="noopener noreferrer nofollow" target="_blank">
+   <span>
+    Explore Our Playground
+   </span>
+  </a>
+ </h1>
+ <h1 style="color:#000000;font-weight:Bold;mso-line-height-alt:125.0%;">
+  <a class="link" href="https://link.mail.beehiiv.com/ss/c/u001.K3FzaWG5vnes9asChrWWUKvb9dwzjn1HQSwhuZBUxV29yRcLEykUMlqgR2WmcBDsx-vwWtW55m89fu_8ged_IPpcz8FP6wm6Xv9H6-KJl8rABRcfKjoFlffI2kRIh8ANhtk0oMZN07flHReQVBAq3-bbsPf8NogV-7vDW09OUtJbqs3mES-2qpemkUSPXvax/4po/ATnHJ0RGTraTR9Hc1FjdvQ/h7/h001.ZCPPuthx3RaXerqbQi5UhRupSHRA7raCpXXm2gMJ5x8" rel="noopener noreferrer nofollow" target="_blank">
+   <span>
+    Finding Comfort In The Uncertainty
+   </span>
+  </a>
+ </h1>
+ <p style="mso-line-height-alt:150.0%;">
+  — Annie Vella
+ </p>
+ <p style="mso-line-height-alt:150.0%;">
+  <b>
+   tl;dr
+  </b>
+  : A retreat of engineering leaders and researchers highlights growing uncertainty around AI’s impact on software development. Key themes include shifting bottlenecks, rising cognitive load, evolving roles, and the need for new abstractions, governance, and systems to manage agents.
+ </p>
+ <h6 style="color:#000000;font-weight:Normal;mso-line-height-alt:87.5%;">
+  <span style="font-size:12px;">
+   <i>
+    Leadership Management
+   </i>
+  </span>
+ </h6>
+ <h1 style="color:#000000;font-weight:Bold;mso-line-height-alt:125.0%;">
+  <a class="link" href="https://link.mail.beehiiv.com/ss/c/u001.u7AEjFG7xD7PeXgObD5uI1o6BtYZXOmqEviUlhsqJwiTOdsYmANSdRlT8NYuJsCQpq27P5zCx_h5C0pUsEES-iLipHFJ3UQZZgnp640qXN_Iql6lyjMwd4dT2usXJMkZhat22TG2dmBNPMoT_Ls6ly8WwXevs1VYtnqBzWtco40R27cgfQIILssnX120v_DF/4po/ATnHJ0RGTraTR9Hc1FjdvQ/h8/h001.tAnbjM4tkMdtbFhqZecW7kVpY5-7SdZxb8ZnAlX1aq0" rel="noopener noreferrer nofollow" target="_blank">
+   <span>
+    The Alarm That Went Silent
+   </span>
+  </a>
+ </h1>
+ <p style="mso-line-height-alt:150.0%;">
+  — Mike Fisher
+ </p>
+ <p style="mso-line-height-alt:150.0%;">
+  <b>
+   tl;dr
+  </b>
+  : Teams optimize for metrics that are visible while quietly accumulating risk in areas that are harder to quantify: team burnout, customer frustration that hasn’t yet surfaced as churn, growing operational fragility, cultural erosion, or decision latency caused by process overhead. Just as critically, teams rarely ask a harder question: How would we know if our metrics stopped telling the truth?
+ </p>
+ <h6 style="color:#000000;font-weight:Normal;mso-line-height-alt:87.5%;">
+  <span style="font-size:12px;">
+   <i>
+    Leadership Management
+   </i>
+  </span>
+ </h6>
+ <h1 style="color:#000000;font-weight:Bold;mso-line-height-alt:125.0%;">
+  <a class="link" href="https://link.mail.beehiiv.com/ss/c/u001.T-cngy-HiLjOztVyxmCjHM8UokAe60efBD08o85if4_Qzm9lwyhDLatdtP96dInKFcV75WEbfJhKb4d2JqrJpBUUUc_eb4krvBLpwhRJbp77uWZ7jx6hUktl1n4wlVX3AI1rvImHQpIZQCZRuINh9EuGXai3vGb-kZOYBcEKwa0Jf6gEQcgEnXe9JKciYjzj/4po/ATnHJ0RGTraTR9Hc1FjdvQ/h9/h001.66rEYW3Qsus9W-EGVyIc_m9bR-UgxRWMaHMPBI2kGss" rel="noopener noreferrer nofollow" target="_blank">
+   <span>
+    Add Real-Time Web Search To Your AI Apps
+   </span>
+  </a>
+ </h1>
+ <p style="mso-line-height-alt:150.0%;">
+  <b>
+   tl;dr
+  </b>
+  : AI is smarter when it can search the web. How are AI companies doing it? Meet the worst-kept secret in the AI industry: the SerpApi web search API: (1) Scrape Google and other search engines (including AI overviews, Maps, Shopping, Amazon, and more). (2) Integrate with a dead-simple GET request that any agent can make. (3) Used by NVIDIA, Uber, Adobe, and even the United Nations.
+ </p>
+ <p style="mso-line-height-alt:150.0%;">
+  <i>
+   Promoted by SerpApi
+  </i>
+ </p>
+ <h6 style="color:#000000;font-weight:Normal;mso-line-height-alt:87.5%;">
+  <span style="font-size:12px;">
+   <i>
+    Search AI Tools
+   </i>
+  </span>
+ </h6>
+ <h1 style="color:#000000;font-weight:Bold;mso-line-height-alt:125.0%;">
+  <a class="link" href="https://link.mail.beehiiv.com/ss/c/u001.NxDti-hLnxnUue0yjhAbRzQFy3uBjhxHUoPv_GZAC-NPDjge56nM4hbtAn-ndw9LcuQJUWDA25eL1f7rLmSOqhjAnNF0QgevDsr2e8u9nYAFiWUqP4H2bn1d3Jl7N1dPck7uWDdTeXbCCaxT4YBpYmqiJ_7pkUcjSCOl5vVhpDmshxalZQi0tCsBgtouym7s/4po/ATnHJ0RGTraTR9Hc1FjdvQ/h10/h001.BqfKlpjhwLL-frFHReMiczfM3BgyywvMV8Xq8ojIoa4" rel="noopener noreferrer nofollow" target="_blank">
+   <span>
+    Say The Thing You Want
+   </span>
+  </a>
+ </h1>
+ <p style="mso-line-height-alt:150.0%;">
+  — Matheus Lima
+ </p>
+ <p style="mso-line-height-alt:150.0%;">
+  <b>
+   tl;dr
+  </b>
+  : “When people know what you want, they can help you get it (so obvious, and yet…). This is especially true for your manager. A big part of their job is putting people in positions where they can grow. But they can’t send opportunities your way if they don’t know which direction you’re heading. They have seven other reports and their own fires to deal with.”
+ </p>
+ <h6 style="color:#000000;font-weight:Normal;mso-line-height-alt:87.5%;">
+  <span style="font-size:12px;">
+   <i>
+    CareerGrowth Communication
+   </i>
+  </span>
+ </h6>
+ <p style="color:#f3f4f6;font-weight:normal;margin:0px;text-align:center;">
+  “There are three essentials to leadership: humility, clarity and courage.”
+ </p>
+ <p>
+  — Fuchan Yuan
+ </p>
+ <h1 style="color:#000000;font-weight:Bold;mso-line-height-alt:125.0%;">
+  <a class="link" href="https://link.mail.beehiiv.com/ss/c/u001.NxDti-hLnxnUue0yjhAbRzQFy3uBjhxHUoPv_GZAC-NPDjge56nM4hbtAn-ndw9LcuQJUWDA25eL1f7rLmSOqhjAnNF0QgevDsr2e8u9nYBlfx_dBHoC4q-hAC5tvD3wnPRtMEZv3mP-6kqb5TODdDJZaRahQQQvlVmkiAl0E6NNMAA9FbHeiCAdPjedTexAi0Bc7POWD21oc7EGWpHlGaHfjoWAqi6KKLG03khaKU9RcHsWcqDxfnN6mQ9jEybnsDAbyDQ8XwsikiRrDGb6qtci16cl-FKo5qA3NALUfGc7YJ637VsqGxrCRdY4-Kn7/4po/ATnHJ0RGTraTR9Hc1FjdvQ/h11/h001.EHzBP8Y8jq0EPOvEGIWL3zEIEtndrUKm63ZZboN_vQ8" rel="noopener noreferrer nofollow" target="_blank">
+   <span>
+    Feedback Flywheel
+   </span>
+  </a>
+ </h1>
+ <p style="mso-line-height-alt:150.0%;">
+  — Rahul Garg
+ </p>
+ <p style="mso-line-height-alt:150.0%;">
+  <b>
+   tl;dr
+  </b>
+  : “Every AI interaction generates signal: prompts that worked, context that was missing, patterns that succeeded, failures worth preventing. Most teams discard this signal. I propose a structured feedback practice that harvests learnings from AI sessions and feeds them back into the team's shared artifacts, turning individual experience into collective improvement.”
+ </p>
+ <h6 style="color:#000000;font-weight:Normal;mso-line-height-alt:87.5%;">
+  <span style="font-size:12px;">
+   <i>
+    AI Process
+   </i>
+  </span>
+ </h6>
+ <h1 style="color:#000000;font-weight:Bold;mso-line-height-alt:125.0%;">
+  <a class="link" href="https://link.mail.beehiiv.com/ss/c/u001.3a5P_SwQzY5x8USD2q4p0oT3BtZgy5T4GOkKUoC8YhwBO-IATnvmBJ9osUOL9tYM7HjmT1w6_R58o1Ryf8JlHbzCjpeziltmzQKs5kNcFdTLYqAf9nJe2Ak1LFrHk5UH1DJsxyfypfw6wvsssSIWacZqGJlYTPK9CT_e8hFVdxb009ALmsvyZG03YXyY8uw54cjhq6cIPcB8i-MHTm13iOBFr5-GQ2xMr2I9WZTvkddfx62xrEabG4_FlTah0Q5FXSUvxh1QnXNVcrqb_Ymwpz0v1ZbbIlrU5aHmmdlPO0kkYI0WfOUCk1r9yWO0VF-Mg20UkrP0HQHZynp_53NTpYPM4swBiJLbkfW05c0jCpk/4po/ATnHJ0RGTraTR9Hc1FjdvQ/h12/h001.PHY9gZPMweGsvHZYuBedMFep1Mex9xoEAeucO-TqV4A" rel="noopener noreferrer nofollow" target="_blank">
+   <span>
+    Registration Now Open: IaCConf 2026
+   </span>
+  </a>
+ </h1>
+ <p style="mso-line-height-alt:150.0%;">
+  <b>
+   tl;dr
+  </b>
+  : IaCConf brings together the engineers and platform leads who've already figured it out - and are willing to show their work. Catch live demos, practitioner talks, and candid discussion you won't find anywhere else. No theory or vendor pitches.
+ </p>
+ <p style="mso-line-height-alt:150.0%;">
+  <i>
+   Promoted by Spacelift
+  </i>
+ </p>
+ <h6 style="color:#000000;font-weight:Normal;mso-line-height-alt:87.5%;">
+  <span style="font-size:12px;">
+   <i>
+    Infrastructure Scale
+   </i>
+  </span>
+ </h6>
+ <h1 style="color:#000000;font-weight:Bold;mso-line-height-alt:125.0%;">
+  <a class="link" href="https://link.mail.beehiiv.com/ss/c/u001.yC9eJs5Q3flddlsql05gYc6Roum41tU9YvWrxTcURupr9TFTmoGO6OCTwo0MrYEwhB3o2fLzL9NQGv_u48pTkeie_J7QKr4K_c0lpLUVBhi4J6oanr9LFOGOXIvYjUYeNj7a0x_tdf2H_KGsBf3lj9bctO7XYFrE5lSXSRkxZYi7wxsZ0sRK-VcEoIKyCncn87OMOEWzg1-heXUEUStuHg/4po/ATnHJ0RGTraTR9Hc1FjdvQ/h13/h001.Mfr4zWyyljsk3btWWCqa2B8ArBhEfF0LByWGnWVIAOg" rel="noopener noreferrer nofollow" target="_blank">
+   <span>
+    DHH’s New Way Of Writing Code
+   </span>
+  </a>
+ </h1>
+ <p style="mso-line-height-alt:150.0%;">
+  — David Heinemeier Hansson, Gergely Orosz
+ </p>
+ <p style="mso-line-height-alt:150.0%;">
+  <b>
+   tl;dr
+  </b>
+  : David discusses his approach to building software, how it’s changed in the last six months, and why he now takes an agent-first approach, and how he barely writes any code by hand. We go into how he uses AI agents: which alter how he builds and explores ideas, but also how his standards of quality and craft remain the same.
+ </p>
+ <h6 style="color:#000000;font-weight:Normal;mso-line-height-alt:87.5%;">
+  <span style="font-size:12px;">
+   <i>
+    Productivity Agents Scale
+   </i>
+  </span>
+ </h6>
+ <h1 style="color:#000000;font-weight:Bold;mso-line-height-alt:125.0%;">
+  <a class="link" href="https://link.mail.beehiiv.com/ss/c/u001.u7AEjFG7xD7PeXgObD5uI4TGUjHe7DXGFFmqNkCynUURnQgnu1U1lXxslVh48dbZZ9XpCCpHs1y0J0zv6GXcdNDbmnDS9LV_SgwPUqmDSTirsejyMqu8NrpfUStP_U67MBst4_5mTgd4ptpCx-YTzsH9uxUY11Suh0hLqwepsYRDSRhk4iQpJ-C_lHnzalCZLJ5Yse_6DnJcQ8gk6J8dJQ/4po/ATnHJ0RGTraTR9Hc1FjdvQ/h14/h001.wSLM7QtYJDG-9xF6nGzLe1Cp_weCy7LjBJqJOFuaRHo" rel="noopener noreferrer nofollow" target="_blank">
+   <span>
+    Components Of A Coding Agent
+   </span>
+  </a>
+ </h1>
+ <p style="mso-line-height-alt:150.0%;">
+  — Sebastian Raschka
+ </p>
+ <p style="mso-line-height-alt:150.0%;">
+  <b>
+   tl;dr
+  </b>
+  : “In this article, I want to cover the overall design of coding agents and agent harnesses: what they are, how they work, and how the different pieces fit together in practice.”
+ </p>
+ <h6 style="color:#000000;font-weight:Normal;mso-line-height-alt:87.5%;">
+  <span style="font-size:12px;">
+   <i>
+    Agents Guide
+   </i>
+  </span>
+ </h6>
+ <h1 style="color:#000000;font-weight:Bold;mso-line-height-alt:125.0%;">
+  <a class="link" href="https://link.mail.beehiiv.com/ss/c/u001.PFjHD-ii0vvUj1FcNnOS5oXRyt4nXMwlJhDmQ7aFCau0LAoT6PkgnBhb5iYho5hMRcddrFQFcGCMjLHzqZLr4R3kQy6JXGxyZOIEVNxObr_EiqaY2jTSKf2cvA9OQD58yf0HwnHvj3GOUnUGSyBWJCsEgkZ78B6mJLu_Fu3V2jjxyzFUZygGCh3qilIJaf5H/4po/ATnHJ0RGTraTR9Hc1FjdvQ/h15/h001._k6u6AMdHTst_tNWd_1eAGhJG_Ie0ZWOC-CWgY08avw" rel="noopener noreferrer nofollow" target="_blank">
+   <span>
+    The Git Commands I Run Before Reading Any Code
+   </span>
+  </a>
+ </h1>
+ <p style="mso-line-height-alt:150.0%;">
+  — Alex Piechowski
+ </p>
+ <p style="mso-line-height-alt:150.0%;">
+  <b>
+   tl;dr
+  </b>
+  : “The first thing I usually do when I pick up a new codebase isn’t opening the code. It’s opening a terminal and running a handful of git commands. Before I look at a single file, the commit history gives me a diagnostic picture of the project: who built it, where the problems cluster, whether the team is shipping with confidence or tiptoeing around land mines.”
+ </p>
+ <h6 style="color:#000000;font-weight:Normal;mso-line-height-alt:87.5%;">
+  <span style="font-size:12px;">
+   <i>
+    BestPractices Git
+   </i>
+  </span>
+ </h6>
+ <h1 style="color:#000000;font-weight:Bold;mso-line-height-alt:125.0%;">
+  Null Pointer
+ </h1>
+ <p>
+  <img alt="" border="0" height="auto" src="https://media.beehiiv.com/cdn-cgi/image/fit=scale-down,format=auto,onerror=redirect,quality=80/uploads/asset/file/939becd2-04a6-4e2f-8dd1-d236eed7cd2f/Pick_Zero.png?t=1775771847" style="display:block;width:100%;" width="650" class="article-image"/>
+ </p>
+ <p>
+  Pick Zero
+ </p>
+ <p style="mso-line-height-alt:150.0%;">
+  Hand-drawn by
+  <a class="link" href="https://link.mail.beehiiv.com/ss/c/u001.u7AEjFG7xD7PeXgObD5uI1WC-sYjDf9gyyVWakRd4obFInAfNWSlO1l8aS9Z251v7ydittDMW3LI562j6owOEIOzBBgfdM_9aQLGdJUF1nY/4po/ATnHJ0RGTraTR9Hc1FjdvQ/h16/h001.OAix4dcg_8eiC1GjlNnmxxZVMXXZKC30h4Kq9K68IGI" rel="noopener noreferrer nofollow" target="_blank">
+   Manu
+  </a>
+  . View the
+  <a class="link" href="https://link.mail.beehiiv.com/ss/c/u001.3a5P_SwQzY5x8USD2q4p0kb5u02MwbCZHGSuDgH8SxlM1s5B6kdJn4kY5yViY1rSkaGWhgrqGGnyklINjomCKb2PJe6FOOsdAww-HTTd5FGpdS_5JNv9zHZZ8Xn9dl1E/4po/ATnHJ0RGTraTR9Hc1FjdvQ/h17/h001.1DMJtg2cetd1DjUFwLiQ4lW-x2eDNC0Xs8SBC7h4G6c" rel="noopener noreferrer nofollow" target="_blank">
+   archives here
+  </a>
+ </p>
+ <h1 style="color:#000000;font-weight:Bold;mso-line-height-alt:125.0%;">
+  Most Popular From Last Issue
+ </h1>
+ <p style="mso-line-height-alt:150.0%;">
+  <b>
+   <a class="link" href="https://link.mail.beehiiv.com/ss/c/u001.PFjHD-ii0vvUj1FcNnOS5oXRyt4nXMwlJhDmQ7aFCat_hZKmtCrsej3tHapLpSCl_wnxEj1agXkIGreX5NkrWcYlvgSIYiTZtXYopVKlOjYZwGN5H0fPT8iQFqDkJ1MC3bG1NmDrpdX9mXxTKmzrFW1QCrq31m2sqS-b61m6kCA/4po/ATnHJ0RGTraTR9Hc1FjdvQ/h18/h001.m30wm3fpXG5NKAagMBZYByZGHR05PKUH7E4kWA9Baco" rel="noopener noreferrer nofollow" target="_blank">
+    Why Your Engineering Team Is Slow
+   </a>
+  </b>
+  -Alex Piechowski
+ </p>
+ <h1 style="color:#000000;font-weight:Bold;mso-line-height-alt:125.0%;">
+  Notable Links
+ </h1>
+ <p style="mso-line-height-alt:150.0%;">
+  <b>
+   <a class="link" href="https://link.mail.beehiiv.com/ss/c/u001._d02Us3GR26SqbxiB_QNfYjnJVgMs8lusBmk8ncwGCiOb5kycMMwhm_GIXYBqgwtR8pUWLOfzJuUDHD5yMaWf1yO6GYPKj3sKLi_FN3E53s4B3IFJCWRNlz0wiGF6VQpHWVgD_ATdVgMdKHx_g5vxg/4po/ATnHJ0RGTraTR9Hc1FjdvQ/h19/h001.8jaN9eOxPEdcY7hzKX04vr9nMdcq1aCWGjSt54OfSRY" rel="noopener noreferrer nofollow" target="_blank">
+    Clicky
+   </a>
+  </b>
+  : AI teacher that next to your cursor.
+ </p>
+ <p style="mso-line-height-alt:150.0%;">
+  <b>
+   <a class="link" href="https://link.mail.beehiiv.com/ss/c/u001._d02Us3GR26SqbxiB_QNfaJ8RWvGmdFB8orKZ7ElTsUIVVMSC4kYtqV5-aHxABQ2PkW3Qdi0dCQPVG5b2TLRRHwW6wLieH-HaQUvnLdv-iMVFMgCf7eUNqC-lVpdvZQjZwUE74HS5aae4TeqQ3P_Xp7pneUtSMYXSrGa3Cubn3Y/4po/ATnHJ0RGTraTR9Hc1FjdvQ/h20/h001.U2OasgLNJ_Lo9AX067bCuEP-fPpbj74OuOGpqyaieYI" rel="noopener noreferrer nofollow" target="_blank">
+    Defuddle
+   </a>
+  </b>
+  : Get the content of any page as markdown.
+ </p>
+ <p style="mso-line-height-alt:150.0%;">
+  <b>
+   <a class="link" href="https://link.mail.beehiiv.com/ss/c/u001._d02Us3GR26SqbxiB_QNfbKDl2gjGHwqgdmAvyfUZ0FDZ4q2IYAf_8U273iv-FPkpVCXbJ5-qUfG1yKjyIH7KAQ5H1ScQ_O3OIn3-5Gdnrx8uT5xstS3fpzELR1jKYUoYpZ6SH95QTU6z5jtLewsKQ2h1QTrXDzXt7esODLqDVY/4po/ATnHJ0RGTraTR9Hc1FjdvQ/h21/h001.DgISnUUHDdUMQyK3pp1xkOEVEx8W3BHDOVdjFD7RRk4" rel="noopener noreferrer nofollow" target="_blank">
+    Interview Coach
+   </a>
+  </b>
+  : Covers the full job search lifecycle.
+ </p>
+ <p>
+  <b>
+   <a class="link" href="https://link.mail.beehiiv.com/ss/c/u001._d02Us3GR26SqbxiB_QNffNTQ48u9tikhYWB_sRZYfAtKjgRIRX6saCYT2Jbp8knkOZcekseXNaCXBgTeqh22LA6GdNCblqY2ssM-oKYAKDNDVxuX00YtANXMLmuhcDEVslCRgoKtAXbu96FxIm4Rra6rjTZXHts8nCWYhwrnzg/4po/ATnHJ0RGTraTR9Hc1FjdvQ/h22/h001.Q1BVQqKslGd_qDG15DFJGPz5Fgzx9tsrZDV9ys83vqU" rel="noopener noreferrer nofollow" target="_blank">
+    JAI
+   </a>
+  </b>
+  : Jail your AI agent.
+ </p>
+ <p style="mso-line-height-alt:150.0%;">
+  <b>
+   <a class="link" href="https://link.mail.beehiiv.com/ss/c/u001._d02Us3GR26SqbxiB_QNfS-1RZ-qL-IuNz8eHq5pb2n0j2ZeweAYLxnijXQ6sugUz_T3A4jK140W4GsQGR-B7r5zweMJDU8IKYO56pYfNiDFWGiRMeEdtdcy9Rxrw2ZRgzVfpD-Y_6UMkshfkFVwhdvdO805hRjpbTRlZrqVz3Q/4po/ATnHJ0RGTraTR9Hc1FjdvQ/h23/h001.mk4zn6Jp0cboaW6gYrEfDGS5q8XGY16PcSobTtXux_o" rel="noopener noreferrer nofollow" target="_blank">
+    Onyx
+   </a>
+  </b>
+  : OS AI platform.
+ </p>
+ <h3 style="">
+  How did you like this issue of Pointer?
+ </h3>
+ <p style="">
+  1 = Didn't enjoy it all // 5 = Really enjoyed it
+ </p>
+ <p>
+  <a href="https://link.mail.beehiiv.com/ss/c/u001.PFjHD-ii0vvUj1FcNnOS5qqF3eJEkrxympSzSDDZUB2kNBPRffeXfmBmdHnTaFwPewcec2bWLBRjWFkF5rwrOoZ3LCULdLJd2zZG-MQnUCPU9Oww_LIMPuZbBnqtNeS2vLuaFvvJcIGMMDURCQ3fC1QFn9puYn6FFhTxzJ3fZYwQO5gHGhMQ8TGY4mjhUoU99X48PyglPvhMV-N-5GHXrpxlZ1ic0ziWZgbIDT33_zs4mOgtzvONMKSlauliBDLng3a-EnmPJNukplJe0su2ZTWWwnIr5l9yROR1JctyKKjvmDaMED9ECWRdKk_0rVygoLT7akvdq7zQkBh1HSO6wHgfNin7xJ8JCMdqjAuHsnLsCSSLrY4G6uJivUbf_uwt2xA3bUM9XEBRsppxlesMg3fv4ESwNJlyYirKmiN7GsCehDxLC2hB6j-3m2ZPcULVdiks0iHvxlvKOPcuogzEcP8UGPESS5JFexN7Tats28sK-371QH3_YdFEroVM9CEgHzr77mWgVFg0RzzMBtRDIkUOO_D-UZTEpAE9zOULC56mowlua3AkMNe-A5jL5W6Y8iDn9G0JOZnmXUfXc35J7fPwqLEyDZT9iCcXCFRlbDMJk8fKPqAFo5BCOVW-iJuPZ-WntMThJPJb9A_ABS_rmDpiILOL9V8GFRL3ZjcH96c9nvgZcGX6cIrAqGdHH6lQEEN5p392SB73MMD_V6Vygj8k7MWv5F2tFKeYxv2eTybS7GRmAhSH0k5DpKVjxpEcgbMbvb-nmRjCPRAkuy6MmFncf2rNYH3heJR67-32-R_dp5-Pf1JVi-J8gF54SCB18ZvMVksxGU8HDu67d_tHw23xluxOtKBa_p0c_x-gpB14H8DJFVM5UhS5KDKt9fWM72vVi0oEjAEfOd8T5TjyVikuF7TWhsPK1m6rSiGQDJg/4po/ATnHJ0RGTraTR9Hc1FjdvQ/h24/h001.FgHjnMiZdcr9wE36pUa5b0k-H99DMDUkdROmdvNpQ8Y">
+   1
+  </a>
+  |
+  <a href="https://link.mail.beehiiv.com/ss/c/u001.PFjHD-ii0vvUj1FcNnOS5qqF3eJEkrxympSzSDDZUB2kNBPRffeXfmBmdHnTaFwPewcec2bWLBRjWFkF5rwrOoZ3LCULdLJd2zZG-MQnUCOIeilN-0fUgt530ZCm3qekC9vstOjYNThr6t1JdFA438Gjo8ab7RN5xNUN_O-LJfNHlis9TpD_d1cj5j_e19bsIt2vbfWgvA84PdzdYw4-ydciZs2hdGtMnItw11Nsa9qwTalQ-mgsOr37tIVU7swhH41cVTENqrqUZKd_s6LH70vI2Gw3XjzhDMM2z9dKuz15XvGcUfaIRzPjI50w8I-kcTzTGM7SrBD9OS4hJuEl4KpT3DhE0VPCEp3iEk3zcLzhMgjAGOaE691F6CS-Yj2qkKJyHBN-K3NOo8rjy9oHPU1BroREFIOwZmCycBT3Um_0M-vhyBREPdDU0Hlxx-4ws6px-ZnBS0OKFOowv-BtjpfgDQTjw0vX791C_4kSGfBODfa1IciwQOAM90M8ctXMOyBsanTbgbNhONFfB8DiQAbYsKg95osiTlwbotromZXPymRXV1qzWJQlvw1E0_5iBAl4lhrHLWkvsK3h4qtT2wpQaYGtc20JUB8ML8wd1d0NrcjE7H8cjmbUtXpj46Q_6VBpnZGO5e1EQMKxg874USy2UCEMntL4drwPYBw5HBMZTrH5EPGUyN2FT_BkI5jH8RNbSPN_2OPx8l_c193ley8vHadWd9S1fndYw5Br-JRTQMvSSs3RLsWeGcxvXOHrPz-dHc7z9P0CjHW07EeNMhaCkfLJWfNaHn1yVK5CEZ02eoM42uXYNAM4640d2mMcqbheAyWqCb-hA6hskdo9N1ap3dJ9q1gig_OmL2QhQ3ChMDNYcnc-TeTspi3FTxkaskHuohLFZl2N4BWnuD05W-IFdUsgyepGtl0gHnq4-ps/4po/ATnHJ0RGTraTR9Hc1FjdvQ/h25/h001.2e7gTotiCW1u65R7iIij2YrPTaDBWgmLSUkenGa7eKA">
+   2
+  </a>
+  |
+  <a href="https://link.mail.beehiiv.com/ss/c/u001.PFjHD-ii0vvUj1FcNnOS5qqF3eJEkrxympSzSDDZUB2kNBPRffeXfmBmdHnTaFwPewcec2bWLBRjWFkF5rwrOoZ3LCULdLJd2zZG-MQnUCPo6prT-k64_j648SGWQhlfTydBMfqVYenj_2fkPNG08m7wpJJI5YYvTZoyNom6uN5qgQetzlQdjun-PnT5qQF8bXuDul4fCBOyN1nFxXA_AMvCVc0T1SERx5QIieLb0c7rhApKA4uU8nPbTBy8HvdjVH8lWcEneU5BR6Fe79sSggwwfqOYSvKzhATcxAdZ87x2WYpodW_RhwDuGfJOlDQwBtKIr_koFpOjNnj_pNTiMeRaMjsdH_aUkOIkxsGnPhdSQI_4iz52c1mr0KnTKI5kSFDlpkToM5GAezSfUMBS3vQGuft0fJdJa_cM7lLUv8bvOpy3lUdnDb8RXzJs91kKA2tVjwe3J5lNHn9a8_8BlQn3QmvcG8WL9ZpqpHruDla5ro5beSxIYU-Er_m5NXKLKzh4pDP5_agGX_2mMiv8lt4lrPWFwtR8g5wawY-JPjFbbsmm8AtpuWjVU4VGt3T16HY-mTTdcCE3XD7djGbIa180yN-mlCVKwnu4jzaohJoivuyfZgK9xWACTH7bih7RlO54ag1NjahcFxHxytezW7fBZiSJT3tKaj1_eHwSGZNhNOEn7KSra9xPBf9H4uRoxXFAj6kFh00UGpWrNtcCFkX-EzM_aCs0XESO5kRZdwBMddD7fve3RSNqMvg5uKkxH1sbI4BLY7uiNhX4od8zUKMhWWJFgLErBfiv1m5YTyJrNWFGms9VqEfaspAAejJEc0kFOXjaFJFsrH_I3UjlbcsvsIFkrXoBinQcgqIJ9eMZqJH0o_nZer1RNIUcI1Q0Zzp0LwnCCJp_VYgpoFReHjRHS4pxa8urqHab2TvXonw/4po/ATnHJ0RGTraTR9Hc1FjdvQ/h26/h001.21iKmzc7EK0C2GeOPLE_VlyGQZsLIa0gREy--IsRUXg">
+   3
+  </a>
+  |
+  <a href="https://link.mail.beehiiv.com/ss/c/u001.PFjHD-ii0vvUj1FcNnOS5qqF3eJEkrxympSzSDDZUB2kNBPRffeXfmBmdHnTaFwPewcec2bWLBRjWFkF5rwrOoZ3LCULdLJd2zZG-MQnUCNHTqSSKTmsJp49_E0IH_DuLlEutl3yn9NMkwaVTyJ_r1bRdE6SLnvXPrSMK0O-YhY24D_daYpGG5I94sWWZmy6F0ZaMKkQvFy37vgjXwtgGARCGNmxa2F4nRBtcHW6x8sFjJKnjXRyVh_fnavhhjSprnVOlvBZpOTjgbh32hR6X1dORMZWCjXB8yRrLxVjRDIUSl42u_BzFt54y3EYnkwcbqV2Rr1qGgIp2xYHdzi8iC3BFOSevA_YOpQiSyPZIeeg85kYAPbeOpCSMe4gdMQIUi3daAA2j4s7ff53o61txB_3yE8KcESJS3Ksdo2Hb1FTuMNArKvwTdDoxQK6kmSxq0ihd2tXYs3w7awmS2aRDwzDtFMzUPcw-vYeFU232bKoNA9FKkI_Y0lbpBKNOspuajaAyo_bjQ66ckMf2YbpshdQFFHjG7X3YYAp6B0VUvZXPz3dBDAZDc96M_T2CvrYAv3NhX7F5SgN-AtcAJ1EZaWLYZWVIgNnFtWqngAWNGmNIzMIOg0HSfJJdHi8quX0M92YMVfk6e32Kw8O1oecrRXuF3y8UWvbxli6eDHDxzbKBttjE_GKyL9X-lEG9hAF0T8NEAOOV_vMb-FbPCYi6nLTDrlTRVh_9qEtpFO8uUWKkoYTFBW1hV2H6PV6fTDnXFoeYQh08aXUjKTw8qQ-4AABud14-gixW0aB5VUSYAhv7plV6RvTonFYxXOx_YhguGYXcO4e0g99oLNiJwx3JdsTGE3mgi240nLk5rddDYI6s2O_jnpUkSW5ceZzgKHRsV14ZMKachQ8_HNRfoP-xrlixIBQrYf8j3JjrvVVLuY/4po/ATnHJ0RGTraTR9Hc1FjdvQ/h27/h001.mYDucnHFm55g2VNIRHPLH-WBGYsvX1_BUZYqlILy0jY">
+   4
+  </a>
+  |
+  <a href="https://link.mail.beehiiv.com/ss/c/u001.PFjHD-ii0vvUj1FcNnOS5qqF3eJEkrxympSzSDDZUB2kNBPRffeXfmBmdHnTaFwPewcec2bWLBRjWFkF5rwrOoZ3LCULdLJd2zZG-MQnUCNgPjqCs7_Y8r-uoohyxNnOycqZkUtoviVw8A9eqP8d1QIidrGH3d27g0MIDJNRw6j7AHVChj56t-X1Obgb_2-V_j7FL-uZ_o9SWaWZF4xRLoAfWdHpFCigZjb7RZ7ASI0kJezG5hwSRby9h_-1OFTqAd8NcgJfcO8N-gqMq3cVJfLZF2R3R9aHPuuy9ggl8P-NRYFsNRp6H9lbnPYVvhRY0i__pjLE9JvphL8l5usT5-5TZv1qKoj8UeAJbnRjwt7PU7AvoqyKkx5qm766btYPYsFZ9ifzwlGdkgdHd2HuXj5UR55TMyiPTlK04LVvxBjd70Qfu__ulpFERL9PbszFttSrlW65Hqz8NF7Pie2vESgZ0u4o-FBIdlCWj01WelppumiYf8u3bjtbCFtheZ5ZBXEJa7Lde0k5vIUY1z0f9p90ZpdfsO5xmxMxki-h-8GS2mucIQKrfp6HGOyAfLTwaJ8U_daAEV6fH1Ub1Fsp1xfCgTFCqE7Xhx87JCz603dc8BusNgSA5eFzU73BJeZkqi4CnkAqrFuWxw5AVwScp2mEvDaKakDwryIM8XC3nql3ATpAWyz4Q2GhFRsdXwPUzWlqK1TC58H9LNja13j_3vPOhbdoTn0WksVre4jWOQKe5kG2Zj052hyHvW6gGuk22elu3T7GbJ1si2pWYBPRFmzwFwN25Fvk0jn-x7Q4sxhbMGajCS60vPOwvKm4jFyJJfRgGSqR4Ae6YxXBs1fzTj38z1dysE6Igp_4FYD-dF4i4J2acHcINyrpTyy_zbP_UKl55YwXBepGE_-a_8fVxdDiLRGHBuC0jKQhAilazBw/4po/ATnHJ0RGTraTR9Hc1FjdvQ/h28/h001.aWM6ZXWV6LKXVjo1JP_EjI32FbZ_IYVCcHAbDUU4NuQ">
+   5
+  </a>
+ </p>
+ <p style="font-family:&#x27;Space Grotesk&#x27;,Helvetica,Arial,sans-serif;color:#ffffff!important;">
+  Update your email preferences or unsubscribe
+  <a class="link" href="https://link.mail.beehiiv.com/ss/c/u001.PFjHD-ii0vvUj1FcNnOS5qqF3eJEkrxympSzSDDZUB2PrBfKG-WrYOZ9GyOWBtHID3acP0YjsG7Qo1jaUITY8TIVpIV9_G24F7mcKKuTvoQGO0jXN1xC4Usq7NXHoMN_35gB2PEiscUdLE_ToXdYS1Vrod5IUuwr3urJ9mznkuoGmlOjsNz2g3yZAIMt-V8PCfiz6P-j2qO-ooRouw6gSYSGPp-Wr8yiNBDS953isjgD_Npwm3q4YUQ78o1bbaLvCb_nxRKddPsUw6bFXqBbAKTu-3sb2YLsYHk_uySwh27xZWwzVI9yHgmFrHGZkbvNuzahZkVNGT7yTnUi1ipK_WKWp9UwOvNsw2Lc88yictStgzkZM3nz972vfZPWRg7rDjwoh4N3x4h1GQtZVYwMWxUZXT7DtEBOyq8AELk8ZEcjeTjnnt1RDf7mTt9wQwEy2y0sRGRgOEyYiBIajZ4Jmi5MSUWKEv7uDK1CXqsNuW4oIhYcnzCcos4N1iHybDsdBXQHG7vdMFgbVix4EatimILYtvDDP-RCcGCoyrzLjcKvH_VnGabf1lI7a6pcEzMXCMM4_j9lwgdcS3ggGIlRqgevVGvB199EJxxjxkvUpb5ecm5ZgbLK1cXJ7rw-lFohu6Ui2T92DXrdKqYQxXSs15mOIruOhnLtGKdb0MMA8zfjgCMZpc77DxSrNZgYOxI81bEDvv1yO9RBw9G4prYIomuzyC6ZEooctwEymwMGpjEOdD1VAfywwmm_AB2-KwiTdVJX0IIH_UZsRHtwUreKyfBEwHqBeuNCuPzMeuViSVxksispmxG3R_WaZ2Ahmv7BZ8BekeAA5cK-T9r9u8w-i28um_N2_HtH49MiWYYLUtIwTQVzWWU4Br_lBpjiSU0YZoSEs6MO3x2unqbPOAlosA/4po/ATnHJ0RGTraTR9Hc1FjdvQ/h29/h001.I-DMqVjrv4FHK0R_qKtTfCI_SVtNztMa4J8gfeCu9GA" style="text-decoration:underline;text-decoration-color:#ffffff!important;color:#ffffff!important;">
+   here
+  </a>
+ </p>
+ <p class="copyright" style="font-family:&#x27;Space Grotesk&#x27;,Helvetica,Arial,sans-serif;color:#ffffff!important;">
+  © 2026 Pointer
+ </p>
+ <p style="font-family:&#x27;Space Grotesk&#x27;,Helvetica,Arial,sans-serif;color:#ffffff!important;">
+  11 Hoyt Street, #35B
+  <br/>
+  Brooklyn, New York 11201, United States
+ </p>
+ <p>
+  <a href="https://link.mail.beehiiv.com/ss/c/u001.-hnYW5kLMgAgfdYiF39x0iBPJ2ul4kGzgdGlpItsLwp27z8RJO-YeDMAFI0XFz_E_tTqg5tHnBNM9opPZCCGlB-9i0NlQCvBAaU30VFVhck/4po/ATnHJ0RGTraTR9Hc1FjdvQ/h30/h001.3OIbUt59vqVHvF3OxFZB5QluIFKkFbGWNnnpzKzibPA" style="color: #111827 !important; cursor: default; font-size: 1px; text-decoration: none;">
+   Terms of Service
+  </a>
+ </p></div></div>
+      
+    </article>
+    
+    <article>
+      <h1>[Daily article] April 10: Ojos del Salado</h1>
+      <div class="article-meta">
+        English Wikipedia Article of the Day
+        · 10 Apr 2026
+        · <a href="mailto:reader-forwarded-email/c5db1763082ee83253fbcd87ec20b625">Source</a>
+      </div>
+      <div class="article-body"><div class="rw-email-parsed">
+ <p>
+  Ojos del Salado is a dormant complex volcano in the Andes on the
+Argentina–Chile border. It is the highest volcano on Earth and the
+highest peak in Chile. The complex extends over an area of 70 to 160
+square kilometres (27 to 62 sq mi) and its highest summit reaches an
+elevation of 6,893 metres (22,615 ft) above sea level. The mountain has
+extremely dry conditions, which prevent the formation of substantial
+glaciers and a permanent snow cover. Despite the arid climate, there is
+a permanent crater lake about 100 metres (330 ft) in diameter at an
+elevation of 6,480 to 6,500 metres (21,260 to 21,300 ft) within the
+summit crater and east of the main summit. This is the highest lake of
+any kind in the world. An international highway between Argentina and
+Chile crosses north of the mountain. During the middle of the 20th
+century, there was a debate on whether Ojos del Salado or Aconcagua was
+the highest mountain in South America that was eventually resolved in
+favour of Aconcagua. (Full article...).
+ </p>
+ <p>
+  Read more:
+  <a href="https://en.wikipedia.org/wiki/Ojos_del_Salado">
+   https://en.wikipedia.org/wiki/Ojos_del_Salado
+  </a>
+ </p>
+ <hr/>
+ <p>
+  Today's selected anniversaries:
+ </p>
+ <p>
+  1741:
+ </p>
+ <p>
+  War of the Austrian Succession: Prussian forces defeated
+Austrian troops at the Battle of Mollwitz in present-day Małujowice,
+Poland, cementing Frederick II's authority over the newly conquered
+territory of Silesia.
+  <a href="https://en.wikipedia.org/wiki/Battle_of_Mollwitz">
+   https://en.wikipedia.org/wiki/Battle_of_Mollwitz
+  </a>
+ </p>
+ <p>
+  1815:
+ </p>
+ <p>
+  Mount Tambora in Indonesia began the most powerful volcanic
+eruption in recorded history, killing at least 71,000 people and
+affecting temperatures worldwide.
+  <a href="https://en.wikipedia.org/wiki/Mount_Tambora">
+   https://en.wikipedia.org/wiki/Mount_Tambora
+  </a>
+ </p>
+ <p>
+  2019:
+ </p>
+ <p>
+  Scientists from the Event Horizon Telescope project released
+the first image of the black hole at the center of the galaxy M87.
+  <a href="https://en.wikipedia.org/wiki/Messier_87">
+   https://en.wikipedia.org/wiki/Messier_87
+  </a>
+ </p>
+ <hr/>
+ <p>
+  Wiktionary's word of the day:
+ </p>
+ <p>
+  whimberry:
+1. (UK, dialectal) The bilberry or whortleberry (Vaccinium myrtillus).
+2. About Word of the Day
+3. Nominate a word
+4. Leave feedback
+  <a href="https://en.wiktionary.org/wiki/whimberry">
+   https://en.wiktionary.org/wiki/whimberry
+  </a>
+ </p>
+ <hr/>
+ <p>
+  Wikiquote quote of the day:
+ </p>
+ <p>
+  We will explore, we will build. We will build ships, we will visit
+again. We will construct science outposts, we will drive rovers, we will
+do radio astronomy. We will found companies, we will bolster industry,
+we will inspire. But ultimately, we will always choose Earth, we will
+always choose each other.
+  --Christina Koch
+  <a href="https://en.wikiquote.org/wiki/Christina_Koch">
+   https://en.wikiquote.org/wiki/Christina_Koch
+  </a>
+ </p></div></div>
+      
+    </article>
+    
+  </body>
+</html>
