@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <title>{{ title }} - {{ issue_date.isoformat() }}</title>
     <style>
       @page {
@@ -207,13 +207,22 @@
         font-size: 9pt;
         font-style: italic;
       }
+
+      @media screen {
+        body {
+          padding: 2rem;
+          margin: 0 auto;
+        }
+      }
     </style>
   </head>
   <body>
     <section class="cover">
       <div>
-        <h1 class="masthead">{{ title | replace(" ", "<br>") | safe }}</h1>
-        <p class="issue-date">{{ issue_day }}<sup>{{ issue_suffix }}</sup> {{ issue_month_year }}</p>
+        <h1 class="masthead">{{ title | replace(" ", "<br />") | safe }}</h1>
+        <p class="issue-date">
+          {{ issue_day }}<sup>{{ issue_suffix }}</sup> {{ issue_month_year }}
+        </p>
       </div>
 
       <div class="toc">
@@ -223,8 +232,9 @@
           <li class="toc-item">
             <div class="toc-item-title">{{ item.title }}</div>
             <div class="toc-item-meta">
-              {{ item.author or item.site_name or "Unknown source" }}
-              · {{ item.word_count }} words{% if item.is_truncated %} · excerpt{% endif %}
+              {{ item.author or item.site_name or "Unknown source" }} · {{
+              item.word_count }} words{% if item.is_truncated %} · excerpt{%
+              endif %}
             </div>
           </li>
           {% endfor %}
@@ -237,12 +247,15 @@
       <h1>{{ item.article.title }}</h1>
       <div class="article-meta">
         {{ item.article.author or item.article.site_name or "Unknown source" }}
-        · {{ item.article.created_at.strftime("%d %b %Y") }}
-        {% if item.article.url %}· <a href="{{ item.article.url }}">Source</a>{% endif %}
+        · {{ item.article.created_at.strftime("%d %b %Y") }} {% if
+        item.article.url %}· <a href="{{ item.article.url }}">Source</a>{% endif
+        %}
       </div>
       <div class="article-body">{{ item.html_content | safe }}</div>
       {% if item.is_truncated %}
-      <p class="article-note">This article was truncated to fit the page budget.</p>
+      <p class="article-note">
+        This article was truncated to fit the page budget.
+      </p>
       {% endif %}
     </article>
     {% endfor %}
