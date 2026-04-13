@@ -1,0 +1,698 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Fred Talks - 2026-04-13</title>
+    <style>
+      @page {
+        size: A5;
+        margin: 8mm 9mm 9mm;
+      }
+
+      :root {
+        color: #111;
+        font-family: "Times New Roman", Times, serif;
+        --body-text-size: 9.5pt;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        color: #111;
+        background: #fff;
+        font-family: "Times New Roman", Times, serif;
+        line-height: 1.45;
+      }
+
+      a,
+      a:visited {
+        color: #111;
+        text-decoration: underline;
+      }
+
+      .cover {
+        min-height: calc(210mm - 17mm);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        page-break-after: always;
+        border: 1px solid #111;
+        padding: 8mm;
+        background: #fff;
+      }
+
+      .toc-item-meta,
+      .article-meta {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .masthead {
+        margin: 0;
+        font-size: 40pt;
+        line-height: 0.95;
+        text-transform: uppercase;
+      }
+
+      .issue-date {
+        margin: 4mm 0 0;
+        font-size: 14pt;
+      }
+
+      .issue-date sup {
+        font-size: 0.58em;
+        vertical-align: super;
+        line-height: 0;
+      }
+
+      .cover-deck {
+        max-width: 90mm;
+        font-size: 12pt;
+        margin: 0;
+      }
+
+      .toc {
+        border-top: 3px solid #111;
+        padding-top: 6mm;
+      }
+
+      .toc h2 {
+        margin: 0 0 4mm;
+        font-size: 11pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .toc-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .toc-item {
+        padding: 3mm 0;
+        border-bottom: 1px solid rgba(17, 17, 17, 0.2);
+      }
+
+      .toc-item-title {
+        font-size: 12pt;
+        margin: 0 0 1mm;
+      }
+
+      .toc-item-meta {
+        font-size: 8pt;
+      }
+
+      article + article {
+        margin-top: 10mm;
+        padding-top: 6mm;
+        border-top: 2px solid #111;
+      }
+
+      h1 {
+        margin: 0 0 2mm;
+        font-size: 18pt;
+        line-height: 1.1;
+      }
+
+      .article-meta {
+        font-size: 8.5pt;
+        margin-bottom: 6mm;
+        padding-bottom: 3mm;
+        border-bottom: 1px solid #111;
+      }
+
+      .article-body {
+        font-size: var(--body-text-size);
+        font-family: "Times New Roman", Times, serif;
+      }
+
+      .article-body p,
+      .article-body li,
+      .article-body blockquote,
+      .article-body dd,
+      .article-body dt {
+        margin: 0 0 4mm;
+        orphans: 3;
+        widows: 3;
+      }
+
+      .article-body ul,
+      .article-body ol,
+      .article-body dl {
+        margin: 0 0 4mm 5mm;
+        padding: 0;
+      }
+
+      .article-body h2,
+      .article-body h3,
+      .article-body h4 {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        margin: 7mm 0 3mm;
+        line-height: 1.2;
+      }
+
+      .article-body blockquote {
+        margin-left: 6mm;
+        padding-left: 4mm;
+        border-left: 2px solid #111;
+      }
+
+      .article-body .media-omitted {
+        margin: 0 0 4mm;
+        font-size: 8.5pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(17, 17, 17, 0.65);
+      }
+
+      .article-body figure,
+      .article-body .article-figure,
+      .article-body picture,
+      .article-body .article-picture {
+        display: block;
+        max-width: 72mm;
+        margin: 0 auto 4mm;
+        break-inside: avoid;
+      }
+
+      .article-body img,
+      .article-body .article-image {
+        display: block;
+        max-width: min(100%, 72mm);
+        max-height: 34mm;
+        height: auto;
+        width: auto;
+        object-fit: contain;
+        margin: 0 auto 3mm;
+      }
+
+      .article-body figcaption {
+        margin-top: 1.5mm;
+        font-size: 8.5pt;
+        line-height: 1.3;
+        color: rgba(17, 17, 17, 0.8);
+      }
+
+      .article-note {
+        margin-top: 6mm;
+        padding-top: 3mm;
+        border-top: 1px solid #111;
+        font-size: 9pt;
+        font-style: italic;
+      }
+
+      @media screen {
+        body {
+          padding: 2rem;
+          margin: 0 auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section class="cover">
+      <div>
+        <h1 class="masthead">Fred<br />Talks</h1>
+        <p class="issue-date">
+          13<sup>th</sup> April 2026
+        </p>
+      </div>
+
+      <div class="toc">
+        <h2>Contents</h2>
+        <ol class="toc-list">
+          
+          <li class="toc-item">
+            <div class="toc-item-title">Why Anthropic believes its latest model is too dangerous to release</div>
+            <div class="toc-item-meta">
+              Kai Williams · 2894 words
+            </div>
+          </li>
+          
+          <li class="toc-item">
+            <div class="toc-item-title">Wisereads Vol. 138 — The Book of Delights by Ross Gay, the cost of outsourcing curiosity, and more</div>
+            <div class="toc-item-meta">
+              hello@readwise.io (Readwise) · 724 words
+            </div>
+          </li>
+          
+          <li class="toc-item">
+            <div class="toc-item-title">Brain Food: Pressure is a Privilege</div>
+            <div class="toc-item-meta">
+              Shane Parrish (FS) · 604 words
+            </div>
+          </li>
+          
+        </ol>
+      </div>
+    </section>
+
+    
+    <article>
+      <h1>Why Anthropic believes its latest model is too dangerous to release</h1>
+      <div class="article-meta">
+        Kai Williams
+        · 12 Apr 2026 · <a href="https://www.understandingai.org/p/why-anthropic-believes-its-latest">Source</a>
+      </div>
+      <div class="article-body"><h3>“The language models we have now are probably the most significant thing to happen in security since we got the Internet.”</h3>
+
+
+
+<p>Anthropic safety researcher Sam Bowman was eating a sandwich in a park recently when he got an unexpected email. An AI model had sent him a message saying that it had broken out of its sandbox.</p>
+<p>The model — an early snapshot of a new LLM called Claude Mythos Preview — was not supposed to have access to the Internet. To ensure safety, Anthropic researchers like to test new models inside a secure container that prevents them from communicating with the outside world. To double-check the security of this container, the researchers asked the model to try to break out and message Bowman.</p>
+<p>Unexpectedly, Mythos Preview “developed a moderately sophisticated multi-step exploit” to gain access to the Internet and emailed Bowman. It also — unprompted — posted details about this exploit on public websites.</p>
+<p>Mythos Preview is capable of hacking more than its own evaluation environment. It turns out that the model is generally really, really good at finding and exploiting bugs in code.</p>
+<p>“Mythos Preview has already found thousands of high-severity vulnerabilities, including some in every major operating system and web browser,” Anthropic <a href="https://www.anthropic.com/glasswing">announced</a> on Tuesday. Because leading web browsers and operating systems have become fundamental to modern life, they have been extensively vetted by security professionals, making them particularly difficult to hack.</p>
+<p>Anthropic claims that Mythos Preview hacks around restrictions very rarely — less often than previous models. Still, the company was so concerned by incidents like Bowman’s — and Mythos Preview’s incredible skill at hacking — that it decided not to generally release the model.</p>
+<p>Instead, Anthropic is granting limited access to a select group of 50 or so companies and organizations “that build or maintain critical software infrastructure.” Eleven of these organizations — including Google, Microsoft, Nvidia, Amazon, and Apple — are coordinating with Anthropic directly in a project dubbed <a href="https://www.anthropic.com/glasswing">Project Glasswing</a>.</p>
+<p>Project Glasswing aims to patch these vulnerabilities before Mythos-caliber models become available to the general public — and hence to malicious actors. Anthropic is donating $100 million in access credits for organizations to audit their systems.</p>
+<figure class="article-figure"><a data-component-name="Image2ToDOM" href="https://substackcdn.com/image/fetch/$s_!xlYd!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F89572746-a024-40fb-99f3-38194bf51140_1600x1062.jpeg"><picture class="article-picture"><img alt="" data-attrs="{&quot;src&quot;:&quot;https://substack-post-media.s3.amazonaws.com/public/images/89572746-a024-40fb-99f3-38194bf51140_1600x1062.jpeg&quot;,&quot;srcNoWatermark&quot;:null,&quot;fullscreen&quot;:null,&quot;imageSize&quot;:null,&quot;height&quot;:966,&quot;width&quot;:1456,&quot;resizeWidth&quot;:null,&quot;bytes&quot;:null,&quot;alt&quot;:null,&quot;title&quot;:null,&quot;type&quot;:null,&quot;href&quot;:null,&quot;belowTheFold&quot;:true,&quot;topImage&quot;:false,&quot;internalRedirect&quot;:null,&quot;isProcessing&quot;:false,&quot;align&quot;:null,&quot;offset&quot;:false}" sizes="100vw" src="https://substackcdn.com/image/fetch/$s_!xlYd!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F89572746-a024-40fb-99f3-38194bf51140_1600x1062.jpeg" srcset="https://substackcdn.com/image/fetch/$s_!xlYd!,w_424,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F89572746-a024-40fb-99f3-38194bf51140_1600x1062.jpeg 424w, https://substackcdn.com/image/fetch/$s_!xlYd!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F89572746-a024-40fb-99f3-38194bf51140_1600x1062.jpeg 848w, https://substackcdn.com/image/fetch/$s_!xlYd!,w_1272,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F89572746-a024-40fb-99f3-38194bf51140_1600x1062.jpeg 1272w, https://substackcdn.com/image/fetch/$s_!xlYd!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F89572746-a024-40fb-99f3-38194bf51140_1600x1062.jpeg 1456w" class="article-image"/></picture></a><figcaption>A glasswing butterfly. (Photo by Education Images/Universal Images Group via Getty Images)</figcaption></figure>
+<p>Mythos Preview is the first major LLM since GPT-2 in 2019 whose general release was delayed because of fears it could be societally disruptive. Back then, OpenAI initially <a href="https://openai.com/index/better-language-models/">released</a> only a weaker version of GPT-2 out of concerns that larger versions of GPT-2 could generate plausible-looking text and supercharge misinformation — though that concern ended up being overblown.</p>
+<p>If Anthropic’s claims are true — and the company makes a credible case — we are entering a world where LLMs might be able to cause real damage, both to users and to society.</p>
+<p>We may also be entering a world where companies routinely keep their best models for internal use rather than making them available to the general public.</p>
+<h1>“It’s about to become very difficult for the security community”</h1>
+<p>The idea that LLMs might be used for hacking is not new. OpenAI has long published a <a href="https://cdn.openai.com/pdf/18a02b5d-6b67-4cec-ab64-68cdfbddebcd/preparedness-framework-v2.pdf">Frontier Safety Framework</a>, which tracks how good its models are at hacking.</p>
+<p>Until recently, the answer was “not very” — not only at OpenAI but at Anthropic and across the industry. But that started to change last fall, when LLMs — especially Anthropic’s Claude — started becoming useful for cyberoffense.</p>
+<p>For instance, Bloomberg <a href="https://www.thestar.com.my/tech/tech-news/2026/02/26/hacker-used-anthropics-claude-to-steal-mexican-data-trove">reported</a> in February that a hacker used Claude to steal millions of taxpayer and voter records from the Mexican government. The same month, Amazon <a href="https://aws.amazon.com/blogs/security/ai-augmented-threat-actor-accesses-fortigate-devices-at-scale/">announced</a> that Russian hackers had used AI tools to breach over 600 firewalls around the world.</p>
+<p>But the examples given in Anthropic’s blog post are more impressive — and scary — than that.</p>
+<p>The first example is a now-patched bug to remotely crash OpenBSD, an open-source operating system used in critical infrastructure like firewalls. OpenBSD is known for its focus on security. According to its <a href="https://www.openbsd.org/security.html">website</a>, “OpenBSD believes in strong security. Our aspiration is to be NUMBER ONE in the industry for security (if we are not already there).”</p>
+<p>Across 1,000 runs, Claude Mythos Preview was able to find several bugs in OpenBSD, including one that allows any attacker to remotely crash a computer running it.</p>
+<p>I won’t get into details about how the attack worked — it’s pretty involved — but the notable thing was that the bug had existed <em>for 27 years</em>. Over that period, no human noticed the subtle vulnerability in a widely used, heavily vetted open-source operating system. Mythos Preview did. And the compute cost for those 1,000 runs was only $20,000.</p>
+<p>A second example is potentially even more impressive. Mythos Preview found several vulnerabilities in the Linux operating system — which runs the majority of the world’s servers — that allowed a user with no permissions to gain complete control of the entire machine.</p>
+<p>Most Linux vulnerabilities aren’t very useful on their own, but Mythos Preview was able to combine several bugs in a non-trivial way. “We have nearly a dozen examples of Mythos Preview successfully chaining together two, three, and sometimes four vulnerabilities in order to construct a functional exploit on the Linux kernel,” members of Anthropic’s Frontier Red Team <a href="https://red.anthropic.com/2026/mythos-preview/">wrote</a>.</p>
+<p>Anthropic says these were not isolated incidents. Across a range of operating systems, browsers, and other widely used software, Mythos Preview found thousands of bugs, 99% of which have not been patched yet.</p>
+<p>Mythos Preview is also shockingly good at exploiting a bug once it has been discovered. A lot of modern web-based software is powered by the programming language JavaScript. If your browser’s JavaScript engine has security flaws, then simply visiting a malicious website could allow the site’s owner to take control of your computer.</p>
+<p>Anthropic found that Mythos Preview was far more capable than previous models at exploiting vulnerabilities in Firefox’s JavaScript implementation. Anthropic’s previous best model, Claude Opus 4.6, created a successful exploit less than 1% of the time. Mythos Preview did so 72% of the time.</p>
+<figure class="article-figure"><a data-component-name="Image2ToDOM" href="https://substackcdn.com/image/fetch/$s_!bF1z!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F175ddd7d-b38a-450a-a7ac-3276087463be_2048x1152.png"><picture class="article-picture"><img alt="A chart titled Firefox JS shell exploitation. Three models: Sonnet 4.6 achieves partial progress 4% of the time; Opus 4.6 achieves a partial progress 14% of the time and a full exploit less than 1% of the time; Mythos preview achieves partial progres 12% of the time and full progress 72% of the time." data-attrs="{&quot;src&quot;:&quot;https://substack-post-media.s3.amazonaws.com/public/images/175ddd7d-b38a-450a-a7ac-3276087463be_2048x1152.png&quot;,&quot;srcNoWatermark&quot;:null,&quot;fullscreen&quot;:null,&quot;imageSize&quot;:null,&quot;height&quot;:819,&quot;width&quot;:1456,&quot;resizeWidth&quot;:null,&quot;bytes&quot;:null,&quot;alt&quot;:&quot;A chart titled Firefox JS shell exploitation. Three models: Sonnet 4.6 achieves partial progress 4% of the time; Opus 4.6 achieves a partial progress 14% of the time and a full exploit less than 1% of the time; Mythos preview achieves partial progres 12% of the time and full progress 72% of the time.&quot;,&quot;title&quot;:null,&quot;type&quot;:null,&quot;href&quot;:null,&quot;belowTheFold&quot;:true,&quot;topImage&quot;:false,&quot;internalRedirect&quot;:null,&quot;isProcessing&quot;:false,&quot;align&quot;:null,&quot;offset&quot;:false}" sizes="100vw" src="https://substackcdn.com/image/fetch/$s_!bF1z!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F175ddd7d-b38a-450a-a7ac-3276087463be_2048x1152.png" srcset="https://substackcdn.com/image/fetch/$s_!bF1z!,w_424,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F175ddd7d-b38a-450a-a7ac-3276087463be_2048x1152.png 424w, https://substackcdn.com/image/fetch/$s_!bF1z!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F175ddd7d-b38a-450a-a7ac-3276087463be_2048x1152.png 848w, https://substackcdn.com/image/fetch/$s_!bF1z!,w_1272,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F175ddd7d-b38a-450a-a7ac-3276087463be_2048x1152.png 1272w, https://substackcdn.com/image/fetch/$s_!bF1z!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F175ddd7d-b38a-450a-a7ac-3276087463be_2048x1152.png 1456w" class="article-image"/></picture></a><figcaption>(Chart from the Anthropic Frontier Red Team <a href="https://red.anthropic.com/2026/mythos-preview/">report</a> on Claude Mythos Preview.)</figcaption></figure>
+<p>There are some caveats to this result. The actual Firefox browser has multiple layers of defense against malicious code; Anthropic focused on just one layer. So the attacks developed by Mythos Preview would not actually allow a website to take over a user’s machine. Also, successful exploits tended to focus on two now-patched bugs; when tested on a version of Firefox with those bugs patched, Mythos Preview generally only made partial progress.</p>
+<p>Still, Mythos Preview would get an attacker a step closer to the objective of a full Firefox exploit. And it would have an even better chance of compromising software that has not been so thoroughly vetted.</p>
+<p>For the past 20 years or so, a sufficiently motivated and well-funded hacking organization could probably break into most systems, outside of the most hardened in the world. But it often wasn’t worth the effort. Human cyber talent is expensive, and multi-layered security protections made it so tedious (and therefore expensive) to complete an attack that potential hackers didn’t bother.</p>
+<p>Mythos-class models could slash the cost of hacking, bringing this equilibrium to an end. Systems everywhere might start to get compromised.</p>
+<p>Eventually, LLMs should be able to help developers harden systems before attackers ever get a chance to find weaknesses. But the transition period before that becomes standard practice might be difficult.</p>
+<p>By delaying the release of Mythos Preview — there is no specific timeline for general release — Anthropic can help harden crucial systems before outsiders can cheaply and effectively attack them. This general approach — called defensive acceleration — has been proposed for a while, but the development of Mythos Preview kickstarts the effort.</p>
+<p>Still, Anthropic’s writeup <a href="https://red.anthropic.com/2026/mythos-preview/#ftnt4:~:text=Ultimately%2C%20it%E2%80%99s%20about%20to%20become%20very%20difficult%20for%20the%20security%20community">notes</a> that “it’s about to become very difficult for the security community.”</p>
+<p>“The language models we have now are probably the most significant thing to happen in security since we got the Internet,” <a href="https://red.anthropic.com/2026/mythos-preview/">said</a> Anthropic research scientist Nicholas Carlini at a computer security conference last month. Carlini, a legendary security expert, added an appeal toward the end of the talk. “I don’t care where you help. Just please help.”</p>
+<h1>Opus is a butter knife; Mythos is a steak knife</h1>
+<p>The risk of bad guys using Mythos Preview for hacking is an important reason Anthropic hasn’t released the model publicly. Another risk: users could inadvertently trigger the model’s advanced hacking abilities — especially in a product like Claude Code with weaker guardrails.</p>
+<p>Mainstream chatbots put AI models into a tightly controlled “sandbox” that minimizes how much damage they can do if they misbehave. This makes them safer to use — especially for users with little to no technical knowledge. But it also limits their utility.</p>
+<p>As Tim <a href="https://www.understandingai.org/p/how-shifting-risk-to-users-makes?utm_source=publication-search">wrote</a> in January, coding agents like Claude Code (and competitors like OpenAI’s Codex) are based on a different philosophy. They run on a user’s local computer, where they can often access files and load and install software.</p>
+<p>This makes them much more powerful; I can ask Claude Code to organize my downloads folder or analyze some data I have stored on my computer. But it also makes them more dangerous; there have been a few incidents where Claude Code deleted all of a user’s files.</p>
+<p>For the most part, though, the limited capabilities of Claude Opus 4.6 mean that a Claude Code mishap can’t do too much damage. Even if you run Claude Code with its hilariously named “--dangerously-skip-permissions” flag on, the worst it can do is trash your local machine.</p>
+<p>A model with Mythos-level hacking capabilities might be a different story.</p>
+<p>In the Claude Mythos Preview <a href="https://www-cdn.anthropic.com/53566bf5440a10affd749724787c8913a2ae0841.pdf">system card</a>, Anthropic writes that “we observed a few dozen significant incidents in internal deployment” where the model took “reckless excessive measures” in order to complete a difficult goal for a user.</p>
+<p>These examples didn’t only happen during evaluations. Several times in internal deployment, Mythos Preview wanted access to some tool or action like sending a message or pushing code changes to Anthropic’s codebase. Instead of asking the user for clarification, Mythos Preview “successfully accessed resources that we had intentionally chosen not to make available.”</p>
+<p>As Bowman <a href="https://x.com/sleepinyourhat/status/2041584805423562943">tweeted</a>, “in the handful of cases where [the model] misbehaves in significant ways, it’s difficult to safeguard it.” When the model cheats on a test, “it does so in extremely creative ways.”</p>
+<p>Anthropic is quick to note that “all of the most severe incidents” occurred with earlier, less-well-trained versions of Mythos Preview. Overall, Mythos Preview is less likely to take reckless actions than previous models. Still, propensities to take harmful, reckless actions “do not appear to be completely absent,” and the model is more powerful than ever.</p>
+<p>So if Anthropic struggles to contain its model, will other users be able to?</p>
+<p>Caution is warranted, according to Anthropic: “we are urging those external users with whom we are sharing the model not to deploy the model in settings where its reckless actions could lead to hard-to-reverse harms.” And remember, the model is only being made available to major companies and organizations. Presumably authorized users inside these companies will be cybersecurity experts.</p>
+<p>So perhaps Anthropic was worried that Mythos Preview would occasionally blow up in users’ faces if it was made widely available in its current form.</p>
+<p>I expect that over time, the software harnesses of these models will improve to the point where they can contain Mythos-level models. For example, Anthropic recently released “<a href="https://claude.com/blog/auto-mode">auto mode</a>” which automatically classifies whether a model’s command in Claude Code might have “potentially destructive” consequences. This lets developers take advantage of long-running safe tasks without having to manually approve a bunch of commands — or use “--dangerously-skip-permissions.”</p>
+<p>According to the Mythos Preview system card, “auto mode appears to substantially reduce the risk from behaviors along these lines.”</p>
+<p>Still, model capabilities seem likely to continue to increase quickly. It will be an open question whether better scaffold methods like auto mode can catch up quickly enough to make it safe to release future frontier models to average users.</p>
+<h1>Preventing the GPUs from melting</h1>
+<p>Another reason Anthropic may have chosen to delay release of Mythos Preview is more basic: Anthropic probably doesn’t have enough compute to release it widely.</p>
+<p>Several weeks ago, <a href="https://fortune.com/2026/03/26/anthropic-says-testing-mythos-powerful-new-ai-model-after-data-leak-reveals-its-existence-step-change-in-capabilities/?preview_id=4450088#38;utm_source=substack&amp;utm_medium=email">Fortune obtained</a> an <a href="https://m1astra-mythos.pages.dev/">early draft of a blog post</a> announcing the release of the model that became Mythos Preview. The post described Mythos as “a large, compute-intensive model” and said that it was “very expensive for us to serve, and will be very expensive for our customers to use.”<a data-component-name="FootnoteAnchorToDOM" href="#footnote-1-193633549" id="footnote-anchor-1-193633549"><sup> [1] </sup></a></p>
+<p>The few companies granted access to Mythos Preview have to pay correspondingly high prices: $25 per million input tokens and $125 per million output tokens. This is Anthropic’s most expensive model ever. For comparison, Claude Opus 4.6 costs $5 per million input tokens and $25 per million output tokens.</p>
+<p>Anthropic is already under severe compute constraints because of skyrocketing demand. Anthropic’s revenue run-rate has doubled in less than two months. On Monday, Anthropic <a href="https://www.anthropic.com/news/google-broadcom-partnership-compute">announced</a> that it had hit $30 billion in annualized revenue; in mid-February, that <a href="https://www.anthropic.com/news/anthropic-raises-30-billion-series-g-funding-380-billion-post-money-valuation">number</a> was $14 billion.</p>
+<p>Anthropic has responded to skyrocketing demand by <a href="https://x.com/trq212/status/2037254607001559305">reducing</a> usage limits during popular coding hours. The company has also <a href="https://www.anthropic.com/news/google-broadcom-partnership-compute">announced deals</a> for more AI compute.</p>
+<p>Even worse, Mythos Preview will likely be most popular for long-running autonomous tasks that eat up huge numbers of tokens. In the system card, Anthropic gave a qualitative assessment of Mythos Preview’s coding abilities. The company wrote that “we find that when used in an interactive, synchronous, ‘hands-on-keyboard’ pattern, the benefits of the model were less clear.” Developers “perceived Mythos Preview as too slow” when used in chat mode.</p>
+<p>In contrast, many Mythos Preview testers described “being able to ‘set and forget’ on many-hour tasks for the first time.” While this arguably makes Mythos Preview more useful for software developers, it definitely increases the amount of compute necessary to serve the model to everyone.</p>
+<p>I wonder if Anthropic is trying to reset expectations around availability and will never have Mythos Preview be part of existing subscription plans. The chatbot subscription model started when LLMs generally used few tokens to generate a response. With long reasoning chains and expensive LLMs, that model starts to break down. By not releasing Mythos Preview generally at first, Anthropic can also more carefully manage demand over the rollout — and has more leverage about its pricing structure.</p>
+<p>In any case, demand for leading AI models seems likely to continue to grow dramatically faster than the ability for companies to meet this demand with their computational resources.</p>
+<h1>Protecting a lead?</h1>
+<p>I also wonder if Mythos Preview is a first step toward a world where Anthropic tends to reserve its best models for internal use.</p>
+<p>Every time a frontier developer releases a model, it gives information to its competitors about the model’s capabilities. For instance, when OpenAI released the first <a href="https://www.understandingai.org/p/openai-just-unleashed-an-alien-of">reasoning model o1</a>, competitors were able to copy the key insights within months.</p>
+<p>So if Anthropic can get away with it, it has an incentive to prevent its competitors from being able to access Mythos Preview for as long as it can.<a data-component-name="FootnoteAnchorToDOM" href="#footnote-2-193633549" id="footnote-anchor-2-193633549"><sup> [2] </sup></a></p>
+<p>Anthropic has shown the tendency already to try to prevent competitors from taking advantage of Claude’s capabilities. Over the past year, it has blocked Claude Code access at both <a href="https://www.wired.com/story/anthropic-revokes-openais-access-to-claude/">OpenAI</a> and <a href="https://x.com/kyliebytes/status/2009686466746822731">xAI</a> for violating Claude’s Terms of Service, which include prohibitions on using the models to train other AI models.</p>
+<p>In 2024, Anthropic was only releasing smaller Sonnet models while <a href="https://newsletter.semianalysis.com/p/scaling-laws-o1-pro-architecture-reasoning-training-infrastructure-orion-and-claude-3-5-opus-failures">reportedly</a> reserving the more powerful — and expensive — Opus models for internal use. However, as time progressed, Anthropic started releasing the Opus models again, perhaps to be competitive with OpenAI’s o3 model.</p>
+<p>But Anthropic has been on a winning streak. Claude Code took off and for the first time ever, Anthropic’s reported revenue rate is higher than OpenAI’s. Anthropic’s decision to only partially release its latest model might be an indication that Anthropic feels it has a lead over OpenAI.</p>
+<p>If this continues, we might see more cautious releases in the future. In an appendix to its <a href="https://www-cdn.anthropic.com/files/4zrzovbb/website/bf04581e4f329735fd90634f6a1962c13c0bd351.pdf">Responsible Scaling Policy</a>, Anthropic notes that if no other company has released a model with “significant capabilities,” then it will delay its release of a model with significant capabilities until either it has a strong argument to proceed with deployment or it loses the lead.</p>
+<p>We’ll soon get to see how long Anthropic’s lead lasts. There are <a href="https://x.com/AndrewCurran_/status/2041872162353770982">rumors</a> that OpenAI’s next model — codenamed <a href="https://www.theinformation.com/articles/openai-ceo-shifts-responsibilities-preps-spud-ai-model">Spud</a> — might come out very soon, perhaps this month.</p>
+<p><a href="#footnote-anchor-1-193633549" id="footnote-1-193633549">1 [find in text]</a></p>
+<p>I wasn’t able to independently verify whether the copy of this blog post was in fact the one leaked on Anthropic systems. (Fortune did not release a full copy of the leaked blog post.) However, Fortune’s write-up of the leaked blog post described the future model in similar language.</p>
+<p><a href="#footnote-anchor-2-193633549" id="footnote-2-193633549">2 [find in text]</a></p>
+<p>Ironically, AI rivals like Google and Microsoft are Project Glasswing members, so Anthropic can’t completely prevent rival companies from gaining access to the model. But Mythos Preview’s system card is clear that access to Mythos Preview through Project Glasswing is “under terms that restrict its uses to cybersecurity.”</p>
+<h4>Subscribe to Understanding AI</h4>
+<p>Thousands of paid subscribers</p>
+<p>Exploring how AI works and how it's changing our world.</p>
+<p>By subscribing, you agree Substack's <a href="https://substack.com/tos">Terms of Use</a>, and acknowledge its <a href="https://substack.com/ccpa#personal-data-collected">Information Collection Notice</a> and <a href="https://substack.com/privacy">Privacy Policy</a>.</p></div>
+      
+    </article>
+    
+    <article>
+      <h1>Wisereads Vol. 138 — The Book of Delights by Ross Gay, the cost of outsourcing curiosity, and more</h1>
+      <div class="article-meta">
+        hello@readwise.io (Readwise)
+        · 12 Apr 2026 · <a href="https://wise.readwise.io/issues/wisereads-vol-138/">Source</a>
+      </div>
+      <div class="article-body"><p>Last week, we shared a preview of <em>David and Goliath</em> by Malcolm Gladwell. This week, we’re sharing a preview of <em>The Book of Delights</em> by Ross Gay, a collection of essays that look for the wonder in everyday life<em>.</em></p>
+<p>Keep reading to add to your Reader account below 👇</p>
+<h2>Most highlighted Articles of the week</h2>
+<figure class="article-figure"><a href="https://ergosphere.blog/posts/the-machines-are-fine/"><img alt="None" src="https://readwise-assets.s3.amazonaws.com/media/wisereads/articles/the-machines-are-fine-i-m-worr/cover_image.jpeg" class="article-image"/></a></figure>
+<h3> <a href="https://ergosphere.blog/posts/the-machines-are-fine/">The machines are fine. I'm worried about us.</a> </h3>
+<p>Minas Karamanis · ergosphere.blog</p>
+<p>Researcher Minas Karamanis illustrates how AI outsourcing quietly erodes the learning that credentials cannot measure. "We have built an entire evaluation system around counting things that can be counted, and it turns out that what actually matters is the one thing that can't be."</p>
+<figure class="article-figure"><a href="https://lalitm.com/post/building-syntaqlite-ai/"><img alt="None" src="https://readwise-assets.s3.amazonaws.com/media/wisereads/articles/eight-years-of-wanting-three-m/cover_image_HhyMMzG.jpeg" class="article-image"/></a></figure>
+<h3> <a href="https://lalitm.com/post/building-syntaqlite-ai/">Eight years of wanting, three months of building with AI</a> </h3>
+<p>Lalit Maganti · Lalit Maganti</p>
+<p>Google engineer Lalit Maganti shares what actually works in AI-assisted development, from eight years of false starts. "The takeaway for me is simple: AI is an incredible force multiplier for implementation, but it’s a dangerous substitute for design."</p>
+<figure class="article-figure"><a href="https://newyorker.com/magazine/2026/04/13/sam-altman-may-control-our-future-can-he-be-trusted/"><img alt="None" src="https://readwise-assets.s3.amazonaws.com/media/wisereads/articles/sam-altman-may-control-our-fut/cover_image_u7nyPgo.jpg" class="article-image"/></a></figure>
+<h3> <a href="https://newyorker.com/magazine/2026/04/13/sam-altman-may-control-our-future-can-he-be-trusted/">Sam Altman May Control Our Future—Can He Be Trusted?</a> </h3>
+<p>Ronan Farrow and Andrew Marantz · The New Yorker</p>
+<p>In a deeply reported New Yorker piece, Ronan Farrow and Andrew Marantz scrutinize whether Sam Altman is a trustworthy steward for AGI, drawing on insider accounts from OpenAI’s tumultuous past year. "Even people close to Altman find it difficult to know where his 'hope for humanity' ends and his ambition begins. His greatest strength has always been his ability to convince disparate groups that what he wants and what they need are one and the same."</p>
+<h2>Most highlighted YouTube Video of the week</h2>
+<figure class="article-figure"><a href="https://youtube.com/watch/?v=HjWESsnoU6g"><img alt="None" src="https://readwise-assets.s3.amazonaws.com/media/wisereads/articles/can-ai-actually-organize-your-/cover_image_5dJlf8n.jpg" class="article-image"/></a></figure>
+<h3> <a href="https://youtube.com/watch/?v=HjWESsnoU6g">Can AI Actually Organize Your Files? (Claude Code + PARA)</a> </h3>
+<p>Tiago Forte</p>
+<p>Bestselling author Tiago Forte tests Claude Code's ability to organize files using the PARA productivity method he developed. "You can't just give them access to the entire file system. So you have to pick and choose which little bits of context, which folders you are going to make available to the AI. But then that raises the question, how are you going to organize that file system?"</p>
+<h2>Most highlighted Twitter Thread of the week</h2>
+<figure class="article-figure"><a href="https://x.com/karpathy/status/2039805659525644595/?rw_tt_thread=True"><img alt="None" src="https://readwise-assets.s3.amazonaws.com/media/wisereads/articles/llm-knowledge-bases/cover_image_Pku3Yys.jpg" class="article-image"/></a></figure>
+<h3> <a href="https://x.com/karpathy/status/2039805659525644595/?rw_tt_thread=True">LLM Knowledge Bases</a> </h3>
+<p>Andrej Karpathy</p>
+<p>OpenAI co-founder Andrej Karpathy outlines a hands-on workflow for building a personal research wiki that an LLM maintains, queries, and continually improves. "Where things get interesting is that once your wiki is big enough ... you can ask your LLM agent all kinds of complex questions against the wiki, and it will go off, research the answers, etc."</p>
+<h2>Most highlighted PDF of the week</h2>
+<h3> <a href="https://readwise-assets.s3.amazonaws.com/media/wisereads/articles/industrial-policy-for-the-inte/Industrial_Policy_for_the_Intelligence_Age.pdf">Industrial Policy For The Intelligence Age: Ideas To Keep People First</a> </h3>
+<p>OpenAI</p>
+<p>OpenAI sketches a policy blueprint for the transition to superintelligence, arguing for democratic governance, broad access, worker voice, and strong safeguards. "The transition to superintelligence is not a distant possibility—it's already underway, and the choices we make in the near term will shape how its benefits and risks are distributed for decades to come."</p>
+<h2>Hand-picked book of the week</h2>
+<figure class="article-figure"><a href="https://readwise.io/reader/fd/443098030"><img alt="None" src="https://readwise-assets.s3.amazonaws.com/media/wisereads/articles/the-book-of-delights/cover_image.jpg" class="article-image"/></a></figure>
+<h3> <a href="https://readwise.io/reader/fd/443098030">The Book of Delights</a> </h3>
+<p>Ross Gay</p>
+<p>Award-winning poet Ross Gay spends a year noticing small joys, from sidewalks to gardens, to show how attention can reorient a life. In brief, luminous entries, he blends tenderness, humor, and grief, inviting readers to practice delight as a daily ritual.</p>
+<p>"The discipline or practice of writing these essays occasioned a kind of delight radar. Or maybe it was more like the development of a delight muscle. Something that implies that the more you study delight, the more delight there is to study."</p>
+<p>If you enjoy the preview, you can grab <a href="https://a.co/d/0cYjHHuW">the full ebook</a> wherever ebooks are sold in the US and Canada for $2.99 through the end of April.</p>
+<h2>Handpicked RSS feed of the week</h2>
+<figure class="article-figure"><a href="https://fictionmatters.substack.com/feed/"><img alt="None" src="https://readwise-assets.s3.amazonaws.com/media/wisereads/articles/fiction-matters/cover_image.webp" class="article-image"/></a></figure>
+<h3> <a href="https://fictionmatters.substack.com/feed/">Fiction Matters</a> </h3>
+<p>Sara Hildreth writes Fiction Matters, a Substack about books, reading habits, and what it means to write well. From <a href="https://wise.readwise.io/save?url=https://fictionmatters.substack.com/p/reading-in-public-no-96-is-ai-changing">Reading in Public No. 96: Is AI changing how we define what it means to write?</a>: "Whether you hate the writing process or love it, whether you draft beautifully worded creative fiction or helpful advice for your readers, if you show up, think through the ideas, and struggle through the language, you are a writer. Defining yourself as such allows you to hold onto what only you can do as a human. Because the world doesn’t need more generated text. It doesn’t need more content created. It needs your humanity."</p></div>
+      
+    </article>
+    
+    <article>
+      <h1>Brain Food: Pressure is a Privilege</h1>
+      <div class="article-meta">
+        Shane Parrish (FS)
+        · 12 Apr 2026 · <a href="mailto:reader-forwarded-email/9a40a2b60bce636b9373933bf14d485c">Source</a>
+      </div>
+      <div class="article-body"><div class="rw-email-parsed">
+ <h1 style="font-family:Georgia, &quot;Times New Roman&quot;, serif;color:#111;line-height:1.6em;font-family:Europa, &#x27;Sofia Pro&#x27;, Helvetica, serif;line-height:1.4;padding-bottom:12px;margin:24px 0 0;font-weight:bold;margin-bottom:16px;color:#0;font-family:Europa, Helvetica, serif;font-size:24px;line-height:1.25;text-align:center;margin:0;padding:16px 0 5px;border-bottom:none">
+  FS | BRAIN FOOD
+ </h1>
+ <p style="font-family:Georgia, &quot;Times New Roman&quot;, serif;color:#111;line-height:1.6em;font-size:18px;line-height:1.5">
+  <em style="font-family:Georgia, &quot;Times New Roman&quot;, serif;color:#111;line-height:1.6em;font-family:Georgia, &#x27;Times New Roman&#x27;, serif;font-size:18px">
+   April 12th, 2026 - #676 -
+   <a href="https://a4d65a79.click.convertkit-mail4.com/5quezv37zxh7hn2m4nva6h9x4dxlxsnhro8w/vqh3hrho06l34gbg/aHR0cHM6Ly9mcy5ibG9nL2JyYWluLWZvb2QvYXByaWwtMTItMjAyNi8=" style="font-family:Georgia, &quot;Times New Roman&quot;, serif;color:#111;line-height:1.6em;color:#0875c1;text-decoration:underline" target="_blank" url-id="1846861139">
+    read online
+   </a>
+   - 
+   Free Version
+  </em>
+ </p>
+ <p style="font-family:Georgia, &quot;Times New Roman&quot;, serif;color:#111;line-height:1.6em;font-size:18px;line-height:1.5">
+  Welcome to Brain Food, your weekly signal in a world full of noise.
+ </p>
+ <p style="font-family:Georgia, &quot;Times New Roman&quot;, serif;color:#111;line-height:1.6em;font-size:18px;line-height:1.5">
+  Tiny Thoughts
+ </p>
+ <p style="font-family:Georgia, &quot;Times New Roman&quot;, serif;color:#111;line-height:1.6em;font-size:18px;line-height:1.5;text-align: center;">
+  *
+ </p>
+ <p style="font-family:Georgia, &quot;Times New Roman&quot;, serif;color:#111;line-height:1.6em;font-size:18px;line-height:1.5">
+  Most ambition is just unresolved pain.
+ </p>
+ <p style="font-family:Georgia, &quot;Times New Roman&quot;, serif;color:#111;line-height:1.6em;font-size:18px;line-height:1.5;text-align: center;">
+  **
+ </p>
+ <p style="font-family:Georgia, &quot;Times New Roman&quot;, serif;color:#111;line-height:1.6em;font-size:18px;line-height:1.5">
+  A lot of people practice what's fun, but the very best practice what no one wants to.
+  <br style="font-family:Georgia, &quot;Times New Roman&quot;, serif;color:#111;line-height:1.6em"/>
+ </p>
+ <p style="font-family:Georgia, &quot;Times New Roman&quot;, serif;color:#111;line-height:1.6em;font-size:18px;line-height:1.5;text-align: center;">
+  ***
+ </p>
+ <p style="font-family:Georgia, &quot;Times New Roman&quot;, serif;color:#111;line-height:1.6em;font-size:18px;line-height:1.5">
+  Pressure feels like a threat, but it's not.
+ </p>
+ <p style="font-family:Georgia, &quot;Times New Roman&quot;, serif;color:#111;line-height:1.6em;font-size:18px;line-height:1.5">
+  You feel pressure when your decisions matter, and people depend on you. It can feel uncomfortable at times, but it's also a privilege. When no one relies on you — when no one expects something from you — you're irrelevant.
+ </p>
+ <p style="font-family:Georgia, &quot;Times New Roman&quot;, serif;color:#111;line-height:1.6em;font-size:18px;line-height:1.5">
+  Pressure is a privilege.
+  <br style="font-family:Georgia, &quot;Times New Roman&quot;, serif;color:#111;line-height:1.6em"/>
+ </p>
+ <h2 style="font-family:Georgia, &quot;Times New Roman&quot;, serif;color:#111;line-height:1.6em;font-family:Europa, &#x27;Sofia Pro&#x27;, Helvetica, serif;line-height:1.4;padding-bottom:12px;margin:24px 0 0;font-weight:bold;font-size:24px;margin-bottom:16px">
+  Insights
+ </h2>
+ <p style="font-family:Georgia, &quot;Times New Roman&quot;, serif;color:#111;line-height:1.6em;font-size:18px;line-height:1.5;text-align: center;">
+  *
+ </p>
+ <p style="font-family:Georgia, &quot;Times New Roman&quot;, serif;color:#111;line-height:1.6em;font-size:18px;line-height:1.5">
+  Writer Alice Rollins on what makes something beautiful:
+ </p>
+ <p style="font-family:Georgia, &quot;Times New Roman&quot;, serif;color:#111;line-height:1.6em;font-size:18px;line-height:1.5">
+  <em style="font-family:Georgia, &quot;Times New Roman&quot;, serif;color:#111;line-height:1.6em;font-family:Georgia, &#x27;Times New Roman&#x27;, serif;font-size:18px">
+   “
+   <i style="font-family:Georgia, &quot;Times New Roman&quot;, serif;color:#111;line-height:1.6em;font-family:Georgia, &#x27;Times New Roman&#x27;, serif;font-size:18px">
+    The test of beauty is not that it is perfect, but that it always attracts.
+    <em style="font-family:Georgia, &quot;Times New Roman&quot;, serif;color:#111;line-height:1.6em;font-family:Georgia, &#x27;Times New Roman&#x27;, serif;font-size:18px">
+     ”
+    </em>
+   </i>
+  </em>
+ </p>
+ <p style="font-family:Georgia, &quot;Times New Roman&quot;, serif;color:#111;line-height:1.6em;font-size:18px;line-height:1.5;text-align: center;">
+  **
+ </p>
+ <p style="font-family:Georgia, &quot;Times New Roman&quot;, serif;color:#111;line-height:1.6em;font-size:18px;line-height:1.5">
+  An ancient Chinese proverb reminds us to keep our eyes on the horizon:
+ </p>
+ <p style="font-family:Georgia, &quot;Times New Roman&quot;, serif;color:#111;line-height:1.6em;font-size:18px;line-height:1.5">
+  <em style="font-family:Georgia, &quot;Times New Roman&quot;, serif;color:#111;line-height:1.6em;font-family:Georgia, &#x27;Times New Roman&#x27;, serif;font-size:18px">
+   “To get through the hardest journey, we need take only one step at a time, but we must keep on stepping.
+  </em>
+  <em style="font-family:Georgia, &quot;Times New Roman&quot;, serif;color:#111;line-height:1.6em;font-family:Georgia, &#x27;Times New Roman&#x27;, serif;font-size:18px">
+   ”
+  </em>
+ </p>
+ <p style="font-family:Georgia, &quot;Times New Roman&quot;, serif;color:#111;line-height:1.6em;font-size:18px;line-height:1.5;text-align: center;">
+  ***
+ </p>
+ <p style="font-family:Georgia, &quot;Times New Roman&quot;, serif;color:#111;line-height:1.6em;font-size:18px;line-height:1.5">
+  Entrepreneur Andrew Anabi on cherishing life:
+ </p>
+ <p style="font-family:Georgia, &quot;Times New Roman&quot;, serif;color:#111;line-height:1.6em;font-size:18px;line-height:1.5">
+  <em style="font-family:Georgia, &quot;Times New Roman&quot;, serif;color:#111;line-height:1.6em;font-family:Georgia, &#x27;Times New Roman&#x27;, serif;font-size:18px">
+   “The best way to cherish life is to remind yourself of life's impermanence. It is to remember that every time you see someone that is one less time you see them. It is to remember that everytime you go somewhere that is one less time you visit. By doing this, you naturally slow down. Almost like a reflex, you start to truly live.
+   <em style="font-family:Georgia, &quot;Times New Roman&quot;, serif;color:#111;line-height:1.6em;font-family:Georgia, &#x27;Times New Roman&#x27;, serif;font-size:18px">
+    ”
+   </em>
+  </em>
+ </p>
+ <h2 style="font-family:Georgia, &quot;Times New Roman&quot;, serif;color:#111;line-height:1.6em;font-family:Europa, &#x27;Sofia Pro&#x27;, Helvetica, serif;line-height:1.4;padding-bottom:12px;margin:24px 0 0;font-weight:bold;font-size:24px;margin-bottom:16px">
+  The Knowledge Project
+ </h2>
+ <p style="font-family:Georgia, &quot;Times New Roman&quot;, serif;color:#111;line-height:1.6em;font-size:18px;line-height:1.5">
+  No episode this week as I revamp outliers a bit.
+ </p>
+ <p style="font-family:Georgia, &quot;Times New Roman&quot;, serif;color:#111;line-height:1.6em;font-size:18px;line-height:1.5">
+  Here are some of the recent interviews you might have missed.
+ </p>
+ <ul style="font-family:Georgia, &quot;Times New Roman&quot;, serif;color:#111;line-height:1.6em">
+  <li style="font-family:Georgia, &quot;Times New Roman&quot;, serif;color:#111;font-size:18px;line-height:1.6em">
+   America's top principal on why
+   <strong style="color:#111;line-height:1.6em;font-family:Georgia, &quot;Times New Roman&quot;, serif;font-weight:bold">
+    the future of education is better than you think
+   </strong>
+   (but it might not involve teachers). This is a must-listen for parents -
+   <a href="https://a4d65a79.click.convertkit-mail4.com/5quezv37zxh7hn2m4nva6h9x4dxlxsnhro8w/l2hehmhl2pev4wh6/aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g_dj1CUmNWRGhPa2lqNA==" style="font-family:Georgia, &quot;Times New Roman&quot;, serif;color:#111;line-height:1.6em;color:#0875c1;text-decoration:underline" url-id="1846861140">
+    YouTube
+   </a>
+   |
+   <a href="https://a4d65a79.click.convertkit-mail4.com/5quezv37zxh7hn2m4nva6h9x4dxlxsnhro8w/m2h7h5h35xv092tm/aHR0cHM6Ly9vcGVuLnNwb3RpZnkuY29tL2VwaXNvZGUvMExZRklXcDVFS0x5OWh2SjlRWlRnRw==" style="font-family:Georgia, &quot;Times New Roman&quot;, serif;color:#111;line-height:1.6em;color:#0875c1;text-decoration:underline" url-id="1846861141">
+    Spotify
+   </a>
+   |
+   <a href="https://a4d65a79.click.convertkit-mail4.com/5quezv37zxh7hn2m4nva6h9x4dxlxsnhro8w/dpheh0he6xvwkvtm/aHR0cHM6Ly9wb2RjYXN0cy5hcHBsZS5jb20vdXMvcG9kY2FzdC9qb2UtbGllbWFuZHQtYWxwaGEtc2Nob29sLWFuZC10aGUtZnV0dXJlLW9mLWVkdWNhdGlvbi9pZDk5MDE0OTQ4MT9pPTEwMDA3NTg0MDE0MDg=" style="font-family:Georgia, &quot;Times New Roman&quot;, serif;color:#111;line-height:1.6em;color:#0875c1;text-decoration:underline" url-id="1846861142">
+    Apple
+   </a>
+  </li>
+  <li style="font-family:Georgia, &quot;Times New Roman&quot;, serif;color:#111;font-size:18px;line-height:1.6em">
+   At 38, he
+   <strong style="color:#111;line-height:1.6em;font-family:Georgia, &quot;Times New Roman&quot;, serif;font-weight:bold">
+    manages over 1 trillion
+   </strong>
+   , and he's never done a podcast before -
+   <a href="https://a4d65a79.click.convertkit-mail4.com/5quezv37zxh7hn2m4nva6h9x4dxlxsnhro8w/e0hph7h7vz6wevi8/aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g_dj14U3dIWGpIOE9nNA==" style="font-family:Georgia, &quot;Times New Roman&quot;, serif;color:#111;line-height:1.6em;color:#0875c1;text-decoration:underline" url-id="1846861143">
+    YouTube
+   </a>
+   |
+   <a href="https://a4d65a79.click.convertkit-mail4.com/5quezv37zxh7hn2m4nva6h9x4dxlxsnhro8w/7qh7h8h9leqp85tz/aHR0cHM6Ly9vcGVuLnNwb3RpZnkuY29tL2VwaXNvZGUvMnJ4a2x4QlNVdDNQSVVSc1lGM2tEdD9zaT1MS1FNT2ktTlFRMi1oMmY0eEVoOE9R" style="font-family:Georgia, &quot;Times New Roman&quot;, serif;color:#111;line-height:1.6em;color:#0875c1;text-decoration:underline" url-id="1846861144">
+    Spotify
+   </a>
+   |
+   <a href="https://a4d65a79.click.convertkit-mail4.com/5quezv37zxh7hn2m4nva6h9x4dxlxsnhro8w/owhkhqhw9eplnvtv/aHR0cHM6Ly9wb2RjYXN0cy5hcHBsZS5jb20vdXMvcG9kY2FzdC9jb25ub3ItdGVza2V5LWluc2lkZS1icm9va2ZpZWxkcy1jdWx0dXJlLWNhcGl0YWwtYWxsb2NhdGlvbi9pZDk5MDE0OTQ4MT9pPTEwMDA3NTU3NDA0ODM=" style="font-family:Georgia, &quot;Times New Roman&quot;, serif;color:#111;line-height:1.6em;color:#0875c1;text-decoration:underline" url-id="1846861145">
+    Apple
+   </a>
+  </li>
+  <li style="font-family:Georgia, &quot;Times New Roman&quot;, serif;color:#111;font-size:18px;line-height:1.6em">
+   The two trillion dollar mind on
+   <strong style="color:#111;line-height:1.6em;font-family:Georgia, &quot;Times New Roman&quot;, serif;font-weight:bold">
+    AI bubbles &amp; contrarian investing -
+   </strong>
+   <a href="https://a4d65a79.click.convertkit-mail4.com/5quezv37zxh7hn2m4nva6h9x4dxlxsnhro8w/z2hghnhe6znr72bp/aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g_dj16eXZ1TTNKOVFxUQ==" style="font-family:Georgia, &quot;Times New Roman&quot;, serif;color:#111;line-height:1.6em;color:#0875c1;text-decoration:underline" url-id="1846861146">
+    YouTube
+   </a>
+   |
+   <a href="https://a4d65a79.click.convertkit-mail4.com/5quezv37zxh7hn2m4nva6h9x4dxlxsnhro8w/p8heh9h46em5dncq/aHR0cHM6Ly9vcGVuLnNwb3RpZnkuY29tL2VwaXNvZGUvMFc5MWg1TDRyYmd4U0k5bU5KZXJ2cw==" style="font-family:Georgia, &quot;Times New Roman&quot;, serif;color:#111;line-height:1.6em;color:#0875c1;text-decoration:underline" url-id="1846861147">
+    Spotify
+   </a>
+   |
+   <a href="https://a4d65a79.click.convertkit-mail4.com/5quezv37zxh7hn2m4nva6h9x4dxlxsnhro8w/x0hph6he2modzqu5/aHR0cHM6Ly9wb2RjYXN0cy5hcHBsZS5jb20vdXMvcG9kY2FzdC9uaWNvbGFpLXRhbmdlbi10aGUtJTI0Mi10cmlsbGlvbi1taW5kL2lkOTkwMTQ5NDgxP2k9MTAwMDc1MDEzOTY3NQ==" style="font-family:Georgia, &quot;Times New Roman&quot;, serif;color:#111;line-height:1.6em;color:#0875c1;text-decoration:underline" url-id="1846861148">
+    Apple
+   </a>
+  </li>
+  <li style="font-family:Georgia, &quot;Times New Roman&quot;, serif;color:#111;font-size:18px;line-height:1.6em">
+   The most feared person in Hollywood (and newly proposed chair of Universal Music Group) -
+   <a href="https://a4d65a79.click.convertkit-mail4.com/5quezv37zxh7hn2m4nva6h9x4dxlxsnhro8w/kkhmh6hnwpr2epfl/aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g_dj1XcDFXbjZRa2tLVQ==" style="font-family:Georgia, &quot;Times New Roman&quot;, serif;color:#111;line-height:1.6em;color:#0875c1;text-decoration:underline" url-id="1846861150">
+    YouTube
+   </a>
+  </li>
+  <li style="font-family:Georgia, &quot;Times New Roman&quot;, serif;color:#111;font-size:18px;line-height:1.6em">
+   Morgan Housel on
+   <strong style="color:#111;line-height:1.6em;font-family:Georgia, &quot;Times New Roman&quot;, serif;font-weight:bold">
+    the wealth secrets no one tells you -
+   </strong>
+   <a href="https://a4d65a79.click.convertkit-mail4.com/5quezv37zxh7hn2m4nva6h9x4dxlxsnhro8w/58hvh7hgxwqo0ea6/aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g_dj1OV1paRWE5QlVSdw==" style="font-family:Georgia, &quot;Times New Roman&quot;, serif;color:#111;line-height:1.6em;color:#0875c1;text-decoration:underline" url-id="1846861151">
+    YouTube
+   </a>
+  </li>
+  <li style="font-family:Georgia, &quot;Times New Roman&quot;, serif;color:#111;font-size:18px;line-height:1.6em">
+   James Clear on
+   <strong style="color:#111;line-height:1.6em;font-family:Georgia, &quot;Times New Roman&quot;, serif;font-weight:bold">
+    the one habit that matters most -
+   </strong>
+   <a href="https://a4d65a79.click.convertkit-mail4.com/5quezv37zxh7hn2m4nva6h9x4dxlxsnhro8w/25h2hoh39x600rs3/aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g_dj16Q2hpVmRiU3A1TQ==" style="font-family:Georgia, &quot;Times New Roman&quot;, serif;color:#111;line-height:1.6em;color:#0875c1;text-decoration:underline" url-id="1846861152">
+    YouTube
+   </a>
+  </li>
+ </ul>
+ <p style="font-family:Georgia, &quot;Times New Roman&quot;, serif;color:#111;line-height:1.6em;font-size:18px;line-height:1.5">
+  We're booking Q3
+  <a href="https://a4d65a79.click.convertkit-mail4.com/5quezv37zxh7hn2m4nva6h9x4dxlxsnhro8w/qvh8h7hdw3z227il/aHR0cHM6Ly9mcy5ibG9nL3Nwb25zb3Iv" style="font-family:Georgia, &quot;Times New Roman&quot;, serif;color:#111;line-height:1.6em;color:#0875c1;text-decoration:underline" url-id="1846861153">
+   sponsors
+  </a>
+  now.
+ </p>
+ <h2 style="font-family:Georgia, &quot;Times New Roman&quot;, serif;color:#111;line-height:1.6em;font-family:Europa, &#x27;Sofia Pro&#x27;, Helvetica, serif;line-height:1.4;padding-bottom:12px;margin:24px 0 0;font-weight:bold;font-size:24px;margin-bottom:16px">
+  SPONSOR
+ </h2>
+ <p style="font-family:Georgia, &quot;Times New Roman&quot;, serif;color:#111;line-height:1.6em;font-size:18px;line-height:1.5">
+  <a href="https://a4d65a79.click.convertkit-mail4.com/5quezv37zxh7hn2m4nva6h9x4dxlxsnhro8w/g3hnh5hm92roolur/aHR0cHM6Ly9kcmlua2xtbnQuY29tL0Zhcm5hbVN0cmVldA==" style="font-family:Georgia, &quot;Times New Roman&quot;, serif;color:#111;line-height:1.6em;color:#0875c1;text-decoration:underline" url-id="1846861154">
+   <img alt="" src="https://embed.filekitcdn.com/e/hQ3qu8vsrj2BCeYu74inyE/3xvPDJv525Gd8JCdm2LdXm?w=800&amp;fit=max" style="font-family:Georgia, &quot;Times New Roman&quot;, serif;color:#111;line-height:1.6em;max-width:550px;max-width:100%;display:block;height:auto;margin:0 auto;display: block; margin: auto;" class="article-image"/>
+  </a>
+ </p>
+ <p style="font-family:Georgia, &quot;Times New Roman&quot;, serif;color:#111;line-height:1.6em;font-size:18px;line-height:1.5">
+  <em style="font-family:Georgia, &quot;Times New Roman&quot;, serif;color:#111;line-height:1.6em;font-family:Georgia, &#x27;Times New Roman&#x27;, serif;font-size:18px">
+   Stay hydrated this spring without the sugar, food dye, and other dodgy ingredients found in popular electrolyte and sports drinks. LMNT is a science-backed, zero-sugar electrolyte drink mix that supports active hydration and a healthy lifestyle. I love this stuff and drink it every day.
+   <strong style="color:#111;line-height:1.6em;font-family:Georgia, &quot;Times New Roman&quot;, serif;font-weight:bold">
+    LMNT came up with a fantastic offer for Brain Food Readers.
+   </strong>
+   Visit
+   <a href="https://a4d65a79.click.convertkit-mail4.com/5quezv37zxh7hn2m4nva6h9x4dxlxsnhro8w/g3hnh5hm92roolur/aHR0cHM6Ly9kcmlua2xtbnQuY29tL0Zhcm5hbVN0cmVldA==" style="font-family:Georgia, &quot;Times New Roman&quot;, serif;color:#111;line-height:1.6em;color:#0875c1;text-decoration:underline" url-id="1846861154">
+    https://drinklmnt.com/FarnamStreet
+   </a>
+   for a free sample pack with any drink mix purchase!
+  </em>
+ </p>
+ <p style="font-family:Georgia, &quot;Times New Roman&quot;, serif;color:#111;line-height:1.6em;font-size:18px;line-height:1.5">
+  Thanks for reading. I'll see you next week.
+ </p>
+ <p style="font-family:Georgia, &quot;Times New Roman&quot;, serif;color:#111;line-height:1.6em;font-size:18px;line-height:1.5">
+  — Shane Parrish
+  <br style="font-family:Georgia, &quot;Times New Roman&quot;, serif;color:#111;line-height:1.6em"/>
+ </p>
+ <p style="font-family:Georgia, &quot;Times New Roman&quot;, serif;color:#111;line-height:1.6em;font-size:18px;line-height:1.5">
+  <em style="font-family:Georgia, &quot;Times New Roman&quot;, serif;color:#111;line-height:1.6em;font-family:Georgia, &#x27;Times New Roman&#x27;, serif;font-size:18px">
+   P.S. This is an
+   <a href="https://a4d65a79.click.convertkit-mail4.com/5quezv37zxh7hn2m4nva6h9x4dxlxsnhro8w/9qhzhnhdw8033xt9/aHR0cHM6Ly94LmNvbS9pdHNtZV91cnN0cnVseS9zdGF0dXMvMjAzMTAxMTg4ODU5NTg5ODUwNT9zPTUxJnQ9emZSUDdqQ3NveDYzRUpfMzhjU2g4UQ==" style="font-family:Georgia, &quot;Times New Roman&quot;, serif;color:#111;line-height:1.6em;color:#0875c1;text-decoration:underline" url-id="1846861155">
+    insane level of skill
+   </a>
+   .
+  </em>
+ </p>
+ <p style="font-family:Georgia, &quot;Times New Roman&quot;, serif;color:#111;line-height:1.6em;font-size:18px;line-height:1.5">
+  <em style="font-family:Georgia, &quot;Times New Roman&quot;, serif;color:#111;line-height:1.6em;font-family:Georgia, &#x27;Times New Roman&#x27;, serif;font-size:18px">
+   P.P.S. This is
+   <a href="https://a4d65a79.click.convertkit-mail4.com/5quezv37zxh7hn2m4nva6h9x4dxlxsnhro8w/3ohphkh3m80999ur/aHR0cHM6Ly93d3cuYW1hem9uLmNvbS9HcmVhdC1NZW50YWwtTW9kZWxzLUJveGVkLVNldC9kcC9CMEY1VjdOSjc4Lw==" style="font-family:Georgia, &quot;Times New Roman&quot;, serif;color:#111;line-height:1.6em;color:#0875c1;text-decoration:underline" url-id="1846861156">
+    the perfect gift for high school and college grads
+   </a>
+   .
+  </em>
+ </p>
+ <p style="font-family:Georgia, &quot;Times New Roman&quot;, serif;color:#111;line-height:1.6em;font-size:18px;line-height:1.5">
+  <em style="font-family:Georgia, &quot;Times New Roman&quot;, serif;color:#111;line-height:1.6em;font-family:Georgia, &#x27;Times New Roman&#x27;, serif;font-size:18px">
+   P.P.P.S. I don't do many interviews, but I did one on
+   <a href="https://a4d65a79.click.convertkit-mail4.com/5quezv37zxh7hn2m4nva6h9x4dxlxsnhro8w/n2hohvhvq4m55ks6/aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g_dj1IUTBBV3hyM05rUQ==" style="font-family:Georgia, &quot;Times New Roman&quot;, serif;color:#111;line-height:1.6em;color:#0875c1;text-decoration:underline" url-id="1846861157">
+    Japanese TV
+   </a>
+   while I was there in March. They put a lot of makeup on me. lol.
+  </em>
+ </p>
+ <p style="font-family:Georgia, &quot;Times New Roman&quot;, serif;color:#111;line-height:1.6em;font-size:18px;line-height:1.5">
+  <em style="font-family:Georgia, &quot;Times New Roman&quot;, serif;color:#111;line-height:1.6em;font-family:Georgia, &#x27;Times New Roman&#x27;, serif;font-size:18px">
+   Want to share this edition with a friend? Use this link:
+   <a href="https://a4d65a79.click.convertkit-mail4.com/5quezv37zxh7hn2m4nva6h9x4dxlxsnhro8w/vqh3hrho06l34gbg/aHR0cHM6Ly9mcy5ibG9nL2JyYWluLWZvb2QvYXByaWwtMTItMjAyNi8=" style="font-family:Georgia, &quot;Times New Roman&quot;, serif;color:#111;line-height:1.6em;color:#0875c1;text-decoration:underline" url-id="1846861139">
+    https://fs.blog/brain-food/april-12-2026/
+   </a>
+  </em>
+ </p>
+ <h2 style="font-family:Georgia, &quot;Times New Roman&quot;, serif;color:#111;line-height:1.6em;font-family:Europa, &#x27;Sofia Pro&#x27;, Helvetica, serif;line-height:1.4;padding-bottom:12px;margin:24px 0 0;font-weight:bold;font-size:24px;margin-bottom:16px">
+  Upgrade Yourself
+ </h2>
+ <p style="font-family:Georgia, &quot;Times New Roman&quot;, serif;color:#111;line-height:1.6em;font-size:18px;line-height:1.5">
+  Members get access to all my reading highlights, ad-free newsletters and podcasts, hand-edited transcripts, early access, AMAs, and so much more. Join us →
+  <a href="https://a4d65a79.click.convertkit-mail4.com/5quezv37zxh7hn2m4nva6h9x4dxlxsnhro8w/48hvhehml3vqq2cx/aHR0cHM6Ly9mcy5ibG9nL21lbWJlcnNoaXAv" style="font-family:Georgia, &quot;Times New Roman&quot;, serif;color:#111;line-height:1.6em;color:#0875c1;text-decoration:underline" url-id="1846861158">
+   here
+  </a>
+  .
+ </p>
+ <p style="font-family:Georgia, &quot;Times New Roman&quot;, serif;color:#111;line-height:1.6em;font-size:18px;line-height:1.5;font-family:&#x27;Flecha S&#x27;, Charter, Garamond, &#x27;Book Antiqua&#x27;, Georgia, &#x27;Times New Roman&#x27;, serif;line-height:125%;font-size:12px">
+  You are receiving this email because you subscribed.
+ </p>
+ <p style="font-family:Georgia, &quot;Times New Roman&quot;, serif;color:#111;line-height:1.6em;font-size:18px;line-height:1.5;font-family:&#x27;Flecha S&#x27;, Charter, Garamond, &#x27;Book Antiqua&#x27;, Georgia, &#x27;Times New Roman&#x27;, serif;line-height:125%;font-size:12px">
+  Brain Food reaches over 1 million people weekly. Learn more about sponsoring an issue or an episode of The Knowledge Project
+  <a href="https://a4d65a79.click.convertkit-mail4.com/5quezv37zxh7hn2m4nva6h9x4dxlxsnhro8w/qvh8h7hdw3z227il/aHR0cHM6Ly9mcy5ibG9nL3Nwb25zb3Iv" style="font-family:Georgia, &quot;Times New Roman&quot;, serif;color:#111;line-height:1.6em;color:#0875c1;font-family:&#x27;Flecha S&#x27;, Charter, Garamond, &#x27;Book Antiqua&#x27;, Georgia, &#x27;Times New Roman&#x27;, serif;font-size:12px;text-decoration:underline;color:#111111;line-height:125%" url-id="1846861153">
+   here
+  </a>
+  .
+ </p>
+ <p style="font-family:Georgia, &quot;Times New Roman&quot;, serif;color:#111;line-height:1.6em;font-size:18px;line-height:1.5;font-family:&#x27;Flecha S&#x27;, Charter, Garamond, &#x27;Book Antiqua&#x27;, Georgia, &#x27;Times New Roman&#x27;, serif;line-height:125%;font-size:12px">
+  Overwhelmed by email? No need to unsubscribe. Try a 30 day
+  <a href="https://a4d65a79.click.convertkit-mail4.com/5quezv37zxh7hn2m4nva6h9x4dxlxsnhro8w/kkhwnrl4c6hnwpr22lbl/aHR0cHM6Ly9mcy5ibG9nL2JmLW1vbnRoLW9mZi8=" style="font-family:Georgia, &quot;Times New Roman&quot;, serif;color:#111;line-height:1.6em;color:#0875c1;font-family:&#x27;Flecha S&#x27;, Charter, Garamond, &#x27;Book Antiqua&#x27;, Georgia, &#x27;Times New Roman&#x27;, serif;font-size:12px;text-decoration:underline;color:#111111;line-height:125%" trigger-id="1293290" url-id="1846861160">
+   break
+  </a>
+  . If you want to change your email address,
+  <a href="https://preferences.convertkit-mail4.com/5quezv37zxh7hn2m4nva6h9x4dxlxsnhro8w" style="font-family:Georgia, &quot;Times New Roman&quot;, serif;color:#111;line-height:1.6em;color:#0875c1;font-family:&#x27;Flecha S&#x27;, Charter, Garamond, &#x27;Book Antiqua&#x27;, Georgia, &#x27;Times New Roman&#x27;, serif;font-size:12px;text-decoration:underline;color:#111111;line-height:125%">
+   update your profile
+  </a>
+  . Or
+  <a href="https://a4d65a79.unsubscribe.convertkit-mail4.com/5quezv37zxh7hn2m4nva6h9x4dxlxsnhro8w" style="font-family:Georgia, &quot;Times New Roman&quot;, serif;color:#111;line-height:1.6em;color:#0875c1;font-family:&#x27;Flecha S&#x27;, Charter, Garamond, &#x27;Book Antiqua&#x27;, Georgia, &#x27;Times New Roman&#x27;, serif;font-size:12px;text-decoration:underline;color:#111111;line-height:125%">
+   unsubscribe
+  </a>
+  .
+ </p>
+ <p style="font-family:Georgia, &quot;Times New Roman&quot;, serif;color:#111;line-height:1.6em;font-size:18px;line-height:1.5;font-family:&#x27;Flecha S&#x27;, Charter, Garamond, &#x27;Book Antiqua&#x27;, Georgia, &#x27;Times New Roman&#x27;, serif;line-height:125%;font-size:12px">
+  201-854 Bank Street, Ottawa, ON K1S 3W3
+ </p></div></div>
+      
+    </article>
+    
+  </body>
+</html>
