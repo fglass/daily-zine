@@ -1,0 +1,604 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Fred Talks - 2026-04-14</title>
+    <style>
+      @page {
+        size: A5;
+        margin: 8mm 9mm 9mm;
+      }
+
+      :root {
+        color: #111;
+        font-family: "Times New Roman", Times, serif;
+        --body-text-size: 9.5pt;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        color: #111;
+        background: #fff;
+        font-family: "Times New Roman", Times, serif;
+        line-height: 1.45;
+      }
+
+      a,
+      a:visited {
+        color: #111;
+        text-decoration: underline;
+      }
+
+      .cover {
+        min-height: calc(210mm - 17mm);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        page-break-after: always;
+        border: 1px solid #111;
+        padding: 8mm;
+        background: #fff;
+      }
+
+      .toc-item-meta,
+      .article-meta {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .masthead {
+        margin: 0;
+        font-size: 40pt;
+        line-height: 0.95;
+        text-transform: uppercase;
+      }
+
+      .issue-date {
+        margin: 4mm 0 0;
+        font-size: 14pt;
+      }
+
+      .issue-date sup {
+        font-size: 0.58em;
+        vertical-align: super;
+        line-height: 0;
+      }
+
+      .cover-deck {
+        max-width: 90mm;
+        font-size: 12pt;
+        margin: 0;
+      }
+
+      .toc {
+        border-top: 3px solid #111;
+        padding-top: 6mm;
+      }
+
+      .toc h2 {
+        margin: 0 0 4mm;
+        font-size: 11pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .toc-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .toc-item {
+        padding: 3mm 0;
+        border-bottom: 1px solid rgba(17, 17, 17, 0.2);
+      }
+
+      .toc-item-title {
+        font-size: 12pt;
+        margin: 0 0 1mm;
+      }
+
+      .toc-item-meta {
+        font-size: 8pt;
+      }
+
+      article + article {
+        margin-top: 10mm;
+        padding-top: 6mm;
+        border-top: 2px solid #111;
+      }
+
+      h1 {
+        margin: 0 0 2mm;
+        font-size: 18pt;
+        line-height: 1.1;
+      }
+
+      .article-meta {
+        font-size: 8.5pt;
+        margin-bottom: 6mm;
+        padding-bottom: 3mm;
+        border-bottom: 1px solid #111;
+      }
+
+      .article-body {
+        font-size: var(--body-text-size);
+        font-family: "Times New Roman", Times, serif;
+      }
+
+      .article-body p,
+      .article-body li,
+      .article-body blockquote,
+      .article-body dd,
+      .article-body dt {
+        margin: 0 0 4mm;
+        orphans: 3;
+        widows: 3;
+      }
+
+      .article-body ul,
+      .article-body ol,
+      .article-body dl {
+        margin: 0 0 4mm 5mm;
+        padding: 0;
+      }
+
+      .article-body h2,
+      .article-body h3,
+      .article-body h4 {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        margin: 7mm 0 3mm;
+        line-height: 1.2;
+      }
+
+      .article-body blockquote {
+        margin-left: 6mm;
+        padding-left: 4mm;
+        border-left: 2px solid #111;
+      }
+
+      .article-body .media-omitted {
+        margin: 0 0 4mm;
+        font-size: 8.5pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(17, 17, 17, 0.65);
+      }
+
+      .article-body figure,
+      .article-body .article-figure,
+      .article-body picture,
+      .article-body .article-picture {
+        display: block;
+        max-width: 72mm;
+        margin: 0 auto 4mm;
+        break-inside: avoid;
+      }
+
+      .article-body img,
+      .article-body .article-image {
+        display: block;
+        max-width: min(100%, 72mm);
+        max-height: 34mm;
+        height: auto;
+        width: auto;
+        object-fit: contain;
+        margin: 0 auto 3mm;
+      }
+
+      .article-body figcaption {
+        margin-top: 1.5mm;
+        font-size: 8.5pt;
+        line-height: 1.3;
+        color: rgba(17, 17, 17, 0.8);
+      }
+
+      .article-note {
+        margin-top: 6mm;
+        padding-top: 3mm;
+        border-top: 1px solid #111;
+        font-size: 9pt;
+        font-style: italic;
+      }
+
+      @media screen {
+        body {
+          padding: 2rem;
+          margin: 0 auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section class="cover">
+      <div>
+        <h1 class="masthead">Fred<br />Talks</h1>
+        <p class="issue-date">
+          14<sup>th</sup> April 2026
+        </p>
+      </div>
+
+      <div class="toc">
+        <h2>Contents</h2>
+        <ol class="toc-list">
+          
+          <li class="toc-item">
+            <div class="toc-item-title">Why Anthropic believes its latest model is too dangerous to release</div>
+            <div class="toc-item-meta">
+              Kai Williams · 2894 words
+            </div>
+          </li>
+          
+          <li class="toc-item">
+            <div class="toc-item-title">[Daily article] April 14: Flow (video game)</div>
+            <div class="toc-item-meta">
+              English Wikipedia Article of the Day · 362 words
+            </div>
+          </li>
+          
+          <li class="toc-item">
+            <div class="toc-item-title">Connecting the Logitech MX Creative Console to Elgato Lights</div>
+            <div class="toc-item-meta">
+              Cassidy Williams · 447 words
+            </div>
+          </li>
+          
+          <li class="toc-item">
+            <div class="toc-item-title">Countdown Standard</div>
+            <div class="toc-item-meta">
+              xkcd.com · 27 words
+            </div>
+          </li>
+          
+          <li class="toc-item">
+            <div class="toc-item-title">2.1.105</div>
+            <div class="toc-item-meta">
+              Changelog · 172 words
+            </div>
+          </li>
+          
+          <li class="toc-item">
+            <div class="toc-item-title">Week 15</div>
+            <div class="toc-item-meta">
+              What&#39;s new · 90 words
+            </div>
+          </li>
+          
+          <li class="toc-item">
+            <div class="toc-item-title">What is psuedo-relevance feedback?</div>
+            <div class="toc-item-meta">
+              Doug Turnbull · 366 words
+            </div>
+          </li>
+          
+          <li class="toc-item">
+            <div class="toc-item-title">Agents as scaffolding for recurring tasks.</div>
+            <div class="toc-item-meta">
+              Irrational Exuberance · 836 words
+            </div>
+          </li>
+          
+        </ol>
+      </div>
+    </section>
+
+    
+    <article>
+      <h1>Why Anthropic believes its latest model is too dangerous to release</h1>
+      <div class="article-meta">
+        Kai Williams
+        · 12 Apr 2026 · <a href="https://www.understandingai.org/p/why-anthropic-believes-its-latest">Source</a>
+      </div>
+      <div class="article-body"><h3>“The language models we have now are probably the most significant thing to happen in security since we got the Internet.”</h3>
+
+
+
+<p>Anthropic safety researcher Sam Bowman was eating a sandwich in a park recently when he got an unexpected email. An AI model had sent him a message saying that it had broken out of its sandbox.</p>
+<p>The model — an early snapshot of a new LLM called Claude Mythos Preview — was not supposed to have access to the Internet. To ensure safety, Anthropic researchers like to test new models inside a secure container that prevents them from communicating with the outside world. To double-check the security of this container, the researchers asked the model to try to break out and message Bowman.</p>
+<p>Unexpectedly, Mythos Preview “developed a moderately sophisticated multi-step exploit” to gain access to the Internet and emailed Bowman. It also — unprompted — posted details about this exploit on public websites.</p>
+<p>Mythos Preview is capable of hacking more than its own evaluation environment. It turns out that the model is generally really, really good at finding and exploiting bugs in code.</p>
+<p>“Mythos Preview has already found thousands of high-severity vulnerabilities, including some in every major operating system and web browser,” Anthropic <a href="https://www.anthropic.com/glasswing">announced</a> on Tuesday. Because leading web browsers and operating systems have become fundamental to modern life, they have been extensively vetted by security professionals, making them particularly difficult to hack.</p>
+<p>Anthropic claims that Mythos Preview hacks around restrictions very rarely — less often than previous models. Still, the company was so concerned by incidents like Bowman’s — and Mythos Preview’s incredible skill at hacking — that it decided not to generally release the model.</p>
+<p>Instead, Anthropic is granting limited access to a select group of 50 or so companies and organizations “that build or maintain critical software infrastructure.” Eleven of these organizations — including Google, Microsoft, Nvidia, Amazon, and Apple — are coordinating with Anthropic directly in a project dubbed <a href="https://www.anthropic.com/glasswing">Project Glasswing</a>.</p>
+<p>Project Glasswing aims to patch these vulnerabilities before Mythos-caliber models become available to the general public — and hence to malicious actors. Anthropic is donating $100 million in access credits for organizations to audit their systems.</p>
+<figure class="article-figure"><a data-component-name="Image2ToDOM" href="https://substackcdn.com/image/fetch/$s_!xlYd!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F89572746-a024-40fb-99f3-38194bf51140_1600x1062.jpeg"><picture class="article-picture"><img alt="" data-attrs="{&quot;src&quot;:&quot;https://substack-post-media.s3.amazonaws.com/public/images/89572746-a024-40fb-99f3-38194bf51140_1600x1062.jpeg&quot;,&quot;srcNoWatermark&quot;:null,&quot;fullscreen&quot;:null,&quot;imageSize&quot;:null,&quot;height&quot;:966,&quot;width&quot;:1456,&quot;resizeWidth&quot;:null,&quot;bytes&quot;:null,&quot;alt&quot;:null,&quot;title&quot;:null,&quot;type&quot;:null,&quot;href&quot;:null,&quot;belowTheFold&quot;:true,&quot;topImage&quot;:false,&quot;internalRedirect&quot;:null,&quot;isProcessing&quot;:false,&quot;align&quot;:null,&quot;offset&quot;:false}" sizes="100vw" src="https://substackcdn.com/image/fetch/$s_!xlYd!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F89572746-a024-40fb-99f3-38194bf51140_1600x1062.jpeg" srcset="https://substackcdn.com/image/fetch/$s_!xlYd!,w_424,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F89572746-a024-40fb-99f3-38194bf51140_1600x1062.jpeg 424w, https://substackcdn.com/image/fetch/$s_!xlYd!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F89572746-a024-40fb-99f3-38194bf51140_1600x1062.jpeg 848w, https://substackcdn.com/image/fetch/$s_!xlYd!,w_1272,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F89572746-a024-40fb-99f3-38194bf51140_1600x1062.jpeg 1272w, https://substackcdn.com/image/fetch/$s_!xlYd!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F89572746-a024-40fb-99f3-38194bf51140_1600x1062.jpeg 1456w" class="article-image"/></picture></a><figcaption>A glasswing butterfly. (Photo by Education Images/Universal Images Group via Getty Images)</figcaption></figure>
+<p>Mythos Preview is the first major LLM since GPT-2 in 2019 whose general release was delayed because of fears it could be societally disruptive. Back then, OpenAI initially <a href="https://openai.com/index/better-language-models/">released</a> only a weaker version of GPT-2 out of concerns that larger versions of GPT-2 could generate plausible-looking text and supercharge misinformation — though that concern ended up being overblown.</p>
+<p>If Anthropic’s claims are true — and the company makes a credible case — we are entering a world where LLMs might be able to cause real damage, both to users and to society.</p>
+<p>We may also be entering a world where companies routinely keep their best models for internal use rather than making them available to the general public.</p>
+<h1>“It’s about to become very difficult for the security community”</h1>
+<p>The idea that LLMs might be used for hacking is not new. OpenAI has long published a <a href="https://cdn.openai.com/pdf/18a02b5d-6b67-4cec-ab64-68cdfbddebcd/preparedness-framework-v2.pdf">Frontier Safety Framework</a>, which tracks how good its models are at hacking.</p>
+<p>Until recently, the answer was “not very” — not only at OpenAI but at Anthropic and across the industry. But that started to change last fall, when LLMs — especially Anthropic’s Claude — started becoming useful for cyberoffense.</p>
+<p>For instance, Bloomberg <a href="https://www.thestar.com.my/tech/tech-news/2026/02/26/hacker-used-anthropics-claude-to-steal-mexican-data-trove">reported</a> in February that a hacker used Claude to steal millions of taxpayer and voter records from the Mexican government. The same month, Amazon <a href="https://aws.amazon.com/blogs/security/ai-augmented-threat-actor-accesses-fortigate-devices-at-scale/">announced</a> that Russian hackers had used AI tools to breach over 600 firewalls around the world.</p>
+<p>But the examples given in Anthropic’s blog post are more impressive — and scary — than that.</p>
+<p>The first example is a now-patched bug to remotely crash OpenBSD, an open-source operating system used in critical infrastructure like firewalls. OpenBSD is known for its focus on security. According to its <a href="https://www.openbsd.org/security.html">website</a>, “OpenBSD believes in strong security. Our aspiration is to be NUMBER ONE in the industry for security (if we are not already there).”</p>
+<p>Across 1,000 runs, Claude Mythos Preview was able to find several bugs in OpenBSD, including one that allows any attacker to remotely crash a computer running it.</p>
+<p>I won’t get into details about how the attack worked — it’s pretty involved — but the notable thing was that the bug had existed <em>for 27 years</em>. Over that period, no human noticed the subtle vulnerability in a widely used, heavily vetted open-source operating system. Mythos Preview did. And the compute cost for those 1,000 runs was only $20,000.</p>
+<p>A second example is potentially even more impressive. Mythos Preview found several vulnerabilities in the Linux operating system — which runs the majority of the world’s servers — that allowed a user with no permissions to gain complete control of the entire machine.</p>
+<p>Most Linux vulnerabilities aren’t very useful on their own, but Mythos Preview was able to combine several bugs in a non-trivial way. “We have nearly a dozen examples of Mythos Preview successfully chaining together two, three, and sometimes four vulnerabilities in order to construct a functional exploit on the Linux kernel,” members of Anthropic’s Frontier Red Team <a href="https://red.anthropic.com/2026/mythos-preview/">wrote</a>.</p>
+<p>Anthropic says these were not isolated incidents. Across a range of operating systems, browsers, and other widely used software, Mythos Preview found thousands of bugs, 99% of which have not been patched yet.</p>
+<p>Mythos Preview is also shockingly good at exploiting a bug once it has been discovered. A lot of modern web-based software is powered by the programming language JavaScript. If your browser’s JavaScript engine has security flaws, then simply visiting a malicious website could allow the site’s owner to take control of your computer.</p>
+<p>Anthropic found that Mythos Preview was far more capable than previous models at exploiting vulnerabilities in Firefox’s JavaScript implementation. Anthropic’s previous best model, Claude Opus 4.6, created a successful exploit less than 1% of the time. Mythos Preview did so 72% of the time.</p>
+<figure class="article-figure"><a data-component-name="Image2ToDOM" href="https://substackcdn.com/image/fetch/$s_!bF1z!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F175ddd7d-b38a-450a-a7ac-3276087463be_2048x1152.png"><picture class="article-picture"><img alt="A chart titled Firefox JS shell exploitation. Three models: Sonnet 4.6 achieves partial progress 4% of the time; Opus 4.6 achieves a partial progress 14% of the time and a full exploit less than 1% of the time; Mythos preview achieves partial progres 12% of the time and full progress 72% of the time." data-attrs="{&quot;src&quot;:&quot;https://substack-post-media.s3.amazonaws.com/public/images/175ddd7d-b38a-450a-a7ac-3276087463be_2048x1152.png&quot;,&quot;srcNoWatermark&quot;:null,&quot;fullscreen&quot;:null,&quot;imageSize&quot;:null,&quot;height&quot;:819,&quot;width&quot;:1456,&quot;resizeWidth&quot;:null,&quot;bytes&quot;:null,&quot;alt&quot;:&quot;A chart titled Firefox JS shell exploitation. Three models: Sonnet 4.6 achieves partial progress 4% of the time; Opus 4.6 achieves a partial progress 14% of the time and a full exploit less than 1% of the time; Mythos preview achieves partial progres 12% of the time and full progress 72% of the time.&quot;,&quot;title&quot;:null,&quot;type&quot;:null,&quot;href&quot;:null,&quot;belowTheFold&quot;:true,&quot;topImage&quot;:false,&quot;internalRedirect&quot;:null,&quot;isProcessing&quot;:false,&quot;align&quot;:null,&quot;offset&quot;:false}" sizes="100vw" src="https://substackcdn.com/image/fetch/$s_!bF1z!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F175ddd7d-b38a-450a-a7ac-3276087463be_2048x1152.png" srcset="https://substackcdn.com/image/fetch/$s_!bF1z!,w_424,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F175ddd7d-b38a-450a-a7ac-3276087463be_2048x1152.png 424w, https://substackcdn.com/image/fetch/$s_!bF1z!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F175ddd7d-b38a-450a-a7ac-3276087463be_2048x1152.png 848w, https://substackcdn.com/image/fetch/$s_!bF1z!,w_1272,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F175ddd7d-b38a-450a-a7ac-3276087463be_2048x1152.png 1272w, https://substackcdn.com/image/fetch/$s_!bF1z!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F175ddd7d-b38a-450a-a7ac-3276087463be_2048x1152.png 1456w" class="article-image"/></picture></a><figcaption>(Chart from the Anthropic Frontier Red Team <a href="https://red.anthropic.com/2026/mythos-preview/">report</a> on Claude Mythos Preview.)</figcaption></figure>
+<p>There are some caveats to this result. The actual Firefox browser has multiple layers of defense against malicious code; Anthropic focused on just one layer. So the attacks developed by Mythos Preview would not actually allow a website to take over a user’s machine. Also, successful exploits tended to focus on two now-patched bugs; when tested on a version of Firefox with those bugs patched, Mythos Preview generally only made partial progress.</p>
+<p>Still, Mythos Preview would get an attacker a step closer to the objective of a full Firefox exploit. And it would have an even better chance of compromising software that has not been so thoroughly vetted.</p>
+<p>For the past 20 years or so, a sufficiently motivated and well-funded hacking organization could probably break into most systems, outside of the most hardened in the world. But it often wasn’t worth the effort. Human cyber talent is expensive, and multi-layered security protections made it so tedious (and therefore expensive) to complete an attack that potential hackers didn’t bother.</p>
+<p>Mythos-class models could slash the cost of hacking, bringing this equilibrium to an end. Systems everywhere might start to get compromised.</p>
+<p>Eventually, LLMs should be able to help developers harden systems before attackers ever get a chance to find weaknesses. But the transition period before that becomes standard practice might be difficult.</p>
+<p>By delaying the release of Mythos Preview — there is no specific timeline for general release — Anthropic can help harden crucial systems before outsiders can cheaply and effectively attack them. This general approach — called defensive acceleration — has been proposed for a while, but the development of Mythos Preview kickstarts the effort.</p>
+<p>Still, Anthropic’s writeup <a href="https://red.anthropic.com/2026/mythos-preview/#ftnt4:~:text=Ultimately%2C%20it%E2%80%99s%20about%20to%20become%20very%20difficult%20for%20the%20security%20community">notes</a> that “it’s about to become very difficult for the security community.”</p>
+<p>“The language models we have now are probably the most significant thing to happen in security since we got the Internet,” <a href="https://red.anthropic.com/2026/mythos-preview/">said</a> Anthropic research scientist Nicholas Carlini at a computer security conference last month. Carlini, a legendary security expert, added an appeal toward the end of the talk. “I don’t care where you help. Just please help.”</p>
+<h1>Opus is a butter knife; Mythos is a steak knife</h1>
+<p>The risk of bad guys using Mythos Preview for hacking is an important reason Anthropic hasn’t released the model publicly. Another risk: users could inadvertently trigger the model’s advanced hacking abilities — especially in a product like Claude Code with weaker guardrails.</p>
+<p>Mainstream chatbots put AI models into a tightly controlled “sandbox” that minimizes how much damage they can do if they misbehave. This makes them safer to use — especially for users with little to no technical knowledge. But it also limits their utility.</p>
+<p>As Tim <a href="https://www.understandingai.org/p/how-shifting-risk-to-users-makes?utm_source=publication-search">wrote</a> in January, coding agents like Claude Code (and competitors like OpenAI’s Codex) are based on a different philosophy. They run on a user’s local computer, where they can often access files and load and install software.</p>
+<p>This makes them much more powerful; I can ask Claude Code to organize my downloads folder or analyze some data I have stored on my computer. But it also makes them more dangerous; there have been a few incidents where Claude Code deleted all of a user’s files.</p>
+<p>For the most part, though, the limited capabilities of Claude Opus 4.6 mean that a Claude Code mishap can’t do too much damage. Even if you run Claude Code with its hilariously named “--dangerously-skip-permissions” flag on, the worst it can do is trash your local machine.</p>
+<p>A model with Mythos-level hacking capabilities might be a different story.</p>
+<p>In the Claude Mythos Preview <a href="https://www-cdn.anthropic.com/53566bf5440a10affd749724787c8913a2ae0841.pdf">system card</a>, Anthropic writes that “we observed a few dozen significant incidents in internal deployment” where the model took “reckless excessive measures” in order to complete a difficult goal for a user.</p>
+<p>These examples didn’t only happen during evaluations. Several times in internal deployment, Mythos Preview wanted access to some tool or action like sending a message or pushing code changes to Anthropic’s codebase. Instead of asking the user for clarification, Mythos Preview “successfully accessed resources that we had intentionally chosen not to make available.”</p>
+<p>As Bowman <a href="https://x.com/sleepinyourhat/status/2041584805423562943">tweeted</a>, “in the handful of cases where [the model] misbehaves in significant ways, it’s difficult to safeguard it.” When the model cheats on a test, “it does so in extremely creative ways.”</p>
+<p>Anthropic is quick to note that “all of the most severe incidents” occurred with earlier, less-well-trained versions of Mythos Preview. Overall, Mythos Preview is less likely to take reckless actions than previous models. Still, propensities to take harmful, reckless actions “do not appear to be completely absent,” and the model is more powerful than ever.</p>
+<p>So if Anthropic struggles to contain its model, will other users be able to?</p>
+<p>Caution is warranted, according to Anthropic: “we are urging those external users with whom we are sharing the model not to deploy the model in settings where its reckless actions could lead to hard-to-reverse harms.” And remember, the model is only being made available to major companies and organizations. Presumably authorized users inside these companies will be cybersecurity experts.</p>
+<p>So perhaps Anthropic was worried that Mythos Preview would occasionally blow up in users’ faces if it was made widely available in its current form.</p>
+<p>I expect that over time, the software harnesses of these models will improve to the point where they can contain Mythos-level models. For example, Anthropic recently released “<a href="https://claude.com/blog/auto-mode">auto mode</a>” which automatically classifies whether a model’s command in Claude Code might have “potentially destructive” consequences. This lets developers take advantage of long-running safe tasks without having to manually approve a bunch of commands — or use “--dangerously-skip-permissions.”</p>
+<p>According to the Mythos Preview system card, “auto mode appears to substantially reduce the risk from behaviors along these lines.”</p>
+<p>Still, model capabilities seem likely to continue to increase quickly. It will be an open question whether better scaffold methods like auto mode can catch up quickly enough to make it safe to release future frontier models to average users.</p>
+<h1>Preventing the GPUs from melting</h1>
+<p>Another reason Anthropic may have chosen to delay release of Mythos Preview is more basic: Anthropic probably doesn’t have enough compute to release it widely.</p>
+<p>Several weeks ago, <a href="https://fortune.com/2026/03/26/anthropic-says-testing-mythos-powerful-new-ai-model-after-data-leak-reveals-its-existence-step-change-in-capabilities/?preview_id=4450088#38;utm_source=substack&amp;utm_medium=email">Fortune obtained</a> an <a href="https://m1astra-mythos.pages.dev/">early draft of a blog post</a> announcing the release of the model that became Mythos Preview. The post described Mythos as “a large, compute-intensive model” and said that it was “very expensive for us to serve, and will be very expensive for our customers to use.”<a data-component-name="FootnoteAnchorToDOM" href="#footnote-1-193633549" id="footnote-anchor-1-193633549"><sup> [1] </sup></a></p>
+<p>The few companies granted access to Mythos Preview have to pay correspondingly high prices: $25 per million input tokens and $125 per million output tokens. This is Anthropic’s most expensive model ever. For comparison, Claude Opus 4.6 costs $5 per million input tokens and $25 per million output tokens.</p>
+<p>Anthropic is already under severe compute constraints because of skyrocketing demand. Anthropic’s revenue run-rate has doubled in less than two months. On Monday, Anthropic <a href="https://www.anthropic.com/news/google-broadcom-partnership-compute">announced</a> that it had hit $30 billion in annualized revenue; in mid-February, that <a href="https://www.anthropic.com/news/anthropic-raises-30-billion-series-g-funding-380-billion-post-money-valuation">number</a> was $14 billion.</p>
+<p>Anthropic has responded to skyrocketing demand by <a href="https://x.com/trq212/status/2037254607001559305">reducing</a> usage limits during popular coding hours. The company has also <a href="https://www.anthropic.com/news/google-broadcom-partnership-compute">announced deals</a> for more AI compute.</p>
+<p>Even worse, Mythos Preview will likely be most popular for long-running autonomous tasks that eat up huge numbers of tokens. In the system card, Anthropic gave a qualitative assessment of Mythos Preview’s coding abilities. The company wrote that “we find that when used in an interactive, synchronous, ‘hands-on-keyboard’ pattern, the benefits of the model were less clear.” Developers “perceived Mythos Preview as too slow” when used in chat mode.</p>
+<p>In contrast, many Mythos Preview testers described “being able to ‘set and forget’ on many-hour tasks for the first time.” While this arguably makes Mythos Preview more useful for software developers, it definitely increases the amount of compute necessary to serve the model to everyone.</p>
+<p>I wonder if Anthropic is trying to reset expectations around availability and will never have Mythos Preview be part of existing subscription plans. The chatbot subscription model started when LLMs generally used few tokens to generate a response. With long reasoning chains and expensive LLMs, that model starts to break down. By not releasing Mythos Preview generally at first, Anthropic can also more carefully manage demand over the rollout — and has more leverage about its pricing structure.</p>
+<p>In any case, demand for leading AI models seems likely to continue to grow dramatically faster than the ability for companies to meet this demand with their computational resources.</p>
+<h1>Protecting a lead?</h1>
+<p>I also wonder if Mythos Preview is a first step toward a world where Anthropic tends to reserve its best models for internal use.</p>
+<p>Every time a frontier developer releases a model, it gives information to its competitors about the model’s capabilities. For instance, when OpenAI released the first <a href="https://www.understandingai.org/p/openai-just-unleashed-an-alien-of">reasoning model o1</a>, competitors were able to copy the key insights within months.</p>
+<p>So if Anthropic can get away with it, it has an incentive to prevent its competitors from being able to access Mythos Preview for as long as it can.<a data-component-name="FootnoteAnchorToDOM" href="#footnote-2-193633549" id="footnote-anchor-2-193633549"><sup> [2] </sup></a></p>
+<p>Anthropic has shown the tendency already to try to prevent competitors from taking advantage of Claude’s capabilities. Over the past year, it has blocked Claude Code access at both <a href="https://www.wired.com/story/anthropic-revokes-openais-access-to-claude/">OpenAI</a> and <a href="https://x.com/kyliebytes/status/2009686466746822731">xAI</a> for violating Claude’s Terms of Service, which include prohibitions on using the models to train other AI models.</p>
+<p>In 2024, Anthropic was only releasing smaller Sonnet models while <a href="https://newsletter.semianalysis.com/p/scaling-laws-o1-pro-architecture-reasoning-training-infrastructure-orion-and-claude-3-5-opus-failures">reportedly</a> reserving the more powerful — and expensive — Opus models for internal use. However, as time progressed, Anthropic started releasing the Opus models again, perhaps to be competitive with OpenAI’s o3 model.</p>
+<p>But Anthropic has been on a winning streak. Claude Code took off and for the first time ever, Anthropic’s reported revenue rate is higher than OpenAI’s. Anthropic’s decision to only partially release its latest model might be an indication that Anthropic feels it has a lead over OpenAI.</p>
+<p>If this continues, we might see more cautious releases in the future. In an appendix to its <a href="https://www-cdn.anthropic.com/files/4zrzovbb/website/bf04581e4f329735fd90634f6a1962c13c0bd351.pdf">Responsible Scaling Policy</a>, Anthropic notes that if no other company has released a model with “significant capabilities,” then it will delay its release of a model with significant capabilities until either it has a strong argument to proceed with deployment or it loses the lead.</p>
+<p>We’ll soon get to see how long Anthropic’s lead lasts. There are <a href="https://x.com/AndrewCurran_/status/2041872162353770982">rumors</a> that OpenAI’s next model — codenamed <a href="https://www.theinformation.com/articles/openai-ceo-shifts-responsibilities-preps-spud-ai-model">Spud</a> — might come out very soon, perhaps this month.</p>
+<p><a href="#footnote-anchor-1-193633549" id="footnote-1-193633549">1 [find in text]</a></p>
+<p>I wasn’t able to independently verify whether the copy of this blog post was in fact the one leaked on Anthropic systems. (Fortune did not release a full copy of the leaked blog post.) However, Fortune’s write-up of the leaked blog post described the future model in similar language.</p>
+<p><a href="#footnote-anchor-2-193633549" id="footnote-2-193633549">2 [find in text]</a></p>
+<p>Ironically, AI rivals like Google and Microsoft are Project Glasswing members, so Anthropic can’t completely prevent rival companies from gaining access to the model. But Mythos Preview’s system card is clear that access to Mythos Preview through Project Glasswing is “under terms that restrict its uses to cybersecurity.”</p>
+<h4>Subscribe to Understanding AI</h4>
+<p>Thousands of paid subscribers</p>
+<p>Exploring how AI works and how it's changing our world.</p>
+<p>By subscribing, you agree Substack's <a href="https://substack.com/tos">Terms of Use</a>, and acknowledge its <a href="https://substack.com/ccpa#personal-data-collected">Information Collection Notice</a> and <a href="https://substack.com/privacy">Privacy Policy</a>.</p></div>
+      
+    </article>
+    
+    <article>
+      <h1>[Daily article] April 14: Flow (video game)</h1>
+      <div class="article-meta">
+        English Wikipedia Article of the Day
+        · 14 Apr 2026 · <a href="mailto:reader-forwarded-email/28908cf99830faff9f250240b4b5f4ea">Source</a>
+      </div>
+      <div class="article-body"><div class="rw-email-parsed">
+ <p>
+  Flow is a video game created by Jenova Chen (pictured) and Nicholas
+Clark. Released as a Flash game in 2006 to accompany Chen's master's
+thesis, it was reworked into a PlayStation 3 game by Thatgamecompany,
+with assistance from Santa Monica Studio. In Flow, the player navigates
+a series of two-dimensional planes with an aquatic microorganism that
+evolves by consuming other microorganisms. The game's design is based on
+Chen's research into dynamic difficulty adjustment and on Mihaly
+Csikszentmihalyi's theoretical concept of flow. The Flash version of the
+game was downloaded 100,000 times within its first two weeks of release,
+and had been played more than 3.5 million times by 2008. Its
+PlayStation 3 re-release was the most downloaded game on the
+PlayStation Network in 2007 and won the Best Downloadable Game award at
+the 2008 Game Developers Choice Awards. Reviewers praised Flow's visual
+and audio appeal, but noted the simplicity of its gameplay; several
+considered it to be more of an art piece than a game.
+(Full article...).
+ </p>
+ <p>
+  Read more:
+  <a href="https://en.wikipedia.org/wiki/Flow_%28video_game%29">
+   https://en.wikipedia.org/wiki/Flow_%28video_game%29
+  </a>
+ </p>
+ <hr/>
+ <p>
+  Today's selected anniversaries:
+ </p>
+ <p>
+  1471:
+ </p>
+ <p>
+  Wars of the Roses: The Yorkists under Edward IV defeated  the
+Lancastrians at the Battle of Barnet, killing Richard Neville, Earl of
+Warwick.
+  <a href="https://en.wikipedia.org/wiki/Richard_Neville,_16th_Earl_of_Warwick">
+   https://en.wikipedia.org/wiki/Richard_Neville,_16th_Earl_of_Warwick
+  </a>
+ </p>
+ <p>
+  1970:
+ </p>
+ <p>
+  After an oxygen tank aboard Apollo 13 (mission patch pictured)
+exploded, disabling the spacecraft's electrical and life-support
+systems, astronaut Jack Swigert reported: "Houston, we've had a problem
+here".
+  <a href="https://en.wikipedia.org/wiki/Houston,_we_have_a_problem">
+   https://en.wikipedia.org/wiki/Houston,_we_have_a_problem
+  </a>
+ </p>
+ <p>
+  2015:
+ </p>
+ <p>
+  Western Kentucky University announced a five-year suspension of
+their swimming and diving programs as a result of a hazing scandal.
+  <a href="https://en.wikipedia.org/wiki/Western_Kentucky_University_swim_team_hazing_scandal">
+   https://en.wikipedia.org/wiki/Western_Kentucky_University_swim_team_hazing_scandal
+  </a>
+ </p>
+ <hr/>
+ <p>
+  Wiktionary's word of the day:
+ </p>
+ <p>
+  quaternity:
+1. (countable)
+2. A group or set of four; a foursome, a quartet.
+3. (Christianity, historical) A group of four persons forming the
+Godhead, in contrast to the Trinity comprising three persons.
+4. (obsolete, rare) Synonym of quarter (“a fourth part”).
+5. (uncountable) Synonym of fourness (“the property or state of being
+four in number”).
+6. About Word of the Day
+7. Nominate a word
+8. Leave feedback
+  <a href="https://en.wiktionary.org/wiki/quaternity">
+   https://en.wiktionary.org/wiki/quaternity
+  </a>
+ </p>
+ <hr/>
+ <p>
+  Wikiquote quote of the day:
+ </p>
+ <p>
+  Literature is a vast bazaar where customers come to purchase everything
+except mirrors.
+  --James Branch Cabell
+  <a href="https://en.wikiquote.org/wiki/James_Branch_Cabell">
+   https://en.wikiquote.org/wiki/James_Branch_Cabell
+  </a>
+ </p></div></div>
+      
+    </article>
+    
+    <article>
+      <h1>Connecting the Logitech MX Creative Console to Elgato Lights</h1>
+      <div class="article-meta">
+        Cassidy Williams
+        · 14 Apr 2026 · <a href="https://cassidoo.co/post/logitech-elgato-holding-hands/">Source</a>
+      </div>
+      <div class="article-body"><div><p>I’ve been using an Elgato Stream Deck to control my lights in my office for the past several years. The one I have (with 15 buttons) has worked great for me, but I noticed that I only really use 8 of the buttons. The rest work perfectly fine, but I always forget the macros I have saved there, and really just go back to defaulting to lighting control.</p>
+<p>Now, lately because I’m editing videos a lot more (both for work and <a href="https://www.youtube.com/@cassidoo">personally</a>), I’ve been looking to get some kind of knob or dial for my desk to be able to scrub through footage faster.</p>
+<p>These scenarios combined, I ended up finding the Logitech MX Creative Console! The buttons look exactly like the Stream Deck ones (only there’s 9 of them, with options to switch between pages and apps), and it comes with a Bluetooth rotary dial with buttons.</p>
+<h2 id="general-review">General review</h2>
+<p>These things get the job done. I do wish that the dial could plug in instead of just relying on Bluetooth, but besides that, programming the buttons was fairly straight forward, and everything connected pretty seamlessly. Because I already have a Logitech mouse and a backup webcam, I didn’t have to install any extra software, which was also nice.</p>
+<p>(also… this is not a sponsored post, I’m truly just using all these products for myself)</p>
+<p>That being said… Elgato and Logitech, being competitors, did not play as nicely out of the box.</p>
+<h2 id="building-a-custom-solution">Building a custom solution</h2>
+<p>Because I couldn’t control my Elgato Key Lights natively from my desk, I brought out the <a href="https://github.com/features/copilot/cli">GitHub Copilot CLI</a> to help change that (once again, not sponsored, <em>but</em> I do work at GitHub, full disclosure). The Elgato lights have their own IP addresses and a REST API, so I figured I could use the tools I have to throw together a script!</p>
+<p>In the CLI, I opened up Plan Mode and prompted:</p>
+<pre class="astro-code material-theme-darker" style="background-color: #212121; color: #EEFFFF;" tabindex="0"><code><span class="line"><span>I want to be able to control Elgato Key Lights using buttons on the MX Creative Console. Each button tap should trigger a script that controls a specific light. Write a Python script to generate scripts that communicate with the lights via their REST API that I can toggle from the console.</span></span></code></pre>
+<p>Not the best prompt in the world, <em>but</em> Plan Mode asked me the necessary clarifying questions to put together a plan that the tool could run with.</p>
+<p>A couple meetings later when I checked back, my script wizard was done, and my lights now work!</p>
+<p>If you want to do something similar (or have a different tool toggle your lights), <a href="https://github.com/cassidoo/elgato-lights-connection">here’s the repository with all the scripts you need</a>.</p></div></div>
+      
+    </article>
+    
+    <article>
+      <h1>Countdown Standard</h1>
+      <div class="article-meta">
+        xkcd.com
+        · 13 Apr 2026 · <a href="https://xkcd.com/3232/">Source</a>
+      </div>
+      <div class="article-body"><figure class="article-figure"><img alt="Countdown Standard" data-title="Anyone who is caught counting &#x27;three ... two ... one ... zero ... GO!&#x27; will be punished with a lifetime of eating only ISO standard food samples." src="https://imgs.xkcd.com/comics/countdown_standard_2x.png" srcset="https://imgs.xkcd.com/comics/countdown_standard_2x.png 2x" class="article-image"/><figcaption>Anyone who is caught counting 'three ... two ... one ... zero ... GO!' will be punished with a lifetime of eating only ISO standard food samples.</figcaption></figure></div>
+      
+    </article>
+    
+    <article>
+      <h1>2.1.105</h1>
+      <div class="article-meta">
+        Changelog
+        · 13 Apr 2026 · <a href="https://code.claude.com/docs/en/changelog#2-1-105">Source</a>
+      </div>
+      <div class="article-body"><div><ul>
+<li>Added <code>path</code> parameter to the <code>EnterWorktree</code> tool to switch into an existing worktree of the current repository</li>
+<li>Added PreCompact hook support: hooks can now block compaction by exiting with code 2 or returning <code>{"decision":"block"}</code></li>
+<li>Added background monitor support for plugins via a top-level <code>monitors</code> manifest key that auto-arms at session start or on skill invoke</li>
+<li><code>/proactive</code> is now an alias for <code>/loop</code></li>
+<li>Improved stalled API stream handling: streams now abort after 5 minutes of no data and retry non-streaming instead of hanging indefinitely</li>
+<li>Improved network error messages: connection errors now show a retry message immediately instead of a silent spinner</li>
+<li>Improved file write display: long single-line writes (e.g. minified JSON) are now truncated in the UI instead of paginating across many screens</li>
+<li>Improved <code>/doctor</code> layout with status icons; press <code>f</code> to have Claude fix reported issues</li>
+<li>Improved <code>/config</code> labels and descriptions for clarity</li>
+<li>Improved skill description handling: raised the listing cap from 250 to 1,536 characters and added a startup warning when descriptions are truncated</li>
+<li>Improved <code>WebFetch</code> to strip <code><style></style></code></li></ul></div></div>
+      
+    </article>
+    
+    <article>
+      <h1>Week 15</h1>
+      <div class="article-meta">
+        What&#39;s new
+        · 13 Apr 2026 · <a href="https://code.claude.com/docs/en/whats-new#week-15">Source</a>
+      </div>
+      <div class="article-body"><div><p><strong>Ultraplan</strong> enters early preview: draft a plan in the cloud from your CLI, review and comment on it in a web editor, then run it remotely or pull it back local. The first run now auto-creates a cloud environment for you.</p>
+<p>Also this week: the <strong>Monitor</strong> tool streams background events into the conversation so Claude can tail logs and react live, <code>/loop</code> self-paces when you omit the interval, <code>/team-onboarding</code> packages your setup into a replayable guide, and <code>/autofix-pr</code> turns on PR auto-fix from your terminal.</p>
+<p><a href="/en/whats-new/2026-w15">Read the Week 15 digest →</a></p></div></div>
+      
+    </article>
+    
+    <article>
+      <h1>What is psuedo-relevance feedback?</h1>
+      <div class="article-meta">
+        Doug Turnbull
+        · 13 Apr 2026 · <a href="http://softwaredoug.com/blog/2026/04/13/what-is-psuedo-relevance-feedback.html">Source</a>
+      </div>
+      <div class="article-body"><p>After retrieving BM25 (or any) ranked search results, you might not realize it, but you have new information about the query - <strong>the search results themselves</strong>!</p>
+<p>One early discovery in Information Retrieval:</p>
+<ol> <li>Compare what’s in the foreground (the initial top N results)</li> <li>… to the background corpus</li> <li>Then use that to improve the original query</li> </ol>
+<p>How, <em>exactly</em>, becomes a series of design decisions. You could take any number of approaches:</p>
+<ul> <li>Take the embeddings of the top N results, use that to expand recall (as in Daniel Tunkelang’s <a href="https://dtunkelang.medium.com/bags-of-queries-as-sparse-document-representations-bc450db3e814">Bag of Documents approach</a>)</li> <li>Find terms that occur more frequently in the foreground, use those in search (as in Semantic Knowledge Graph, written about in <a href="https://aipoweredsearch.com/">AI Powered Search</a> by Grainger et. al)</li> </ul>
+<p>For example, from this <a href="https://colab.research.google.com/drive/14pDxjXD08vGgpY7mQdc0sQN3T7D_wpyv">semantic knowledge graph notebook</a>, we retrieve some initial results for a “dining room table” query</p>
+<figure class="article-figure"><img alt="" src="https://softwaredoug.com/assets/media/daily-search-tips/23675067/ab81da42431b22631c1930c77e693c0f.png" class="article-image"/></figure>
+<p>We then use those to score the most anomalous terms in the product description field:</p>
+<figure class="article-figure"><img alt="" src="https://softwaredoug.com/assets/media/daily-search-tips/23675067/a1bfbd0c9cf82ad4e26b7862ed3fff4e.png" class="article-image"/></figure>
+<p>Would these be useful queryexpansions? Above, we see the promise, and the challenges, of the approach:</p>
+<ul> <li>👍 - <strong>the positive</strong>: related terms like placemat, tableware, tablecloth, etc</li> <li>👎 - <strong>the negative:</strong> spurious terms like ‘ten’ likely occurs in dining room descriptions “seats ten” - but is this term really related to dining room tables?</li> </ul>
+<p>I chose the messiest field on purpose. A cleaner field like ‘title’ produces better candidate expansions:</p>
+<figure class="article-figure"><img alt="" src="https://softwaredoug.com/assets/media/daily-search-tips/23675067/23728254a8d04538caf4dcf42836c4d0.png" class="article-image"/></figure>
+<p>If we’re so vulnerable to data quality, can this work?</p>
+<p>Yes it can work. But only after good corpus hygiene. It’s another example of <a href="https://softwaredoug.com/blog/2026/03/18/content-understanding-is-query-understanding">content understanding IS query understanding</a><strong>.</strong> There’s no free lunch. Clean, well organized content helps every layer of search quality, not just blind relevance feedback. We can then pick and choose which fields to use based on the information they convey.</p>
+<p>There are other decisions. For example, should you weigh the foreground docs by relevance? Not all docs in the first pass are created equal after all. Or how do you handle thresholds? Should you only accept terms that occurred only a few times? Should you treat the background as a prior somehow and “move off” the background as evidence accumulates?</p>
+<p>Take a look at <a href="https://colab.research.google.com/drive/14pDxjXD08vGgpY7mQdc0sQN3T7D_wpyv#scrollTo=dS83XQgNbOF9">my notebook</a>. What ideas do you have to improve the relevance feedback?</p>
+<p>-Doug</p>
+<p>​</p>
+<p>​</p></div>
+      
+    </article>
+    
+    <article>
+      <h1>Agents as scaffolding for recurring tasks.</h1>
+      <div class="article-meta">
+        Irrational Exuberance
+        · 13 Apr 2026 · <a href="https://lethain.com/agents-as-scaffolding/">Source</a>
+      </div>
+      <div class="article-body"><p>One of my gifts/curses is an endless fixation with how processes can be optimized. For a brief moment early in my career, that was focused on improving how humans collaborate, but that quickly switched to figuring out how we can minimize human involvement, and eliminate human-to-human handoffs as much as possible. Lately, every time I perform a recurring task–or see someone else perform one–I think about how we might eliminate the human’s involvement entirely by introducing agents. This both has worked well, but also worked poorly, and I wanted to highlight the pattern I’ve found useful.</p>
+<p>For a concrete example, a problem that all software companies have is patching security vulnerabilities. We have that problem too, and I check our security dashboards periodically to ensure nothing has gone awry. Sometimes when I check that dashboard, I’ll notice a finding that’s precariously close to our resolution SLAs, and either fix it myself or track down the appropriate team to fix it. However, this feels like a process that shouldn’t require me checking on it.</p>
+<p>Five to six months ago, I added Github Dependabot webhooks as an input into our internal agent framework. Then I set up an agent to handle those webhooks, including filtering incoming messages down to the highest priority issues. About a month ago, when I upgraded from GPT 4.1 to GPT 5.4 with high reasoning, I noticed that it got quite good at using the Github MCP to determine the appropriate owners for a given issue, using the same variety of techniques that a human would use: looking at Codeowners files where available, looking at recent commits on the repository, and so on. The alerts and owners were already getting piped into a Slack channel.</p>
+<p>So, this worked! However, it didn’t actually work that well, because despite repeated iteration on the prompt, including numerous <code>CRITICAL: you must...</code> statements, it simply could not reliably restrict itself to <code>critical</code> severity alerts. It would also include some <code>high</code> severity alerts, and even the occasional <code>medium</code> severity alert. This is a recurring issue with using agents as drop-in software replacement: they simply are not perfect, and interrupting your colleagues requires a level of near-perfection.</p>
+<p>If I’d hired someone on our Security team to notify teams about critical alerts, and they occasionally flagged non-critical alerts, eventually someone would pop into my DMs to ask me what was going wrong. That didn’t happen here, because the knowledge that those DMs would show up prevented me from rolling the notifications out more aggressively. Coding agents address this sort of issue by running tests, typechecking, or linting, but less structured tasks are either harder or more expensive to verify. For example, I could have added an eval verifying messages didn’t mention medium or high severity tasks before allowing it to send to Slack, but I found that somewhat unsatisfying despite knowing that it would work.</p>
+<p>Instead, after some procrastination on other tasks, I finally prompted Claude to update this agent to rely on a <a href="https://lethain.com/agents-coordinators/">code-driven workflow</a> where flow-control is managed by software by default, and only cedes control to an agent where ideal. That workflow looks like:</p>
+<ol><li>A webhook comes in from Dependabot</li><li>Script extracts the severity and action (e.g. is it a new issue versus a resolved issue), and filters out low priority or non-actionable webhooks</li><li>The code packages the metadata into a list of issues and repositories</li><li>The code passes each repository-scoped bundle to an agent with our internal ownership skill and the Github MCP to determine appropriate folks to notify for each issue</li><li>The issues and ownership data are passed to a second agent that formats them as a Slack message</li></ol>
+<p>This works 100% of the time, while still allowing us to rely on our internal ownership skill to determine the most likely teams or individuals to notify for a given problem. It’s now something I can rollout more aggressively.</p>
+<p>The immediate fast follow was a weekly follow-up ping for open critical issues, relying on the same split of deterministic and agentic behaviors. The next improvement will be automating the generation of the vulnerability fixes, such that the human involvement is just reviewing the change before it automatically deploys. (We <a href="https://lethain.com/dependabot-auto-merge/">already do this for Dependabot generated PRs</a>, but in my experience Dependabot can solve a reasonable subset of identified issues, but far from all of them.)</p>
+<p>That is the pattern that I’ve found effective:</p>
+<ol><li>Prototype with agent-driven workflow until I get a feel for the workflow and what’s difficult about it</li><li>Refactor agent-driven control away, increasingly relying on code-driven workflow for more and more of the solution</li><li>End with a version that narrowly relies on agents for their strengths (navigating ambiguous problems like identifying code owners)</li></ol>
+<p>This has worked well for pretty much every problem I’ve encountered. The end-result is faster, cheaper, and more maintainable. It’s also a cheap transition, generally I can take logs of some recent runs, the agent’s prompt, and some brief instructions, throw them into Codex/Claude, and get a working replacement in a few minutes.</p></div>
+      
+    </article>
+    
+  </body>
+</html>
