@@ -1,0 +1,789 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Fred Talks - 2026-04-15</title>
+    <style>
+      @page {
+        size: A5;
+        margin: 8mm 9mm 9mm;
+      }
+
+      :root {
+        color: #111;
+        font-family: "Times New Roman", Times, serif;
+        --body-text-size: 9.5pt;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        color: #111;
+        background: #fff;
+        font-family: "Times New Roman", Times, serif;
+        line-height: 1.45;
+      }
+
+      a,
+      a:visited {
+        color: #111;
+        text-decoration: underline;
+      }
+
+      .cover {
+        min-height: calc(210mm - 17mm);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        page-break-after: always;
+        border: 1px solid #111;
+        padding: 8mm;
+        background: #fff;
+      }
+
+      .toc-item-meta,
+      .article-meta {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .masthead {
+        margin: 0;
+        font-size: 40pt;
+        line-height: 0.95;
+        text-transform: uppercase;
+      }
+
+      .issue-date {
+        margin: 4mm 0 0;
+        font-size: 14pt;
+      }
+
+      .issue-date sup {
+        font-size: 0.58em;
+        vertical-align: super;
+        line-height: 0;
+      }
+
+      .cover-deck {
+        max-width: 90mm;
+        font-size: 12pt;
+        margin: 0;
+      }
+
+      .toc {
+        border-top: 3px solid #111;
+        padding-top: 6mm;
+      }
+
+      .toc h2 {
+        margin: 0 0 4mm;
+        font-size: 11pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .toc-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .toc-item {
+        padding: 3mm 0;
+        border-bottom: 1px solid rgba(17, 17, 17, 0.2);
+      }
+
+      .toc-item-title {
+        font-size: 12pt;
+        margin: 0 0 1mm;
+      }
+
+      .toc-item-meta {
+        font-size: 8pt;
+      }
+
+      article + article {
+        margin-top: 10mm;
+        padding-top: 6mm;
+        border-top: 2px solid #111;
+      }
+
+      h1 {
+        margin: 0 0 2mm;
+        font-size: 18pt;
+        line-height: 1.1;
+      }
+
+      .article-meta {
+        font-size: 8.5pt;
+        margin-bottom: 6mm;
+        padding-bottom: 3mm;
+        border-bottom: 1px solid #111;
+      }
+
+      .article-body {
+        font-size: var(--body-text-size);
+        font-family: "Times New Roman", Times, serif;
+      }
+
+      .article-body p,
+      .article-body li,
+      .article-body blockquote,
+      .article-body dd,
+      .article-body dt {
+        margin: 0 0 4mm;
+        orphans: 3;
+        widows: 3;
+      }
+
+      .article-body ul,
+      .article-body ol,
+      .article-body dl {
+        margin: 0 0 4mm 5mm;
+        padding: 0;
+      }
+
+      .article-body h2,
+      .article-body h3,
+      .article-body h4 {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        margin: 7mm 0 3mm;
+        line-height: 1.2;
+      }
+
+      .article-body blockquote {
+        margin-left: 6mm;
+        padding-left: 4mm;
+        border-left: 2px solid #111;
+      }
+
+      .article-body .media-omitted {
+        margin: 0 0 4mm;
+        font-size: 8.5pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(17, 17, 17, 0.65);
+      }
+
+      .article-body figure,
+      .article-body .article-figure,
+      .article-body picture,
+      .article-body .article-picture {
+        display: block;
+        max-width: 72mm;
+        margin: 0 auto 4mm;
+        break-inside: avoid;
+      }
+
+      .article-body img,
+      .article-body .article-image {
+        display: block;
+        max-width: min(100%, 72mm);
+        max-height: 34mm;
+        height: auto;
+        width: auto;
+        object-fit: contain;
+        margin: 0 auto 3mm;
+      }
+
+      .article-body figcaption {
+        margin-top: 1.5mm;
+        font-size: 8.5pt;
+        line-height: 1.3;
+        color: rgba(17, 17, 17, 0.8);
+      }
+
+      .article-note {
+        margin-top: 6mm;
+        padding-top: 3mm;
+        border-top: 1px solid #111;
+        font-size: 9pt;
+        font-style: italic;
+      }
+
+      @media screen {
+        body {
+          padding: 2rem;
+          margin: 0 auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section class="cover">
+      <div>
+        <h1 class="masthead">Fred<br />Talks</h1>
+        <p class="issue-date">
+          15<sup>th</sup> April 2026
+        </p>
+      </div>
+
+      <div class="toc">
+        <h2>Contents</h2>
+        <ol class="toc-list">
+          
+          <li class="toc-item">
+            <div class="toc-item-title">Why Anthropic believes its latest model is too dangerous to release</div>
+            <div class="toc-item-meta">
+              Kai Williams · 2894 words
+            </div>
+          </li>
+          
+          <li class="toc-item">
+            <div class="toc-item-title">Apr 14, 2026AlignmentAutomated Alignment Researchers: Using large language models to scale scalable oversight</div>
+            <div class="toc-item-meta">
+              Anthropic Research · 1881 words
+            </div>
+          </li>
+          
+          <li class="toc-item">
+            <div class="toc-item-title">Issue #707</div>
+            <div class="toc-item-meta">
+              Pointer · 948 words
+            </div>
+          </li>
+          
+        </ol>
+      </div>
+    </section>
+
+    
+    <article>
+      <h1>Why Anthropic believes its latest model is too dangerous to release</h1>
+      <div class="article-meta">
+        Kai Williams
+        · 12 Apr 2026 · <a href="https://www.understandingai.org/p/why-anthropic-believes-its-latest">Source</a>
+      </div>
+      <div class="article-body"><h3>“The language models we have now are probably the most significant thing to happen in security since we got the Internet.”</h3>
+
+
+
+<p>Anthropic safety researcher Sam Bowman was eating a sandwich in a park recently when he got an unexpected email. An AI model had sent him a message saying that it had broken out of its sandbox.</p>
+<p>The model — an early snapshot of a new LLM called Claude Mythos Preview — was not supposed to have access to the Internet. To ensure safety, Anthropic researchers like to test new models inside a secure container that prevents them from communicating with the outside world. To double-check the security of this container, the researchers asked the model to try to break out and message Bowman.</p>
+<p>Unexpectedly, Mythos Preview “developed a moderately sophisticated multi-step exploit” to gain access to the Internet and emailed Bowman. It also — unprompted — posted details about this exploit on public websites.</p>
+<p>Mythos Preview is capable of hacking more than its own evaluation environment. It turns out that the model is generally really, really good at finding and exploiting bugs in code.</p>
+<p>“Mythos Preview has already found thousands of high-severity vulnerabilities, including some in every major operating system and web browser,” Anthropic <a href="https://www.anthropic.com/glasswing">announced</a> on Tuesday. Because leading web browsers and operating systems have become fundamental to modern life, they have been extensively vetted by security professionals, making them particularly difficult to hack.</p>
+<p>Anthropic claims that Mythos Preview hacks around restrictions very rarely — less often than previous models. Still, the company was so concerned by incidents like Bowman’s — and Mythos Preview’s incredible skill at hacking — that it decided not to generally release the model.</p>
+<p>Instead, Anthropic is granting limited access to a select group of 50 or so companies and organizations “that build or maintain critical software infrastructure.” Eleven of these organizations — including Google, Microsoft, Nvidia, Amazon, and Apple — are coordinating with Anthropic directly in a project dubbed <a href="https://www.anthropic.com/glasswing">Project Glasswing</a>.</p>
+<p>Project Glasswing aims to patch these vulnerabilities before Mythos-caliber models become available to the general public — and hence to malicious actors. Anthropic is donating $100 million in access credits for organizations to audit their systems.</p>
+<figure class="article-figure"><a data-component-name="Image2ToDOM" href="https://substackcdn.com/image/fetch/$s_!xlYd!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F89572746-a024-40fb-99f3-38194bf51140_1600x1062.jpeg"><picture class="article-picture"><img alt="" data-attrs="{&quot;src&quot;:&quot;https://substack-post-media.s3.amazonaws.com/public/images/89572746-a024-40fb-99f3-38194bf51140_1600x1062.jpeg&quot;,&quot;srcNoWatermark&quot;:null,&quot;fullscreen&quot;:null,&quot;imageSize&quot;:null,&quot;height&quot;:966,&quot;width&quot;:1456,&quot;resizeWidth&quot;:null,&quot;bytes&quot;:null,&quot;alt&quot;:null,&quot;title&quot;:null,&quot;type&quot;:null,&quot;href&quot;:null,&quot;belowTheFold&quot;:true,&quot;topImage&quot;:false,&quot;internalRedirect&quot;:null,&quot;isProcessing&quot;:false,&quot;align&quot;:null,&quot;offset&quot;:false}" sizes="100vw" src="https://substackcdn.com/image/fetch/$s_!xlYd!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F89572746-a024-40fb-99f3-38194bf51140_1600x1062.jpeg" srcset="https://substackcdn.com/image/fetch/$s_!xlYd!,w_424,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F89572746-a024-40fb-99f3-38194bf51140_1600x1062.jpeg 424w, https://substackcdn.com/image/fetch/$s_!xlYd!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F89572746-a024-40fb-99f3-38194bf51140_1600x1062.jpeg 848w, https://substackcdn.com/image/fetch/$s_!xlYd!,w_1272,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F89572746-a024-40fb-99f3-38194bf51140_1600x1062.jpeg 1272w, https://substackcdn.com/image/fetch/$s_!xlYd!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F89572746-a024-40fb-99f3-38194bf51140_1600x1062.jpeg 1456w" class="article-image"/></picture></a><figcaption>A glasswing butterfly. (Photo by Education Images/Universal Images Group via Getty Images)</figcaption></figure>
+<p>Mythos Preview is the first major LLM since GPT-2 in 2019 whose general release was delayed because of fears it could be societally disruptive. Back then, OpenAI initially <a href="https://openai.com/index/better-language-models/">released</a> only a weaker version of GPT-2 out of concerns that larger versions of GPT-2 could generate plausible-looking text and supercharge misinformation — though that concern ended up being overblown.</p>
+<p>If Anthropic’s claims are true — and the company makes a credible case — we are entering a world where LLMs might be able to cause real damage, both to users and to society.</p>
+<p>We may also be entering a world where companies routinely keep their best models for internal use rather than making them available to the general public.</p>
+<h1>“It’s about to become very difficult for the security community”</h1>
+<p>The idea that LLMs might be used for hacking is not new. OpenAI has long published a <a href="https://cdn.openai.com/pdf/18a02b5d-6b67-4cec-ab64-68cdfbddebcd/preparedness-framework-v2.pdf">Frontier Safety Framework</a>, which tracks how good its models are at hacking.</p>
+<p>Until recently, the answer was “not very” — not only at OpenAI but at Anthropic and across the industry. But that started to change last fall, when LLMs — especially Anthropic’s Claude — started becoming useful for cyberoffense.</p>
+<p>For instance, Bloomberg <a href="https://www.thestar.com.my/tech/tech-news/2026/02/26/hacker-used-anthropics-claude-to-steal-mexican-data-trove">reported</a> in February that a hacker used Claude to steal millions of taxpayer and voter records from the Mexican government. The same month, Amazon <a href="https://aws.amazon.com/blogs/security/ai-augmented-threat-actor-accesses-fortigate-devices-at-scale/">announced</a> that Russian hackers had used AI tools to breach over 600 firewalls around the world.</p>
+<p>But the examples given in Anthropic’s blog post are more impressive — and scary — than that.</p>
+<p>The first example is a now-patched bug to remotely crash OpenBSD, an open-source operating system used in critical infrastructure like firewalls. OpenBSD is known for its focus on security. According to its <a href="https://www.openbsd.org/security.html">website</a>, “OpenBSD believes in strong security. Our aspiration is to be NUMBER ONE in the industry for security (if we are not already there).”</p>
+<p>Across 1,000 runs, Claude Mythos Preview was able to find several bugs in OpenBSD, including one that allows any attacker to remotely crash a computer running it.</p>
+<p>I won’t get into details about how the attack worked — it’s pretty involved — but the notable thing was that the bug had existed <em>for 27 years</em>. Over that period, no human noticed the subtle vulnerability in a widely used, heavily vetted open-source operating system. Mythos Preview did. And the compute cost for those 1,000 runs was only $20,000.</p>
+<p>A second example is potentially even more impressive. Mythos Preview found several vulnerabilities in the Linux operating system — which runs the majority of the world’s servers — that allowed a user with no permissions to gain complete control of the entire machine.</p>
+<p>Most Linux vulnerabilities aren’t very useful on their own, but Mythos Preview was able to combine several bugs in a non-trivial way. “We have nearly a dozen examples of Mythos Preview successfully chaining together two, three, and sometimes four vulnerabilities in order to construct a functional exploit on the Linux kernel,” members of Anthropic’s Frontier Red Team <a href="https://red.anthropic.com/2026/mythos-preview/">wrote</a>.</p>
+<p>Anthropic says these were not isolated incidents. Across a range of operating systems, browsers, and other widely used software, Mythos Preview found thousands of bugs, 99% of which have not been patched yet.</p>
+<p>Mythos Preview is also shockingly good at exploiting a bug once it has been discovered. A lot of modern web-based software is powered by the programming language JavaScript. If your browser’s JavaScript engine has security flaws, then simply visiting a malicious website could allow the site’s owner to take control of your computer.</p>
+<p>Anthropic found that Mythos Preview was far more capable than previous models at exploiting vulnerabilities in Firefox’s JavaScript implementation. Anthropic’s previous best model, Claude Opus 4.6, created a successful exploit less than 1% of the time. Mythos Preview did so 72% of the time.</p>
+<figure class="article-figure"><a data-component-name="Image2ToDOM" href="https://substackcdn.com/image/fetch/$s_!bF1z!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F175ddd7d-b38a-450a-a7ac-3276087463be_2048x1152.png"><picture class="article-picture"><img alt="A chart titled Firefox JS shell exploitation. Three models: Sonnet 4.6 achieves partial progress 4% of the time; Opus 4.6 achieves a partial progress 14% of the time and a full exploit less than 1% of the time; Mythos preview achieves partial progres 12% of the time and full progress 72% of the time." data-attrs="{&quot;src&quot;:&quot;https://substack-post-media.s3.amazonaws.com/public/images/175ddd7d-b38a-450a-a7ac-3276087463be_2048x1152.png&quot;,&quot;srcNoWatermark&quot;:null,&quot;fullscreen&quot;:null,&quot;imageSize&quot;:null,&quot;height&quot;:819,&quot;width&quot;:1456,&quot;resizeWidth&quot;:null,&quot;bytes&quot;:null,&quot;alt&quot;:&quot;A chart titled Firefox JS shell exploitation. Three models: Sonnet 4.6 achieves partial progress 4% of the time; Opus 4.6 achieves a partial progress 14% of the time and a full exploit less than 1% of the time; Mythos preview achieves partial progres 12% of the time and full progress 72% of the time.&quot;,&quot;title&quot;:null,&quot;type&quot;:null,&quot;href&quot;:null,&quot;belowTheFold&quot;:true,&quot;topImage&quot;:false,&quot;internalRedirect&quot;:null,&quot;isProcessing&quot;:false,&quot;align&quot;:null,&quot;offset&quot;:false}" sizes="100vw" src="https://substackcdn.com/image/fetch/$s_!bF1z!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F175ddd7d-b38a-450a-a7ac-3276087463be_2048x1152.png" srcset="https://substackcdn.com/image/fetch/$s_!bF1z!,w_424,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F175ddd7d-b38a-450a-a7ac-3276087463be_2048x1152.png 424w, https://substackcdn.com/image/fetch/$s_!bF1z!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F175ddd7d-b38a-450a-a7ac-3276087463be_2048x1152.png 848w, https://substackcdn.com/image/fetch/$s_!bF1z!,w_1272,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F175ddd7d-b38a-450a-a7ac-3276087463be_2048x1152.png 1272w, https://substackcdn.com/image/fetch/$s_!bF1z!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F175ddd7d-b38a-450a-a7ac-3276087463be_2048x1152.png 1456w" class="article-image"/></picture></a><figcaption>(Chart from the Anthropic Frontier Red Team <a href="https://red.anthropic.com/2026/mythos-preview/">report</a> on Claude Mythos Preview.)</figcaption></figure>
+<p>There are some caveats to this result. The actual Firefox browser has multiple layers of defense against malicious code; Anthropic focused on just one layer. So the attacks developed by Mythos Preview would not actually allow a website to take over a user’s machine. Also, successful exploits tended to focus on two now-patched bugs; when tested on a version of Firefox with those bugs patched, Mythos Preview generally only made partial progress.</p>
+<p>Still, Mythos Preview would get an attacker a step closer to the objective of a full Firefox exploit. And it would have an even better chance of compromising software that has not been so thoroughly vetted.</p>
+<p>For the past 20 years or so, a sufficiently motivated and well-funded hacking organization could probably break into most systems, outside of the most hardened in the world. But it often wasn’t worth the effort. Human cyber talent is expensive, and multi-layered security protections made it so tedious (and therefore expensive) to complete an attack that potential hackers didn’t bother.</p>
+<p>Mythos-class models could slash the cost of hacking, bringing this equilibrium to an end. Systems everywhere might start to get compromised.</p>
+<p>Eventually, LLMs should be able to help developers harden systems before attackers ever get a chance to find weaknesses. But the transition period before that becomes standard practice might be difficult.</p>
+<p>By delaying the release of Mythos Preview — there is no specific timeline for general release — Anthropic can help harden crucial systems before outsiders can cheaply and effectively attack them. This general approach — called defensive acceleration — has been proposed for a while, but the development of Mythos Preview kickstarts the effort.</p>
+<p>Still, Anthropic’s writeup <a href="https://red.anthropic.com/2026/mythos-preview/#ftnt4:~:text=Ultimately%2C%20it%E2%80%99s%20about%20to%20become%20very%20difficult%20for%20the%20security%20community">notes</a> that “it’s about to become very difficult for the security community.”</p>
+<p>“The language models we have now are probably the most significant thing to happen in security since we got the Internet,” <a href="https://red.anthropic.com/2026/mythos-preview/">said</a> Anthropic research scientist Nicholas Carlini at a computer security conference last month. Carlini, a legendary security expert, added an appeal toward the end of the talk. “I don’t care where you help. Just please help.”</p>
+<h1>Opus is a butter knife; Mythos is a steak knife</h1>
+<p>The risk of bad guys using Mythos Preview for hacking is an important reason Anthropic hasn’t released the model publicly. Another risk: users could inadvertently trigger the model’s advanced hacking abilities — especially in a product like Claude Code with weaker guardrails.</p>
+<p>Mainstream chatbots put AI models into a tightly controlled “sandbox” that minimizes how much damage they can do if they misbehave. This makes them safer to use — especially for users with little to no technical knowledge. But it also limits their utility.</p>
+<p>As Tim <a href="https://www.understandingai.org/p/how-shifting-risk-to-users-makes?utm_source=publication-search">wrote</a> in January, coding agents like Claude Code (and competitors like OpenAI’s Codex) are based on a different philosophy. They run on a user’s local computer, where they can often access files and load and install software.</p>
+<p>This makes them much more powerful; I can ask Claude Code to organize my downloads folder or analyze some data I have stored on my computer. But it also makes them more dangerous; there have been a few incidents where Claude Code deleted all of a user’s files.</p>
+<p>For the most part, though, the limited capabilities of Claude Opus 4.6 mean that a Claude Code mishap can’t do too much damage. Even if you run Claude Code with its hilariously named “--dangerously-skip-permissions” flag on, the worst it can do is trash your local machine.</p>
+<p>A model with Mythos-level hacking capabilities might be a different story.</p>
+<p>In the Claude Mythos Preview <a href="https://www-cdn.anthropic.com/53566bf5440a10affd749724787c8913a2ae0841.pdf">system card</a>, Anthropic writes that “we observed a few dozen significant incidents in internal deployment” where the model took “reckless excessive measures” in order to complete a difficult goal for a user.</p>
+<p>These examples didn’t only happen during evaluations. Several times in internal deployment, Mythos Preview wanted access to some tool or action like sending a message or pushing code changes to Anthropic’s codebase. Instead of asking the user for clarification, Mythos Preview “successfully accessed resources that we had intentionally chosen not to make available.”</p>
+<p>As Bowman <a href="https://x.com/sleepinyourhat/status/2041584805423562943">tweeted</a>, “in the handful of cases where [the model] misbehaves in significant ways, it’s difficult to safeguard it.” When the model cheats on a test, “it does so in extremely creative ways.”</p>
+<p>Anthropic is quick to note that “all of the most severe incidents” occurred with earlier, less-well-trained versions of Mythos Preview. Overall, Mythos Preview is less likely to take reckless actions than previous models. Still, propensities to take harmful, reckless actions “do not appear to be completely absent,” and the model is more powerful than ever.</p>
+<p>So if Anthropic struggles to contain its model, will other users be able to?</p>
+<p>Caution is warranted, according to Anthropic: “we are urging those external users with whom we are sharing the model not to deploy the model in settings where its reckless actions could lead to hard-to-reverse harms.” And remember, the model is only being made available to major companies and organizations. Presumably authorized users inside these companies will be cybersecurity experts.</p>
+<p>So perhaps Anthropic was worried that Mythos Preview would occasionally blow up in users’ faces if it was made widely available in its current form.</p>
+<p>I expect that over time, the software harnesses of these models will improve to the point where they can contain Mythos-level models. For example, Anthropic recently released “<a href="https://claude.com/blog/auto-mode">auto mode</a>” which automatically classifies whether a model’s command in Claude Code might have “potentially destructive” consequences. This lets developers take advantage of long-running safe tasks without having to manually approve a bunch of commands — or use “--dangerously-skip-permissions.”</p>
+<p>According to the Mythos Preview system card, “auto mode appears to substantially reduce the risk from behaviors along these lines.”</p>
+<p>Still, model capabilities seem likely to continue to increase quickly. It will be an open question whether better scaffold methods like auto mode can catch up quickly enough to make it safe to release future frontier models to average users.</p>
+<h1>Preventing the GPUs from melting</h1>
+<p>Another reason Anthropic may have chosen to delay release of Mythos Preview is more basic: Anthropic probably doesn’t have enough compute to release it widely.</p>
+<p>Several weeks ago, <a href="https://fortune.com/2026/03/26/anthropic-says-testing-mythos-powerful-new-ai-model-after-data-leak-reveals-its-existence-step-change-in-capabilities/?preview_id=4450088#38;utm_source=substack&amp;utm_medium=email">Fortune obtained</a> an <a href="https://m1astra-mythos.pages.dev/">early draft of a blog post</a> announcing the release of the model that became Mythos Preview. The post described Mythos as “a large, compute-intensive model” and said that it was “very expensive for us to serve, and will be very expensive for our customers to use.”<a data-component-name="FootnoteAnchorToDOM" href="#footnote-1-193633549" id="footnote-anchor-1-193633549"><sup> [1] </sup></a></p>
+<p>The few companies granted access to Mythos Preview have to pay correspondingly high prices: $25 per million input tokens and $125 per million output tokens. This is Anthropic’s most expensive model ever. For comparison, Claude Opus 4.6 costs $5 per million input tokens and $25 per million output tokens.</p>
+<p>Anthropic is already under severe compute constraints because of skyrocketing demand. Anthropic’s revenue run-rate has doubled in less than two months. On Monday, Anthropic <a href="https://www.anthropic.com/news/google-broadcom-partnership-compute">announced</a> that it had hit $30 billion in annualized revenue; in mid-February, that <a href="https://www.anthropic.com/news/anthropic-raises-30-billion-series-g-funding-380-billion-post-money-valuation">number</a> was $14 billion.</p>
+<p>Anthropic has responded to skyrocketing demand by <a href="https://x.com/trq212/status/2037254607001559305">reducing</a> usage limits during popular coding hours. The company has also <a href="https://www.anthropic.com/news/google-broadcom-partnership-compute">announced deals</a> for more AI compute.</p>
+<p>Even worse, Mythos Preview will likely be most popular for long-running autonomous tasks that eat up huge numbers of tokens. In the system card, Anthropic gave a qualitative assessment of Mythos Preview’s coding abilities. The company wrote that “we find that when used in an interactive, synchronous, ‘hands-on-keyboard’ pattern, the benefits of the model were less clear.” Developers “perceived Mythos Preview as too slow” when used in chat mode.</p>
+<p>In contrast, many Mythos Preview testers described “being able to ‘set and forget’ on many-hour tasks for the first time.” While this arguably makes Mythos Preview more useful for software developers, it definitely increases the amount of compute necessary to serve the model to everyone.</p>
+<p>I wonder if Anthropic is trying to reset expectations around availability and will never have Mythos Preview be part of existing subscription plans. The chatbot subscription model started when LLMs generally used few tokens to generate a response. With long reasoning chains and expensive LLMs, that model starts to break down. By not releasing Mythos Preview generally at first, Anthropic can also more carefully manage demand over the rollout — and has more leverage about its pricing structure.</p>
+<p>In any case, demand for leading AI models seems likely to continue to grow dramatically faster than the ability for companies to meet this demand with their computational resources.</p>
+<h1>Protecting a lead?</h1>
+<p>I also wonder if Mythos Preview is a first step toward a world where Anthropic tends to reserve its best models for internal use.</p>
+<p>Every time a frontier developer releases a model, it gives information to its competitors about the model’s capabilities. For instance, when OpenAI released the first <a href="https://www.understandingai.org/p/openai-just-unleashed-an-alien-of">reasoning model o1</a>, competitors were able to copy the key insights within months.</p>
+<p>So if Anthropic can get away with it, it has an incentive to prevent its competitors from being able to access Mythos Preview for as long as it can.<a data-component-name="FootnoteAnchorToDOM" href="#footnote-2-193633549" id="footnote-anchor-2-193633549"><sup> [2] </sup></a></p>
+<p>Anthropic has shown the tendency already to try to prevent competitors from taking advantage of Claude’s capabilities. Over the past year, it has blocked Claude Code access at both <a href="https://www.wired.com/story/anthropic-revokes-openais-access-to-claude/">OpenAI</a> and <a href="https://x.com/kyliebytes/status/2009686466746822731">xAI</a> for violating Claude’s Terms of Service, which include prohibitions on using the models to train other AI models.</p>
+<p>In 2024, Anthropic was only releasing smaller Sonnet models while <a href="https://newsletter.semianalysis.com/p/scaling-laws-o1-pro-architecture-reasoning-training-infrastructure-orion-and-claude-3-5-opus-failures">reportedly</a> reserving the more powerful — and expensive — Opus models for internal use. However, as time progressed, Anthropic started releasing the Opus models again, perhaps to be competitive with OpenAI’s o3 model.</p>
+<p>But Anthropic has been on a winning streak. Claude Code took off and for the first time ever, Anthropic’s reported revenue rate is higher than OpenAI’s. Anthropic’s decision to only partially release its latest model might be an indication that Anthropic feels it has a lead over OpenAI.</p>
+<p>If this continues, we might see more cautious releases in the future. In an appendix to its <a href="https://www-cdn.anthropic.com/files/4zrzovbb/website/bf04581e4f329735fd90634f6a1962c13c0bd351.pdf">Responsible Scaling Policy</a>, Anthropic notes that if no other company has released a model with “significant capabilities,” then it will delay its release of a model with significant capabilities until either it has a strong argument to proceed with deployment or it loses the lead.</p>
+<p>We’ll soon get to see how long Anthropic’s lead lasts. There are <a href="https://x.com/AndrewCurran_/status/2041872162353770982">rumors</a> that OpenAI’s next model — codenamed <a href="https://www.theinformation.com/articles/openai-ceo-shifts-responsibilities-preps-spud-ai-model">Spud</a> — might come out very soon, perhaps this month.</p>
+<p><a href="#footnote-anchor-1-193633549" id="footnote-1-193633549">1 [find in text]</a></p>
+<p>I wasn’t able to independently verify whether the copy of this blog post was in fact the one leaked on Anthropic systems. (Fortune did not release a full copy of the leaked blog post.) However, Fortune’s write-up of the leaked blog post described the future model in similar language.</p>
+<p><a href="#footnote-anchor-2-193633549" id="footnote-2-193633549">2 [find in text]</a></p>
+<p>Ironically, AI rivals like Google and Microsoft are Project Glasswing members, so Anthropic can’t completely prevent rival companies from gaining access to the model. But Mythos Preview’s system card is clear that access to Mythos Preview through Project Glasswing is “under terms that restrict its uses to cybersecurity.”</p>
+<h4>Subscribe to Understanding AI</h4>
+<p>Thousands of paid subscribers</p>
+<p>Exploring how AI works and how it's changing our world.</p>
+<p>By subscribing, you agree Substack's <a href="https://substack.com/tos">Terms of Use</a>, and acknowledge its <a href="https://substack.com/ccpa#personal-data-collected">Information Collection Notice</a> and <a href="https://substack.com/privacy">Privacy Policy</a>.</p></div>
+      
+    </article>
+    
+    <article>
+      <h1>Apr 14, 2026AlignmentAutomated Alignment Researchers: Using large language models to scale scalable oversight</h1>
+      <div class="article-meta">
+        Anthropic Research
+        · 14 Apr 2026 · <a href="https://www.anthropic.com/research/automated-alignment-researchers">Source</a>
+      </div>
+      <div class="article-body"><figure class="article-figure"><img alt="Automated Alignment Researchers: Using large language models to scale scalable oversight" data-nimg="1" src="https://www-cdn.anthropic.com/images/4zrzovbb/website/f06ca06f9d08ca4a85f26357eb896c3730274507-1000x1000.svg" class="article-image"/></figure>
+<p>Large language models’ ever-accelerating rate of improvement raises two particularly important questions for alignment research.</p>
+<p>One is how alignment can keep up. Frontier AI models are now contributing to the development of their successors. But can they provide the same kind of uplift for <em>alignment</em> researchers? Could our language models be used to help align themselves?</p>
+<p>A second question is what we’ll do once models become smarter than us. Aligning smarter-than-human AI models is a research area known as “scalable oversight”. Scalable oversight has largely been discussed in <a href="https://arxiv.org/pdf/2211.03540">theoretical, rather than practical</a>, terms—but at AI’s <a href="https://www.anthropic.com/glasswing">current pace</a> of improvement, that might not be the case for much longer. For instance, models are already generating vast amounts of code. If their skills progress to the point where they’re generating millions of lines of incredibly complicated code that we can’t parse ourselves, it <a href="https://arxiv.org/pdf/2312.09390">could become</a> very difficult to tell whether they’re acting in the ways we intend.</p>
+<p>In a new Anthropic Fellows study, we pursue both of these questions.</p>
+<p>Our new study focuses on a problem known as “weak-to-strong supervision”, a problem that mirrors the one of overseeing smarter-than-human AI models. We start with a relatively strong “base” model—that is, a potentially-capable model that hasn’t yet received fine-tuning to provide its best-possible answers. Then, we use a much <em>weaker</em> model as a “teacher” to provide that extra fine-tuning, which it does by demonstrating what <em>it</em> considers ideal outputs to the strong base model. Finally, we evaluate how well the strong model performs after that weak fine-tuning.</p>
+<p>In the worst case, the strong model will only be as good as its weak teacher. Ideally, however, the strong model will have learned from the weak teacher’s feedback—it will have interpreted those weak signals in a useful way, using that feedback to improve its performance. We can quantify how well it did so: if the strong model shows no improvement at all (it performs only as well as its weak teacher), we score it 0; if it uses the teacher’s feedback to achieve the ideal outcome—the best performance the strong model could possibly deliver—we score it 1. This measure represents the “performance gap recovered” (between the weak model and the upper limit of the strong model), or the PGR.</p>
+<p>As a proxy for scalable oversight, the weak model stands in for humans, and the strong model for the much-smarter-than-human models we might one day need to oversee. If we can make progress on weak-to-strong supervision, we might find that our methods help us keep those ultra-smart models aligned to our values.</p>
+<p>Our new research tests whether Claude can <em>autonomously</em> discover ways to improve the PGR. We ask: can Claude develop, test, and analyze alignment ideas of its own? And, if it can, what might that imply about how far today’s AI models can accelerate the pace of alignment research?</p>
+<p>To find out, we began with nine copies of Claude Opus 4.6, and gave each one a few extra tools. Each Claude had a place to work and think (that is, a sandbox), a shared forum to circulate its findings with the others, a storage system to upload its code, and a remote server where it could receive a PGR score for each of its ideas. We also provided some background knowledge about model training and inference. We referred to these tooled-up Claude models as Automated Alignment Researchers (or AARs).</p>
+<p>To prevent each AAR from pursuing near-identical ideas, we prompted each one with a slightly different (but intentionally ambiguous) starting place: we recommended that one used some interpretability tools, that another thought about reweighting the data in the dataset, and so on.<sup>1</sup> Beyond that, though, we didn’t tell the AARs what to do. It was up to them to propose their own ideas, run their experiments, analyze their results, and share their findings and code with one another in order to work out what to try next.</p>
+<p>To provide a benchmark for the AARs’ results, we compared their work to a human baseline. Two of our researchers spent seven days iterating on four of the most promising generalization methods from prior research. On the open-weights models we tested (Qwen 3-4B-Base as the strong model, Qwen 1.5-0.5B-Chat as the weak teacher), the humans recovered 23% of the total performance gap (i.e., achieved a PGR of 0.23).<sup>2</sup></p>
+<p>Claude improved on this result dramatically. After five further days (and 800 cumulative hours of research), the AARs closed almost the entire remaining performance gap, achieving a final PGR of 0.97. This cost about $18,000 in tokens and model training expenses, or $22 per AAR-hour. You can see how each individual AAR progressed from the human baseline (at 0 hours) in the graph below.</p>
+<figure class="article-figure"><img alt="Graph showing the progress of our Automated Alignment Researchers on increasing the &quot;performance gap recovered&quot; on a chat dataset." data-nimg="1" src="https://www.anthropic.com/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F7b4a70562b33640ee7061fa5e06711d9c238309e-4584x2580.jpg&amp;w=3840&amp;q=75" srcset="https://www.anthropic.com/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F7b4a70562b33640ee7061fa5e06711d9c238309e-4584x2580.jpg&amp;w=3840&amp;q=75 1x" class="article-image"/><figcaption>The performance gap recovered over cumulative research hours for nine parallel Automated Alignment Researchers (red lines), relative to a human-tuned baseline (grey square). A score of 1.0 means the method fully matches a model trained on ground-truth labels.</figcaption></figure>
+<p>Claude, then, did exceptionally well. But how inventive were its methods, and could they be useful in real-world applications? To find out, we ran two further tests.</p>
+<p>First, we tested whether the AARs’ ideas could recover the performance gap on <em>held-out</em> datasets—that is, on tasks that the AARs hadn’t already seen. We took the AARs’ two highest-performing methods (on a dataset of chat tasks) and applied them to math and coding tasks. Here, our results were relatively promising: the AARs’ most effective method successfully generalized to both new datasets, with PGRs of 0.94 on math and 0.47 on coding (which was still double the human baseline). The AARs’ second-best method saw mixed results: it worked on math (0.75), but not on code, where it made matters worse. These results suggest that <em>some</em> generalizability of the AARs’ research is possible, but it isn’t a given. We encourage others who try experiments in automated research to stress-test AARs’ ideas against held-out datasets, too.</p>
+<figure class="article-figure"><img alt="Graph showing how well AAR-discovered ideas transfer to held-out datasets in math and code." data-nimg="1" src="https://www.anthropic.com/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fe1f31a844cd21a88242aea70936478857a3c643d-4584x2580.jpg&amp;w=3840&amp;q=75" srcset="https://www.anthropic.com/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fe1f31a844cd21a88242aea70936478857a3c643d-4584x2580.jpg&amp;w=3840&amp;q=75 1x" class="article-image"/><figcaption>The performance gap recovered by two AAR-discovered ideas (in red and blue) when applied to held-out math and coding datasets. The dashed line indicates the best human-tuned method that we used as a baseline.</figcaption></figure>
+<p>Next, we tested whether the AARs’ ideas would work at production scale. We tried out the AARs’ most effective method on Claude Sonnet 4 with our production training infrastructure. Here, though, we had less success. The AARs’ method didn’t lead to a statistically significant improvement. We think this might reflect limitations of this early trial, rather than something more fundamental: our scoring method was quite simple, and we only evaluated a single idea. Nevertheless, this does illustrate a limitation of AARs (at least at their current capabilities): AARs tend to capitalize on opportunities unique to the models and datasets they’re given, which means their methods might not work elsewhere. To mitigate this, we suggest allowing AARs to test against multiple domains and datasets during their research. This is one area that future experimentation with AARs could explore.</p>
+<p>A few iterations of our experiment taught us more about how to make AARs most effective. For instance, we found that giving each AAR a different starting point helped a lot, even if that starting point was vague. When we tried our experiment <em>without</em> setting the AARs off in different directions, they all quickly settled on similar ideas, making much less progress overall (though they still achieved a PGR of almost triple the human baseline). On the other hand, we found that giving the AARs too <em>much</em> structure hurt their progress badly. When we prescribed a specific workflow (“propose ideas, then generate a plan, then write the code…”), we found we’d ultimately constrained Claude’s work. Left to its own devices, Claude was much more adaptable, designing cheap experiments to test out its ideas before subsequently committing to much more intensive testing.</p>
+<p>The success of our AARs in recovering the performance gap between two open-weights models is certainly <em>not</em> a sign that frontier AI models are now general-purpose alignment scientists. We deliberately chose a problem that is unusually well-suited to automation, since it has a single, objective measure of success that the models can optimize against. Most alignment problems aren’t nearly as neat as this one. And, as we mention below, even in this setting our AARs did their best to game the problem: human oversight remains essential.</p>
+<p>But we do think these results have some important implications.</p>
+<p><strong>Keeping pace. </strong>This study indicates that Claude can meaningfully increase the rate of experimentation and exploration in alignment research. Human researchers can delegate questions to AARs at a very large scale; Claude can take on the task of developing novel hypotheses and iterating on its own results.</p>
+<p>Moreover, making progress on weak-to-strong supervision might <em>itself</em> help us build more general-purpose Automated Alignment Researchers, which is why we chose this problem for our study. In this study, we frame the weak-to-strong supervision problem as a “crisp” task with a verifiable outcome (increasing the PGR score). We do this because we need a way to automatically and reliably evaluate whether the AAR has made progress. However, if AARs discovered much better weak-to-strong supervision methods that generalized across domains, we could use those same methods to train the AARs to evaluate progress on “fuzzier” tasks that are much harder to verify. (For instance, we could conduct weak-to-strong supervision on Claude’s ability to scope research projects.) This is important, because alignment research—unlike capabilities research—often requires solving much “fuzzier” problems.</p>
+<p><strong>Taste and diversity. </strong>One possible counter to tools like AARs is that today’s frontier models still lack “research taste” (industry parlance for having an intuitive sense of which ideas might work and which won’t). But the success of AARs in this experiment suggests that the sheer volume of ideas might compensate for a lack of “taste”. If AARs can run many experiments very cheaply, it’s possible they could “brute force” their way into the findings that a very high-taste researcher might’ve come up with, or find success in directions that those researchers might otherwise have given up on.</p>
+<p>In turn, this means that the core bottleneck in alignment research could become <em>evaluation</em> (making sure that experiments are set up sufficiently well that we’re confident in their results), rather than <em>generation</em> (relying on human researchers to propose promising ideas).</p>
+<p><strong>Alien science.</strong> This work might have some stranger implications, too. AARs, by their nature, are designed to discover ideas that humans might not have considered. But we still need a way to verify whether their ideas and results are sound. For now, we’re still able to interpret what the AARs have done and why. But that might not always be the case: over time, the models’ ideas could become much harder to verify, or corrupted in ways that are tricky for humans to parse or catch. That could mean creating an “alien science”.</p>
+<p><strong>Preventing hacks.</strong> Even in this highly circumscribed environment, we observed the models “<a href="https://www.anthropic.com/research/emergent-misalignment-reward-hacking">reward</a> <a href="https://www.anthropic.com/research/reward-tampering">hacking</a>”—that is, trying to game our set-up. On math tasks, for instance, one AAR noticed that the most common answer to each problem was <em>usually</em> correct, so it skipped the teacher entirely and instructed the strong model to always choose the most common one. On a coding task, where the model had to predict whether a piece of code was right, the AAR realized it could run the code against some tests and simply read off the right answer. Hacks like these don’t invalidate our results (we detected and disqualified these entries), but they clearly do provide a warning. Any deployment of automated researchers will require evaluations that the AARs can't tamper with—and human inspections of both their results and their methods.</p>
+<p>To read this research in full, see our <a href="https://alignment.anthropic.com/2026/automated-w2s-researcher/">Alignment Science blog</a>. The code and datasets for this work are <a href="https://github.com/safety-research/automated-w2s-research">publicly available, here</a>.</p></div>
+      
+    </article>
+    
+    <article>
+      <h1>Issue #707</h1>
+      <div class="article-meta">
+        Pointer
+        · 14 Apr 2026 · <a href="mailto:reader-forwarded-email/1748772b78791fa2ad28422b757c92e4">Source</a>
+      </div>
+      <div class="article-body"><div class="rw-email-parsed">
+ <p>
+  April 14th, 2026   |
+  <a data-read-online-tooltip="true" href="https://link.mail.beehiiv.com/ss/c/u001.PFjHD-ii0vvUj1FcNnOS5qqF3eJEkrxympSzSDDZUB12F3iRIrdljERIwOGZHmGlQGSxdzUAprlRp0YrdapLQ-qV8Bz0kfU-yWb3YJjiQYg2Mkm9k6aJ2DBFRAld_5INDH5qwXH4q_T1bSp_UB67Usq9oUI3Ix8-Ekq2mAnOzkmLIgwbUFmMXRyR0IWFwYBX5045zOVgMaZe3SWoVZwL3IV1-Y4PsCr4s9h6qyMQj7hYDMpbikq6uSHZglkTD9EStFD3nYphhk-dk1f1JaVT7ZgQaoHioICzA-1g5iLaLHAPveXko4TKtzABvYkZE2TR731N_U0Ofy2diiCEaH5Msb_salC31KGjpsPgxFF_KRDK2MS_cWJwqIs1lneJ-eR3sDeG-BRQX6dsV4DrEsMSiU_jbZ9qDu5ktdBp2FGuwwIZsQMa8wtk4E5jYAZ5VWiy64-lh9DXpOdeMY3XjJMd9udvJJjEez4HUnYMTc2FiVT61rNWASUbqi6rHXs-2gD4yOOgemE9V5rCO3fuvcs-Ws-zOXFNSzZjhMSMmHU48bG535tiubQCh4lI8IDdrR9TDYRX-YVmypTEHqY4plspB6EhoLdOscze-NBL6KHuoM8/4ps/8zjQyfSISlGJ9KLkINh8Mg/h0/h001.6CiZNdmDC6k5eKDVkbsIpqaE0Oes53xnnbB6NLojXC8">
+   Read online
+  </a>
+ </p>
+ <p>
+  <a href="https://link.mail.beehiiv.com/ss/c/u001.PFjHD-ii0vvUj1FcNnOS5q_YCB9v_9ais7bHpn0n0l06sz26Z8FvnwPMbyRd7Nn8LQR1OeWX6mKJYYPpU3ujggMDgmTo3uirtbiMVXlZA8s/4ps/8zjQyfSISlGJ9KLkINh8Mg/h1/h001.e1y74E1meIGnh5PKQHqMsczyM29pj3ICX7Uezkr6Urg">
+   <img alt="" border="0" height="auto" src="https://media.beehiiv.com/cdn-cgi/image/fit=scale-down,format=auto,onerror=redirect,quality=80/uploads/asset/file/0e19a781-9451-497c-8305-2d53c38ac0e6/Frame_10.png?t=1723724930" style="width:100%;height:auto;border:0;display:block;outline:none;text-decoration:none;margin:0 auto;" width="650" class="article-image"/>
+  </a>
+ </p>
+ <p style="mso-line-height-alt:150.0%;">
+  Tuesday 14th April’s issue is presented by Unblocked
+ </p>
+ <p>
+  <a href="https://link.mail.beehiiv.com/ss/c/u001._d02Us3GR26SqbxiB_QNfVCIZm7z6WEeUkYKSDyeUSbWs-h_xJryl42p0sQSG-nf13UTCBv6gnAGX0h1gShFR8dmcWCt8LCM_MMUOocJ4CBa2BTltxBrcn3x1FuMWPx9Z1ebFqVECw2Uo6xgEl7NITIIN9WTkrHNzg5S04Vlx8Cqtzv-96-FTlrU5f_VoqoPPhm3_HY4oIofp4GFHgvVIZn86uDDyaWo3kTfS3ymA4BKqw9BPhTk5o6iBl4cKY9D/4ps/8zjQyfSISlGJ9KLkINh8Mg/h2/h001.kn8TXZPi753T2AaKR-vlan69kNNAHvFAY4_zsnMlZLw" rel="noopener noreferrer nofollow" style="text-decoration:none;" target="_blank">
+   <img alt="" border="0" height="auto" src="https://media.beehiiv.com/cdn-cgi/image/fit=scale-down,format=auto,onerror=redirect,quality=80/uploads/asset/file/b482f858-3469-4dd2-b214-b020a03574fb/Frame_20.png?t=1737730453" style="display:block;width:100%;border-radius:0px 0px 0px 0px;border-style:solid;border-width:0px 0px 0px 0px;box-sizing:border-box;border-color:#E5E7EB;" width="227" class="article-image"/>
+  </a>
+ </p>
+ <h2 style="color:#000000;font-weight:Bold;mso-line-height-alt:150.0%;">
+  <a class="link" href="https://link.mail.beehiiv.com/ss/c/u001._d02Us3GR26SqbxiB_QNfVCIZm7z6WEeUkYKSDyeUSbWs-h_xJryl42p0sQSG-nf13UTCBv6gnAGX0h1gShFR8dmcWCt8LCM_MMUOocJ4CBa2BTltxBrcn3x1FuMWPx9Z1ebFqVECw2Uo6xgEl7NIXuPEeJs4-U95EZ9IFte13zPzBknQnMYvxtgfn_E9Ojp1r7tasQiGIrkiS_bDXvpb8Ak6Y5_smZyJeVe8LqJxxR-cQZmxgxMZ_ujOvY1wjVG/4ps/8zjQyfSISlGJ9KLkINh8Mg/h3/h001.VJwcfHbbxbQKpFp_Qnr9eiHWWgETHrRfEnbGlXI6HYo" rel="noopener noreferrer nofollow" target="_blank">
+   <span>
+    Unblocked: Context That Saves You Time And Tokens
+   </span>
+  </a>
+ </h2>
+ <p style="mso-line-height-alt:150.0%;">
+  <a class="link" href="https://link.mail.beehiiv.com/ss/c/u001._d02Us3GR26SqbxiB_QNfVCIZm7z6WEeUkYKSDyeUSbWs-h_xJryl42p0sQSG-nf13UTCBv6gnAGX0h1gShFR8dmcWCt8LCM_MMUOocJ4CBa2BTltxBrcn3x1FuMWPx9Z1ebFqVECw2Uo6xgEl7NIaoo7yIcS3uZ85eTKBxRGcy5PVAIKOSWVodHGlWw4zhB7yMHf14CcN99LiTUzmBrnecgN43nIhy-Kx7EfeUDKq77K5GBK3yFdf2lc4e8qUNS/4ps/8zjQyfSISlGJ9KLkINh8Mg/h4/h001.NC_U14z-fV9_NbJ0Af_oGJCjlwOqAnuBYmuKXNvbTrI" rel="noopener noreferrer nofollow" target="_blank">
+   Unblocked
+  </a>
+  gives Cursor, Codex, Claude, and Copilot the organizational knowledge to generate mergeable code without the back and forth.
+ </p>
+ <p style="mso-line-height-alt:150.0%;">
+  <a class="link" href="https://link.mail.beehiiv.com/ss/c/u001._d02Us3GR26SqbxiB_QNfVCIZm7z6WEeUkYKSDyeUSbWs-h_xJryl42p0sQSG-nf13UTCBv6gnAGX0h1gShFR8dmcWCt8LCM_MMUOocJ4CBa2BTltxBrcn3x1FuMWPx9Z1ebFqVECw2Uo6xgEl7NIV7tfYwm_3qW_KQ6S8G5QVQ7UgBnpw4YnZrxeI8XeH-YRtNglz_Kx5Zeoj-onq3LwW5x6lS9AehwnlfeONHOZbfuJE-KpQ7-R2GB0dD9aJEb/4ps/8zjQyfSISlGJ9KLkINh8Mg/h5/h001.JUoZsruDc2rnGnS-wOmw-XBcaOYM3kP-g0rYf8lYrpk" rel="noopener noreferrer nofollow" target="_blank">
+   It pulls context from across your engineering stack
+  </a>
+  , resolves conflicts, and cuts the rework cycle by delivering only what agents need for the task at hand.
+ </p>
+ <h1 style="color:#000000;font-weight:Bold;mso-line-height-alt:125.0%;">
+  <a class="link" href="https://link.mail.beehiiv.com/ss/c/u001._d02Us3GR26SqbxiB_QNfVCIZm7z6WEeUkYKSDyeUSbWs-h_xJryl42p0sQSG-nf13UTCBv6gnAGX0h1gShFR8dmcWCt8LCM_MMUOocJ4CBa2BTltxBrcn3x1FuMWPx9Z1ebFqVECw2Uo6xgEl7NIQTrs66xHAdWBRqGN10Qehm4Dw-6TYgToZNtKrf6X7mpB93hfWyv5QskesSX3NG0PF5jew1VU69_CmZ3VlZwMzwwk0GLE_hM882eccPV1MFb/4ps/8zjQyfSISlGJ9KLkINh8Mg/h6/h001.9r9CHepDVQlrElS3h-We82_GEBISR7rsGWLVZnSFpO8" rel="noopener noreferrer nofollow" target="_blank">
+   <span>
+    Try For Free Today
+   </span>
+  </a>
+ </h1>
+ <h1 style="color:#000000;font-weight:Bold;mso-line-height-alt:125.0%;">
+  <a class="link" href="https://link.mail.beehiiv.com/ss/c/u001.NxDti-hLnxnUue0yjhAbRz14sG_Qqg3mQcec1wBSAw7E2jnDzSLarfCKrDYcJ5u9qaPzYUFzWjJDFGTUV0RulW1XNoGPnhUz0wR6K1flr8quCcYMsRq1Xry9Lw-bMhsALVgn2o7MAsL8e4UZVUxNIs8PcTN_acs2i7-jnw0gVGJGTPdHsZixaYQ0nMHnyrVefn8SIqJAJtrlT6jBAzpMrQ/4ps/8zjQyfSISlGJ9KLkINh8Mg/h7/h001.62_thhLThMXNSF2AuExvCketEwHTa4Y8S8fqMhsrsHI" rel="noopener noreferrer nofollow" target="_blank">
+   <span>
+    Who Will Be The Senior Engineers Of 2035?
+   </span>
+  </a>
+ </h1>
+ <p style="mso-line-height-alt:150.0%;">
+  — James Stanier
+ </p>
+ <p style="mso-line-height-alt:150.0%;">
+  <b>
+   tl;dr
+  </b>
+  : “We’ll start by looking at the pipeline we used to have: how senior engineers traditionally emerged through years of mistakes, mentorship, and low-stakes learning. Then we’ll examine what’s replacing it, and hypothesise whether AI will actually fill the gap. We’ll explore three possible scenarios for 2035, and finish with what this means depending on where you sit in the industry.”
+ </p>
+ <h6 style="color:#000000;font-weight:Normal;mso-line-height-alt:87.5%;">
+  <span style="font-size:12px;">
+   <i>
+    Leadership Management CareerGrowth
+   </i>
+  </span>
+ </h6>
+ <h1 style="color:#000000;font-weight:Bold;mso-line-height-alt:125.0%;">
+  <a class="link" href="https://link.mail.beehiiv.com/ss/c/u001.71LCQkoHczeoiEaexlZjtu75HlwJG1dwHMtB8QUGgazDVYk-rRJybXJgNofC759PNZLLJP6fqhcxwyxPP5rGnwKcwHtMJWLeohIhw0ZOF7xPyUXpZwRy8SVZeWqFX2YJZOhLiTvfQo6gU8DrSc5x2Gp7TpM4VUCuNNp9frxBcuiVuKFS7-J75mt90I3ERsO5bViunm2xDj-1PuagfsyTt4EdWznUefQO-GSq9tVbC9Y/4ps/8zjQyfSISlGJ9KLkINh8Mg/h8/h001.VJN_P0h8sDNYxMxX2UzWZpa7R9BwAhYX9EiFn3BTyR4" rel="noopener noreferrer nofollow" target="_blank">
+   <span>
+    The Complicators, The Drama Aggregators, And The Avoiders
+   </span>
+  </a>
+ </h1>
+ <p style="mso-line-height-alt:150.0%;">
+  — Michael Lopp
+ </p>
+ <p style="mso-line-height-alt:150.0%;">
+  <b>
+   tl;dr
+  </b>
+  : “While you figure that out, let me alert you to three drives that are going to consume a disproportionate amount of your time, frustrate your engineers, and erode your leadership credibility.”
+ </p>
+ <h6 style="color:#000000;font-weight:Normal;mso-line-height-alt:87.5%;">
+  <span style="font-size:12px;">
+   <i>
+    Leadership Management
+   </i>
+  </span>
+ </h6>
+ <h1 style="color:#000000;font-weight:Bold;mso-line-height-alt:125.0%;">
+  <a class="link" href="https://link.mail.beehiiv.com/ss/c/u001.3a5P_SwQzY5x8USD2q4p0ifl3M68qmkH56j-n_NuhhOl5dx-6qker9Tk-gaMJksk0UUTWn9DjzUhdQXqz-tAj03JtvX9sQByA28ZWc55xZkANRHZzpx-HqDhPF9MX0onuvI09QNV-EO-kKAnMUufqrVJgmyPZETLHVMtT1bgm789tIfGoM2uvOlhQZKxzbbbYlNwv_-_oxRFgQhsTbwaex8ELOhxKdoHxJS51X8KWoPGgXv77aaf0OWwB5wy-IMFw975nCmHiYugif6daK2-cR-0fMsVUdPmikUJqlxVxwvYBNviuEo6TAshzNN0lp2fJg99HurnE5KwxUN8LsIxF4KtJjtKQmdFQcC32OxFv2M/4ps/8zjQyfSISlGJ9KLkINh8Mg/h9/h001.aw1Z1LH8ieGHSFMYGTiZVkbuN6yQWS4KCMjmNuq73n4" rel="noopener noreferrer nofollow" target="_blank">
+   <span>
+    [Webinar] How To Stop Babysitting Your Agents
+   </span>
+  </a>
+ </h1>
+ <p style="mso-line-height-alt:150.0%;">
+  <b>
+   tl;dr
+  </b>
+  : Agents can generate code. Getting it right for your system is the hard part – you end up wasting time and tokens in the back and forth. More MCPs solve access but not understanding. Join us for a FREE webinar on April 23 to see how to give agents exactly what they need to generate mergeable code the first time.
+ </p>
+ <p style="mso-line-height-alt:150.0%;">
+  <i>
+   Promoted by Unblocked
+  </i>
+ </p>
+ <h6 style="color:#000000;font-weight:Normal;mso-line-height-alt:87.5%;">
+  <span style="font-size:12px;">
+   <i>
+    Agents Event
+   </i>
+  </span>
+ </h6>
+ <h1 style="color:#000000;font-weight:Bold;mso-line-height-alt:125.0%;">
+  <a class="link" href="https://link.mail.beehiiv.com/ss/c/u001.3a5P_SwQzY5x8USD2q4p0gICp5uHh7zdgjHBX1QIOj9eDgdDyYFYFowE8sw8eZbKBp32JjA9XJdXNl0yHcNd8BUKVY1iOrbpI0KYxWyI0RUgj6VY09jYFu5QLPDcbmXDXV_gP5HBRMRTwZ1kasb4maPgge-ACfvGEoj_-Rrtyy1cCWO-IAqEOU2BnLXgE0DG/4ps/8zjQyfSISlGJ9KLkINh8Mg/h10/h001.wha-7m1-DgBQNyqWFzsRHI9FFqZoVHLBXOEqhJJliTo" rel="noopener noreferrer nofollow" target="_blank">
+   <span>
+    The Economics Of Software Teams: Why Most Organizations Are Flying Blind
+   </span>
+  </a>
+ </h1>
+ <p style="mso-line-height-alt:150.0%;">
+  — Viktor Cessan
+ </p>
+ <p style="mso-line-height-alt:150.0%;">
+  <b>
+   tl;dr
+  </b>
+  : “This post works through the financial logic of software teams, from what a team of eight engineers actually costs per month to what it needs to generate to be economically viable. It also examines why most teams have no visibility into either number, how that condition was built over two decades, and what the arrival of LLMs now means for organizations that have been treating large engineering headcount as an asset.”
+ </p>
+ <h6 style="color:#000000;font-weight:Normal;mso-line-height-alt:87.5%;">
+  <span style="font-size:12px;">
+   <i>
+    Leadership Management Business
+   </i>
+  </span>
+ </h6>
+ <p style="color:#f3f4f6;font-weight:normal;margin:0px;text-align:center;">
+  “Don’t find fault, find a remedy.”
+ </p>
+ <p>
+  — Henry Ford
+ </p>
+ <h1 style="color:#000000;font-weight:Bold;mso-line-height-alt:125.0%;">
+  <a class="link" href="https://link.mail.beehiiv.com/ss/c/u001.yC9eJs5Q3flddlsql05gYZaBcLWTqvnQh8p0MtEOhoYSY3_xtY9r_0qhBzTt7WU2-afim77nP0CT2Qzcz69-CGwMXeEQxsdpeXLJ5CAFEnD8xGClXVy9M6tNACTLfImvjpFBrUuUASo1rLVauO_J8xxKvktbQHYPlWI0T_QbLmQwD-c2D_Ch_oE5yQu7MTl5/4ps/8zjQyfSISlGJ9KLkINh8Mg/h11/h001.3HikAiUJEsrYS8n9wK9KMr3wghpVtjIbIONRawYMzP0" rel="noopener noreferrer nofollow" target="_blank">
+   <span>
+    Developer Ramp-Up Time Continues To Accelerate With AI
+   </span>
+  </a>
+ </h1>
+ <p style="mso-line-height-alt:150.0%;">
+  — Justin Reock
+ </p>
+ <p style="mso-line-height-alt:150.0%;">
+  <b>
+   tl;dr
+  </b>
+  : Onboarding new hires has always been an expensive and time-consuming process, and an area where AI has the opportunity to have a meaningful impact. In Q4 2025, when we looked at Time to 10th PR (a measure we use to track ramp-up time), we saw AI already having a dramatic effect. In some companies, Time to 10th PR was cut in half: from 91 days with no AI usage to 49 days with daily AI use.
+ </p>
+ <h6 style="color:#000000;font-weight:Normal;mso-line-height-alt:87.5%;">
+  <span style="font-size:12px;">
+   <i>
+    Leadership Management AI
+   </i>
+  </span>
+ </h6>
+ <h1 style="color:#000000;font-weight:Bold;mso-line-height-alt:125.0%;">
+  <a class="link" href="https://link.mail.beehiiv.com/ss/c/u001.PFjHD-ii0vvUj1FcNnOS5m_XeT9dRXpwxIrddCjrRSQPMwIi-hyg-iHYNHsZ4KH2r6SGiHKOYR6BIO3OwJn8Sa7tdo7xUEDNBVBvZXKra_-FAaXQNAyiC5fIMLisyYFq7_S65j3UdPLnYCl9gyH2VruAMWN_6Irpm5X389eVYap8RNV8zfy_xLrjr2CiF_iS3OUprnym14AJF9YLJndzuvtoLRV4K-S2T5NVch_LJgM/4ps/8zjQyfSISlGJ9KLkINh8Mg/h12/h001.qbFUvybmq3uFKzXOag1HODtuZqn-rxigLF0JR5ZNwAY" rel="noopener noreferrer nofollow" target="_blank">
+   <span>
+    Get A Faster Database And Save Money
+   </span>
+  </a>
+ </h1>
+ <p style="mso-line-height-alt:150.0%;">
+  <b>
+   tl;dr
+  </b>
+  : Experience why companies like Cursor, Intercom, and Cash App choose PlanetScale to power their databases. Blazing fast NVMe, low-latency, 99.999% uptime. Available for Postgres and MySQL with sharded Postgres coming soon. There's no catch - we'll even help you migrate!
+ </p>
+ <p style="mso-line-height-alt:150.0%;">
+  <i>
+   Promoted by PlanetScale
+  </i>
+ </p>
+ <h6 style="color:#000000;font-weight:Normal;mso-line-height-alt:87.5%;">
+  <span style="font-size:12px;">
+   <i>
+    Database
+   </i>
+  </span>
+ </h6>
+ <h1 style="color:#000000;font-weight:Bold;mso-line-height-alt:125.0%;">
+  <a class="link" href="https://link.mail.beehiiv.com/ss/c/u001.3a5P_SwQzY5x8USD2q4p0jYhs-iLUnxs20dHc3NWJSRc_tKbbCdzX1NCP-Vm2YbgApTPs31tEz1rlJE84QdzBZaBTa6n2H8TJW7HuEjLGSrgbl54xYeU7UTRaIOcm3ewmahTtk-5QEcmbc9lC3D_KVHpdZld4SJOSmphbRn6eEZ_AbSd1JFRQud-5LKZBInh4XOhKLwxL1xSk3UZGFJN45vKMmwn0KfovB4ouqas4yA/4ps/8zjQyfSISlGJ9KLkINh8Mg/h13/h001.LsVI69xySYusoAfOrZ-VgPYK85dtR6BFnQ_CkI7Nix8" rel="noopener noreferrer nofollow" target="_blank">
+   <span>
+    S3 Files And The Changing Face Of S3
+   </span>
+  </a>
+ </h1>
+ <p style="mso-line-height-alt:150.0%;">
+  — Andrew Warfield
+ </p>
+ <p style="mso-line-height-alt:150.0%;">
+  <b>
+   tl;dr
+  </b>
+  : “Andy writes about the solution that his team came up with: S3 Files. The hard-won lessons, a few genuinely funny moments, and at least one ill-fated attempt to name a new data type. It is a fascinating read that I think you’ll enjoy.”
+ </p>
+ <h6 style="color:#000000;font-weight:Normal;mso-line-height-alt:87.5%;">
+  <span style="font-size:12px;">
+   <i>
+    Architecture Amazon
+   </i>
+  </span>
+ </h6>
+ <h1 style="color:#000000;font-weight:Bold;mso-line-height-alt:125.0%;">
+  <a class="link" href="https://link.mail.beehiiv.com/ss/c/u001.3a5P_SwQzY5x8USD2q4p0lm0hcCAZs3Dpt3o3qYYQwpnldT93cyKuiw1-h7QuLRzSsljGgUBQkvvjxfx1l5q_Hrzj2xg3vgZCvXiTUKb7EkqAGsIahqekqwI8J6HaAEnU3yhtHkV6bk_Pb0zFQvth8CjHSHsst49Eo_E9f8Bzdk/4ps/8zjQyfSISlGJ9KLkINh8Mg/h14/h001.yxETm0cfI0g8HoCSeHg-l8YWuu7Sc5Ils2kBBW2ka7g" rel="noopener noreferrer nofollow" target="_blank">
+   <span>
+    Chess In Pure SQL
+   </span>
+  </a>
+ </h1>
+ <p style="mso-line-height-alt:150.0%;">
+  <b>
+   tl;dr
+  </b>
+  : What if I told you SQL could play chess? Not "store chess moves in a database." Not "track game state in a table." Actually render a chess board. With pieces. That you can move around. In your browser. Using nothing but SELECT, UPDATE, and a bit of creative thinking.
+ </p>
+ <h6 style="color:#000000;font-weight:Normal;mso-line-height-alt:87.5%;">
+  <span style="font-size:12px;">
+   <i>
+    Guide SQL
+   </i>
+  </span>
+ </h6>
+ <h1 style="color:#000000;font-weight:Bold;mso-line-height-alt:125.0%;">
+  <a class="link" href="https://link.mail.beehiiv.com/ss/c/u001.yC9eJs5Q3flddlsql05gYcJnobstaHcCa-PHOoVJVT_RJqmEFRZU_Q12qRGg-aXomMVWZeGj-6WBsrQPxVnYQH50VpT71XWCBjhQhxUacr10mvstZi07RTuyjvl1fydyIkVW-JzJ83RT2V3ppCi-hDpcDHs7uyV1jjc4cgNxRjF1LUeqC2Wc6jpYa1IgQ5XT/4ps/8zjQyfSISlGJ9KLkINh8Mg/h15/h001.cEkiUK1v_0vKquPH0atFuKZC60t4_U7v6xbKjZCmwms" rel="noopener noreferrer nofollow" target="_blank">
+   <span>
+    Git's Magic Files
+   </span>
+  </a>
+ </h1>
+ <p style="mso-line-height-alt:150.0%;">
+  — Andrew Nesbitt
+ </p>
+ <p style="mso-line-height-alt:150.0%;">
+  <b>
+   tl;dr
+  </b>
+  : “Git looks for several special files in your repository that control its behavior. These aren’t configuration files in .git/, they’re committed files that travel with your code and affect how git treats your files. If you’re building a tool that works with git repositories, like git-pkgs, you’ll want to ensure you respect these configs.”
+ </p>
+ <h6 style="color:#000000;font-weight:Normal;mso-line-height-alt:87.5%;">
+  <span style="font-size:12px;">
+   <i>
+    Tools Git
+   </i>
+  </span>
+ </h6>
+ <h1 style="color:#000000;font-weight:Bold;mso-line-height-alt:125.0%;">
+  Editorial Note
+ </h1>
+ <p style="mso-line-height-alt:150.0%;">
+  Anthropic unveiled
+  <a class="link" href="https://link.mail.beehiiv.com/ss/c/u001.71LCQkoHczeoiEaexlZjtveTOLd4RS-GZja6-OtmeEIMW_38BO4nkeLf3DVCuknDsQkzao87Qb9FygIF6foHSYp_YWD0Gk6dF4quWk3B18kpT3rKUHCEUF81QT_fNOBcGD0RlVfHcMvsx8rE2C8HSbbVKf67kRoudWGeEVIt5Qw/4ps/8zjQyfSISlGJ9KLkINh8Mg/h16/h001.S3JOIcQF3WiMoE7hoIphCo-ieRM52meijHWFPbEt_k0" rel="noopener noreferrer nofollow" target="_blank">
+   Mythos
+  </a>
+  - a tool reportedly too powerful to release publicly. Mythos is capable of surfacing long-standing bugs and obscure vulnerabilities. According to one
+  <a class="link" href="https://link.mail.beehiiv.com/ss/c/u001.T-cngy-HiLjOztVyxmCjHAOFPxklcdu-n0UYXQuA2Hm6YWM0WBpowSgeQBWz4xxTS242xe-Mz37QINoSEXdlzAkngnJd9XOz0kHZDwhxBlmJlxRdnuXEZ1t9LGKQ6wJqzTPOWkVTJjULuMarA0P3nbMMpJdhBQU0p-YyKJXl4BVjhtWX-ebOzE3KkGB4UQWhQIZjUitKmMLCbov6EIPB0Q/4ps/8zjQyfSISlGJ9KLkINh8Mg/h17/h001.6RLHQpgMNg_EHcioXtrwNNUr_nYPVDU9iLHlSiXCWX4" rel="noopener noreferrer nofollow" target="_blank">
+   expert
+  </a>
+  , frontier model improvements “won’t be a slow burn, but rather a step function” improvement.
+ </p>
+ <p style="mso-line-height-alt:150.0%;">
+  Some see the launch as a move in the ongoing PR battle with OpenAI. Less than a month ago, Anthropic accidentally exposed Claude’s source code.
+ </p>
+ <p style="mso-line-height-alt:150.0%;">
+  If Mythos is real, there are implications. Engineering managers are accountable for secure systems - but we only control the code we write. What about the open source code that underpins our stack?
+ </p>
+ <p style="mso-line-height-alt:150.0%;">
+  The founder of curl, Daniel Stenberg, has spoken about the
+  <a class="link" href="https://link.mail.beehiiv.com/ss/c/u001.biwauLeAd2Zg7_5VVe_dVC_h3BvzJATdJgRfRLdk4mFwGd7rt2WnoFi1zlhI7rePqotLtta9juPIR0uJNOWCV-qnApp4hU-43Y-V6B0hTDzh_W0KVtki9kcypjY3Bx7AWfuvNyMTtBL20V33IaibE7y1MGCBYkaLMXzEcNyMHZ_cPA8R5uObBg_AF54G9PE4/4ps/8zjQyfSISlGJ9KLkINh8Mg/h18/h001.rFWTv1jJ_veTRYngLXpGB_EbwwtIrvoqjIq5az7ZnU4" rel="noopener noreferrer nofollow" target="_blank">
+   growing noise
+  </a>
+  of AI generated vulnerability reports, and the pressure that’s put on him and his team. Curl has billions of instances worldwide.
+ </p>
+ <p style="mso-line-height-alt:150.0%;">
+  What happens when the security of open source is delegated to Mythos, or its OpenAI equivalent? Are we safer as we have a sophisticated vulnerability expert? Or are concentrating the security of the worlds open source code into fewer hands.
+ </p>
+ <p style="mso-line-height-alt:150.0%;">
+  And are we more vulnerable?
+ </p>
+ <h1 style="color:#000000;font-weight:Bold;mso-line-height-alt:125.0%;">
+  Most Popular From Last Issue
+ </h1>
+ <p style="mso-line-height-alt:150.0%;">
+  <b>
+   <a class="link" href="https://link.mail.beehiiv.com/ss/c/u001.K3FzaWG5vnes9asChrWWUKvb9dwzjn1HQSwhuZBUxV29yRcLEykUMlqgR2WmcBDsx-vwWtW55m89fu_8ged_IInlsAf633u5Y47UkLBD08p_N0Mj2vjHybKEQL29YO8bVhm9tlOoikicY0QqrLIdnDvduUhRpVKQZEYyboZmvxvt8kABNxearsLK3up-RkJL/4ps/8zjQyfSISlGJ9KLkINh8Mg/h19/h001.WVXO6lABQU1gBwT5m7Ru7EV6AIn7jSyrlxeTXq2x8pI" rel="noopener noreferrer nofollow" target="_blank">
+    Finding Comfort In The Uncertainty
+   </a>
+  </b>
+  -Annie Vella
+ </p>
+ <h1 style="color:#000000;font-weight:Bold;mso-line-height-alt:125.0%;">
+  Notable Links
+ </h1>
+ <p style="mso-line-height-alt:150.0%;">
+  <b>
+   <a class="link" href="https://link.mail.beehiiv.com/ss/c/u001.Ira8ofUIq_P_lCLURPEgQ8uwd3iRT86I76ytBN_XjS9-4m7_jX9vHMVzflTQUJ2UTznRJPyRoo7ocL1DXJvga-HtKm8GR8psy8WIu8SH83pTrOctwx_GvZSeP05X-F0d2PJyzDQimAoZtI2YiCZ98g/4ps/8zjQyfSISlGJ9KLkINh8Mg/h20/h001.nSlC46EC826uHr7Q2YuDrNVgb6gVVXdUhhw7pRVrKUs" rel="noopener noreferrer nofollow" target="_blank">
+    Claude Code Cheat Sheet
+   </a>
+  </b>
+  : Shortcuts, commands, tips and more.
+ </p>
+ <p style="mso-line-height-alt:150.0%;">
+  <b>
+   <a class="link" href="https://link.mail.beehiiv.com/ss/c/u001._d02Us3GR26SqbxiB_QNfZ4FENqaqzCvQzpclZjccea-bI_ooR0ZcI8BKgllr9d4ONdpw9DO0AvO06LbluVgVuN0zp-nHLfbLMpbvzMhFmgMhuMY7dQe2xcFOaOW3DmroQYhlxmnmZI_-XAxaEO8aYD4PgvLPR09cvsFCWwbej4/4ps/8zjQyfSISlGJ9KLkINh8Mg/h21/h001.tDmddP32EA41bCIcCKzwojsgaOwJuzNq8jI5G_FdnUE" rel="noopener noreferrer nofollow" target="_blank">
+    Letta Code
+   </a>
+  </b>
+  : Memory-first coding agent.
+ </p>
+ <p style="mso-line-height-alt:150.0%;">
+  <b>
+   <a class="link" href="https://link.mail.beehiiv.com/ss/c/u001._d02Us3GR26SqbxiB_QNfXRaFGf2q8XXrjIWyqlrywCL_61oxO_YZfaQ_bszSj72pBsZSy6VZh7HfD1IC9uPJQYbXcy5m0OK8VUpC-s-myIeKrJaQCAEA5S-4s7y9HmJAb3-P0B13IDiljKmrZzLSErTn-eq-MIvXhqTmBXpl5w/4ps/8zjQyfSISlGJ9KLkINh8Mg/h22/h001.DzQPFzZ10lFy3WPtf6JPlvvs7yjo8LyN94JByYYa8Rc" rel="noopener noreferrer nofollow" target="_blank">
+    Multica
+   </a>
+  </b>
+  : OS managed agents platform.
+ </p>
+ <p style="mso-line-height-alt:150.0%;">
+  <b>
+   <a class="link" href="https://link.mail.beehiiv.com/ss/c/u001._d02Us3GR26SqbxiB_QNfV0mM61MhYDLkhvNhfEsvE0N-5Qp7aTtE6DrrCSaeOKWWZTOetpuZLVSHo3aa4N8732rpkOumMh_TadkU-znchGmcnUJU_98uFbw1AZ1PgNFLinlxBGd5bSzU7oDtglEQhnAU85X9TLV-jwAINtFxT2Og5Do3GcaxRzz0ZQ3iK-h/4ps/8zjQyfSISlGJ9KLkINh8Mg/h23/h001.qFWv2lS8MBzzDgGVfjfL8DjWOCifFgTTXKCfOWVEzEc" rel="noopener noreferrer nofollow" target="_blank">
+    Skills
+   </a>
+  </b>
+  : Single CLAUDE.md file to improve Claude Code behavior.
+ </p>
+ <p style="mso-line-height-alt:150.0%;">
+  <b>
+   <a class="link" href="https://link.mail.beehiiv.com/ss/c/u001.sGoRjeV3QKXxxm_cll-jKf7vFqWkCAydXqNDaUFtYSWnHZiRyofV7JCREspEyhdR-6rYiyMjdL8eBO6DnGahp0FTKDdWibvWMIWQsKiP_kzU89U5sohBCLrHXYcW9hsS-9ev2pyxcK5Jc6Q7RdgKTA/4ps/8zjQyfSISlGJ9KLkINh8Mg/h24/h001.dOSH7k25SFZy_DQfaE6BFAdrZAN335ms3uXIYwFT6q0" rel="noopener noreferrer nofollow" target="_blank">
+    Voicebox
+   </a>
+  </b>
+  : OS voice synthesis studio.
+ </p>
+ <h3 style="">
+  How did you like this issue of Pointer?
+ </h3>
+ <p style="">
+  1 = Didn't enjoy it all // 5 = Really enjoyed it
+ </p>
+ <p>
+  <a href="https://link.mail.beehiiv.com/ss/c/u001.PFjHD-ii0vvUj1FcNnOS5qqF3eJEkrxympSzSDDZUB2kNBPRffeXfmBmdHnTaFwPewcec2bWLBRjWFkF5rwrOoZ3LCULdLJd2zZG-MQnUCPU9Oww_LIMPuZbBnqtNeS2vLuaFvvJcIGMMDURCQ3fC1QFn9puYn6FFhTxzJ3fZYxzbXrNRD-xd5GwrHqDeM2ZWdQUOFLZnKHT4ElZH9RwCfSmCLOHdT2oBloU8zsBaOzLBIqPh_1HpAK3wbXy0lAFvTUHOn8ees2CNV80AMkwOiSQlnophtu3MaDnUl7_Y2PIgYWGDRszFagYKen6T1Ni-Q1SwKVisuwo0dr11ZQM1vljVwnXAV9SJqCIyTVsctVjc_moi5pUiDTE-TXieSf0BOLs2YOZXwfjQ-RbSJ0cbux3l_F8_WdBDYuSFZl7lKmU-HPidgG6PZAZI-nb-BZbcLsYuM1DZcrJqambgYrkzFoU9bP_KvPTFfhJmxIVOiDT68giUTHbnPpk1m-2_vzye-F2--ElrOmMtC1OErZMSrwNcmDv3jGW9gJnPR52OUMcXBVXM5aSxsdCw3RqaOgK6dKSDTROuWhMcmzLItT3gBzQ4DMmdJ4rReP4UIP6ZewWJTJq9fnTrH4wDQqJQUgHSorRCJb7tYCJ1XcsWWvjzs-BDddujLUvcdp1dR8W3USF_V4gAZqeuHkMQ6obFRS5N8xbfF4_3g5wMIhCYSjOIZf5rHleOmiFMgIgEPyycx0sEb05Gzm3B0BxueX3GHJ0V5-GvBxJ7tM98nB40SSS_8rMV1KDIGvrn59SF1KNzLcYxrqK9FkIarm-pYdN1AhnyPbXEVj8CLqQ92lQszbXi1m0tmPpo7JPvcGX7NrshVQOW2wbhUIVKoZh1QMQ0lEYK0bGzx0DSD5_aPLIYOluL8Paz-1JtaztD-cFUJepEuU/4ps/8zjQyfSISlGJ9KLkINh8Mg/h25/h001.mwVPR6r2DvCvKCpPtZuPDbp7UwtBQ1kv4jijhbLaATM">
+   1
+  </a>
+  |
+  <a href="https://link.mail.beehiiv.com/ss/c/u001.PFjHD-ii0vvUj1FcNnOS5qqF3eJEkrxympSzSDDZUB2kNBPRffeXfmBmdHnTaFwPewcec2bWLBRjWFkF5rwrOoZ3LCULdLJd2zZG-MQnUCOIeilN-0fUgt530ZCm3qekC9vstOjYNThr6t1JdFA438Gjo8ab7RN5xNUN_O-LJfOuZBdYiiEHBFRUhLiErVFdKdV1FvuGjrqMWgUA91DYGpaGaA-KJGK5ggWzjjuyDS-sPSKIvdfVOvji-56ZDUMuBTONFVN3Gfpw7zAbhTg0nvI56_XaHZOLKKUZ39zEQV6WYUeSaqGsMipERddDJzryJwRs7SrpBpxbrd16oBNFb6OvRy0v8oV07bxesXQepG-HJhwFhn1IFV_mSoLgYCWtomB_h6LnnqhmXeGsAd5GEa0DNK3XQoCV0boC7sUBM3Xxla6kTQh2m6PHWVFzrzV8EHvKVAg0hQv6TxZJBPT3ts-4ZEpCp4JED_qkQJXFVaw70S6bYzmZYVw-gkhDhDbXcx4AhmNwIFjMz8C2o33irwtYR7UgcD8S34TZfigy4z9SSWLVg7Xi0lCCD1BFOn7HDA4Sm6wlgEqrL7Ba1eWIHCBGUhx-nE4lgjhahxa5cJehk1uRhjdgB-Hw3sWB3XE6AZH2eDYjhEqwmd0qK2FiW1P_tTCJBI2ScbzBcJZ_mSWjJewqRSaDpWFJxoyKjEpAHBP8az6qju9lGiCgGABgyvo1L49uPRleJM4WBiQZRI9ACZSqK7IjaVtp90vW8QEXWPXkc_PVZapgtfzn1mAImNJqXYDi98pHWNimd__yZWmU1lz4TO8Z4807_cyeUaCp0kbKipbpTsj_ns702kkngevLowRZiLuG2Ly5hoYoHY1Z-mLERsVMg0oslkYUWBxTGTZASJAJKIzExbmuYSh97De65386OgupJeGrO2P8qCk/4ps/8zjQyfSISlGJ9KLkINh8Mg/h26/h001.HbVhj_TErnqcvdTs16wPIP4TKpahiG6bJ21WHQyQlXQ">
+   2
+  </a>
+  |
+  <a href="https://link.mail.beehiiv.com/ss/c/u001.PFjHD-ii0vvUj1FcNnOS5qqF3eJEkrxympSzSDDZUB2kNBPRffeXfmBmdHnTaFwPewcec2bWLBRjWFkF5rwrOoZ3LCULdLJd2zZG-MQnUCPo6prT-k64_j648SGWQhlfTydBMfqVYenj_2fkPNG08m7wpJJI5YYvTZoyNom6uN4ADA_aF0p0LcY_Tw_n0zvpkpqKJZhCM5-ySVnPjY35TYGT-N1DgP-r6J2IAyEiOOi1-N_EKgvILaHVFfaf5DpJJDQJtM6PlgZTJk1EwomW2hhd6bnAeRYQHraFfo8BLoOubxToCyis2hx3UJVxU_yRcmt7D-GjMtXMQQ8rSt4eh8KGamMH3-9l5pfEF3pv11tMsRBa6XMDo_y5U9oVt4RT0mNrIzRIHyNAD7UD1HQuSR05vT4Kiew132SrZqMZUzo3-GqKcIQ7jsvkwaUJo0e8IZM9vrNaGjwFGbxskrqZCJl-9O-cPL5I_z6Fs3GJpS1wGs7m9UIhQU61z13FGzb1MG9YMCDw10pGnN5vtE6WsyFe1PLVUZkmKqafz0oniiq_cAEmkDbx2ubCgY3P9fygvWujGIpSOwLcdTmjBfWrMwDfHW2tuofUIXP99qIEGnYOUeNIKrBkhckJOGQH-IDSA19IiU51cyQehtAlFWbGA1Fy8jsiIms97Ms5SCo2tjPNMAerG5Omnx_WYbZOKj8ESG8_YxETjfJasCcZ6e30KmZ91V7asy2IxGAcE-l1Edi2Th3SsuY72l0clzJM_nWd_Kb1JGwOg6OC1Q_NGhsSoBgvwpUn-iAnHngjXXvaVtCXHir8eUHE92-5QckMD4v0SJNoRuEHXSY4rag8Lb1nIbYX0RftzpN3daRThirex5yQDXOXUvmHFu0iLVXh5F3Q7TNG1_rOJk1T2OuRirme1GzWNgWv2s3LCtoeI8D65hs/4ps/8zjQyfSISlGJ9KLkINh8Mg/h27/h001.DMoKLewg2d8Jk2Z5bKADmBsBHcoHgb0GMMqaRczC2EE">
+   3
+  </a>
+  |
+  <a href="https://link.mail.beehiiv.com/ss/c/u001.PFjHD-ii0vvUj1FcNnOS5qqF3eJEkrxympSzSDDZUB2kNBPRffeXfmBmdHnTaFwPewcec2bWLBRjWFkF5rwrOoZ3LCULdLJd2zZG-MQnUCNHTqSSKTmsJp49_E0IH_DuLlEutl3yn9NMkwaVTyJ_r1bRdE6SLnvXPrSMK0O-YhZxB3OhggMt_aOq4yWD09bEkfNSO6SEHt7owAe6zazD1lK8t97lge-Lr78t4RKQlaxw_fmNA86o5sehA3kS4OqYHhiOussjUkJ4SPf5v4UjSjwqtzqgJWnjcUT-31uARTitz7Uv4sgfIJwkq6PJe5vA2tJvcwvhWzdvV2UmKzU8khgdVK5AvYMNZnJBqTx56M46QGOuHBP5gR0gcVZf_36HK2hinJX6z6XtqiOzwWyw_lXy80O_zRPM0READV-pVhwFwICVI-g7slIiQwElILbbZzv13Xh-eO7ofH2fQEKGqycrIiAq0uW-JQXYWTGtxHnCZ_ffYJyjDe9Zu52qeo9Tp5CoDR5pQ8rot71IRs5qnjZbV25DmgewAheHgc2rwOiq9MIiz36rmGhqkYF_817kvZ3XV49vZ4dkxeyHQYM7ciQHIBVELjv5zQoYC_TyjUZwzCU2VP4scIEnfgmarSu6l1Qk6rYUN9xT1sOAcUGPa-iR8zB3M4uh0u9c04zDaGGFufiy3J9K3M8nYVIuyUTlkCyEOgR6y7uwFqZ0IjXOGf6U3nQMljoSdvriCviDaNULY3MFk7XBpoR43H4yQBBSzgPRUfO1KNMMNsqFodDbBk-Fv8LaN6E6OTqCZUFQbrQEeq8JkgSr0--XU2BJ_2C-y276vPIygt9lY2jvjCBd0M9Ukv0rxL3bDzE-vedeI3h1XVXm8oAFJBlEVoGMK-LAnsp1Y8eyNDanZW3dE_osAmJgcQJamTO9zdrKYDxl5fk/4ps/8zjQyfSISlGJ9KLkINh8Mg/h28/h001.SEzaFEkgMYtwvzalU4VEHes2MWwAN_6zOrE6ReePnqs">
+   4
+  </a>
+  |
+  <a href="https://link.mail.beehiiv.com/ss/c/u001.PFjHD-ii0vvUj1FcNnOS5qqF3eJEkrxympSzSDDZUB2kNBPRffeXfmBmdHnTaFwPewcec2bWLBRjWFkF5rwrOoZ3LCULdLJd2zZG-MQnUCNgPjqCs7_Y8r-uoohyxNnOycqZkUtoviVw8A9eqP8d1QIidrGH3d27g0MIDJNRw6joPmeyP188dWFP_fRsq9EZIclUwzSQRyAfeBni2jUzUOqv3ghUSfuM399cdcJImcjHI09c-UmJZT65-gvejVwFoCPgXcIK-YbZeCvtu7gcF5lS1IRafwFwKzu2x2m0uQxbj_hkmMH0Dh6flGz5czBUmjbsj9vAzW9_RCHvUBirhj4n3lNmp7nmHn1U6m9YS-kLQu8V2FunutKZW1JQeNpNayLxIY2sRkvhxYHUKaARsx-5Xnx5VTN03zJVNFCuJ-H76BcsjDKKwvMuUOt8uTg0hK4QTm2rC0jMSU6Jy9ieENl2c5k10kiLuBho5_tGK2OOeNAJ-hrpVevQPa3bFFOQXZOvvYMpRRHXM9nKGdsZURyHx1dBwleW-S0rqLEBB8gidBpCDJTbLSZqr8ORLGpWnAt9A8kayo6BHaw6HDpKnfaUNov1hJiUIUckxNLb26OoR5ZAhtkmt-2kGyKjsnj1YC8HCGr3kIlZqOQwYbuJTWSYrmHh2O0HolSLiCCmu3VCPPU8sNyDmKYJajMAJ2QN1tXCbjmqWOQ1iQRaihxPboAW09z2U-uXfLQysMXH7TdF6t8wT4SD5mKHS1TnbVUWBmfhnBv3-3VanwX40NPV1S8RzCZ_j2uNdKuVvWUEKxgg6mazIimURvSzSRWjeefvZBJprsvIG9_3YnVDv48Ve4R5zoLJijkdY5YsDXQDNSSBK41BPt_Xvr82mFB1CUyVKaxAEWz3ibzoe8ecim4Uet_Q2U9plVQgzYGz2AeJOeE/4ps/8zjQyfSISlGJ9KLkINh8Mg/h29/h001.roK4EpVcTg3PlSsiwI6o-M8ZKGwYepv_HZJkiHNyjsY">
+   5
+  </a>
+ </p>
+ <p style="font-family:&#x27;Space Grotesk&#x27;,Helvetica,Arial,sans-serif;color:#ffffff!important;">
+  Update your email preferences or unsubscribe
+  <a class="link" href="https://link.mail.beehiiv.com/ss/c/u001.PFjHD-ii0vvUj1FcNnOS5qqF3eJEkrxympSzSDDZUB2PrBfKG-WrYOZ9GyOWBtHID3acP0YjsG7Qo1jaUITY8TIVpIV9_G24F7mcKKuTvoQGO0jXN1xC4Usq7NXHoMN_97DHD1TUW1Hqiv2AeDrra6duexQhB2ml66471JeO6aN7icnwgXjge0WGGIYENMvPC_INQQomwPp_CWADgNei_WbXJBPGly1DvgK7sfLvvlZAorjYc02hqqbVk5Xlowad3O5t3eTeQa5BH8cOUYKwpPGWPMJZ-lCGe3h2hN6z2yVfHDpsiAydn8H10ppNn-g9XRk9P8KqHQcJcZA2kEUzdwi4IBgVvZjFXzAuQQUtizpEVHwZ874sRG_yDvaPypJzUJRO9xljL74era0dIG89ViQCE2anvRCpJdJ2mfWc4gWyaYNPiyP5-InzQW6_KUT-Rz4puRENZmqX-J4oKSEmIzcrgvqVDe9Vaw_EdI3sw273Add5wmTCmR3cl08J0v5QMbMyEtZNsT2dxD2rfEB4Mqn3wETaPmoVRrK34s6zyXuJCKPkrRzzdVzW60Fp1aaUM3zo7jL2VNY5l4CWTQhRLjRHMa-hNVYa7bRbAqfzgQhYHhUiW_Pr4x_oyf6O5o9h7eBbM5u733EEEP0jAOKDe_duo8NBueYrfZjaKdZJWZ0KDeAuijoPffYEpPlRACNlRtVe3l-sRTDOAE5XN4EEgFFX1vhrKivDF00weqoSZt21JagyfQZtqeZW8ki-tFJ-tJ3WgxYKtsTCU3Lu83QlamllNH0Ho80hSqC5pyqoiIr4xfDXggdHMRw5d_arCGX9q6ppGUN-KrZGQZ04jIDuxQTHtIE5HwiahA9gy0WAYicuPUkkBDC5fQXTrtSADhDm2zrK7XoHLVumHsq4EeGM_Q/4ps/8zjQyfSISlGJ9KLkINh8Mg/h30/h001.3dpCQZ9JlucsLORXKcIMj1x-u7ysz1_Sq7X76KlJLYQ" style="text-decoration:underline;text-decoration-color:#ffffff!important;color:#ffffff!important;">
+   here
+  </a>
+ </p>
+ <p class="copyright" style="font-family:&#x27;Space Grotesk&#x27;,Helvetica,Arial,sans-serif;color:#ffffff!important;">
+  © 2026 Pointer
+ </p>
+ <p style="font-family:&#x27;Space Grotesk&#x27;,Helvetica,Arial,sans-serif;color:#ffffff!important;">
+  11 Hoyt Street, #35B
+  <br/>
+  Brooklyn, New York 11201, United States
+ </p>
+ <p>
+  <a href="https://link.mail.beehiiv.com/ss/c/u001.-hnYW5kLMgAgfdYiF39x0iBPJ2ul4kGzgdGlpItsLwp27z8RJO-YeDMAFI0XFz_E_tTqg5tHnBNM9opPZCCGlB-9i0NlQCvBAaU30VFVhck/4ps/8zjQyfSISlGJ9KLkINh8Mg/h31/h001.0PXSuVT3N9-zRF4DrbHqLhPq-4yvuVLZDQGo6GwE-mE" style="color: #111827 !important; cursor: default; font-size: 1px; text-decoration: none;">
+   Terms of Service
+  </a>
+ </p></div></div>
+      
+    </article>
+    
+  </body>
+</html>
