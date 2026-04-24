@@ -1,0 +1,513 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Fred Talks - 2026-04-24</title>
+    <style>
+      @page {
+        size: A5;
+        margin: 8mm 9mm 9mm;
+      }
+
+      :root {
+        color: #111;
+        font-family: "Times New Roman", Times, serif;
+        --body-text-size: 9.5pt;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        color: #111;
+        background: #fff;
+        font-family: "Times New Roman", Times, serif;
+        line-height: 1.45;
+      }
+
+      a,
+      a:visited {
+        color: #111;
+        text-decoration: underline;
+      }
+
+      .cover {
+        min-height: calc(210mm - 17mm);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        page-break-after: always;
+        border: 1px solid #111;
+        padding: 8mm;
+        background: #fff;
+      }
+
+      .toc-item-meta,
+      .article-meta {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .masthead {
+        margin: 0;
+        font-size: 40pt;
+        line-height: 0.95;
+        text-transform: uppercase;
+      }
+
+      .issue-date {
+        margin: 4mm 0 0;
+        font-size: 14pt;
+      }
+
+      .issue-date sup {
+        font-size: 0.58em;
+        vertical-align: super;
+        line-height: 0;
+      }
+
+      .cover-deck {
+        max-width: 90mm;
+        font-size: 12pt;
+        margin: 0;
+      }
+
+      .toc {
+        border-top: 3px solid #111;
+        padding-top: 6mm;
+      }
+
+      .toc h2 {
+        margin: 0 0 4mm;
+        font-size: 11pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .toc-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .toc-item {
+        padding: 3mm 0;
+        border-bottom: 1px solid rgba(17, 17, 17, 0.2);
+      }
+
+      .toc-item-title {
+        font-size: 12pt;
+        margin: 0 0 1mm;
+      }
+
+      .toc-item-meta {
+        font-size: 8pt;
+      }
+
+      article + article {
+        margin-top: 10mm;
+        padding-top: 6mm;
+        border-top: 2px solid #111;
+      }
+
+      h1 {
+        margin: 0 0 2mm;
+        font-size: 18pt;
+        line-height: 1.1;
+      }
+
+      .article-meta {
+        font-size: 8.5pt;
+        margin-bottom: 6mm;
+        padding-bottom: 3mm;
+        border-bottom: 1px solid #111;
+      }
+
+      .article-body {
+        font-size: var(--body-text-size);
+        font-family: "Times New Roman", Times, serif;
+      }
+
+      .article-body p,
+      .article-body li,
+      .article-body blockquote,
+      .article-body dd,
+      .article-body dt {
+        margin: 0 0 4mm;
+        orphans: 3;
+        widows: 3;
+      }
+
+      .article-body ul,
+      .article-body ol,
+      .article-body dl {
+        margin: 0 0 4mm 5mm;
+        padding: 0;
+      }
+
+      .article-body h2,
+      .article-body h3,
+      .article-body h4 {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        margin: 7mm 0 3mm;
+        line-height: 1.2;
+      }
+
+      .article-body blockquote {
+        margin-left: 6mm;
+        padding-left: 4mm;
+        border-left: 2px solid #111;
+      }
+
+      .article-body .media-omitted {
+        margin: 0 0 4mm;
+        font-size: 8.5pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(17, 17, 17, 0.65);
+      }
+
+      .article-body figure,
+      .article-body .article-figure,
+      .article-body picture,
+      .article-body .article-picture {
+        display: block;
+        max-width: 72mm;
+        margin: 0 auto 4mm;
+        break-inside: avoid;
+      }
+
+      .article-body img,
+      .article-body .article-image {
+        display: block;
+        max-width: min(100%, 72mm);
+        max-height: 34mm;
+        height: auto;
+        width: auto;
+        object-fit: contain;
+        margin: 0 auto 3mm;
+      }
+
+      .article-body figcaption {
+        margin-top: 1.5mm;
+        font-size: 8.5pt;
+        line-height: 1.3;
+        color: rgba(17, 17, 17, 0.8);
+      }
+
+      .article-note {
+        margin-top: 6mm;
+        padding-top: 3mm;
+        border-top: 1px solid #111;
+        font-size: 9pt;
+        font-style: italic;
+      }
+
+      @media screen {
+        body {
+          padding: 2rem;
+          margin: 0 auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section class="cover">
+      <div>
+        <h1 class="masthead">Fred<br />Talks</h1>
+        <p class="issue-date">
+          24<sup>th</sup> April 2026
+        </p>
+      </div>
+
+      <div class="toc">
+        <h2>Contents</h2>
+        <ol class="toc-list">
+          
+          <li class="toc-item">
+            <div class="toc-item-title">Building agents that reach production systems with MCP</div>
+            <div class="toc-item-meta">
+              claude.com · 1746 words
+            </div>
+          </li>
+          
+          <li class="toc-item">
+            <div class="toc-item-title">DeepSeek V4 - almost on the frontier, a fraction of the price</div>
+            <div class="toc-item-meta">
+              Simon Willison&#39;s Weblog: Entries · 559 words
+            </div>
+          </li>
+          
+          <li class="toc-item">
+            <div class="toc-item-title">Anthropic and NEC collaborate to build Japan’s largest AI engineering workforce</div>
+            <div class="toc-item-meta">
+              Anthropic News · 337 words
+            </div>
+          </li>
+          
+          <li class="toc-item">
+            <div class="toc-item-title">Equity for Europeans</div>
+            <div class="toc-item-meta">
+              Armin Ronacher · 1161 words
+            </div>
+          </li>
+          
+          <li class="toc-item">
+            <div class="toc-item-title">Sign of the future: GPT-5.5</div>
+            <div class="toc-item-meta">
+              Ethan Mollick · 1539 words
+            </div>
+          </li>
+          
+        </ol>
+      </div>
+    </section>
+
+    
+    <article>
+      <h1>Building agents that reach production systems with MCP</h1>
+      <div class="article-meta">
+        claude.com
+        · 23 Apr 2026 · <a href="https://claude.com/blog/building-agents-that-reach-production-systems-with-mcp">Source</a>
+      </div>
+      <div class="article-body"><div><div><p>Agents are only as useful as the systems they can reach. Teams tend to converge on three approaches for connecting them to external systems—direct API calls, CLIs, and MCP. This post lays out where each fits, why production agents tend to land on MCP, and the patterns for building those integrations effectively.</p><h2>Connecting agents to external systems</h2><p>We generally see three paths for connecting agents to external systems: direct API calls, CLIs, and MCP. Each makes sense somewhere, depending on what you're building. The key distinction is whether there's a common layer between agents and services, and how far that layer reaches.</p><h3>Direct API calls</h3><p>The agent calls your API directly—either by writing code that issues HTTP requests inside a code-execution sandbox, or through a generic function-calling tool. This is where most teams start, and it works fine for one agent talking to one service, or a small number of integrations that don't need to be reused across agent platforms.<br/><br/>The challenges start to hit at scale. With no common layer between agents and services, each agent–service pair becomes a bespoke integration with its own auth handling, tool descriptions, and edge cases—the M×N integration problem.</p><h3>Command-line interface (CLI)</h3><p>The agent runs your command-line tool in a shell. This is fast, lightweight, and leans on pre-existing tooling. It works great for local environments and sandboxed containers—anywhere there's a filesystem and a shell. This provides a common layer, but it’s thin. <br/><br/>CLIs hit hard limits reaching mobile, web, or cloud-hosted platforms that don't expose a container, and auth is handled by the CLI's own mechanism—usually a credential file on disk. This is best suited to quick, permissive integrations in local environments.</p><h3>Model Context Protocol (MCP)</h3><p>MCP provides the common layer as a protocol. The agent connects to a server that exposes your system's capabilities, with auth, discovery, and rich semantics standardized. One remote server reaches any compatible client (Claude, ChatGPT, Cursor, VS Code, and more), in any deployment environment.</p><p>It requires a little bit more upfront investment. The return is that the integration is portable, and provides the semantics needed for a feature-rich agent integration.</p><h2>Production agents run in the cloud</h2><p>Production agents increasingly run in the cloud, so they can scale and operate continuously. The systems they need to reach are cloud-hosted too: where your data lives, work is tracked, and your infrastructure runs. Often these systems are remote and behind auth, where MCP provides the common layer. </p><p>We’re already seeing this in adoption. The <a href="https://modelcontextprotocol.io/docs/sdk">MCP SDKs</a> recently surpassed 300 million downloads a month, up from 100 million at the start of the year, with strong adoption across enterprises and popular agentic platforms. Millions of people use MCP with Claude every day, and the protocol underpins much of what we've shipped recently, including <a href="https://claude.com/product/cowork">Claude Cowork</a>, <a href="https://claude.com/blog/claude-managed-agents">Claude Managed Agents</a>, and <a href="https://code.claude.com/docs/en/channels">channels in Claude Code</a>. <br/>‍<br/>As MCP continues to support production agentic systems, we’re sharing patterns for building these integrations well: from building advanced servers to context-efficient clients, and where skills complement the protocol. </p><h2>Building effective MCP servers</h2><p>We have over 200 MCP servers in our <a href="https://claude.ai/directory/connectors">directory</a>, used by millions of people every day. From working closely with enterprises and developers building on the protocol, we’ve spotted a handful of design patterns that determine how reliably agents can use a server.</p><h3>Build remote servers for maximum reach</h3><p>A remote server is what gives you distribution—it's the only configuration that runs across web, mobile, and cloud-hosted agents, and it's what every major client is optimized to consume. Build remote servers so agents can use your system wherever they run. </p><h3>Group tools around intent, not endpoints</h3><p>Fewer, well-described tools consistently outperform exhaustive API mirrors. Don't wrap your API into an MCP server one-to-one—group tools around intent, so the agent can accomplish a task in a couple of calls instead of stitching many primitives together. A single create_issue_from_thread tool beats get_thread + parse_messages + create_issue + link_attachment. See<a href="https://www.anthropic.com/engineering/writing-tools-for-agents"> writing effective tools for agents</a> to learn more about the full pattern.</p><h3>Design for code orchestration when your surface is large</h3><p>If your service requires hundreds of distinct operations, such as Cloudflare, AWS, or Kubernetes, an intent-grouped toolset likely won't cover it. Instead, expose a thin tool surface that accepts code: the agent writes a short script, your server runs it in a sandbox against your API, and only the result returns. <a href="https://github.com/cloudflare/mcp">Cloudflare's MCP server</a> is the reference example—two tools (search and execute) cover ~2,500 endpoints in roughly 1K tokens.</p><h3>Ship rich semantics where they help</h3><p><a href="https://modelcontextprotocol.io/extensions/apps/overview">MCP Apps</a> is the first official protocol extension and lets a tool return an interactive interface, such as a chart, form, or dashboard, all rendered inline in the chat interface. Servers that ship MCP apps tend to see meaningfully higher adoption and retention than those that return text alone. Use it to put your product's UI in front of agents or end-users at the moment it matters—the extension is supported in Claude.ai, Claude Cowork, and many other top AI tools.</p><figure class="article-figure"><p><div class="rw-embed-wrapper"><embed src="https://www.youtube.com/embed/bluAmTHoEow" type="video/mp4"></embed></div></p></figure><p>‍<a href="https://modelcontextprotocol.io/specification/2025-11-25/client/elicitation">Elicitation</a> lets your server pause mid-tool call to ask the user for input. <a href="https://modelcontextprotocol.io/specification/2025-11-25/client/elicitation#form-mode-elicitation-requests">Form mode</a> sends a simple schema and the client renders a native form—use it to request a missing parameter, confirm a destructive action, or disambiguate options. <a href="https://modelcontextprotocol.io/specification/2025-11-25/client/elicitation#url-mode-elicitation-requests">URL mode</a> hands the user to a browser—use it to complete downstream OAuth, take a payment, or collect any credential that should never transit the MCP client. Both keep the user in the flow instead of sending them to a settings page. Form mode is supported broadly; URL mode is supported in Claude Code, with more clients in progress.</p><h3>Lean on standardized auth </h3><p>Standardized auth makes MCP practical for cloud-hosted agents. If your server requires OAuth, the latest <a href="https://modelcontextprotocol.io/specification/2025-11-25">MCP spec</a> supports <a href="https://modelcontextprotocol.io/specification/2025-11-25/basic/authorization#client-id-metadata-documents">CIMD</a> (Client ID Metadata Documents) for client registration—it gives users a fast first-time auth flow and far fewer surprise re-auth prompts. This is our recommended approach for auth, the capability is supported in MCP SDKs, Claude.ai, and Claude Code, and is being broadly adopted across the industry.<br/><br/>Once a user has authorized, the next question is how a cloud-hosted agent holds and reuses those tokens at runtime. <a href="https://platform.claude.com/docs/en/managed-agents/vaults#mcp-oauth-credential">Vaults</a> in <a href="https://platform.claude.com/docs/en/managed-agents/overview">Claude Managed Agents</a> covers this: register a user's OAuth tokens once, reference the vault by ID at session creation, and the platform injects the right credentials into each MCP connection and refreshes them on your behalf—no secret store to build, no tokens to pass around per call.</p><h2>Making MCP clients more context-efficient</h2><p>MCP standardizes how AI agents (<a href="https://modelcontextprotocol.io/docs/develop/build-client#python"><em>clients</em></a>) connect to and work with tools and data sources they need (<a href="https://modelcontextprotocol.io/docs/develop/build-server"><em>servers</em></a>). The server securely exposes a range of capabilities, while the client orchestrates them and manages context. If you’re building an MCP client, make it context-efficient with patterns for progressive disclosure.</p><h3>Load tool definitions on demand with tool search</h3><p><a href="https://platform.claude.com/docs/en/agents-and-tools/tool-use/tool-search-tool">Tool search</a> defers loading all tools into context, rather than loading them upfront. This allows the agent to search the catalog at runtime, pulling in the relevant tools when needed. In our <a href="https://www.anthropic.com/engineering/advanced-tool-use">testing</a>, tool search tends to cut tool-definition tokens by 85%+ while maintaining high selection accuracy. </p><figure class="article-figure"><figcaption>Reducing context usage with tool search. Source: <a href="https://www.anthropic.com/engineering/advanced-tool-use">advanced tool use<br/></a></figcaption></figure><h3>Process tool results in code with programmatic tool calling</h3><p><a href="https://www.anthropic.com/engineering/code-execution-with-mcp">Programmatic tool calling</a> processes tool results in a code-execution sandbox, rather than returning them raw to the model. This lets the agent loop, filter, and aggregate across calls in code, with only the final output reaching context. In our testing, this reduces token usage by roughly <a href="https://platform.claude.com/docs/en/agents-and-tools/tool-use/programmatic-tool-calling">37%</a> on complex multi-step workflows.</p><p>Together, these patterns compose naturally across multiple servers: leaner context, fewer round-trips, faster responses. See<a href="https://www.anthropic.com/engineering/advanced-tool-use"> <em>advanced tool use</em></a> for the full breakdown.</p><h2>Pairing MCP servers with skills</h2><p><a href="https://claude.com/blog/skills-explained">Skills and MCP are complementary</a>. MCP gives an agent access to tools and data from external systems, while skills teach an agent the procedural knowledge of <em>how</em> to use those tools to accomplish real work. The most capable agents use both, and skills make MCP servers scale beyond a handful of connections. There are two general patterns for combining them:</p><h3>Bundle skills and MCP servers as a plugin</h3><p><a href="https://code.claude.com/docs/en/plugins-reference#plugin-components-reference">Plugins</a> for Claude are a useful abstraction that allow developers to bundle skills, MCP servers, hooks, LSP servers, and specialized subagents in one easily-consumable distribution method. Using this approach is the best way to unify multiple context providers with minimal friction. <br/><br/>Combining MCP servers with skills allows Claude to act more like a domain-specialist. Grab your tools via MCP, and give Claude the skills to orchestrate workflows end-to-end. See our <a href="https://claude.ai/directory/plugins/data%40knowledge-work-plugins">data plugin</a> for Cowork as an example, which consists of 10 skills and 8 MCP servers for apps like Snowflake, Databricks, BigQuery, Hex and more.</p><figure class="article-figure"><figcaption>Combining skills with MCP. Source: <a href="https://claude.com/blog/extending-claude-capabilities-with-skills-mcp-servers">Extending Claude’s capabilities with skills and MCP servers</a></figcaption></figure><h3>Distribute skills from an MCP server</h3><p>It's increasingly common for providers to publish a skill alongside their MCP server, so the agent gets both the raw capabilities and an opinionated playbook for using them well. <a href="https://claude.com/connectors/atlassian">Canva</a>, <a href="https://claude.com/connectors/notion">Notion</a>, <a href="https://claude.com/connectors/sentry">Sentry</a>, and more do this today in Claude, listing the skill next to their connector in our <a href="https://claude.com/connectors">web directory</a>.</p><p>To make that pairing portable across every client, the MCP community is actively working on an <a href="https://github.com/modelcontextprotocol/experimental-ext-skills">extension</a> for delivering skills directly from servers. This way the client inherits the relevant expertise automatically, versioned with the API it depends on. We expect this pattern to see broad adoption as the extension stabilizes.</p><h2>The compounding layer </h2><p>We opened with three paths for connecting agents to external systems. In practice, mature integrations will ship all three: the API as the foundation, a CLI for local-first environments, and MCP for cloud-based agents.</p><p>As production agents move to the cloud, MCP becomes the critical layer, and it’s the one that compounds. Today, a remote server reaches every compatible client across any deployment environment, with auth, interactivity, and rich semantics handled by the protocol. As more clients adopt the spec and more extensions land in it, that same server gets more capable without you shipping anything new.</p><p>When building an integration, if your goal is to have production agents in the cloud reach your system, build an MCP server and make it excellent using the patterns above. Every integration built on MCP strengthens the ecosystem: fewer edge cases to solve alone, fewer bespoke integrations to maintain.</p><h3>Acknowledgements</h3><p>Thanks to Den Delimarsky, David Soria Parra, Henry Shi, Felix Rieseberg, Conor Kelly, Molly Vorwerck, Andy Schumeister, Kevin Garcia, Amie Rotherham, Matt Samuels, Angela Jiang, Katelyn Lesse, AJ Rebeiro and Jess Yan<strong> </strong>for their contributions to this blog.</p></div></div></div>
+      
+    </article>
+    
+    <article>
+      <h1>DeepSeek V4 - almost on the frontier, a fraction of the price</h1>
+      <div class="article-meta">
+        Simon Willison&#39;s Weblog: Entries
+        · 24 Apr 2026 · <a href="https://simonwillison.net/2026/Apr/24/deepseek-v4/#atom-entries">Source</a>
+      </div>
+      <div class="article-body"><h2>DeepSeek V4—almost on the frontier, a fraction of the price</h2>
+<p>Chinese AI lab DeepSeek’s last model release was V3.2 (and V3.2 Speciale) <a href="https://simonwillison.net/2025/Dec/1/deepseek-v32/">last December</a>. They just dropped the first of their hotly anticipated V4 series in the shape of two preview models, <a href="https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro">DeepSeek-V4-Pro</a> and <a href="https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash">DeepSeek-V4-Flash</a>.</p>
+<p>Both models are 1 million token context Mixture of Experts. Pro is 1.6T total parameters, 49B active. Flash is 284B total, 13B active. They’re using the standard MIT license.</p>
+<p>I think this makes DeepSeek-V4-Pro the new largest open weights model. It’s larger than Kimi K2.6 (1.1T) and GLM-5.1 (754B) and more than twice the size of DeepSeek V3.2 (685B).</p>
+<p>Pro is 865GB on Hugging Face, Flash is 160GB. I’m hoping that a lightly quantized Flash will run on my 128GB M5 MacBook Pro. It’s <em>possible</em> the Pro model may run on it if I can stream just the necessary active experts from disk.</p>
+<p>For the moment I tried the models out via <a href="https://openrouter.ai/">OpenRouter</a>, using <a href="https://github.com/simonw/llm-openrouter">llm-openrouter</a>:</p>
+<pre><code>llm install llm-openrouter
+llm openrouter refresh
+llm -m openrouter/deepseek/deepseek-v4-pro 'Generate an SVG of a pelican riding a bicycle'
+</code></pre>
+<p>Here’s the pelican <a href="https://gist.github.com/simonw/4a7a9e75b666a58a0cf81495acddf529">for DeepSeek-V4-Flash</a>:</p>
+<figure class="article-figure"><img alt="Excellent bicycle - good frame shape, nice chain, even has a reflector on the front wheel. Pelican has a mean looking expression but has its wings on the handlebars and feet on the pedals. Pouch is a little sharp." src="https://static.simonwillison.net/static/2026/deepseek-v4-flash.png" class="article-image"/></figure>
+<p>And <a href="https://gist.github.com/simonw/9e8dfed68933ab752c9cf27a03250a7c">for DeepSeek-V4-Pro</a>:</p>
+<figure class="article-figure"><img alt="Another solid bicycle, albeit the spokes are a little jagged and the frame is compressed a bit. Pelican has gone a bit wrong - it has a VERY large body, only one wing, a weirdly hairy backside and generally loos like it was drown be a different artist from the bicycle." src="https://static.simonwillison.net/static/2026/deepseek-v4-pro.png" class="article-image"/></figure>
+<p>For comparison, take a look at the pelicans I got from <a href="https://simonwillison.net/2025/Dec/1/deepseek-v32/">DeepSeek V3.2 in December</a>, <a href="https://simonwillison.net/2025/Aug/22/deepseek-31/">V3.1 in August</a>, and <a href="https://simonwillison.net/2025/Mar/24/deepseek/">V3-0324 in March 2025</a>.</p>
+<p>So the pelicans are pretty good, but what’s really notable here is the <em>cost</em>. DeepSeek V4 is a very, very inexpensive model.</p>
+<p>Here’s <a href="https://api-docs.deepseek.com/quick_start/pricing">DeepSeek’s pricing page</a>. They’re charging $0.14/million tokens input and $0.28/million tokens output for Flash, and $1.74/million input and $3.48/million output for Pro.</p>
+<p>Here’s a comparison table with the frontier models from Gemini, OpenAI and Anthropic:</p>
+<table> <tr> <th>Model</th> <th>Input ($/M)</th> <th>Output ($/M)</th> </tr> <tbody> <tr> <td><strong>DeepSeek V4 Flash</strong></td> <td>$0.14</td> <td>$0.28</td> </tr> <tr> <td>GPT-5.4 Nano</td> <td>$0.20</td> <td>$1.25</td> </tr> <tr> <td>Gemini 3.1 Flash-Lite</td> <td>$0.25</td> <td>$1.50</td> </tr> <tr> <td>Gemini 3 Flash Preview</td> <td>$0.50</td> <td>$3</td> </tr> <tr> <td>GPT-5.4 Mini</td> <td>$0.75</td> <td>$4.50</td> </tr> <tr> <td>Claude 4.5 Haiku</td> <td>$1</td> <td>$5</td> </tr> <tr> <td><strong>DeepSeek V4 Pro</strong></td> <td>$1.74</td> <td>$3.48</td> </tr> <tr> <td>Gemini 3.1 Pro</td> <td>$2</td> <td>$12</td> </tr> <tr> <td>GPT-5.4</td> <td>$2.50</td> <td>$15</td> </tr> <tr> <td>Claude Sonnet 4 / 4.5</td> <td>$3</td> <td>$15</td> </tr> <tr> <td>Claude Opus 4.5</td> <td>$5</td> <td>$25</td> </tr> <tr> <td>GPT-5.5</td> <td>$5</td> <td>$30</td> </tr> </tbody> </table>
+<p>DeepSeek-V4-Flash is the cheapest of the small models, beating even OpenAI’s GPT-5.4 Nano. DeepSeek-V4-Pro is the cheapest of the larger frontier models.</p>
+<p>This note from <a href="https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash/blob/main/DeepSeek_V4.pdf">the DeepSeek paper</a> helps explain why they can price these models so low—they’ve focused a great deal on efficiency with this release, especially for longer context prompts:</p>
+<blockquote> <p>In the scenario of 1M-token context, even DeepSeek-V4-Pro, which has a larger number of activated parameters, attains only 27% of the single-token FLOPs (measured in equivalent FP8 FLOPs) and 10% of the KV cache size relative to DeepSeek-V3.2. Furthermore, DeepSeek-V4-Flash, with its smaller number of activated parameters, pushes efficiency even further: in the 1M-token context setting, it achieves only 10% of the single-token FLOPs and 7% of the KV cache size compared with DeepSeek-V3.2.</p> </blockquote>
+<p>DeepSeek’s self-reported benchmarks <a href="https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash/blob/main/DeepSeek_V4.pdf">in their paper</a> show their Pro model competitive with those other frontier models, albeit with this note:</p>
+<blockquote> <p>Through the expansion of reasoning tokens, DeepSeek-V4-Pro-Max demonstrates superior performance relative to GPT-5.2 and Gemini-3.0-Pro on standard reasoning benchmarks. Nevertheless, its performance falls marginally short of GPT-5.4 and Gemini-3.1-Pro, suggesting a developmental trajectory that trails state-of-the-art frontier models by approximately 3 to 6 months.</p> </blockquote>
+<p>I’m keeping an eye on <a href="https://huggingface.co/unsloth/models">huggingface.co/unsloth/models</a> as I expect the Unsloth team will have a set of quantized versions out pretty soon. It’s going to be very interesting to see how well that Flash model runs on my own machine.</p></div>
+      
+    </article>
+    
+    <article>
+      <h1>Anthropic and NEC collaborate to build Japan’s largest AI engineering workforce</h1>
+      <div class="article-meta">
+        Anthropic News
+        · 24 Apr 2026 · <a href="https://www.anthropic.com/news/anthropic-nec">Source</a>
+      </div>
+      <div class="article-body"><figure class="article-figure"><img alt="Anthropic and NEC collaborate to build Japan’s largest AI engineering workforce" data-nimg="1" src="https://www-cdn.anthropic.com/images/4zrzovbb/website/4df0ff37e58fe70b216d31d8fcf6f0045a4d5694-1000x1000.svg" class="article-image"/></figure>
+<p><a href="https://www.nec.com">NEC Corporation</a> will use Claude as it builds one of Japan’s largest AI-native engineering organizations, making it available to approximately 30,000 NEC Group employees worldwide.</p>
+<p>As part of this strategic collaboration, NEC will become Anthropic’s first Japan-based global partner. Together, we will develop secure, industry-specific AI products for the Japanese market, starting with tools for finance, manufacturing, and local government.</p>
+<p>“This long-term partnership with Anthropic enables NEC to maximize the potential of AI in the Japanese market,” said Toshifumi Yoshizaki, Executive Officer and COO of NEC Corporation. “Together, we aim to create solutions that meet the high safety, reliability, and quality standards demanded by companies and public administration in Japan.”</p>
+<p>NEC and Anthropic will jointly develop secure, domain-specific AI products for Japanese customers in sectors like finance, manufacturing, and cybersecurity.</p>
+<p>In addition, NEC is already integrating Claude into its Security Operations Center services to help defend customers against increasingly sophisticated cybersecurity threats. Claude will also be integrated into the next-generation cybersecurity service NEC is currently providing.</p>
+<p>Claude, including Claude Opus 4.7, and <a href="https://www.anthropic.com/claude-code">Claude Code</a> will be incorporated into <a href="https://www.nec.com/en/global/necblustellar/index.html">NEC BluStellar Scenario</a>, a program that provides consulting, AI tools, security, and digital infrastructure to businesses, starting with its offerings for data-driven management and customer experience, and gradually expanding to others.</p>
+<p>Internally, NEC will establish a Center of Excellence to develop a highly skilled, AI-enabled engineering organization, supported by technical enablement and training from Anthropic. NEC aims to build one of Japan’s largest AI-native engineering teams, who will use Claude Code in their work.</p>
+<p>As part of its long-running Client Zero initiative, in which NEC serves as its own first customer before offering its technology to clients, NEC will also expand its use of <a href="https://www.anthropic.com/claude">Claude Cowork</a> across its internal business operations.</p>
+<p>Claude is now being deployed to NEC Group employees around the world, and our joint development of industry-specific AI solutions is underway. Learn more about NEC’s value-creation model at <a href="https://www.nec.com/en/global/necblustellar/index.html">NEC BluStellar</a>.</p>
+<p><em>Claude, Claude Code, and Claude Cowork are Anthropic products. NEC BluStellar is an offering from NEC Corporation.</em></p></div>
+      
+    </article>
+    
+    <article>
+      <h1>Equity for Europeans</h1>
+      <div class="article-meta">
+        Armin Ronacher
+        · 23 Apr 2026 · <a href="https://lucumr.pocoo.org/2026/4/23/equity-for-europeans/">Source</a>
+      </div>
+      <div class="article-body"><div><p>If you spend enough time in US business or finance conversations, one word keeps
+showing up: <strong>equity</strong>.</p>
+<p>Coming from a German-speaking, central European background, I found it
+surprisingly hard to fully internalize what that word means.  More than that, I
+find it very hard to talk to other Europeans about it.  Worst of all it’s almost
+impossible to explain it in German without either sounding overly technical or
+losing an important part of the meaning.</p>
+<p>This post is in English, but it is written mostly for readers in Germany,
+Austria, and Switzerland, and more broadly for people from continental Europe.
+I move between “German-speaking” and “continental European” a bit.  They are not
+the same thing, of course, but many continental European countries share a
+civil-law background that differs sharply from the English common-law and equity
+tradition.  The words differ by language and jurisdiction, but the conceptual gap
+I am interested in shows up in similar ways.</p>
+<p>In US usage, the word “equity” appears everywhere:</p>
+<ul>
+<li>real estate: “build equity in your home”</li>
+<li>startups: “employees get equity”</li>
+<li>public markets: “equity investors”</li>
+<li>private deals: “take an equity stake”</li>
+<li>personal finance: “negative equity in a car”</li>
+<li>social policy: “diversity, equity, and inclusion”</li>
+</ul>
+<p>If you try to translate this into German, you have to choose words.  Of course
+we can say <em>Eigenkapital</em>, <em>Beteiligung</em>, <em>Anteil</em>, <em>Vermögen</em>,
+<em>Nettovermögen</em>, or sometimes <em>Substanzwert</em>.  In narrow contexts, each can be
+correct, but none of them carries the full concept.  I find that gap
+interesting, because language affects default behavior and how we think about
+things.</p>
+<h2>One Word, Shared Meanings</h2>
+<p>In American English, “equity” often carries multiple things at once.  I believe
+the following ones to be the most important ones:</p>
+<ol>
+<li>A legal-fairness dimension: historically tied to <a href="https://en.wikipedia.org/wiki/Equity_(law)">equity in law</a></li>
+<li>A financial-accounting dimension: residual <a href="https://en.wikipedia.org/wiki/Equity_(finance)">value after debt</a></li>
+<li>A cultural dimension: ownership as a <a href="https://en.wikipedia.org/wiki/Intergenerational_equity">path to wealth and agency</a></li>
+</ol>
+<p>If you open Wikipedia, you will find many more distinct meanings of equity, but
+they all relate to much the same concept, just from different angles.</p>
+<p>German, on the other hand, can express each of these layers precisely, including
+the subtleties within each, but it uses different words and there is no common,
+everyday umbrella word that naturally bundles all three.</p>
+<p>When a concept has one short, reusable, positive word, people can move it across
+contexts very easily.  When the concept is split into technical fragments, it
+tends to stay technical, and people do not necessarily think of these things as
+related at all in a continental European context.</p>
+<h2>How Equity Got Here</h2>
+<p>What is hard for Europeans to understand is how the financial meaning of equity
+appeared, because it did not appear out of nowhere.  The word’s original meaning
+comes from fairness or impartiality, and it made it to modern English via Old
+French and Latin (<em>equité</em> / <em>aequitas</em>).</p>
+<p>Historically, English law had separate traditions: common law courts and courts
+of equity (especially the
+<a href="https://en.wikipedia.org/wiki/Court_of_Chancery">Court of Chancery</a>).  Equity in law was
+about fairness, conscience, and remedies where strict common law rules were too
+rigid.  Take mortgages for instance: in older English practice, a mortgage could
+transfer title as security.  Under strict common law, missing a deadline could
+mean losing the property entirely.  Courts of equity developed the “<a href="https://en.wikipedia.org/wiki/Equity_of_redemption">equity of
+redemption</a>”: a borrower
+could still redeem by paying what was owed.</p>
+<p>That equitable interest became foundational for how ownership and claims were
+understood.  In finance, equity came to mean not just a number, but a claim: the
+residual owner’s stake after prior claims are satisfied.</p>
+<h2>The European Split</h2>
+<p>German and continental European legal development took a different path.  Civil
+law systems did not build the same separate institutional track of “equity
+courts” versus common law courts.  Fairness principles absolutely exist, but
+inside the codified system, not as a parallel jurisdiction with its own language
+and mythology.</p>
+<p>As a result, German vocabulary has many different words, and they are highly
+domain-specific.  There are equivalents in other languages, and to some degree
+they exist in English too:</p>
+<ul>
+<li>company balance sheet: <em>Eigenkapital</em></li>
+<li>ownership share: <em>Beteiligung</em>, <em>Anteil</em></li>
+<li>unrealized asset value: <em>stille Reserven</em></li>
+<li>household wealth: <em>Vermögen</em>, <em>Nettovermögen</em></li>
+<li>investment action: <em>Anlage</em>, <em>Investition</em></li>
+<li>residual net assets: <em>Reinvermögen</em></li>
+</ul>
+<p>This precision is useful for legal drafting and accounting.  But it also means
+we have less of the shared mental package that many Americans get from “equity”:
+own a piece, carry risk, participate in upside, build wealth.</p>
+<h2>Schuld Is Not Just Debt</h2>
+<p>There is another linguistic oddity worth noting: in German, “Schuld” can mean
+both debt/liability and guilt, and I think that too has changed how we think
+about equity.</p>
+<p>“Schuld” in everyday language makes debt feel more morally charged than it does
+in the US.  Indebtedness is often framed as a burden, and it is not thought of
+as a tool at all.</p>
+<p>US financial language, by contrast, often frames debt more instrumentally and
+pairs it with an explicit positive counterpart: equity.  Equity is what is yours
+after debt, what can appreciate, what can be transferred, and what can give you
+control.</p>
+<p>In American financial language, debt is not as morally burdened, and equity is
+more than the absence of debt: it is the positive claim on the balance sheet —
+ownership, optionality, control, and upside.</p>
+<h2>Practical Matters</h2>
+<p>If you grew up with German-speaking framing, many US statements around equity
+can sound ideological or naive.  From a continental European lens, they can
+sound like imported jargon or hollow.  But if we ignore the concept, we lose
+something practical:</p>
+<ul>
+<li>We discuss salaries in cash terms but under-discuss ownership.</li>
+<li>We treat employee participation as exotic instead of normal.</li>
+<li>We under-explain compounding and intergenerational transfer.</li>
+<li>We miss a language for talking about agency through ownership.</li>
+</ul>
+<p>I am not saying German-speaking Europeans are incapable of this mindset.
+Obviously we are not.  But we clearly tend to think about these things
+differently.</p>
+<h2>Normalize Equity</h2>
+<p>When you hear “equity,” it helps to think of it as a rightful stake.
+Historically, it is connected to fairness and the recognition of a claim where
+strict rules would be too rigid.  Financially, it is the part that remains after
+prior obligations.  Culturally, it is something that can grow into control,
+agency, and upside.</p>
+<p>That is not a perfect definition, but it captures why the term is so sticky in
+American discourse.  It combines a present claim with a future possibility.  It
+is not just what remains after debt; it is the part that can grow, compound, and
+give you agency.</p>
+<p>If Europeans want to talk more seriously about entrepreneurship, retirement,
+housing, and wealth building, we would benefit from a stronger everyday
+vocabulary for exactly this idea.  We need a longing for equity so that
+ownership does not remain something for founders, lawyers, accountants, and
+wealthy families, but becomes a normal part of how people think about work,
+risk, and their future.</p>
+<p>Not because we should imitate America, but because this mental model helps
+people make clearer decisions about ownership, incentives, and long-term agency.
+For Europe, <a href="https://lucumr.pocoo.org/2025/10/21/eu-resigation/">that shift feels long
+overdue</a>.</p></div></div>
+      
+    </article>
+    
+    <article>
+      <h1>Sign of the future: GPT-5.5</h1>
+      <div class="article-meta">
+        Ethan Mollick
+        · 23 Apr 2026 · <a href="https://www.oneusefulthing.org/p/sign-of-the-future-gpt-55">Source</a>
+      </div>
+      <div class="article-body"><h3>One impressive step on the curve</h3>
+
+<p>I had early access to GPT-5.5<a data-component-name="FootnoteAnchorToDOM" href="#footnote-1" id="footnote-anchor-1"><sup> [1] </sup></a>, and I think it is a big deal. It is a big deal because it indicates that we are not done with the rapid improvement in AI. It is also a big deal because it is just plain good. And it is a big deal because even with all of this, the frontier of AI ability remains jagged.</p>
+<p>It is increasingly hard to quickly demonstrate each generational change as AI has gotten better, since a lot of the old things AI was bad at, like math or counting letters in words, are now trivial for AI to do. So, I will give you the complicated details, but first, a simple example that I think is a good illustration. What AI models are best at is coding, so I gave a coding challenge to AIs ranging from OpenAI’s first reasoning model, o3 (released a year and a week ago!) to the current best open weights model (Kimi K2.6) to the new GPT-5.5 Pro: “build me a procedurally generated 3D simulation showing the evolution of a harbor town from 3000 BCE to 3000 AD, it should look beautiful and allow me to have some control over it.”</p>
+<p>Then I <a href="https://69e8dfc625a99f19144c86bf--hg-20f7d1a3ce.netlify.app/#openai-o3">posted every answer to this gallery</a> so you can experiment with them (actually, I had GPT-5.5 Codex build the gallery page for me). You should play with them to feel the difference, but you can see a few of these examples below. In addition to being better along all the other dimensions, only GPT-5.5 Pro actually modelled an evolving town, rather than just generating new building replacements over time. GPT-5.5 Pro is also much faster than its previous iteration: GPT-5.4 Pro took 33 minutes to complete the task, GPT-5.5 Pro took 20.</p>
+<p class="rw-outer-content"><span>Some content could not be imported from the original document.</span> <a href="https://www.oneusefulthing.org/p/sign-of-the-future-gpt-55">View content ↗ </a></p>
+<h1>Models, Apps, and Harnesses</h1>
+<p>I have been encouraging you to think about AI not as a single thing, but as a set of three interlinked concepts. You need to consider <strong>models</strong>, like Opus 4.7, Gemini 3.1, or (now) GPT-5.5. You also want to pay attention to <strong>apps</strong>, which are the products you actually use to talk to a model, and which let models do real work for you. The most common app is the website for each of these models: chatgpt.com, claude.ai, gemini.google.com. But, increasingly, desktop applications like Claude Code, Claude Cowork, and OpenAI Codex are becoming the most useful apps for AI. Finally, there are <strong>harnesses</strong>, the tools that an AI can use and how the AI models are hooked up to these tools. Tools allow the AI to control your computer, write code, do research, and make images.</p>
+<p>OpenAI has made advances in all three areas. On the model front, GPT-5.5 is a powerful family of models, with GPT-5.5 Pro (accessible only on the website) the most competent. There have also been major advances recently in apps, with OpenAI’s Codex increasingly following the path of the excellent Claude Code and making an accessible and useful desktop application. Finally, there are harnesses and the tools they can use. There have been a lot of new harness improvements, but one of the most interesting is from OpenAI, which has a new image model</p>
+<p>This new model can now render high-quality text and create almost any picture you can describe. Long-time readers know about my <a href="https://www.oneusefulthing.org/p/the-recent-history-of-ai-in-32-otters">Otter Test</a>, which asks the AI to make an image of an otter on a plane using wifi. Rather than describe it again, let’s let the new image model (sometimes called GPT-imagegen-2) explain it for me: “a photo of an otter scientist demonstrating the results of Ethan Mollick’s otter test, which shows how well an AI image maker can make images of an otter sitting on an airplane using wifi”</p>
+<figure class="article-figure"><a data-component-name="Image2ToDOM" href="https://substackcdn.com/image/fetch/$s_!yClN!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fd052e0ae-5993-4dab-b51a-59504f85d4ac_1448x1086.jpeg"><picture class="article-picture"><img alt="Image" data-attrs="{&quot;src&quot;:&quot;https://substack-post-media.s3.amazonaws.com/public/images/d052e0ae-5993-4dab-b51a-59504f85d4ac_1448x1086.jpeg&quot;,&quot;srcNoWatermark&quot;:null,&quot;fullscreen&quot;:null,&quot;imageSize&quot;:null,&quot;height&quot;:1086,&quot;width&quot;:1448,&quot;resizeWidth&quot;:506,&quot;bytes&quot;:null,&quot;alt&quot;:&quot;Image&quot;,&quot;title&quot;:null,&quot;type&quot;:null,&quot;href&quot;:null,&quot;belowTheFold&quot;:false,&quot;topImage&quot;:true,&quot;internalRedirect&quot;:null,&quot;isProcessing&quot;:false,&quot;align&quot;:null,&quot;offset&quot;:false}" sizes="100vw" src="https://substackcdn.com/image/fetch/$s_!yClN!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fd052e0ae-5993-4dab-b51a-59504f85d4ac_1448x1086.jpeg" srcset="https://substackcdn.com/image/fetch/$s_!yClN!,w_424,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fd052e0ae-5993-4dab-b51a-59504f85d4ac_1448x1086.jpeg 424w, https://substackcdn.com/image/fetch/$s_!yClN!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fd052e0ae-5993-4dab-b51a-59504f85d4ac_1448x1086.jpeg 848w, https://substackcdn.com/image/fetch/$s_!yClN!,w_1272,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fd052e0ae-5993-4dab-b51a-59504f85d4ac_1448x1086.jpeg 1272w, https://substackcdn.com/image/fetch/$s_!yClN!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fd052e0ae-5993-4dab-b51a-59504f85d4ac_1448x1086.jpeg 1456w" class="article-image"/></picture></a></figure>
+<p>Maybe you want to see the academic paper about it? “Show me the first page of the academic paper on the Otter test, well-formatted, sitting on a desk” (feel free to zoom in on the text)</p>
+<figure class="article-figure"><a data-component-name="Image2ToDOM" href="https://substackcdn.com/image/fetch/$s_!EIqx!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F2e9f0c7b-c9ad-426e-aa0d-67907d83e914_1448x1086.png"><picture class="article-picture"><img alt="" data-attrs="{&quot;src&quot;:&quot;https://substack-post-media.s3.amazonaws.com/public/images/2e9f0c7b-c9ad-426e-aa0d-67907d83e914_1448x1086.png&quot;,&quot;srcNoWatermark&quot;:null,&quot;fullscreen&quot;:null,&quot;imageSize&quot;:null,&quot;height&quot;:1086,&quot;width&quot;:1448,&quot;resizeWidth&quot;:579,&quot;bytes&quot;:2545748,&quot;alt&quot;:null,&quot;title&quot;:null,&quot;type&quot;:&quot;image/png&quot;,&quot;href&quot;:null,&quot;belowTheFold&quot;:true,&quot;topImage&quot;:false,&quot;internalRedirect&quot;:&quot;https://www.oneusefulthing.org/i/195247661?img=https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F2e9f0c7b-c9ad-426e-aa0d-67907d83e914_1448x1086.png&quot;,&quot;isProcessing&quot;:false,&quot;align&quot;:null,&quot;offset&quot;:false}" sizes="100vw" src="https://substackcdn.com/image/fetch/$s_!EIqx!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F2e9f0c7b-c9ad-426e-aa0d-67907d83e914_1448x1086.png" srcset="https://substackcdn.com/image/fetch/$s_!EIqx!,w_424,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F2e9f0c7b-c9ad-426e-aa0d-67907d83e914_1448x1086.png 424w, https://substackcdn.com/image/fetch/$s_!EIqx!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F2e9f0c7b-c9ad-426e-aa0d-67907d83e914_1448x1086.png 848w, https://substackcdn.com/image/fetch/$s_!EIqx!,w_1272,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F2e9f0c7b-c9ad-426e-aa0d-67907d83e914_1448x1086.png 1272w, https://substackcdn.com/image/fetch/$s_!EIqx!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F2e9f0c7b-c9ad-426e-aa0d-67907d83e914_1448x1086.png 1456w" class="article-image"/></picture></a></figure>
+<p>Or maybe we should just make it art? “now show an elaborate art gallery, every image on the walls is an otter on an airplane using a laptop, in the styles of Klimt and Rothko and Matisse and Monet and Picasso and Titian and Rembrandt and O’Keefe. There should be readable labels below each one.” (This is worth zooming in on)</p>
+<figure class="article-figure"><a data-component-name="Image2ToDOM" href="https://substackcdn.com/image/fetch/$s_!I-g3!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F14e71374-9b3a-465d-8b8d-ba09b65737c4_1448x1086.jpeg"><picture class="article-picture"><img alt="Image" data-attrs="{&quot;src&quot;:&quot;https://substack-post-media.s3.amazonaws.com/public/images/14e71374-9b3a-465d-8b8d-ba09b65737c4_1448x1086.jpeg&quot;,&quot;srcNoWatermark&quot;:null,&quot;fullscreen&quot;:null,&quot;imageSize&quot;:null,&quot;height&quot;:1086,&quot;width&quot;:1448,&quot;resizeWidth&quot;:427,&quot;bytes&quot;:null,&quot;alt&quot;:&quot;Image&quot;,&quot;title&quot;:null,&quot;type&quot;:null,&quot;href&quot;:null,&quot;belowTheFold&quot;:true,&quot;topImage&quot;:false,&quot;internalRedirect&quot;:null,&quot;isProcessing&quot;:false,&quot;align&quot;:null,&quot;offset&quot;:false}" sizes="100vw" src="https://substackcdn.com/image/fetch/$s_!I-g3!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F14e71374-9b3a-465d-8b8d-ba09b65737c4_1448x1086.jpeg" srcset="https://substackcdn.com/image/fetch/$s_!I-g3!,w_424,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F14e71374-9b3a-465d-8b8d-ba09b65737c4_1448x1086.jpeg 424w, https://substackcdn.com/image/fetch/$s_!I-g3!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F14e71374-9b3a-465d-8b8d-ba09b65737c4_1448x1086.jpeg 848w, https://substackcdn.com/image/fetch/$s_!I-g3!,w_1272,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F14e71374-9b3a-465d-8b8d-ba09b65737c4_1448x1086.jpeg 1272w, https://substackcdn.com/image/fetch/$s_!I-g3!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F14e71374-9b3a-465d-8b8d-ba09b65737c4_1448x1086.jpeg 1456w" class="article-image"/></picture></a></figure>
+<p>All of this is very cool, and would have been impossible a few months ago, but it is useful as well. An image generator that can make detailed text and images can be used to make PowerPoint slides or product mockups or example websites or anything else you ask for. But this is just one tool, and the real magic happens when you combine harnesses, apps, and models on a real problem. Here's one I've been procrastinating about for a decade.</p>
+<h1>Bringing it together</h1>
+<p>I am an academic, and a lot of my non-AI work, especially in the early 2010s, focused on crowdfunding. I have hundreds of anonymized data files on the topic that I have collected from surveys and analysis and research work, a mix of STATA, CSV, XLS and Word files that I never got around to writing a paper about. I wanted to see how far GPT-5.5 could get with this information. So, I used Codex powered by GPT-5.5 and asked: “Help me sort [the data] out and generate a new hypothesis that might be interesting and test it in sophisticated ways and write an academic paper.” I also asked it to include a literature review and formatting. The results were very impressive, especially after I asked GPT-5.5 Pro to comment on the paper and fed those results back into Codex. <a href="https://drive.google.com/file/d/1ahtmtBYlFkd8QmmyiNVNnq_SoOVb_JxH/view?usp=sharing">You can read the results here</a>. It isn’t perfect, but that is no longer because there are obvious errors: the literature review is all real, as are the statistics. Instead, it is because, as an expert, I think the hypothesis is not that interesting and there are some standard concerns about causation, even though the AI used very sophisticated statistical methods to try and address them. In short, I would have been very happy if this paper was the outcome of a 2nd year PhD project. And I just gave it four prompts, without ever touching the text myself.</p>
+<figure class="article-figure"><a data-component-name="Image2ToDOM" href="https://substackcdn.com/image/fetch/$s_!Nrfp!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F7a876f9f-9be0-472a-b1c0-027b3035690e_3157x1294.png"><picture class="article-picture"><img alt="" data-attrs="{&quot;src&quot;:&quot;https://substack-post-media.s3.amazonaws.com/public/images/7a876f9f-9be0-472a-b1c0-027b3035690e_3157x1294.png&quot;,&quot;srcNoWatermark&quot;:null,&quot;fullscreen&quot;:null,&quot;imageSize&quot;:null,&quot;height&quot;:597,&quot;width&quot;:1456,&quot;resizeWidth&quot;:null,&quot;bytes&quot;:968555,&quot;alt&quot;:null,&quot;title&quot;:null,&quot;type&quot;:&quot;image/png&quot;,&quot;href&quot;:null,&quot;belowTheFold&quot;:true,&quot;topImage&quot;:false,&quot;internalRedirect&quot;:&quot;https://www.oneusefulthing.org/i/195247661?img=https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F7a876f9f-9be0-472a-b1c0-027b3035690e_3157x1294.png&quot;,&quot;isProcessing&quot;:false,&quot;align&quot;:null,&quot;offset&quot;:false}" sizes="100vw" src="https://substackcdn.com/image/fetch/$s_!Nrfp!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F7a876f9f-9be0-472a-b1c0-027b3035690e_3157x1294.png" srcset="https://substackcdn.com/image/fetch/$s_!Nrfp!,w_424,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F7a876f9f-9be0-472a-b1c0-027b3035690e_3157x1294.png 424w, https://substackcdn.com/image/fetch/$s_!Nrfp!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F7a876f9f-9be0-472a-b1c0-027b3035690e_3157x1294.png 848w, https://substackcdn.com/image/fetch/$s_!Nrfp!,w_1272,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F7a876f9f-9be0-472a-b1c0-027b3035690e_3157x1294.png 1272w, https://substackcdn.com/image/fetch/$s_!Nrfp!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F7a876f9f-9be0-472a-b1c0-027b3035690e_3157x1294.png 1456w" class="article-image"/></picture></a></figure>
+<p>We can bring harnesses and apps and models together another way as well. I asked Codex to create an entirely new tabletop roleplaying game, basically its own version of Dungeons and Dragons in a fantasy world of its own invention, full of all of the tables and rules you need to play. I also asked it to simulate players experiencing the game and revise the rules based on what it found. <a href="https://drive.google.com/file/d/10QKnfjJaWHxsTu4fo_dgMU6pAJXxuw3t/view?usp=sharing">As you can see, the AI complied, including laying out an attractive 101 page PDF and illustrating it using its image generator.</a></p>
+<figure class="article-figure"><a data-component-name="Image2ToDOM" href="https://substackcdn.com/image/fetch/$s_!eiPp!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F40ee48a2-ad74-4183-8180-c9857bac1c72_4415x1400.png"><picture class="article-picture"><img alt="" data-attrs="{&quot;src&quot;:&quot;https://substack-post-media.s3.amazonaws.com/public/images/40ee48a2-ad74-4183-8180-c9857bac1c72_4415x1400.png&quot;,&quot;srcNoWatermark&quot;:null,&quot;fullscreen&quot;:null,&quot;imageSize&quot;:null,&quot;height&quot;:462,&quot;width&quot;:1456,&quot;resizeWidth&quot;:null,&quot;bytes&quot;:3175400,&quot;alt&quot;:null,&quot;title&quot;:null,&quot;type&quot;:&quot;image/png&quot;,&quot;href&quot;:null,&quot;belowTheFold&quot;:true,&quot;topImage&quot;:false,&quot;internalRedirect&quot;:&quot;https://www.oneusefulthing.org/i/195247661?img=https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F40ee48a2-ad74-4183-8180-c9857bac1c72_4415x1400.png&quot;,&quot;isProcessing&quot;:false,&quot;align&quot;:null,&quot;offset&quot;:false}" sizes="100vw" src="https://substackcdn.com/image/fetch/$s_!eiPp!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F40ee48a2-ad74-4183-8180-c9857bac1c72_4415x1400.png" srcset="https://substackcdn.com/image/fetch/$s_!eiPp!,w_424,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F40ee48a2-ad74-4183-8180-c9857bac1c72_4415x1400.png 424w, https://substackcdn.com/image/fetch/$s_!eiPp!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F40ee48a2-ad74-4183-8180-c9857bac1c72_4415x1400.png 848w, https://substackcdn.com/image/fetch/$s_!eiPp!,w_1272,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F40ee48a2-ad74-4183-8180-c9857bac1c72_4415x1400.png 1272w, https://substackcdn.com/image/fetch/$s_!eiPp!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F40ee48a2-ad74-4183-8180-c9857bac1c72_4415x1400.png 1456w" class="article-image"/></picture></a></figure>
+<p>In addition to being technically neat, there is a lot to like about the actual content. The setting is interesting and novel, and the rules appear to make sense, drawing on existing game patterns while adding unique elements. However, a closer inspection also reveals the jagged frontier of AI ability is not entirely gone. Every generation of AI models has struggled with actually building long-form fiction. If you are a frequent reader of AI writing you see the same problems here: a love of the uncanny; overly complex ideas that do not fully pay off; weird metaphors (“weather and architecture are the same argument at different speeds”); too many ornate sentences (“the holy things that surface when a sea forgets it was once a road,” is cool once, an entire book of that is exhausting); dialogue where every character speaks in the same clipped tone; and the name “Mara.” So, even amongst all the amazing technical progress, there are still rough edges.</p>
+<p>GPT-5.5 shows us that the models keep getting smarter, the apps keep getting more capable, and the harnesses keep getting better, making them ever more effective at solving real problems. I can get a near PhD-quality paper from four prompts or a playable roleplaying game, illustrated and “playtested,” from one. But the fiction is still flat and the hypotheses are sometimes uninteresting even when the statistics are sound. But still. A year ago, none of this was close, and, with the latest releases, capability gains appear to be accelerating.</p>
+<p>GPT-5.5 is clearly not the end of this process, but it is a noteworthy step along the way. I have been writing this newsletter for over three years now, and the pattern has not changed: every few months a new model arrives. I run my tests and something that was impossible becomes easy, while the size of the leaps grows each new release cycle. The jagged frontier is still there. It is just much further out than it used to be.</p>
+<figure class="article-figure"><a data-component-name="Image2ToDOM" href="https://substackcdn.com/image/fetch/$s_!hesI!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F2c591570-ee4a-4107-a9d1-b167d3f4a64a_1484x1060.png"><picture class="article-picture"><img alt="" data-attrs="{&quot;src&quot;:&quot;https://substack-post-media.s3.amazonaws.com/public/images/2c591570-ee4a-4107-a9d1-b167d3f4a64a_1484x1060.png&quot;,&quot;srcNoWatermark&quot;:null,&quot;fullscreen&quot;:null,&quot;imageSize&quot;:null,&quot;height&quot;:1040,&quot;width&quot;:1456,&quot;resizeWidth&quot;:363,&quot;bytes&quot;:2757078,&quot;alt&quot;:null,&quot;title&quot;:null,&quot;type&quot;:&quot;image/png&quot;,&quot;href&quot;:null,&quot;belowTheFold&quot;:true,&quot;topImage&quot;:false,&quot;internalRedirect&quot;:&quot;https://www.oneusefulthing.org/i/195247661?img=https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F2c591570-ee4a-4107-a9d1-b167d3f4a64a_1484x1060.png&quot;,&quot;isProcessing&quot;:false,&quot;align&quot;:null,&quot;offset&quot;:false}" sizes="100vw" src="https://substackcdn.com/image/fetch/$s_!hesI!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F2c591570-ee4a-4107-a9d1-b167d3f4a64a_1484x1060.png" srcset="https://substackcdn.com/image/fetch/$s_!hesI!,w_424,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F2c591570-ee4a-4107-a9d1-b167d3f4a64a_1484x1060.png 424w, https://substackcdn.com/image/fetch/$s_!hesI!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F2c591570-ee4a-4107-a9d1-b167d3f4a64a_1484x1060.png 848w, https://substackcdn.com/image/fetch/$s_!hesI!,w_1272,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F2c591570-ee4a-4107-a9d1-b167d3f4a64a_1484x1060.png 1272w, https://substackcdn.com/image/fetch/$s_!hesI!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F2c591570-ee4a-4107-a9d1-b167d3f4a64a_1484x1060.png 1456w" class="article-image"/></picture></a><figcaption>This is how GPT-5.5 chose to illustrate this piece, and who am I to argue?</figcaption></figure>
+<p><a href="#footnote-anchor-1" id="footnote-1">1 [find in text]</a></p>
+<p>I take no money from OpenAI or any other AI lab, and OpenAI has not seen this post in advance. Also, I don’t know all the details of the launch at the time I am writing this, so I apologize for any errors.</p></div>
+      
+    </article>
+    
+  </body>
+</html>
