@@ -1,0 +1,564 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Fred Talks - 2026-04-25</title>
+    <style>
+      @page {
+        size: A5;
+        margin: 8mm 9mm 9mm;
+      }
+
+      :root {
+        color: #111;
+        font-family: "Times New Roman", Times, serif;
+        --body-text-size: 9.5pt;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        color: #111;
+        background: #fff;
+        font-family: "Times New Roman", Times, serif;
+        line-height: 1.45;
+      }
+
+      a,
+      a:visited {
+        color: #111;
+        text-decoration: underline;
+      }
+
+      .cover {
+        min-height: calc(210mm - 17mm);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        page-break-after: always;
+        border: 1px solid #111;
+        padding: 8mm;
+        background: #fff;
+      }
+
+      .toc-item-meta,
+      .article-meta {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .masthead {
+        margin: 0;
+        font-size: 40pt;
+        line-height: 0.95;
+        text-transform: uppercase;
+      }
+
+      .issue-date {
+        margin: 4mm 0 0;
+        font-size: 14pt;
+      }
+
+      .issue-date sup {
+        font-size: 0.58em;
+        vertical-align: super;
+        line-height: 0;
+      }
+
+      .cover-deck {
+        max-width: 90mm;
+        font-size: 12pt;
+        margin: 0;
+      }
+
+      .toc {
+        border-top: 3px solid #111;
+        padding-top: 6mm;
+      }
+
+      .toc h2 {
+        margin: 0 0 4mm;
+        font-size: 11pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .toc-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .toc-item {
+        padding: 3mm 0;
+        border-bottom: 1px solid rgba(17, 17, 17, 0.2);
+      }
+
+      .toc-item-title {
+        font-size: 12pt;
+        margin: 0 0 1mm;
+      }
+
+      .toc-item-meta {
+        font-size: 8pt;
+      }
+
+      article + article {
+        margin-top: 10mm;
+        padding-top: 6mm;
+        border-top: 2px solid #111;
+      }
+
+      h1 {
+        margin: 0 0 2mm;
+        font-size: 18pt;
+        line-height: 1.1;
+      }
+
+      .article-meta {
+        font-size: 8.5pt;
+        margin-bottom: 6mm;
+        padding-bottom: 3mm;
+        border-bottom: 1px solid #111;
+      }
+
+      .article-body {
+        font-size: var(--body-text-size);
+        font-family: "Times New Roman", Times, serif;
+      }
+
+      .article-body p,
+      .article-body li,
+      .article-body blockquote,
+      .article-body dd,
+      .article-body dt {
+        margin: 0 0 4mm;
+        orphans: 3;
+        widows: 3;
+      }
+
+      .article-body ul,
+      .article-body ol,
+      .article-body dl {
+        margin: 0 0 4mm 5mm;
+        padding: 0;
+      }
+
+      .article-body h2,
+      .article-body h3,
+      .article-body h4 {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        margin: 7mm 0 3mm;
+        line-height: 1.2;
+      }
+
+      .article-body blockquote {
+        margin-left: 6mm;
+        padding-left: 4mm;
+        border-left: 2px solid #111;
+      }
+
+      .article-body .media-omitted {
+        margin: 0 0 4mm;
+        font-size: 8.5pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(17, 17, 17, 0.65);
+      }
+
+      .article-body figure,
+      .article-body .article-figure,
+      .article-body picture,
+      .article-body .article-picture {
+        display: block;
+        max-width: 72mm;
+        margin: 0 auto 4mm;
+        break-inside: avoid;
+      }
+
+      .article-body img,
+      .article-body .article-image {
+        display: block;
+        max-width: min(100%, 72mm);
+        max-height: 34mm;
+        height: auto;
+        width: auto;
+        object-fit: contain;
+        margin: 0 auto 3mm;
+      }
+
+      .article-body figcaption {
+        margin-top: 1.5mm;
+        font-size: 8.5pt;
+        line-height: 1.3;
+        color: rgba(17, 17, 17, 0.8);
+      }
+
+      .article-note {
+        margin-top: 6mm;
+        padding-top: 3mm;
+        border-top: 1px solid #111;
+        font-size: 9pt;
+        font-style: italic;
+      }
+
+      @media screen {
+        body {
+          padding: 2rem;
+          margin: 0 auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section class="cover">
+      <div>
+        <h1 class="masthead">Fred<br />Talks</h1>
+        <p class="issue-date">
+          25<sup>th</sup> April 2026
+        </p>
+      </div>
+
+      <div class="toc">
+        <h2>Contents</h2>
+        <ol class="toc-list">
+          
+          <li class="toc-item">
+            <div class="toc-item-title">Building agents that reach production systems with MCP</div>
+            <div class="toc-item-meta">
+              claude.com · 1746 words
+            </div>
+          </li>
+          
+          <li class="toc-item">
+            <div class="toc-item-title">[Daily article] April 25: Bombing of Obersalzberg</div>
+            <div class="toc-item-meta">
+              English Wikipedia Article of the Day · 323 words
+            </div>
+          </li>
+          
+          <li class="toc-item">
+            <div class="toc-item-title">BugBash&#39;26 Keynote</div>
+            <div class="toc-item-meta">
+              noreply@blogger.com (Murat) · 1307 words
+            </div>
+          </li>
+          
+          <li class="toc-item">
+            <div class="toc-item-title">You should try contra dancing</div>
+            <div class="toc-item-meta">
+              Ben Kuhn · 2470 words
+            </div>
+          </li>
+          
+          <li class="toc-item">
+            <div class="toc-item-title">2.1.120</div>
+            <div class="toc-item-meta">
+              Changelog · 384 words
+            </div>
+          </li>
+          
+        </ol>
+      </div>
+    </section>
+
+    
+    <article>
+      <h1>Building agents that reach production systems with MCP</h1>
+      <div class="article-meta">
+        claude.com
+        · 23 Apr 2026 · <a href="https://claude.com/blog/building-agents-that-reach-production-systems-with-mcp">Source</a>
+      </div>
+      <div class="article-body"><div><div><p>Agents are only as useful as the systems they can reach. Teams tend to converge on three approaches for connecting them to external systems—direct API calls, CLIs, and MCP. This post lays out where each fits, why production agents tend to land on MCP, and the patterns for building those integrations effectively.</p><h2>Connecting agents to external systems</h2><p>We generally see three paths for connecting agents to external systems: direct API calls, CLIs, and MCP. Each makes sense somewhere, depending on what you're building. The key distinction is whether there's a common layer between agents and services, and how far that layer reaches.</p><h3>Direct API calls</h3><p>The agent calls your API directly—either by writing code that issues HTTP requests inside a code-execution sandbox, or through a generic function-calling tool. This is where most teams start, and it works fine for one agent talking to one service, or a small number of integrations that don't need to be reused across agent platforms.<br/><br/>The challenges start to hit at scale. With no common layer between agents and services, each agent–service pair becomes a bespoke integration with its own auth handling, tool descriptions, and edge cases—the M×N integration problem.</p><h3>Command-line interface (CLI)</h3><p>The agent runs your command-line tool in a shell. This is fast, lightweight, and leans on pre-existing tooling. It works great for local environments and sandboxed containers—anywhere there's a filesystem and a shell. This provides a common layer, but it’s thin. <br/><br/>CLIs hit hard limits reaching mobile, web, or cloud-hosted platforms that don't expose a container, and auth is handled by the CLI's own mechanism—usually a credential file on disk. This is best suited to quick, permissive integrations in local environments.</p><h3>Model Context Protocol (MCP)</h3><p>MCP provides the common layer as a protocol. The agent connects to a server that exposes your system's capabilities, with auth, discovery, and rich semantics standardized. One remote server reaches any compatible client (Claude, ChatGPT, Cursor, VS Code, and more), in any deployment environment.</p><p>It requires a little bit more upfront investment. The return is that the integration is portable, and provides the semantics needed for a feature-rich agent integration.</p><h2>Production agents run in the cloud</h2><p>Production agents increasingly run in the cloud, so they can scale and operate continuously. The systems they need to reach are cloud-hosted too: where your data lives, work is tracked, and your infrastructure runs. Often these systems are remote and behind auth, where MCP provides the common layer. </p><p>We’re already seeing this in adoption. The <a href="https://modelcontextprotocol.io/docs/sdk">MCP SDKs</a> recently surpassed 300 million downloads a month, up from 100 million at the start of the year, with strong adoption across enterprises and popular agentic platforms. Millions of people use MCP with Claude every day, and the protocol underpins much of what we've shipped recently, including <a href="https://claude.com/product/cowork">Claude Cowork</a>, <a href="https://claude.com/blog/claude-managed-agents">Claude Managed Agents</a>, and <a href="https://code.claude.com/docs/en/channels">channels in Claude Code</a>. <br/>‍<br/>As MCP continues to support production agentic systems, we’re sharing patterns for building these integrations well: from building advanced servers to context-efficient clients, and where skills complement the protocol. </p><h2>Building effective MCP servers</h2><p>We have over 200 MCP servers in our <a href="https://claude.ai/directory/connectors">directory</a>, used by millions of people every day. From working closely with enterprises and developers building on the protocol, we’ve spotted a handful of design patterns that determine how reliably agents can use a server.</p><h3>Build remote servers for maximum reach</h3><p>A remote server is what gives you distribution—it's the only configuration that runs across web, mobile, and cloud-hosted agents, and it's what every major client is optimized to consume. Build remote servers so agents can use your system wherever they run. </p><h3>Group tools around intent, not endpoints</h3><p>Fewer, well-described tools consistently outperform exhaustive API mirrors. Don't wrap your API into an MCP server one-to-one—group tools around intent, so the agent can accomplish a task in a couple of calls instead of stitching many primitives together. A single create_issue_from_thread tool beats get_thread + parse_messages + create_issue + link_attachment. See<a href="https://www.anthropic.com/engineering/writing-tools-for-agents"> writing effective tools for agents</a> to learn more about the full pattern.</p><h3>Design for code orchestration when your surface is large</h3><p>If your service requires hundreds of distinct operations, such as Cloudflare, AWS, or Kubernetes, an intent-grouped toolset likely won't cover it. Instead, expose a thin tool surface that accepts code: the agent writes a short script, your server runs it in a sandbox against your API, and only the result returns. <a href="https://github.com/cloudflare/mcp">Cloudflare's MCP server</a> is the reference example—two tools (search and execute) cover ~2,500 endpoints in roughly 1K tokens.</p><h3>Ship rich semantics where they help</h3><p><a href="https://modelcontextprotocol.io/extensions/apps/overview">MCP Apps</a> is the first official protocol extension and lets a tool return an interactive interface, such as a chart, form, or dashboard, all rendered inline in the chat interface. Servers that ship MCP apps tend to see meaningfully higher adoption and retention than those that return text alone. Use it to put your product's UI in front of agents or end-users at the moment it matters—the extension is supported in Claude.ai, Claude Cowork, and many other top AI tools.</p><figure class="article-figure"><p><div class="rw-embed-wrapper"><embed src="https://www.youtube.com/embed/bluAmTHoEow" type="video/mp4"></embed></div></p></figure><p>‍<a href="https://modelcontextprotocol.io/specification/2025-11-25/client/elicitation">Elicitation</a> lets your server pause mid-tool call to ask the user for input. <a href="https://modelcontextprotocol.io/specification/2025-11-25/client/elicitation#form-mode-elicitation-requests">Form mode</a> sends a simple schema and the client renders a native form—use it to request a missing parameter, confirm a destructive action, or disambiguate options. <a href="https://modelcontextprotocol.io/specification/2025-11-25/client/elicitation#url-mode-elicitation-requests">URL mode</a> hands the user to a browser—use it to complete downstream OAuth, take a payment, or collect any credential that should never transit the MCP client. Both keep the user in the flow instead of sending them to a settings page. Form mode is supported broadly; URL mode is supported in Claude Code, with more clients in progress.</p><h3>Lean on standardized auth </h3><p>Standardized auth makes MCP practical for cloud-hosted agents. If your server requires OAuth, the latest <a href="https://modelcontextprotocol.io/specification/2025-11-25">MCP spec</a> supports <a href="https://modelcontextprotocol.io/specification/2025-11-25/basic/authorization#client-id-metadata-documents">CIMD</a> (Client ID Metadata Documents) for client registration—it gives users a fast first-time auth flow and far fewer surprise re-auth prompts. This is our recommended approach for auth, the capability is supported in MCP SDKs, Claude.ai, and Claude Code, and is being broadly adopted across the industry.<br/><br/>Once a user has authorized, the next question is how a cloud-hosted agent holds and reuses those tokens at runtime. <a href="https://platform.claude.com/docs/en/managed-agents/vaults#mcp-oauth-credential">Vaults</a> in <a href="https://platform.claude.com/docs/en/managed-agents/overview">Claude Managed Agents</a> covers this: register a user's OAuth tokens once, reference the vault by ID at session creation, and the platform injects the right credentials into each MCP connection and refreshes them on your behalf—no secret store to build, no tokens to pass around per call.</p><h2>Making MCP clients more context-efficient</h2><p>MCP standardizes how AI agents (<a href="https://modelcontextprotocol.io/docs/develop/build-client#python"><em>clients</em></a>) connect to and work with tools and data sources they need (<a href="https://modelcontextprotocol.io/docs/develop/build-server"><em>servers</em></a>). The server securely exposes a range of capabilities, while the client orchestrates them and manages context. If you’re building an MCP client, make it context-efficient with patterns for progressive disclosure.</p><h3>Load tool definitions on demand with tool search</h3><p><a href="https://platform.claude.com/docs/en/agents-and-tools/tool-use/tool-search-tool">Tool search</a> defers loading all tools into context, rather than loading them upfront. This allows the agent to search the catalog at runtime, pulling in the relevant tools when needed. In our <a href="https://www.anthropic.com/engineering/advanced-tool-use">testing</a>, tool search tends to cut tool-definition tokens by 85%+ while maintaining high selection accuracy. </p><figure class="article-figure"><figcaption>Reducing context usage with tool search. Source: <a href="https://www.anthropic.com/engineering/advanced-tool-use">advanced tool use<br/></a></figcaption></figure><h3>Process tool results in code with programmatic tool calling</h3><p><a href="https://www.anthropic.com/engineering/code-execution-with-mcp">Programmatic tool calling</a> processes tool results in a code-execution sandbox, rather than returning them raw to the model. This lets the agent loop, filter, and aggregate across calls in code, with only the final output reaching context. In our testing, this reduces token usage by roughly <a href="https://platform.claude.com/docs/en/agents-and-tools/tool-use/programmatic-tool-calling">37%</a> on complex multi-step workflows.</p><p>Together, these patterns compose naturally across multiple servers: leaner context, fewer round-trips, faster responses. See<a href="https://www.anthropic.com/engineering/advanced-tool-use"> <em>advanced tool use</em></a> for the full breakdown.</p><h2>Pairing MCP servers with skills</h2><p><a href="https://claude.com/blog/skills-explained">Skills and MCP are complementary</a>. MCP gives an agent access to tools and data from external systems, while skills teach an agent the procedural knowledge of <em>how</em> to use those tools to accomplish real work. The most capable agents use both, and skills make MCP servers scale beyond a handful of connections. There are two general patterns for combining them:</p><h3>Bundle skills and MCP servers as a plugin</h3><p><a href="https://code.claude.com/docs/en/plugins-reference#plugin-components-reference">Plugins</a> for Claude are a useful abstraction that allow developers to bundle skills, MCP servers, hooks, LSP servers, and specialized subagents in one easily-consumable distribution method. Using this approach is the best way to unify multiple context providers with minimal friction. <br/><br/>Combining MCP servers with skills allows Claude to act more like a domain-specialist. Grab your tools via MCP, and give Claude the skills to orchestrate workflows end-to-end. See our <a href="https://claude.ai/directory/plugins/data%40knowledge-work-plugins">data plugin</a> for Cowork as an example, which consists of 10 skills and 8 MCP servers for apps like Snowflake, Databricks, BigQuery, Hex and more.</p><figure class="article-figure"><figcaption>Combining skills with MCP. Source: <a href="https://claude.com/blog/extending-claude-capabilities-with-skills-mcp-servers">Extending Claude’s capabilities with skills and MCP servers</a></figcaption></figure><h3>Distribute skills from an MCP server</h3><p>It's increasingly common for providers to publish a skill alongside their MCP server, so the agent gets both the raw capabilities and an opinionated playbook for using them well. <a href="https://claude.com/connectors/atlassian">Canva</a>, <a href="https://claude.com/connectors/notion">Notion</a>, <a href="https://claude.com/connectors/sentry">Sentry</a>, and more do this today in Claude, listing the skill next to their connector in our <a href="https://claude.com/connectors">web directory</a>.</p><p>To make that pairing portable across every client, the MCP community is actively working on an <a href="https://github.com/modelcontextprotocol/experimental-ext-skills">extension</a> for delivering skills directly from servers. This way the client inherits the relevant expertise automatically, versioned with the API it depends on. We expect this pattern to see broad adoption as the extension stabilizes.</p><h2>The compounding layer </h2><p>We opened with three paths for connecting agents to external systems. In practice, mature integrations will ship all three: the API as the foundation, a CLI for local-first environments, and MCP for cloud-based agents.</p><p>As production agents move to the cloud, MCP becomes the critical layer, and it’s the one that compounds. Today, a remote server reaches every compatible client across any deployment environment, with auth, interactivity, and rich semantics handled by the protocol. As more clients adopt the spec and more extensions land in it, that same server gets more capable without you shipping anything new.</p><p>When building an integration, if your goal is to have production agents in the cloud reach your system, build an MCP server and make it excellent using the patterns above. Every integration built on MCP strengthens the ecosystem: fewer edge cases to solve alone, fewer bespoke integrations to maintain.</p><h3>Acknowledgements</h3><p>Thanks to Den Delimarsky, David Soria Parra, Henry Shi, Felix Rieseberg, Conor Kelly, Molly Vorwerck, Andy Schumeister, Kevin Garcia, Amie Rotherham, Matt Samuels, Angela Jiang, Katelyn Lesse, AJ Rebeiro and Jess Yan<strong> </strong>for their contributions to this blog.</p></div></div></div>
+      
+    </article>
+    
+    <article>
+      <h1>[Daily article] April 25: Bombing of Obersalzberg</h1>
+      <div class="article-meta">
+        English Wikipedia Article of the Day
+        · 25 Apr 2026 · <a href="mailto:reader-forwarded-email/7826d16a5165fdfa72ab5ea97ce906f0">Source</a>
+      </div>
+      <div class="article-body"><div class="rw-email-parsed">
+ <p>
+  The bombing of Obersalzberg was a World War II air raid that targeted a
+complex of residences and bunkers built for Adolf Hitler at
+Obersalzberg, Bavaria. It was carried out by 359 Allied heavy bombers on
+25 April 1945, during the last days of World War II in Europe. The
+Allies believed that the German government would use the Obersalzberg
+complex to command an Alpine Fortress. Many buildings were destroyed,
+though the Berghof, which was Hitler's residence, and the bunker network
+were only slightly damaged. Hitler was not present. Two bombers were
+shot down with the loss of four airmen, and 31 Germans were killed.
+Historians have identified several motives for the attack, including
+supporting Allied ground forces, demonstrating the effectiveness of the
+heavy bomber, convincing die-hard Germans that the war was lost and
+obscuring the memory of pre-war appeasement policies. The raid was
+celebrated at the time, but as the Alpine Fortress proved to be a myth
+most post-war histories make little mention of it. (Full article...).
+ </p>
+ <p>
+  Read more:
+  <a href="https://en.wikipedia.org/wiki/Bombing_of_Obersalzberg">
+   https://en.wikipedia.org/wiki/Bombing_of_Obersalzberg
+  </a>
+ </p>
+ <hr/>
+ <p>
+  Today's selected anniversaries:
+ </p>
+ <p>
+  1644:
+ </p>
+ <p>
+  Ming–Qing transition: The Ming dynasty of China fell when the
+Chongzhen Emperor committed suicide during a peasant rebellion led by Li
+Zicheng.
+  <a href="https://en.wikipedia.org/wiki/Ming_dynasty">
+   https://en.wikipedia.org/wiki/Ming_dynasty
+  </a>
+ </p>
+ <p>
+  1920:
+ </p>
+ <p>
+  A march by blind people from across the United Kingdom to
+protest poor working conditions ended at Trafalgar Square, London.
+  <a href="https://en.wikipedia.org/wiki/1920_blind_march">
+   https://en.wikipedia.org/wiki/1920_blind_march
+  </a>
+ </p>
+ <p>
+  1986:
+ </p>
+ <p>
+  Mswati III was crowned King of Swaziland, succeeding his father
+Sobhuza II.
+  <a href="https://en.wikipedia.org/wiki/Mswati_III">
+   https://en.wikipedia.org/wiki/Mswati_III
+  </a>
+ </p>
+ <p>
+  2014:
+ </p>
+ <p>
+  A water crisis began when officials in Flint, Michigan,
+switched the city's water supply to the Flint River, leading to
+contamination.
+  <a href="https://en.wikipedia.org/wiki/Flint_water_crisis">
+   https://en.wikipedia.org/wiki/Flint_water_crisis
+  </a>
+ </p>
+ <hr/>
+ <p>
+  Wiktionary's word of the day:
+ </p>
+ <p>
+  skerrick:
+1. (originally UK, dialectal, now chiefly Australia, New Zealand,
+chiefly in the negative) A very small amount or portion; the least bit.
+2. About Word of the Day
+3. Nominate a word
+4. Leave feedback
+  <a href="https://en.wiktionary.org/wiki/skerrick">
+   https://en.wiktionary.org/wiki/skerrick
+  </a>
+ </p>
+ <hr/>
+ <p>
+  Wikiquote quote of the day:
+ </p>
+ <p>
+  ”
+  --Wolfgang Pauli
+  <a href="https://en.wikiquote.org/wiki/Wolfgang_Pauli">
+   https://en.wikiquote.org/wiki/Wolfgang_Pauli
+  </a>
+ </p></div></div>
+      
+    </article>
+    
+    <article>
+      <h1>BugBash&#39;26 Keynote</h1>
+      <div class="article-meta">
+        noreply@blogger.com (Murat)
+        · 25 Apr 2026 · <a href="https://muratbuffalo.blogspot.com/2026/04/bugbash26-keynote.html">Source</a>
+      </div>
+      <div class="article-body"><p>I attended <a href="https://antithesis.com/bugbash/conference2026/agenda/">the BugBash 2026</a> these last two days, and had a blast. Here are my notes from the first keynote. I will try to find time to publish my notes from the other talks in the coming days.</p>
+<h1>Keynote: We won, what now?</h1>
+<p>Will Wilson, Co-founder &amp; CEO @ Antithesis</p>
+<p>The Antithesis team opened with a great animation/teaser clip, then Will took the stage. Here is the summary of his talk.</p>
+<p>This is not a software testing conference. This is about building reliable software by any means: testing, observability, formal methods, people/culture, better languages. He shows a meme of fantastic five or something using their rings, they invoke this giant warrior.</p>
+<p>Time to acknowledge the elephant in the room. A new contender emerges: AI!!</p>
+<p>We are now taking a fundamentally unreliable system (AI) to make the systems we are developing reliable. And it is working somehow?! There is a vibe quality to it. When the cost of software generation goes down drastically, you can do a whole lot of it as per Jevons' paradox.</p>
+<p>At this point Will starts talking about this hypothetical band: <b>Quaternion dysfunction</b>, and its noncommutative album. This is a niche band, following them early on makes us feel very special, part of a small in-group.</p>
+<p>Now imagine that this niche band becomes freakishly popular suddenly. You feel many things. First you feel a great validation. But now more people start following the band, and you lost the in-group identity. You need to get a new personality. But who knows when maybe you can cash on it, as expert or talent lead.</p>
+<p>Other copycat bands enter the scene, say Helvetica scenario. And now there are also many faker fans. People just follow these bands because they are popular. This happens in real world a lot, and in the technology world as well. Jon Evans wrote a Techcrunch article on this in 2015: <a href="https://techcrunch.com/2015/02/28/beware-the-pretty-people/">Beware the pretty people.</a> Lawyers, financiers, business people. He overstates the effects. Silicon Valley getting popular was mostly good diversity with these other people arriving. But yes there are also comes scammers, bad actors.</p>
+<p>Here is a comparison of niche fields versus popular fields.</p>
+<ul><li>elite vs. energizing </li><li>elitist vs. lots of BS </li><li>cozy vs. innovative </li><li>defiant vs. ridiculous</li></ul>
+<p>Transition between these two worlds can be traumatic. And when all is said and done, Michael Lewis will come and write a book about it. (Will's zinger, not mine!)</p>
+<p>In case, you still haven't caught on to the analogy. That band is "software correctness": formal methods, property-based testing, observability. I.e., the people/community inc BugBash.</p>
+<p>As Will put it bluntly, you belong to a cult. Vast majority of engineers don't care about correctness much. They are not bad people, but they are doing this because other pressures/priorities. This is a fact of life: most people don't didn't care about correctness much.</p>
+<p>Well, that is until something strange happened, which made people care about correctness! Check the Google Trends for property based testing. It shot up from zero to millions in 2025-26. Same for formal methods.</p>
+<figure class="article-figure"><a href="https://blogger.googleusercontent.com/img/a/AVvXsEi7Av6zJsAx_ju-xY2kgqY24Va4hYWfsswlO8JvzWk4hGK28yJNz3nY50Tvu3QCJqWanvNuhmvmOoiZRkIJGVlPSTeiIbFb718pQXBm1V0rRfM0a_uAaxf4PIW-SUh0h9Q4SXtpAeunG7w8v7RHhsvcl5V_dl8-BF30R8QRuVv3VrKLNvP3jlt19ztLWuo"><img alt="" data-original-height="1372" data-original-width="2478" src="https://blogger.googleusercontent.com/img/a/AVvXsEi7Av6zJsAx_ju-xY2kgqY24Va4hYWfsswlO8JvzWk4hGK28yJNz3nY50Tvu3QCJqWanvNuhmvmOoiZRkIJGVlPSTeiIbFb718pQXBm1V0rRfM0a_uAaxf4PIW-SUh0h9Q4SXtpAeunG7w8v7RHhsvcl5V_dl8-BF30R8QRuVv3VrKLNvP3jlt19ztLWuo=w400-h221" class="article-image"/></a></figure>
+<figure class="article-figure"><a href="https://blogger.googleusercontent.com/img/a/AVvXsEiluHpoYFbEJt_K6x9K_JTggpQ4XIwHZ6MJ9G6F7SmkuDtrAneiPcrU_pdRFZoCOrb8b0C9QV7ml3Gwr2dRHCKe81efxXBBmTqwz6uVqv_ARwNZv7OrhqJhkc52AVvK9LlpqLEJA3pyipv_oVgRVlpsXyh8IeU0pWC516ViiQLVRl5UcKOkSrlPmuOxCV0"><img alt="" data-original-height="1378" data-original-width="2446" src="https://blogger.googleusercontent.com/img/a/AVvXsEiluHpoYFbEJt_K6x9K_JTggpQ4XIwHZ6MJ9G6F7SmkuDtrAneiPcrU_pdRFZoCOrb8b0C9QV7ml3Gwr2dRHCKe81efxXBBmTqwz6uVqv_ARwNZv7OrhqJhkc52AVvK9LlpqLEJA3pyipv_oVgRVlpsXyh8IeU0pWC516ViiQLVRl5UcKOkSrlPmuOxCV0=w400-h225" class="article-image"/></a></figure>
+<p>Everybody just started caring about this because of AI. But how has AI caused this to happen? The conventional story is that AI agents don't write correct software, but take this story at face value. You mean software is written by unreliable agents? Always has been meme! People have been writing bad software for decades, and nobody batted an eyelash before for verification. So why now all of a sudden they care about verification.</p>
+<p><a href="https://en.wikipedia.org/wiki/Amdahl%27s_law">The Amdahl's law is behind it.</a> Focus on the part that is slow, the bottleneck, for improvement.</p>
+<p>Previously when Will told to the managers that 50% of your teams time is spent in testing, they didn't use to believe him. Now they correct him and tell him it is 99%. Implication of AI and Amdahl's law means, now correctness is important. So no need to mention that, thanks to the AI wave, business is booming for Antithesis.</p>
+<p>The Amdahl's law is a nice angle to look at this. But I think there is another reason for this, as Steve Klabnik mentioned in day 2. Previously, no matter how buggy it is, you had written your software, understood it, and tried it. And using AI breaks all three: now you don't have a way to validate the software without formal methods and property-based testing, etc.</p>
+<p>Then Will went on to set up the roadmap and expectations for the software reliability folks.</p>
+<p>This feels like the <a href="https://en.wikipedia.org/wiki/Eternal_September">Eternal September </a>(1993/1994), where the unwashed masses started onboarding the internet. Forums got flooded, the norms changed. The in-crowd protested, but it was for good. It was an overall positive. We should keep the looking back perspective in mind.</p>
+<p>What about the payoffs? Will showed the Rembrandt painting titled the "<a href="https://en.wikipedia.org/wiki/Parable_of_the_Workers_in_the_Vineyard">Parable of the Workers in the Vineyard"</a>, which depicts the bible story of vineyard workers getting paid at the end of the day, where the workers who joined in the last couple hours of the day paid the same as the ones who toiled all day. The parable is interpreted to mean that even those who are converted late in life earn equal rewards along with those converted early, and that people who convert early in life need not feel jealous of those later converts.</p>
+<p>Will iterated: Don't feel resentful. This is what winning looks like. Other people coming and coopting your thing is actually what winning looks like. It is okay to win! Your position will get demolished/bastardized, but the world would have moved slightly towards your position. This is the transition from defiant to ridiculous in the above table.</p>
+<p>(My aside: As for one, I am tired of winning! Too much winning going on on all fronts recently. I feel like the word "winning" is getting devalued. Also I personally do not agree with the parable's lesson. Even the monkey's have <a href="https://youtu.be/meiU6TxysCg?t=75">this injustice instinct</a> built in. Don't go philosophizing over me.)</p>
+<p>Anyway, Will's takeaway message is this. The masses are coming. It is our community's time to shine. Software reliability tools had been for the elite, but it is changing. It is time to <b>teach others.</b></p>
+<p>Teach others?! On day two, Steve Klabnik also iterated this message. It is time for others to learn from this community. But, neither elaborated how this teaching/learning will take place. And I remain skeptical. Yeah, I do blog about this stuff, and enthusiasts and people in the know follow and they say they benefit and learn. But I am skeptical about how this would scale. Learning is an active process, it requires active participation and effort on the learner's side. Some educators even claim, there is no teaching, there is only learning. I am worried people will follow easy non-solution trends, like I don't know HOPE: Heuristic Oversight of Probabilistically-correct Execution. Or I don't know AGILE: Assert Goodness, Iterate Later, Eventually. The braindead solutions always get more popular. Thinking is hard, and the human brains are optimized to be lazy.</p>
+<p>Let me talk about the talk mechanics to wrap this up. Overall, this was a good show, in the best sense of the word. The delivery of the talk looked effortless but it is clear Will put a lot of work in to this presentation to make it this smooth. He had so many zingers, and in-jokes. The band analogy is wonderful. The Rembrands painting story is really memorable. These set the stage well, and help people manage expectations for the roadmap. This is a technical talk, presented as a nontechnical talk.</p>
+<p>It was very entertaining, as well as informative and thought-provoking. Will's liberal arts background comes through clearly. And the clever use memes was also a pattern shared among the best presenters in the conference. For a conference like this, the point is to score laughs, and entertain as much as teach.</p></div>
+      
+    </article>
+    
+    <article>
+      <h1>You should try contra dancing</h1>
+      <div class="article-meta">
+        Ben Kuhn
+        · 25 Apr 2026 · <a href="https://www.benkuhn.net/contra/">Source</a>
+      </div>
+      <div class="article-body"><div><p>A popular icebreaker in San Francisco these days is “How would you spend your life if AGI meant nobody needed to work?” For me, I think a surprisingly big part of the answer is a dorky-sounding kind of folk dance called contra dancing.</p>
+<p>I started trying to answer that question by thinking: what are the things I do <em>atelically</em>—because I enjoy them for their own sake, not in pursuit of some longer-term goal? For me, a lot of that has to do with things that are (1) physically joyful, and (2) help me feel connected to other people.</p>
+<p>My pitch for contra dancing is that among physically joyful and connecting activities, it’s one of the ones where it’s <em>easiest to get to the point where it’s fun</em>, and therefore one of the best to start out with. Many other forms of dance require weeks of lessons before you’re even encouraged to do it socially at all. By contrast, the format of contra dancing means that you can go to a half-hour beginner lesson before your first dance, and there’s a good chance you will be having a lot of fun by the end of the evening.</p>
+<p>What’s more, the fact that it’s so easy to start having fun shapes its community and priorities, such that it has among the best vibes of any activity I do.</p>
+<hr/>
+<p>I first encountered contra in middle school. My mom ran an intentional community, and we had a housemate move in named Bree. Bree was <em>obsessed</em> with this thing called “contra dancing,” and every week she would try to convince me and our other housemates to come with her.</p>
+<p>Which I absolutely refused. I was an extremely uncool middle schooler, and that meant I was terrified of doing anything that even whiffed of uncoolness, lest I give my classmates another reason to judge me. I was also deeply awkward; I’d never even been to a school dance and barely talked to girls. But Bree was persistent, and one of our other housemates got hooked, and eventually I was intrigued.</p>
+<p>By then, though, I was dug in as a contra hater, and I was scared that if I admitted I had changed my mind, my housemates would make fun of me. So I kept refusing.</p>
+<p>Finally, my housemate Thomas, who was even more of a skeptic than I was, told Bree that he would only go if I went, presumably so that she would stop bugging him and bug me instead. Aha—my golden opportunity! I could pass off my change of heart as a prank on Thomas. “Okay, sure! It’s a deal!”</p>
+<p>Bree and I showed up at the <a href="https://www.neffa.org/thursday-contras/">Concord Scout House</a> one Thursday evening and jumped into the next dance. It was an unusually complex <a href="https://en.wikipedia.org/wiki/Square_dance">square dance</a>, and I got confused—in fact, so confused that my entire square ended up giving up halfway through.<sup>1</sup></p>
+<p>I was mortified. Not only was I doing a deeply uncool activity, I was <em>the least cool person there</em>, ruining it for all the slightly less uncool people with my incompetence and lameness.</p>
+<p>Except that the other dancers didn’t seem to see it that way. Instead of resenting me or making fun of me, they said things like “Gosh, that one was really tricky!” and “Sorry, that’s really not what it’s usually like!” and “Please don’t give up, try a few more dances! Want to dance with me?”</p>
+<p>I tried some more dances, I didn’t cause any more collapses, and by the end of the night I was overflowing with exhilaration and joy. I went back the next week, and the week after that. I went to the twelve-hour <a href="https://www.monadnockfolk.org/%E2%98%BC-%E2%98%BC-%E2%98%BC-peterborough-snow-ball-2026/">Snow Ball</a> and then the weekend-long <a href="https://www.flurryfestival.org/">Flurry Festival</a>. I got to feel cool for the first time in my life when people started being excited to dance with me, and even cooler when some of them asked me on dates. It was a huge part of my life for a while, and although I’m now dancing at maybe a quarter of my peak intensity, it’s still one of my most joyful and treasured things I do.</p>
+<p>This happens to about one in ten people I take contra dancing: something clicks and it becomes a big part of their life.</p>
+<hr/>
+<p>So what exactly <em>is</em> contra dancing?</p>
+<p>When people ask me this I often feel stuck, because describing the mechanics of a contra dance doesn’t really capture its essence or why it’s fun, but without understanding the mechanics, the essence doesn’t really make sense. So I’ll try both. But you have to promise to read through to the essence part, and not just bounce off if the mechanics sound silly.</p>
+<p>Mechanically: you show up to the dance hall. You ask someone to dance, or they ask you. You join a long line (“set”) of other couples and take hands in a four-person group with one adjacent (“neighbor”) couple. A <em>caller</em> stands at the top of the dance hall and does a “walk-through” of the dance you’re about to do, calling out a series of figures (“circle left three places,” “do-si-do your neighbor,” etc.) At the end, you’ve moved up or down the line, and you’re ready to do the same thing with some new neighbors coming at you.</p>
+<p>Next to the caller is a live band. (They probably sound a bit like <a href="https://open.spotify.com/playlist/1uAQAUheWc3NjVE6RFAkwt">this</a>.) The pianist plays <a href="https://www.fiddlehangout.com/archive/740">four potatoes</a> and the fiddler launches into a reel. The caller calls out the figures for the first few times through the dance, then drops out as the dancers get into flow.</p>
+<p>It looks a bit like this video, although I don’t know how much this will transmit the vibe, since contra is a lot more fun to do than it is to watch:</p>
+<figure class="article-figure">
+<figcaption>Bonus: you can see high school me in this dance! I'm in the dark red T-shirt at the very right of the frame at the beginning.</figcaption>
+</figure>
+<hr/>
+<p>To me, the <em>essence</em> of contra dancing is about flow, joy, and community.</p>
+<p>You can’t really tell from watching, but a lot of what makes for good contra dancing is learning how to trade momentum back and forth (“share weight”) with other dancers so that each figure flows seamlessly into the next one. When you get this right, it feels amazing. Subtle changes in how your partner holds your hand cue you into the next figure. The dance becomes effortless. You can turn your brain off and just do what the giant dancing super-organism invites you to do.</p>
+<p>It’s also physically joyful. The core figure of contra dancing is called the <em>swing</em>, in which you and your partner take a waltz-like hold and pivot around a shared center. Done right, it feels like a cross between flying and a world-class hug. Even outside of the swing, the shared weight, smooth momentum, and twirling “flourishes” will make you feel weightless, graceful and deeply connected to the music and the other dancers.</p>
+<p>Lots of kinds of dance feel flowy and exhilarating when done well. What makes contra different is how easy it is to get there. Most forms of dance require weeks of lessons before they get fun. In contra, all you need to do is show up for one beginner lesson half an hour before the dance starts.<sup>2</sup> Of course, there’s plenty to learn after that—improving your swing technique, learning how to share weight, and where to put flourishes for the best joy and flow—but all of that is for getting you from a 8/10 to an 11/10 on the fun scale; getting to an 8 is pretty straightforward.</p>
+<p>So contra makes it easy to have a baseline level of fun dancing with anyone. And because it’s a group dance, you end up feeling connected to your entire set, not just your partner. I think those two things are behind my other favorite part of contra dancing, which is how friendly and welcoming the community is.</p>
+<p>Many kinds of dance are a bit snooty—the experienced dancers look down on newbies and try to avoid dancing with them. By contrast, my experience at my first dance, where I caused my square to crash and burn and was met with apologies and “I hope you’ll give it another shot,” is typical for contra. A lot of contras explicitly ask experienced dancers to dance with newcomers. It’s just hard to be snooty when you’re having so much fun! You want to share it with everyone.<sup>3</sup></p>
+<p>As draft reader Chloe put it: “I think in many ways, your story of your first dance is the heart of it—you can’t do it wrong. Or even if you do, it somehow leads to more love.”</p>
+<hr/>
+<p>In my opinion, this makes contra dancing <em>one of the best entry points to dance</em>:</p>
+<ul>
+<li>Each dance is walked through, so you don’t have to worry about deciding what to do.</li>
+<li>You can get to an 8/10 fun level, where practice becomes rewarding instead of a chore, really quickly.</li>
+<li>The community is incredibly welcoming, which makes it a lot less stressful to be a beginner.</li>
+</ul>
+<p>While it’s structured enough to be beginner-friendly, there’s also enough room for improvisation and technique to give it a lot of depth. This makes it a great on-ramp to other dances and movement practices. When I started contra dancing I had a lot of fear and blocks about improvised dancing (for example, I didn’t feel comfortable dancing at standard American high school/wedding style dances), but recently I tried out <a href="https://en.wikipedia.org/wiki/Fusion_dance">fusion</a> and <a href="https://en.wikipedia.org/wiki/Contact_improvisation">contact improv</a> and had fun at both. It’s pretty common for people to use contra as a gateway into more difficult forms of dance.</p>
+<p>Most importantly, though, it’s just incredibly joyful on its own! It’s the only activity I know of where I’ve had multiple friends mention that every time they go, their cheeks hurt from smiling so much.</p>
+<hr/>
+<p>Beyond just fun, multiple draft readers independently commented that contra dance is a precise opposite of many things that bother them about… the rest of life:</p>
+<ul>
+<li>
+<p>Much of my life happens on a screen in motionless silence; contra is as three-dimensional, movement- and sound-filled as you can get.</p>
+</li>
+<li>
+<p>The default mood of a lot of spaces is a sort of ironic detachment.<sup>4</sup> The default mood of contra dancing is earnest joy.</p>
+</li>
+<li>
+<p>In everyday life it’s easy to end up atomized and isolated. At a contra, everyone does the same steps and makes the dance together; it’s deeply communal.</p>
+</li>
+<li>
+<p>In a lot of social contexts (especially in San Francisco), I often feel like I’m being “sized up” for how interesting or important I am. At most contras, people are just happy I’m there.</p>
+</li>
+<li>
+<p>Many things I do (work, choral music, blogging…) reward excellence above almost everything. Contra welcomes imperfection: we’d rather have an amateur live band than recorded professionals, and don’t believe in more than half an hour of organized teaching.</p>
+</li>
+</ul>
+<p>This makes it a grounding and nourishing antitode to a lot of everyday stressors. When I was so drawn to it in middle school, I don’t think it was just about the fun: on some deep level it was very good for me.</p>
+<hr/>
+<p>If I’ve gotten you excited enough to try contra, here’s what you should do:</p>
+<ul>
+<li>Go to <a href="https://www.trycontra.com/">try contra dot com</a> to find dances near you. If there are multiple dances, I recommend trying to figure out which one is the largest (larger dances tend to have more energy and better vibes), although that might be tricky to figure out from the websites.</li>
+<li>Make a note of where and when the dance is, including the beginner lesson. Remember to show up beforehand for that!</li>
+<li>Dress code wise: contra dancing is generally light cardio; wear something you are happy to be active in.<sup>5</sup>
+<ul>
+<li>Most people dress pretty casually; many women (and some men!) wear skirts, especially skirts that do fun things when you twirl.</li>
+<li>Look at the dance site to see if they say anything about footwear; some dances request that you wear soft-soled shoes with clean soles to avoid damaging floors.</li>
+<li>Bring a water bottle! There are fountains at most dances but it helps to be able to hydrate more quickly since the breaks between dances are short.</li>
+</ul>
+</li>
+<li>If you go to a dance and like it, the easiest way to go from 8/10 fun to 9.5/10 is to find someone with a really good swing and ask them how you can improve your technique. (If you’re not sure, look for someone who’s fast and smooth.) They will be tickled that you asked!<sup>6</sup></li>
+<li>If you have a friend who contra dances, try going with them! They will be thrilled to bring you and it’ll be even more fun for both of you.<sup>7</sup></li>
+</ul>
+<p>Have fun! I hope you smile so much your cheeks hurt.</p>
+<hr/>
+<p><em>Thanks to Jeff Kaufman, Alex Allain, Chloe Lubinski, and Jessie Brown for commenting on a draft of this post.</em></p>
+<p><em>Further reading/listening/other consumption:</em></p>
+<ul>
+<li><a href="https://open.spotify.com/playlist/1uAQAUheWc3NjVE6RFAkwt">My playlist of favorite contra dance music</a> (because every dance has live music, contra has a thriving music scene that punches far above its weight!)</li>
+<li>Jeff Kaufman, <a href="https://www.jefftk.com/p/contra-dance-as-a-model-for-post-ai-culture">Contra Dance as a Model For Post-AI Culture</a></li>
+<li><a href="https://www.trycontra.com/">try contra dot com</a></li>
+</ul>
+<section class="footnotes">
+<hr/>
+<ol>
+<li>This is at least a 1-in-10,000 event; I’ve never seen it happen again in over 20 years of regular dancing.</li>
+<li>In fact, you can probably get away without even that!</li>
+<li>Another benefit of this is that contra is much more intergenerational than most forms of dance. I have dance friends in their twenties and seventies!</li>
+<li>At least for me, when I overuse ironic detachment it has subtle but far-reaching effects on how I see and engage with the world. It’s an easy way to amuse people, but ends up masking or numbing out a lot of more “real” responses. I’ve found it really interesting and a bit psychoactive to play what I call “the ironic detachment game,” in which I am banned from responding to anything in an ironically detached way.</li>
+<li>I personally sweat a lot and usually bring multiple shirts to change into, although most other dancers I know don’t need to do this.</li>
+<li>Teaching a swing is a separate skill from just having a good swing, so you may want to ask a few different people.</li>
+<li>I recently started a mission to get my friends into contra dancing (hence also this post)! It’s going shockingly well and it’s made it way more fun for me!</li></ol></section></div></div>
+      
+    </article>
+    
+    <article>
+      <h1>2.1.120</h1>
+      <div class="article-meta">
+        Changelog
+        · 25 Apr 2026 · <a href="https://code.claude.com/docs/en/changelog#2-1-120">Source</a>
+      </div>
+      <div class="article-body"><div><ul>
+<li>Windows: Git for Windows (Git Bash) is no longer required — when absent, Claude Code uses PowerShell as the shell tool</li>
+<li>Added <code>claude ultrareview [target]</code> subcommand to run <code>/ultrareview</code> non-interactively from CI or scripts — prints findings to stdout (<code>--json</code> for raw output) and exits 0 on completion or 1 on failure</li>
+<li>Skills can now reference the current effort level with <code>${CLAUDE_EFFORT}</code> in their content</li>
+<li>Set <code>AI_AGENT</code> environment variable for subprocesses so <code>gh</code> can attribute traffic to Claude Code</li>
+<li>Spinner tips that recommend installing the desktop app or creating skills/agents are now hidden when you already have them</li>
+<li>Show a "use PgUp/PgDn to scroll" hint when the terminal sends arrow keys instead of scroll events</li>
+<li>Faster session start when you have many claude.ai connectors configured but not authorized</li>
+<li>The auto mode denial message now links to the configuration docs</li>
+<li><code>claude plugin validate</code> now accepts <code>$schema</code>, <code>version</code>, and <code>description</code> at the top level of <code>marketplace.json</code> and <code>$schema</code> in <code>plugin.json</code></li>
+<li>Auto-compact in auto mode now displays <code>auto</code> (lowercase, no token count) instead of a misleading token value</li>
+<li>Fixed pressing Esc during a stdio MCP tool call closing the entire server connection (regression in 2.1.105)</li>
+<li>Fixed <code>/rewind</code> and other interactive overlays not responding to keyboard input after launching with <code>claude --resume</code></li>
+<li>Fixed terminal scrollback duplication in non-fullscreen mode (resize, dialog dismiss, long sessions)</li>
+<li>Fixed <code>DISABLE_TELEMETRY</code> / <code>CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC</code> not suppressing usage metrics telemetry for API and enterprise users</li>
+<li>Fixed false-positive "Dangerous rm operation" permission prompts in auto mode for multi-line bash commands containing both a pipe and a redirect</li>
+<li>Fixed long selection menus clipping below the terminal in fullscreen mode — the focused option now stays on screen as you scroll</li>
+<li>Fixed Write tool output collapsing instead of expanding when clicking "+N lines" in fullscreen</li>
+<li>Fixed slash command picker jumping while typing, and improved highlight to only match contiguous substrings in blue</li>
+<li>Fixed <code>/plugin</code> marketplace failing to load when one entry uses an unrecognized source format — that entry is shown but installing it prompts you to update</li>
+<li>[VSCode] <code>/usage</code> now opens the native Account &amp; Usage dialog instead of returning plain-text session cost</li>
+<li>[VSCode] Voice dictation now respects the <code>language</code> setting in <code>~/.claude/settings.json</code></li>
+<li>Fixed <code>find</code> in the Bash tool exhausting open file descriptors on large directory trees, causing host-wide crashes (macOS/Linux native builds)</li>
+</ul></div></div>
+      
+    </article>
+    
+  </body>
+</html>
