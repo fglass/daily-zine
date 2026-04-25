@@ -60,7 +60,7 @@ def main(
     if output_is_html and fullsize:
         raise click.BadParameter("--fullsize cannot be used when writing HTML output.")
 
-    inbox_articles = fetch_inbox(token, limit=1)
+    inbox_articles = fetch_inbox(token)
     feed_articles = fetch_feed(token)
     articles = inbox_articles + feed_articles
 
