@@ -31,6 +31,7 @@ def render_html(
     issue_date: date,
     articles: list[LayoutArticle],
     toc: list[TocEntry],
+    cover: bool = True,
 ) -> str:
     env = Environment(
         loader=FileSystemLoader(TEMPLATE_DIR),
@@ -46,6 +47,7 @@ def render_html(
         issue_month_year=issue_month_year,
         articles=articles,
         toc=toc,
+        cover=cover,
     )
 
 
@@ -56,11 +58,18 @@ def render_issue_html(
     issue_date: date,
     articles: list[LayoutArticle],
     toc: list[TocEntry],
+    cover: bool = True,
 ) -> Path:
     destination = Path(output_path)
     destination.parent.mkdir(parents=True, exist_ok=True)
     destination.write_text(
-        render_html(title=title, issue_date=issue_date, articles=articles, toc=toc),
+        render_html(
+            title=title,
+            issue_date=issue_date,
+            articles=articles,
+            toc=toc,
+            cover=cover,
+        ),
         encoding="utf-8",
     )
     return destination

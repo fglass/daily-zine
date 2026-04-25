@@ -44,6 +44,12 @@ Render a plain sequential full-size PDF instead of the imposed zine:
 uv run ziner --fullsize
 ```
 
+Render an HTML version:
+
+```bash
+uv run ziner -o zine-$(date +%Y-%m-%d).html
+```
+
 Flags:
 
 - `-s, --max-sheets` sets the sheet budget. Each sheet represents 2 printed page sides. Default: `5`

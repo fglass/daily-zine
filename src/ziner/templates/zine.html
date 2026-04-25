@@ -108,6 +108,29 @@
         font-size: 8pt;
       }
 
+      .masthead-compact {
+        margin: 0 0 6mm;
+      }
+
+      .masthead-compact h1 {
+        margin: 0;
+        font-size: 22pt;
+        line-height: 1.1;
+        text-transform: uppercase;
+      }
+
+      .masthead-compact .issue-date {
+        margin: 2mm 0 0;
+        font-size: 11pt;
+      }
+
+      .toc-compact {
+        border-top: 1px solid #111;
+        border-bottom: 1px solid #111;
+        padding: 4mm 0;
+        margin: 0 0 8mm;
+      }
+
       article + article {
         margin-top: 10mm;
         padding-top: 6mm;
@@ -217,6 +240,7 @@
     </style>
   </head>
   <body>
+    {% if cover %}
     <section class="cover">
       <div>
         <h1 class="masthead">{{ title | replace(" ", "<br />") | safe }}</h1>
@@ -241,6 +265,30 @@
         </ol>
       </div>
     </section>
+    {% else %}
+    <header class="masthead-compact">
+      <h1>{{ title }}</h1>
+      <p class="issue-date">
+        {{ issue_day }}<sup>{{ issue_suffix }}</sup> {{ issue_month_year }}
+      </p>
+    </header>
+
+    <nav class="toc toc-compact">
+      <h2>Contents</h2>
+      <ol class="toc-list">
+        {% for item in toc %}
+        <li class="toc-item">
+          <div class="toc-item-title">{{ item.title }}</div>
+          <div class="toc-item-meta">
+            {{ item.author or item.site_name or "Unknown source" }} · {{
+            item.word_count }} words{% if item.is_truncated %} · excerpt{% endif
+            %}
+          </div>
+        </li>
+        {% endfor %}
+      </ol>
+    </nav>
+    {% endif %}
 
     {% for item in articles %}
     <article>

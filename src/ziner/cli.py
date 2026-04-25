@@ -112,6 +112,7 @@ def main(
             articles=selected,
             toc=toc,
             title=title,
+            cover=False,
         )
     else:
         render_pdf(
