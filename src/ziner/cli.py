@@ -5,6 +5,7 @@ from __future__ import annotations
 from datetime import date
 import os
 from pathlib import Path
+import random
 
 import click
 from dotenv import load_dotenv
@@ -61,6 +62,8 @@ def main(
         raise click.BadParameter("--fullsize cannot be used when writing HTML output.")
 
     inbox_articles = fetch_inbox(token)
+    random.shuffle(inbox_articles)
+
     feed_articles = fetch_feed(token)
     articles = inbox_articles + feed_articles
 
