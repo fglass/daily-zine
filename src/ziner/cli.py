@@ -62,7 +62,7 @@ def main(
         raise click.BadParameter("--fullsize cannot be used when writing HTML output.")
 
     inbox_articles = fetch_inbox(token)
-    random.shuffle(inbox_articles)
+    random.Random(issue_date.toordinal()).shuffle(inbox_articles)
 
     feed_articles = fetch_feed(token)
     articles = inbox_articles + feed_articles
