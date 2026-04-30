@@ -1,0 +1,477 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Fred Talks - 2026-04-30</title>
+    <style>
+      @page {
+        size: A5;
+        margin: 8mm 9mm 9mm;
+      }
+
+      :root {
+        color: #111;
+        font-family: "Times New Roman", Times, serif;
+        --body-text-size: 9.5pt;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        color: #111;
+        background: #fff;
+        font-family: "Times New Roman", Times, serif;
+        line-height: 1.45;
+      }
+
+      a,
+      a:visited {
+        color: #111;
+        text-decoration: underline;
+      }
+
+      .cover {
+        min-height: calc(210mm - 17mm);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        page-break-after: always;
+        border: 1px solid #111;
+        padding: 8mm;
+        background: #fff;
+      }
+
+      .toc-item-meta,
+      .article-meta {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .masthead {
+        margin: 0;
+        font-size: 40pt;
+        line-height: 0.95;
+        text-transform: uppercase;
+      }
+
+      .issue-date {
+        margin: 4mm 0 0;
+        font-size: 14pt;
+      }
+
+      .issue-date sup {
+        font-size: 0.58em;
+        vertical-align: super;
+        line-height: 0;
+      }
+
+      .cover-deck {
+        max-width: 90mm;
+        font-size: 12pt;
+        margin: 0;
+      }
+
+      .toc {
+        border-top: 3px solid #111;
+        padding-top: 6mm;
+      }
+
+      .toc h2 {
+        margin: 0 0 4mm;
+        font-size: 11pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .toc-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .toc-item {
+        padding: 3mm 0;
+        border-bottom: 1px solid rgba(17, 17, 17, 0.2);
+      }
+
+      .toc-item-title {
+        font-size: 12pt;
+        margin: 0 0 1mm;
+      }
+
+      .toc-item-meta {
+        font-size: 8pt;
+      }
+
+      .masthead-compact {
+        margin: 0 0 6mm;
+      }
+
+      .masthead-compact h1 {
+        margin: 0;
+        font-size: 22pt;
+        line-height: 1.1;
+        text-transform: uppercase;
+      }
+
+      .masthead-compact .issue-date {
+        margin: 2mm 0 0;
+        font-size: 11pt;
+      }
+
+      .toc-compact {
+        border-top: 1px solid #111;
+        border-bottom: 1px solid #111;
+        padding: 4mm 0;
+        margin: 0 0 8mm;
+      }
+
+      article + article {
+        margin-top: 10mm;
+        padding-top: 6mm;
+        border-top: 2px solid #111;
+      }
+
+      h1 {
+        margin: 0 0 2mm;
+        font-size: 18pt;
+        line-height: 1.1;
+      }
+
+      .article-meta {
+        font-size: 8.5pt;
+        margin-bottom: 6mm;
+        padding-bottom: 3mm;
+        border-bottom: 1px solid #111;
+      }
+
+      .article-body {
+        font-size: var(--body-text-size);
+        font-family: "Times New Roman", Times, serif;
+      }
+
+      .article-body p,
+      .article-body li,
+      .article-body blockquote,
+      .article-body dd,
+      .article-body dt {
+        margin: 0 0 4mm;
+        orphans: 3;
+        widows: 3;
+      }
+
+      .article-body ul,
+      .article-body ol,
+      .article-body dl {
+        margin: 0 0 4mm 5mm;
+        padding: 0;
+      }
+
+      .article-body h2,
+      .article-body h3,
+      .article-body h4 {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        margin: 7mm 0 3mm;
+        line-height: 1.2;
+      }
+
+      .article-body blockquote {
+        margin-left: 6mm;
+        padding-left: 4mm;
+        border-left: 2px solid #111;
+      }
+
+      .article-body .media-omitted {
+        margin: 0 0 4mm;
+        font-size: 8.5pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(17, 17, 17, 0.65);
+      }
+
+      .article-body figure,
+      .article-body .article-figure,
+      .article-body picture,
+      .article-body .article-picture {
+        display: block;
+        max-width: 72mm;
+        margin: 0 auto 4mm;
+        break-inside: avoid;
+      }
+
+      .article-body img,
+      .article-body .article-image {
+        display: block;
+        max-width: min(100%, 72mm);
+        max-height: 34mm;
+        height: auto;
+        width: auto;
+        object-fit: contain;
+        margin: 0 auto 3mm;
+      }
+
+      .article-body figcaption {
+        margin-top: 1.5mm;
+        font-size: 8.5pt;
+        line-height: 1.3;
+        color: rgba(17, 17, 17, 0.8);
+      }
+
+      .article-note {
+        margin-top: 6mm;
+        padding-top: 3mm;
+        border-top: 1px solid #111;
+        font-size: 9pt;
+        font-style: italic;
+      }
+
+      @media screen {
+        body {
+          padding: 2rem;
+          margin: 0 auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    
+    <header class="masthead-compact">
+      <h1>Fred Talks</h1>
+      <p class="issue-date">
+        30<sup>th</sup> April 2026
+      </p>
+    </header>
+
+    <nav class="toc toc-compact">
+      <h2>Contents</h2>
+      <ol class="toc-list">
+        
+        <li class="toc-item">
+          <div class="toc-item-title">A statistical approach to model evaluations</div>
+          <div class="toc-item-meta">
+            anthropic.com · 1598 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Mike Acton’s Expectations of Professional Software Engineers</div>
+          <div class="toc-item-meta">
+            Adam Johnson · 2223 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">The future of enterprise software</div>
+          <div class="toc-item-meta">
+            Aaron Levie · 1851 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">[Daily article] April 30: 330 West 42nd Street</div>
+          <div class="toc-item-meta">
+            English Wikipedia Article of the Day · 417 words
+          </div>
+        </li>
+        
+      </ol>
+    </nav>
+    
+
+    
+    <article>
+      <h1>A statistical approach to model evaluations</h1>
+      <div class="article-meta">
+        anthropic.com
+        · 14 Sep 2025 · <a href="https://www.anthropic.com/research/statistical-approach-to-model-evals">Source</a>
+      </div>
+      <div class="article-body"><p>Suppose an AI model outperforms another model on a benchmark of interest—testing its general knowledge, for example, or its ability to solve computer-coding questions. Is the difference in capabilities real, or could one model simply have gotten lucky in the choice of questions on the benchmark?</p>
+<p>With the amount of public interest in AI model evaluations—informally called “evals”—this question remains surprisingly understudied among the AI research community. This month, we published a <a href="https://arxiv.org/abs/2411.00640">new research paper</a> that attempts to answer the question rigorously. Drawing on statistical theory and the experiment design literature, the paper makes a number of recommendations to the AI research community for reporting eval results in a scientifically informative way. In this post, we briefly go over the reporting recommendations, and the logic behind them.</p>
+<h3>Recommendation #1: Use the Central Limit Theorem</h3>
+<p>Evals often consist of hundreds or thousands of unrelated questions. <a href="https://arxiv.org/abs/2009.03300v3">MMLU</a>, for instance, contains questions as diverse as:</p>
+<ul><li>Who discovered the first virus?</li><li>What is the inverse of 𝑓(𝑥)=4−5𝑥?</li><li>Who said that “Jurisprudence is the eye of law”?</li></ul>
+<p>To compute an overall eval score, each question is separately scored, and then the overall score is (usually) a simple average of these question scores. Typically, researchers focus their attention on this observed average. But in our paper, we argue that the real object of interest should not be the <em>observed</em> average, but rather the <em>theoretical</em> average across all possible questions. So if we imagine that eval questions were drawn from an unseen “question universe,” we can learn about the average score in that universe—that is, we can measure the underlying <em>skill</em>, independent of the “luck of the draw”—using statistical theory.</p>
+<figure class="article-figure"><img data-nimg="1" src="https://www.anthropic.com/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fb34871a36ad66fa0330e3ad6488ee87eb96bddda-2401x1260.png&amp;w=3840&amp;q=75" srcset="/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fb34871a36ad66fa0330e3ad6488ee87eb96bddda-2401x1260.png&amp;w=3840&amp;q=75 1x" class="article-image"/><figcaption>If we imagine that eval questions were drawn from a “question universe,” then eval scores will tend to follow a normal distribution, centered around the average score of all possible questions.</figcaption></figure>
+<p>This formulation buys us analytic robustness: if a new eval were to be created with questions having the same difficulty distribution as the original eval, we should generally expect our original conclusions to hold.</p>
+<p>In technical terms: under the fairly mild conditions of the <a href="https://en.wikipedia.org/wiki/Central_limit_theorem">Central Limit Theorem</a>, the mean values of several random samples taken from the same underlying distribution will tend to follow a <a href="https://en.wikipedia.org/wiki/Normal_distribution">normal distribution</a>. The standard deviation (or width) of that normal distribution is commonly known as the <a href="https://en.wikipedia.org/wiki/Standard_error">standard error of the mean</a>, or SEM. In our paper, we encourage researchers to report the SEM, derived from the Central Limit Theorem, alongside each calculated eval score—and we show researchers how to use the SEM to quantify the difference in theoretical means between two models. A 95% <a href="https://en.wikipedia.org/wiki/Confidence_interval">confidence interval</a> can be calculated from the SEM by adding and subtracting 1.96 × SEM from the mean score.</p>
+<h3>Recommendation #2: Cluster standard errors</h3>
+<p>Many evals violate the above assumption of independently selected questions, and instead consist of groups of closely related questions. For example, several questions in a reading-comprehension eval may ask about the same passage of text. Popular evals that follow this pattern include <a href="https://aclanthology.org/N19-1246/">DROP</a>, <a href="https://arxiv.org/abs/1808.07036">QuAC</a>, <a href="https://aclanthology.org/D17-1082/">RACE</a>, and <a href="https://arxiv.org/abs/1806.03822">SQuAD</a>.</p>
+<p>For these evals, each question’s selection from the “question universe” is no longer independent. Because including several questions about the same passage of text will yield less information than selecting the same number of questions about different passages of text, a naive application of the Central Limit Theorem to the case of non-independent questions will lead us to underestimate the standard error—and potentially mislead analysts into drawing incorrect conclusions from the data.</p>
+<p>Fortunately, the problem of <a href="https://en.wikipedia.org/wiki/Clustered_standard_errors">clustered standard errors</a> has been extensively studied in the social sciences. When the inclusion of questions is non-independent, we recommend clustering standard errors on the unit of <a href="https://en.wikipedia.org/wiki/Randomization">randomization</a> (for example, passage of text), and we provide applicable formulas in our paper.</p>
+<figure class="article-figure"><img data-nimg="1" src="https://www.anthropic.com/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Ff6f90f93dc66380904709a3ef4d63b92332871fd-2401x1260.png&amp;w=3840&amp;q=75" srcset="/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Ff6f90f93dc66380904709a3ef4d63b92332871fd-2401x1260.png&amp;w=3840&amp;q=75 1x" class="article-image"/><figcaption>If questions arrive in related clusters—a common pattern in reading-comprehension evals—eval scores will be more spread-out compared to the non-clustered case.</figcaption></figure>
+<p>In practice, we have found that clustered standard errors on popular evals can be over three times as large as naive standard errors. Ignoring question clustering may lead researchers to inadvertently detect a difference in model capabilities when in fact none exists.</p>
+<h3>Recommendation #3: Reduce variance within questions</h3>
+<p>Variance is a measurement of how spread-out a random variable is. The variance of an eval score is the square of the standard error of the mean, discussed above; this quantity depends on the amount of variance in the score on each individual eval question.</p>
+<p>A key insight of our paper is to decompose a model’s score on a particular question into two terms that are added together:</p>
+<ul><li>The mean score (the average score that the model would achieve if asked the same question an infinite number of times—even if the model might produce a different answer each time); and</li><li>A random component (the difference between a realized question score and the mean score for that question).</li></ul>
+<p>Thanks to the <a href="https://en.wikipedia.org/wiki/Law_of_total_variance">law of total variance</a>, reducing the variance in the random component directly leads to a smaller standard error of the overall mean, and thus greater statistical precision. Our paper highlights two strategies for reducing variance in the random component depending on whether or not the model is asked to think step by step before answering (a prompting technique known as CoT, or chain-of-thought reasoning).</p>
+<p>If an eval uses chain-of-thought reasoning, we recommend resampling answers from the same model several times, and using the question-level averages as the question scores fed into the Central Limit Theorem. We note that the <a href="https://github.com/UKGovernmentBEIS/inspect_ai/">Inspect framework</a> correctly computes standard errors in this way via its <a href="https://inspect.ai-safety-institute.org.uk/scorers.html#sec-reducing-epochs"><em>epochs</em> parameter</a>.</p>
+<figure class="article-figure"><img data-nimg="1" src="https://www.anthropic.com/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fefef59a06ddeb530fa15f31dc0937f28f70f655b-2401x1260.png&amp;w=3840&amp;q=75" srcset="/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fefef59a06ddeb530fa15f31dc0937f28f70f655b-2401x1260.png&amp;w=3840&amp;q=75 1x" class="article-image"/><figcaption>If a model produces answers non-deterministically, then generating (and grading) several answers per question will result in less spread-out eval scores.</figcaption></figure>
+<p>If the eval does not use chain-of-thought reasoning (i.e., its answers are not “path dependent”), we note that the random component in the score may often be eliminated altogether using next-token probabilities from the language model. For example, if the correct answer to a multiple-choice question is “B”, we would simply use the probability of the model producing the token “B” as the question score. We are not aware of an open-source evals framework which implements this technique.</p>
+<h3>Recommendation #4: Analyze paired differences</h3>
+<p>Eval scores don’t have any meaning on their own; they only make sense in relation to one another (one model outperforms another model, or ties another model, or outperforms a person). But could a measured difference between two models be due to the specific choice of questions in the eval, and randomness in the models’ answers? We can find out with a <a href="https://en.wikipedia.org/wiki/Student%27s_t-test">two-sample <em>t</em>-test</a>, using only the standard errors of the mean calculated from both eval scores.</p>
+<p>However, a two-sample test ignores the hidden structure inside eval data. Since the question list is shared across models, conducting a <a href="https://en.wikipedia.org/wiki/Paired_difference_test">paired-differences test</a> lets us eliminate the variance in question difficulty and focus on the variance in responses. In our paper, we show how the result of a paired-differences test will be related to the <a href="https://en.wikipedia.org/wiki/Pearson_correlation_coefficient">Pearson correlation coefficient</a> between two models’ question scores. When the correlation coefficient is higher, the standard error of the mean difference will be smaller.</p>
+<p>In practice, we find the correlation of question scores on popular evals between frontier models to be substantial—between 0.3 and 0.7 on a scale of −1 to +1. Put another way, frontier models have an overall tendency to get the same questions right and wrong. Paired-difference analysis thus represents a “free” variance reduction technique that is very well suited for AI model evals. Therefore, in the interest of extracting the clearest signal from the data, our paper recommends reporting pairwise information—mean differences, standard errors, confidence intervals, and correlations—whenever two or more models are being compared.</p>
+<h3>Recommendation #5: Use power analysis</h3>
+<p>The flip side of the statistical significance coin is statistical power, which is the ability of a statistical test to detect a difference between two models, assuming such a difference exists. If an eval doesn’t have very many questions, confidence intervals associated with any statistical tests will tend to be wide. This means that models will need to have a large underlying difference in capabilities in order to register a statistically significant result—and that small differences will likely go undetected. Power analysis refers to the mathematical relationship between observation count, <a href="https://en.wikipedia.org/wiki/Power_(statistics)">statistical power</a>, the <a href="https://en.wikipedia.org/wiki/False_positive_rate">false positive rate</a>, and the <a href="https://en.wikipedia.org/wiki/Effect_size">effect size</a> of interest.</p>
+<p>In our paper, we show how to apply concepts from power analysis to evals. Specifically, we show researchers how to formulate a hypothesis (such as <em>Model A outperforms Model B by 3 percentage points</em>) and calculate the number of questions that an eval should have in order to test this hypothesis against the null hypothesis (such as <em>Model A and Model B are tied</em>).</p>
+<p>We believe that power analysis will prove helpful to researchers in a number of situations. Our power formula will inform evaluators of models about the number of times to re-sample answers from questions (see Recommendation #3 above), as well as the number of questions that may be included in a random subsample while retaining the desired power properties. Researchers might use the power formula to conclude that an eval with a limited number of available questions is not worth running on a particular pair of models. Developers of new evals may wish to use the formula to help decide how many questions to include.</p>
+<h3>Conclusion</h3>
+<p>Statistics is the science of measurement in the presence of noise. Evals present a number of practical <a href="https://www.anthropic.com/news/evaluating-ai-systems">challenges</a>, and a true <a href="https://www.apolloresearch.ai/blog/we-need-a-science-of-evals">science of evals</a> remains underdeveloped. Statistics can only form one aspect of a science of evals—but a critical one, as an empirical science is only as good as its measuring tools. We hope that the recommendations in our paper <a href="https://arxiv.org/abs/2411.00640"><strong>Adding Error Bars to Evals: A Statistical Approach to Language Model Evaluations</strong></a> will help AI researchers calculate, interpret, and communicate eval numbers with greater precision and clarity than before—and we encourage researchers in the AI community to explore other techniques from experiment design so that they may understand more exactly all the things that they want to measure.</p></div>
+      
+    </article>
+    
+    <article>
+      <h1>Mike Acton’s Expectations of Professional Software Engineers</h1>
+      <div class="article-meta">
+        Adam Johnson
+        · 26 Apr 2026 · <a href="https://adamj.eu/tech/2022/06/17/mike-actons-expectations-of-professional-software-engineers/">Source</a>
+      </div>
+      <div class="article-body"><figure class="article-figure"><img alt="grumpy cats ranting" src="https://adamj.eu/tech/assets/2022-06-17-grumpy-cats.jpeg" class="article-image"/><figcaption>grumpy cats ranting</figcaption></figure>
+<p>In a 2019 talk/rant titled <a href="https://www.youtube.com/watch?v=cV5HArLYajE">“Everyone Watching This Is Fired”</a>, games industry veteran Mike Acton rattled off a sample of 50 things he expects of developers he works with. The title refers to his tongue-in-cheek suggestion that anyone who doesn’t meet all these requirements would be immediately fired.</p>
+<p>Although his sense of humour isn’t for everyone, the suggestions are valuable. The list forms a baseline for software engineers to compare themselves against, and it’s not very specific to the games industry.</p>
+<p>I couldn’t find a textual version, so I’ve written up the list below, with my own expansions of each point and some further quotes from Mike. I hope this list inspires you to improve as an engineer, as it has me.</p>
+<ol><li><p><strong>I can articulate precisely what problem I am trying to solve.</strong></p> <p>It’s all too easy to get stuck in the weeds and lose track of why you’re doing what you’re doing. Keep top of mind what the actual end goal is do, and you might spot an alternative path.</p></li><li><p><strong>I have articulated precisely what problem I am trying to solve.</strong></p> <p>Communicate the problem “out loud” to other team members, your product manager, etc.</p></li><li><p><strong>I have confirmed that someone else can articulate what problem I am trying to solve.</strong></p> <p>Communication! Ensure your team is all on the same page. Make sure your understanding of the problem is complete.</p></li><li><p><strong>I can articulate why my problem is important to solve.</strong></p> <p>If you solve the problem you’re working on, who benefits, and how much?</p></li><li><p><strong>I can articulate how much my problem is worth solving.</strong></p> <p>If you say it’s worth “as long as it takes”… Mike does not have friendly words for you. For <em>any</em> problem there’s a maximum amount of time and effort worth investing in solving it. At least have some idea of the upper bound.</p></li><li><p><strong>I have a Plan B in case my solution to my current problem doesn’t work.</strong></p> <p>Imagine you’re days or hours before the deadline, and you can tell that completing Plan A will be impossible. What do you do instead? Maybe you have a simplified algorithm, or you can disable a certain subsystem. Have more than one plan.</p></li><li><p><strong>I have already implemented my Plan B in case my solution to my current problem doesn’t work.</strong></p> <p>Mitigate risk by writing the backup version first. This means you always have a safety net and you can learn more about the problem space in order to iterate on Plan A.</p></li><li><p><strong>I can articulate the steps required to solve my current problem.</strong></p> <p>Programming only works when you break down problems into manageable chunks. Have a sketch of the steps to the end state before you begin.</p></li><li><p><strong>I can clearly articulate unknowns and risks associated with my current problem.</strong></p> <p>There are always going to be things you don’t know. You should know where they are in your plan, so you can manage them.</p></li><li><p><strong>I have not thought or said “I can just make up the time” without immediately talking to someone.</strong></p> <p>Say it’s Wednesday, you have a project due on Friday, and you get some new task dropped on your lap. You think “I’ll do the new thing now, and make up the time for the original task by Friday”… mistake! Communicate about the conflict on Wednesday. Your product manager will help manage the timing and risk.</p></li><li><p><strong>I write a “framework” and have used it multiple times to actually solve a problem it was intended to solve.</strong></p> <p>If you’re writing a tool of some kind, you should verify it works in practice. Too often people create something in isolation and it doesn’t end up delivering in the real world.</p> <p>(This is <a href="https://docs.djangoproject.com/en/stable/faq/general/#why-does-this-project-exist">how Django came to be</a>: from a real team making real websites, on deadlines!)</p></li><li><p><strong>I can articulate what the test for completion of my current problem is.</strong></p> <p>If you don’t know when to stop, you might find yourself going down rabbit holes, chasing unimportant marginal gains.</p></li><li><p><strong>I can articulate the hypothesis related to my problem and how I could falsify it.</strong></p> <p>If a hypothesis cannot be proven wrong, there’s no knowledge to be gained. As Karl Popper showed, science only works through <a href="https://en.wikipedia.org/wiki/Falsifiability">falsification</a>.</p></li><li><p><strong>I can articulate the (various) latency requirements for my current problem.</strong></p> <p>Any time you write code, you should consider when the output data is required. Not every caller needs output data instantly, and nor do you have an unbounded amount of time to perform everything. At least get an idea of the sensible bounds.</p></li><li><p><strong>I can articulate the (various) throughput requirements for my current problem.</strong></p> <p>How much data needs to come through the system? How many bytes, requests, or frames per second?</p></li><li><p><strong>I can articulate the most common concrete use case of the system I am developing.</strong></p> <p>You should know what actual users of your system will actually be doing most of the time. Having a vague idea doesn’t help, since knowing which pattersn are common informs which way to write a given piece of code.</p></li><li><p><strong>I know the most common actual, real-life values of the data I am transforming.</strong></p> <p>Beyond use cases, you should know the data inside the system. For example, if your function works with integers, you’d probably write it quite differently if 99% of the values are 0.</p></li><li><p><strong>I know the acceptable ranges of values of all the data I am transforming.</strong></p> <p>Computer systems always have limits. Know the ranges for the data types you’re working with (and enforce them).</p></li><li><p><strong>I can articulate what will happen when (somehow) data outside that range enters the system.</strong></p> <p>Murphy’s Law says “anything that can go wrong will go wrong”. Know how your system will behave in such cases, and handle such problems if necessary.</p></li><li><p><strong>I can articulate a list of input data into my system roughly sorted by likelihood.</strong></p> <p>Have an idea of the space of possible data, what’s most likely, second most likely, etc. Code appropriately, for example checking for common error conditions first.</p></li><li><p><strong>I know the frequency of change of the actual, real-life values of the data I am transforming.</strong></p> <p>Reason about the frequency of change and figure out how often you’ll want to calculate derived values.</p></li><li><p><strong>I have (at least partially) read the (available) documentation for the hardware, platform, and tools I use most commonly.</strong></p> <p>Read the friendly manual! Go a step beyond day-to-day reference, and try reading the full documentation to gain a deep understanding.</p> <p>(Jens Oliver Meiert calls reading the HTML specification <a href="https://meiert.com/en/blog/web-developer-pilgrimage/">the Web Developer’s Pilgrimage</a>.)</p></li><li><p><strong>I have sat and watched an actual user of my system.</strong></p> <p>Watching users can massively break shift your view of how your software works. Do it!</p></li><li><p><strong>I know the slowest part of the users of my system’s workflow with high confidence.</strong></p> <p>Any workflow has a bottleneck. Make sure you know what it is so you can focus efforts there, if need be.</p></li><li><p><strong>I know what information users of my system will need to make effective use of the solution.</strong></p> <p>Think about what documentation or data users need to understand and use your solution.</p></li><li><p><strong>I can articulate the finite set of hardware I am designing my solution to work for.</strong></p> <p>Software requires hardware. Know what hardware your program targets, such as:</p> <ul><li>CPU architectures</li><li>Minimum requirements for memory, CPU speed, and network bandwidth</li><li>Input devices</li><li>Output devices</li><li>The environment the hardware runs in (e.g. data centre or living room)</li></ul></li><li><p><strong>I can articulate how that set of hardware specifically affects the design of my system.</strong></p> <p>If you’re targetting low end devices, how do you ensure you don’t exhaust memory? If some users don’t have pointing devices, how do you accommodate them?</p></li><li><p><strong>I have recently profiled the performance of my system.</strong></p> <p>If you’re developing a local app, run profiling tools regularly to gain an idea of performance over time. With server based programs, you can install an APM (Application Performance Monitoring) tool in production and have continuous profiling data.</p></li><li><p><strong>I have recently profiled memory usage of my system.</strong></p> <p>Make sure you aren’t wasting memory.</p></li><li><p><strong>I have used multiple different profiling methods to measure the performance of my system.</strong></p> <p>There’s no perfect profiling tool, so know how to use more than one.</p> <p>For example, some great Python profilers are <a href="https://docs.python.org/3/library/profile.html">cProfile</a>, <a href="https://github.com/benfred/py-spy">py-spy</a>, <a href="https://github.com/P403n1x87/austin">Austin</a>, <a href="https://github.com/plasma-umass/scalene">Scalene</a>, <a href="https://pythonspeed.com/fil/">Fil</a>, and <a href="https://bloomberg.github.io/memray/">memray</a>. They all have different characteristics and complement each other.</p></li><li><p><strong>I know how to significantly improve the performance of my system without changing the input/output interface of the system.</strong></p> <p>Do you know the next step to optimize your system? You don’t have to do it right now, as it may not be worth it, but you should have an idea what you’d do next to make your code faster. For example, use a faster but less convenient data structure, or convert a hot function into a faster language (such as Python to C with Cython).</p> <p>This should also guide you to designing interfaces that are optimizable in the first place. For example, don’t commit to returning expensive-to-compute results immediately, but instead return a promise.</p></li><li><p><strong>I know specifically how I can and will debug live release builds of my work when they fail.</strong></p> <p>Bugs are inevitable. You should know the tools that will let you work through those problems in production, such as logs, debuggers, or a live shell.</p></li><li><p><strong>I know what data I am reading as part of my solution and where it comes from.</strong></p> <p>Know where the data comes from, in what format, and how you can read it.</p></li><li><p><strong>I know how often I am reading data I do not need as part of my solution.</strong></p> <p>Data access is rarely optimal. You’ll often be moving data that’s not required for your solution, such as unnecessary fields or wrapper objects. If you don’t know about this waste, you can’t reason about whether it’s worth the overhead or not.</p></li><li><p><strong>I know what data I am writing as part of my solution and where it is used.</strong></p> <p>All output data is intended for use by a human or another program. Be organized enough to know what the downstream consumers of your output are.</p></li><li><p><strong>I know how often I am writing data I do not need to as part of my solution.</strong></p> <p>Data output is also rarely optimal. Are you frequently writing out data that hasn’t changed? Are you writing many fields when only one is used downstream? Again, know about it so you can reason about it.</p></li><li><p><strong>I can articulate how all the data I use is laid out in memory.</strong></p> <p>Many programming languages and frameworks can handle memory for you, but that doesn’t abdicate you of responsibility. Know how your tools lay out memory, so you can tell when another approach makes sense.</p> <p>For example, in Python most objects are based on dictionaries, so you should have a solid understanding of how they work, and alternatives like <a href="https://docs.python.org/3/reference/datamodel.html#slots">slotted classes</a> or <a href="https://docs.python.org/3.10/library/array.html">arrays</a>.</p></li><li><p><strong>I never use the phrase “platform independent” when referring to my work.</strong></p> <p>Any system depends on many things below it. Know what they are.</p></li><li><p><strong>I never use the phrase “future proof” when referring to my work.</strong></p> <p>Future-proofing is “100% a fool’s errand”. “You can’t pre-solve problems you have no information of.”</p></li><li><p><strong>I can schedule my own time well.</strong></p> <p>“You’re an adult person, just use a calendar.”</p></li><li><p><strong>I am vigilant about not wasting others’ time.</strong></p> <p>Don’t waste time asking questions that you can google in five seconds. But also don’t waste loads of time struggling for days alone when you could get help from a team member in minutes! Find the balance.</p></li><li><p><strong>I actively seek constructive feedback and take it seriously.</strong></p> <p>Ask for feedback and do something about it.</p></li><li><p><strong>I am not actively avoiding any uncomfortable (professional) conversations.</strong></p> <p>If there’s something wrong at work, don’t put off talking about it.</p></li><li><p><strong>I am not actively avoiding any (professional) conflicts.</strong></p> <p>If you’ve noticed something is going wrong, whether technically or communication wise, get those conflicts out in the open. Letting them stew never helps.</p></li><li><p><strong>I consistently interact with other professionals, professionally.</strong></p> <p>Be courteous and professional! Mike jokes about setting an incredibly low bar: no yelling, no hitting, …</p></li><li><p><strong>I can articulate what I believe others should expect from me.</strong></p> <p>Have a standard for yourself and be ready to tell your co-workers what it is.</p></li><li><p><strong>I do not require multiple reminders to respond to a request or complete work.</strong></p> <p>“Waiting for someone else to poke you is not an effective way to get your job done.”</p></li><li><p><strong>I pursue opportunities to return value to the commons (when appropriate).</strong></p> <p>All our work builds on top of the work of countless others. At some point, you’ll have opportunities to give back to the community at large. For example, talking at meetups, making open source contributions, or even just discussing topics with your team to boost everyone’s skills.</p></li><li><p><strong>I actively work to bring value to the people I work with.</strong></p> <p>You’re part of a team, so work to help them.</p></li><li><p><strong>I actively work to ensure under-represented voices are heard.</strong></p> <p>Don’t stand by leaving this to be someone else’s problem. Do something to make sure that minorities are heard. This might mean ensuring that the minority person at work gets a chance to speak, that your hiring process is unbiased, or that your website is accessible for users who rely on screen readers.</p></li></ol>
+<h2>Fin</h2>
+<p>Let’s learn and grow together,</p>
+<p>—Adam</p>
+<p>One summary email a week, no spam, I pinky promise.</p>
+<p><strong>Related posts:</strong></p>
+<p>© 2022 All rights reserved.</p></div>
+      
+    </article>
+    
+    <article>
+      <h1>The future of enterprise software</h1>
+      <div class="article-meta">
+        Aaron Levie
+        · 28 Jan 2026 · <a href="https://x.com/levie/status/2013018817610518642/?rw_tt_thread=True">Source</a>
+      </div>
+      <div class="article-body"><div><p data-rw-toc-level="1" data-rw-toc-title="The future of enterprise software"><p>One of the biggest topics right now in the tech world is what does the future of software look like when AI agents are doing a substantial amount of work in the enterprise. Does software get compressed and simply become a database that agents leverage? Do we use AI agents to code all our own personalized enterprise software in the future? Do startups or incumbents win this new battle? How big are software markets in a world of agents using these tools? And much much more.  </p><p>It’s impossible to try and tackle all of these questions sufficiently in one sitting, but I figured I’d lay out a bit of a roadmap for what enterprise software looks like in the future.  </p><p><strong>Why companies buy software</strong> </p><p>Firstly, we should all get on the same page about why companies use and buy enterprise software in the first place. You can think of enterprise software as a codification of a company’s processes. These are the parts of your company that you <em>don’t</em> want to change spontaneously, because they provide the structure for your workflows and operations to keep your business running, or allow you to do the other work that really matters.  </p><p>A large car company decides to procure an ERP system because it’s the backbone for complex global operations where failures could mean far more than the cost of the system. It’s responsible for keeping track of tens or hundreds of billions in revenue, and the company wants to ensure that every single transaction that they make goes through the exact same way every single time, with five 9s of uptime and reliability, and with an output that they can get accepted and approved by the auditors. Jobs are on the line, all the way up to the CEO, based on how well this system performs.  </p><p>And the reason that companies choose to use software vendors that specialize in certain domains instead of just building this technology themselves can best be understood by the concept of “core” vs. “context,” popularized by Geoffrey Moore. The core stuff is what makes your company unique (like your core product, your talent, your culture, and so on), and the context is absolutely necessary, but largely non-differentiating between firms (think all of your systems of record like payroll, IT ticket responses, ERP systems, content management platforms, and so on).  </p><p>For software that handles your company’s context activities, your customer will rarely notice when these things work great, but they’ll certainly notice the downstream impacts when they don’t. This is why you “rent” these services from software providers that do this as their day job for thousands or millions of other companies. And incidentally, much of this software helps define these underlying workflows in your organization so you don’t have to -- so each company doesn’t have to reinvent the wheel each on how to handle HR, IT ticketing, and so on.  </p><p><strong>Deterministic vs. non-deterministic systems</strong> </p><p>Ok, but if an enterprise is filled with 100X more AI Agents in the future, won’t that eventually consume all the use-cases that software did previously?  </p><p>If you take the analogy of the industrial world, software is like the machinery in a manufacturing plant; and agents are like the people that operate that machinery. Just like machinery in a plant, in deterministic software, you want things to happen the same way, every time: you want data that goes into your ERP system to be calculated based on the business rules you’ve setup; you want security permissions you’ve set for accessing critical files to behave the same way every time, and not leak information between users; and you don’t want an HR system probabilistically generating new reporting structures for employees on every load.  </p><p>Conversely, you want <em>non-deterministic</em> systems (in this case AI agents) for the things that people have always tended to do in these systems. An agent filling out notes from a user’s client meeting in a CRM system, generating a sales presentation for a new customer, answering a customer support inquiry with the best products to leverage, doing research or providing analysis on a set of enterprise documents and data for an important decision, and so on. As a result, the non-deterministic and deterministic elements of software end up working in a complementary fashion.  </p><p>In contrast to some of the public discussion, I’d argue that in a world of 100X more AI agents than people in an enterprise, the value of the systems of record and tools agents will use will go up, not down. Because in this new world, software provides the guardrails on which agents can operate successfully within an enterprise, and gives them the underlying tools to use to be more productive themselves and work alongside people.  </p><p>For instance, if you ask an AI agent to generate 10X the number of outbound email and marketing messages, where will all those agents find the data to work with, and where will the leads end up going to have a human sales rep act on them? Almost certainly some form of a CRM system. Or when an AI Agent processes reviews invoices and transactions, where will they enter this data when they’re done to kick off a supply chain workflow? Again, an existing or reinvented ERP system. As long as we have humans and agents interacting with one another, there will need to be deterministic software that bridges these interactions seamlessly.  </p><p>And as a result of all of these new agentic users within our software systems, the size of enterprise software markets are going to increase massively.  </p><p><strong>Unconstrained software markets</strong> </p><p>Traditionally, software companies have been stuck within the constraints of existing IT budgets, which tend to tap out around 3-7% of a company’s revenue. This creates an inherent upper limit for what the budget can be for software, which translates into the total addressable market of various technology categories. Now, with AI Agents, the software is actually bringing along the work with the software, which means the budget software players are going after is the total spend that goes into doing that work in the company, not just the tech to enable it. This inevitably leads to a substantial increase in TAM for most software categories whose markets were artificially held back in size previously.  </p><p>For instance, a contract management vendor just a few years ago was limited by the number of attorneys within an organization that needed to manage and review contracts. However, in a world of AI agents, that cap no longer exists, where you might have agents running continuously processing and reviewing contracts and providing extend legal services for any company. The size of the legal services market in the US is somewhere around $400B, nearly 50-100X larger than the corresponding software categories in legal space. You can easily see how AI agents making the legal industry meaningfully more productive could capture multiple percentage points of that $400B in spend, thus multiplying the size of the legal software market overnight.  </p><p>The same analogy holds for almost any software category that was artificially constrained by a customer's headcount, or limited software spend, previously. We're already seeing this in spaces like coding, where the AI agents in coding are generating orders of magnitude more revenue for the new coding startups than the prior IDE categories generated. And we can expect this same dynamic for most other areas of knowledge work over time, from healthcare and financial services to legal and marketing. Tools that bring along work will generate far more revenue than the prior era of tools used to.  </p><p><strong>The opportunity ahead for software</strong> </p><p>Now, the big open question is who wins in this technology wave. If we have learned anything from Clayton Christensen’s Innovator’s Dilemma framework, we know that incumbents tend to lose in markets when there’s a new tech or business model innovation that is unattractive to them because it represents less revenue or profitability. Conversely, they tend to hold their own when the new business model or technology is supportive of their existing business, or perhaps even enhances it. Ultimately, in AI, we’ll likely see examples of both outcomes.  </p><p>Some existing software categories, like customer support or coding, are changing so rapidly that many incumbents will be unable to change their business models or technology stacks fast enough to respond to the growing demands of the new market, even if getting to the other side would be economically attractive. Similarly, as Jaya Gupta and Ashu Garg outlined in their piece on context graphs, there are many new categories of agent-native software that will need to be created for the first time because no existing vendor logically can capture the way the agent needs to do its work. This will create tremendous opportunities for new startups to build AI agents within these categories, and we’re seeing new ones crop up every day.  </p><p>Conversely, there are a number of existing SaaS players are in a natural position to power agents in their relevant work categories, especially those that have the natural context necessary for AI agents to be successful in automating work. Unsurprisingly, I’d expect there to be a correlation between the strength of a software company’s moat and the amount of data they house, how complex the underlying workflows are, the number of connections there are with other systems, how intertwined a human-in-the-loop element is to the underlying agentic workflow, and how naturally AI agents can be plugged into these workflows (either as native users or via API in external agentic products).  </p><p>Of course, this will mean that the business model of software (new upstarts and incumbents) will have to evolve over time. Today, the vast majority of SaaS products charge on a per-seat basis, which generally corresponds to most of the usage that the software sees today by its end users. But in a world where AI agents do most of the interaction and work on software, enterprise systems will have to evolve to support more of a consumption and usage-based model over time. AI agents don't cleanly fit as seats on software, because any given AI agent can do a varied amount of work within a system (e.g. you could have 1 agent doing a billion things or a billion agents doing one thing).  </p><p>Inevitably, we’ll see a mix of both outcomes. Users (or people) will continue to be seats within software, and AI agents that represent extended usage will be monetized through consumption. We're already seeing this play out in AI-native coding products and other platforms where there's an end-user seat component mixed with a consumption model on top. Obviously depending on the human vs. agent value proposition mix, the revenue stream will slide between these two ends of the continuum.  </p><p>Ultimately, there’s still plenty that needs to play out before we fully see what the future holds for enterprise software. But it will certainly be the most dynamic and exciting period we've ever seen in software history.  </p></p></div></div>
+      
+    </article>
+    
+    <article>
+      <h1>[Daily article] April 30: 330 West 42nd Street</h1>
+      <div class="article-meta">
+        English Wikipedia Article of the Day
+        · 30 Apr 2026 · <a href="mailto:reader-forwarded-email/6a78aeabf2f711c385e41afc3a594321">Source</a>
+      </div>
+      <div class="article-body"><div class="rw-email-parsed">
+ <p>
+  330 West 42nd Street, also known as the McGraw-Hill Building, is a 485
+-foot-tall (148 m), 33-story skyscraper in the Hell's Kitchen
+neighborhood of Manhattan in New York City. It was designed by Raymond
+Hood and J. André Fouilhoux in a mixture of the International Style,
+Art Deco, and Streamline Moderne styles. The exterior has numerous
+setbacks, blue-green terracotta ceramic tile panels, and green metal-
+framed windows. The lobby originally had blue and green panels, and most
+of the upper stories have similar floor plans. The building, constructed
+from 1930 to 1931, was originally the headquarters of the McGraw-Hill
+Companies until 1972. Since then, ownership of 330 West 42nd Street has
+changed several times; Deco Towers has owned the building since 1994.
+Moed de Armas and Shannon completely renovated the building in 2021, and
+the upper stories were converted into apartments starting in 2023.
+Designated as a city landmark, the building is listed on the National
+Register of Historic Places. (Full article...).
+ </p>
+ <p>
+  Read more:
+  <a href="https://en.wikipedia.org/wiki/330_West_42nd_Street">
+   https://en.wikipedia.org/wiki/330_West_42nd_Street
+  </a>
+ </p>
+ <hr/>
+ <p>
+  Today's selected anniversaries:
+ </p>
+ <p>
+  1006:
+ </p>
+ <p>
+  SN 1006, the brightest supernova in recorded history, first
+appeared in the constellation Lupus.
+  <a href="https://en.wikipedia.org/wiki/SN_1006">
+   https://en.wikipedia.org/wiki/SN_1006
+  </a>
+ </p>
+ <p>
+  1789:
+ </p>
+ <p>
+  George Washington took the oath of office as the first
+president of the United States at Federal Hall in New York City.
+  <a href="https://en.wikipedia.org/wiki/Presidency_of_George_Washington">
+   https://en.wikipedia.org/wiki/Presidency_of_George_Washington
+  </a>
+ </p>
+ <p>
+  1927:
+ </p>
+ <p>
+  Douglas Fairbanks and Mary Pickford became the first two
+celebrities to make imprints of their hands and feet in cement at
+Grauman's Chinese Theatre in Hollywood, California.
+  <a href="https://en.wikipedia.org/wiki/Grauman%27s_Chinese_Theatre">
+   https://en.wikipedia.org/wiki/Grauman%27s_Chinese_Theatre
+  </a>
+ </p>
+ <p>
+  2014:
+ </p>
+ <p>
+  A bomb blast in Ürümqi, China, killed three people and
+injured 79 others.
+  <a href="https://en.wikipedia.org/wiki/April_2014_%C3%9Cr%C3%BCmqi_attack">
+   https://en.wikipedia.org/wiki/April_2014_%C3%9Cr%C3%BCmqi_attack
+  </a>
+ </p>
+ <hr/>
+ <p>
+  Wiktionary's word of the day:
+ </p>
+ <p>
+  vindication:
+1. (countable) An act of asserting or maintaining; an assertion.
+2. (countable) An argument, fact, piece of evidence, etc., which
+vindicates (“clears someone of an accusation or suspicion; justifies a
+belief or claim by providing evidence or proof”).
+3. (uncountable) The action of vindicating; also, the state of being
+vindicated.
+4. (countable, Ancient Rome, historical, law) A legal claim for a
+declaration that one is the owner of a thing or the holder of a right;
+an action in rem.
+5. (uncountable, obsolete)
+6. The action of avenging or taking revenge.
+7. (rare) The action of setting free; deliverance.
+8. (rare) Punishment, retribution.
+9. About Word of the Day
+10. Nominate a word
+11. Leave feedback
+  <a href="https://en.wiktionary.org/wiki/vindication">
+   https://en.wiktionary.org/wiki/vindication
+  </a>
+ </p>
+ <hr/>
+ <p>
+  Wikiquote quote of the day:
+ </p>
+ <p>
+  We feel our shell keeps us safe, but it crushes us and others, and keeps
+out light and sun.
+  --Taisen Deshimaru
+  <a href="https://en.wikiquote.org/wiki/Taisen_Deshimaru">
+   https://en.wikiquote.org/wiki/Taisen_Deshimaru
+  </a>
+ </p></div></div>
+      
+    </article>
+    
+  </body>
+</html>
