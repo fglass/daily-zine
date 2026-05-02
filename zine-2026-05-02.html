@@ -1,0 +1,443 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Fred Talks - 2026-05-02</title>
+    <style>
+      @page {
+        size: A5;
+        margin: 8mm 9mm 9mm;
+      }
+
+      :root {
+        color: #111;
+        font-family: "Times New Roman", Times, serif;
+        --body-text-size: 9.5pt;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        color: #111;
+        background: #fff;
+        font-family: "Times New Roman", Times, serif;
+        line-height: 1.45;
+      }
+
+      a,
+      a:visited {
+        color: #111;
+        text-decoration: underline;
+      }
+
+      .cover {
+        min-height: calc(210mm - 17mm);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        page-break-after: always;
+        border: 1px solid #111;
+        padding: 8mm;
+        background: #fff;
+      }
+
+      .toc-item-meta,
+      .article-meta {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .masthead {
+        margin: 0;
+        font-size: 40pt;
+        line-height: 0.95;
+        text-transform: uppercase;
+      }
+
+      .issue-date {
+        margin: 4mm 0 0;
+        font-size: 14pt;
+      }
+
+      .issue-date sup {
+        font-size: 0.58em;
+        vertical-align: super;
+        line-height: 0;
+      }
+
+      .cover-deck {
+        max-width: 90mm;
+        font-size: 12pt;
+        margin: 0;
+      }
+
+      .toc {
+        border-top: 3px solid #111;
+        padding-top: 6mm;
+      }
+
+      .toc h2 {
+        margin: 0 0 4mm;
+        font-size: 11pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .toc-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .toc-item {
+        padding: 3mm 0;
+        border-bottom: 1px solid rgba(17, 17, 17, 0.2);
+      }
+
+      .toc-item-title {
+        font-size: 12pt;
+        margin: 0 0 1mm;
+      }
+
+      .toc-item-meta {
+        font-size: 8pt;
+      }
+
+      .masthead-compact {
+        margin: 0 0 6mm;
+      }
+
+      .masthead-compact h1 {
+        margin: 0;
+        font-size: 22pt;
+        line-height: 1.1;
+        text-transform: uppercase;
+      }
+
+      .masthead-compact .issue-date {
+        margin: 2mm 0 0;
+        font-size: 11pt;
+      }
+
+      .toc-compact {
+        border-top: 1px solid #111;
+        border-bottom: 1px solid #111;
+        padding: 4mm 0;
+        margin: 0 0 8mm;
+      }
+
+      article + article {
+        margin-top: 10mm;
+        padding-top: 6mm;
+        border-top: 2px solid #111;
+      }
+
+      h1 {
+        margin: 0 0 2mm;
+        font-size: 18pt;
+        line-height: 1.1;
+      }
+
+      .article-meta {
+        font-size: 8.5pt;
+        margin-bottom: 6mm;
+        padding-bottom: 3mm;
+        border-bottom: 1px solid #111;
+      }
+
+      .article-body {
+        font-size: var(--body-text-size);
+        font-family: "Times New Roman", Times, serif;
+      }
+
+      .article-body p,
+      .article-body li,
+      .article-body blockquote,
+      .article-body dd,
+      .article-body dt {
+        margin: 0 0 4mm;
+        orphans: 3;
+        widows: 3;
+      }
+
+      .article-body ul,
+      .article-body ol,
+      .article-body dl {
+        margin: 0 0 4mm 5mm;
+        padding: 0;
+      }
+
+      .article-body h2,
+      .article-body h3,
+      .article-body h4 {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        margin: 7mm 0 3mm;
+        line-height: 1.2;
+      }
+
+      .article-body blockquote {
+        margin-left: 6mm;
+        padding-left: 4mm;
+        border-left: 2px solid #111;
+      }
+
+      .article-body .media-omitted {
+        margin: 0 0 4mm;
+        font-size: 8.5pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(17, 17, 17, 0.65);
+      }
+
+      .article-body figure,
+      .article-body .article-figure,
+      .article-body picture,
+      .article-body .article-picture {
+        display: block;
+        max-width: 72mm;
+        margin: 0 auto 4mm;
+        break-inside: avoid;
+      }
+
+      .article-body img,
+      .article-body .article-image {
+        display: block;
+        max-width: min(100%, 72mm);
+        max-height: 34mm;
+        height: auto;
+        width: auto;
+        object-fit: contain;
+        margin: 0 auto 3mm;
+      }
+
+      .article-body figcaption {
+        margin-top: 1.5mm;
+        font-size: 8.5pt;
+        line-height: 1.3;
+        color: rgba(17, 17, 17, 0.8);
+      }
+
+      .article-note {
+        margin-top: 6mm;
+        padding-top: 3mm;
+        border-top: 1px solid #111;
+        font-size: 9pt;
+        font-style: italic;
+      }
+
+      @media screen {
+        body {
+          padding: 2rem;
+          margin: 0 auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    
+    <header class="masthead-compact">
+      <h1>Fred Talks</h1>
+      <p class="issue-date">
+        2<sup>nd</sup> May 2026
+      </p>
+    </header>
+
+    <nav class="toc toc-compact">
+      <h2>Contents</h2>
+      <ol class="toc-list">
+        
+        <li class="toc-item">
+          <div class="toc-item-title">&#34;Collaboration&#34; is bullshit.</div>
+          <div class="toc-item-meta">
+            Westenberg. · 1380 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Getting Real About Distributed System Reliability</div>
+          <div class="toc-item-meta">
+            boredandroid · 2792 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">It&#39;s-a Me, Agentic AI</div>
+          <div class="toc-item-meta">
+            Han, Not Solo · 2362 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Bottle</div>
+          <div class="toc-item-meta">
+            xkcd.com · 19 words
+          </div>
+        </li>
+        
+      </ol>
+    </nav>
+    
+
+    
+    <article>
+      <h1>&#34;Collaboration&#34; is bullshit.</h1>
+      <div class="article-meta">
+        Westenberg.
+        · 29 Mar 2026 · <a href="https://www.joanwestenberg.com/collaboration-is-bullshit/">Source</a>
+      </div>
+      <div class="article-body"><figure class="article-figure"><img alt="&quot;Collaboration&quot; is bullshit." sizes="(min-width: 720px) 720px, 100vw" src="https://www.joanwestenberg.com/content/images/size/w2000/2026/03/W-Insight-1-HT-Jan11-e1666985964510-2688358860.jpg" srcset="https://www.joanwestenberg.com/content/images/size/w300/2026/03/W-Insight-1-HT-Jan11-e1666985964510-2688358860.jpg 300w,
+" class="article-image"/></figure>
+<p>This newsletter is free to read, and it’ll stay that way. But if you want more - extra posts each month, access to the community, and a direct line to ask me things - paid subscriptions are $2.50/month. A lot of people have told me it’s worth it.</p>
+<p><a href="https://www.joanwestenberg.com/#/portal/signup/69328a08ef56a90001ae60df/monthly"> Upgrade </a></p>
+<p>In 1944, the Wehrmacht launched into Hitler’s last ditch effort to save the Third Reich. The Battle of the Bulge was a doomed campaign and a doomed gamble from a doomed regime, but its brutality was a true second test of the US Army on the Western Front. During the battle, Army historian S.L.A Marshall began interviewing infantry companies who’d been baptised in combat. Published 3 years later in his 1947 book, Men Against Fire, Marshall’s research showed that just 15-20% of riflemen in active combat positions ever fired their weapons - most kept their heads down. They moved when they were ordered and they held their positions, and they mimicked the outward appearance of a soldier in battle - but shoot, they did not. By any standard organisational metric, the men were present and accounted for, but 4 out of 5 never pulled the trigger.</p>
+<p>You can debate the extent of Marshall’s numbers, and you can debate his methodology, but his ratio shows up, again and again. IBM stumbled onto it in the ‘60s when they discovered that 80% of computer usage came from 20% of the system’s features. The pattern recurs because it describes something real about how effort is distributed inside groups, where a fraction of the people do most of the work, and the rest provide what you might ~charitably call “structural support.”</p>
+<p>Anyone who has worked in any large organisation knows exactly what I’m talking about.</p>
+<p>The modern tech industry looked at the problem of human coordination and participation and decided the solution was “collaboration.” If only 20% of us are operating with a “killer instinct” we need to be better at managing the shared instincts of the other 80%. And so collaboration became our shared obsession. We pursue “teamwork” as a holy grail.</p>
+<p>The teamwork revolution, if you can call it that, gave us Notion for our documents, ClickUp for our tasks, Slack for our conversations, Jira for our tickets, Monday for our boards, Teams for the calls that should been emails, emails for the things that we couldn’t squeeze in anywhere else, and now agents attempting to re-invent the whole stack. The average knowledge worker maintains accounts across system after system, switching between applications hundreds of times per day. And they produce, in aggregate, a staggering amount of coordinated and collaborative activity that never actually becomes anything resembling ~output.</p>
+<p>When you strip away the product marketing and the dev relations and the blog posts and the funding rounds and the fuckery-upon-fuckery of it all, we’re left with a simulation of collective engagement - but very little else. Transparency got confused with progress, visibility got confused with accountability, and being included in the thread became the same thing, socially and organizationally, as owning the outcome.</p>
+<p>Once that confusion set in at the cultural level it became nearly impossible to dislodge. The feeling of collaboration is pleasant in a way that personal accountability can never be. Owning something means you, specifically and visibly you, can fail at it, specifically and visibly, in ways that attach to your name.</p>
+<p>Collaborating means the failure belongs to the process.</p>
+<p>So everyone chose collaboration, and we called it culture.</p>
+<p>Marshall's riflemen were ordinary people responding to the diffusion of responsibility that happens inside any group. Maximilien Ringelmann measured the same phenomenon with ropes in 1913, long before there were Slack workspaces to offer an emoji-react to it. Individual effort drops predictably as group size increases. The presence of others dissolves the sense of personal responsibility in a way that feels, to everyone experiencing it, entirely reasonable. You're part of a team, you're contributing, you're also (measurably) pulling less hard than you would if the rope were yours alone. Every single person on the rope is doing this simultaneously, which is why the total force never adds up the way the headcount says it should.</p>
+<p>Frederick Brooks identified the same dynamic in software development in 1975, watching IBM's System/360 project illustrate his emerging thesis that adding people to a late project makes it later. Communication overhead grows faster than headcount, coordination costs compound, and every new person contributes their capacity along with their relationships to everyone else. Those relationships require maintenance and produce misalignment and generate the need for more meetings to address the misalignment those meetings created.</p>
+<p>Brooks might as well have described your company's Q3 roadmap planning cycle and your startup's sprint retrospective, all of which have gotten longer every year and produced, relative to their investment, less.</p>
+<p>The collaboration industry has spent a fortune obscuring a dirty truth: most complex, high-quality work is done by individuals or very small groups operating with clear authority and sharp accountability, then rationalized into the language of teamwork afterward. Dostoevsky wrote _The Brothers Karamazov_ alone. The Apollo Guidance Computer came from a team at MIT small enough to have real ownership, hierarchical enough that Margaret Hamilton's name could go on the error-detection routines she personally designed.</p>
+<p>Communication matters, and shared context matters. But there’s a huge difference between communication and collaboration as infrastructure to support individual, high-agency ownership, and communication and collaboration as the primary activity of an organisation. Which, if we’re honest, is what most collaboration-first cultures have actually built. They’ve constructed extraordinarily sophisticated machinery for the social management of work, without actually doing the work they’re socialising about.</p>
+<p>If and when it exists, ownership looks like an individual who deeply gives a shit, making a call without waiting for group-consensus. That individual will be right sometimes, and they’ll be wrong other times, and they’ll own it. They won’t sit around waiting to find out who has the authority to move a card from one column to another and post about it in the #celebrations channel.</p>
+<p>But being that person sucks when “collaboration” is the reigning value, because every unilateral decision gets read as a cultural violation and a signal that you aren’t a team player. Collaboration-as-ideology has made ownership and responsibility feel antisocial, which is a hell of a thing, given that ownership is the only mechanism that gets anything across the finish line.</p>
+<p>You can see this excess everywhere. Standups where people announce their busy work and as long as everyone’s “on the same page” nobody changes course. Documents that are written to perform thinking so somebody else can perform thinking, with no decision in sight. Retros, and kickoffs, and WIP meetings that spawn their own retros, kickoffs and WIP meetings like cells dividing and re-dividing, with zero connection to the work that it’s nominally organising around.</p>
+<p>Every project now seems to carry more coordination overhead than execution time, and when it fails the postmortem just recommends more collaboration...</p>
+<p>At some point (and I think that point was fucking yesterday) we have to ask ourselves - what are we actually producing and who is actually responsible for producing it?</p>
+<p>Because at some level, the answer for “who is responsible for X” has to be one single person, no matter how much the collaborative apparatus layered over modern work has been engineered to make that person invisible and dissolve accountability.</p>
+<p>We need to find some path back to trusting that individuals will do their jobs, without every responsibility being visible to an entire organisation, without follow-ups being scheduled by a cadre of overpaid managers with their overfed metrics.</p>
+<p>Maybe - just maybe - we could make our lives a little easier. Maybe we could let human beings keep their own lists of tasks, and we could let them sink or swim by how they manage those tasks, and we could assign blame to them and to them alone when they fuck up. Maybe we could do it without needing to have team-level views of every Kanban, calendar and task list. And maybe - if we let go of the warm, expensive fiction of collective endeavour - we could make it a little easier to see who among us are pulling the trigger and who are just keeping their heads down.</p></div>
+      
+    </article>
+    
+    <article>
+      <h1>Getting Real About Distributed System Reliability</h1>
+      <div class="article-meta">
+        boredandroid
+        · 01 Mar 2026 · <a href="https://blog.empathybox.com/post/19574936361/getting-real-about-distributed-system-reliability">Source</a>
+      </div>
+      <div class="article-body"><p>There is a lot of hype around distributed data systems, some of it justified. It&rsquo;s true that the internet has centralized a lot of computation onto services like Google, Facebook, Twitter, LinkedIn (my own employer), and other large web sites. It&rsquo;s true that this centralization puts a lot of pressure on system scalability for these companies. Its true that incremental and horizontal scalability is a <i>deep</i> feature that requires redesign from the ground up and can&rsquo;t be added incrementally to existing products. It&rsquo;s true that, if properly designed, these systems can be run with no <i>planned</i> downtime or maintenance intervals in a way that traditional storage systems make harder. It&rsquo;s also true that software that is explicitly designed to deal with machine failures is a very different thing from traditional infrastructure. All of these properties are critical to large web companies, and are what drove the adoption of horizontally scalable systems like <a href="https://href.li/?http://hadoop.apache.org/">Hadoop</a>, <a href="https://href.li/?http://cassandra.apache.org/">Cassandra</a>, <a href="https://href.li/?http://project-voldemort.com/">Voldemort</a>, etc. I was the original author of Voldemort and have worked on distributed infrastructure for the last four years or so. So in-so-far as there is a &ldquo;big data&rdquo; debate, I am firmly in the &ldquo;pro-&rdquo; camp. But one thing you often hear is that this kind of software is more reliable than the traditional alternatives it replaces, and this just isn&rsquo;t true. It is time people talked honestly about this.</p>
+<p>You hear this assumption of reliability everywhere. Now that scalable data infrastructure has a marketing presence, it has really gotten bad. Hadoop or Cassandra or what-have-you can tolerate machine failures then they must be unbreakable right? Wrong.</p>
+<p>Where does this come from? Distributed systems need to partition data or state up over lots of machines to scale. Adding machines increases the probability that some machine will fail, and to address this these systems typically have some kind of replicas or other redundancy to tolerate failures. The core argument that gets used for these systems is that if a single machine has probability <i>P</i> of failure, and if the software can replicate data <i>N</i> times to survive <i>N</i>-1 failures, and if the machines fail <i>independently</i>, then the probability of losing a particular piece of data must be <i>P<sup>N</sup></i>. So for any desired reliability <i>R</i> and any single-node failure probability <i>P</i> you can pick some replication <i>N</i> so that <i>P<sup>N</sup> &lt; R</i>. This argument is the core motivation behind most variations on replication and fault tolerance in distributed systems. It is true that without this property the system would be hopelessly unreliable as it grew. But this leads people to believe that distributed software is somehow innately reliable, which unfortunately is utter hogwash.</p>
+<p>Where is the flaw in the reasoning? Is it the <a href="https://href.li/?http://hadoop.apache.org/common/docs/current/hdfs_design.html#Metadata+Disk+Failure">dreaded Hadoop single points of failure</a>? No, it is far more fundamental than that: the problem is the assumption that failures are <a href="https://href.li/?http://en.wikipedia.org/wiki/Independence_%28probability_theory%29">independent</a>. Surely no belief could possibly be more counter to our own experience or just common sense than believing that there is no correlation between failures of machines in a cluster. You take a bunch of pieces of identical hardware, run them on the same network gear and power systems, have the same people run and manage and configure them, and run the same (buggy) software on all of them. It would be incredibly unlikely that the failures on these machines would be independent of one another in the probabilistic sense that motivates a lot of distributed infrastructure. If you see a bug on one machine, the same bug is on all the machines. When you push bad config, it is usually game over no matter how many machines you push it to.</p>
+<p><i>P<sup>N</sup></i> is an upper bound on reliability but one that you could never, never approach in practice. For example Google has <a href="https://href.li/?http://research.google.com/pubs/archive/36737.pdf">a fantastic paper</a> that gives empirical numbers on system failures in Bigtable and GFS and reports empirical data on groups of failures that show rates several orders of magnitude higher than the independence assumption would predict. This is what one of the best system and operations teams in the world can get: your numbers may be far worse.</p>
+<p>The actual reliability of your system depends largely on how bug free it is, how good you are at monitoring it, and how well you have protected against the myriad issues and problems it has. This isn&rsquo;t any different from traditional systems, except that the new software is far less mature. I don&rsquo;t mean this disparagingly, I work in this area, it is just a fact. Maturity comes with time and usage and effort. This software hasn&rsquo;t been around for as long as MySQL or Oracle, and worse, the expertise to run it reliably is much less common. MySQL and Oracle administrators are plentiful, but folks experience with, say, serious production Zookeeper operations knowledge are much more rare.</p>
+<p>Kernel filesystem engineers say it takes about a decade for a new filesystem to go from concept to maturity. I am not sure these systems will be mature much faster&mdash;they are not easier systems to build and the fundamental design space is much less well explored. This doesn&rsquo;t mean they won&rsquo;t be <i>useful</i> sooner, especially in domains where they solve a pressing need and are approached with an appropriate amount of caution, but they are not yet by any means a mature technology.</p>
+<p>Part of the difficulty is that distributed system software is actually quite complicated in comparison to single-server code. Code that deals with failure cases and is &ldquo;cluster aware&rdquo; is extremely tricky to get right. The root of the problem is that dealing with failures effectively explodes the possible state space that needs testing and validation. For example it doesn&rsquo;t even make sense to expect a single-node database to be fast if its disk system suddenly gets really slow (how could it), but a distributed system does need to carry on in the presence of single degraded machine because it has some many machines, one is sure to be degraded. These kind of &ldquo;semi-failures&rdquo; are common and very hard to deal with. Correctly testing these kinds of issues in a realistic setting is brutally hard and the newer generation of software doesn&rsquo;t have anything like the QA processes its more mature predecessors had. (If you get a chance get someone who has worked at Oracle to describe to you what kind of testing they do to a line of code that goes into their database before it gets shipped to customers). As a result there are a lot of bugs. And of course these bugs are on all the machines, so they absolutely happen together.</p>
+<p>Likewise distributed systems typically require more configuration and more complex configuration because they need to be cluster aware, deal with timeouts, etc. This configuration is, of course, shared; and this creates yet another opportunity to bring everything to its knees.</p>
+<p>And finally these systems usually want lots of machines. And no matter how good you are, some part of operational difficulty always scales with the number of machines.</p>
+<p>Let&rsquo;s discuss some real issues. We had a bug in <a href="https://href.li/?http://incubator.apache.org/kafka">Kafka</a> recently that lead to the server incorrectly interpreting a corrupt request as a corrupt log, and shutting itself down to avoid appending to a corrupt log. Single machine log corruption is the kind of thing that should happen due to a disk error, and bringing down the corrupt node is the right behavior&mdash;it shouldn&rsquo;t happen on all the machines at the same time unless all the disks fail at once. But since this was due to corrupt <i>requests</i>, and since we had one client that sent corrupt requests, it was able to sequentially bring down all the servers. Oops. Another example is <a href="https://href.li/?https://rhn.redhat.com/errata/RHBA-2012-0124.html">this Linux bug</a> which causes the system to crash after ~200 days of uptime. Since machines are commonly restarted sequentially this lead to a situation where a large percentage of machines went hard down one after another. Likewise any memory management problems&mdash;either leaks or GC problems&mdash;tend to happen everywhere at once or not at all. Some companies do public post-mortums for major failures and these are a real wealth of failures in systems that aren&rsquo;t supposed to fail. <a href="https://href.li/?http://static.usenix.org/publications/login/2012-02/pdfs/Chansler.pdf">This paper</a> has an excellent summary of HDFS availability at Yahoo&mdash;they note how few of the problems are of the kind that high availability for the namenode would solve. This list could go on, but you get the idea.</p>
+<p>I have come around to the view that the real core difficulty of these systems is operations, not architecture or design. Both are important but good operations can often work around the limitations of bad (or incomplete) software, but good software cannot run reliably with bad operations. This is quite different from the view of unbreakable, self-healing, self-operating systems that I see being pitched by the more enthusiastic NoSQL hypesters. Worse yet, you can&rsquo;t easily buy good operations in the same way you can buy good software&mdash;you might be able to hire good people (if you can find them) but this is more than just people; it is practices, monitoring systems, configuration management, etc.</p>
+<p>These difficulties are one of the core barriers to adoption for distributed data infrastructure. LinkedIn and other companies that have a deep interest in doing creative things with data have taken on the burden of building this kind of expertise in-house&mdash;we employ committers on Hadoop and other open source projects on both our engineering and operations team, and have done a lot of <a href="https://href.li/?http://sna-projects.com">from-scratch development</a> in this space where there was gaps. This makes it feasible to take full advantage of an admittedly valuable but immature set of technologies, and let&rsquo;s us build products we couldn&rsquo;t otherwise&mdash;but this kind of investment only makes sense at a certain size and scale. It may be too high a cost for small startups or companies outside the web space trying to bootstrap this kind of knowledge inside a more traditional IT organization.</p>
+<p>This is why people should be excited about things like Amazon&rsquo;s <a href="https://t.umblr.com/redirect?z=http%3A%2F%2Faws.amazon.com%2Fdynamodb%2F&amp;t=N2JhMjQ3NzNkZWE5NWI5NmNhOGM3ZTIxYWZlNzQ1ZjhlYjQ2M2RmMCw1c3RubnpOUw%3D%3D&amp;b=t%3AcGHjsYEIBU8OoED070vcaw&amp;p=https%3A%2F%2Fblog.empathybox.com%2Fpost%2F19574936361%2Fgetting-real-about-distributed-system-reliability&amp;m=1&amp;ts=1632268146">DynamoDB</a>. When DynamoDB was released, the company DataStax that supports and leads development on Cassandra released <a href="https://href.li/?http://nosql.mypopescu.com/post/16065241917/cassandra-and-amazon-dynamodb-comparison">a feature comparison checklist</a>. The checklist was unfair in many ways (as these kinds of vendor comparisons usually are), but the biggest thing missing in the comparison is that <i>you</i> don&rsquo;t run DynamoDB, Amazon does. That is a huge, huge difference. Amazon is good at this stuff, and has shown that they can (usually) support massively multi-tenant operations with reasonable SLAs, <i>in practice</i>.</p>
+<p>I really think there is really only one thing to talk about with respect to reliability: continuous hours of successful production operations. That&rsquo;s it. In some ways the most obvious thing, but not typically what you hear when people talk about these systems. I will believe the system can tolerate (some) failures when I see it tolerate those failures; I believe it can run for a year without downtime when i see it run for a year without downtime. I call this empirical reliability (as opposed to theoretical reliability). And getting good empirical reliability is really, really hard. These systems end up being large hunks of monitoring, tests, and operational procedures with a teeny little distributed system strapped to the back.</p>
+<p>You see this showing up in discussions of the <a href="https://href.li/?http://en.wikipedia.org/wiki/CAP_theorem">CAP theorem</a> all the time. The CAP theorem is a useful thing, but it applies more to system design than system implementations. A design is simple enough that you can maybe prove it provides consistency or tolerates partition failures under some assumptions. This is a useful lens to look at system designs. You can&rsquo;t hope to do this kind of proof with an actual system implementation, the thing you run. The difficulty of building these things means it is really unthinkable that these systems are, in actual reality, either consistent, available, <i>or</i> partition tolerant&mdash;they certainly all have numerous bugs that will break each of these guarantees. I really like <a href="https://href.li/?http://www.cs.berkeley.edu/~pbailis/projects/pbs">this paper</a> that takes the approach of actually trying to calculate the observed consistency of eventually consistent systems&mdash;they seem to do it via simulation rather than measurement, which is unfortunate, but the idea is great.</p>
+<p>It isn&rsquo;t that system design is meaningless, it is worth discussing the system design as it does act as a kind of limiting factor on certain aspects of reliability and performance as the implementation matures and improves, but don&rsquo;t take it too seriously as guaranteeing <i>anything</i>.</p>
+<p>So why isn&rsquo;t this kind of empirical measurement more talked about? I don&rsquo;t know. My pet theory is it has to do with the somewhat rigid and deductive mindset of classical computer science. This is inherited from pure math, and conflicts with the attitude in scientific disciplines. It leads to a preference for starting with axioms, and then proving various properties that follow from these axioms. This world view doesn&rsquo;t embrace the kind of empirical measurements you would expect to justify claims about reality (for another example see <a href="https://href.li/?http://tagide.com/blog/2012/03/research-in-programming-languages">this great blog post</a> on programming language productivity claims in programming language research). But that is getting off topic. Suffice it to say, when making predictions about how a system will work in the real world I believe in measurements of reality a lot more than arguments from first-principles.</p>
+<p>I think we should insist on a little more rigor and empiricism in this area.</p>
+<p>I would love to see claims in academic publication around practicality or reliability justified in the same way we justify performance claims&ndash;by doing it. I would be a lot more likely to believe an academic distributed system was practically feasible if it was run continuously under load for a year successfully and if information was reported on failures and outages. Maybe that isn&rsquo;t feasible for an academic project, but few other allegedly scientific academic disciplines can get away with making claims about reality without evidence.</p>
+<p>More broadly I would like to see more systems whose <i>operation</i> is verifiable. Many systems have the ability to log out information about their state in a way that makes programmatic checking of various invariants and guarantees possible (such as consistency or availability). An example of such an invariant for a messaging system is that all the messages sent to it are received by all the subscribers. We actually measure the truth of this statement in real-time in production for our Kafka data pipeline for all 450 topics and all their subscribers. The number of corner-cases one uncovers with this kind of check, run through a few hundred use cases and a few billion messages per day is truly astounding. I think this is a special case of a broad class of verification that can be done on the running system that goes far far deeper than what is traditionally considered either monitoring or testing. Call it unit testing in production, or self-proving systems, or next generation monitoring, or whatever, but I think this kind of deep verification is something that makes turning the theoretical claims a design makes into measured properties of the real running system.</p>
+<p>Likewise if you have a &ldquo;NoSQL vendor&rdquo; I think it is reasonable to ask them to provide hard information on customer outages. They don&rsquo;t need to tell you who the customer is, but they should let you know the observed real-life distribution of <a href="https://href.li/?http://en.wikipedia.org/wiki/MTTF">MTTF</a> and <a href="https://href.li/?http://en.wikipedia.org/wiki/Mean_time_to_recovery">MTTR</a> they are able to achieve, not just highlight one or two happy cases. Make sure you understand how they measure this, do they have automated test load that runs or just wait for people to complain? This is a reasonable thing for people paying for a service to ask for. To a certain extent if they provide this kind of empirical data it isn&rsquo;t clear why you should even <i>care</i> what their architecture is beyond intellectual curiosity.</p>
+<p>Distributed systems solve a number of key problems at the heart of scaling large websites. I absolutely think this is going to become the default approach to handling state in internet application development. But no one benefits from the kind of irrational exuberance that currently surrounds the &ldquo;big data&rdquo; or nosql systems communities. This area is experiencing a boom&mdash;but nothing takes us from boom to bust like unrealistic hype and broken promises. We should be a little more honest about where these systems already shine and where they are still maturing.</p>
+<p><i>Postscript: This blog seems to have resurfaced 7 years later. I actually still agree with much of it, though the dilemma is much less important. Distributed systems operations is hard, but you can now avoid it by just getting your distributed systems as a service. For example, <a href="https://href.li/?https://www.confluent.io/confluent-cloud/">Confluent offers Kafka as a service with a contractural uptime SLA</a>. Ops remains hard, but for distributed data systems you can make the people who wrote the software deal with the problem, and focus your time on your special sauce.</i></p></div>
+      
+    </article>
+    
+    <article>
+      <h1>It&#39;s-a Me, Agentic AI</h1>
+      <div class="article-meta">
+        Han, Not Solo
+        · 01 Mar 2026 · <a href="https://leehanchung.github.io/blogs/2026/02/18/mario-agentic-ai/">Source</a>
+      </div>
+      <div class="article-body"><p>Agentic AI is a fairly recent development that combines reasoning (<a href="https://cdn.openai.com/o1-system-card-20241205.pdf">OpenAI, 2024</a>) tool use (<a href="https://arxiv.org/abs/2302.04761">Schick et al, 2023</a>) in the same AI model. But an agentic AI system is not just the model, but also the harness, the environments, the tools, rewards, evaluations, and all of the infrastructure to support it. In this post, let’s use the top grossing franchise, Mario, to tell this story for understanding how agentic AI models are developed, how agent harnesses work, and how reinforcement learning ties everything together. If you survived World 8-4 as a kid, you already have the intuition for building agentic AI systems.</p>
+<figure class="article-figure"><img alt="alt text" src="https://leehanchung.github.io/assets/img/2026-02-18/00-tb.png" class="article-image"/><figcaption>alt text</figcaption></figure>
+<p>Small Mario is the <strong>base pretrained model</strong>. He’s just come out of pretraining on a massive corpus of platform game physics. He can walk. He can jump. He can move left and right. These are his base capabilities, the raw knowledge compressed from the training data.</p>
+<p>But Small Mario is fragile. One hit from a Goomba and he’s dead. He can’t break bricks. He can’t take damage. He has potential, but he’s not yet useful for anything beyond the most trivial tasks.</p>
+<p>This is your base LLM fresh off pretraining. It has absorbed enormous amounts of knowledge, it can do next-token prediction, and it can sort-of follow instructions. But ask it to do anything real, reliably, in production, and it falls apart on the first obstacle. One Goomba and it’s game over.</p>
+<h2><a href="https://leehanchung.github.io/blogs/2026/02/18/mario-agentic-ai/#model-harness">The Super Mushroom: Model Harness</a></h2>
+<p>Then Mario finds the <strong>Super Mushroom</strong>. He doubles in size. He can now break bricks. He can take a hit without dying. He goes from fragile to capable.</p>
+<p>The Super Mushroom is the <strong>model harness</strong>, the entire infrastructure and post-training pipeline that transforms a base model into something production-ready. This includes:</p>
+<ul> <li><strong>Instruction tuning</strong> (RLHF, DPO, etc.) to make the model actually follow directions</li> <li><strong>System prompts</strong> that define personality and constraints</li> <li><strong>Safety guardrails</strong> so it doesn’t run off cliffs</li> <li><strong>Memory and context management</strong> so it remembers where it’s been</li> <li><strong>Tool-use training</strong> so it knows power-ups exist and how to grab them</li> </ul>
+<p>Without the Super Mushroom, Mario is a liability. With it, he’s a platform for greatness. Similarly, without the model harness, a base LLM is a research artifact. With it, it’s a product.</p>
+<blockquote> <p>The Super Mushroom doesn’t change WHO Mario is. It changes what he can SURVIVE. The model harness doesn’t change the model’s core knowledge. It changes what the model can handle in production.</p> </blockquote>
+<p>Now here’s where it gets interesting. Super Mario can pick up <strong>power-ups</strong> that give him entirely new capabilities:</p>
+<table> <tr> <th>Power-Up</th> <th>Mario Ability</th> <th>Agent Equivalent</th> </tr> <tbody> <tr> <td><strong>Fire Flower</strong></td> <td>Throw fireballs to defeat enemies at range</td> <td><strong>Code execution</strong> - reach out and run code to solve problems the model can’t solve with text alone</td> </tr> <tr> <td><strong>Frog Suit</strong></td> <td>Swim through water levels with ease</td> <td><strong>Web search</strong> - navigate and retrieve information from an environment the model wasn’t trained on</td> </tr> <tr> <td><strong>Raccoon Leaf</strong></td> <td>Fly and reach otherwise inaccessible areas</td> <td><strong>File system access</strong> - explore and modify the codebase, reach files the model couldn’t otherwise touch</td> </tr> <tr> <td><strong>Hammer Suit</strong></td> <td>Throw hammers, defeat almost anything</td> <td><strong>Shell/terminal access</strong> - the most powerful tool, can interact with the full system</td> </tr> <tr> <td><strong>Star</strong></td> <td>Temporary invincibility, blow through everything</td> <td><strong>Extended thinking/reasoning mode</strong> - brute force through complex problems at higher compute cost</td> </tr> <tr> <td><strong>Cape Feather</strong></td> <td>Sustained flight and spin attack</td> <td><strong>MCP servers</strong> - sustained, extensible access to external services and APIs</td> </tr> </tbody> </table>
+<p>Each power-up doesn’t replace Mario’s core abilities. Mario still walks and jumps. The power-ups <strong>extend</strong> what he can do. A Fire Flower Mario can still jump on Goombas, but now he can also shoot fireballs at Piranha Plants hiding in pipes.</p>
+<p>This is exactly how agent tools work. The LLM still does what LLMs do: reasoning, language understanding, and planning. Tools extend the model’s reach into environments it can’t operate in alone. An LLM can’t execute Python by itself, just like Mario can’t throw fireballs without a Fire Flower. But give it the right tool, and suddenly the problem space opens up.</p>
+<p>And critically, <strong>Mario has to learn WHEN to use each power-up</strong>. Frog Suit is amazing in water levels, useless on land. Fire Flower is great against Goombas, pointless against Thwomps. The model needs to learn tool selection, knowing which tool to reach for in which context. This is one of the hardest parts of building agentic systems.</p>
+<p>One power-up deserves special attention: the <strong>Star</strong>. When Mario grabs a Star, he becomes invincible. He plows through Goombas, Koopa Troopas, Piranha Plants, everything in his path just disintegrates. Nothing can stop him. This is not dissimilar to having an engineering manager who’s really good at clearing organizational blockers for their engineers. The Goombas and Piranha Plants of bureaucracy, cross-team dependencies, access requests, and priority conflicts just melt away. Star power is temporary and expensive, but when you need to blast through a critical path, nothing else comes close.</p>
+<h2><a href="https://leehanchung.github.io/blogs/2026/02/18/mario-agentic-ai/#environments">The Mushroom Kingdom: Environments and Tasks</a></h2>
+<p>Now let’s talk about the world Mario operates in. Every level in the Mushroom Kingdom is an <strong>environment</strong>, and every environment is composed of the same building blocks:</p>
+<table> <tr> <th>Level Element</th> <th>Environment Equivalent</th> </tr> <tbody> <tr> <td><strong>Bricks</strong></td> <td>Structured data, APIs, databases that can be broken open to reveal resources</td> </tr> <tr> <td><strong>? Blocks</strong></td> <td>Unknown information sources, sometimes containing exactly what you need</td> </tr> <tr> <td><strong>Pipes</strong></td> <td>Entry points to sub-tasks, function calls, or deeper exploration</td> </tr> <tr> <td><strong>Coins</strong></td> <td>Incremental progress signals, intermediate rewards</td> </tr> <tr> <td><strong>Goombas</strong></td> <td>Common obstacles, predictable errors, edge cases</td> </tr> <tr> <td><strong>Koopa Troopas</strong></td> <td>Recyclable obstacles, errors whose solutions can be reused as tools</td> </tr> <tr> <td><strong>Piranha Plants</strong></td> <td>Traps hiding in seemingly safe passages, hallucination triggers</td> </tr> <tr> <td><strong>Vines</strong></td> <td>Hidden paths to bonus areas, unexpected shortcuts</td> </tr> <tr> <td><strong>Clouds / Platforms</strong></td> <td>Abstractions and scaffolding that support traversal</td> </tr> <tr> <td><strong>Pits</strong></td> <td>Catastrophic failures, unrecoverable errors</td> </tr> </tbody> </table>
+<p>Every level remixes these elements differently. World 1-1 is simple, a few Goombas, some bricks, a clear path to the flag. World 8-4 is a maze of pipes, hidden paths, and a boss fight with Bowser. Same building blocks, radically different difficulty.</p>
+<p>Throughout each level, Mario interacts with the environment as <strong>tool use</strong>. He enters pipes to warp from one place to another, the equivalent of an API call that transports you to an entirely different context. He bumps ? Blocks from below to discover power-ups, new agent skills materializing from the environment when you know where to look. He breaks bricks to clear paths or reveal hidden rewards, structured data yielding its value when you apply force in the right direction. He stomps on a Koopa shell and kicks it forward, turning an obstacle into a projectile that clears a line of Goombas, repurposing error outputs as inputs to solve downstream problems. The environment isn’t just a backdrop. It’s a toolbox.</p>
+<p>Having an environment is not enough. We need to define <strong>what we want to achieve</strong> from playing the game. These are the <strong>tasks</strong>.</p>
+<p>Mario can play the same level with completely different objectives. Complete the level. Complete the level in the shortest amount of time. Get the highest score. Collect the most coins. Accumulate the most 1-up lives. Find all the hidden rewards. Stomp on every last Goomba. Each objective produces a fundamentally different play style from the same environment.</p>
+<p>This is exactly the task definition problem in agentic AI. The same model operating in the same environment can be pointed at wildly different goals. “Summarize this codebase” and “refactor this codebase” use the same files, the same tools, the same context, but they require entirely different strategies. The task is what transforms an environment from a sandbox into a mission.</p>
+<h2><a href="https://leehanchung.github.io/blogs/2026/02/18/mario-agentic-ai/#rewards">The Flagpole: Evaluations and Reward Modeling</a></h2>
+<p>At the end of every level, there’s a <strong>flagpole</strong>. Mario jumps on it, pulls down the flag, and receives a reward. The higher he grabs the flag, the bigger the reward. Some levels end with a boss fight against Bowser, where the reward is freeing a Toad (or eventually, the Princess).</p>
+<p>This is the <strong>reward signal</strong> in reinforcement learning. But here’s the critical question: how do we actually <strong>measure</strong> how well the game was played? This is <strong>evaluation</strong>, or <strong>reward modeling</strong>, and it is where the machine learning engineering discipline really shines. (or research engineer, applied AI engineer. )</p>
+<p>The evaluation could be the raw score. It could be the number of 1-ups gained. Coins collected. Goombas stomped. Time remaining. Different paths discovered. Most frequently, it is a <strong>combination</strong> of some or all of the above, weighted and balanced against each other. Do we reward Mario more for speed or for thoroughness? For survival or for aggression? For finding secrets or for staying on the critical path?</p>
+<table> <tr> <th>Evaluation Metric</th> <th>Mario Measure</th> <th>Agent Measure</th> </tr> <tbody> <tr> <td><strong>Speed</strong></td> <td>Time remaining on the clock</td> <td>Task completion latency</td> </tr> <tr> <td><strong>Score</strong></td> <td>Points accumulated</td> <td>Overall output quality</td> </tr> <tr> <td><strong>Collection</strong></td> <td>Coins gathered</td> <td>Information retrieved, resources used efficiently</td> </tr> <tr> <td><strong>Completeness</strong></td> <td>Hidden blocks found, secrets discovered</td> <td>Edge cases handled, comprehensive coverage</td> </tr> <tr> <td><strong>Efficiency</strong></td> <td>Enemies defeated per life</td> <td>Correct tool invocations per task</td> </tr> <tr> <td><strong>Exploration</strong></td> <td>Different paths taken</td> <td>Novel approaches discovered</td> </tr> </tbody> </table>
+<p>Designing these rewards is a strict machine learning engineering discipline. A poorly shaped reward function produces an agent that technically completes tasks but in degenerate ways, like a Mario speedrunner who clips through walls. Impressive, but not what we actually wanted. Reward hacking is the Goodhart’s Law of agentic AI: when a measure becomes a target, it ceases to be a good measure.</p>
+<p>Here’s where the full picture comes together. How does Mario learn to complete levels? <strong>Reinforcement learning.</strong></p>
+<p>Mario starts each level knowing nothing about its specific layout. He has to:</p>
+<ol> <li><strong>Observe</strong> the current state, what’s on screen, where the enemies are, what power-ups are available</li> <li><strong>Decide</strong> on an action based on his policy, jump, run, shoot, or wait</li> <li><strong>Act</strong> and receive feedback from the environment</li> <li><strong>Update</strong> his policy based on the outcome</li> </ol>
+<p>This is the MDP (Markov Decision Process) loop. The same loop described in <a href="https://leehanchung.github.io/blogs/2025/05/09/agent-is-workflow/">Agents Are Workflows</a>. The same loop that every agentic AI system runs:</p>
+<p>The value of Mario’s current state equals the expected immediate reward plus the discounted value of the next state. Should Mario jump NOW to get the coin, or wait and avoid the Goomba? The optimal policy  balances immediate rewards against future outcomes.</p>
+<p>Through repeated play (training episodes), Mario learns:</p>
+<ul> <li>Which obstacles can be jumped on vs. avoided</li> <li>When to use power-ups vs. save them</li> <li>Which pipes lead to shortcuts vs. dead ends</li> <li>How to handle boss fights</li> </ul>
+<p>An agentic AI model goes through the same process. Through reinforcement learning (PPO, DPO, GRPO, or whatever the latest acronym is), the model learns:</p>
+<ul> <li>Which tools to invoke for which subtasks</li> <li>When to think longer vs. act immediately</li> <li>Which approaches work for which problem types</li> <li>How to decompose complex tasks into manageable steps</li> </ul>
+<p>So who’s actually making all of this work? Mario doesn’t train himself.</p>
+<p>To teach agent Mario to be really good at the game, we employ an <strong>Machine Learning Engineer (MLE)</strong>. The MLE is the game designer and coach rolled into one. They construct mock environments, set up the harnesses and tools, define the tasks that Mario needs to achieve, and most importantly, <strong>design the reward function</strong>. The MLE decides what “good” looks like. Do we reward Mario for speed? Thoroughness? Both? How much? This reward design is the single highest leverage decision in the entire pipeline. Get it right and Mario learns to play beautifully. Get it wrong and Mario learns to exploit glitches.</p>
+<p>Once the MLE has designed the training setup, the <strong>Machine Learning Systems Engineers (MLSys)</strong> take over. They are the ones who actually run the show at scale. They set up the environment and agent Mario across hundreds to hundreds of thousands of environments, tasks and iterations. They manage the compute, the distributed training runs, the data pipelines. They collect the reasoning traces, the sequences of observations, actions, and outcomes from every single episode Mario plays. And from these traces, they run the reinforcement learning algorithms that allow agent Mario to learn from experience.</p>
+<p>This is the unsexy but critical part. An MLE can design the most elegant reward function in the world, but without MLSys engineers standing up the infrastructure to run millions of training episodes and collect the resulting data, Mario never gets past World 1-1.</p>
+<h2><a href="https://leehanchung.github.io/blogs/2026/02/18/mario-agentic-ai/#agent-frameworks">Worlds: Agent Frameworks and Domains</a></h2>
+<p>The Mushroom Kingdom isn’t one level. It’s organized into <strong>Worlds</strong>, each with a distinct theme and set of challenges:</p>
+<table> <tr> <th>World</th> <th>Theme</th> <th>Agent Domain</th> </tr> <tbody> <tr> <td><strong>World 1</strong></td> <td>Grassland, basics</td> <td>Simple text tasks, Q&amp;A, summarization</td> </tr> <tr> <td><strong>World 2</strong></td> <td>Desert</td> <td>Data analysis, structured environments</td> </tr> <tr> <td><strong>World 3</strong></td> <td>Water</td> <td>Web and API navigation</td> </tr> <tr> <td><strong>World 4</strong></td> <td>Giant Land</td> <td>Large-scale refactoring, migrations</td> </tr> <tr> <td><strong>World 5</strong></td> <td>Sky</td> <td>Architecture and system design</td> </tr> <tr> <td><strong>World 6</strong></td> <td>Ice</td> <td>Debugging in fragile or legacy environments</td> </tr> <tr> <td><strong>World 7</strong></td> <td>Pipe Maze</td> <td>Complex multi-step workflows with dependencies</td> </tr> <tr> <td><strong>World 8</strong></td> <td>Bowser’s Castle</td> <td>Full autonomous task completion with adversarial conditions</td> </tr> </tbody> </table>
+<p>Agent frameworks are the <strong>World Maps</strong> - they organize how the agent navigates between levels (subtasks) and worlds (domains). Some frameworks are rigid, you follow the path laid out. Others let you pick your route. The best ones (like how Super Mario Bros. 3 introduced the overworld map) let the agent make strategic choices about which level to tackle next.</p>
+<p>But remember: <a href="https://leehanchung.github.io/blogs/2025/06/26/no-code-low-code-full-code/">the model is the product</a>. The World Map (framework) is useful scaffolding, but Mario does the actual playing. As models get stronger, they need less scaffolding. Today’s World 8 is tomorrow’s World 1.</p>
+<h2><a href="https://leehanchung.github.io/blogs/2026/02/18/mario-agentic-ai/#conclusion">Conclusion</a></h2>
+<p>The entire agentic AI stack maps to Mario with surprising fidelity:</p>
+<table> <tr> <th>Mario</th> <th>Agentic AI</th> </tr> <tbody> <tr> <td>Small Mario</td> <td>Base pretrained model</td> </tr> <tr> <td>Super Mushroom</td> <td>Model harness and post-training</td> </tr> <tr> <td>Power-ups</td> <td>Agent tools and skills</td> </tr> <tr> <td>Star Power</td> <td>Engineering manager clearing blockers</td> </tr> <tr> <td>Levels</td> <td>Task environments</td> </tr> <tr> <td>Pipes, bricks, shells</td> <td>Tool use within the environment</td> </tr> <tr> <td>Objectives (speed, score, coins)</td> <td>Task definitions</td> </tr> <tr> <td>Flagpole / Boss</td> <td>Reward signal and evaluation</td> </tr> <tr> <td>Reward design</td> <td>Reward modeling (ML engineering discipline)</td> </tr> <tr> <td>Learning to play</td> <td>Reinforcement learning</td> </tr> <tr> <td>MLE as game designer</td> <td>ML engineer designing tasks and rewards</td> </tr> <tr> <td>MLSys running millions of episodes</td> <td>ML infrastructure for training at scale</td> </tr> <tr> <td>World Map</td> <td>Agent framework</td> </tr> <tr> <td>Multiplayer</td> <td>Multi-agent systems</td> </tr> </tbody> </table>
+<p>The next time someone asks you to explain agentic AI, ask them: have you played Mario?</p>
+<p>If they can understand that Small Mario needs a mushroom to survive, power-ups to be effective, and practice to master each level, they can understand agentic AI development.</p>
+<p>Now go save Princess Peach.</p>
+<h2><a href="https://leehanchung.github.io/blogs/2026/02/18/mario-agentic-ai/#references">References</a></h2>
+<pre><code>@article{
+    leehanchung,
+    author = {Lee, Hanchung},
+    title = {It's-a Me, Agentic AI},
+    year = {2026},
+    month = {02},
+    day = {18},
+    howpublished = {\url{https://leehanchung.github.io}},
+    url = {https://leehanchung.github.io/blogs/2026/02/18/mario-agentic-ai/}
+}
+</code></pre></div>
+      
+    </article>
+    
+    <article>
+      <h1>Bottle</h1>
+      <div class="article-meta">
+        xkcd.com
+        · 01 May 2026 · <a href="https://xkcd.com/3240/">Source</a>
+      </div>
+      <div class="article-body"><figure class="article-figure"><img alt="Bottle" data-title="&quot;I know it seems impossible, but the trick is that I sailed in here when I was very young.&quot;" src="https://imgs.xkcd.com/comics/bottle_2x.png" srcset="https://imgs.xkcd.com/comics/bottle_2x.png 2x" class="article-image"/><figcaption>"I know it seems impossible, but the trick is that I sailed in here when I was very young."</figcaption></figure></div>
+      
+    </article>
+    
+  </body>
+</html>
