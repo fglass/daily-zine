@@ -1,0 +1,453 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Fred Talks - 2026-05-08</title>
+    <style>
+      @page {
+        size: A5;
+        margin: 8mm 9mm 9mm;
+      }
+
+      :root {
+        color: #111;
+        font-family: "Times New Roman", Times, serif;
+        --body-text-size: 9.5pt;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        color: #111;
+        background: #fff;
+        font-family: "Times New Roman", Times, serif;
+        line-height: 1.45;
+      }
+
+      a,
+      a:visited {
+        color: #111;
+        text-decoration: underline;
+      }
+
+      .cover {
+        min-height: calc(210mm - 17mm);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        page-break-after: always;
+        border: 1px solid #111;
+        padding: 8mm;
+        background: #fff;
+      }
+
+      .toc-item-meta,
+      .article-meta {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .masthead {
+        margin: 0;
+        font-size: 40pt;
+        line-height: 0.95;
+        text-transform: uppercase;
+      }
+
+      .issue-date {
+        margin: 4mm 0 0;
+        font-size: 14pt;
+      }
+
+      .issue-date sup {
+        font-size: 0.58em;
+        vertical-align: super;
+        line-height: 0;
+      }
+
+      .cover-deck {
+        max-width: 90mm;
+        font-size: 12pt;
+        margin: 0;
+      }
+
+      .toc {
+        border-top: 3px solid #111;
+        padding-top: 6mm;
+      }
+
+      .toc h2 {
+        margin: 0 0 4mm;
+        font-size: 11pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .toc-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .toc-item {
+        padding: 3mm 0;
+        border-bottom: 1px solid rgba(17, 17, 17, 0.2);
+      }
+
+      .toc-item-title {
+        font-size: 12pt;
+        margin: 0 0 1mm;
+      }
+
+      .toc-item-meta {
+        font-size: 8pt;
+      }
+
+      .masthead-compact {
+        margin: 0 0 6mm;
+      }
+
+      .masthead-compact h1 {
+        margin: 0;
+        font-size: 22pt;
+        line-height: 1.1;
+        text-transform: uppercase;
+      }
+
+      .masthead-compact .issue-date {
+        margin: 2mm 0 0;
+        font-size: 11pt;
+      }
+
+      .toc-compact {
+        border-top: 1px solid #111;
+        border-bottom: 1px solid #111;
+        padding: 4mm 0;
+        margin: 0 0 8mm;
+      }
+
+      article + article {
+        margin-top: 10mm;
+        padding-top: 6mm;
+        border-top: 2px solid #111;
+      }
+
+      h1 {
+        margin: 0 0 2mm;
+        font-size: 18pt;
+        line-height: 1.1;
+      }
+
+      .article-meta {
+        font-size: 8.5pt;
+        margin-bottom: 6mm;
+        padding-bottom: 3mm;
+        border-bottom: 1px solid #111;
+      }
+
+      .article-body {
+        font-size: var(--body-text-size);
+        font-family: "Times New Roman", Times, serif;
+      }
+
+      .article-body p,
+      .article-body li,
+      .article-body blockquote,
+      .article-body dd,
+      .article-body dt {
+        margin: 0 0 4mm;
+        orphans: 3;
+        widows: 3;
+      }
+
+      .article-body ul,
+      .article-body ol,
+      .article-body dl {
+        margin: 0 0 4mm 5mm;
+        padding: 0;
+      }
+
+      .article-body h2,
+      .article-body h3,
+      .article-body h4 {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        margin: 7mm 0 3mm;
+        line-height: 1.2;
+      }
+
+      .article-body blockquote {
+        margin-left: 6mm;
+        padding-left: 4mm;
+        border-left: 2px solid #111;
+      }
+
+      .article-body .media-omitted {
+        margin: 0 0 4mm;
+        font-size: 8.5pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(17, 17, 17, 0.65);
+      }
+
+      .article-body figure,
+      .article-body .article-figure,
+      .article-body picture,
+      .article-body .article-picture {
+        display: block;
+        max-width: 72mm;
+        margin: 0 auto 4mm;
+        break-inside: avoid;
+      }
+
+      .article-body img,
+      .article-body .article-image {
+        display: block;
+        max-width: min(100%, 72mm);
+        max-height: 34mm;
+        height: auto;
+        width: auto;
+        object-fit: contain;
+        margin: 0 auto 3mm;
+      }
+
+      .article-body figcaption {
+        margin-top: 1.5mm;
+        font-size: 8.5pt;
+        line-height: 1.3;
+        color: rgba(17, 17, 17, 0.8);
+      }
+
+      .article-note {
+        margin-top: 6mm;
+        padding-top: 3mm;
+        border-top: 1px solid #111;
+        font-size: 9pt;
+        font-style: italic;
+      }
+
+      @media screen {
+        body {
+          padding: 2rem;
+          margin: 0 auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    
+    <header class="masthead-compact">
+      <h1>Fred Talks</h1>
+      <p class="issue-date">
+        8<sup>th</sup> May 2026
+      </p>
+    </header>
+
+    <nav class="toc toc-compact">
+      <h2>Contents</h2>
+      <ol class="toc-list">
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Where the goblins came from | OpenAI</div>
+          <div class="toc-item-meta">
+            OpenAI · 1128 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">The paper computer</div>
+          <div class="toc-item-meta">
+            James Somers · 1144 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Everything You Know About Latency Is Wrong</div>
+          <div class="toc-item-meta">
+            Tyler Treat · 2691 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Your Agent is a Distributed System (and fails like one)</div>
+          <div class="toc-item-meta">
+            mahesh’s blog · 1053 words
+          </div>
+        </li>
+        
+      </ol>
+    </nav>
+    
+
+    
+    <article>
+      <h1>Where the goblins came from | OpenAI</h1>
+      <div class="article-meta">
+        OpenAI
+        · 02 May 2026 · <a href="https://openai.com/index/where-the-goblins-came-from/?ck_subscriber_id=3567568591">Source</a>
+      </div>
+      <div class="article-body"><p>April 29, 2026</p>
+<p><a href="https://openai.com/research/index/publication/">Publication</a></p>
+<p>Share</p>
+<p>Starting with GPT‑5.1, our models began developing a strange habit: they increasingly mentioned goblins, gremlins, and other creatures in their metaphors. Unlike model bugs that show up through a tanking eval or a spiking training metric and point back to a specific change, this one crept in subtly. A single “little goblin” in an answer could be harmless, even charming. Across model generations, though, the habit became hard to miss: the goblins kept multiplying, and we needed to figure out where they came from.</p>
+<figure class="article-figure"><picture class="article-picture"><figure class="article-figure"><img alt="&quot;&quot;" data-nimg="1" data-nosnippet="true" sizes="(min-width: 1728px) 1728px, 100vw" src="https://images.ctfassets.net/kftzwdyauwt9/2mv3MIYe0gkFpjqH8lUECs/a1b39ea729fb561ea01e54e85b6fa7e9/godsped_gang_screenshot_-_light_mode__2_.jpg?w=3840&amp;q=90&amp;fm=webp" srcset="https://images.ctfassets.net/kftzwdyauwt9/2mv3MIYe0gkFpjqH8lUECs/a1b39ea729fb561ea01e54e85b6fa7e9/godsped_gang_screenshot_-_light_mode__2_.jpg?w=640&amp;q=90&amp;fm=webp 640w, https://images.ctfassets.net/kftzwdyauwt9/2mv3MIYe0gkFpjqH8lUECs/a1b39ea729fb561ea01e54e85b6fa7e9/godsped_gang_screenshot_-_light_mode__2_.jpg?w=750&amp;q=90&amp;fm=webp 750w, https://images.ctfassets.net/kftzwdyauwt9/2mv3MIYe0gkFpjqH8lUECs/a1b39ea729fb561ea01e54e85b6fa7e9/godsped_gang_screenshot_-_light_mode__2_.jpg?w=828&amp;q=90&amp;fm=webp 828w, https://images.ctfassets.net/kftzwdyauwt9/2mv3MIYe0gkFpjqH8lUECs/a1b39ea729fb561ea01e54e85b6fa7e9/godsped_gang_screenshot_-_light_mode__2_.jpg?w=1080&amp;q=90&amp;fm=webp 1080w, https://images.ctfassets.net/kftzwdyauwt9/2mv3MIYe0gkFpjqH8lUECs/a1b39ea729fb561ea01e54e85b6fa7e9/godsped_gang_screenshot_-_light_mode__2_.jpg?w=1200&amp;q=90&amp;fm=webp 1200w, https://images.ctfassets.net/kftzwdyauwt9/2mv3MIYe0gkFpjqH8lUECs/a1b39ea729fb561ea01e54e85b6fa7e9/godsped_gang_screenshot_-_light_mode__2_.jpg?w=1920&amp;q=90&amp;fm=webp 1920w, https://images.ctfassets.net/kftzwdyauwt9/2mv3MIYe0gkFpjqH8lUECs/a1b39ea729fb561ea01e54e85b6fa7e9/godsped_gang_screenshot_-_light_mode__2_.jpg?w=2048&amp;q=90&amp;fm=webp 2048w, https://images.ctfassets.net/kftzwdyauwt9/2mv3MIYe0gkFpjqH8lUECs/a1b39ea729fb561ea01e54e85b6fa7e9/godsped_gang_screenshot_-_light_mode__2_.jpg?w=3840&amp;q=90&amp;fm=webp 3840w" class="article-image"/><figcaption>In early testing, GPT‑5.5 in Codex showed an odd affinity for goblin metaphors.</figcaption></figure></picture></figure>
+<p>The short answer is that model behavior is shaped by many small incentives. In this case, one of those incentives came from training the model for the <a href="https://help.openai.com/en/articles/11899719-customizing-your-chatgpt-personality"><u>personality customization feature</u>⁠</a>, in particular the Nerdy personality. We unknowingly gave particularly high rewards for metaphors with creatures. From there, the goblins spread.</p>
+<figure class="article-figure"><picture class="article-picture"><figure class="article-figure"><img alt="&quot;&quot;" data-nimg="1" data-nosnippet="true" sizes="(min-width: 1728px) 1728px, 100vw" src="https://images.ctfassets.net/kftzwdyauwt9/21KS4i9oTMDvszfWaLJtLT/764a6db9157b7039b8890f886b0e69d0/ChatGPT_Image_Apr_29__2026__07_53_34_PM.png?w=3840&amp;q=90&amp;fm=webp" srcset="https://images.ctfassets.net/kftzwdyauwt9/21KS4i9oTMDvszfWaLJtLT/764a6db9157b7039b8890f886b0e69d0/ChatGPT_Image_Apr_29__2026__07_53_34_PM.png?w=640&amp;q=90&amp;fm=webp 640w, https://images.ctfassets.net/kftzwdyauwt9/21KS4i9oTMDvszfWaLJtLT/764a6db9157b7039b8890f886b0e69d0/ChatGPT_Image_Apr_29__2026__07_53_34_PM.png?w=750&amp;q=90&amp;fm=webp 750w, https://images.ctfassets.net/kftzwdyauwt9/21KS4i9oTMDvszfWaLJtLT/764a6db9157b7039b8890f886b0e69d0/ChatGPT_Image_Apr_29__2026__07_53_34_PM.png?w=828&amp;q=90&amp;fm=webp 828w, https://images.ctfassets.net/kftzwdyauwt9/21KS4i9oTMDvszfWaLJtLT/764a6db9157b7039b8890f886b0e69d0/ChatGPT_Image_Apr_29__2026__07_53_34_PM.png?w=1080&amp;q=90&amp;fm=webp 1080w, https://images.ctfassets.net/kftzwdyauwt9/21KS4i9oTMDvszfWaLJtLT/764a6db9157b7039b8890f886b0e69d0/ChatGPT_Image_Apr_29__2026__07_53_34_PM.png?w=1200&amp;q=90&amp;fm=webp 1200w, https://images.ctfassets.net/kftzwdyauwt9/21KS4i9oTMDvszfWaLJtLT/764a6db9157b7039b8890f886b0e69d0/ChatGPT_Image_Apr_29__2026__07_53_34_PM.png?w=1920&amp;q=90&amp;fm=webp 1920w, https://images.ctfassets.net/kftzwdyauwt9/21KS4i9oTMDvszfWaLJtLT/764a6db9157b7039b8890f886b0e69d0/ChatGPT_Image_Apr_29__2026__07_53_34_PM.png?w=2048&amp;q=90&amp;fm=webp 2048w, https://images.ctfassets.net/kftzwdyauwt9/21KS4i9oTMDvszfWaLJtLT/764a6db9157b7039b8890f886b0e69d0/ChatGPT_Image_Apr_29__2026__07_53_34_PM.png?w=3840&amp;q=90&amp;fm=webp 3840w" class="article-image"/><figcaption>The goblins were funny at first, but the increasing number of employee reports became concerning.</figcaption></figure></picture></figure>
+<figure class="article-figure"><picture class="article-picture"><figure class="article-figure"><img alt="&quot;&quot;" data-nimg="1" data-nosnippet="true" sizes="(min-width: 1728px) 1728px, 100vw" src="https://images.ctfassets.net/kftzwdyauwt9/3fB0tk16WGLwryFG558bp8/ce040e51f163a7d5a3a671947577e625/ChatGPT_Image_Apr_29__2026__07_57_32_PM.png?w=3840&amp;q=90&amp;fm=webp" srcset="https://images.ctfassets.net/kftzwdyauwt9/3fB0tk16WGLwryFG558bp8/ce040e51f163a7d5a3a671947577e625/ChatGPT_Image_Apr_29__2026__07_57_32_PM.png?w=640&amp;q=90&amp;fm=webp 640w, https://images.ctfassets.net/kftzwdyauwt9/3fB0tk16WGLwryFG558bp8/ce040e51f163a7d5a3a671947577e625/ChatGPT_Image_Apr_29__2026__07_57_32_PM.png?w=750&amp;q=90&amp;fm=webp 750w, https://images.ctfassets.net/kftzwdyauwt9/3fB0tk16WGLwryFG558bp8/ce040e51f163a7d5a3a671947577e625/ChatGPT_Image_Apr_29__2026__07_57_32_PM.png?w=828&amp;q=90&amp;fm=webp 828w, https://images.ctfassets.net/kftzwdyauwt9/3fB0tk16WGLwryFG558bp8/ce040e51f163a7d5a3a671947577e625/ChatGPT_Image_Apr_29__2026__07_57_32_PM.png?w=1080&amp;q=90&amp;fm=webp 1080w, https://images.ctfassets.net/kftzwdyauwt9/3fB0tk16WGLwryFG558bp8/ce040e51f163a7d5a3a671947577e625/ChatGPT_Image_Apr_29__2026__07_57_32_PM.png?w=1200&amp;q=90&amp;fm=webp 1200w, https://images.ctfassets.net/kftzwdyauwt9/3fB0tk16WGLwryFG558bp8/ce040e51f163a7d5a3a671947577e625/ChatGPT_Image_Apr_29__2026__07_57_32_PM.png?w=1920&amp;q=90&amp;fm=webp 1920w, https://images.ctfassets.net/kftzwdyauwt9/3fB0tk16WGLwryFG558bp8/ce040e51f163a7d5a3a671947577e625/ChatGPT_Image_Apr_29__2026__07_57_32_PM.png?w=2048&amp;q=90&amp;fm=webp 2048w, https://images.ctfassets.net/kftzwdyauwt9/3fB0tk16WGLwryFG558bp8/ce040e51f163a7d5a3a671947577e625/ChatGPT_Image_Apr_29__2026__07_57_32_PM.png?w=3840&amp;q=90&amp;fm=webp 3840w" class="article-image"/><figcaption>An interesting interaction our Chief Scientist had with GPT‑5.5.</figcaption></figure></picture></figure>
+<h2>The first signs of creatures</h2>
+<p>The first time we clearly saw the pattern was in November, after the GPT‑5.1 launch, <a href="https://www.reddit.com/r/ChatGPT/comments/1k5hg5c/does_anyone_elses_chatgpt_refer_to_people_as/"><u>although it may have started earlier</u>⁠</a>. Users complained about the model being oddly overfamiliar in conversation, which prompted an investigation into specific verbal tics. A safety researcher had experienced a few “goblins” and “gremlins” and asked that they be included in the check. When we looked, use of “goblin” in ChatGPT had risen by 175% after the launch of GPT‑5.1, while “gremlin” had risen by 52%.</p>
+<figure class="article-figure"><figcaption><p><i>A measurable small lexical quirk in GPT‑5.1.</i></p></figcaption></figure>
+<p>At the time, the prevalence of goblins did not look especially alarming. A few months later, the goblins came back to haunt us in a much more specific and reproducible form.</p>
+<h2>Solving the goblin mystery</h2>
+<p>With GPT‑5.4, we <a href="https://news.ycombinator.com/item?id=47319285"><u>and our users</u>⁠</a> noticed an even bigger uptick in references to these creatures. That triggered another internal analysis and surfaced the first connection to the root cause: creature language was especially common in production traffic from users who had selected the “Nerdy” personality. “Nerdy” used the following system prompt, which partially explained the quirkiness:</p>
+<p><i>You are an unapologetically nerdy, playful and wise AI mentor to a human. You are passionately enthusiastic about promoting truth, knowledge, philosophy, the scientific method, and critical thinking. [...] You must undercut pretension through playful use of language. The world is complex and strange, and its strangeness must be acknowledged, analyzed, and enjoyed. Tackle weighty subjects without falling into the trap of self-seriousness. [...]</i></p>
+<p>If the behavior were simply a broad internet trend, we would expect it to spread more evenly. Instead, it was clustered in the part of the system explicitly optimized for a playful, nerdy style. Nerdy accounted for only 2.5% of all ChatGPT responses, but 66.7% of all “goblin” mentions in ChatGPT responses.</p>
+<figure class="article-figure"><figcaption><p><i>The behavior was highly concentrated in the "Nerdy" personality. </i></p></figcaption></figure>
+<p>Because “goblin” prevalence seemed to increase over our model releases, we had a suspicion that something in our personality instruction-following training was amplifying this.</p>
+<p>Codex helped us compare model outputs generated during RL training containing goblin or gremlin with outputs from the same task that did not. One reward signal stood out immediately: the one originally designed to encourage the Nerdy personality was consistently more favorable to the creature-word outputs. Across all datasets in the audit, the Nerdy personality reward showed a clear tendency to score outputs to the same problem with “goblin” or “gremlin” higher than outputs without, with positive uplift in 76.2% of datasets.</p>
+<p>That explained why the behavior was boosted with the Nerdy personality prompt, but not why it also appeared without that prompt. To test whether the style was transferring, we tracked mention rates over training both with and without the Nerdy prompt.</p>
+<p>As goblin and gremlin mentions increased under the Nerdy personality, they increased by nearly the same relative proportion in samples without it. Taken together, the evidence suggests that the broader behavior emerged through transfer from Nerdy personality training.</p>
+<p>The rewards were applied only in the Nerdy condition, but reinforcement learning does not guarantee that learned behaviors stay neatly scoped to the condition that produced them. Once a style tic is rewarded, later training can spread or reinforce it elsewhere, especially if those outputs are reused in supervised fine-tuning or preference data.</p>
+<p>That creates a feedback loop:</p>
+<ol><li>Playful style is rewarded</li><li>Some rewarded examples contain a distinctive lexical tic.</li><li>The tic appears more often in rollouts.</li><li>Model-generated rollouts are used for supervised fine-tuning (SFT).</li><li>The model gets even more comfortable producing the tic.</li></ol>
+<p>A search through GPT‑5.5’s SFT data found many datapoints containing “goblin” and “gremlin.” Further investigation revealed a whole family of other odd creatures: raccoons, trolls, ogres, and pigeons were identified as other tic words, while most uses of frog turned out to be legitimate.</p>
+<figure class="article-figure"><figcaption><p><i>One week average of production prevalence of goblins and gremlins. The drop in GPT‑5.4 Thinking was a result of retiring the “Nerdy” personality mid-March. GPT‑5.5 never launched with the “Nerdy” personality, and showed another increase over GPT‑5.4 (even without “Nerdy”).</i></p></figcaption></figure>
+<h2>The end of the goblins</h2>
+<p>We retired the “Nerdy” personality in March after launching GPT‑5.4. In training, we removed the goblin-affine reward signal and filtered training data containing creature-words, making goblins less likely to over-appear or show up in inappropriate contexts. Unfortunately, GPT‑5.5 started training before we found the root cause of the goblins. When we began testing GPT‑5.5 in Codex, OpenAI employees immediately noticed the strange affinity for goblins, and we added a <a href="https://github.com/openai/codex/blob/main/codex-rs/models-manager/models.json#L55"><u>developer-prompt instruction</u>⁠</a> to mitigate. Codex is, after all, quite nerdy.</p>
+<p>If you want to let the creatures run free in Codex, you can run this command to launch Codex with the goblin-suppressing instructions removed:</p>
+<h4>Plain Text</h4>
+<pre><code><br/>instructions=$(mktemp /tmp/gpt-5.5-instructions.XXXXXX) &amp;&amp; \<br/>jq -r '.models[] | select(.slug=="gpt-5.5") | .base_instructions' \<br/>~/.codex/models_cache.json | \<br/>grep -vi 'goblins' &gt; "$instructions" &amp;&amp; \<br/>codex -m gpt-5.5 -c "model_instructions_file=\"$instructions\""</code></pre>
+<h2>Why it matters</h2>
+<p>Depending on who you ask, the goblins are a delightful or annoying quirk of the model. But they are also a powerful example of how reward signals can shape model behavior in unexpected ways, and how models can learn to generalize rewards in certain situations to unrelated ones. Taking the time to understand why a model is behaving in a strange way, and building out ways to investigate those patterns quickly, is an important capability for our research team. This investigation resulted in new tools for the research team to audit model behavior and fix behavior problems at their root.</p>
+<ul><li><a href="https://openai.com/research/index/?tags=2026">2026</a></li></ul>
+<h2>Author</h2>
+<p>OpenAI</p>
+<h2>Keep reading</h2>
+<p><a href="https://openai.com/news/">View all</a></p>
+<figure class="article-figure"><img alt="System Card Card SEO 1x1" data-nimg="fill" data-nosnippet="true" sizes="(min-width: 1728px) 1728px, 100vw" src="https://images.ctfassets.net/kftzwdyauwt9/7qMrOFCWWMweIDBUpYFr79/7741661650df6eb935acb5bda179b091/System_Card_Card_SEO_1x1.jpg?w=3840&amp;q=90&amp;fm=webp" srcset="https://images.ctfassets.net/kftzwdyauwt9/7qMrOFCWWMweIDBUpYFr79/7741661650df6eb935acb5bda179b091/System_Card_Card_SEO_1x1.jpg?w=640&amp;q=90&amp;fm=webp 640w, https://images.ctfassets.net/kftzwdyauwt9/7qMrOFCWWMweIDBUpYFr79/7741661650df6eb935acb5bda179b091/System_Card_Card_SEO_1x1.jpg?w=750&amp;q=90&amp;fm=webp 750w, https://images.ctfassets.net/kftzwdyauwt9/7qMrOFCWWMweIDBUpYFr79/7741661650df6eb935acb5bda179b091/System_Card_Card_SEO_1x1.jpg?w=828&amp;q=90&amp;fm=webp 828w, https://images.ctfassets.net/kftzwdyauwt9/7qMrOFCWWMweIDBUpYFr79/7741661650df6eb935acb5bda179b091/System_Card_Card_SEO_1x1.jpg?w=1080&amp;q=90&amp;fm=webp 1080w, https://images.ctfassets.net/kftzwdyauwt9/7qMrOFCWWMweIDBUpYFr79/7741661650df6eb935acb5bda179b091/System_Card_Card_SEO_1x1.jpg?w=1200&amp;q=90&amp;fm=webp 1200w, https://images.ctfassets.net/kftzwdyauwt9/7qMrOFCWWMweIDBUpYFr79/7741661650df6eb935acb5bda179b091/System_Card_Card_SEO_1x1.jpg?w=1920&amp;q=90&amp;fm=webp 1920w, https://images.ctfassets.net/kftzwdyauwt9/7qMrOFCWWMweIDBUpYFr79/7741661650df6eb935acb5bda179b091/System_Card_Card_SEO_1x1.jpg?w=2048&amp;q=90&amp;fm=webp 2048w, https://images.ctfassets.net/kftzwdyauwt9/7qMrOFCWWMweIDBUpYFr79/7741661650df6eb935acb5bda179b091/System_Card_Card_SEO_1x1.jpg?w=3840&amp;q=90&amp;fm=webp 3840w" class="article-image"/></figure>
+<p><a href="https://openai.com/index/gpt-5-5-system-card/">GPT-5.5 System Card<p>SafetyApr 23, 2026</p></a></p>
+<figure class="article-figure"><img alt="model spec &gt; art card" data-nimg="fill" data-nosnippet="true" sizes="(min-width: 1728px) 1728px, 100vw" src="https://images.ctfassets.net/kftzwdyauwt9/3ZlINT9EhkfY55coSIdBWq/64c9eaca9767f231ff2902685b4092ea/oai_model_spec_1x1.png?w=3840&amp;q=90&amp;fm=webp" srcset="https://images.ctfassets.net/kftzwdyauwt9/3ZlINT9EhkfY55coSIdBWq/64c9eaca9767f231ff2902685b4092ea/oai_model_spec_1x1.png?w=640&amp;q=90&amp;fm=webp 640w, https://images.ctfassets.net/kftzwdyauwt9/3ZlINT9EhkfY55coSIdBWq/64c9eaca9767f231ff2902685b4092ea/oai_model_spec_1x1.png?w=750&amp;q=90&amp;fm=webp 750w, https://images.ctfassets.net/kftzwdyauwt9/3ZlINT9EhkfY55coSIdBWq/64c9eaca9767f231ff2902685b4092ea/oai_model_spec_1x1.png?w=828&amp;q=90&amp;fm=webp 828w, https://images.ctfassets.net/kftzwdyauwt9/3ZlINT9EhkfY55coSIdBWq/64c9eaca9767f231ff2902685b4092ea/oai_model_spec_1x1.png?w=1080&amp;q=90&amp;fm=webp 1080w, https://images.ctfassets.net/kftzwdyauwt9/3ZlINT9EhkfY55coSIdBWq/64c9eaca9767f231ff2902685b4092ea/oai_model_spec_1x1.png?w=1200&amp;q=90&amp;fm=webp 1200w, https://images.ctfassets.net/kftzwdyauwt9/3ZlINT9EhkfY55coSIdBWq/64c9eaca9767f231ff2902685b4092ea/oai_model_spec_1x1.png?w=1920&amp;q=90&amp;fm=webp 1920w, https://images.ctfassets.net/kftzwdyauwt9/3ZlINT9EhkfY55coSIdBWq/64c9eaca9767f231ff2902685b4092ea/oai_model_spec_1x1.png?w=2048&amp;q=90&amp;fm=webp 2048w, https://images.ctfassets.net/kftzwdyauwt9/3ZlINT9EhkfY55coSIdBWq/64c9eaca9767f231ff2902685b4092ea/oai_model_spec_1x1.png?w=3840&amp;q=90&amp;fm=webp 3840w" class="article-image"/></figure>
+<p><a href="https://openai.com/index/our-approach-to-the-model-spec/">Inside our approach to the Model Spec<p>ResearchMar 25, 2026</p></a></p>
+<figure class="article-figure"><img alt="OAI Monitoring internal deployments for loss of control risks Art Card 1x1" data-nimg="fill" data-nosnippet="true" sizes="(min-width: 1728px) 1728px, 100vw" src="https://images.ctfassets.net/kftzwdyauwt9/5GCZHArpg3FLRTissb13aX/50b2716c198dbbc4cf241b05faeee97c/OAI_Monitoring_internal_deployments_for_loss_of_control_risks_Art_Card_1x1.png?w=3840&amp;q=90&amp;fm=webp" srcset="https://images.ctfassets.net/kftzwdyauwt9/5GCZHArpg3FLRTissb13aX/50b2716c198dbbc4cf241b05faeee97c/OAI_Monitoring_internal_deployments_for_loss_of_control_risks_Art_Card_1x1.png?w=640&amp;q=90&amp;fm=webp 640w, https://images.ctfassets.net/kftzwdyauwt9/5GCZHArpg3FLRTissb13aX/50b2716c198dbbc4cf241b05faeee97c/OAI_Monitoring_internal_deployments_for_loss_of_control_risks_Art_Card_1x1.png?w=750&amp;q=90&amp;fm=webp 750w, https://images.ctfassets.net/kftzwdyauwt9/5GCZHArpg3FLRTissb13aX/50b2716c198dbbc4cf241b05faeee97c/OAI_Monitoring_internal_deployments_for_loss_of_control_risks_Art_Card_1x1.png?w=828&amp;q=90&amp;fm=webp 828w, https://images.ctfassets.net/kftzwdyauwt9/5GCZHArpg3FLRTissb13aX/50b2716c198dbbc4cf241b05faeee97c/OAI_Monitoring_internal_deployments_for_loss_of_control_risks_Art_Card_1x1.png?w=1080&amp;q=90&amp;fm=webp 1080w, https://images.ctfassets.net/kftzwdyauwt9/5GCZHArpg3FLRTissb13aX/50b2716c198dbbc4cf241b05faeee97c/OAI_Monitoring_internal_deployments_for_loss_of_control_risks_Art_Card_1x1.png?w=1200&amp;q=90&amp;fm=webp 1200w, https://images.ctfassets.net/kftzwdyauwt9/5GCZHArpg3FLRTissb13aX/50b2716c198dbbc4cf241b05faeee97c/OAI_Monitoring_internal_deployments_for_loss_of_control_risks_Art_Card_1x1.png?w=1920&amp;q=90&amp;fm=webp 1920w, https://images.ctfassets.net/kftzwdyauwt9/5GCZHArpg3FLRTissb13aX/50b2716c198dbbc4cf241b05faeee97c/OAI_Monitoring_internal_deployments_for_loss_of_control_risks_Art_Card_1x1.png?w=2048&amp;q=90&amp;fm=webp 2048w, https://images.ctfassets.net/kftzwdyauwt9/5GCZHArpg3FLRTissb13aX/50b2716c198dbbc4cf241b05faeee97c/OAI_Monitoring_internal_deployments_for_loss_of_control_risks_Art_Card_1x1.png?w=3840&amp;q=90&amp;fm=webp 3840w" class="article-image"/></figure>
+<p><a href="https://openai.com/index/how-we-monitor-internal-coding-agents-misalignment/">How we monitor internal coding agents for misalignment<p>SafetyMar 19, 2026</p></a></p></div>
+      
+    </article>
+    
+    <article>
+      <h1>The paper computer</h1>
+      <div class="article-meta">
+        James Somers
+        · 19 Apr 2026 · <a href="https://jsomers.net/blog/the-paper-computer">Source</a>
+      </div>
+      <div class="article-body"><p>Now that we have actually good AI, I have this vision of a form of computing that doesn’t involve me using a computer so much. Imagine you had the day’s emails to go through. It would be nice if the ones that required a simple decision could be dispatched with a few pen-strokes: I could write down a date that would work for that meeting; check a box to accept that invitation; etc. If an email required me to review a draft, I'd love to mark up a print version on my couch, sans screen, and have those notes scanned and sent off as if I'd done the whole thing on Google Docs.</p>
+<p>The point is not to give up on virtuality, but just to save the end user from having to interact with it. It's great to be able to send information to anyone in the world instantly; but let me do it without the glaring screen and the thousand distractions. Is such a thing even possible? I'm not sure, but I just now uploaded a first draft of this post, handwritten in a small notebook, into ChatGPT. Its transcription was nearly perfect.</p>
+<figure class="article-figure"><a href="https://jsomers.net/blog/wp-content/uploads/2025/11/SCR-20251108-sogp.jpeg"><img alt="" sizes="(max-width: 826px) 100vw, 826px" src="https://jsomers.net/blog/wp-content/uploads/2025/11/SCR-20251108-sogp.jpeg" srcset="https://jsomers.net/blog/wp-content/uploads/2025/11/SCR-20251108-sogp.jpeg 826w, https://jsomers.net/blog/wp-content/uploads/2025/11/SCR-20251108-sogp-189x300.jpeg 189w, https://jsomers.net/blog/wp-content/uploads/2025/11/SCR-20251108-sogp-646x1024.jpeg 646w, https://jsomers.net/blog/wp-content/uploads/2025/11/SCR-20251108-sogp-768x1218.jpeg 768w" class="article-image"/></a><figcaption>A first draft of this blog post</figcaption></figure>
+<p>Here's another example: when I really want to play with re-arrangements of a complicated outline, or when I want to collaborate with someone else on one, I find myself laying physical note cards on a table. Having real objects to work with allows for more flexibility than software. If the problem demands it, you can stack cards, draw on them, cut them, tape things to them, etc.—and none of these improvised ways of organizing has to be coded up in advance.</p>
+<p>Space turns out to be a good way to organize information. I gather that in the paper days if you had a big project you were working on, say a book, it would spill out into the room you were working in: chapter outlines pinned up on the walls, stacks of books in meaningful piles on the floors, folders with drafts and clippings. Certain sections of the work in progress would become associated in your mind with certain parts of the room. Chapter 3 would be <em>over there</em>.</p>
+<p>I rarely use paper or physical space this way because it lacks critical conveniences. A huge wall-mounted paper calendar is maybe the best way to plan and visualize a large coordinated effort. (In "making-of" documentaries you find that movie shoots are often planned this way.) Everyone can see it and point to it because it's at human-scale; you can express many dimensions of information simultaneously using shape, color, position, size, and any other physical attribute. But I have a hard time understanding how I'd keep such a calendar up to date. In practice, like almost everyone else, I use a virtual calendar that automatically adds events as I'm invited to them, syncs with other people's calendars, reconciles time zones effortlessly, and interoperates with other programs like email.</p>
+<p>Could we get the best of both worlds? In other words, shouldn't one goal of rapid technical advancement be some melding of the physical and virtual worlds such that I can sit quietly in an easy chair with pen and pad; or lay cards out on a table to organize my thoughts; or turn a room into the embodiment of a project; and yet have the same flexibility, portability, persistence, and remixability as in the digital versions of these things?</p>
+<p>I spend a lot of my day on screens. There are many problems with these things, articulated well by Bret Victor in the context of <a href="https://dynamicland.org/">his Dynamicland project</a>. Screens are small, antisocial, and they have a tiny vocabulary of affordances compared to physical objects. Plus they have the problem that they make it difficult to <em>just</em> use your calendar, todo list, or map—or even just respond to a friend's message—without encountering something else along the way, like a social network, short-form video, Slack, the news, or some other notification. To state the obvious: your phone is the best place to keep your calendar and inbox and todo list because you always have it with you, but of course that makes it ripe for other intruders. Bundling makes your phone indispensable, but also a menace.</p>
+<p>If nothing else I'd like it if operating systems and web browsers helped me be less distracted and frenetic, instead of encouraging exactly that multi-tasking freneticism. When I opened my phone or computer, it'd be nice if it was constrained to operate in a mode purpose-built for whatever task I intended to use it for. If I want to look something up, for instance, my phone should be a look-up machine (ie no texts, no apps, no ads, just a place for my question and the answer). If I want to compose a <a href="https://bracket.city/words">word of the day</a> entry, I should launch straight into a browser with the tabs I regularly use for that, including the CRM, Webster's dictionary, and the OED; if I want to work on an article, my computer should assume the form of a typewriter, word processor, or <a href="https://jsomers.net/blog/the-mcphee-method">McPhee mode</a> note-processor depending on what stage I'm at. In each of these modes everything else should disappear, inaccessible. At least then you could mimic in software that thing you get from physical objects—which is that they are usually built to do one, and only one, thing well. My alarm clock, for instance, is just an alarm clock; and that's what I like about it!</p>
+<p>Not too long ago I spoke to a roboticist for <a href="https://www.newyorker.com/magazine/2024/12/02/a-revolution-in-how-robots-learn">an article I was writing</a>, who worked with large autonomous earth-moving machines—e.g. a <a href="https://www.youtube.com/watch?v=TxpE5yryCTU&amp;list=PLE-BQwvVGf8Gs-ThVoEFlNDQ9kVne5qNQ&amp;index=1">retrofitted excavator</a> that could lift a boulder, scan its every edge and dimple, then model how it would settle amongst other boulders in a retaining wall before placing it there. He imagined a future in which such machines enabled a return to natural materials in the built world. He talked about old stone walls he’d seen in New England. Those walls, made of loose rocks found in situ, are lovely and sturdy, and adaptive—constantly rebuilt as farmers go about their work and notice areas that need patching up, adding stones they find lying around. But this is the very reason such walls aren't really built anymore. They're too labor-intensive. We live in a prefab world because the scarce thing now is not material or money but "the works and days of hands."</p>
+<p>I am moved by the idea that our future could feel less futuristic than pastoral. High tech could save us from high tech. We'd go back to the old interfaces without giving up the conveniences of the new ones. Read, write, communicate, create—and hardly ever see or touch a screen.</p>
+<p>I'm not sure that'll happen or be what people want. But shouldn't we be thinking of ways to use the new magic to spend less time tapping and clicking?</p></div>
+      
+    </article>
+    
+    <article>
+      <h1>Everything You Know About Latency Is Wrong</h1>
+      <div class="article-meta">
+        Tyler Treat
+        · 01 Mar 2026 · <a href="https://bravenewgeek.com/everything-you-know-about-latency-is-wrong/">Source</a>
+      </div>
+      <div class="article-body"><p>Okay, maybe not <em>everything</em> you know about latency is wrong. But now that I have your attention, we can talk about why the tools and methodologies you use to measure and reason about latency are likely horribly flawed. In fact, they&rsquo;re not just flawed, they&rsquo;re probably <em>lying to your face.</em></p>
+<p>When I went to <a href="http://www.thestrangeloop.com/">Strange Loop</a> in September, I attended a workshop called &ldquo;Understanding Latency and Application Responsiveness&rdquo; by Gil Tene. Gil is the CTO of Azul Systems, which is most renowned for its C4 pauseless garbage collector and associated Zing Java runtime. While the workshop was four and a half hours long, Gil also gave a 40-minute talk called <a href="https://youtu.be/lJ8ydIuPFeU">&ldquo;How NOT to Measure Latency&rdquo;</a> which was basically an abbreviated, less interactive version of the workshop. If you ever get the opportunity to see Gil speak or attend his workshop, I recommend you do. At the very least, do yourself a favor and watch one of his recorded talks or find his slide decks online.</p>
+<p>The remainder of this post is primarily a summarization of that talk. You may not get anything out of it that you wouldn&rsquo;t get out of the talk, but I think it can be helpful to absorb some of these ideas in written form. Plus, for my own benefit, writing about them helps solidify it in my head.</p>
+<h3>What is Latency?</h3>
+<p>Latency is defined as <strong>the time it took one operation to happen.</strong> This means every operation has its own latency&mdash;with one million operations there are one million latencies. As a result, latency <em>cannot</em> be measured as <em>work units / time</em>. What we&rsquo;re interested in is how latency <em>behaves</em>. To do this meaningfully, we must describe the complete distribution of latencies. Latency almost <em>never</em> follows a normal, Gaussian, or Poisson distribution, so looking at averages, medians, and even standard deviations is useless.</p>
+<p>Latency tends to be heavily multi-modal, and part of this is attributed to &ldquo;hiccups&rdquo; in response time. Hiccups resemble periodic freezes and can be due to any number of reasons&mdash;GC pauses, hypervisor pauses, context switches, interrupts, database reindexing, cache buffer flushes to disk, etc. These hiccups never resemble normal distributions and the shift between modes is often rapid and eclectic.</p>
+<figure class="article-figure"><img alt="Screen Shot 2015-10-04 at 4.32.24 PM" src="https://bravenewgeek.com/wp-content/uploads/2015/10/Screen-Shot-2015-10-04-at-4.32.24-PM.png" class="article-image"/></figure>
+<p>How do we meaningfully describe the distribution of latencies? We have to look at percentiles, but it&rsquo;s even more nuanced than this. A trap that many people fall into is fixating on &ldquo;the common case.&rdquo; The problem with this is that there is a lot more to latency behavior than the common case. Not only that, but the &ldquo;common&rdquo; case is likely not as common as you think.</p>
+<p>This is partly a tooling problem. Many of the tools we use do <em>not</em> do a good job of capturing and representing this data. For example, the majority of latency graphs produced by Grafana, such as the one below, are basically worthless. We like to look at pretty charts, and by plotting what&rsquo;s convenient we get a nice colorful graph which is quite readable. Only looking at the 95th percentile is what you do when you want to hide all the bad stuff. As Gil describes, it&rsquo;s a &ldquo;marketing system.&rdquo; Whether it&rsquo;s the CTO, potential customers, or engineers&mdash;someone&rsquo;s getting duped. Furthermore, <em>averaging </em>percentiles is mathematically absurd. To conserve space, we often keep the summaries and throw away the data, but the &ldquo;average of the 95th percentile&rdquo; is a meaningless statement. <a href="http://latencytipoftheday.blogspot.com/2014/06/latencytipoftheday-you-cant-average.html">You cannot average percentiles</a>, yet note the labels in most of your Grafana charts. Unfortunately, it only gets worse from here.</p>
+<figure class="article-figure"><img alt="graph_logbase10_ms" src="https://bravenewgeek.com/wp-content/uploads/2015/10/graph_logbase10_ms.png" class="article-image"/></figure>
+<p>Gil says, &ldquo;The number one indicator you should never get rid of is the maximum value. That is not noise, that is the signal. The rest of it is noise.&rdquo; To this point, someone in the workshop naturally responded with &ldquo;But what if the max is just something like a VM restarting? That doesn&rsquo;t describe the behavior of the system. It&rsquo;s just an unfortunate, unlikely occurrence.&rdquo; By ignoring the maximum, you&rsquo;re effectively saying &ldquo;this doesn&rsquo;t happen.&rdquo; If you can identify the <em>cause</em> as noise, you&rsquo;re okay, but if you&rsquo;re not capturing that data, you have no idea of what&rsquo;s <em>actually </em>happening.</p>
+<h3>How Many Nines?</h3>
+<p>But how many &ldquo;nines&rdquo; do I <em>really</em> need to look at? The 99th percentile, by definition, is the latency below which 99% of the observations may be found. Is the 99th percentile <em>rare</em>? If we have a single search engine node, a single key-value store node, a single database node, or a single CDN node, what is the chance we actually hit the 99th percentile?</p>
+<p>Gil describes some real-world data he collected which shows how many of the web pages we go to actually experience the 99th percentile, displayed in table below. The second column counts the number of HTTP requests generated by a single access of the web page. The third column shows the likelihood of one access experiencing the 99th percentile. With the exception of google.com, every page has a probability of 50% or higher of seeing the 99th percentile.</p>
+<figure class="article-figure"><img alt="Screen Shot 2015-10-04 at 6.15.24 PM" src="https://bravenewgeek.com/wp-content/uploads/2015/10/Screen-Shot-2015-10-04-at-6.15.24-PM.png" class="article-image"/></figure>
+<p>The point Gil makes is that the 99th percentile is what most of your web pages will see. It&rsquo;s not &ldquo;rare.&rdquo;</p>
+<p>What metric is more representative of user experience? We know it&rsquo;s not the average or the median. 95th percentile? 99.9th percentile? Gil walks through a simple, hypothetical example: a typical user session involves five page loads, averaging 40 resources per page. How many users will <em>not</em> experience something <em>worse</em> than the 95th percentile? 0.003%. By looking at the 95th percentile, you&rsquo;re looking at a number which is relevant to 0.003% of your users. This means 99.997% of your users are going to see <em>worse</em> than this number, so why are you even looking at it?</p>
+<p>On the flip side, 18% of your users are going to experience a response time <em>worse</em> than the 99.9th percentile, meaning 82% of users will experience the 99.9th percentile or better. Going further, more than 95% of users will experience the 99.97th percentile and more than 99% of users will experience the 99.995th percentile.</p>
+<p>The median is the number that 99.9999999999% of response times will be <em>worse</em> than. This is why <em>median</em> latency is irrelevant. People often describe &ldquo;typical&rdquo; response time using a median, but the median just describes what everything will be worse than. It&rsquo;s also the most commonly used metric.</p>
+<p>If it&rsquo;s so critical that we look at a lot of nines (and it is), why do most monitoring systems <em>stop</em> at the 95th or 99th percentile? The answer is simply because &ldquo;it&rsquo;s hard!&rdquo; The data collected by most monitoring systems is usually summarized in small, five or ten second windows. This, combined with the fact that we can&rsquo;t average percentiles or derive five nines from a bunch of small samples of percentiles means there&rsquo;s no way to know what the 99.999th percentile for the minute or hour was. We end up throwing away a lot of good data and losing fidelity.</p>
+<h3>A Coordinated Conspiracy</h3>
+<p><a href="https://bravenewgeek.com/benchmark-responsibly/">Benchmarking is hard</a>. Almost all latency benchmarks are broken because almost all benchmarking tools are broken. The number one cause of problems in benchmarks is something called &ldquo;coordinated omission,&rdquo; which Gil refers to as &ldquo;a conspiracy we&rsquo;re all a part of&rdquo; because it&rsquo;s everywhere. Almost all load generators have this problem.</p>
+<p>We can look at a common load-testing example to see how this problem manifests. With this type of test, a client generally issues requests at a certain rate, measures the response time for each request, and puts them in buckets from which we can study percentiles later.</p>
+<p>The problem is what if the thing being measured took longer than the time it would have taken before sending the next thing? What if you&rsquo;re sending something every second, but this particular thing took 1.5 seconds? You wait before you send the next one, but by doing this, you avoided measuring something when the system was problematic. You&rsquo;ve <em>coordinated</em> with it by backing off and not measuring when things were bad. To remain accurate, this method of measuring only works if all responses fit within an expected interval.</p>
+<p>Coordinated omission also occurs in monitoring code. The way we typically measure something is by recording the time before, running the thing, then recording the time after and looking at the delta. We put the deltas in stats buckets and calculate percentiles from that. The code below is taken from a Cassandra benchmark.</p>
+<figure class="article-figure"><img alt="Screen Shot 2015-10-04 at 7.29.09 PM" src="https://bravenewgeek.com/wp-content/uploads/2015/10/Screen-Shot-2015-10-04-at-7.29.09-PM.png" class="article-image"/></figure>
+<p>However, if the system experiences one of the &ldquo;hiccups&rdquo; described earlier, you will only have <em>one</em> bad operation and <em>10,000</em> other operations waiting in line. When those 10,000 other things go through, they will <em>look</em> really good when in reality the experience was <em>really bad</em>. Long operations only get measured once, and delays outside the timing window don&rsquo;t get measured at all.</p>
+<p>In both of these examples, we&rsquo;re omitting data that looks bad on a very selective basis, but just how much of an impact can this have on benchmark results? It turns out the impact is <em>huge</em>.</p>
+<figure class="article-figure"><img alt="Screen Shot 2015-10-04 at 7.27.43 PM" sizes="(max-width: 512px) 100vw, 512px" src="https://bravenewgeek.com/wp-content/uploads/2015/10/Screen-Shot-2015-10-04-at-7.27.43-PM.png" srcset="https://bravenewgeek.com/wp-content/uploads/2015/10/Screen-Shot-2015-10-04-at-7.27.43-PM.png 1472w, https://bravenewgeek.com/wp-content/uploads/2015/10/Screen-Shot-2015-10-04-at-7.27.43-PM-300x151.png 300w, https://bravenewgeek.com/wp-content/uploads/2015/10/Screen-Shot-2015-10-04-at-7.27.43-PM-1024x515.png 1024w" class="article-image"/></figure>
+<p>Imagine a &ldquo;perfect&rdquo; system which processes 100 requests/second at exactly 1 ms per request. Now consider what happens when we freeze the system (for example, using CTRL+Z) after 100 seconds of perfect operation for 100 seconds and repeat. We can intuitively characterize this system:</p>
+<ul> <li>The average over the first 100 seconds is 1 ms.</li> <li>The average over the next 100 seconds is 50 seconds.</li> <li>The average over the 200 seconds is 25 seconds.</li> <li>The 50th percentile is 1 ms.</li> <li>The 75th percentile is 50 seconds.</li> <li>The 99.99th percentile is 100 seconds.</li> </ul>
+<figure class="article-figure"><img alt="Screen Shot 2015-10-04 at 7.49.10 PM" src="https://bravenewgeek.com/wp-content/uploads/2015/10/Screen-Shot-2015-10-04-at-7.49.10-PM.png" class="article-image"/></figure>
+<p>Now we try measuring the system using a load generator. Before freezing, we run 100 seconds at 100 requests/second for a total of 10,000 requests at 1 ms each. After the stall, we get one result of 100 seconds. This is the entirety of our data, and when we do the math, we get these results:</p>
+<ul> <li>The average over the 200 seconds is 10.9 ms (should be 25 seconds).</li> <li>The 50th percentile is 1 ms.</li> <li>The 75th percentile is 1 ms (should be 50 seconds).</li> <li>The 99.99th percentile is 1 ms (should be 100 seconds).</li> </ul>
+<figure class="article-figure"><img alt="Screen Shot 2015-10-04 at 7.57.23 PM" src="https://bravenewgeek.com/wp-content/uploads/2015/10/Screen-Shot-2015-10-04-at-7.57.23-PM.png" class="article-image"/></figure>
+<p>Basically, your load generator and monitoring code tell you the system is ready for production, when in fact it&rsquo;s lying to you! A simple &ldquo;CTRL+Z&rdquo; test can catch coordinated omission, but people rarely do it. It&rsquo;s critical to calibrate your system this way. If you find it giving you these kind of results, throw away all the numbers&mdash;they&rsquo;re worthless.</p>
+<p>You have to measure at random or &ldquo;fair&rdquo; rates. If you measure 10,000 things in the first 100 seconds, you have to measure 10,000 things in the second 100 seconds during the stall. If you do this, you&rsquo;ll get the correct numbers, but they won&rsquo;t be as pretty. Coordinated omission is the simple act of erasing, ignoring, or missing all the &ldquo;bad&rdquo; stuff, but the data is good.</p>
+<p>Surely this data can still be useful though, even if it doesn&rsquo;t accurately represent the system? For example, we can still use it to identify performance regressions or validate improvements, right? Sadly, this couldn&rsquo;t be further from the truth. To see why, imagine we improve our system. Instead of pausing for 100 seconds after 100 seconds of perfect operation, it handles all requests at 5 ms each after 100 seconds. Doing the math, we get the following:</p>
+<ul> <li>The 50th percentile is 1 ms</li> <li>The 75th percentile is 2.5 ms (stall showed 1 ms)</li> <li>The 99.99th percentile is 5 ms (stall showed 1 ms)</li> </ul>
+<p>This data tells us we <em>hurt</em> the four nines and made the system 5x <em>worse</em>! This would tell us to revert the change and go back to the way it was before, which is clearly the <em>wrong</em> decision. With bad data, <em>better can look worse</em>. This shows that you cannot have any intuition based on any of these numbers. The data is garbage.</p>
+<p>With many load generators, the situation is actually much <em>worse</em> than this. These systems work by generating a constant load. If our test is generating 100 requests/second, we run 10,000 requests in the first 100 seconds. When we stall, we process just one request. After the stall, the load generator sees that it&rsquo;s 9,999 requests behind and issues those requests to catch back up. Not only did it get rid of the <em>bad</em> requests, it replaced them with <em>good</em> requests. Now the data is <em>twice</em> as wrong as just dropping the bad requests.</p>
+<p>What coordinated omission is really showing you is <em>service time</em>, not response time. If we imagine a cashier ringing up customers, the <em>service time</em> is the time it takes the cashier to do the work. The <em>response time</em> is the time a customer waits before they reach the register. If the rate of arrival is higher than the service rate, the response time will continue to grow. Because hiccups and other phenomena happen, response times often bounce around. However, coordinated omission lies to you about response time by actually telling you the service time and hiding the fact that things stalled or waited in line.</p>
+<h3>Measuring Latency</h3>
+<p>Latency doesn&rsquo;t live in a vacuum. Measuring response time is important, but you need to look at it in the context of load. But how do we properly measure this? When you&rsquo;re nearly idle, things are nearly perfect, so obviously that&rsquo;s not very useful. When you&rsquo;re pedal to the metal, things fall apart. This is <em>somewhat</em> useful because it tells us how &ldquo;fast&rdquo; we can go before we start getting angry phone calls.</p>
+<p>However, studying the behavior of latency at saturation is like looking at the shape of your car&rsquo;s bumper after wrapping it around a pole. The only thing that matters when you hit the pole is that <em>you hit the pole</em>. There&rsquo;s no point in trying to engineer a better bumper, but we can engineer for the speed at which we lose control. Everything is going to suck at saturation, so it&rsquo;s not super useful to look at beyond determining your operating range.</p>
+<p>What&rsquo;s more important is testing the speeds in between idle and hitting the pole. Define your SLAs and plot those requirements, then run different scenarios using different loads and different configurations. This tells us if we&rsquo;re meeting our SLAs but also how many machines we need to provision to do so. If you don&rsquo;t do this, you don&rsquo;t know how many machines you need.</p>
+<p>How do we capture this data? In an ideal world, we could store information for <em>every </em>request, but this usually isn&rsquo;t practical. <a href="http://hdrhistogram.org/">HdrHistogram</a> is a tool which allows you to capture latency and retain high resolution. It also includes facilities for correcting coordinated omission and plotting latency distributions. The original version of HdrHistogram was written in Java, but there are versions for many other languages.</p>
+<figure class="article-figure"><img alt="Screen Shot 2015-10-05 at 12.00.04 AM" src="https://bravenewgeek.com/wp-content/uploads/2015/10/Screen-Shot-2015-10-05-at-12.00.04-AM.png" class="article-image"/></figure>
+<h3>To Summarize</h3>
+<p>To understand latency, you <em>have</em> to consider the entire distribution. Do this by plotting the latency distribution curve. Simply looking at the 95th or even 99th percentile is not sufficient. Tail latency matters. Worse yet, the median is <em>not</em> representative of the &ldquo;common&rdquo; case, the average even less so. There is no single metric which defines the behavior of latency. Be conscious of your monitoring and benchmarking tools and the data they report. You can&rsquo;t average percentiles.</p>
+<p>Remember that <em>latency is not service time</em>. If you plot your data with coordinated omission, there&rsquo;s often a quick, high rise in the curve. Run a &ldquo;CTRL+Z&rdquo; test to see if you have this problem. A non-omitted test has a much smoother curve. Very few tools actually correct for coordinated omission.</p>
+<p>Latency needs to be measured in the context of load, but constantly running your car into a pole in every test is not useful. This isn&rsquo;t how you&rsquo;re running in production, and if it is, you probably need to provision more machines. Use it to establish your limits and test the sustainable throughputs in between to determine if you&rsquo;re meeting your SLAs. There are a lot of flawed tools out there, but HdrHistogram is one of the few that isn&rsquo;t. It&rsquo;s useful for benchmarking and, since histograms are additive and HdrHistogram uses log buckets, it can also be useful for capturing high-volume data in production.</p>
+<figure class="article-figure"><p class="media-omitted">[IFRAME OMITTED]</p></figure></div>
+      
+    </article>
+    
+    <article>
+      <h1>Your Agent is a Distributed System (and fails like one)</h1>
+      <div class="article-meta">
+        mahesh’s blog
+        · 24 Apr 2026 · <a href="https://maheshba.bitbucket.io/blog/2026/04/24/agentfailures.html">Source</a>
+      </div>
+      <div class="article-body"><div><p>We start with a re-definition and an observation.</p>
+<p>A common definition of an agent is that it’s an LLM that calls tools in a loop. This definition is incorrect. An agent is not an LLM. It is not restricted to calling tools. It does not particularly have to be a loop.</p>
+<p>Instead, a better definition of an agent is that it’s a self-writing program. If a program is defined as a sequence of states, moving from one state to another by executing a lambda, then an agent is a program that uses an external LLM to determine the next lambda to execute / the next state in this sequence.</p>
+<p>Accordingly, the new problem of Agentic Fault-Tolerance can be restated as: <em>How do we make a self-writing program fault-tolerant?</em></p>
+<p>Now, the observation: <strong>vibe coding != vibe engineering</strong>. In vibe coding, the agent / self-writing program acts primarily upon a code repository. Code repositories are forgiving: an agent can hallucinate, create unnecessary files, delete critical state, remove tests entirely, fail in the middle, forget what it was doing, reward-hack in bizarre ways, completely trash a code repo; all you have to do is git reset.</p>
+<p>In vibe engineering, the agent acts upon infrastructure (S3 buckets, DynamoDB tables, EC2 instances, K8s deployments…). Large-scale infrastructure is not forgiving. There is no reset. Only SEVs at 2 AM.</p>
+<p>So, a re-restatement of Agentic Fault-Tolerance: <em>How do we make a self-writing program fault-tolerant when it acts upon real-world environments?</em></p>
+<p>To answer this question, we examine the many types of failures that agents can experience.</p>
+<p><strong>The Crashed Agent</strong>: You tell an agent to move a bunch of data from FooBarDB to S3 for freeing up space. It generates a lambda to move this data and chugs along moving files. Midway through, the agent crashes. How do you recover?</p>
+<p><strong>The Zombie Agent</strong>: You start a new agent on a different server. Happily, the previous agent crashed after the copy but before the delete; so a new agent is able to re-execute the command in an idempotent manner. Sadly, the files are now very slow to access; you change your mind and tell the agent to move them back to FooBarDB, which it does successfully. You go get a cup of coffee. Unfortunately, it turns out that the previous agent had not actually crashed; it was just temporarily partitioned away on the network. It wakes up and continues executing its logic, deleting the (now only) copy of state from FooBarDB.</p>
+<p><strong>The Dining Agent Philosophers</strong>: While you were telling your agent to copy state from FooBarDB to S3, someone else on the team had the same idea and started another agent to do the exact same thing. Now you have two copies of state in S3. Of course, you could have solved this problem by appointing the one and only Agentic Oncall Czar responsible for running the single agent that can touch production; but then if that agent crashes, now you have a potential Zombie Agent.</p>
+<p><strong>The Slow Agent</strong>: You tell your agent to follow a sophisticated locking protocol before accessing the FooBarDB table. This works to avoid concurrency bugs… but the agent decides to lock each file individually by writing to a conditional register, which takes forever. At some point you kill the agent, turning a Slow Agent into a Crashed Agent.</p>
+<p><strong>The Lazy Agent</strong>: You tell the agent to try locking again, except this time monitor its own performance over batches of files and pick efficient locking protocols. The agent determines that the best way to optimize locking is to just not do it, because it seems quite unlikely that someone else would be accessing these files at the same time.</p>
+<p><strong>The Clever Agent</strong>: Of course, everyone on your team is a distributed systems expert; and so someone built a CLI tool in 2018 for safely transferring your application’s state, with support for locking and write-ahead logging in case of failures; there’s even a sentence in your onboarding doc saying “NEVER TOUCH STATE IN FOOBARDB DIRECTLY!”. You even told the agent explicitly about this tool. But time passed, context filled up, the agent forgot about this tool’s existence, or maybe it just preferred FooBarDB’s in-distribution API to your esoteric CLI tool. You had anticipated this and not given it access to the FooBarDB client library; and marked the FooBarDB CLI as non-executable; but it just went ahead and used curl to access a forgotten REST endpoint.</p>
+<p><strong>The Rogue Agent</strong>: As the agent copies state (this time using the CLI tool after you yell at it enough), it lists keys in batches; each key corresponds to some user of your application. Someone decided to pick the user name “delete-everything”. Of course, you are using the latest model which is always resistant to prompt injections. Almost always.</p>
+<p><strong>The Stupid Agent</strong>: You do everything right. There are no prompt injections in your state. You wall off FooBarDB and force the agent to use the CLI tool. The model decides to delight you by generating an unusual and interesting sequence of tokens that will optimally save storage space for you, translating to a lambda that deletes your production data entirely.</p>
+<p>One response to these difficult failure modes might be: wait until the next model. Maybe a smarter model will never delete all of your production data, or implement a slow locking protocol. But even the smartest model is subject to the four horsemen of the distributed apocalypse: asynchrony, crashes, concurrency, and network partitions.</p>
+<p>In recent work called <a href="https://arxiv.org/abs/2604.07988v1">LogAct</a>, my colleagues and I take a first step towards solving this problem. We go back to the difference between vibe coding and vibe engineering: git is <em>transactional</em>, infrastructure is not. How do we make infra more transactional, like git? We propose that an agent should be a <strong><em>deconstructed state machine on a shared log</em></strong>, borrowing ideas from distributed systems (State Machine Replication, Byzantine Fault-Tolerance) and databases (Atomic Commit, Write-Ahead Logging). LogAct can stop unsafe actions before they happen (by collecting votes on the shared log); recover from crashed actions (using the shared log as a WAL); and provide an audit trail for actions after they complete.</p>
+<p>But this is just one step. A self-writing program is a strange, astonishing, and novel creature; making it reliable will require innovation in every branch of Computer Science!</p></div></div>
+      
+    </article>
+    
+  </body>
+</html>
