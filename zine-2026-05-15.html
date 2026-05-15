@@ -1,0 +1,571 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Fred Talks - 2026-05-15</title>
+    <style>
+      @page {
+        size: A5;
+        margin: 8mm 9mm 9mm;
+      }
+
+      :root {
+        color: #111;
+        font-family: "Times New Roman", Times, serif;
+        --body-text-size: 9.5pt;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        color: #111;
+        background: #fff;
+        font-family: "Times New Roman", Times, serif;
+        line-height: 1.45;
+      }
+
+      a,
+      a:visited {
+        color: #111;
+        text-decoration: underline;
+      }
+
+      .cover {
+        min-height: calc(210mm - 17mm);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        page-break-after: always;
+        border: 1px solid #111;
+        padding: 8mm;
+        background: #fff;
+      }
+
+      .toc-item-meta,
+      .article-meta {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .masthead {
+        margin: 0;
+        font-size: 40pt;
+        line-height: 0.95;
+        text-transform: uppercase;
+      }
+
+      .issue-date {
+        margin: 4mm 0 0;
+        font-size: 14pt;
+      }
+
+      .issue-date sup {
+        font-size: 0.58em;
+        vertical-align: super;
+        line-height: 0;
+      }
+
+      .cover-deck {
+        max-width: 90mm;
+        font-size: 12pt;
+        margin: 0;
+      }
+
+      .toc {
+        border-top: 3px solid #111;
+        padding-top: 6mm;
+      }
+
+      .toc h2 {
+        margin: 0 0 4mm;
+        font-size: 11pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .toc-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .toc-item {
+        padding: 3mm 0;
+        border-bottom: 1px solid rgba(17, 17, 17, 0.2);
+      }
+
+      .toc-item-title {
+        font-size: 12pt;
+        margin: 0 0 1mm;
+      }
+
+      .toc-item-meta {
+        font-size: 8pt;
+      }
+
+      .masthead-compact {
+        margin: 0 0 6mm;
+      }
+
+      .masthead-compact h1 {
+        margin: 0;
+        font-size: 22pt;
+        line-height: 1.1;
+        text-transform: uppercase;
+      }
+
+      .masthead-compact .issue-date {
+        margin: 2mm 0 0;
+        font-size: 11pt;
+      }
+
+      .toc-compact {
+        border-top: 1px solid #111;
+        border-bottom: 1px solid #111;
+        padding: 4mm 0;
+        margin: 0 0 8mm;
+      }
+
+      article + article {
+        margin-top: 10mm;
+        padding-top: 6mm;
+        border-top: 2px solid #111;
+      }
+
+      h1 {
+        margin: 0 0 2mm;
+        font-size: 18pt;
+        line-height: 1.1;
+      }
+
+      .article-meta {
+        font-size: 8.5pt;
+        margin-bottom: 6mm;
+        padding-bottom: 3mm;
+        border-bottom: 1px solid #111;
+      }
+
+      .article-body {
+        font-size: var(--body-text-size);
+        font-family: "Times New Roman", Times, serif;
+      }
+
+      .article-body p,
+      .article-body li,
+      .article-body blockquote,
+      .article-body dd,
+      .article-body dt {
+        margin: 0 0 4mm;
+        orphans: 3;
+        widows: 3;
+      }
+
+      .article-body ul,
+      .article-body ol,
+      .article-body dl {
+        margin: 0 0 4mm 5mm;
+        padding: 0;
+      }
+
+      .article-body h2,
+      .article-body h3,
+      .article-body h4 {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        margin: 7mm 0 3mm;
+        line-height: 1.2;
+      }
+
+      .article-body blockquote {
+        margin-left: 6mm;
+        padding-left: 4mm;
+        border-left: 2px solid #111;
+      }
+
+      .article-body .media-omitted {
+        margin: 0 0 4mm;
+        font-size: 8.5pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(17, 17, 17, 0.65);
+      }
+
+      .article-body figure,
+      .article-body .article-figure,
+      .article-body picture,
+      .article-body .article-picture {
+        display: block;
+        max-width: 72mm;
+        margin: 0 auto 4mm;
+        break-inside: avoid;
+      }
+
+      .article-body img,
+      .article-body .article-image {
+        display: block;
+        max-width: min(100%, 72mm);
+        max-height: 34mm;
+        height: auto;
+        width: auto;
+        object-fit: contain;
+        margin: 0 auto 3mm;
+      }
+
+      .article-body figcaption {
+        margin-top: 1.5mm;
+        font-size: 8.5pt;
+        line-height: 1.3;
+        color: rgba(17, 17, 17, 0.8);
+      }
+
+      .article-note {
+        margin-top: 6mm;
+        padding-top: 3mm;
+        border-top: 1px solid #111;
+        font-size: 9pt;
+        font-style: italic;
+      }
+
+      @media screen {
+        body {
+          padding: 2rem;
+          margin: 0 auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    
+    <header class="masthead-compact">
+      <h1>Fred Talks</h1>
+      <p class="issue-date">
+        15<sup>th</sup> May 2026
+      </p>
+    </header>
+
+    <nav class="toc toc-compact">
+      <h2>Contents</h2>
+      <ol class="toc-list">
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Zen of AI Coding</div>
+          <div class="toc-item-meta">
+            Yoav Aviram · 1912 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Getting Real About Distributed System Reliability</div>
+          <div class="toc-item-meta">
+            boredandroid · 2792 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Big tech engineers need big egos</div>
+          <div class="toc-item-meta">
+            seangoedecke.com RSS feed · 1975 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">[Daily article] May 15: Operation Brevity</div>
+          <div class="toc-item-meta">
+            English Wikipedia Article of the Day · 315 words
+          </div>
+        </li>
+        
+      </ol>
+    </nav>
+    
+
+    
+    <article>
+      <h1>Zen of AI Coding</h1>
+      <div class="article-meta">
+        Yoav Aviram
+        · 08 Mar 2026 · <a href="https://nonstructured.com/zen-of-ai-coding/">Source</a>
+      </div>
+      <div class="article-body"><p>Dedicated to all those who are sceptical about the significance of agentic coding, and to those who are not, and are wondering what it means for the future of their profession. The title is an homage to <a href="https://en.wikipedia.org/wiki/Zen_of_Python">Zen of Python</a> by Tim Peters. Unlike Tim, I am not a zen master. My only aim is to take stock of where we are and where we might be heading. I have been building with coding agents daily for the past year, and I also help teams adopt them without losing reliability or security.</p>
+<ol> <li>Software development is dead</li> <li>Code is cheap</li> <li>Refactoring easy</li> <li>So is repaying technical debt</li> <li>All bugs are shallow</li> <li>Create tight feedback loops</li> <li>Any stack is <em>your</em> stack</li> <li>Agents are not just for coding</li> <li>The context bottleneck is in your head</li> <li>Build for a changing world</li> <li>When considering Buy vs. Build, the answer, more often, is build</li> <li>Fast rubbish is still rubbish</li> <li>Software is a liability, a product is an asset</li> <li>Moats are more expensive</li> <li>Build for agents</li> <li>Anticipate modes of failure</li> </ol>
+<h4><strong>Software development is dead </strong></h4>
+<p>You do not need to write another line of code if you do not want to. Coding agents can accomplish most coding tasks with the right direction.</p>
+<p>Software development, as the act of manually producing code, is dying. A new discipline is being born. Your role in it is vital, but it is no longer centered on typing code. It is centered on framing problems, shaping context, defining constraints, and judging outcomes.</p>
+<p>The marginal cost of code is collapsing. That single fact changes everything that follows.</p>
+<h4><strong>Code is cheap</strong></h4>
+<p>The economics of software have changed.</p>
+<p>When coding is cheap, implementation stops being the constraint. You can build ten things in parallel. You cannot decide, validate, and ship ten things in parallel, at least not without changing the rest of the pipeline.</p>
+<p>Cost of delay shifts. It is no longer about developer days. It is about time stuck in other bottlenecks: product decisions, unclear requirements, security review, user testing, release processes, and operational risk. Agents can flood these queues. Inventory grows. Lead time grows. Delay becomes more expensive, not less.</p>
+<p>This changes prioritization. The highest leverage work is what unblocks shipping: tight feedback loops, tests, evals, guardrails, observability, and clear acceptance criteria. Anything that turns “we can build it” into “we can trust it”.</p>
+<p>Agents can help alleviate some of these bottlenecks. The challenge is applying them outside of coding (see Agents are not just for coding)</p>
+<h4><strong>Refactoring is easy</strong></h4>
+<p>The cost of changing your mind is lower than it has ever been. Architectural decisions that once felt permanent are now provisional.</p>
+<p>You chose React. Two months later, you regret it. Ask an agent to rewrite the project.</p>
+<p>Making imperfect decisions is no longer fatal. In fact, it can be productive. A flawed reference implementation provides better context than a pristine specification. Agents reason more effectively from concrete artifacts than from abstract intent.</p>
+<p>Rapid iteration is now the default mode. Over the last three months, we rebuilt our CMS four times from scratch, each with a different architecture. Each time we learned more about what we actually needed and what works.</p>
+<p>When code is cheap, you can run more small bets.</p>
+<h4><strong>So is repaying technical debt</strong></h4>
+<p>There is little excuse for stale dependencies or ignored security patches. Updating libraries, migrating APIs, modernizing patterns. These are prompts away.</p>
+<p>Prune your code regularly. Upgrade aggressively. Keep the surface clean.</p>
+<p>Technical debt has not disappeared. But the cost of servicing it has dropped. That changes the incentive structure. Neglect becomes less defensible.</p>
+<h4><strong>All bugs are shallow</strong></h4>
+<p><a href="https://en.wikipedia.org/wiki/Linus%27s_law">Linus’s law</a> states that “given enough eyeballs, all bugs are shallow.” Those eyeballs are now abundant.</p>
+<p>Ask one model to review your code. Ask another. They may find different issues. Ask them to fix what they find. Often they will succeed.</p>
+<p>How “dense” are bugs given a piece of code is a philosophical question. Bugs are not magically gone. Agents do not achieve perfection. From a practical perspective, however, the limiting factor is no longer the number of reviewers. It is the tightness of your feedback loops.</p>
+<p>The claim here is profound: comprehension of the codebase at the function level is no longer necessary. At the same time, relying entirely on the models is a recipe for disaster. You still have a job! (see: create tight feedback loops, anticipate modes of failure)</p>
+<p>Agents can sometimes one-shot a task.</p>
+<p>We’ve built agents that create a complete custom-made marketing website in one shot, but this is by far the exception. In most cases, agents operate best when iterating towards a well-defined goal, guided by feedback.</p>
+<p>Good tests are the first feedback loop. The agent will iterate until the tests pass. It is your responsibility to make sure the tests are adequate (by instructing the agent to create good ones) and to make sure the agent does not cheat (by weakening the tests or simply skipping them).</p>
+<p>Give your agent access to your CI to create a second feedback loop. Give it access to your server logs to create a third. Giving the agent away to visually inspect a UI is yet another example.</p>
+<p>Your job is to design environments where iteration converges toward correctness instead of drifting toward plausible nonsense.</p>
+<p>Velocity without feedback is chaos.</p>
+<h4><strong>Any stack is your stack</strong></h4>
+<p>Agents are competent across most major stacks where training data exists. Since you are not writing the code, your attachment to a specific stack becomes less relevant.</p>
+<p>Do not limit yourself to what you personally know. Your conceptual understanding transfers more than you think.</p>
+<p>When you lack terminology or domain knowledge, ask the agent to brief you. The barrier to entry into unfamiliar ecosystems is lower than it has ever been.</p>
+<h4><strong>Agents are not just for coding</strong></h4>
+<p>Coding is only the beginning.</p>
+<p>Agents can assist with business analysis, UX, infrastructure, operations, ad campaigns, analytics configuration, even accounting workflows.</p>
+<p>I migrated four WordPress blogs from an overpriced host to Hetzner in minutes after postponing the task for years. The blocker was never a technical difficulty. It was attention. Claude completed the task in 15 minutes.</p>
+<p>Agents reduce the activation energy required to execute tedious but valuable work.</p>
+<p>Grant access carefully. Limit scope. Audit results. Direction without oversight is reckless.</p>
+<h4><strong>The context bottleneck is in your head</strong></h4>
+<p>Context engineering has improved. Tooling has improved.</p>
+<p>Yet when running multiple agents in parallel, the real bottleneck is human coordination.</p>
+<p>You must track what each agent is doing. You must remember which assumptions were made. You know what questions to ask next.</p>
+<p>As agents become better at managing their own context, your ability to supervise them becomes the limiting factor.</p>
+<p>The constraint is no longer tokens. It is cognition.</p>
+<h4><strong>Build for a changing world</strong></h4>
+<p>New models. New capabilities. New frameworks. New skills.</p>
+<p>The ground shifts daily. Some models are better at reasoning. Some at coding. Some at translation.</p>
+<p>Flexibility is not optional. It must be built into your workflow and products. Both must be engineered for experimentation and adaptability.</p>
+<h4><strong>When considering Buy vs. Build, the answer, more often, is build</strong></h4>
+<p>When code was expensive, buying made sense. When code approaches zero marginal cost, the calculus changes.</p>
+<p>Every paid API is now a question. Could we replicate this internally? Should we?</p>
+<p>For our QA agent, we needed full-page screenshots of live sites. Many APIs offered this. Instead, we deployed Playwright to AWS Lambda, tailored to our needs, and hardened.</p>
+<p>This is not a blanket argument against SaaS. Maintenance, security, and scale still matter. But many small and medium services that once required vendors are now within reach.</p>
+<p>Some call this the <a href="https://www.forbes.com/sites/donmuir/2026/02/04/300-billion-evaporated-the-saaspocalypse-has-begun/">end of SaaS</a>.</p>
+<h4><strong>Fast rubbish is still rubbish</strong></h4>
+<p>Speed is intoxicating. It is also dangerous.</p>
+<p>You can generate enormous amounts of code quickly. But velocity and lines of code written were always terrible indicators of progress.</p>
+<p>Refactoring is cheap, but it is cheaper to detect flawed direction early.</p>
+<p>Discipline matters more, not less, when execution is frictionless.</p>
+<h4><strong>Software is a liability, a product is an asset</strong></h4>
+<p>Software costs money to maintain. It only becomes an asset when it produces value for someone.</p>
+<p>This was always true. It is harder to remember now because building is so easy.</p>
+<p>It is tricker then ever to resist the temptation to add features. Resist it. Build what is used. Kill what is not.</p>
+<p>Feature gaps close quickly. What once took years to replicate can now take months. What took months can now take days.</p>
+<p>A feature set is no longer a durable moat.</p>
+<p>Moats shift toward distribution, data, brand, network effects, regulation, and ecosystem integration.</p>
+<p>The barrier to entry falls. The barrier to defensibility rises.</p>
+<p>There is a new hierarchy.</p>
+<p>At the base are models (Opus 4.6, GPT-5.3-codex). On top of them sit agents (Claude Code, OpenClaw). On top of agents sit services.</p>
+<p>Today, agents use services designed for humans. It works, but it is inefficient. The next step is services designed for agents (<a href="https://www.moltbook.com/">Moltbook</a> being the harbinger).</p>
+<p>Make your services accessible to agents. Expose structured context. Provide machine-readable surfaces.</p>
+<p>Agentic commerce is emerging. In some cases, a markdown endpoint is enough. In others, the service itself must be designed agent-first.</p>
+<p>Agent-first is not a tooling choice. It is a product decision. It changes your interfaces, your reliability model, your metrics, and what you build next.</p>
+<p>We are building an agent-first CMS. If we succeed, humans will not need to use it, though they can.</p>
+<p>AX is the new UX</p>
+<p>Do not assume competence implies perfection.</p>
+<p>Like an engineer overseeing the construction of a bridge, your job is not to lay bricks. It is to ensure the structure does not collapse.</p>
+<p>Agents will make mistakes. They will drift off course. They will introduce subtle flaws. They will create security vulnerabilities. One of mine attempted to commit a .env file to git. They can be inventive in how they self-sabotage.</p>
+<p>Be one step ahead. Ask yourself how this could break. Where could it leak. What could it expose. What assumptions is the agent quietly making.</p>
+<p>Play the what-if game relentlessly. Then build guardrails.</p>
+<p>Automate checks. Lock down permissions. Isolate environments. Add monitoring. Create recovery paths. Make rollback trivial.</p>
+<p>Remember, code is cheap, and you have new superpowers. Build tools to allow you to probe deep, discover vulnerabilities, and test for anticipated failure modes. Design systems that expect failure and degrade gracefully.</p>
+<p>This is the distinction between software development and software engineering.</p>
+<p>I work with engineering and product teams adopting agents. The goal is simple: ship faster without lowering standards.</p>
+<p>I usually help in two ways:</p>
+<p><strong>Agent-first software engineering</strong><br/>
+We turn agents into part of the system, not a novelty. We design workflows, guardrails, and supporting tools so the team can delegate confidently.</p>
+<p>If you want to operationalize coding agents without turning your codebase into a casino, get in touch.</p>
+<p><strong>Agent-first product strategy</strong><br/>
+I help companies shift products from human-centric interfaces to agent-accessible, and where it makes sense, agents-first. That means clarifying what agents should be able to do, what constraints they must operate under, and what needs to change in your APIs, permissions, reliability model, and product surface area to support them.</p>
+<p>This typically results in an agent-access roadmap, an operating model, and a prioritized set of product changes that make agents a first-class user.</p>
+<p>I’m the co-founder of <a href="https://www.whiteboar.it/">WhiteBoar</a>, where AI agents build your brand and launch visually striking marketing websites, complete with professional multi-lingual content, in minutes, not months. Contact me at <a href="mailto:yoav@whiteboar.it">yoav@whiteboar.it</a>.</p></div>
+      
+    </article>
+    
+    <article>
+      <h1>Getting Real About Distributed System Reliability</h1>
+      <div class="article-meta">
+        boredandroid
+        · 01 Mar 2026 · <a href="https://blog.empathybox.com/post/19574936361/getting-real-about-distributed-system-reliability">Source</a>
+      </div>
+      <div class="article-body"><p>There is a lot of hype around distributed data systems, some of it justified. It&rsquo;s true that the internet has centralized a lot of computation onto services like Google, Facebook, Twitter, LinkedIn (my own employer), and other large web sites. It&rsquo;s true that this centralization puts a lot of pressure on system scalability for these companies. Its true that incremental and horizontal scalability is a <i>deep</i> feature that requires redesign from the ground up and can&rsquo;t be added incrementally to existing products. It&rsquo;s true that, if properly designed, these systems can be run with no <i>planned</i> downtime or maintenance intervals in a way that traditional storage systems make harder. It&rsquo;s also true that software that is explicitly designed to deal with machine failures is a very different thing from traditional infrastructure. All of these properties are critical to large web companies, and are what drove the adoption of horizontally scalable systems like <a href="https://href.li/?http://hadoop.apache.org/">Hadoop</a>, <a href="https://href.li/?http://cassandra.apache.org/">Cassandra</a>, <a href="https://href.li/?http://project-voldemort.com/">Voldemort</a>, etc. I was the original author of Voldemort and have worked on distributed infrastructure for the last four years or so. So in-so-far as there is a &ldquo;big data&rdquo; debate, I am firmly in the &ldquo;pro-&rdquo; camp. But one thing you often hear is that this kind of software is more reliable than the traditional alternatives it replaces, and this just isn&rsquo;t true. It is time people talked honestly about this.</p>
+<p>You hear this assumption of reliability everywhere. Now that scalable data infrastructure has a marketing presence, it has really gotten bad. Hadoop or Cassandra or what-have-you can tolerate machine failures then they must be unbreakable right? Wrong.</p>
+<p>Where does this come from? Distributed systems need to partition data or state up over lots of machines to scale. Adding machines increases the probability that some machine will fail, and to address this these systems typically have some kind of replicas or other redundancy to tolerate failures. The core argument that gets used for these systems is that if a single machine has probability <i>P</i> of failure, and if the software can replicate data <i>N</i> times to survive <i>N</i>-1 failures, and if the machines fail <i>independently</i>, then the probability of losing a particular piece of data must be <i>P<sup>N</sup></i>. So for any desired reliability <i>R</i> and any single-node failure probability <i>P</i> you can pick some replication <i>N</i> so that <i>P<sup>N</sup> &lt; R</i>. This argument is the core motivation behind most variations on replication and fault tolerance in distributed systems. It is true that without this property the system would be hopelessly unreliable as it grew. But this leads people to believe that distributed software is somehow innately reliable, which unfortunately is utter hogwash.</p>
+<p>Where is the flaw in the reasoning? Is it the <a href="https://href.li/?http://hadoop.apache.org/common/docs/current/hdfs_design.html#Metadata+Disk+Failure">dreaded Hadoop single points of failure</a>? No, it is far more fundamental than that: the problem is the assumption that failures are <a href="https://href.li/?http://en.wikipedia.org/wiki/Independence_%28probability_theory%29">independent</a>. Surely no belief could possibly be more counter to our own experience or just common sense than believing that there is no correlation between failures of machines in a cluster. You take a bunch of pieces of identical hardware, run them on the same network gear and power systems, have the same people run and manage and configure them, and run the same (buggy) software on all of them. It would be incredibly unlikely that the failures on these machines would be independent of one another in the probabilistic sense that motivates a lot of distributed infrastructure. If you see a bug on one machine, the same bug is on all the machines. When you push bad config, it is usually game over no matter how many machines you push it to.</p>
+<p><i>P<sup>N</sup></i> is an upper bound on reliability but one that you could never, never approach in practice. For example Google has <a href="https://href.li/?http://research.google.com/pubs/archive/36737.pdf">a fantastic paper</a> that gives empirical numbers on system failures in Bigtable and GFS and reports empirical data on groups of failures that show rates several orders of magnitude higher than the independence assumption would predict. This is what one of the best system and operations teams in the world can get: your numbers may be far worse.</p>
+<p>The actual reliability of your system depends largely on how bug free it is, how good you are at monitoring it, and how well you have protected against the myriad issues and problems it has. This isn&rsquo;t any different from traditional systems, except that the new software is far less mature. I don&rsquo;t mean this disparagingly, I work in this area, it is just a fact. Maturity comes with time and usage and effort. This software hasn&rsquo;t been around for as long as MySQL or Oracle, and worse, the expertise to run it reliably is much less common. MySQL and Oracle administrators are plentiful, but folks experience with, say, serious production Zookeeper operations knowledge are much more rare.</p>
+<p>Kernel filesystem engineers say it takes about a decade for a new filesystem to go from concept to maturity. I am not sure these systems will be mature much faster&mdash;they are not easier systems to build and the fundamental design space is much less well explored. This doesn&rsquo;t mean they won&rsquo;t be <i>useful</i> sooner, especially in domains where they solve a pressing need and are approached with an appropriate amount of caution, but they are not yet by any means a mature technology.</p>
+<p>Part of the difficulty is that distributed system software is actually quite complicated in comparison to single-server code. Code that deals with failure cases and is &ldquo;cluster aware&rdquo; is extremely tricky to get right. The root of the problem is that dealing with failures effectively explodes the possible state space that needs testing and validation. For example it doesn&rsquo;t even make sense to expect a single-node database to be fast if its disk system suddenly gets really slow (how could it), but a distributed system does need to carry on in the presence of single degraded machine because it has some many machines, one is sure to be degraded. These kind of &ldquo;semi-failures&rdquo; are common and very hard to deal with. Correctly testing these kinds of issues in a realistic setting is brutally hard and the newer generation of software doesn&rsquo;t have anything like the QA processes its more mature predecessors had. (If you get a chance get someone who has worked at Oracle to describe to you what kind of testing they do to a line of code that goes into their database before it gets shipped to customers). As a result there are a lot of bugs. And of course these bugs are on all the machines, so they absolutely happen together.</p>
+<p>Likewise distributed systems typically require more configuration and more complex configuration because they need to be cluster aware, deal with timeouts, etc. This configuration is, of course, shared; and this creates yet another opportunity to bring everything to its knees.</p>
+<p>And finally these systems usually want lots of machines. And no matter how good you are, some part of operational difficulty always scales with the number of machines.</p>
+<p>Let&rsquo;s discuss some real issues. We had a bug in <a href="https://href.li/?http://incubator.apache.org/kafka">Kafka</a> recently that lead to the server incorrectly interpreting a corrupt request as a corrupt log, and shutting itself down to avoid appending to a corrupt log. Single machine log corruption is the kind of thing that should happen due to a disk error, and bringing down the corrupt node is the right behavior&mdash;it shouldn&rsquo;t happen on all the machines at the same time unless all the disks fail at once. But since this was due to corrupt <i>requests</i>, and since we had one client that sent corrupt requests, it was able to sequentially bring down all the servers. Oops. Another example is <a href="https://href.li/?https://rhn.redhat.com/errata/RHBA-2012-0124.html">this Linux bug</a> which causes the system to crash after ~200 days of uptime. Since machines are commonly restarted sequentially this lead to a situation where a large percentage of machines went hard down one after another. Likewise any memory management problems&mdash;either leaks or GC problems&mdash;tend to happen everywhere at once or not at all. Some companies do public post-mortums for major failures and these are a real wealth of failures in systems that aren&rsquo;t supposed to fail. <a href="https://href.li/?http://static.usenix.org/publications/login/2012-02/pdfs/Chansler.pdf">This paper</a> has an excellent summary of HDFS availability at Yahoo&mdash;they note how few of the problems are of the kind that high availability for the namenode would solve. This list could go on, but you get the idea.</p>
+<p>I have come around to the view that the real core difficulty of these systems is operations, not architecture or design. Both are important but good operations can often work around the limitations of bad (or incomplete) software, but good software cannot run reliably with bad operations. This is quite different from the view of unbreakable, self-healing, self-operating systems that I see being pitched by the more enthusiastic NoSQL hypesters. Worse yet, you can&rsquo;t easily buy good operations in the same way you can buy good software&mdash;you might be able to hire good people (if you can find them) but this is more than just people; it is practices, monitoring systems, configuration management, etc.</p>
+<p>These difficulties are one of the core barriers to adoption for distributed data infrastructure. LinkedIn and other companies that have a deep interest in doing creative things with data have taken on the burden of building this kind of expertise in-house&mdash;we employ committers on Hadoop and other open source projects on both our engineering and operations team, and have done a lot of <a href="https://href.li/?http://sna-projects.com">from-scratch development</a> in this space where there was gaps. This makes it feasible to take full advantage of an admittedly valuable but immature set of technologies, and let&rsquo;s us build products we couldn&rsquo;t otherwise&mdash;but this kind of investment only makes sense at a certain size and scale. It may be too high a cost for small startups or companies outside the web space trying to bootstrap this kind of knowledge inside a more traditional IT organization.</p>
+<p>This is why people should be excited about things like Amazon&rsquo;s <a href="https://t.umblr.com/redirect?z=http%3A%2F%2Faws.amazon.com%2Fdynamodb%2F&amp;t=N2JhMjQ3NzNkZWE5NWI5NmNhOGM3ZTIxYWZlNzQ1ZjhlYjQ2M2RmMCw1c3RubnpOUw%3D%3D&amp;b=t%3AcGHjsYEIBU8OoED070vcaw&amp;p=https%3A%2F%2Fblog.empathybox.com%2Fpost%2F19574936361%2Fgetting-real-about-distributed-system-reliability&amp;m=1&amp;ts=1632268146">DynamoDB</a>. When DynamoDB was released, the company DataStax that supports and leads development on Cassandra released <a href="https://href.li/?http://nosql.mypopescu.com/post/16065241917/cassandra-and-amazon-dynamodb-comparison">a feature comparison checklist</a>. The checklist was unfair in many ways (as these kinds of vendor comparisons usually are), but the biggest thing missing in the comparison is that <i>you</i> don&rsquo;t run DynamoDB, Amazon does. That is a huge, huge difference. Amazon is good at this stuff, and has shown that they can (usually) support massively multi-tenant operations with reasonable SLAs, <i>in practice</i>.</p>
+<p>I really think there is really only one thing to talk about with respect to reliability: continuous hours of successful production operations. That&rsquo;s it. In some ways the most obvious thing, but not typically what you hear when people talk about these systems. I will believe the system can tolerate (some) failures when I see it tolerate those failures; I believe it can run for a year without downtime when i see it run for a year without downtime. I call this empirical reliability (as opposed to theoretical reliability). And getting good empirical reliability is really, really hard. These systems end up being large hunks of monitoring, tests, and operational procedures with a teeny little distributed system strapped to the back.</p>
+<p>You see this showing up in discussions of the <a href="https://href.li/?http://en.wikipedia.org/wiki/CAP_theorem">CAP theorem</a> all the time. The CAP theorem is a useful thing, but it applies more to system design than system implementations. A design is simple enough that you can maybe prove it provides consistency or tolerates partition failures under some assumptions. This is a useful lens to look at system designs. You can&rsquo;t hope to do this kind of proof with an actual system implementation, the thing you run. The difficulty of building these things means it is really unthinkable that these systems are, in actual reality, either consistent, available, <i>or</i> partition tolerant&mdash;they certainly all have numerous bugs that will break each of these guarantees. I really like <a href="https://href.li/?http://www.cs.berkeley.edu/~pbailis/projects/pbs">this paper</a> that takes the approach of actually trying to calculate the observed consistency of eventually consistent systems&mdash;they seem to do it via simulation rather than measurement, which is unfortunate, but the idea is great.</p>
+<p>It isn&rsquo;t that system design is meaningless, it is worth discussing the system design as it does act as a kind of limiting factor on certain aspects of reliability and performance as the implementation matures and improves, but don&rsquo;t take it too seriously as guaranteeing <i>anything</i>.</p>
+<p>So why isn&rsquo;t this kind of empirical measurement more talked about? I don&rsquo;t know. My pet theory is it has to do with the somewhat rigid and deductive mindset of classical computer science. This is inherited from pure math, and conflicts with the attitude in scientific disciplines. It leads to a preference for starting with axioms, and then proving various properties that follow from these axioms. This world view doesn&rsquo;t embrace the kind of empirical measurements you would expect to justify claims about reality (for another example see <a href="https://href.li/?http://tagide.com/blog/2012/03/research-in-programming-languages">this great blog post</a> on programming language productivity claims in programming language research). But that is getting off topic. Suffice it to say, when making predictions about how a system will work in the real world I believe in measurements of reality a lot more than arguments from first-principles.</p>
+<p>I think we should insist on a little more rigor and empiricism in this area.</p>
+<p>I would love to see claims in academic publication around practicality or reliability justified in the same way we justify performance claims&ndash;by doing it. I would be a lot more likely to believe an academic distributed system was practically feasible if it was run continuously under load for a year successfully and if information was reported on failures and outages. Maybe that isn&rsquo;t feasible for an academic project, but few other allegedly scientific academic disciplines can get away with making claims about reality without evidence.</p>
+<p>More broadly I would like to see more systems whose <i>operation</i> is verifiable. Many systems have the ability to log out information about their state in a way that makes programmatic checking of various invariants and guarantees possible (such as consistency or availability). An example of such an invariant for a messaging system is that all the messages sent to it are received by all the subscribers. We actually measure the truth of this statement in real-time in production for our Kafka data pipeline for all 450 topics and all their subscribers. The number of corner-cases one uncovers with this kind of check, run through a few hundred use cases and a few billion messages per day is truly astounding. I think this is a special case of a broad class of verification that can be done on the running system that goes far far deeper than what is traditionally considered either monitoring or testing. Call it unit testing in production, or self-proving systems, or next generation monitoring, or whatever, but I think this kind of deep verification is something that makes turning the theoretical claims a design makes into measured properties of the real running system.</p>
+<p>Likewise if you have a &ldquo;NoSQL vendor&rdquo; I think it is reasonable to ask them to provide hard information on customer outages. They don&rsquo;t need to tell you who the customer is, but they should let you know the observed real-life distribution of <a href="https://href.li/?http://en.wikipedia.org/wiki/MTTF">MTTF</a> and <a href="https://href.li/?http://en.wikipedia.org/wiki/Mean_time_to_recovery">MTTR</a> they are able to achieve, not just highlight one or two happy cases. Make sure you understand how they measure this, do they have automated test load that runs or just wait for people to complain? This is a reasonable thing for people paying for a service to ask for. To a certain extent if they provide this kind of empirical data it isn&rsquo;t clear why you should even <i>care</i> what their architecture is beyond intellectual curiosity.</p>
+<p>Distributed systems solve a number of key problems at the heart of scaling large websites. I absolutely think this is going to become the default approach to handling state in internet application development. But no one benefits from the kind of irrational exuberance that currently surrounds the &ldquo;big data&rdquo; or nosql systems communities. This area is experiencing a boom&mdash;but nothing takes us from boom to bust like unrealistic hype and broken promises. We should be a little more honest about where these systems already shine and where they are still maturing.</p>
+<p><i>Postscript: This blog seems to have resurfaced 7 years later. I actually still agree with much of it, though the dilemma is much less important. Distributed systems operations is hard, but you can now avoid it by just getting your distributed systems as a service. For example, <a href="https://href.li/?https://www.confluent.io/confluent-cloud/">Confluent offers Kafka as a service with a contractural uptime SLA</a>. Ops remains hard, but for distributed data systems you can make the people who wrote the software deal with the problem, and focus your time on your special sauce.</i></p></div>
+      
+    </article>
+    
+    <article>
+      <h1>Big tech engineers need big egos</h1>
+      <div class="article-meta">
+        seangoedecke.com RSS feed
+        · 14 Mar 2026 · <a href="https://seangoedecke.com/big-tech-needs-big-egos/">Source</a>
+      </div>
+      <div class="article-body"><p>It’s a <a href="https://matthogg.fyi/a-unified-theory-of-ego-empathy-and-humility-at-work/">common position</a> among software engineers that big egos have no place in tech<sup><a href="https://www.seangoedecke.com/big-tech-needs-big-egos/#fn-1">1</a></sup>. This is understandable - we’ve all worked with some insufferably overconfident engineers who needed their egos checked - but I don’t think it’s correct. In fact, I don’t know if it’s possible to survive as a software engineer in a large tech company without some kind of big ego.</p>
+<p>However, it’s more complicated than “big egos make good engineers”. The most effective engineers I’ve worked with are simultaneously high-ego in some situations and surprisingly low-ego in others. What’s going on there?</p>
+<h3>Engineers need ego to work in large codebases</h3>
+<p>Software engineering is shockingly humbling, even for experienced engineers. There’s a reason this joke is so popular:</p>
+<figure class="article-figure"><a href="https://www.seangoedecke.com/static/e220b85be9b6fa139f60424d5744a3dc/c08c5/iamagod.jpg"><img alt="meme" sizes="(max-width: 590px) 100vw, 590px" src="https://www.seangoedecke.com/static/e220b85be9b6fa139f60424d5744a3dc/c08c5/iamagod.jpg" srcset="https://www.seangoedecke.com/static/e220b85be9b6fa139f60424d5744a3dc/a80bd/iamagod.jpg 148w,
+/static/e220b85be9b6fa139f60424d5744a3dc/1c91a/iamagod.jpg" class="article-image"/></a></figure>
+<p>The minute-to-minute experience of working as a software engineer is dominated by <em>not knowing things</em> and <em>getting things wrong</em>. Every time you sit down and write a piece of code, it will have several things wrong with it: some silly things, like missing semicolons, and often some major things, like bugs in the core logic. We spend most of our time fixing our own stupid mistakes.</p>
+<p>On top of that, even when we’ve been working on a system for years, we still don’t know that much about it. I wrote about this at length in <a href="https://www.seangoedecke.com/nobody-knows-how-large-software-products-work"><em>Nobody knows how large software products work</em></a>, but the reason is that big codebases are just that complicated. You simply can’t confidently answer questions about them without going and doing some research, even if you’re the one who wrote the code.</p>
+<p>When you have to build something new or fix a tricky problem, it can often feel straight-up impossible to begin, because good software engineers know just how ignorant they are and just how complex the system is. You just have to throw yourself into the blank sea of millions of lines of code and start wildly casting around to try and get your bearings.</p>
+<p><strong>Software engineers need the kind of ego that can stand up to this environment.</strong> In particular, they need to have a firm belief that they <em>can</em> figure it out, no matter how opaque the problem seems; that if they just keep trying, they can break through to the pleasant (though always temporary) state of affairs where they understand the system and can see at a glance how bugs can be fixed and new features added<sup><a href="https://www.seangoedecke.com/big-tech-needs-big-egos/#fn-2">2</a></sup>.</p>
+<h3>Engineers need ego to work in big tech companies</h3>
+<p>What about the non-technical aspects of the job? Nobody likes working with a big ego, right? Wrong. Every great software engineer I’ve worked with in big tech companies has had a big ego - though as I’ll say below, in some ways these engineers were surprisingly low-ego.</p>
+<p><strong>You need a big ego to take positions</strong>. Engineers love being non-committal about technical questions, because they’re so hard to answer and there’s often a plausible case for either side. However, as I <a href="https://www.seangoedecke.com/taking-a-position">keep saying</a>, engineers have a duty to take clear positions on unclear technical topics, because the alternative is a non-technical decision maker (who knows even less) just taking their best guess. It’s scary to make an educated guess! You know exactly all the reasons you might be wrong. But you have to do it anyway, and ego helps <em>a lot</em> with that.</p>
+<p><strong>You need a big ego to be willing to make enemies</strong>. Getting things done in a large organization means making some people angry. Of course, if you’re making lots of people angry, you’re probably screwing up: being too confrontational or making obviously bad decisions. But if you’re making a large change and one or two people are angry, that’s just life. In big tech companies, any big technical decision will affect a few hundred engineers, and one of them is bound to be unhappy about it. You can’t be so conflict-averse that you let that stop you from doing it, if you believe it’s the right decision. In other words, you have to have the confidence to believe that you’re right and they’re wrong, even though technical decisions always involve unclear tradeoffs and it’s impossible to get absolute certainty.</p>
+<p><strong>You need a big ego to correct incorrect or unclear claims.</strong> When I was still in the philosophy world, the Australian logician Graham Priest had a reputation for putting his hand up and stopping presentations when he didn’t understand something that was said, and only allowing the seminar to continue when he felt like he understood. From his perspective, this wasn’t rude: after all, if <em>he</em> couldn’t understand it, the rest of the audience probably couldn’t either, and so he was doing them a favor by forcing a more clear explanation from the speaker.</p>
+<p>This is obviously a sign of a big ego. It’s also a trait that you need in a large tech company. People often nod and smile their way past incorrect technical claims, even when they suspect they might be wrong - assuming that they’ve just misunderstood and that somebody else will correct it, if it’s truly wrong. <strong>If you are the most senior engineer in the room, correcting these claims is your job.</strong></p>
+<p>If everyone in the room is so pro-social and low-ego that they go along to get along, decisions will get made based on flatly incorrect technical assumptions, projects will get funded that are impossible to complete, and engineers will burn weeks or months of their careers vainly trying to make these projects work. You have to have a big enough ego to think “actually, I think I’m right and everyone in this room is confused”, even when the room is full of directors and VPs.</p>
+<h3>Sometimes you need to put your ego aside</h3>
+<p>All of this selects for some pretty high-ego engineers. But in order to actually <em>succeed</em> in these roles in large tech companies, you need to have a surprisingly low ego at times. <strong>I think this is why <em>really</em> effective big tech engineers are so rare: because it requires such a delicate balance between confidence and diffidence.</strong></p>
+<p>To be an effective engineer, you need to have a towering confidence in your own ability to solve problems and make decisions, even when people disagree. But you also need to be willing to instantly subordinate your ego to the organization, when it asks you to. At the end of the day, your job - the reason the company pays you - is to execute on your boss’s and your boss’s boss’s plans, whether you agree with them or not.</p>
+<p>Competent software engineers are allowed quite a lot of leeway about <em>how</em> to implement those plans. However, they’re allowed almost no leeway at all about the plans themselves. In my experience, being confused about this is a common cause of burnout<sup><a href="https://www.seangoedecke.com/big-tech-needs-big-egos/#fn-3">3</a></sup>. Many software engineers are used to making bold decisions on technical topics and being rewarded for it. Those software engineers then make a bold decision that disagrees with the VP of their organization, get immediately and brutally punished for it, and are confused and hurt.</p>
+<p>In fact, <strong>sometimes you just get punished and there’s nothing you can do.</strong> This is an unfortunate fact of how large organizations function: even if you do great technical work and build something really useful, you can fall afoul of a political battle fought three levels above your head, and come away with a <em>worse</em> reputation for it. Nothing to be done! This can be a hard pill to swallow for the high-ego engineers that tend to lead really useful technical projects.</p>
+<p>You also have to be okay with having your projects cancelled at the last minute. It’s a very common experience in large tech companies that you’re asked to deliver something quickly, you buckle down and get it done, and then right before shipping you’re told “actually, let’s cancel that, we decided not to do it”. This is partly because the decision-making process can be pretty fluid, and partly because many of these asks originate from off-hand comments: the CTO implies that something might be nice in a meeting, the VPs and directors hustle to get it done quickly, and then in the next meeting it becomes clear that the CTO doesn’t actually care, so the project is unceremoniously cancelled<sup><a href="https://www.seangoedecke.com/big-tech-needs-big-egos/#fn-4">4</a></sup>.</p>
+<h3>Final thoughts</h3>
+<p>Nobody likes to work with a bully, or with someone who refuses to admit when they’re wrong, or with somebody incapable of empathy. But you really do need a strong ego to be an effective software engineer, because software engineering requires you to spend most of your day in a position of uncertainty or confusion. If your ego isn’t strong enough to stand up to that - if you don’t believe you’re good enough to power through - you simply can’t do the job.</p>
+<p>This is particularly true when it comes to working in a large software company. Many of the tasks you’re required to do (particularly if you’re a senior or staff engineer) require a healthy ego. However, there’s a kind of <a href="https://en.wikipedia.org/wiki/Catch-22_(logic)">catch-22</a> here. If it insults your pride to work on silly projects, or to occasionally “catch a stray bullet” in the organization’s political fights, or to have to shelve a project that you worked hard on and is ready to ship, you’re too high-ego to be an effective software engineer. But if you can’t take firm positions, or if you’re too afraid to make enemies, or you’re unwilling to speak up and correct people, you’re too low-ego.</p>
+<p>Engineers who are low-ego in general can’t get stuff done, while engineers who are high-ego in general get slapped down by the executives who wield real organizational power. The most successful kind of software engineer is therefore a chameleon: low-ego when dealing with executives, but high-ego when dealing with the rest of the organization<sup><a href="https://www.seangoedecke.com/big-tech-needs-big-egos/#fn-5">5</a></sup>.</p>
+<ol> <li> <p>What do I mean by “ego”, in this context? More or less the colloquial sense of the term: a somewhat irrational self-confidence, a tendency to believe that you’re very important, the sense that you’re the “main character”, that sort of thing</p> <a href="https://www.seangoedecke.com/big-tech-needs-big-egos/#fnref-1">↩</a> </li> <li> <p>Why is this “ego”, and not just normal confidence? Well, because of just how murky and baffling software problems feel when you start working on them. You really do need a degree of confidence in yourself that feels unreasonable from the inside. It should be obvious, but I want to explicitly note that you don’t <em>just</em> need ego: you also have to be technically strong enough to actually succeed when your ego powers you through the initial period of self-doubt.</p> <a href="https://www.seangoedecke.com/big-tech-needs-big-egos/#fnref-2">↩</a> </li> <li> <p>I share the increasingly-common view that burnout is not caused by working too hard, but by hard work unrewarded. That explains why nothing burns you out as hard as being punished for hard work that you expected a reward for.</p> <a href="https://www.seangoedecke.com/big-tech-needs-big-egos/#fnref-3">↩</a> </li> <li> <p>It’s more or less exactly <a href="https://www.youtube.com/watch?v=i92Ws7qPTRg">this scene</a> from Silicon Valley.</p> <a href="https://www.seangoedecke.com/big-tech-needs-big-egos/#fnref-4">↩</a> </li> <li> <p>This description sounds a bit sociopathic to me. But, on reflection, it’s fairly unsurprising that competent sociopaths do well in large organizations. Whether that kind of behavior is worth emulating or worth avoiding is up to you, I suppose.</p> <a href="https://www.seangoedecke.com/big-tech-needs-big-egos/#fnref-5">↩</a> </li> </ol></div>
+      
+    </article>
+    
+    <article>
+      <h1>[Daily article] May 15: Operation Brevity</h1>
+      <div class="article-meta">
+        English Wikipedia Article of the Day
+        · 15 May 2026 · <a href="mailto:reader-forwarded-email/7f7fddbaeefc5b89838fa5ffe7b1c79e">Source</a>
+      </div>
+      <div class="article-body"><div class="rw-email-parsed">
+ <p>
+  Operation Brevity was an offensive conducted in May 1941, during the
+Western Desert campaign of the Second World War, against Axis front-line
+forces in the Sollum–Capuzzo–Bardia area of the border between Egypt
+and Libya (map pictured). British Middle East Command general Archibald
+Wavell defined Operation Brevity's main goals as the acquisition of
+territory from which to launch a further planned offensive toward
+Tobruk. On 15 May, Brigadier William Gott attacked in three columns
+with a mixed infantry and armoured force. The Halfaya Pass was taken
+against stiff Italian opposition, and Fort Capuzzo deeper inside Libya
+was captured, but German counter-attacks under Colonel Maximilian von
+Herff regained the fort during the afternoon. Gott conducted a staged
+withdrawal to the Halfaya Pass on 16 May, and Operation Brevity ended.
+The Halfaya Pass was recaptured 11 days later during Operation Skorpion,
+a German counter-attack. (Full article...).
+ </p>
+ <p>
+  Read more:
+  <a href="https://en.wikipedia.org/wiki/Operation_Brevity">
+   https://en.wikipedia.org/wiki/Operation_Brevity
+  </a>
+ </p>
+ <hr/>
+ <p>
+  Today's selected anniversaries:
+ </p>
+ <p>
+  1891:
+ </p>
+ <p>
+  Pope Leo XIII issued the encyclical Rerum novarum, which
+addressed the condition of the working classes and is considered to be
+the foundation of modern Catholic social teaching.
+  <a href="https://en.wikipedia.org/wiki/Rerum_novarum">
+   https://en.wikipedia.org/wiki/Rerum_novarum
+  </a>
+ </p>
+ <p>
+  1966:
+ </p>
+ <p>
+  Disapproving of General Tôn Thất Đính's handling of the
+Buddhist Uprising, South Vietnamese prime minister Nguyễn Cao Kỳ
+ordered an attack on his forces and ousted Đính from his post.
+  <a href="https://en.wikipedia.org/wiki/T%C3%B4n_Th%E1%BA%A5t_%C4%90%C3%ADnh">
+   https://en.wikipedia.org/wiki/T%C3%B4n_Th%E1%BA%A5t_%C4%90%C3%ADnh
+  </a>
+ </p>
+ <p>
+  2001:
+ </p>
+ <p>
+  A runaway train loaded with hazardous chemicals traveled
+driverless for 66 miles (106 km) through Ohio before being stopped near
+Kenton.
+  <a href="https://en.wikipedia.org/wiki/CSX_8888_incident">
+   https://en.wikipedia.org/wiki/CSX_8888_incident
+  </a>
+ </p>
+ <p>
+  2010:
+ </p>
+ <p>
+  Three days before her seventeenth birthday, Jessica Watson
+arrived in Sydney after sailing non-stop and unassisted around the
+world.
+  <a href="https://en.wikipedia.org/wiki/Jessica_Watson">
+   https://en.wikipedia.org/wiki/Jessica_Watson
+  </a>
+ </p>
+ <hr/>
+ <p>
+  Wiktionary's word of the day:
+ </p>
+ <p>
+  materteral:
+1. (chiefly humorous, rare) Of or relating to, or in the manner of, an
+aunt.
+2. About Word of the Day
+3. Nominate a word
+4. Leave feedback
+  <a href="https://en.wiktionary.org/wiki/materteral">
+   https://en.wiktionary.org/wiki/materteral
+  </a>
+ </p>
+ <hr/>
+ <p>
+  Wikiquote quote of the day:
+ </p>
+ <p>
+  ”
+  --Katherine Anne Porter
+  <a href="https://en.wikiquote.org/wiki/Katherine_Anne_Porter">
+   https://en.wikiquote.org/wiki/Katherine_Anne_Porter
+  </a>
+ </p></div></div>
+      
+    </article>
+    
+  </body>
+</html>
