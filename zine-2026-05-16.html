@@ -1,0 +1,647 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Fred Talks - 2026-05-16</title>
+    <style>
+      @page {
+        size: A5;
+        margin: 8mm 9mm 9mm;
+      }
+
+      :root {
+        color: #111;
+        font-family: "Times New Roman", Times, serif;
+        --body-text-size: 9.5pt;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        color: #111;
+        background: #fff;
+        font-family: "Times New Roman", Times, serif;
+        line-height: 1.45;
+      }
+
+      a,
+      a:visited {
+        color: #111;
+        text-decoration: underline;
+      }
+
+      .cover {
+        min-height: calc(210mm - 17mm);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        page-break-after: always;
+        border: 1px solid #111;
+        padding: 8mm;
+        background: #fff;
+      }
+
+      .toc-item-meta,
+      .article-meta {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .masthead {
+        margin: 0;
+        font-size: 40pt;
+        line-height: 0.95;
+        text-transform: uppercase;
+      }
+
+      .issue-date {
+        margin: 4mm 0 0;
+        font-size: 14pt;
+      }
+
+      .issue-date sup {
+        font-size: 0.58em;
+        vertical-align: super;
+        line-height: 0;
+      }
+
+      .cover-deck {
+        max-width: 90mm;
+        font-size: 12pt;
+        margin: 0;
+      }
+
+      .toc {
+        border-top: 3px solid #111;
+        padding-top: 6mm;
+      }
+
+      .toc h2 {
+        margin: 0 0 4mm;
+        font-size: 11pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .toc-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .toc-item {
+        padding: 3mm 0;
+        border-bottom: 1px solid rgba(17, 17, 17, 0.2);
+      }
+
+      .toc-item-title {
+        font-size: 12pt;
+        margin: 0 0 1mm;
+      }
+
+      .toc-item-meta {
+        font-size: 8pt;
+      }
+
+      .masthead-compact {
+        margin: 0 0 6mm;
+      }
+
+      .masthead-compact h1 {
+        margin: 0;
+        font-size: 22pt;
+        line-height: 1.1;
+        text-transform: uppercase;
+      }
+
+      .masthead-compact .issue-date {
+        margin: 2mm 0 0;
+        font-size: 11pt;
+      }
+
+      .toc-compact {
+        border-top: 1px solid #111;
+        border-bottom: 1px solid #111;
+        padding: 4mm 0;
+        margin: 0 0 8mm;
+      }
+
+      article + article {
+        margin-top: 10mm;
+        padding-top: 6mm;
+        border-top: 2px solid #111;
+      }
+
+      h1 {
+        margin: 0 0 2mm;
+        font-size: 18pt;
+        line-height: 1.1;
+      }
+
+      .article-meta {
+        font-size: 8.5pt;
+        margin-bottom: 6mm;
+        padding-bottom: 3mm;
+        border-bottom: 1px solid #111;
+      }
+
+      .article-body {
+        font-size: var(--body-text-size);
+        font-family: "Times New Roman", Times, serif;
+      }
+
+      .article-body p,
+      .article-body li,
+      .article-body blockquote,
+      .article-body dd,
+      .article-body dt {
+        margin: 0 0 4mm;
+        orphans: 3;
+        widows: 3;
+      }
+
+      .article-body ul,
+      .article-body ol,
+      .article-body dl {
+        margin: 0 0 4mm 5mm;
+        padding: 0;
+      }
+
+      .article-body h2,
+      .article-body h3,
+      .article-body h4 {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        margin: 7mm 0 3mm;
+        line-height: 1.2;
+      }
+
+      .article-body blockquote {
+        margin-left: 6mm;
+        padding-left: 4mm;
+        border-left: 2px solid #111;
+      }
+
+      .article-body .media-omitted {
+        margin: 0 0 4mm;
+        font-size: 8.5pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(17, 17, 17, 0.65);
+      }
+
+      .article-body figure,
+      .article-body .article-figure,
+      .article-body picture,
+      .article-body .article-picture {
+        display: block;
+        max-width: 72mm;
+        margin: 0 auto 4mm;
+        break-inside: avoid;
+      }
+
+      .article-body img,
+      .article-body .article-image {
+        display: block;
+        max-width: min(100%, 72mm);
+        max-height: 34mm;
+        height: auto;
+        width: auto;
+        object-fit: contain;
+        margin: 0 auto 3mm;
+      }
+
+      .article-body figcaption {
+        margin-top: 1.5mm;
+        font-size: 8.5pt;
+        line-height: 1.3;
+        color: rgba(17, 17, 17, 0.8);
+      }
+
+      .article-note {
+        margin-top: 6mm;
+        padding-top: 3mm;
+        border-top: 1px solid #111;
+        font-size: 9pt;
+        font-style: italic;
+      }
+
+      @media screen {
+        body {
+          padding: 2rem;
+          margin: 0 auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    
+    <header class="masthead-compact">
+      <h1>Fred Talks</h1>
+      <p class="issue-date">
+        16<sup>th</sup> May 2026
+      </p>
+    </header>
+
+    <nav class="toc toc-compact">
+      <h2>Contents</h2>
+      <ol class="toc-list">
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Semantic Search Without Embeddings</div>
+          <div class="toc-item-meta">
+            Doug Turnbull · 3143 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Where the goblins came from | OpenAI</div>
+          <div class="toc-item-meta">
+            OpenAI · 1128 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">[Daily article] May 16: Erik Campbell (Final Destination)</div>
+          <div class="toc-item-meta">
+            English Wikipedia Article of the Day · 327 words
+          </div>
+        </li>
+        
+      </ol>
+    </nav>
+    
+
+    
+    <article>
+      <h1>Semantic Search Without Embeddings</h1>
+      <div class="article-meta">
+        Doug Turnbull
+        · 08 Jan 2026 · <a href="http://softwaredoug.com/blog/2026/01/08/semantic-search-without-embeddings.html">Source</a>
+      </div>
+      <div class="article-body"><p>When I need to stay warm, I search for “long johns” or “long underwear”. But modern outdoors clothing stores label this a “base layer”. For a waterproof jacket I search for “slickers” or a “ski jacket”, not realizing what I should search for is a “shell.”</p>
+<p>Despite my outdated terminology, search still works. I’m somehow understood and shown the right content.</p>
+<p>We call this <strong>semantic search</strong>. When you hear that, you might think embeddings. Today I want to stretch your thinking beyond. Fantasize and semanticize.</p>
+<p>Some teams wrongly assume semantic search equates to only “vector search”. You have more options, some that might better align to your domain and existing organizational skills. LLMs simplify classic ways of organizing search queries and information.</p>
+<p>Let’s contrast different approaches, and maybe you’ll see there’s another approach that might be a better fit for you.</p>
+<h2>Semantic search - what exactly is it?</h2>
+<p>In semantic search, content and query map to a <strong><em>shared representation</em></strong>. This space has a <strong><em>similarity</em></strong> function that scores similar items higher than less similar.</p>
+<p>Let’s walk through an example.</p>
+<p>A user searching “round red fruit that grows on trees” probably wants an apple.</p>
+<p>Humans know this - search engines don’t. So we need to help.</p>
+<p>We map the query to three properties: <code>[round, red, fruit]</code></p>
+<p>In our search index we’ve also mapped three items into that space:</p>
+<p>An <strong>apple:</strong> <code>[round, red, fruit]</code></p>
+<p>An <strong>orange:</strong> <code>[round, orange, fruit]</code></p>
+<p>A <strong>baseball:</strong> <code>[round, white, ball]</code></p>
+<p>Now we have a shared <em>representation</em>: a three tuple of (<code>shape</code> , <code>color</code>, <code>item type</code>).</p>
+<p>How do we measure similarity? For each property (<code>shape</code>, <code>color</code>, <code>item type</code>) we could score a “1” if they’re equal, otherwise a 0. Then add to get a total score:</p>
+<p>Similarity(query, apple) = 1 + 1 + 1 = 3</p>
+<p>Similarity(query, orange) = 1 + 0 + 1 = 2</p>
+<p>Similarity(query, baseball) = 1 + 0 + 0 = 1</p>
+<p>So the user sees search results</p>
+<ol> <li>Apple (Score 3)</li> <li>Orange (Score 2)</li> <li>Baseball (Score 1)</li> </ol>
+<p>Ok, so a fairly silly method of semantic search. It ignores properties that matter (size, for example). It requires us to comprehensively tag everything. Still many teams try to tag + synonym their way to better search, with middling results.</p>
+<h2>Embeddings for semantic search</h2>
+<p>The default answer to the “semantic search” question is embeddings. The Internet is littered with documentation for <a href="https://softwaredoug.com/blog/2023/02/13/why-vector-search">how vector search works</a>. I’ll do the speedrun here (<a href="https://qdrant.tech/articles/triplet-loss">references</a> <a href="https://stackoverflow.blog/2023/11/09/an-intuitive-introduction-to-text-embeddings/">here</a>).</p>
+<p>We can learn a representation, an embedding, for apple and orange so that <code>similarity(apple, orange) &gt; similarity(apple, baseball)</code>.</p>
+<p>We learn an embedding from training data. We might declare when items get clicked for the same query, they are similar. We notice both “apple” and “orange” get clicked for query “fruit that grows on trees” at high frequency:</p>
+<pre>[fruit that grows on trees 🔍 ]
+1. 🍎 (clicked)
+2. 🥕
+3. 🍊 (clicked)
+</pre>
+<p>We start with a random vector for each. A list of random floating points numbers like <code>[0.01, -0.1, 0.05]</code>. Then we train, in this super-secret-ultra-high-tech algorithm</p>
+<pre><code>for session in sessions:
+    together = []
+    for lhs in session: # ie the apple
+        for rhs in session: # ie the orange
+            if lhs != rhs:
+			          nudge_closer(lhs, rhs) # ie nudge apple closer to orange
+</code></pre>
+<p>(Not shown: nudging away the negative, dissimilar items)</p>
+<p>After training, for many queries+sessions, maybe apple becomes <code>[0.1, -0.2, 0.05]</code> while orange becomes a similar vector: <code>[0.09, -0.21, 0.04]</code>. We measure the similarity with <a href="https://en.wikipedia.org/wiki/Cosine_similarity">cosine similarity</a>, <a href="https://en.wikipedia.org/wiki/Euclidean_distance">euclidean distance</a>, and others. (We can replace “shared search session clicks” with any other notions of “similar”: occurs in the same text passages, both occur in shopping carts, etc).</p>
+<p>Learning an embedding per item presents problems. For example, maybe we just added strawberry 🍓 to our product listings. With no training data, the vector <code>strawberry_vector = embeddings['strawberry']</code> initializes to random garbage. It won’t have a meaningful value until we’ve shown it to many users.</p>
+<p>We’d prefer to to compute embeddings from <strong><em>features</em></strong> of the item. Then strawberry 🍓 could get an embedding right away. IE instead of <code>strawberry_embedding = embeddings['strawberry']</code> we can do <code>strawberry_embedding = f(heart_shaped, red, fruit)</code>. We build an <strong><em>encoder.</em></strong> Given the item’s attributes we compute embeddings that produce the expected similarity. Embedding models downloaded from hugging face specialize in encoding specific type/domain of content for a specific task (search, etc).</p>
+<p>We create encoders for all kinds of features: ordinal values (like a list of shapes, colors), the raw title / description text itself, images and so on. We can also train a <a href="https://eng.snap.com/embedding-based-retrieval">two-tower model</a>: one encoder for queries - ie “round fruit that goes on trees” - and another for documents.</p>
+<p>Like other machine learning models we tradeoff precision for generality. We need the right features, we need enough training data for all the variations in those features (<a href="https://en.wikipedia.org/wiki/Curse_of_dimensionality">curse of dimensionality</a>) and so on.</p>
+<h2>The missing semantic search piece of vector retrieval</h2>
+<p>One pain point comes up right away with embeddings: lack of <em>matching</em>.</p>
+<p>How would users actually react to these search results?</p>
+<pre>[fruit that grows on trees 🔍 ]
+1. 🍎 Apple
+2. 🍊 Orange
+3. ⚾️ Baseball.
+</pre>
+<p>In my experience, negatively.</p>
+<p>It may have the perfect ranking. But search should exclude items outside what the user intended. They find fruit acceptable. But not baseballs.</p>
+<p>So earlier I lied. What users actually want from semantic search:</p>
+<ul> <li><strong>Representation</strong> - some space both queries and content can share representation</li> <li><strong>A similarity function</strong> - A way of measuring how near / far items in the shared representation are from each other</li> <li><strong>Match criteria (new!)</strong> - A system where an item can be said to be “match” or not for the query in the semantic space. It is the thing, or its not the thing.</li> </ul>
+<p>In other words, I gave an incomplete <strong>semantic search definition</strong>. Embeddings thrive on the first 2, but don’t do a great job at including / excluding results.</p>
+<p>Understanding users (and their queries) matters a great deal in search. That requires including / excluding appropriate items based on terminology and categories familiar to users.</p>
+<p>You might think “I’ll just find a cutoff in my embedding similarity”. Sadly, there’s not a magical “at 0.8 similarity it’s not a match”. In some domains / queries one threshold works. In another, a very different threshold. Further, thresholding becomes tougher when users give multiple criteria. An embedding model might rank blood oranges above green apples for query “red apple”. What matters more, the color or item type in the similarity?</p>
+<p>Thresholds help exclude some obviously irrelevant results and improve performance, but they don’t use domain-specific criteria, in the user’s language, to include / exclude results.</p>
+<h2>The other semantic search approach (hierarchical managed taxonomies)</h2>
+<p>One system tries to solve all three problems: <em>Managed vocabularies</em> or <em>taxonomies</em>.</p>
+<p>Taxonomies map queries + content to a hierarchy of concepts, using the language of the domain. Think a neatly organized directory tree. Or the <a href="https://en.wikipedia.org/wiki/Dewey_Decimal_Classification">Dewey Decimal System</a></p>
+<p>Here’s an example from the <a href="https://github.com/wayfair/WANDS">Wayfair WANDS furniture dataset</a> of their category tree; Where you’d categorize “novelty rocking horses” apparently:</p>
+<pre><code>Baby &amp; Kids / Toddler &amp; Kids Playroom / Indoor Play / Rocking Horses / Novelty Rocking Horses
+</code></pre>
+<p>We can take a query for <code>hobby horse</code>. A human, curating a bunch of query rules, could manually map this to a node:</p>
+<pre><code>Baby &amp; Kids / Toddler &amp; Kids Playroom / Indoor Play / Rocking Horses
+</code></pre>
+<p>Assuming the corpus categorizes products correctly, we can search, filter, boost, etc using this.</p>
+<p>We have a <em>representation</em> (the category tree), do we have a similarity function?</p>
+<p>Yes, we can rank as follows:</p>
+<ol> <li>Direct matches <code>Baby &amp; Kids / Toddler &amp; Kids Playroom / Indoor Play / Rocking Horses</code></li> <li>Parents / siblings. <code>Baby &amp; Kids / Toddler &amp; Kids Playroom / Indoor Play / Dollhouses</code></li> <li>Those rank higher than grandparents / cousins (``Baby &amp; Kids / Toddler &amp; Kids Playroom / Beanbag Chairs / …`</li> </ol>
+<p>We can define meaningful match criteria too. We include shared parent categories (ie siblings). But exclude anything beyond cousins / shared grandparents as needed.</p>
+<p>Many teams already maintain systems for organizing and cataloging information. For many domains, a good taxonomy can be a moat. Especially for technical domains (legal, medical, fashion, finance) where precise categorization really matters. Existing <a href="https://www.nlm.nih.gov/mesh/meshhome.html">taxonomies already exists</a>, and statistical fuzziness of embeddings can create huge downside.</p>
+<p>In the past, the management of a taxonomy would be massive. It might require complex rules, mapping of query phrases to taxonomy nodes, and a team of labelers and experts to keep everything straight. This has long been an appeal of embeddings.</p>
+<p>But LLMs sneakily supercharge these old school ways of organizing information. Given a taxonomy, LLMs can easily + cheaply classify products and queries. It’s more approachable to “fine tune”. AI augmented labeling can simplify management of knowledge making it more approachable.</p>
+<h2>Semantic similarity doesn’t need a vector index</h2>
+<p>Above I described a similarity function above (direct matches, then parents, then grandparents). With some creative tokenization, this similarity can happen in a normal BM25 index.</p>
+<p>Consider our query for <code>hobby horse</code>. We know this maps to this node:</p>
+<pre><code>Baby &amp; Kids / Toddler &amp; Kids Playroom / Indoor Play / Rocking Horses
+</code></pre>
+<p>How do we score content in such a way so that direct matches rank higher than siblings, and so on?</p>
+<p>We need is a <a href="https://www.elastic.co/docs/reference/text-analysis/analysis-pathhierarchy-tokenizer">hierarchical tokenizer</a>. A function that produces the full path of every parent directory:</p>
+<pre><code>In: hierarchical_tokenizer("Baby &amp; Kids / Toddler &amp; Kids Playroom / Indoor Play / Rocking Horses")
+Out: ['Baby &amp; Kids',
+      'Baby &amp; Kids / Toddler &amp; Kids Playroom',
+      'Baby &amp; Kids / Toddler &amp; Kids Playroom / Indoor Play',
+      'Baby &amp; Kids / Toddler &amp; Kids Playroom / Indoor Play / Rocking Horses']
+</code></pre>
+<p>If you index using this tokenizer, you’ll recreate scoring needed for the direct &gt; parent &gt; grandparent similarity function I described earlier.</p>
+<p>The key reason: BM25 rewards a rare match over common match.</p>
+<p>Root nodes (ancestors) have higher document frequency, they’re common. Common matches score lower in BM25.</p>
+<p>That’s because every item labeled <code>Baby &amp; Kids / Toddler &amp; Kids Playroom / Indoor Play / Rocking Horses</code> tokenized hierarchically has a <code>Baby &amp; Kids</code> term. So does a document labeled <code>Baby &amp; Kids / Kids Furniture ... / Beanbag Chairs</code> . <code>Baby &amp; Kids</code> happens all over the place - maybe like 10% of the index.</p>
+<p>Child nodes have low document frequency, they’re rare. In BM25, rare, more specific matches outrank common ones.</p>
+<p>A product labeled <code>Baby &amp; Kids / Toddler &amp; Kids Playroom / Indoor Play / Rocking Horses / Traditonal Rocking Horses</code> when tokenized will include the full path in the token. There might be 10 products in the entire index in this exact category. So that rareness - that high specificity - shoots this narrower, closer match to the top.</p>
+<p>To do a deeper walkthrough</p>
+<p>When I come along and search for</p>
+<pre><code>In: hierarchical_tokenizer(
+     "Baby &amp; Kids / Toddler &amp; Kids Playroom / Indoor Play / Rocking Horses / Novelty Rocking Horses"
+)
+Out: ['Baby &amp; Kids',
+      'Baby &amp; Kids / Toddler &amp; Kids Playroom',
+      'Baby &amp; Kids / Toddler &amp; Kids Playroom / Indoor Play',
+      'Baby &amp; Kids / Toddler &amp; Kids Playroom / Indoor Play / Rocking Horses',
+      'Baby &amp; Kids / Toddler &amp; Kids Playroom / Indoor Play / Rocking Horses / Novelty Rocking Horses']
+</code></pre>
+<p>I’m searching for five tokens now, OR’d (really summed):</p>
+<pre><code>"Baby &amp; Kids" OR
+"Baby &amp; Kids / Toddler &amp; Kids Playroom" OR
+"Baby &amp; Kids / Toddler &amp; Kids Playroom / Indoor Play" OR
+"Baby &amp; Kids / Toddler &amp; Kids Playroom / Indoor Play / Rocking Horses" OR
+"Baby &amp; Kids / Toddler &amp; Kids Playroom / Indoor Play / Rocking Horses / Novelty Rocking Horses"
+</code></pre>
+<p>Each token of my query has a job. It matches different levels of specificity, and the closer we get the full query classification tree, the higher the score.</p>
+<table> <tr> <th>Search Term</th> <th>Job</th> <th>Score (due to doc freq)</th> <th>Example of matches</th> </tr> <tbody> <tr> <td>“Baby &amp; Kids”</td> <td>Matches highest level category</td> <td>Lowest</td> <td><strong>Baby &amp; Kids</strong> / Toddler &amp; Kids Bedroom Furniture / Kids Headboards</td> </tr> <tr> <td>“Baby &amp; Kids / Toddler &amp; Kids Playroom”</td> <td>Matches next most specific category Getting to “play” stuff for kids, better than just kid stuff. 👍</td> <td>Low</td> <td><strong>Baby &amp; Kids / Toddler &amp; Kids Playroom</strong> / Playroom Furniture / Baby Gyms &amp; Playmats / Folding Baby Gyms &amp; Playmats</td> </tr> <tr> <td>…</td> <td>…</td> <td>…</td> <td>…</td> </tr> <tr> <td>Baby &amp; Kids / Toddler &amp; Kids Playroom / Indoor Play / Rocking Horses</td> <td>Matches a very, narrow specific category. Horses!🐴 Even if not “Novelty Rocking Horses” its a defensible “match” to the user.</td> <td>High</td> <td><strong>Baby &amp; Kids / Toddler &amp; Kids Playroom / Indoor Play / Rocking Horses / Traditonal Rocking Horses</strong></td> </tr> </tbody> </table>
+<p>While we keep things in horse → toys → playroom → kids order, we haven’t solved the 3rd problem. Limiting matches.</p>
+<p>That one’s easy. At query time, you can decide how much to limit retrieval. Perhaps you only query the direct node and one parent:</p>
+<pre><code>"Baby &amp; Kids / ... / Rocking Horses" OR
+"Baby &amp; Kids / ... / Rocking Horses / Novelty Rocking Horses"
+</code></pre>
+<p>You can tighten / relax in categories that matter to users, <strong><em>semantically,</em></strong> up a layer to still stay within the realm of “kid play”.</p>
+<p>If the taxonomy makes sense to users, if it reflects search behaviors (big ifs), they’ll understand why you include / exclude certain results.</p>
+<p>Importantly, this becomes just ONE component of the ranking / filtering. We can still have other ingredients we can use:</p>
+<ul> <li>Keyword matches (for exact mention of properties in titles + description)</li> <li>Embedding search (perhaps within the category matches)</li> <li>Taxonomies for other entities (colors, materials, etc)</li> </ul>
+<h2>Building a taxonomy: start simple and evolve</h2>
+<p>Building and maintaining a good taxonomy is no joke. That’s why there’s a field of taxonomists you can hire. And I don’t want to elide the tradeoffs with embeddings here. It’s work!</p>
+<p>A taxonomy doesn’t need to be as deep / complex as what I’ve laid out. You can start simple. Ask an LLM. Here’s one with color.</p>
+<blockquote> <p>Take the 7 primary colors. Then nested under each, create subtypes of each color. Generate a list like a directory trees, in the form <code>PRIMARY / SECONDARY</code></p> </blockquote>
+<pre><code>RED / Crimson
+RED / Scarlet
+RED / Burgundy
+RED / Maroon
+RED / Brick Red
+RED / Cherry
+
+ORANGE / Tangerine
+ORANGE / Amber
+ORANGE / Coral
+ORANGE / Burnt Orange
+ORANGE / Peach
+ORANGE / Apricot
+...
+</code></pre>
+<p>It’s a start.</p>
+<p>Generally start simple. Broad, high level, top level categories like <code>Furniture</code> or <code>Baby &amp; Kids</code>. Then eventually you realize this category has become too large and too diverse. You might see a natural in the content split:</p>
+<pre><code>Baby &amp; Kids / Toddler &amp; Kids Playroom
+Baby &amp; Kids / Toddler &amp; Kids Bedroom Furniture
+</code></pre>
+<p>Eventually you get to a point where the distinction between <code>Novelty Rocking Horse</code> and <code>Classic Rocking Horse</code> matters for some reason.</p>
+<p>You may see a flaw: an assumption each product sits within a single category. That categories are mutually exclusive. Reality, of course, is messy: some products may sit between categories. You can imagine a small goofy looking couch that could reasonably tagged under <code>Baby &amp; Kids / Toddler &amp; Kids Bedroom Furniture</code> but also <code>Living Room / Loveseats</code>. In Fashion, some activewear might also be underwear. And what about athleisure?</p>
+<p>One solution could be to double categorize an item. Give it both classifications - with some weight preferring one categorization over another.</p>
+<p>A final concern - there’s a big difference between the official pure way of classifying furniture and how a search user might categorize the products. The exacting, furniture-expert taxonomy might have very sophisticated (and accurate) ways to classify furniture. A messier classification that matches how users think about things might be more useful in the end.</p>
+<h2>Classifying into taxonomies has never been easier</h2>
+<p>Building taxonomy classifiers with LLMs - something I’ve built an <a href="https://maven.com/softwaredoug/cheat-at-search">entire class for</a>, and could be a post on its own. But lets do a quick walkthrough of some simpler approaches.</p>
+<p>Embeddings actually help us here. The sweet spot of embeddings in search might be building better classifiers, not in direct ranking and retrieval.</p>
+<p>Perhaps our products fit in a few thousand unique categories. Imagine we encode an embedding each of these in a small in-memory array of vectors. We’ll use it to lookup categories for our queries.</p>
+<p>Now take a query “hobby horse”. Encode the query into an embedding, and find the most similar category embedding. Maybe this retrieves <code>Baby &amp; Kids / Toddler &amp; Kids Playroom / Indoor Play / Rocking Horses</code>.</p>
+<p>Not accurate enough? Let’s take it up a notch.</p>
+<p>We could ask an LLM to hallucinate a fake label before categorizing. Ask an LLM the following:</p>
+<pre><code>Be creative and hallucinate a set of classifications for the query below that
+look like the real classifications.
+
+Product classifications might look like:
+
+  'Furniture / Living Room Furniture / Coffee Tables &amp; End Tables / Coffee Tables'
+  'Décor &amp; Pillows / Decorative Pillows &amp; Blankets / Throw Pillows'
+  'Furniture / Bedroom Furniture / Dressers &amp; Chests'
+  'Outdoor / Outdoor &amp; Patio Furniture / Patio Furniture Sets / Patio Conversation Sets'
+  'Home Improvement / Bathroom Remodel &amp; Bathroom Fixtures / Bathroom Vanities / All Bathroom Vanities'
+  'Lighting / Wall Lights / Bathroom Vanity Lighting'
+  'Kitchen &amp; Tabletop / Kitchen Organization / Food Storage &amp; Canisters'
+  'School Furniture and Supplies / School Furniture / School Chairs &amp; Seating / Stackable Chairs',
+  'Baby &amp; Kids / Toddler &amp; Kids Bedroom Furniture / Kids Beds',
+
+If you feel inspired, return many unique values in a list. Be creative. 
+Cast a wide net with related but diverse categories.
+
+Here's the query to invent categories for:
+
+hobby horse
+</code></pre>
+<p>When you actively want hallucinations, you can get by with very small models. You’re not relying on the LLM for accuracy, just creativity and close-enough language generation.</p>
+<p>Now let’s say you do this. It gives you a classification like</p>
+<pre><code>'Baby &amp; Kids / Toys / Pretend Play &amp; Dress Up / Pretend Play Toys / Hobby Horses'
+</code></pre>
+<p>More descriptive, closer to the language actually used in the classifications. More likely to give back a real, high quality classification.</p>
+<p>That’s just a taste. The modern landscape for building large multi-label classifiers has gotten easier than ever thanks to LLMs and embeddings.</p>
+<h2>Final thoughts</h2>
+<p>Embeddings are great. But you don’t need embeddings to build “semantic search”. In fact, it can be counter productive for problems requiring exacting, precise matching. As I’ve argued, <a href="https://softwaredoug.com/blog/2025/12/09/rag-users-want-affordances-not-vectors">embeddings are the wrong lens to think about the problem</a>.</p>
+<p>Maybe you don’t need to rebuild everything from scratch, but instead leverage what you’re good at. With the addition of LLMs. Don’t apologize for living with a more organized, approach to semantic search.</p>
+<h3>Enjoy softwaredoug in training course form!</h3>
+<h4>20% off through December 19, 2025 with code ps5</h4>
+<figure class="article-figure"><a href="https://maven.com/softwaredoug/cheat-at-search"><img src="https://softwaredoug.com/assets/media/2025/christmas-cheat-at-search.jpg" class="article-image"/></a></figure>
+<p>I hope you join me at <a href="https://maven.com/softwaredoug/cheat-at-search">Cheat at Search with LLMs</a> to learn how to apply LLMs to search applications. Check out <a href="https://github.com/softwaredoug/softwaredoug.com/edit/master/_includes/post.html">this post</a> for a sneak preview.   </p></div>
+      
+    </article>
+    
+    <article>
+      <h1>Where the goblins came from | OpenAI</h1>
+      <div class="article-meta">
+        OpenAI
+        · 02 May 2026 · <a href="https://openai.com/index/where-the-goblins-came-from/?ck_subscriber_id=3567568591">Source</a>
+      </div>
+      <div class="article-body"><p>April 29, 2026</p>
+<p><a href="https://openai.com/research/index/publication/">Publication</a></p>
+<p>Share</p>
+<p>Starting with GPT‑5.1, our models began developing a strange habit: they increasingly mentioned goblins, gremlins, and other creatures in their metaphors. Unlike model bugs that show up through a tanking eval or a spiking training metric and point back to a specific change, this one crept in subtly. A single “little goblin” in an answer could be harmless, even charming. Across model generations, though, the habit became hard to miss: the goblins kept multiplying, and we needed to figure out where they came from.</p>
+<figure class="article-figure"><picture class="article-picture"><figure class="article-figure"><img alt="&quot;&quot;" data-nimg="1" data-nosnippet="true" sizes="(min-width: 1728px) 1728px, 100vw" src="https://images.ctfassets.net/kftzwdyauwt9/2mv3MIYe0gkFpjqH8lUECs/a1b39ea729fb561ea01e54e85b6fa7e9/godsped_gang_screenshot_-_light_mode__2_.jpg?w=3840&amp;q=90&amp;fm=webp" srcset="https://images.ctfassets.net/kftzwdyauwt9/2mv3MIYe0gkFpjqH8lUECs/a1b39ea729fb561ea01e54e85b6fa7e9/godsped_gang_screenshot_-_light_mode__2_.jpg?w=640&amp;q=90&amp;fm=webp 640w, https://images.ctfassets.net/kftzwdyauwt9/2mv3MIYe0gkFpjqH8lUECs/a1b39ea729fb561ea01e54e85b6fa7e9/godsped_gang_screenshot_-_light_mode__2_.jpg?w=750&amp;q=90&amp;fm=webp 750w, https://images.ctfassets.net/kftzwdyauwt9/2mv3MIYe0gkFpjqH8lUECs/a1b39ea729fb561ea01e54e85b6fa7e9/godsped_gang_screenshot_-_light_mode__2_.jpg?w=828&amp;q=90&amp;fm=webp 828w, https://images.ctfassets.net/kftzwdyauwt9/2mv3MIYe0gkFpjqH8lUECs/a1b39ea729fb561ea01e54e85b6fa7e9/godsped_gang_screenshot_-_light_mode__2_.jpg?w=1080&amp;q=90&amp;fm=webp 1080w, https://images.ctfassets.net/kftzwdyauwt9/2mv3MIYe0gkFpjqH8lUECs/a1b39ea729fb561ea01e54e85b6fa7e9/godsped_gang_screenshot_-_light_mode__2_.jpg?w=1200&amp;q=90&amp;fm=webp 1200w, https://images.ctfassets.net/kftzwdyauwt9/2mv3MIYe0gkFpjqH8lUECs/a1b39ea729fb561ea01e54e85b6fa7e9/godsped_gang_screenshot_-_light_mode__2_.jpg?w=1920&amp;q=90&amp;fm=webp 1920w, https://images.ctfassets.net/kftzwdyauwt9/2mv3MIYe0gkFpjqH8lUECs/a1b39ea729fb561ea01e54e85b6fa7e9/godsped_gang_screenshot_-_light_mode__2_.jpg?w=2048&amp;q=90&amp;fm=webp 2048w, https://images.ctfassets.net/kftzwdyauwt9/2mv3MIYe0gkFpjqH8lUECs/a1b39ea729fb561ea01e54e85b6fa7e9/godsped_gang_screenshot_-_light_mode__2_.jpg?w=3840&amp;q=90&amp;fm=webp 3840w" class="article-image"/><figcaption>In early testing, GPT‑5.5 in Codex showed an odd affinity for goblin metaphors.</figcaption></figure></picture></figure>
+<p>The short answer is that model behavior is shaped by many small incentives. In this case, one of those incentives came from training the model for the <a href="https://help.openai.com/en/articles/11899719-customizing-your-chatgpt-personality"><u>personality customization feature</u>⁠</a>, in particular the Nerdy personality. We unknowingly gave particularly high rewards for metaphors with creatures. From there, the goblins spread.</p>
+<figure class="article-figure"><picture class="article-picture"><figure class="article-figure"><img alt="&quot;&quot;" data-nimg="1" data-nosnippet="true" sizes="(min-width: 1728px) 1728px, 100vw" src="https://images.ctfassets.net/kftzwdyauwt9/21KS4i9oTMDvszfWaLJtLT/764a6db9157b7039b8890f886b0e69d0/ChatGPT_Image_Apr_29__2026__07_53_34_PM.png?w=3840&amp;q=90&amp;fm=webp" srcset="https://images.ctfassets.net/kftzwdyauwt9/21KS4i9oTMDvszfWaLJtLT/764a6db9157b7039b8890f886b0e69d0/ChatGPT_Image_Apr_29__2026__07_53_34_PM.png?w=640&amp;q=90&amp;fm=webp 640w, https://images.ctfassets.net/kftzwdyauwt9/21KS4i9oTMDvszfWaLJtLT/764a6db9157b7039b8890f886b0e69d0/ChatGPT_Image_Apr_29__2026__07_53_34_PM.png?w=750&amp;q=90&amp;fm=webp 750w, https://images.ctfassets.net/kftzwdyauwt9/21KS4i9oTMDvszfWaLJtLT/764a6db9157b7039b8890f886b0e69d0/ChatGPT_Image_Apr_29__2026__07_53_34_PM.png?w=828&amp;q=90&amp;fm=webp 828w, https://images.ctfassets.net/kftzwdyauwt9/21KS4i9oTMDvszfWaLJtLT/764a6db9157b7039b8890f886b0e69d0/ChatGPT_Image_Apr_29__2026__07_53_34_PM.png?w=1080&amp;q=90&amp;fm=webp 1080w, https://images.ctfassets.net/kftzwdyauwt9/21KS4i9oTMDvszfWaLJtLT/764a6db9157b7039b8890f886b0e69d0/ChatGPT_Image_Apr_29__2026__07_53_34_PM.png?w=1200&amp;q=90&amp;fm=webp 1200w, https://images.ctfassets.net/kftzwdyauwt9/21KS4i9oTMDvszfWaLJtLT/764a6db9157b7039b8890f886b0e69d0/ChatGPT_Image_Apr_29__2026__07_53_34_PM.png?w=1920&amp;q=90&amp;fm=webp 1920w, https://images.ctfassets.net/kftzwdyauwt9/21KS4i9oTMDvszfWaLJtLT/764a6db9157b7039b8890f886b0e69d0/ChatGPT_Image_Apr_29__2026__07_53_34_PM.png?w=2048&amp;q=90&amp;fm=webp 2048w, https://images.ctfassets.net/kftzwdyauwt9/21KS4i9oTMDvszfWaLJtLT/764a6db9157b7039b8890f886b0e69d0/ChatGPT_Image_Apr_29__2026__07_53_34_PM.png?w=3840&amp;q=90&amp;fm=webp 3840w" class="article-image"/><figcaption>The goblins were funny at first, but the increasing number of employee reports became concerning.</figcaption></figure></picture></figure>
+<figure class="article-figure"><picture class="article-picture"><figure class="article-figure"><img alt="&quot;&quot;" data-nimg="1" data-nosnippet="true" sizes="(min-width: 1728px) 1728px, 100vw" src="https://images.ctfassets.net/kftzwdyauwt9/3fB0tk16WGLwryFG558bp8/ce040e51f163a7d5a3a671947577e625/ChatGPT_Image_Apr_29__2026__07_57_32_PM.png?w=3840&amp;q=90&amp;fm=webp" srcset="https://images.ctfassets.net/kftzwdyauwt9/3fB0tk16WGLwryFG558bp8/ce040e51f163a7d5a3a671947577e625/ChatGPT_Image_Apr_29__2026__07_57_32_PM.png?w=640&amp;q=90&amp;fm=webp 640w, https://images.ctfassets.net/kftzwdyauwt9/3fB0tk16WGLwryFG558bp8/ce040e51f163a7d5a3a671947577e625/ChatGPT_Image_Apr_29__2026__07_57_32_PM.png?w=750&amp;q=90&amp;fm=webp 750w, https://images.ctfassets.net/kftzwdyauwt9/3fB0tk16WGLwryFG558bp8/ce040e51f163a7d5a3a671947577e625/ChatGPT_Image_Apr_29__2026__07_57_32_PM.png?w=828&amp;q=90&amp;fm=webp 828w, https://images.ctfassets.net/kftzwdyauwt9/3fB0tk16WGLwryFG558bp8/ce040e51f163a7d5a3a671947577e625/ChatGPT_Image_Apr_29__2026__07_57_32_PM.png?w=1080&amp;q=90&amp;fm=webp 1080w, https://images.ctfassets.net/kftzwdyauwt9/3fB0tk16WGLwryFG558bp8/ce040e51f163a7d5a3a671947577e625/ChatGPT_Image_Apr_29__2026__07_57_32_PM.png?w=1200&amp;q=90&amp;fm=webp 1200w, https://images.ctfassets.net/kftzwdyauwt9/3fB0tk16WGLwryFG558bp8/ce040e51f163a7d5a3a671947577e625/ChatGPT_Image_Apr_29__2026__07_57_32_PM.png?w=1920&amp;q=90&amp;fm=webp 1920w, https://images.ctfassets.net/kftzwdyauwt9/3fB0tk16WGLwryFG558bp8/ce040e51f163a7d5a3a671947577e625/ChatGPT_Image_Apr_29__2026__07_57_32_PM.png?w=2048&amp;q=90&amp;fm=webp 2048w, https://images.ctfassets.net/kftzwdyauwt9/3fB0tk16WGLwryFG558bp8/ce040e51f163a7d5a3a671947577e625/ChatGPT_Image_Apr_29__2026__07_57_32_PM.png?w=3840&amp;q=90&amp;fm=webp 3840w" class="article-image"/><figcaption>An interesting interaction our Chief Scientist had with GPT‑5.5.</figcaption></figure></picture></figure>
+<h2>The first signs of creatures</h2>
+<p>The first time we clearly saw the pattern was in November, after the GPT‑5.1 launch, <a href="https://www.reddit.com/r/ChatGPT/comments/1k5hg5c/does_anyone_elses_chatgpt_refer_to_people_as/"><u>although it may have started earlier</u>⁠</a>. Users complained about the model being oddly overfamiliar in conversation, which prompted an investigation into specific verbal tics. A safety researcher had experienced a few “goblins” and “gremlins” and asked that they be included in the check. When we looked, use of “goblin” in ChatGPT had risen by 175% after the launch of GPT‑5.1, while “gremlin” had risen by 52%.</p>
+<figure class="article-figure"><figcaption><p><i>A measurable small lexical quirk in GPT‑5.1.</i></p></figcaption></figure>
+<p>At the time, the prevalence of goblins did not look especially alarming. A few months later, the goblins came back to haunt us in a much more specific and reproducible form.</p>
+<h2>Solving the goblin mystery</h2>
+<p>With GPT‑5.4, we <a href="https://news.ycombinator.com/item?id=47319285"><u>and our users</u>⁠</a> noticed an even bigger uptick in references to these creatures. That triggered another internal analysis and surfaced the first connection to the root cause: creature language was especially common in production traffic from users who had selected the “Nerdy” personality. “Nerdy” used the following system prompt, which partially explained the quirkiness:</p>
+<p><i>You are an unapologetically nerdy, playful and wise AI mentor to a human. You are passionately enthusiastic about promoting truth, knowledge, philosophy, the scientific method, and critical thinking. [...] You must undercut pretension through playful use of language. The world is complex and strange, and its strangeness must be acknowledged, analyzed, and enjoyed. Tackle weighty subjects without falling into the trap of self-seriousness. [...]</i></p>
+<p>If the behavior were simply a broad internet trend, we would expect it to spread more evenly. Instead, it was clustered in the part of the system explicitly optimized for a playful, nerdy style. Nerdy accounted for only 2.5% of all ChatGPT responses, but 66.7% of all “goblin” mentions in ChatGPT responses.</p>
+<figure class="article-figure"><figcaption><p><i>The behavior was highly concentrated in the "Nerdy" personality. </i></p></figcaption></figure>
+<p>Because “goblin” prevalence seemed to increase over our model releases, we had a suspicion that something in our personality instruction-following training was amplifying this.</p>
+<p>Codex helped us compare model outputs generated during RL training containing goblin or gremlin with outputs from the same task that did not. One reward signal stood out immediately: the one originally designed to encourage the Nerdy personality was consistently more favorable to the creature-word outputs. Across all datasets in the audit, the Nerdy personality reward showed a clear tendency to score outputs to the same problem with “goblin” or “gremlin” higher than outputs without, with positive uplift in 76.2% of datasets.</p>
+<p>That explained why the behavior was boosted with the Nerdy personality prompt, but not why it also appeared without that prompt. To test whether the style was transferring, we tracked mention rates over training both with and without the Nerdy prompt.</p>
+<p>As goblin and gremlin mentions increased under the Nerdy personality, they increased by nearly the same relative proportion in samples without it. Taken together, the evidence suggests that the broader behavior emerged through transfer from Nerdy personality training.</p>
+<p>The rewards were applied only in the Nerdy condition, but reinforcement learning does not guarantee that learned behaviors stay neatly scoped to the condition that produced them. Once a style tic is rewarded, later training can spread or reinforce it elsewhere, especially if those outputs are reused in supervised fine-tuning or preference data.</p>
+<p>That creates a feedback loop:</p>
+<ol><li>Playful style is rewarded</li><li>Some rewarded examples contain a distinctive lexical tic.</li><li>The tic appears more often in rollouts.</li><li>Model-generated rollouts are used for supervised fine-tuning (SFT).</li><li>The model gets even more comfortable producing the tic.</li></ol>
+<p>A search through GPT‑5.5’s SFT data found many datapoints containing “goblin” and “gremlin.” Further investigation revealed a whole family of other odd creatures: raccoons, trolls, ogres, and pigeons were identified as other tic words, while most uses of frog turned out to be legitimate.</p>
+<figure class="article-figure"><figcaption><p><i>One week average of production prevalence of goblins and gremlins. The drop in GPT‑5.4 Thinking was a result of retiring the “Nerdy” personality mid-March. GPT‑5.5 never launched with the “Nerdy” personality, and showed another increase over GPT‑5.4 (even without “Nerdy”).</i></p></figcaption></figure>
+<h2>The end of the goblins</h2>
+<p>We retired the “Nerdy” personality in March after launching GPT‑5.4. In training, we removed the goblin-affine reward signal and filtered training data containing creature-words, making goblins less likely to over-appear or show up in inappropriate contexts. Unfortunately, GPT‑5.5 started training before we found the root cause of the goblins. When we began testing GPT‑5.5 in Codex, OpenAI employees immediately noticed the strange affinity for goblins, and we added a <a href="https://github.com/openai/codex/blob/main/codex-rs/models-manager/models.json#L55"><u>developer-prompt instruction</u>⁠</a> to mitigate. Codex is, after all, quite nerdy.</p>
+<p>If you want to let the creatures run free in Codex, you can run this command to launch Codex with the goblin-suppressing instructions removed:</p>
+<h4>Plain Text</h4>
+<pre><code><br/>instructions=$(mktemp /tmp/gpt-5.5-instructions.XXXXXX) &amp;&amp; \<br/>jq -r '.models[] | select(.slug=="gpt-5.5") | .base_instructions' \<br/>~/.codex/models_cache.json | \<br/>grep -vi 'goblins' &gt; "$instructions" &amp;&amp; \<br/>codex -m gpt-5.5 -c "model_instructions_file=\"$instructions\""</code></pre>
+<h2>Why it matters</h2>
+<p>Depending on who you ask, the goblins are a delightful or annoying quirk of the model. But they are also a powerful example of how reward signals can shape model behavior in unexpected ways, and how models can learn to generalize rewards in certain situations to unrelated ones. Taking the time to understand why a model is behaving in a strange way, and building out ways to investigate those patterns quickly, is an important capability for our research team. This investigation resulted in new tools for the research team to audit model behavior and fix behavior problems at their root.</p>
+<ul><li><a href="https://openai.com/research/index/?tags=2026">2026</a></li></ul>
+<h2>Author</h2>
+<p>OpenAI</p>
+<h2>Keep reading</h2>
+<p><a href="https://openai.com/news/">View all</a></p>
+<figure class="article-figure"><img alt="System Card Card SEO 1x1" data-nimg="fill" data-nosnippet="true" sizes="(min-width: 1728px) 1728px, 100vw" src="https://images.ctfassets.net/kftzwdyauwt9/7qMrOFCWWMweIDBUpYFr79/7741661650df6eb935acb5bda179b091/System_Card_Card_SEO_1x1.jpg?w=3840&amp;q=90&amp;fm=webp" srcset="https://images.ctfassets.net/kftzwdyauwt9/7qMrOFCWWMweIDBUpYFr79/7741661650df6eb935acb5bda179b091/System_Card_Card_SEO_1x1.jpg?w=640&amp;q=90&amp;fm=webp 640w, https://images.ctfassets.net/kftzwdyauwt9/7qMrOFCWWMweIDBUpYFr79/7741661650df6eb935acb5bda179b091/System_Card_Card_SEO_1x1.jpg?w=750&amp;q=90&amp;fm=webp 750w, https://images.ctfassets.net/kftzwdyauwt9/7qMrOFCWWMweIDBUpYFr79/7741661650df6eb935acb5bda179b091/System_Card_Card_SEO_1x1.jpg?w=828&amp;q=90&amp;fm=webp 828w, https://images.ctfassets.net/kftzwdyauwt9/7qMrOFCWWMweIDBUpYFr79/7741661650df6eb935acb5bda179b091/System_Card_Card_SEO_1x1.jpg?w=1080&amp;q=90&amp;fm=webp 1080w, https://images.ctfassets.net/kftzwdyauwt9/7qMrOFCWWMweIDBUpYFr79/7741661650df6eb935acb5bda179b091/System_Card_Card_SEO_1x1.jpg?w=1200&amp;q=90&amp;fm=webp 1200w, https://images.ctfassets.net/kftzwdyauwt9/7qMrOFCWWMweIDBUpYFr79/7741661650df6eb935acb5bda179b091/System_Card_Card_SEO_1x1.jpg?w=1920&amp;q=90&amp;fm=webp 1920w, https://images.ctfassets.net/kftzwdyauwt9/7qMrOFCWWMweIDBUpYFr79/7741661650df6eb935acb5bda179b091/System_Card_Card_SEO_1x1.jpg?w=2048&amp;q=90&amp;fm=webp 2048w, https://images.ctfassets.net/kftzwdyauwt9/7qMrOFCWWMweIDBUpYFr79/7741661650df6eb935acb5bda179b091/System_Card_Card_SEO_1x1.jpg?w=3840&amp;q=90&amp;fm=webp 3840w" class="article-image"/></figure>
+<p><a href="https://openai.com/index/gpt-5-5-system-card/">GPT-5.5 System Card<p>SafetyApr 23, 2026</p></a></p>
+<figure class="article-figure"><img alt="model spec &gt; art card" data-nimg="fill" data-nosnippet="true" sizes="(min-width: 1728px) 1728px, 100vw" src="https://images.ctfassets.net/kftzwdyauwt9/3ZlINT9EhkfY55coSIdBWq/64c9eaca9767f231ff2902685b4092ea/oai_model_spec_1x1.png?w=3840&amp;q=90&amp;fm=webp" srcset="https://images.ctfassets.net/kftzwdyauwt9/3ZlINT9EhkfY55coSIdBWq/64c9eaca9767f231ff2902685b4092ea/oai_model_spec_1x1.png?w=640&amp;q=90&amp;fm=webp 640w, https://images.ctfassets.net/kftzwdyauwt9/3ZlINT9EhkfY55coSIdBWq/64c9eaca9767f231ff2902685b4092ea/oai_model_spec_1x1.png?w=750&amp;q=90&amp;fm=webp 750w, https://images.ctfassets.net/kftzwdyauwt9/3ZlINT9EhkfY55coSIdBWq/64c9eaca9767f231ff2902685b4092ea/oai_model_spec_1x1.png?w=828&amp;q=90&amp;fm=webp 828w, https://images.ctfassets.net/kftzwdyauwt9/3ZlINT9EhkfY55coSIdBWq/64c9eaca9767f231ff2902685b4092ea/oai_model_spec_1x1.png?w=1080&amp;q=90&amp;fm=webp 1080w, https://images.ctfassets.net/kftzwdyauwt9/3ZlINT9EhkfY55coSIdBWq/64c9eaca9767f231ff2902685b4092ea/oai_model_spec_1x1.png?w=1200&amp;q=90&amp;fm=webp 1200w, https://images.ctfassets.net/kftzwdyauwt9/3ZlINT9EhkfY55coSIdBWq/64c9eaca9767f231ff2902685b4092ea/oai_model_spec_1x1.png?w=1920&amp;q=90&amp;fm=webp 1920w, https://images.ctfassets.net/kftzwdyauwt9/3ZlINT9EhkfY55coSIdBWq/64c9eaca9767f231ff2902685b4092ea/oai_model_spec_1x1.png?w=2048&amp;q=90&amp;fm=webp 2048w, https://images.ctfassets.net/kftzwdyauwt9/3ZlINT9EhkfY55coSIdBWq/64c9eaca9767f231ff2902685b4092ea/oai_model_spec_1x1.png?w=3840&amp;q=90&amp;fm=webp 3840w" class="article-image"/></figure>
+<p><a href="https://openai.com/index/our-approach-to-the-model-spec/">Inside our approach to the Model Spec<p>ResearchMar 25, 2026</p></a></p>
+<figure class="article-figure"><img alt="OAI Monitoring internal deployments for loss of control risks Art Card 1x1" data-nimg="fill" data-nosnippet="true" sizes="(min-width: 1728px) 1728px, 100vw" src="https://images.ctfassets.net/kftzwdyauwt9/5GCZHArpg3FLRTissb13aX/50b2716c198dbbc4cf241b05faeee97c/OAI_Monitoring_internal_deployments_for_loss_of_control_risks_Art_Card_1x1.png?w=3840&amp;q=90&amp;fm=webp" srcset="https://images.ctfassets.net/kftzwdyauwt9/5GCZHArpg3FLRTissb13aX/50b2716c198dbbc4cf241b05faeee97c/OAI_Monitoring_internal_deployments_for_loss_of_control_risks_Art_Card_1x1.png?w=640&amp;q=90&amp;fm=webp 640w, https://images.ctfassets.net/kftzwdyauwt9/5GCZHArpg3FLRTissb13aX/50b2716c198dbbc4cf241b05faeee97c/OAI_Monitoring_internal_deployments_for_loss_of_control_risks_Art_Card_1x1.png?w=750&amp;q=90&amp;fm=webp 750w, https://images.ctfassets.net/kftzwdyauwt9/5GCZHArpg3FLRTissb13aX/50b2716c198dbbc4cf241b05faeee97c/OAI_Monitoring_internal_deployments_for_loss_of_control_risks_Art_Card_1x1.png?w=828&amp;q=90&amp;fm=webp 828w, https://images.ctfassets.net/kftzwdyauwt9/5GCZHArpg3FLRTissb13aX/50b2716c198dbbc4cf241b05faeee97c/OAI_Monitoring_internal_deployments_for_loss_of_control_risks_Art_Card_1x1.png?w=1080&amp;q=90&amp;fm=webp 1080w, https://images.ctfassets.net/kftzwdyauwt9/5GCZHArpg3FLRTissb13aX/50b2716c198dbbc4cf241b05faeee97c/OAI_Monitoring_internal_deployments_for_loss_of_control_risks_Art_Card_1x1.png?w=1200&amp;q=90&amp;fm=webp 1200w, https://images.ctfassets.net/kftzwdyauwt9/5GCZHArpg3FLRTissb13aX/50b2716c198dbbc4cf241b05faeee97c/OAI_Monitoring_internal_deployments_for_loss_of_control_risks_Art_Card_1x1.png?w=1920&amp;q=90&amp;fm=webp 1920w, https://images.ctfassets.net/kftzwdyauwt9/5GCZHArpg3FLRTissb13aX/50b2716c198dbbc4cf241b05faeee97c/OAI_Monitoring_internal_deployments_for_loss_of_control_risks_Art_Card_1x1.png?w=2048&amp;q=90&amp;fm=webp 2048w, https://images.ctfassets.net/kftzwdyauwt9/5GCZHArpg3FLRTissb13aX/50b2716c198dbbc4cf241b05faeee97c/OAI_Monitoring_internal_deployments_for_loss_of_control_risks_Art_Card_1x1.png?w=3840&amp;q=90&amp;fm=webp 3840w" class="article-image"/></figure>
+<p><a href="https://openai.com/index/how-we-monitor-internal-coding-agents-misalignment/">How we monitor internal coding agents for misalignment<p>SafetyMar 19, 2026</p></a></p></div>
+      
+    </article>
+    
+    <article>
+      <h1>[Daily article] May 16: Erik Campbell (Final Destination)</h1>
+      <div class="article-meta">
+        English Wikipedia Article of the Day
+        · 16 May 2026 · <a href="mailto:reader-forwarded-email/86400090faa7adbd167ff0265f961e3c">Source</a>
+      </div>
+      <div class="article-body"><div class="rw-email-parsed">
+ <p>
+  Erik Campbell is a character in Final Destination Bloodlines (2025), the
+sixth film in the supernatural horror franchise Final Destination, and
+was portrayed by Richard Harmon (pictured). Introduced as a grandson of
+Iris Campbell, who escaped Death in the 1960s, Erik is revealed to have
+been conceived out of his mother's affair and thus not in any danger.
+Despite this, while trying to help his brother cheat Death, Erik is
+sucked into an MRI machine by a wheelchair that crushes and impales him.
+The reveal of Erik's parentage was due to the film's crew wanting to
+subvert the audience's expectations regarding the order of deaths; a
+discarded idea involved twins. The directors were initially apprehensive
+about incorporating an MRI-machine death, but chose to include it due to
+positive feedback from the production team. Critics responded positively
+to Erik, describing him as a fan favorite and Bloodlines' best
+character, as well as praising his death scene and Harmon's performance.
+(Full article...).
+ </p>
+ <p>
+  Read more:
+  <a href="https://en.wikipedia.org/wiki/Erik_Campbell_%28Final_Destination%29">
+   https://en.wikipedia.org/wiki/Erik_Campbell_%28Final_Destination%29
+  </a>
+ </p>
+ <hr/>
+ <p>
+  Today's selected anniversaries:
+ </p>
+ <p>
+  1811:
+ </p>
+ <p>
+  Peninsular War: Allied British, Spanish, and Portuguese forces
+clashed with French troops at the Battle of Albuera (depicted) fought
+south of Badajoz, Spain.
+  <a href="https://en.wikipedia.org/wiki/Battle_of_Albuera">
+   https://en.wikipedia.org/wiki/Battle_of_Albuera
+  </a>
+ </p>
+ <p>
+  1925:
+ </p>
+ <p>
+  The first modern performance of Claudio Monteverdi's opera Il
+ritorno d'Ulisse in patria occurred in Paris.
+  <a href="https://en.wikipedia.org/wiki/Il_ritorno_d%27Ulisse_in_patria">
+   https://en.wikipedia.org/wiki/Il_ritorno_d%27Ulisse_in_patria
+  </a>
+ </p>
+ <p>
+  1961:
+ </p>
+ <p>
+  Led by Park Chung Hee, the Military Revolution Committee
+carried out a bloodless coup against the government of Yun Po-sun in
+Seoul, ending the Second Republic of Korea.
+  <a href="https://en.wikipedia.org/wiki/May_16_coup">
+   https://en.wikipedia.org/wiki/May_16_coup
+  </a>
+ </p>
+ <p>
+  2014:
+ </p>
+ <p>
+  At least 12 people were killed and 70 others injured when two
+bombs exploded in a market in Nairobi, Kenya.
+  <a href="https://en.wikipedia.org/wiki/Gikomba_bombings">
+   https://en.wikipedia.org/wiki/Gikomba_bombings
+  </a>
+ </p>
+ <hr/>
+ <p>
+  Wiktionary's word of the day:
+ </p>
+ <p>
+  sultanate:
+1. A sovereign or vassal princely state—usually Muslim—where the ruler
+is styled sultan.
+2. The office or position of a sultan.
+3. About Word of the Day
+4. Nominate a word
+5. Leave feedback
+  <a href="https://en.wiktionary.org/wiki/sultanate">
+   https://en.wiktionary.org/wiki/sultanate
+  </a>
+ </p>
+ <hr/>
+ <p>
+  Wikiquote quote of the day:
+ </p>
+ <p>
+  ”
+  --William H. Seward
+  <a href="https://en.wikiquote.org/wiki/William_H._Seward">
+   https://en.wikiquote.org/wiki/William_H._Seward
+  </a>
+ </p></div></div>
+      
+    </article>
+    
+  </body>
+</html>
