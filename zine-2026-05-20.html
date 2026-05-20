@@ -1,0 +1,475 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Fred Talks - 2026-05-20</title>
+    <style>
+      @page {
+        size: A5;
+        margin: 8mm 9mm 9mm;
+      }
+
+      :root {
+        color: #111;
+        font-family: "Times New Roman", Times, serif;
+        --body-text-size: 9.5pt;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        color: #111;
+        background: #fff;
+        font-family: "Times New Roman", Times, serif;
+        line-height: 1.45;
+      }
+
+      a,
+      a:visited {
+        color: #111;
+        text-decoration: underline;
+      }
+
+      .cover {
+        min-height: calc(210mm - 17mm);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        page-break-after: always;
+        border: 1px solid #111;
+        padding: 8mm;
+        background: #fff;
+      }
+
+      .toc-item-meta,
+      .article-meta {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .masthead {
+        margin: 0;
+        font-size: 40pt;
+        line-height: 0.95;
+        text-transform: uppercase;
+      }
+
+      .issue-date {
+        margin: 4mm 0 0;
+        font-size: 14pt;
+      }
+
+      .issue-date sup {
+        font-size: 0.58em;
+        vertical-align: super;
+        line-height: 0;
+      }
+
+      .cover-deck {
+        max-width: 90mm;
+        font-size: 12pt;
+        margin: 0;
+      }
+
+      .toc {
+        border-top: 3px solid #111;
+        padding-top: 6mm;
+      }
+
+      .toc h2 {
+        margin: 0 0 4mm;
+        font-size: 11pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .toc-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .toc-item {
+        padding: 3mm 0;
+        border-bottom: 1px solid rgba(17, 17, 17, 0.2);
+      }
+
+      .toc-item-title {
+        font-size: 12pt;
+        margin: 0 0 1mm;
+      }
+
+      .toc-item-meta {
+        font-size: 8pt;
+      }
+
+      .masthead-compact {
+        margin: 0 0 6mm;
+      }
+
+      .masthead-compact h1 {
+        margin: 0;
+        font-size: 22pt;
+        line-height: 1.1;
+        text-transform: uppercase;
+      }
+
+      .masthead-compact .issue-date {
+        margin: 2mm 0 0;
+        font-size: 11pt;
+      }
+
+      .toc-compact {
+        border-top: 1px solid #111;
+        border-bottom: 1px solid #111;
+        padding: 4mm 0;
+        margin: 0 0 8mm;
+      }
+
+      article + article {
+        margin-top: 10mm;
+        padding-top: 6mm;
+        border-top: 2px solid #111;
+      }
+
+      h1 {
+        margin: 0 0 2mm;
+        font-size: 18pt;
+        line-height: 1.1;
+      }
+
+      .article-meta {
+        font-size: 8.5pt;
+        margin-bottom: 6mm;
+        padding-bottom: 3mm;
+        border-bottom: 1px solid #111;
+      }
+
+      .article-body {
+        font-size: var(--body-text-size);
+        font-family: "Times New Roman", Times, serif;
+      }
+
+      .article-body p,
+      .article-body li,
+      .article-body blockquote,
+      .article-body dd,
+      .article-body dt {
+        margin: 0 0 4mm;
+        orphans: 3;
+        widows: 3;
+      }
+
+      .article-body ul,
+      .article-body ol,
+      .article-body dl {
+        margin: 0 0 4mm 5mm;
+        padding: 0;
+      }
+
+      .article-body h2,
+      .article-body h3,
+      .article-body h4 {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        margin: 7mm 0 3mm;
+        line-height: 1.2;
+      }
+
+      .article-body blockquote {
+        margin-left: 6mm;
+        padding-left: 4mm;
+        border-left: 2px solid #111;
+      }
+
+      .article-body .media-omitted {
+        margin: 0 0 4mm;
+        font-size: 8.5pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(17, 17, 17, 0.65);
+      }
+
+      .article-body figure,
+      .article-body .article-figure,
+      .article-body picture,
+      .article-body .article-picture {
+        display: block;
+        max-width: 72mm;
+        margin: 0 auto 4mm;
+        break-inside: avoid;
+      }
+
+      .article-body img,
+      .article-body .article-image {
+        display: block;
+        max-width: min(100%, 72mm);
+        max-height: 34mm;
+        height: auto;
+        width: auto;
+        object-fit: contain;
+        margin: 0 auto 3mm;
+      }
+
+      .article-body figcaption {
+        margin-top: 1.5mm;
+        font-size: 8.5pt;
+        line-height: 1.3;
+        color: rgba(17, 17, 17, 0.8);
+      }
+
+      .article-note {
+        margin-top: 6mm;
+        padding-top: 3mm;
+        border-top: 1px solid #111;
+        font-size: 9pt;
+        font-style: italic;
+      }
+
+      @media screen {
+        body {
+          padding: 2rem;
+          margin: 0 auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    
+    <header class="masthead-compact">
+      <h1>Fred Talks</h1>
+      <p class="issue-date">
+        20<sup>th</sup> May 2026
+      </p>
+    </header>
+
+    <nav class="toc toc-compact">
+      <h2>Contents</h2>
+      <ol class="toc-list">
+        
+        <li class="toc-item">
+          <div class="toc-item-title">LLM Evaluation: Practical Tips at Booking.com</div>
+          <div class="toc-item-meta">
+            George Chouliaras · 2734 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Can agents replace the search stack?</div>
+          <div class="toc-item-meta">
+            Doug Turnbull · 1252 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">10 Lessons for Agentic Coding</div>
+          <div class="toc-item-meta">
+            Drew Breunig · 638 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">The Bag-of-Documents Model for Query Understanding and Retrieval</div>
+          <div class="toc-item-meta">
+            Daniel Tunkelang · 78 words
+          </div>
+        </li>
+        
+      </ol>
+    </nav>
+    
+
+    
+    <article>
+      <h1>LLM Evaluation: Practical Tips at Booking.com</h1>
+      <div class="article-meta">
+        George Chouliaras
+        · 13 Sep 2025 · <a href="https://link.mail.beehiiv.com/ss/c/u001.J3WaaJcD-G_P1A1xsf5CHkrncULtn4446TXpBaSpiq7g5PosDwrhRimc2WZlSfSKmbSyPFkc559PthNyRoaAvYcd0tAL97SnGJaOmR9RSDYUIKL_6n836jKk7PYxlfxYEH0FvT5Xhz4-oodXqNufD16HcBOEccfBl7iWL1gvp0779S1d0dj_OT0QpibzKk6AyOhN6RaeWyJRG_uu-uiPvQ/4ju/DiCm90x0SLegF0CXG0K2qg/h15/h001.bV6D6zgvmTFFa79P2wFG7gPlvRLOc-g7eSlJGHNuGjs">Source</a>
+      </div>
+      <div class="article-body"><h2 data-selectable-paragraph="">Lessons learned from 1 year of Judge-LLM Development</h2>
+<p><strong>By </strong></p>
+<p><a href="https://medium.com/u/d023713c868b?source=post_page---user_mention--1b038a0d6662---------------------------------------"><strong>Zeno Belligoli</strong></a></p>
+<p><strong>, </strong></p>
+<p><a href="https://medium.com/u/56a834b1a90c?source=post_page---user_mention--1b038a0d6662---------------------------------------"><strong>Antonio Castelli</strong></a></p>
+<p><strong>, </strong></p>
+<p><a href="https://medium.com/u/c824b2a09dea?source=post_page---user_mention--1b038a0d6662---------------------------------------"><strong>George Chouliaras</strong></a></p>
+<figure class="article-figure"><picture class="article-picture"><img alt="" src="https://miro.medium.com/v2/resize:fit:700/1*UykNlWJaC6lPAhLipJGq_g.jpeg" class="article-image"/></picture></figure>
+<p>The increasing adoption of Large Language Models (LLMs) across various industries has made evaluating LLM-powered applications (also called Generative AI applications) a critical necessity.</p>
+<p>LLMs are pre-trained on a vast amount of text and can therefore be used to perform a wide range of tasks based on a natural language input called <strong>prompt</strong>. These tasks range from extracting information, answering complex questions, summarizing documents, generating creative content, translating languages, writing code etc.</p>
+<p>However, unlike traditional Machine Learning (ML) models, the nature of LLMs brings inherent challenges that must be carefully considered:</p>
+<ul><li data-selectable-paragraph="">LLMs can <strong>hallucinate</strong>, i.e. can generate outputs which are factually incorrect or nonsensical while presenting them with high confidence</li><li data-selectable-paragraph="">LLMs can fail to <strong>follow the instructions</strong> specified in the prompt no matter how detailed they sound to a human reader</li><li data-selectable-paragraph="">Usage of LLMs has a <strong>non-negligible cost</strong> whether the model is open-source and served in-house or closed-source and accessed via a paid API.</li></ul>
+<p>To maximize the potential of Generative AI (GenAI) applications and mitigate the risks associated with them, we built a framework capable of thoroughly evaluating the performance of an LLM on a specific task in a nearly automated way. This framework is based on the concept of <a href="https://arxiv.org/pdf/2306.05685"><strong>LLM-as-judge</strong></a>, i.e. on the usage of a more powerful LLM to evaluate the “target” LLM.</p>
+<h2 data-selectable-paragraph="">The LLM-as-a-judge framework</h2>
+<p>The main difference between the evaluation of traditional ML models and LLMs is that in most of the cases we are dealing with generative tasks for which either no single ground truth exists or is hard / expensive to obtain. When we ask an LLM to write a description of a property, or to summarize a long text, we don’t really have an unambiguous reference that we can use for comparison. Moreover we can’t get this at scale for different topics or subjects.</p>
+<p>Therefore the measurement of text attributes like clarity, readability, toxicity or factual accuracy becomes more challenging. It would be possible, in theory, to employ human experts to review every generation and provide an estimation of the metric under study. However, this process would be time consuming and expensive to be <strong>practically infeasible</strong>.</p>
+<p>The LLM-as-judge approach, requires human involvement <strong>only once </strong>(unless the production distribution changes), to carefully annotate the so-called <strong>golden dataset</strong> which must be large enough to be representative of the data distribution in production (the best practices for golden dataset creation are described in the next section).</p>
+<p>Once we have the golden dataset with labels, we can prompt (or fine-tune) an LLM to replicate human judgement as much as possible. Once this is achieved, (e.g. when the agreement between the judge LLM and the human annotation has an accuracy above a certain threshold) the judge LLM can be employed to score the predictions of a second LLM (<em>target LLM</em>) on other datasets.</p>
+<blockquote><p data-selectable-paragraph="">This allows the continuous monitoring of the performance of a GenAI application in production in a scalable way with minimal human involvement.</p></blockquote>
+<p>Since the judge-LLM solves a classification task (e.g. is the text clear or not? is the text factually accurate or not?) getting golden labels is much easier. Hence, we can evaluate its performance using standard metrics like accuracy, f1-score, precision or recall, to monitor the performance of the target LLM. The process of judge-LLM development and usage is depicted in Figure 1.</p>
+<figure class="article-figure"><picture class="article-picture"><img alt="" src="https://miro.medium.com/v2/resize:fit:700/0*7JqfDj1PAac9U2J5" class="article-image"/></picture><figcaption>Figure 1: Judge-LLM development and deployment cycle. The left box (light-blue) shows the judge-LLM development phase. This phase always starts with a golden dataset with labels provided by a fully trusted source (e.g. human experts). A base LLM model is prompted or fine-tuned to imitate human label scoring. When the judge-LLM reaches a certain accuracy with respect to the golden labels, it can be deployed in production (right purple box) to score any other similar dataset, for example to evaluate the output of a target LLM. An evaluation report can be produced using the predictions of the target LLM and the label provided by the Judge LLM. </figcaption></figure>
+<h2 data-selectable-paragraph=""><strong>Golden Dataset Creation</strong></h2>
+<p>The main aim of a golden dataset is to <strong>accurately assess the ability</strong> of a judge-LLM, to evaluate a production LLM in a particular evaluation metric. Due to this, a <strong>high quality</strong> golden dataset should meet the following criteria:</p>
+<ul><li data-selectable-paragraph="">It should represent the <em>production distribution</em>, since we want the Judge LLM evaluation to be as close to production as possible.</li><li data-selectable-paragraph="">It should include <em>golden </em>labels, e.g. labels with high quality. This can be proxied by high inter-annotator agreement among the annotators of the labels.</li></ul>
+<p>Low <a href="https://en.wikipedia.org/wiki/Inter-rater_reliability">inter-annotator agreement</a> usually indicates ambiguity in the metric definition and should be resolved by calibration among the annotators and by adding clarifications in the definition until the agreement is acceptable.</p>
+<p>Since text attributes often do not have an objective and unique true value, achieving high-quality annotations is not a trivial task. To make fair comparisons between different versions of a GenAI application it is of utmost importance to have a <strong>standardized annotation protocol</strong> which is rigorously followed. Below we provide both a <strong>basic</strong> and an <strong>advanced</strong> annotation protocol for creating the golden dataset.</p>
+<h3 data-selectable-paragraph=""><strong>Basic Annotation Protocol</strong></h3>
+<p>The basic annotation protocol can be used when only a single annotator is available.</p>
+<p><strong>1. Metric Definition</strong></p>
+<p>Define the metric definition with the business owner in the most unambiguous way possible.</p>
+<ul><li data-selectable-paragraph="">Write a <strong>clear</strong> definition of the metric as objective as possible. Prefer <strong>binary</strong> metrics or categorical metrics with a few classes, <a href="https://aclanthology.org/2024.emnlp-main.12.pdf">since LLMs struggle with continuous scores </a>. If you’re forced to use a continuous metric, consider binning into a few coarse ordinal values e.g. ‘high’, ‘medium’, ‘low’.</li><li data-selectable-paragraph="">Write <strong>annotation instructions</strong>, using the metric definition. These are the instructions a human should follow in order to provide the ground truth label. Describe the task <strong>clearly</strong> and <strong>objectively</strong>. Avoid vague words (such as major, minor, a few). Provide scored examples and include edge cases. Specify what tools the annotators can and cannot use (Search engines, ChatGPT, etc).</li></ul>
+<p><strong>2. Pilot Annotation</strong></p>
+<p>Collect a few examples (~50) and annotate them according to the aforementioned metric definition. The annotators should carefully follow the instructions provided, without bringing any previous knowledge or bias on the task. The annotators at this stage can be selected from business owners or from other technical people involved. The aim of this step is to ensure that we have a clear metric definition and that the annotations are aligned with it.</p>
+<p>Once the annotations are done, it is recommended that they are <strong>reviewed</strong> by a pool of domain experts to assess if they align with the guidelines. If issues or disagreements are found, they should be resolved, the metric definition should be updated and the pilot annotation should be repeated until full consensus is reached.</p>
+<p><strong>3. Full Annotation by a single annotator</strong></p>
+<p>Once the annotation of the first small sample during the pilot annotation is finalized and reviewed, the examples can be shared to the annotator as guidance in order to annotate a full dataset. The full dataset should consist of <strong>ideally 500- 1000 examples</strong> at least. This is because part of the dataset will be used for tuning the judge-LLM (validation set) and another part as a holdout set in order to evaluate its performance.</p>
+<p><strong>4. Quality Review</strong></p>
+<h2>Get George Chouliaras’s stories in your inbox</h2>
+<p>Join Medium for free to get updates from this writer.</p>
+<p>A subject matter expert reviews a <strong>representative</strong> sample (~10%) of the full annotation. If a significant percentage (&gt; 10%) of the labels in the sample are incorrect, annotation should be repeated. The quality thresholds can be adjusted according to the organization’s needs and should be communicated and agreed upon with the annotators before the full annotation.</p>
+<h3 data-selectable-paragraph=""><strong>Advanced Annotation Protocol</strong></h3>
+<p>The advanced annotation protocol requires more effort but also guarantees higher quality annotations than the basic one.</p>
+<p><strong>1. Metric Definition</strong></p>
+<p><em>Same as in the basic protocol.</em></p>
+<p><strong>2. Pilot Annotation</strong></p>
+<p><em>Same as in the basic protocol.</em></p>
+<p><strong>3. Full Annotation by multiple annotators</strong></p>
+<p>Instead of having a single human annotator providing the label for a given example, we have multiple human annotators (3+) providing a label for each example.<br/>
+Depending on the use case, an aggregation function must be defined to obtain the final label. The aggregation function should take an array of labels and return a single one. In principle any aggregation function can be used. If labels can be converted into integers and ordered any function like min, max, or average can be used. If labels have no orders (e.g. geographical location) majority vote can be used.</p>
+<p>Examples where the annotators <strong>disagree</strong> can be treated in multiple ways, depending on what is more appropriate for the specific problem.</p>
+<p><strong>a) Add a “not sure” class</strong>: map to the “not sure” class all examples without 100% consensus</p>
+<p><strong>b) Add a weight &lt; 1</strong>: For all examples without 100% consensus select the majority class among the annotated ones (a random one if there is no majority) and add a weight to the example equal to n_selected_class_votes / n_total_votes. This approach will penalize the more uncertain examples in the aggregated performance.</p>
+<p><strong>c) Discard the ambiguous examples</strong>: For some use cases it might make sense to simply remove all the examples where there is no 100% agreement.</p>
+<p><strong>4. Quality Review</strong></p>
+<p><em>Same as in the basic protocol.</em></p>
+<h2 data-selectable-paragraph="">How to develop a judge-LLM</h2>
+<p>Once the golden dataset is ready, you can develop the judge-LLM. Note that you can already do this step once the sample dataset from the pilot annotation is ready (with ~50 samples) to create a first version of the judge-LLM and score a few examples to identify any early issues. However for proper evaluation and tuning of the judge-LLM you need a large dataset of 500–1000 examples. In this article we share how to create a prompt-based judge-LLM for simplicity. You can always fine-tune a judge-LLM but this won’t be covered here. To develop the judge-LLM you follow the <strong>iterative process</strong> detailed below, which is the standard process for manual prompt engineering.</p>
+<ol><li data-selectable-paragraph=""><strong>Split the golden dataset in validation and test sets: </strong>A standard split is 50/50 but the final decision is on the model owner. The validation set is used to compute the prompt performance and to find error patterns. The test set is used to check for evaluating generalization and overfitting.</li><li data-selectable-paragraph=""><strong>Choose a strong LLM: </strong>We typically select powerful models such as <strong>GPT-4.1</strong>, or <strong>Claude 4.0 Sonnet</strong> as the backbone for our judge-LLM. These models serve two roles:</li></ol>
+<p>a) As a sanity check: Given a high-quality dataset and a well-defined task, a strong LLM should perform well if the prompt is reasonable.</p>
+<p>b) To estimate an upper bound on achievable performance. While this is not a strict bound (there are cases where smaller models with better prompts outperform stronger ones) it provides a useful reference point.</p>
+<p><strong>3. Write the prompt of the judge-LLM:</strong> Use the metric definition and include scoring instructions and output format (can be json/string/else). Few shot examples can also be included but ensure that no examples from the golden dataset are provided to avoid overfitting. We also normally add <a href="https://proceedings.neurips.cc/paper_files/paper/2022/file/9d5609613524ecf4f15af0f7b31abca4-Paper-Conference.pdf">chain-of-thought prompting (CoT)</a> to promote reasoning and explainability. To build the judge-LLM you can use any framework that supports custom LLM-based metrics, such as <a href="https://deepeval.com/docs/metrics-llm-evals">DeepEval’s G-Eval</a> metric or <a href="https://phoenix.arize.com/">Arize Phoenix</a>.</p>
+<p><strong>4. Evaluate the performance on the validation set</strong>: The evaluation metric depends on the type of the task and the class imbalance. For classification tasks we generally recommend macro <a href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html">f1-score</a> while for continuous metric you can use <a href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html">mean squared error</a>.</p>
+<p><strong>5. Perform error analysis and update the prompt<br/>
+</strong>We analyze the model’s mistakes on the validation set to identify recurring issues or edge cases. Based on these insights, we revise the prompt to better align it with the desired behavior. We then repeat steps 3, 4 and 5. Typically, we are satisfied once we reach a value of the evaluation metric above a certain threshold agreed with the business stakeholders.</p>
+<p><strong>6. Evaluate the performance on the test set</strong>: This will give the unbiased performance score of the judge-LLM. It is not recommended to change the prompt in order to improve the performance on the test set, as this might end up in overfitting on this dataset.</p>
+<p>After prompt engineering is completed with a strong model, we repeat the same process using a <strong>weaker (and more cost-efficient) model</strong>, aiming to match the performance of the stronger version as closely as possible. In practice, we use the <strong>strong-model judge-LLM during AI system development</strong>, where quality is critical, and <strong>the weaker-model version for large-scale monitoring</strong> of system performance in production environments. An example of such monitoring is provided in Figure 2.</p>
+<figure class="article-figure"><picture class="article-picture"><img alt="" src="https://miro.medium.com/v2/resize:fit:700/0*a6JO8Zt7CwDHcL8s" class="article-image"/></picture><figcaption>Figure 2: The figure shows an example dashboard used to monitor the quality of an LLM application, based on judge-LLM metrics. Metric values can also be combined to get aggregated scores. In this particular example we show the trends for Entity Extraction accuracy, LLM-instruction-following accuracy, frustration of users, context relevance, LLM-location-resolving accuracy and LLM-topic-conversation-extraction accuracy. From the plot it is immediate to quickly spot issues connected to instruction-following and topic-extraction allowing for prompt mitigation actions. An automated system is set-up to alert the application owners whenever an anomaly is detected for any of the relevant metrics. </figcaption></figure>
+<h2 data-selectable-paragraph="">Future directions</h2>
+<h3 data-selectable-paragraph=""><strong>Pointwise vs. Comparative Judges</strong></h3>
+<p>The vast majority of our judge-LLMs are <strong>pointwise judges</strong>, which assign an absolute score to each response independently. Pointwise judges are particularly useful because they can serve <strong>dual purposes</strong>:</p>
+<ul><li data-selectable-paragraph="">Ranking system outputs during development.</li><li data-selectable-paragraph="">Monitoring performance in production, where only one system’s response is typically available.</li></ul>
+<p>However, <strong>comparative (pair-wise) </strong>judges (which compare two responses and select the better one) tend to offer <strong>stronger ranking signals</strong>. It is often easier for a model to decide which of two answers is better than to assign calibrated absolute scores. For this reason, comparative judges can be more effective during the AI system development phase. We are actively exploring methods to <strong>develop both pointwise and comparative judges with minimal extra overhead</strong>, ideally reusing most of the dataset and prompt engineering efforts.</p>
+<h3 data-selectable-paragraph="">Automatic judge-LLM development</h3>
+<p>Prompt engineering remains a <strong>manual, iterative, and time-intensive process</strong>, typically taking anywhere from <strong>one day to a full week</strong> depending on the complexity of the task. To streamline this, we have developed an <strong>automated prompt engineering pipeline</strong> inspired by <a href="https://arxiv.org/pdf/2309.03409">DeepMind’s OPRO</a> that, in essence, automates <strong>steps 3–5</strong> of the process. At the end of the process it is always important that the human inspects the final prompt to ensure that it doesn’t contain use case specific examples or rules that might undermine generalizability.</p>
+<p>Another bottleneck in the judge-LLM development process is that of data annotation. Annotating a good dataset requires substantial effort from multiple annotators and can take from some days to weeks, depending on the complexity of the task. In this context, one can leverage the ability of LLMs to generate realistic text to create <strong>synthetic data</strong>. This is particularly helpful and achievable for classification tasks, whereby the LLM only needs to generate the input X, conditioned on a certain class Y. Substantial challenges in this area lie in the generation of diverse and realistic text and conversations and in the quality evaluation of the synthetic data, that is, how do we know that our synthetic data is realistic, diverse and of high-quality? We are actively working on this area and are looking forward to sharing more with you in a future blog post.</p>
+<h3 data-selectable-paragraph="">Evaluating LLM agents</h3>
+<p>We did not cover LLM-based <strong>agent evaluation</strong> in this article as it is a topic on its own. This is because evaluating agents often requires assessing long-term goal completion, reasoning over multi-step interactions, handling complex tool use and effective use of planning and memory. These are challenges that go beyond the evaluation of isolated model outputs and typically involve different methodologies, benchmarks, and infrastructure. We will cover this topic in a separate blog post.</p>
+<h2 data-selectable-paragraph="">Key takeaways</h2>
+<p>Evaluating generative tasks is inherently complex due to the absence of clear ground truth data. The LLM-as-a-judge framework offers an efficient method to scale this evaluation process in an automated way. A high-quality judge-LLM is built upon a “golden dataset” with reliable labels, which necessitates a rigorous annotation protocol; we have outlined both a basic and an advanced version to achieve this. This judge-LLM can then be optimized through manual, iterative prompt engineering or via automated methods. Future directions in this field include creating golden datasets with synthetic data and developing evaluation methods for LLM-based agents.</p></div>
+      
+    </article>
+    
+    <article>
+      <h1>Can agents replace the search stack?</h1>
+      <div class="article-meta">
+        Doug Turnbull
+        · 28 Apr 2026 · <a href="http://softwaredoug.com/blog/2026/04/28/search-apis-replaced-by-agents.html">Source</a>
+      </div>
+      <div class="article-body"><p>How is search implemented where you work? Probably as a complex set of capabilities on top of retrieval. Our search APIs understand queries, call backend search systems, and finally rerank results.</p>
+<p>But if we had an agent in the loop, would we need all that? Could we replace search backends with an agent? After all, an agent understands user requests, calls retrieval tools, and evaluates relevance on its own. We see ChatGPT do this all the time, why can’t our search bar?</p>
+<p>In other words, if you give it a basic BM25 backend to an agent, could it take the Search API’s job?</p>
+<h2>Surprisingly good results with simple tool usage</h2>
+<p>Well I’ve <a href="https://github.com/softwaredoug/search-experiments">measured initial findings</a> (a <a href="https://softwaredoug.com/blog/2025/10/06/how-much-does-reasoning-improve-search-quality">bit deeper than in the past</a>). I gave agents basic search tools and got the popcorn out to watch.</p>
+<p>On Amazon ESCI, we see increasing performance with slightly better retrievers + LLMs.</p>
+<p>First, we start with a bm25+<a href="https://huggingface.co/intfloat/e5-base-v2">e5_embedding</a> baseline. They achieve 0.289/0.314 NDCG respectively.</p>
+<p>Then we measure three agentic experiments. Each with GPT-5-mini driving different combinations of search tools. We see an agent with e5 embeddings get 0.359 and with BM25 0.385. With both we get 0.410.</p>
+<p>GPT-5 with both tools gets an NDCG of 0.453.</p>
+<figure class="article-figure"><img alt="image.png" src="https://softwaredoug.com/assets/media/search-apis-replaced-by-agents/image.png" class="article-image"/></figure>
+<p>What’s amazing about this? I’ve barely lifted a finger. I just setup a stock LLM with some search tools. Nothing here has been fit to my data. A 0.289→0.453 jump in quality depends only on model quality + simple retrievers.</p>
+<p>If an agent could be fast enough, is there a future here we build search with agents and not APIs? A world where agents reason about queries to show users the best results?</p>
+<h2>But, agents call search approximately… once?</h2>
+<p>What kind of ingenious strategies are these agents employing? It turns out, for the most part, they’re calling search roughly once per search tool. You can see this in the graph.</p>
+<figure class="article-figure"><img alt="image.png" src="https://softwaredoug.com/assets/media/search-apis-replaced-by-agents/image%201.png" class="article-image"/></figure>
+<p>When you look at reasoning traces, you see the agent interpret the search, issue a single query, retrieve up to the max of 20 results, then rank them.</p>
+<p>Occasionally, very rarely, with just BM25, you’ll see two simultaneous searches. For example, “PVC coupler” shows first a BM25 search for “pvc coupler”, the agent. disappointed with results, issues a follow up query (PVC pipe coupler):</p>
+<pre><code>Calling search_bm25 with args keywords='pvc coupler' top_k=20
+
+**Searching for PVC couplers**  I noticed that the search results mainly
+returned RJ45 couplers, which are for network cables, not what the user likely
+meant. They’re probably asking about PVC pipe couplers used in plumbing. The
+current search tool isn't yielding entries for PVC pipe couplers specifically. I
+saw mentions of PVC in descriptions, but it’s clearer to use broader keywords to
+refine my search. I need to focus on terms like "PVC pipe coupler" or "PVC
+coupling" to get better results, so I'll try that next.
+
+Calling search_bm25 with args keywords='PVC pipe coupler' top_k=20
+</code></pre>
+<p>You also see cases where the agent uses BM25 to issue two queries simultaneously, anticipating inconsistent results:</p>
+<pre><code>Calling search_bm25 with args keywords='AN10 oil catch can no filter' top_k=20
+Calling search_bm25 with args keywords='AN10 oil catch can without breather filter' top_k=20
+</code></pre>
+<p>There’s something about keyword search, it seems, that nudges the agent to try more queries. The agent can interpret results, understand why they didn’t match, and take next steps. Keyword search has cause-and-effect (keywords matched / or didn’t). Agents can react to that and improve.</p>
+<h2>Encouraging exploration improves further</h2>
+<p>I want agent exploration to be the norm, not the exception.</p>
+<p>We haven’t changed a thing about the harness. We could steer agents to search more effectively. What happens with a few small changes to our setup:</p>
+<ul> <li><strong>Require more tool calls -</strong> we ask the agent to keep trying if its made fewer than the required number of tool calls (ie 4). We say something encouraging like “wow these are great, but I bet you can do better!”</li> <li><strong>Require the agent use diverse retrieval queries</strong> - to ensure the agent truly explores, we reject queries too similar to those issued by the agent previously for this search.</li> </ul>
+<p>Within the GPT-5-mini examples, we see <a href="https://github.com/softwaredoug/search-experiments#esci---forcing-more-tool-calls">incremental improvements</a>.</p>
+<table> <tr> <th><strong>strategy</strong></th> <th><strong>model</strong></th> <th><strong>mean</strong></th> <th><strong>median</strong></th> </tr> <tbody> <tr> <td><a href="https://github.com/softwaredoug/search-experiments/blob/main/configs/ecom_base/agentic_ecom_2tools_e5_gpt5_mini.yml">Two tools</a></td> <td>gpt-5-mini</td> <td>0.4101</td> <td>0.3743</td> </tr> <tr> <td><a href="https://github.com/softwaredoug/search-experiments/blob/main/configs/ecom_mincalls/agentic_ecom_2tools_4calls_repeat_gpt5_mini.yml">Require 4 calls, disallow duplicates</a></td> <td>gpt-5-mini</td> <td>0.4290</td> <td>0.3948</td> </tr> <tr> <td><a href="https://github.com/softwaredoug/search-experiments/blob/main/configs/ecom_mincalls/agentic_ecom_2tools_4calls_sim0p9_gpt5_mini.yml">Require 4 calls, disallow queries &gt; 0.9 sim to past queries</a></td> <td>gpt-5-mini</td> <td>0.4308</td> <td>0.4258</td> </tr> </tbody> </table>
+<p>That’s nice, it approaches the GPT-5 benchmark from before, but with a smaller model. Albeit with more tool calls.</p>
+<h2>What about agentic search models (ie SID-1)?</h2>
+<p>Another source of hope comes from model providers. Teams like <a href="http://sid.ai">SID</a> have agentic search models that act as <a href="https://www.sid.ai/research/sid-1">drop-in replacements</a> for your RAG stack. These self-hosted agents translate your company’s simple retrieval tools into relevant results. That’s basically replacing a search API with an agent.</p>
+<p>It’s important to have a different model. Frontier lab LLMs think of “search” as web search. So they issue a query once, trust the results, and move on. That’s valuable because they’re reasoning about the user’s problem - not search relevance.</p>
+<p>But a model like SID-1 might be trained to reason about relevance using less sophisticated retrievers. They know to explore more of the corpus and reason efficiently about results. As a self-hosted subagent, focused only on retrieving results that satisfy the search, they leave the main LLM focused on the user’s task.</p>
+<p>Still, to be smaller, they must be more focused. One wonders if in the future we’ll have agentic search LLMs tailored to different domains. One good at e-commerce. Another good at document retrieval, etc. The tradeoffs look like embedding models: we must choose the model based on its training data. We understand we can drift away from the model’s sweet spot.</p>
+<h2>“Finding” different than Deep Research**</h2>
+<p>Where does this break down? Change to passage dataset, and there’s no improvement by letting an agent drive tools. You can’t beat the embedding model.</p>
+<figure class="article-figure"><img alt="MiniMARCO MRR" src="https://softwaredoug.com/assets/media/minimarco_mrr.png" class="article-image"/><figcaption>MiniMARCO MRR</figcaption></figure>
+<p>The e5 model here almost certainly has MSMarco in its training set. In this case <strong>the retriever knows best</strong>. The Agents own evaluation of results hits a wall.</p>
+<p>We cross a threshold where the LLMs and users diverge in their relevance evaluations. An 80% accurate LLM as a judge isn’t that useful, actually. Often that 80% holds the easy cases. It’s the last 20% that’s hard.</p>
+<p>In other words, LLMs don’t know everything. Search when the LLM “knows” vs “doesn’t know” are different problems.</p>
+<p>So far we’ve focused on finding <strong><em>things</em></strong> (products, jobs, etc). But adding knowledge the agent doesn’t have? That’s fundamentally a different problem. In the case above, the embedding adds knowledge to the agent. When an agent encounters a question it can’t answer in that last 20%, it needs search to be an oracle. It’s not finding things anymore, it’s filling in its own gaps.</p>
+<p>That’s how ChatGPT treats web search. Ask about a current event past the training cutoff, you’ll see it in action.</p>
+<p>To me this last 20% says everything about search. It’s where the really hard search problems exist. You either:</p>
+<ul> <li>Build a model that learns your domain - ie a SID-1 for your data + queries</li> <li>Build a thicker / smarter retrieval function, as in classic search. It continues to solve search the old fashioned way - with new techniques like late interaction helping</li> </ul>
+<p>So in the end, can an agent replace a search API? I’d argue there’s still a tremendous amount of skill needed to build a useful retrieval function. We can build a harness so strong even grep / BM25 mostly works. But we pass a threshold with diminishing returns.</p>
+<h3>Enjoy softwaredoug in training course form!</h3>
+<h4>Starting May 18!</h4>
+<figure class="article-figure"><a href="https://maven.com/softwaredoug/cheat-at-search"><img src="https://softwaredoug.com/assets/media/2026/cheat-at-search-social.png" class="article-image"/></a></figure>
+<p>I hope you join me at <a href="https://maven.com/softwaredoug/cheat-at-search">Cheat at Search with Agents</a> to learn use agents in search. build better RAG and use LLMs in query understanding.   </p></div>
+      
+    </article>
+    
+    <article>
+      <h1>10 Lessons for Agentic Coding</h1>
+      <div class="article-meta">
+        Drew Breunig
+        · 08 May 2026 · <a href="https://link.mail.beehiiv.com/ss/c/u001.3a5P_SwQzY5x8USD2q4p0kSgN78obqLdqaNQVHkW2vcvyQQJGBLO7teEGPsl9zdXk9strGg_mSrKC0Fg_8Os8Bz9F43zWQ0eYWGnJgbYwX4HeDEtRRGkCcoHgbIWWB333DhpU0dmxfbdl4B-7yvOdp4iV74PYBMIuS_96r0mwij2Z4VV1ZkUBLOnN4tdU3FpZX-YlpGYqqhCidjaUtwMhg/4qg/WVwTyTGXScCkjXrJ7GNyGA/h16/h001.HJ_eCkoymPwdkLydcFG5ZeG4ApFApFyQ_XsOw526BEw">Source</a>
+      </div>
+      <div class="article-body"><h3>What should we do when code is cheap?</h3>
+<figure class="article-figure"><img alt="" src="https://www.dbreunig.com/img/hand_scroll.jpg" class="article-image"/></figure>
+<p>Lately, this blog has featured a lot of writing about agentic coding. Frontier models are <em>really</em> good at coding these days, <a href="https://www.dbreunig.com/2025/04/11/what-we-mean-when-we-say-think.html#the-strengths--limits-of-reasoning-models">much better than they are at other tasks</a>. Coding with agents feels like a preview of the future, a playground for seeing how far we can push agent capabilities. It’s invigorating, rewarding, and deeply <em>weird</em>.</p>
+<p>I’ve been keeping a running list of tips for agentic coding: guidelines or rules one might give to someone just getting started with Codex, Claude Code, Pi, or any other agent. Ideally each tip is generalizable guidance, relevant to any agentic programming. I’m also looking for durable lessons that will stick around as models and harnesses improve.</p>
+<p>Below is my current list: <em>10 Lessons for Agentic Coding</em>. Ten’s a nice round number; a good time to put this out there.</p>
+<p>To be clear: I take credit only for honing and compiling these guidelines. As <a href="https://x.com/kshetrajna">Kshetrajna Raghavan</a> said to me today, “It’s <em>crazy</em> how we’re all converging on similar lessons.”</p>
+<p>(If you think I’ve missed anything below, please <a href="https://www.dbreunig.com/contact.html">reach out</a>!)</p>
+<h3>10 Lessons for Agentic Coding</h3>
+<ol> <li><strong>Implement to learn.</strong> You can go far with <a href="https://www.dbreunig.com/2026/02/06/the-rise-of-spec-driven-development.html">Spec-Driven Development</a>, but <a href="https://www.dbreunig.com/2026/03/04/the-spec-driven-development-triangle.html">the act of writing code surfaces decisions you hadn’t considered and makes your spec better</a>. When code is cheap, implement to learn.</li> <li><strong>Rebuild often.</strong> Implement early and <em>often</em> to learn more. Fork and recode crazy thought experiments. Find out how far you can take feature. Of course, you want to iterate and compound your efforts, but cheap code means you can reconnoiter and reinvent in ways you never could.</li> <li><strong>Invest in end-to-end tests.</strong> When we can reinvent our code cheaply, we should spend time writing tests that measure our product’s <em>functions</em>, not <em>how</em> it performs them. We want behavioral contracts that grant us the freedom to rebuild and reimplement.</li> <li><strong>Document intent.</strong> Tests detail our goals while code encodes our methods, but neither captures the <em>why</em>. Your intent motivates your decisions, and persisting it alongside the code helps you and your agent compound those decisions in a consistent direction.</li> <li><strong>Keep your specs in sync.</strong> Update your specs, the markdown files containing your goals and plans, <a href="https://www.dbreunig.com/2026/03/04/the-spec-driven-development-triangle.html">as you advance your code and your tests</a>. Treating your spec as a frozen artifact written before work begins, you’ll fail to capture learnings during implementation. Keeping it current lets it constantly inform your and your agents’ choices, and makes frequent rebuilds easier.</li> <li><strong>Find the hard stuff.</strong> Work on a project long enough and things will stop being easy. You’ll speed through the boilerplate work, the obvious design decisions, and start hitting the ugly, difficult work: intuitive design, performance, security, resilience, and systemic architecture. Anyone can vibe the easy stuff. <a href="https://www.dbreunig.com/2023/12/27/deja-connu.html">The hard work is where the value is</a>. Find it and dig in.</li> <li><strong>Automate everything that’s easy.</strong> To spend more time on the hard stuff, minimize the time you spend on easy things. Distill learnings into skills, build loops, automate code reviews, and let your tools compound. But careful: don’t get stuck in <a href="https://www.dbreunig.com/2026/03/26/winchester-mystery-house.html">a Mystery House</a>.</li> <li><strong>Develop your taste.</strong> When code arrives fast but feedback doesn’t, the only source of feedback that keeps up is your own. The better you know your domain, your users, and their problems, the further you can go without checking in.</li> <li><strong>Agents amplify experience.</strong> Talented developers underestimate how much intuition they bring to their prompts: the right terms, the right framing, and the right level of specificity. If you know your stack, you can save countless cycles during both implementation and debugging, and cut down needless agent exploration. Pair technical expertise coupled with great taste for an unbeatable advantage.</li> <li><strong>Code is cheap, but maintenance, support, and security aren’t.</strong> Agentic code is “<a href="https://www.dbreunig.com/2026/02/06/the-rise-of-spec-driven-development.html">free as in puppies</a>.” Support <a href="https://www.dbreunig.com/2026/02/21/why-is-claude-an-electron-app.html">isn’t cheap</a> and <a href="https://www.dbreunig.com/2026/04/14/cybersecurity-is-proof-of-work-now.html">neither is security</a>. Build fast, but mind the maintenance you’re adopting.</li> </ol></div>
+      
+    </article>
+    
+    <article>
+      <h1>The Bag-of-Documents Model for Query Understanding and Retrieval</h1>
+      <div class="article-meta">
+        Daniel Tunkelang
+        · 19 May 2026 · <a href="https://dtunkelang.medium.com/the-bag-of-documents-model-for-query-understanding-and-retrieval-6d110bff85b0?source=rss-5f6b5aba680------2">Source</a>
+      </div>
+      <div class="article-body"><div><p>Today I had the pleasure of presenting my <a href="https://maven.com/p/7270ba/a-bag-of-documents-model-for-query-understanding-retrieval">recent work on the bag-of-documents model</a> as part of a series of talks hosted by <a href="https://www.treygrainger.com/">Trey Grainger</a> and <a href="https://softwaredoug.com/">Doug Turnbull</a> in the context of their <a href="https://maven.com/search-school/ai-powered-search">AI-powered search classes</a>.</p><p>You can find the <a href="https://speakerdeck.com/dtunkelang/the-bag-of-documents-model-for-query-understanding-and-retrieval">slides</a> below. I also encourage you to check out the <a href="https://github.com/dtunkelang/bag-of-documents">bag-of-documents Github repository</a>, the <a href="https://huggingface.co/datasets/dtunkelang/bag-of-documents">dataset and model on Hugging Face</a>, as well as the live <a href="https://huggingface.co/spaces/dtunkelang/bag-of-documents-demo">Amazon demo</a> and <a href="https://huggingface.co/spaces/dtunkelang/bag-of-documents-bestbuy-demo">Best Buy demo</a>. Enjoy!</p><a href="https://medium.com/media/12dd1c01b9dd78114555f2c6ed60a2fe/href">https://medium.com/media/12dd1c01b9dd78114555f2c6ed60a2fe/href</a></div></div>
+      
+    </article>
+    
+  </body>
+</html>
