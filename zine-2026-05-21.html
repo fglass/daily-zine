@@ -1,0 +1,469 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Fred Talks - 2026-05-21</title>
+    <style>
+      @page {
+        size: A5;
+        margin: 8mm 9mm 9mm;
+      }
+
+      :root {
+        color: #111;
+        font-family: "Times New Roman", Times, serif;
+        --body-text-size: 9.5pt;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        color: #111;
+        background: #fff;
+        font-family: "Times New Roman", Times, serif;
+        line-height: 1.45;
+      }
+
+      a,
+      a:visited {
+        color: #111;
+        text-decoration: underline;
+      }
+
+      .cover {
+        min-height: calc(210mm - 17mm);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        page-break-after: always;
+        border: 1px solid #111;
+        padding: 8mm;
+        background: #fff;
+      }
+
+      .toc-item-meta,
+      .article-meta {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .masthead {
+        margin: 0;
+        font-size: 40pt;
+        line-height: 0.95;
+        text-transform: uppercase;
+      }
+
+      .issue-date {
+        margin: 4mm 0 0;
+        font-size: 14pt;
+      }
+
+      .issue-date sup {
+        font-size: 0.58em;
+        vertical-align: super;
+        line-height: 0;
+      }
+
+      .cover-deck {
+        max-width: 90mm;
+        font-size: 12pt;
+        margin: 0;
+      }
+
+      .toc {
+        border-top: 3px solid #111;
+        padding-top: 6mm;
+      }
+
+      .toc h2 {
+        margin: 0 0 4mm;
+        font-size: 11pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .toc-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .toc-item {
+        padding: 3mm 0;
+        border-bottom: 1px solid rgba(17, 17, 17, 0.2);
+      }
+
+      .toc-item-title {
+        font-size: 12pt;
+        margin: 0 0 1mm;
+      }
+
+      .toc-item-meta {
+        font-size: 8pt;
+      }
+
+      .masthead-compact {
+        margin: 0 0 6mm;
+      }
+
+      .masthead-compact h1 {
+        margin: 0;
+        font-size: 22pt;
+        line-height: 1.1;
+        text-transform: uppercase;
+      }
+
+      .masthead-compact .issue-date {
+        margin: 2mm 0 0;
+        font-size: 11pt;
+      }
+
+      .toc-compact {
+        border-top: 1px solid #111;
+        border-bottom: 1px solid #111;
+        padding: 4mm 0;
+        margin: 0 0 8mm;
+      }
+
+      article + article {
+        margin-top: 10mm;
+        padding-top: 6mm;
+        border-top: 2px solid #111;
+      }
+
+      h1 {
+        margin: 0 0 2mm;
+        font-size: 18pt;
+        line-height: 1.1;
+      }
+
+      .article-meta {
+        font-size: 8.5pt;
+        margin-bottom: 6mm;
+        padding-bottom: 3mm;
+        border-bottom: 1px solid #111;
+      }
+
+      .article-body {
+        font-size: var(--body-text-size);
+        font-family: "Times New Roman", Times, serif;
+      }
+
+      .article-body p,
+      .article-body li,
+      .article-body blockquote,
+      .article-body dd,
+      .article-body dt {
+        margin: 0 0 4mm;
+        orphans: 3;
+        widows: 3;
+      }
+
+      .article-body ul,
+      .article-body ol,
+      .article-body dl {
+        margin: 0 0 4mm 5mm;
+        padding: 0;
+      }
+
+      .article-body h2,
+      .article-body h3,
+      .article-body h4 {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        margin: 7mm 0 3mm;
+        line-height: 1.2;
+      }
+
+      .article-body blockquote {
+        margin-left: 6mm;
+        padding-left: 4mm;
+        border-left: 2px solid #111;
+      }
+
+      .article-body .media-omitted {
+        margin: 0 0 4mm;
+        font-size: 8.5pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(17, 17, 17, 0.65);
+      }
+
+      .article-body figure,
+      .article-body .article-figure,
+      .article-body picture,
+      .article-body .article-picture {
+        display: block;
+        max-width: 72mm;
+        margin: 0 auto 4mm;
+        break-inside: avoid;
+      }
+
+      .article-body img,
+      .article-body .article-image {
+        display: block;
+        max-width: min(100%, 72mm);
+        max-height: 34mm;
+        height: auto;
+        width: auto;
+        object-fit: contain;
+        margin: 0 auto 3mm;
+      }
+
+      .article-body figcaption {
+        margin-top: 1.5mm;
+        font-size: 8.5pt;
+        line-height: 1.3;
+        color: rgba(17, 17, 17, 0.8);
+      }
+
+      .article-note {
+        margin-top: 6mm;
+        padding-top: 3mm;
+        border-top: 1px solid #111;
+        font-size: 9pt;
+        font-style: italic;
+      }
+
+      @media screen {
+        body {
+          padding: 2rem;
+          margin: 0 auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    
+    <header class="masthead-compact">
+      <h1>Fred Talks</h1>
+      <p class="issue-date">
+        21<sup>st</sup> May 2026
+      </p>
+    </header>
+
+    <nav class="toc toc-compact">
+      <h2>Contents</h2>
+      <ol class="toc-list">
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Can agents replace the search stack?</div>
+          <div class="toc-item-meta">
+            Doug Turnbull · 1252 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Six Years Perfecting Maps on watchOS</div>
+          <div class="toc-item-meta">
+            David Smith · 1397 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Why I don&#39;t like the &#34;staff engineer archetypes&#34;</div>
+          <div class="toc-item-meta">
+            seangoedecke.com RSS feed · 1426 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">10 Lessons for Agentic Coding</div>
+          <div class="toc-item-meta">
+            Drew Breunig · 638 words
+          </div>
+        </li>
+        
+      </ol>
+    </nav>
+    
+
+    
+    <article>
+      <h1>Can agents replace the search stack?</h1>
+      <div class="article-meta">
+        Doug Turnbull
+        · 28 Apr 2026 · <a href="http://softwaredoug.com/blog/2026/04/28/search-apis-replaced-by-agents.html">Source</a>
+      </div>
+      <div class="article-body"><p>How is search implemented where you work? Probably as a complex set of capabilities on top of retrieval. Our search APIs understand queries, call backend search systems, and finally rerank results.</p>
+<p>But if we had an agent in the loop, would we need all that? Could we replace search backends with an agent? After all, an agent understands user requests, calls retrieval tools, and evaluates relevance on its own. We see ChatGPT do this all the time, why can’t our search bar?</p>
+<p>In other words, if you give it a basic BM25 backend to an agent, could it take the Search API’s job?</p>
+<h2>Surprisingly good results with simple tool usage</h2>
+<p>Well I’ve <a href="https://github.com/softwaredoug/search-experiments">measured initial findings</a> (a <a href="https://softwaredoug.com/blog/2025/10/06/how-much-does-reasoning-improve-search-quality">bit deeper than in the past</a>). I gave agents basic search tools and got the popcorn out to watch.</p>
+<p>On Amazon ESCI, we see increasing performance with slightly better retrievers + LLMs.</p>
+<p>First, we start with a bm25+<a href="https://huggingface.co/intfloat/e5-base-v2">e5_embedding</a> baseline. They achieve 0.289/0.314 NDCG respectively.</p>
+<p>Then we measure three agentic experiments. Each with GPT-5-mini driving different combinations of search tools. We see an agent with e5 embeddings get 0.359 and with BM25 0.385. With both we get 0.410.</p>
+<p>GPT-5 with both tools gets an NDCG of 0.453.</p>
+<figure class="article-figure"><img alt="image.png" src="https://softwaredoug.com/assets/media/search-apis-replaced-by-agents/image.png" class="article-image"/></figure>
+<p>What’s amazing about this? I’ve barely lifted a finger. I just setup a stock LLM with some search tools. Nothing here has been fit to my data. A 0.289→0.453 jump in quality depends only on model quality + simple retrievers.</p>
+<p>If an agent could be fast enough, is there a future here we build search with agents and not APIs? A world where agents reason about queries to show users the best results?</p>
+<h2>But, agents call search approximately… once?</h2>
+<p>What kind of ingenious strategies are these agents employing? It turns out, for the most part, they’re calling search roughly once per search tool. You can see this in the graph.</p>
+<figure class="article-figure"><img alt="image.png" src="https://softwaredoug.com/assets/media/search-apis-replaced-by-agents/image%201.png" class="article-image"/></figure>
+<p>When you look at reasoning traces, you see the agent interpret the search, issue a single query, retrieve up to the max of 20 results, then rank them.</p>
+<p>Occasionally, very rarely, with just BM25, you’ll see two simultaneous searches. For example, “PVC coupler” shows first a BM25 search for “pvc coupler”, the agent. disappointed with results, issues a follow up query (PVC pipe coupler):</p>
+<pre><code>Calling search_bm25 with args keywords='pvc coupler' top_k=20
+
+**Searching for PVC couplers**  I noticed that the search results mainly
+returned RJ45 couplers, which are for network cables, not what the user likely
+meant. They’re probably asking about PVC pipe couplers used in plumbing. The
+current search tool isn't yielding entries for PVC pipe couplers specifically. I
+saw mentions of PVC in descriptions, but it’s clearer to use broader keywords to
+refine my search. I need to focus on terms like "PVC pipe coupler" or "PVC
+coupling" to get better results, so I'll try that next.
+
+Calling search_bm25 with args keywords='PVC pipe coupler' top_k=20
+</code></pre>
+<p>You also see cases where the agent uses BM25 to issue two queries simultaneously, anticipating inconsistent results:</p>
+<pre><code>Calling search_bm25 with args keywords='AN10 oil catch can no filter' top_k=20
+Calling search_bm25 with args keywords='AN10 oil catch can without breather filter' top_k=20
+</code></pre>
+<p>There’s something about keyword search, it seems, that nudges the agent to try more queries. The agent can interpret results, understand why they didn’t match, and take next steps. Keyword search has cause-and-effect (keywords matched / or didn’t). Agents can react to that and improve.</p>
+<h2>Encouraging exploration improves further</h2>
+<p>I want agent exploration to be the norm, not the exception.</p>
+<p>We haven’t changed a thing about the harness. We could steer agents to search more effectively. What happens with a few small changes to our setup:</p>
+<ul> <li><strong>Require more tool calls -</strong> we ask the agent to keep trying if its made fewer than the required number of tool calls (ie 4). We say something encouraging like “wow these are great, but I bet you can do better!”</li> <li><strong>Require the agent use diverse retrieval queries</strong> - to ensure the agent truly explores, we reject queries too similar to those issued by the agent previously for this search.</li> </ul>
+<p>Within the GPT-5-mini examples, we see <a href="https://github.com/softwaredoug/search-experiments#esci---forcing-more-tool-calls">incremental improvements</a>.</p>
+<table> <tr> <th><strong>strategy</strong></th> <th><strong>model</strong></th> <th><strong>mean</strong></th> <th><strong>median</strong></th> </tr> <tbody> <tr> <td><a href="https://github.com/softwaredoug/search-experiments/blob/main/configs/ecom_base/agentic_ecom_2tools_e5_gpt5_mini.yml">Two tools</a></td> <td>gpt-5-mini</td> <td>0.4101</td> <td>0.3743</td> </tr> <tr> <td><a href="https://github.com/softwaredoug/search-experiments/blob/main/configs/ecom_mincalls/agentic_ecom_2tools_4calls_repeat_gpt5_mini.yml">Require 4 calls, disallow duplicates</a></td> <td>gpt-5-mini</td> <td>0.4290</td> <td>0.3948</td> </tr> <tr> <td><a href="https://github.com/softwaredoug/search-experiments/blob/main/configs/ecom_mincalls/agentic_ecom_2tools_4calls_sim0p9_gpt5_mini.yml">Require 4 calls, disallow queries &gt; 0.9 sim to past queries</a></td> <td>gpt-5-mini</td> <td>0.4308</td> <td>0.4258</td> </tr> </tbody> </table>
+<p>That’s nice, it approaches the GPT-5 benchmark from before, but with a smaller model. Albeit with more tool calls.</p>
+<h2>What about agentic search models (ie SID-1)?</h2>
+<p>Another source of hope comes from model providers. Teams like <a href="http://sid.ai">SID</a> have agentic search models that act as <a href="https://www.sid.ai/research/sid-1">drop-in replacements</a> for your RAG stack. These self-hosted agents translate your company’s simple retrieval tools into relevant results. That’s basically replacing a search API with an agent.</p>
+<p>It’s important to have a different model. Frontier lab LLMs think of “search” as web search. So they issue a query once, trust the results, and move on. That’s valuable because they’re reasoning about the user’s problem - not search relevance.</p>
+<p>But a model like SID-1 might be trained to reason about relevance using less sophisticated retrievers. They know to explore more of the corpus and reason efficiently about results. As a self-hosted subagent, focused only on retrieving results that satisfy the search, they leave the main LLM focused on the user’s task.</p>
+<p>Still, to be smaller, they must be more focused. One wonders if in the future we’ll have agentic search LLMs tailored to different domains. One good at e-commerce. Another good at document retrieval, etc. The tradeoffs look like embedding models: we must choose the model based on its training data. We understand we can drift away from the model’s sweet spot.</p>
+<h2>“Finding” different than Deep Research**</h2>
+<p>Where does this break down? Change to passage dataset, and there’s no improvement by letting an agent drive tools. You can’t beat the embedding model.</p>
+<figure class="article-figure"><img alt="MiniMARCO MRR" src="https://softwaredoug.com/assets/media/minimarco_mrr.png" class="article-image"/><figcaption>MiniMARCO MRR</figcaption></figure>
+<p>The e5 model here almost certainly has MSMarco in its training set. In this case <strong>the retriever knows best</strong>. The Agents own evaluation of results hits a wall.</p>
+<p>We cross a threshold where the LLMs and users diverge in their relevance evaluations. An 80% accurate LLM as a judge isn’t that useful, actually. Often that 80% holds the easy cases. It’s the last 20% that’s hard.</p>
+<p>In other words, LLMs don’t know everything. Search when the LLM “knows” vs “doesn’t know” are different problems.</p>
+<p>So far we’ve focused on finding <strong><em>things</em></strong> (products, jobs, etc). But adding knowledge the agent doesn’t have? That’s fundamentally a different problem. In the case above, the embedding adds knowledge to the agent. When an agent encounters a question it can’t answer in that last 20%, it needs search to be an oracle. It’s not finding things anymore, it’s filling in its own gaps.</p>
+<p>That’s how ChatGPT treats web search. Ask about a current event past the training cutoff, you’ll see it in action.</p>
+<p>To me this last 20% says everything about search. It’s where the really hard search problems exist. You either:</p>
+<ul> <li>Build a model that learns your domain - ie a SID-1 for your data + queries</li> <li>Build a thicker / smarter retrieval function, as in classic search. It continues to solve search the old fashioned way - with new techniques like late interaction helping</li> </ul>
+<p>So in the end, can an agent replace a search API? I’d argue there’s still a tremendous amount of skill needed to build a useful retrieval function. We can build a harness so strong even grep / BM25 mostly works. But we pass a threshold with diminishing returns.</p>
+<h3>Enjoy softwaredoug in training course form!</h3>
+<h4>Starting May 18!</h4>
+<figure class="article-figure"><a href="https://maven.com/softwaredoug/cheat-at-search"><img src="https://softwaredoug.com/assets/media/2026/cheat-at-search-social.png" class="article-image"/></a></figure>
+<p>I hope you join me at <a href="https://maven.com/softwaredoug/cheat-at-search">Cheat at Search with Agents</a> to learn use agents in search. build better RAG and use LLMs in query understanding.   </p></div>
+      
+    </article>
+    
+    <article>
+      <h1>Six Years Perfecting Maps on watchOS</h1>
+      <div class="article-meta">
+        David Smith
+        · 17 May 2026 · <a href="https://www.david-smith.org/blog/2026/04/29/maps-on-watchos/">Source</a>
+      </div>
+      <div class="article-body"><figure class="article-figure"><img alt="Cloughhead" src="https://fast.crossforward.com/resources/cloughhead.jpeg" class="article-image"/></figure>
+<p>I love going on wilderness adventures. I am rarely happier than when I am far off into the mountains without a soul in sight. As a result, I have spent a lot of time learning how to safely explore and navigate when I’m away from civilization. The most important habit I’ve found for not getting lost is to be <em>very</em> regular in checking your location as you go, and the best way I’ve found to do that is to have a map on my wrist.</p>
+<figure class="article-figure"><img alt="Pedometer++" src="https://fast.crossforward.com/resources/hero-map-transformation.png" class="article-image"/></figure>
+<p>For more than <strong>six</strong> years I’ve been working towards creating the best possible mapping experience on the Apple Watch. With yesterday’s <a href="https://david-smith.org/blog/2026/04/28/pedometer-v8/">launch of Pedometer++ 8</a>, I feel like this design journey has reached a meaningful destination. I would contend that Pedometer++’s watchOS mapping support is the absolute best available on the App Store.</p>
+<p>So I wanted to walk through the journey it took to get here.</p>
+<h3>Early Efforts</h3>
+<p>I have wanted a good map on my wrist since the Apple Watch launched. This wasn’t realistically possible until watchOS 6, which brought SwiftUI to the platform and, for the first time, made <em>“real”</em> apps possible. But in those early days, the screens were tiny, and the processors slow. I couldn’t <em>quite</em> get to where I wanted.</p>
+<figure class="article-figure"><img src="https://fast.crossforward.com/resources/20200528_server-maps.png" class="article-image"/></figure>
+<p>This was my very first attempt that shipped in Pedometer++. These maps were generated completely on the server, which involved sending the relevant workout data roundtrip every time I wanted to refresh the display. This system let me validate the idea, but it was never going to be practically useful for navigation or regular use, and could never work offline.</p>
+<h3>Custom Mapping Engine</h3>
+<p>I knew that if I wanted to make progress towards this goal, I’d need to work at a lower level, so I got to work building a fully SwiftUI-native map rendering engine. SwiftUI was the only choice because it’s all that watchOS supported, and proved to be helpful for putting maps into widgets, which also only support SwiftUI.</p>
+<figure class="article-figure"><img src="https://fast.crossforward.com/resources/20211122_custom_engine.png" class="article-image"/></figure>
+<p>In 2021, I got this engine to a place where I could reliably and performantly render a map on watchOS. With it, I can render any tile-based maps and overlay location information on top.</p>
+<h3>Map Designs</h3>
+<p>Next came the question of how best to surface data to users. App design on watchOS is a really fun — but frustrating — challenge. You are designing for a relatively tiny screen, which must be operated one-handed. In this case, I want the user to be able to read the map and use it to navigate, while also having access to other workout-related information.</p>
+<p>This began a long series of design attempts, most of which (if I’m being honest) were kinda awful.</p>
+<figure class="article-figure"><img alt="Bad designs" src="https://fast.crossforward.com/resources/bad_designs.png" class="article-image"/><figcaption>Bad designs</figcaption></figure>
+<p>In the end, I settled on a “modal” approach where the user can switch between a map screen and a metrics screen using a button on the top-left corner.</p>
+<figure class="article-figure"><img alt="Modal Maps" src="https://fast.crossforward.com/resources/modal-maps.png" class="article-image"/><figcaption>Modal Maps</figcaption></figure>
+<p>This interface provides one context where the user can freely pan/zoom around the map and another where I can use the more standard watchOS tabbed page interface for metrics and controls. I shipped this to Pedometer++, but there was always something that didn’t quite sit right with me about it.</p>
+<p>This design felt like a compromise, and not in a good way. I felt that in order to achieve the goal of making the map interactive, I couldn’t have the map be part of any UI structure that involved swipes. As the screens on Apple Watches got larger, it felt less needed in order to give the map enough space to be useful.</p>
+<p>So I set about trying alternative designs. <strong>SO</strong> many designs.</p>
+<figure class="article-figure"><img alt="Many more designs" src="https://fast.crossforward.com/resources/loads_of_designs.png" class="article-image"/><figcaption>Many more designs</figcaption></figure>
+<p>For a while, I thought that I needed to find a way to put the metrics at the bottom of the screen. However, that would lead to other problems on longer outings or for workouts that aren’t navigation-focused. So I kept iterating and came up with even <em>more</em> designs.</p>
+<figure class="article-figure"><img alt="Even more designs" src="https://fast.crossforward.com/resources/more-and-more-designs.png" class="article-image"/><figcaption>Even more designs</figcaption></figure>
+<p>All of these designs suffered from the same fundamental issue: they required the app to display only a fixed set of fields at a time.</p>
+<p>I could make the interface configurable, but one of the <em>fundamental</em> rules of watchOS design is that you should avoid any interaction that takes more than a few seconds on the watch. Any user-configurable setup is inherently fiddly, so I didn’t like this approach.</p>
+<h3>Dark Mode, Liquid Glass, &amp; Cartography</h3>
+<p>Around the same time I was still wrestling with the design challenges of how best to structure the app, Apple announced watchOS 26, and the arrival of <a href="https://developer.apple.com/documentation/technologyoverviews/liquid-glass#Introduction-to-Liquid-Glass">Liquid Glass</a>. One of the core design aspects of Liquid Glass is layering stacking elements on top of each other, but another is the types of colors that work best with each other.</p>
+<p>I was previously using <a href="https://www.thunderforest.com/maps/outdoors/">Thunderforest Outdoors</a> as my basemap for the app. I love the content this map includes, but when I started overlaying glassy elements over it I found that it wasn’t well-suited for Liquid Glass.</p>
+<p>So… I commissioned a custom map. Working with the incredible cartographer <a href="https://www.thunderforest.com/custom/">Andy Allen</a>, we created a completely new basemap that would look fantastic with Liquid Glass.<sup><a href="https://www.david-smith.org/blog/2026/04/29/maps-on-watchos/#fn:1">1</a></sup></p>
+<figure class="article-figure"><img src="https://fast.crossforward.com/resources/thunderforest-light.png" class="article-image"/></figure>
+<p>We simplified the map visually, increased the contrast of the elements, and made the map elements more saturated to prevent them from becoming a muddy mess when shown below glass.</p>
+<p>With this work done, I had another opportunity: I could finally have a dark mode variant of the map tiles. While helpful on iOS, this really shines on watchOS. Andy and I really worked toward something which would be incredibly legible at arm’s length.</p>
+<figure class="article-figure"><img src="https://fast.crossforward.com/resources/thunderforest-dark.png" class="article-image"/><figcaption>The result of these efforts is that now I have a great map for watchOS… but a design that didn’t match that greatness.</figcaption></figure>
+<figure class="article-figure"><img src="https://fast.crossforward.com/resources/20250911_dark-old-design.png" class="article-image"/></figure>
+<h3>Striving for Great</h3>
+<p>I kept trying. To get me out of my design rut, I enlisted the help of the fantastic designer <a href="https://rafa.design/">Rafa Conde</a>. I needed a fresh set of eyes on this and very quickly, this partnership paid off. They proposed a variety of alternative layouts, but when I saw this one I <em>knew</em> it was <strong>the one</strong>.</p>
+<figure class="article-figure"><img src="https://fast.crossforward.com/resources/raffa-map.png" class="article-image"/></figure>
+<p>The layering of the metrics on the top-left corner, with the map being the top page of a vertical stack, was the correct answer. This design handles interactivity by requiring a tap on the map first to enter “browse mode”.</p>
+<h3>Tweaking and Polishing</h3>
+<p>Now that I had the overall concept locked in, the real fun began, actually building the app and dialing in all the details. I fairly quickly took Rafa’s concept and turned it into a working prototype. This let me validate the idea in the field… literally. After walking a few hundred miles with it, I was confident it was the correct approach.</p>
+<figure class="article-figure"><img src="https://fast.crossforward.com/resources/20260210_first-shot.png" class="article-image"/></figure>
+<p>Next, I needed to dial in the font and make more subtle design choices.</p>
+<figure class="article-figure"><img alt="Map fonts" src="https://fast.crossforward.com/resources/map-fonts.png" class="article-image"/><figcaption>Map fonts</figcaption></figure>
+<p>After a bit more iteration, I arrived at the design that shipped yesterday. It is legible, useful, and (in my humble opinion) beautiful.</p>
+<figure class="article-figure"><img src="https://fast.crossforward.com/resources/finished-map.png" class="article-image"/></figure>
+<p>It feels really good to be able to cap off this six-year journey with a design I couldn’t be more proud of. This screen represents so much accumulated effort and learning. It finally gives me a design which feels native on the platform, but also novel and unique.</p>
+<p>Here is the evolution of this design over the last six years:</p>
+<figure class="article-figure"><img src="https://fast.crossforward.com/resources/map-evolve-white-small.gif" class="article-image"/></figure>
+<h3>Postscript: Considering MapKit</h3>
+<p>While my work on watchOS mapping massively predates the arrival of Apple’s MapKit onto the platform, it is probably worth explaining why I decided to do all of this custom work to avoid using it.</p>
+<p>Fundamentally, I find that MapKit is great for <em>basic</em> uses, but doesn’t provide nearly the level of configurability and utility which I want Pedometer++ to offer. For example:</p>
+<ul> <li>MapKit on watchOS always shows in dark mode, which generally is a good default, but closes the door on some accessibility and user choice reasons. I needed it to be a user-selectable option.</li> <li>While MapKit on watchOS has gotten better over time in terms of what you can do with it, I still find it a bit limiting in terms of animations and overlays.</li> <li>MapKit’s coverage is improving with regards to topographic contours and trail marking, but there are far too many places where the MapKit map is essentially blank, but I know there should be more rich details available. For example, here is my map vs MapKit at the trailhead of one of my favorite hikes in Scotland.</li> </ul>
+<figure class="article-figure"><img alt="MapKit comparision" src="https://fast.crossforward.com/resources/mapkit-comparison.png" class="article-image"/><figcaption>MapKit comparision</figcaption></figure>
+<ol> <li> <p>I still find it so cool that my work on this allows me to say that I “commissioned a cartographer” to work on something for me. 😁 <a href="https://www.david-smith.org/blog/2026/04/29/maps-on-watchos/#fnref:1">↩</a></p> </li> </ol></div>
+      
+    </article>
+    
+    <article>
+      <h1>Why I don&#39;t like the &#34;staff engineer archetypes&#34;</h1>
+      <div class="article-meta">
+        seangoedecke.com RSS feed
+        · 03 May 2026 · <a href="https://seangoedecke.com/staff-engineer-archetypes/">Source</a>
+      </div>
+      <div class="article-body"><p>The most influential piece of writing about staff engineers in the last decade has to be Will Larson’s <a href="https://staffeng.com/guides/staff-archetypes/"><em>Staff engineer archetypes</em></a>. He argues that the “staff engineer” title covers at least four very different roles: the team lead, the architect, the solver, and the right hand. This taxonomy gets cited a lot as advice for people who are trying to become effective staff engineers. For <a href="https://www.seangoedecke.com/staff-engineer-promotions">both</a> of my promotions to staff engineer, my manager at the time linked me to the “staff engineer archetypes” and asked me to consider which of these archetypes I was aiming towards.</p>
+<p>These archetypes definitely exist<sup><a href="https://www.seangoedecke.com/staff-engineer-archetypes/#fn-1">1</a></sup>. However, I think it’s bad practical advice to tell engineers to try and target them.</p>
+<h3>Archetypes do not make good goals</h3>
+<p>To see why, let’s take the “team lead” archetype. Larson describes this as an informal technical leadership role: not necessarily an explicit authority figure, but someone who’s good at scoping work, planning projects, and maintaining the kind of relationships (e.g. with other teams) needed to successfully <a href="https://www.seangoedecke.com/how-to-ship">ship</a>. If you want to fill this role, shouldn’t you start trying to do these things? No! You don’t become a technical leader by trying really hard to be a technical leader, much like you don’t become a writer by trying really hard “to be a writer”. You become a technical leader by <em>doing good technical work</em> until your skills and relationships emerge organically.</p>
+<p>I wrote about this process in <a href="https://www.seangoedecke.com/ratchet-effects"><em>Ratchet effects determine engineer reputation at large companies</em></a>. To get good at shipping large complex projects, you must start by shipping tiny pieces of work, until you’re familiar enough with the system and you’ve built enough trust to take on slightly larger pieces. At each stage, if you do good work - “good work” here means “deliver <a href="https://www.seangoedecke.com/shareholder-value/">shareholder value</a>” - you will very naturally be given opportunities to work on more complex and important things. If you try to jump ahead, you’re going to run into all kinds of problems:</p>
+<ul> <li>Important projects are usually assigned top-down, not bottom-up, so you’ll either be trying to muscle out the planned engineering lead for a project or to pitch your own (complex, important) engineering task to senior management. Either way, good luck with that!</li> <li>You likely won’t have a good enough relationship with senior management to know what their real priorities are.</li> <li>If you’re not yet trusted to execute, you may get assigned “minders” (often current staff engineers) who will ghost-lead the project through you<sup><a href="https://www.seangoedecke.com/staff-engineer-archetypes/#fn-2">2</a></sup>.</li> <li>You’ll likely make <a href="https://www.seangoedecke.com/you-cant-design-software-you-dont-work-on/">poor technical decisions</a>.</li> </ul>
+<p>The other archetypes are like this as well. If you want to become a successful architect, you do not get there by studying software architecture in the abstract, because <a href="https://www.seangoedecke.com/you-cant-design-software-you-dont-work-on/">you can’t design software you don’t work on</a>. The “solver” and “right hand” archetypes both rely on having an enormous amount of trust and influence. You can’t aim for those archetypes directly, because trust and influence accumulate over time. In fact, the idea of “aiming for” a particular staff engineer archetype reflects a misunderstanding of what the staff engineer role is. What is the defining attribute of the staff engineering role, then?</p>
+<h3>What is a staff engineer?</h3>
+<p><strong>A staff engineer has to be useful to the company.</strong> Of course, a senior or mid-level software engineer ought to be useful too, but all they <em>have</em> to do is execute on the job in front of them. If they end up not providing value (maybe their project turns out to be unimportant, or they don’t get the support needed to succeed) that’s their manager’s problem, not theirs<sup><a href="https://www.seangoedecke.com/staff-engineer-archetypes/#fn-3">3</a></sup>. In contrast, staff engineers are expected to deliver value regardless: to make the project work, or to find something else useful to do if the project truly can’t be salvaged.</p>
+<p>This is an unfair expectation. Often projects really do fail through no fault of your own, and sometimes it just isn’t possible to conjure useful work from thin air. That’s actually by design: <strong>the staff engineer role is supposed to be unfair</strong>. Something many engineers don’t realize is that all senior management and executive leadership roles are unfair too, in the same way. That’s just part of the deal: executives are given power and great compensation, and in return they get thrown off the boat in bad weather<sup><a href="https://www.seangoedecke.com/staff-engineer-archetypes/#fn-4">4</a></sup>. “Staff engineer” is the first engineering role where you are held largely responsible for outcomes you don’t control.</p>
+<p>Developing a “staff engineer mindset” thus has very little to do with the archetypes. Instead, you should:</p>
+<ol> <li>Develop the habit of constantly asking yourself “is this useful to the company” (and answering correctly).</li> <li>Lose the habit of worrying about if you’re being treated “fairly”. Instead, try to think about your role in terms of incentives and consequences.</li> </ol>
+<p>At the beginning, you won’t look much like any of the staff engineer archetypes. You will look like being a level-headed engineer who can be trusted to move projects forward with a minimum of fuss, and who can be re-tasked to different work without complaining. You’ll also look like someone who’s <a href="https://www.seangoedecke.com/getting-the-main-thing-right/">paying a lot of attention</a> to what their manager’s actual priorities are, and who is thinking hard about how to fulfil those priorities (instead of their own goals).</p>
+<p>If you do this for long enough, you’ll eventually find yourself in one of the staff engineer archetypes. However, it probably won’t be the one you’re “aiming for”. The whole point of being a staff engineer is that you’re willing to fill whatever archetype the company needs at the time.</p>
+<h3>Final thoughts</h3>
+<p>In his original staff engineer post, Larson is pretty clear that these archetypes are more of an anthropological description of some of the varied niches staff engineers fill, not a how-to guide for succeeding in the role<sup><a href="https://www.seangoedecke.com/staff-engineer-archetypes/#fn-5">5</a></sup>. At the time, the “staff engineer” role was fairly new and people were still trying to figure out what it even meant. Pointing out that there were a few very different ways to succeed in the role was a genuinely novel observation.</p>
+<p>The staff engineer archetypes are a good list of ways an engineer can be very useful to their organization - but only once they’ve built a deep relationship of trust with their organization’s leadership. Advice on how to succeed as a staff engineer should be about <strong>how to build that trust</strong>, not about what to do once you have it.</p>
+<ol> <li> <p>One caveat that is too pedantic for the body of the post: each tech company has a different structure of roles. Some don’t have the formal “staff” title at all, while others have “staff” as a fairly early rung on the ladder and a panoply of “senior staff”, “senior principal staff”, and so on roles above it. Like all “staff engineer” discourse, this post is not about the word itself but about the point in the engineering job ladder where progression becomes significantly more difficult.</p> <a href="https://www.seangoedecke.com/staff-engineer-archetypes/#fnref-1">↩</a> </li> <li> <p>Impressing your VP’s trusted lieutenants can actually be a good way to build trust in the medium-term, but you’d better hope you’ve built enough understanding of the system to do it right. If this process goes badly, your reputation in the org might be torched for years.</p> <a href="https://www.seangoedecke.com/staff-engineer-archetypes/#fnref-2">↩</a> </li> <li> <p>In theory, at least. In practice it’s always better to be useful (again, in the sense of “delivering shareholder value”).</p> <a href="https://www.seangoedecke.com/staff-engineer-archetypes/#fnref-3">↩</a> </li> <li> <p>This is why very senior leadership sometimes seem so unempathetic towards engineering complaints: their work environment operates by very different rules and norms to that of most engineers. I keep meaning to try and write about this and never succeeding. This <a href="https://github.com/sgoedecke/gatsby-blog/blob/master/content/drafts/_icebox/strategy-for-swes/index.md">draft</a> is the closest thing I have to a deeper exploration of the point.</p> <a href="https://www.seangoedecke.com/staff-engineer-archetypes/#fnref-4">↩</a> </li> <li> <p>For the record, my how-to guides are <a href="https://www.seangoedecke.com/staff-engineer-archetypes/staff-engineer-promotions/">here</a> and <a href="https://www.seangoedecke.com/staff-engineer-archetypes/ratchet-effects/">here</a>.</p> <a href="https://www.seangoedecke.com/staff-engineer-archetypes/#fnref-5">↩</a> </li> </ol></div>
+      
+    </article>
+    
+    <article>
+      <h1>10 Lessons for Agentic Coding</h1>
+      <div class="article-meta">
+        Drew Breunig
+        · 08 May 2026 · <a href="https://link.mail.beehiiv.com/ss/c/u001.3a5P_SwQzY5x8USD2q4p0kSgN78obqLdqaNQVHkW2vcvyQQJGBLO7teEGPsl9zdXk9strGg_mSrKC0Fg_8Os8Bz9F43zWQ0eYWGnJgbYwX4HeDEtRRGkCcoHgbIWWB333DhpU0dmxfbdl4B-7yvOdp4iV74PYBMIuS_96r0mwij2Z4VV1ZkUBLOnN4tdU3FpZX-YlpGYqqhCidjaUtwMhg/4qg/WVwTyTGXScCkjXrJ7GNyGA/h16/h001.HJ_eCkoymPwdkLydcFG5ZeG4ApFApFyQ_XsOw526BEw">Source</a>
+      </div>
+      <div class="article-body"><h3>What should we do when code is cheap?</h3>
+<figure class="article-figure"><img alt="" src="https://www.dbreunig.com/img/hand_scroll.jpg" class="article-image"/></figure>
+<p>Lately, this blog has featured a lot of writing about agentic coding. Frontier models are <em>really</em> good at coding these days, <a href="https://www.dbreunig.com/2025/04/11/what-we-mean-when-we-say-think.html#the-strengths--limits-of-reasoning-models">much better than they are at other tasks</a>. Coding with agents feels like a preview of the future, a playground for seeing how far we can push agent capabilities. It’s invigorating, rewarding, and deeply <em>weird</em>.</p>
+<p>I’ve been keeping a running list of tips for agentic coding: guidelines or rules one might give to someone just getting started with Codex, Claude Code, Pi, or any other agent. Ideally each tip is generalizable guidance, relevant to any agentic programming. I’m also looking for durable lessons that will stick around as models and harnesses improve.</p>
+<p>Below is my current list: <em>10 Lessons for Agentic Coding</em>. Ten’s a nice round number; a good time to put this out there.</p>
+<p>To be clear: I take credit only for honing and compiling these guidelines. As <a href="https://x.com/kshetrajna">Kshetrajna Raghavan</a> said to me today, “It’s <em>crazy</em> how we’re all converging on similar lessons.”</p>
+<p>(If you think I’ve missed anything below, please <a href="https://www.dbreunig.com/contact.html">reach out</a>!)</p>
+<h3>10 Lessons for Agentic Coding</h3>
+<ol> <li><strong>Implement to learn.</strong> You can go far with <a href="https://www.dbreunig.com/2026/02/06/the-rise-of-spec-driven-development.html">Spec-Driven Development</a>, but <a href="https://www.dbreunig.com/2026/03/04/the-spec-driven-development-triangle.html">the act of writing code surfaces decisions you hadn’t considered and makes your spec better</a>. When code is cheap, implement to learn.</li> <li><strong>Rebuild often.</strong> Implement early and <em>often</em> to learn more. Fork and recode crazy thought experiments. Find out how far you can take feature. Of course, you want to iterate and compound your efforts, but cheap code means you can reconnoiter and reinvent in ways you never could.</li> <li><strong>Invest in end-to-end tests.</strong> When we can reinvent our code cheaply, we should spend time writing tests that measure our product’s <em>functions</em>, not <em>how</em> it performs them. We want behavioral contracts that grant us the freedom to rebuild and reimplement.</li> <li><strong>Document intent.</strong> Tests detail our goals while code encodes our methods, but neither captures the <em>why</em>. Your intent motivates your decisions, and persisting it alongside the code helps you and your agent compound those decisions in a consistent direction.</li> <li><strong>Keep your specs in sync.</strong> Update your specs, the markdown files containing your goals and plans, <a href="https://www.dbreunig.com/2026/03/04/the-spec-driven-development-triangle.html">as you advance your code and your tests</a>. Treating your spec as a frozen artifact written before work begins, you’ll fail to capture learnings during implementation. Keeping it current lets it constantly inform your and your agents’ choices, and makes frequent rebuilds easier.</li> <li><strong>Find the hard stuff.</strong> Work on a project long enough and things will stop being easy. You’ll speed through the boilerplate work, the obvious design decisions, and start hitting the ugly, difficult work: intuitive design, performance, security, resilience, and systemic architecture. Anyone can vibe the easy stuff. <a href="https://www.dbreunig.com/2023/12/27/deja-connu.html">The hard work is where the value is</a>. Find it and dig in.</li> <li><strong>Automate everything that’s easy.</strong> To spend more time on the hard stuff, minimize the time you spend on easy things. Distill learnings into skills, build loops, automate code reviews, and let your tools compound. But careful: don’t get stuck in <a href="https://www.dbreunig.com/2026/03/26/winchester-mystery-house.html">a Mystery House</a>.</li> <li><strong>Develop your taste.</strong> When code arrives fast but feedback doesn’t, the only source of feedback that keeps up is your own. The better you know your domain, your users, and their problems, the further you can go without checking in.</li> <li><strong>Agents amplify experience.</strong> Talented developers underestimate how much intuition they bring to their prompts: the right terms, the right framing, and the right level of specificity. If you know your stack, you can save countless cycles during both implementation and debugging, and cut down needless agent exploration. Pair technical expertise coupled with great taste for an unbeatable advantage.</li> <li><strong>Code is cheap, but maintenance, support, and security aren’t.</strong> Agentic code is “<a href="https://www.dbreunig.com/2026/02/06/the-rise-of-spec-driven-development.html">free as in puppies</a>.” Support <a href="https://www.dbreunig.com/2026/02/21/why-is-claude-an-electron-app.html">isn’t cheap</a> and <a href="https://www.dbreunig.com/2026/04/14/cybersecurity-is-proof-of-work-now.html">neither is security</a>. Build fast, but mind the maintenance you’re adopting.</li> </ol></div>
+      
+    </article>
+    
+  </body>
+</html>
