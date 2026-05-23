@@ -1,0 +1,574 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Fred Talks - 2026-05-23</title>
+    <style>
+      @page {
+        size: A5;
+        margin: 8mm 9mm 9mm;
+      }
+
+      :root {
+        color: #111;
+        font-family: "Times New Roman", Times, serif;
+        --body-text-size: 9.5pt;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        color: #111;
+        background: #fff;
+        font-family: "Times New Roman", Times, serif;
+        line-height: 1.45;
+      }
+
+      a,
+      a:visited {
+        color: #111;
+        text-decoration: underline;
+      }
+
+      .cover {
+        min-height: calc(210mm - 17mm);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        page-break-after: always;
+        border: 1px solid #111;
+        padding: 8mm;
+        background: #fff;
+      }
+
+      .toc-item-meta,
+      .article-meta {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .masthead {
+        margin: 0;
+        font-size: 40pt;
+        line-height: 0.95;
+        text-transform: uppercase;
+      }
+
+      .issue-date {
+        margin: 4mm 0 0;
+        font-size: 14pt;
+      }
+
+      .issue-date sup {
+        font-size: 0.58em;
+        vertical-align: super;
+        line-height: 0;
+      }
+
+      .cover-deck {
+        max-width: 90mm;
+        font-size: 12pt;
+        margin: 0;
+      }
+
+      .toc {
+        border-top: 3px solid #111;
+        padding-top: 6mm;
+      }
+
+      .toc h2 {
+        margin: 0 0 4mm;
+        font-size: 11pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .toc-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .toc-item {
+        padding: 3mm 0;
+        border-bottom: 1px solid rgba(17, 17, 17, 0.2);
+      }
+
+      .toc-item-title {
+        font-size: 12pt;
+        margin: 0 0 1mm;
+      }
+
+      .toc-item-meta {
+        font-size: 8pt;
+      }
+
+      .masthead-compact {
+        margin: 0 0 6mm;
+      }
+
+      .masthead-compact h1 {
+        margin: 0;
+        font-size: 22pt;
+        line-height: 1.1;
+        text-transform: uppercase;
+      }
+
+      .masthead-compact .issue-date {
+        margin: 2mm 0 0;
+        font-size: 11pt;
+      }
+
+      .toc-compact {
+        border-top: 1px solid #111;
+        border-bottom: 1px solid #111;
+        padding: 4mm 0;
+        margin: 0 0 8mm;
+      }
+
+      article + article {
+        margin-top: 10mm;
+        padding-top: 6mm;
+        border-top: 2px solid #111;
+      }
+
+      h1 {
+        margin: 0 0 2mm;
+        font-size: 18pt;
+        line-height: 1.1;
+      }
+
+      .article-meta {
+        font-size: 8.5pt;
+        margin-bottom: 6mm;
+        padding-bottom: 3mm;
+        border-bottom: 1px solid #111;
+      }
+
+      .article-body {
+        font-size: var(--body-text-size);
+        font-family: "Times New Roman", Times, serif;
+      }
+
+      .article-body p,
+      .article-body li,
+      .article-body blockquote,
+      .article-body dd,
+      .article-body dt {
+        margin: 0 0 4mm;
+        orphans: 3;
+        widows: 3;
+      }
+
+      .article-body ul,
+      .article-body ol,
+      .article-body dl {
+        margin: 0 0 4mm 5mm;
+        padding: 0;
+      }
+
+      .article-body h2,
+      .article-body h3,
+      .article-body h4 {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        margin: 7mm 0 3mm;
+        line-height: 1.2;
+      }
+
+      .article-body blockquote {
+        margin-left: 6mm;
+        padding-left: 4mm;
+        border-left: 2px solid #111;
+      }
+
+      .article-body .media-omitted {
+        margin: 0 0 4mm;
+        font-size: 8.5pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(17, 17, 17, 0.65);
+      }
+
+      .article-body figure,
+      .article-body .article-figure,
+      .article-body picture,
+      .article-body .article-picture {
+        display: block;
+        max-width: 72mm;
+        margin: 0 auto 4mm;
+        break-inside: avoid;
+      }
+
+      .article-body img,
+      .article-body .article-image {
+        display: block;
+        max-width: min(100%, 72mm);
+        max-height: 34mm;
+        height: auto;
+        width: auto;
+        object-fit: contain;
+        margin: 0 auto 3mm;
+      }
+
+      .article-body figcaption {
+        margin-top: 1.5mm;
+        font-size: 8.5pt;
+        line-height: 1.3;
+        color: rgba(17, 17, 17, 0.8);
+      }
+
+      .article-note {
+        margin-top: 6mm;
+        padding-top: 3mm;
+        border-top: 1px solid #111;
+        font-size: 9pt;
+        font-style: italic;
+      }
+
+      @media screen {
+        body {
+          padding: 2rem;
+          margin: 0 auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    
+    <header class="masthead-compact">
+      <h1>Fred Talks</h1>
+      <p class="issue-date">
+        23<sup>rd</sup> May 2026
+      </p>
+    </header>
+
+    <nav class="toc toc-compact">
+      <h2>Contents</h2>
+      <ol class="toc-list">
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Luddites and AI datacenters</div>
+          <div class="toc-item-meta">
+            seangoedecke.com RSS feed · 2789 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">The Training Grounds: A Taxonomy of RL Environments for LLM Agents</div>
+          <div class="toc-item-meta">
+            Han, Not Solo · 1766 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">[Daily article] May 23: Running Out of Time (song)</div>
+          <div class="toc-item-meta">
+            English Wikipedia Article of the Day · 400 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">2.1.150</div>
+          <div class="toc-item-meta">
+            Changelog · 6 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">The Bag-of-Documents Model for Query Understanding and Retrieval</div>
+          <div class="toc-item-meta">
+            Daniel Tunkelang · 78 words
+          </div>
+        </li>
+        
+      </ol>
+    </nav>
+    
+
+    
+    <article>
+      <h1>Luddites and AI datacenters</h1>
+      <div class="article-meta">
+        seangoedecke.com RSS feed
+        · 22 Apr 2026 · <a href="https://seangoedecke.com/luddites-and-ai-datacenters/">Source</a>
+      </div>
+      <div class="article-body"><p>Is it time to start burning down datacenters?</p>
+<p>Some people think so. An Indianapolis city council member had his house recently <a href="https://www.kbtx.com/2026/04/07/councilman-says-someone-fired-shots-his-home-left-no-data-centers-note/">shot up</a> for supporting datacenters, and Sam Altman’s home was <a href="https://www.wired.com/story/sam-altman-home-attack-openai-san-franisco-office-threat/">firebombed</a> (and then <a href="https://sfstandard.com/2026/04/12/sam-altman-s-home-targeted-second-attack/">shot</a>) shortly afterwards. People from all sides of the argument are <a href="https://www.bloodinthemachine.com/p/why-the-ai-backlash-has-turned-violent">sounding</a> the <a href="https://thesoufancenter.org/intelbrief-2025-november-5/">alarm</a> about imminent violence.</p>
+<p>The obvious historical comparison is <a href="https://en.wikipedia.org/wiki/Luddite">Luddism</a>, the 19th-century phenomenon where English weavers and knitters destroyed the machines that were automating their work, and (in some cases) killed the machines’ owners. Anti-AI people are <a href="https://www.theguardian.com/commentisfree/article/2024/jul/27/harm-ai-artificial-intelligence-backlash-human-labour">reclaiming</a> the term to describe themselves, and many of the leading lights of the anti-AI movement (like <a href="https://www.bloodinthemachine.com/">Brian Merchant</a> or <a href="https://www.versobooks.com/en-gb/products/688-breaking-things-at-work?srsltid=AfmBOorCgru7ReSwbVdt40nZmQaaeGfbpjLV7epM0fSv_V01QSY5b5TP">Gavin Mueller</a>) have written books arguing more or less that the Luddites were right, and we ought to follow their example in order to resist AI automation<sup><a href="https://www.seangoedecke.com/luddites-and-ai-datacenters/#fn-1">1</a></sup>.</p>
+<p>Like many people, I have heard a lot about Luddism and Luddites, but only in the context of it being a general term for someone who is anti-technology. I was interested in learning more about the actual historical movement: what kind of people participated, what it was, and what it accomplished. I read Merchant’s and Mueller’s books, plus others<sup><a href="https://www.seangoedecke.com/luddites-and-ai-datacenters/#fn-2">2</a></sup>, to try and figure all of this out. Who were the actual, historical Luddites? What can we learn from them about burning down datacenters?</p>
+<h3>Who were the Luddites?</h3>
+<p>The Luddites were a decentralized movement of artisans in the 1810s who engaged in violent protest - smashing machines, threatening violence, and ultimately killing people - over the fact that their jobs were being automated away. They were not rich, but they were certainly not unskilled labor: these were people who had apprenticed for <a href="https://archive.org/stream/extractsfromrec01dendgoog/extractsfromrec01dendgoog_djvu.txt?utm_source=chatgpt.com">seven years</a>. They were mostly working from home, producing cloth from raw material given to them by their employer, often with tools rented from that same employer. They were working short weeks (three days, per William Gardiner) at their own discretion.</p>
+<p>In the early 1800s, their skilled labor was becoming unnecessary. With the help of expensive machines, unskilled labor could now produce lower-quality cloth, so employers were beginning to pass over these artisans in favor of cheaper employees: <a href="https://campus.murraystate.edu/academic/faculty/kBinfield/luddites/LudditeHistory.htm">children, unapprenticed workers, and women</a><sup><a href="https://www.seangoedecke.com/luddites-and-ai-datacenters/#fn-3">3</a></sup>. Combined with the bad economic position of England at the time (at war with France, and thus deliberately cutting off much European trade), times were beginning to be very tough indeed. Starvation was a real threat.</p>
+<h3>What did they do?</h3>
+<p>Cloth artisans were groups of capable men who were used to getting their own way, knew each other very well, and were broadly respected in their communities. It was thus a natural response for them to organize into what was effectively a militant union. The Luddites would send anonymous threatening letters to their old (or current) bosses, warning them to stop using their machines. If they didn’t comply, they would raid the workshop or factory, smashing the machines up.</p>
+<p>They typically did not harm people, though they certainly delivered threats of bodily harm or even murder, and the raids were violent enough (e.g. shooting through windows) to have risked accidental deaths. In at least two instances where a factory owner was seen as unusually cruel, the Luddites did attempt assassinations: one unsuccessful, and one successful one that eventually prompted a crackdown that ended the movement for good.</p>
+<p>Luddism was fully decentralized. Different communities could and did decide to engage in machine-raiding independently, particularly when news spread of the tactic succeeding. Although each community had its own influential men, there was never a single “leader of Luddism”. King Ludd himself was a folk-tale figure. This made it an absolute nightmare for the British government to try and suppress them: putting down one Luddist group did nothing to prevent other groups from continuing to operate.</p>
+<h3>All the king’s spies</h3>
+<p>I was surprised by how <em>difficult</em> it was for the government to get a hold of any of the local Luddist ringleaders. The government was willing to offer huge rewards to informers: at one point up to 40x the yearly wage. However, there were no takers for several years. Armies of spies were recruited and tasked with infiltrating Luddist groups, with absolutely no success.</p>
+<p>Why was it so hard? Firstly, because the working class was so overwhelmingly pro-Luddist. People universally blamed the economic situation on the government and the factory owners (rightfully so, since the government had chosen to go to war and the factory owners had chosen to embrace automation). Secondly, the communities in question were so insular and tightly-knit that informers would have to rat on their friends and relatives. The handful of people who did eventually inform lived out the rest of their lives as pariahs.</p>
+<p>Because each group was so insular, any spies trying to infiltrate the movement would have been complete strangers to the community, and would thus have a very hard time gaining the trust of a group of men who had known each other for their whole lives. The spies that did exist were restricted to the occasional inter-group Luddist meetings, where people didn’t all know each other so closely. But it’s unclear how important those meetings were, since Luddist groups didn’t need to coordinate to achieve their goals. According to Merchant, the spies spent much of their time embellishing tales of an imminent revolution to encourage their employers to keep the money flowing.</p>
+<h3>The crackdown</h3>
+<p>In the absence of reliable information, the British government was forced to use force. And they did, sending 12,000 troops<sup><a href="https://www.seangoedecke.com/luddites-and-ai-datacenters/#fn-4">4</a></sup> into the northern counties. This served mainly as an intimidation tactic, since there was no standing Luddite army to fight, and the soldiers spent most of their time marching back and forth or being abused by the townspeople.</p>
+<p>More successful was the imposition of a full police state in Yorkshire, under the magistrate Joseph Radcliffe, who was empowered to randomly grab people off the street and interrogate them for days. That pressure eventually convinced a handful of people to give up their local Luddist organizers, who were tried and inevitably hanged. Their deaths (and the ensuing climate of fear) ended the high-water mark of Luddist activity. Even then, Luddist raids continued on and off for <em>six more years</em> before petering out.</p>
+<h3>Did the Luddites succeed?</h3>
+<p>This is a tricky question. In one sense the answer is obviously no: the movement was crushed, many of their leaders were executed, the textile industry continued to be automated, and today there are no longer thousands of jobs for skilled British weavers, knitters, spinners and dyers. The pro-automation side won.</p>
+<p>However, they did achieve a number of short-lived victories. Their early threats often succeeded in preventing the building of a factory in a particular location, or in delaying the adoption of industrial machinery in a particular shop by years. In one case, hosiers that had been spooked by Luddite activity gave out pre-emptive bonuses to their workers to discourage them from smashing up their machines (which were indeed not smashed).</p>
+<p>The Luddites also scared the hell out of the British government, who (encouraged by their over-eager spies) thought they might have a genuine revolution on their hands. While they didn’t get many legal concessions at the time, the specter of Luddism must have loomed over the labor reform movement of the 1800s, which saw the first anti-child-labor laws and the beginnings of independent inspection of factories.</p>
+<p>Finally, every book I read argued that the Luddism movement may have created the first idea of a “working class”, by unifying many previously-independent groups of workers against a common enemy. Seen this way, the “political arm”<sup><a href="https://www.seangoedecke.com/luddites-and-ai-datacenters/#fn-5">5</a></sup> of Luddism can arguably claim partial credit for every labor victory since the 1800s (though the ringleaders were still hanged and the weavers did still lose their jobs).</p>
+<h3>The Luddist approach in a nutshell</h3>
+<p>We can now describe the “Luddist approach” to fighting technological change:</p>
+<ol> <li>Find a few conspirators in your existing community who agree with your political project (but don’t join a broader organization, since that leaves you vulnerable)</li> <li>Make public anonymous demands in support of your specific goals, backed up by threats of violence, signed by a fictional character that’s easy for other groups to appropriate</li> <li>If your threats are ignored, attack the physical machines in the dead of night, destroying them and threatening (but not killing) any guards</li> <li>Hope your example inspires many more people to independently do (1)-(3) themselves</li> <li>Keep raiding, optionally escalating to assassination of some of the bosses, until you bait a totalitarian crackdown from the government </li> <li>Eventually get arrested and executed, to great public dismay</li> <li>Twenty years later, your example inspires the first national trade unions</li> </ol>
+<p>Note that starting or joining a national movement is <em>not</em> the Luddist approach. Staying almost entirely isolated in small cells helped the Luddists avoid government spies and made them impossible to root out without enforcing a police state. Note also that you need a <em>lot</em> of public support for this to work: so that you get a lot of copycat groups without having to explicitly organize them, and so that your property destruction and murder is taken sympathetically instead of getting you immediately reported and arrested.</p>
+<h3>Why Luddism is not a good model for the anti-AI movement</h3>
+<p>There are many reasons why this doesn’t map onto the current anti-AI movement. First, Luddism grew from a homogeneous group of high-status workers whose jobs almost vanished overnight, not a broad group of people whose jobs are getting slightly worse because of AI (like the gig-economy workers Merchant endlessly references). That meant that Luddites had <em>really specific</em> asks: higher wages for piecework, a phased introduction of specific textiles machinery, and so on. They were not generally demanding that the machines all be immediately destroyed<sup><a href="https://www.seangoedecke.com/luddites-and-ai-datacenters/#fn-6">6</a></sup>.</p>
+<p>Second, Luddism was very local. A pre-existing group of artisans in a particular town would gather in that town - either at work or an inn, say - and decide to petition or raid the businesses in that town that were harming their livelihoods. AI concerns are not like this. It isn’t businesses in Chicago or Tokyo that are making decisions that imperil Chicago’s or Tokyo’s jobs, it’s businesses in San Francisco. Unlike the Luddists, anti-AI activists can’t naturally organize with people they already know to take direct action where they already live.</p>
+<p>Third, Luddist <em>victory</em> could also be local. If you successfully lobby your local cloth business to not use a weaving machine, you have secured your job at that business for a while. But if you successfully lobby your town (or even your country!) to not build a datacenter, it doesn’t meaningfully improve your local position, since your job can be as easily replaced by a datacenter on the other side of the planet.</p>
+<h3>A total failure of leadership</h3>
+<p>Reading through the history of the Luddites from a modern perspective, I was struck by the near-total absence of <em>good government</em>. The artisans were left to work out their grievances with their bosses more or less by themselves, with no formal channels for complaint or any attempt at mediation. When the government did intervene - in response to near-universal unrest in <em>half of the country</em> - they did this:</p>
+<ol> <li>Make machine-breaking and oath-taking capital crimes</li> <li>Dump thousands of soldiers more or less at random into the area, with no plan to guard factories or do anything beyond just hang around in case a revolution broke out</li> <li>Empower a single magistrate to arrest and interrogate whoever he wanted in order to root out the conspiracy</li> </ol>
+<p>I suppose it worked, in the sense that it eventually succeeded in stopping the Luddist raids. But I can’t help but think that even a token gesture of compromise (say, requiring employers to make their wages public, or restricting the most cheap-and-nasty factory-made textile products) would have gone a long way towards calming things down. This almost actually happened! The 1812 Framework Knitters’ Bill, which had these provisions in it, passed the House of Commons but was shot down in the House of Lords.</p>
+<p>Why did the government fail to even make a token attempt at compromise? Before the industrial revolution, I wonder if the workers and bosses of the English textiles industry were genuinely able to often just work out their problems together, so the government never really needed to do large-scale mediation. When that changed - when automation first made it possible for the bosses to durably “win” - government took a long time to realize, so there were some unpleasant decades of disempowered workers trying to bully factory-owners (via riots and death threats), and factory-owners trying to brutalize workers (via direct violence and automation).</p>
+<h3>Final thoughts</h3>
+<p>The Luddites weren’t anti-technology in general. Instead, they were against four or five specific machines that were automating away their skilled work. Contrary to many of the books I read, I think that’s actually fairly well understood today. But what surprised me was how truly decentralized and widespread the movement was. Every town with weavers faced the same incentives (the bosses to industrialize, and the workers to fight back) which created Luddism locally. And <em>nobody</em> was willing to report the Luddites: not for years, or for what would have been a fortune in cash, or in disagreement with their actions. They were only stopped by a truly fascist crackdown, with the army in the streets and the secret police pulling away random citizens for arrest and questioning.</p>
+<p>I can see why modern “Luddites” - who are genuinely anti-technology - talk so much about the legacy of original Luddites. Luddism was a grassroots organization which notched up some real short-term wins, enjoyed near-total support among the public, and didn’t seem to be troubled by infighting at all<sup><a href="https://www.seangoedecke.com/luddites-and-ai-datacenters/#fn-7">7</a></sup>. If you’re an anti-AI campaigner, I bet all of that sounds great<sup><a href="https://www.seangoedecke.com/luddites-and-ai-datacenters/#fn-8">8</a></sup>. But I’m not convinced that the neo-Luddites really are the inheritors of Luddism. A load-bearing feature of Luddism is that it was <em>local</em>: it didn’t have manifestos, or leaders, or factions, or even much explicit ideology beyond the artisans’ immediate practical concerns. These were local men striking back against the local factories harming their local jobs. That simply isn’t the case with AI, where a datacenter in China can take my job in Australia.</p>
+<p>If it isn’t time to start burning down datacenters, what can we do? Well, workers today are better off than the Luddites were, because we stand on their shoulders. Unlike the Luddites, today’s workers can all vote (and I suspect there will be no shortage of anti-AI candidates to vote for). It’s a much less exciting answer to say “try and get better laws passed” than to say “viva the revolution, where’s my Molotov cocktail”. Still, if the Luddites had that option, I suspect they would have used it.</p>
+<ol> <li> <p>I got linked <a href="https://tante.cc/2026/04/21/ai-as-a-fascist-artifact/">this article</a> calling AI a “fascist artifact” (on a blog called “Breaking Frames”, a clear reference to Luddism) while I was writing this blog post.</p> <a href="https://www.seangoedecke.com/luddites-and-ai-datacenters/#fnref-1">↩</a> </li> <li> <p>I really enjoyed Merchant’s book and did not enjoy Mueller’s (which I found to be 10% about the Luddites and 90% about interminable intra-Marxist ideological arguments). I also read <a href="https://www.amazon.com.au/Luddites-Protested-Machinery-Industrial-Revolution/dp/171936186X">The Luddites</a>, which was effectively a dry summary of the ground Merchant covers, a bunch of other essays, and went back and forth with ChatGPT and Claude on some of the key questions.</p> <a href="https://www.seangoedecke.com/luddites-and-ai-datacenters/#fnref-2">↩</a> </li> <li> <p>Merchant (around page 134) attempts to characterize Luddism as a pro-feminist movement, citing some examples of women helping organize raids, but later on even he (page 162) quotes a representative of the Irish weaver’s guild effectively saying “we don’t have your English problems of women working in the industry”. In general it’s a bit frustrating that the popular books on Luddism are all fairly uncritically pro-Luddist (though not surprising, I suppose). Merchant doesn’t touch at all on the Luddist <a href="https://ludditebicentenary.blogspot.com/2011/12/22nd-december-1811-william-milnes.html">practice</a> of going around to knitting-shops with women and “discharging them from working”.</p> <a href="https://www.seangoedecke.com/luddites-and-ai-datacenters/#fnref-3">↩</a> </li> <li> <p>Sometimes this is described as more troops that were sent to fight Napoleon (even by Merchant himself on page 89), but that <a href="https://medium.com/@antonhowes/were-more-troops-sent-to-quash-the-luddites-than-to-fight-napoleon-233c802c216d">isn’t right</a>.</p> <a href="https://www.seangoedecke.com/luddites-and-ai-datacenters/#fnref-4">↩</a> </li> <li> <p>In quotes because it was not an official Luddist group (there were none), just people who were trying to stop the violence through lobbying and legislation.</p> <a href="https://www.seangoedecke.com/luddites-and-ai-datacenters/#fnref-5">↩</a> </li> <li> <p>Otherwise why would any boss agree, instead of just waiting for the Luddites to do it themselves?</p> <a href="https://www.seangoedecke.com/luddites-and-ai-datacenters/#fnref-6">↩</a> </li> <li> <p>As far as I can tell this is true: the Luddists basically had no internal conflict. I think this is because each individual cell knew each other well already, and so handled their disagreements privately (instead of by writing pamphlets), and disagreements between cells didn’t matter that much because they had no need to coordinate.</p> <a href="https://www.seangoedecke.com/luddites-and-ai-datacenters/#fnref-7">↩</a> </li> <li> <p>It beats the hell of the other popular reference, Dune’s <a href="https://dune.fandom.com/wiki/Butlerian_Jihad">Butlerian Jihad</a>, which was two generations of brutal violence followed by the reimposition of the feudal system. (Although, at least the Butlerian Jihad <em>succeeded</em>…)</p> <a href="https://www.seangoedecke.com/luddites-and-ai-datacenters/#fnref-8">↩</a> </li> </ol></div>
+      
+    </article>
+    
+    <article>
+      <h1>The Training Grounds: A Taxonomy of RL Environments for LLM Agents</h1>
+      <div class="article-meta">
+        Han, Not Solo
+        · 22 Mar 2026 · <a href="https://leehanchung.github.io/blogs/2026/03/21/rl-environments-for-llm-agents/">Source</a>
+      </div>
+      <div class="article-body"><p>Model architecture gets all the attention. Post-training recipes follow close behind. The training environment — what the model actually practices on, how its work gets judged, what tools it can use — barely enters the conversation. That’s the part that actually determines what the agent can learn to do.</p>
+<p>A model trained only on single-turn Q&amp;A will struggle the moment you ask it to maintain state across a 50-step enterprise workflow. A model trained with a poorly designed reward function will learn to game the metric, not solve the problem. The environment isn’t a detail. It’s half the system.</p>
+<h2><a href="https://leehanchung.github.io/blogs/2026/03/21/rl-environments-for-llm-agents/#canonical-loop">The Canonical Loop</a></h2>
+<p>An RL environment for an LLM agent bundles three things: a dataset of task inputs, a harness for the model, and a reward function to score outputs. The training loop looks like this:</p>
+<pre><code>┌─────────────┐    prompt      ┌──────────┐   action    ┌───────┐
+│    Task     │───────────────&gt;│  Agent   │────────────&gt;│ Tools │
+│   Dataset   │                │ Harness  │&lt;────────────│  Env  │
+└─────────────┘                │ (Model)  │ observation  └───────┘
+                               └────┬─────┘
+                                    │ completion
+                                    v
+                             ┌──────────────┐
+                             │  Verifier /  │──&gt; reward ──&gt; Trainer
+                             │   Rubric     │
+                             └──────────────┘
+</code></pre>
+<p>Formally, a complete RL environment is a tuple:</p>
+<p>Task distribution, harness, verifier, state management, configuration. Let’s go through each.</p>
+<p>The task distribution is the set of problems the agent trains on. Not all tasks are equal, and not just in difficulty. They vary structurally in ways that demand different capabilities:</p>
+<table> <tr> <th>Task Type</th> <th>What the Agent Must Do</th> <th>Example Systems</th> </tr> <tbody> <tr> <td><strong>Single-turn Q&amp;A</strong></td> <td>One prompt → one response, check answer</td> <td>Math benchmarks, SimpleQA</td> </tr> <tr> <td><strong>Multi-hop search</strong></td> <td>Chain searches, synthesize sources</td> <td>BrowseComp, WebWalkerQA</td> </tr> <tr> <td><strong>Open-ended research</strong></td> <td>No single correct answer; report quality matters</td> <td>ADR-Bench, ResearchRubrics</td> </tr> <tr> <td><strong>Agentic tool-use</strong></td> <td>Call tools correctly in sequence</td> <td>tau-bench, function-calling benchmarks</td> </tr> <tr> <td><strong>Stateful enterprise</strong></td> <td>Modify persistent DB state, work within access controls</td> <td>EnterpriseOps-Gym</td> </tr> <tr> <td><strong>Code execution</strong></td> <td>Write code, run it, check outputs</td> <td>SWE-Bench, LiveCodeBench</td> </tr> </tbody> </table>
+<p>Training only on tasks with ground-truth answers produces an agent that’s never learned to reason under ambiguity. Training only in clean, deterministic environments produces an agent that falls apart in production. The task distribution is a design decision with direct consequences.</p>
+<p><strong>Task synthesis is increasingly a first-class problem.</strong> With real-world research tasks, you rarely have a large labeled dataset. Strategies that have emerged:</p>
+<ul> <li><strong>Back translation</strong>: Start from a desired output, reconstruct the query that would produce it</li> <li><strong>Graph-based synthesis</strong>: Build a knowledge graph, generate multi-hop queries over it</li> <li><strong>Automated environment generation</strong>: Use LLM coding agents to write new environment code. <a href="https://arxiv.org/abs/2511.19304">AutoEnv</a> reports ~$4/env average cost.</li> <li><strong>Curriculum construction</strong>: Order tasks by difficulty and increase complexity during training</li> </ul>
+<p>The cheapest-to-collect tasks are single-turn with verifiable answers. The most valuable tasks for long-horizon behavior are expensive to construct. This tension drives most environment design decisions.</p>
+<p>The harness is the scaffolding that mediates between the model and the environment. It controls how the model interacts, not what it knows.</p>
+<pre><code>H = {
+    rollout_protocol,   # SingleTurn | MultiTurn | Agentic
+    tools,              # Available tools in this episode
+    system_prompt,      # Instructions for the agent
+    context_manager,    # How to handle context overflow
+    turn_limit,         # Max interactions per episode
+    sandbox,            # Code execution sandbox
+    state               # Persistent state across turns
+}
+</code></pre>
+<p>Rollout protocols range from trivial to complex:</p>
+<table> <tr> <th>Harness Type</th> <th>Description</th> <th>When to Use</th> </tr> <tbody> <tr> <td><strong>Single-Turn</strong></td> <td>One prompt, one response</td> <td>Math, factual QA</td> </tr> <tr> <td><strong>Multi-Turn</strong></td> <td>Back-and-forth dialogue</td> <td>Games, structured tasks</td> </tr> <tr> <td><strong>Tool-Use</strong></td> <td>Model calls tools, receives results</td> <td>Agent benchmarks</td> </tr> <tr> <td><strong>Stateful Tool-Use</strong></td> <td>Tools modify persistent state</td> <td>Enterprise workflows, SWE-Bench</td> </tr> <tr> <td><strong>Agentic ReAct</strong></td> <td>Full Thought→Action→Observation loop</td> <td>Deep research, complex workflows</td> </tr> </tbody> </table>
+<p>Tools span a wide taxonomy:</p>
+<table> <tr> <th>Category</th> <th>Tools</th> <th>Deterministic?</th> <th>Stateful?</th> </tr> <tbody> <tr> <td><strong>Information retrieval</strong></td> <td>web_search, scholar_search</td> <td>No (live web)</td> <td>No</td> </tr> <tr> <td><strong>Content extraction</strong></td> <td>jina_reader, visit, web_scrape</td> <td>No</td> <td>No</td> </tr> <tr> <td><strong>Code execution</strong></td> <td>python_interpreter, shell, sandbox</td> <td>Yes (given same code)</td> <td>Yes</td> </tr> <tr> <td><strong>File operations</strong></td> <td>file_read, file_write</td> <td>Yes</td> <td>Yes</td> </tr> <tr> <td><strong>Browser automation</strong></td> <td>playwright, link_click</td> <td>No</td> <td>Yes</td> </tr> <tr> <td><strong>Task management</strong></td> <td>todo, section_write</td> <td>Yes</td> <td>Yes</td> </tr> </tbody> </table>
+<p>The mix of deterministic/non-deterministic and stateful/stateless tools has real implications for reproducibility and reward assignment. Non-deterministic tools mean two runs of the same trajectory can produce different outcomes — which complicates both debugging and verifier design.</p>
+<p><strong>Context management</strong> is where most teams underinvest, especially for long-horizon tasks. A 600-turn research episode blows past any practical context window. Strategies used in production:</p>
+<table> <tr> <th>Strategy</th> <th>Description</th> <th>Trade-off</th> </tr> <tbody> <tr> <td><strong>Recency-based retention</strong></td> <td>Keep N most recent turns</td> <td>Simple, but loses early context</td> </tr> <tr> <td><strong>Markovian reconstruction</strong></td> <td>Reconstruct state from scratch each turn</td> <td>Principled, expensive</td> </tr> <tr> <td><strong>Reference-preserving summarization</strong></td> <td>Summarize old context, keep citations</td> <td>Preserves verifiability</td> </tr> <tr> <td><strong>Reference-preserving folding</strong></td> <td>Compress context without losing references</td> <td>Best for research tasks</td> </tr> </tbody> </table>
+<p>An agent doing multi-hour research needs to remember why it started searching in a particular direction twelve tool calls ago. Dropping that context causes repeated work and lost threads.</p>
+<p>The verifier maps a completion to a reward:</p>
+<p>In Atari, the score is unambiguous. In deep research, what counts as a good answer is not. The verifier is where this gets hard.</p>
+<table> <tr> <th>Type</th> <th>Reward Signal</th> <th>When to Use</th> </tr> <tbody> <tr> <td><strong>Exact match</strong></td> <td>Binary (0/1)</td> <td>Ground truth available</td> </tr> <tr> <td><strong>Code execution</strong></td> <td>Binary or partial</td> <td>Output can be tested programmatically</td> </tr> <tr> <td><strong>LLM-as-judge</strong></td> <td>Continuous [0,1]</td> <td>Open-ended quality, no other option</td> </tr> <tr> <td><strong>Checklist-style</strong></td> <td>Continuous</td> <td>Multi-criteria research tasks</td> </tr> <tr> <td><strong>Evolving rubric (RLER)</strong></td> <td>Continuous</td> <td>Resistant to reward hacking</td> </tr> <tr> <td><strong>Process reward model (PRM)</strong></td> <td>Per-step continuous</td> <td>Long-horizon credit assignment</td> </tr> <tr> <td><strong>Pairwise comparison</strong></td> <td>Relative rank</td> <td>Relative quality matters more than absolute</td> </tr> <tr> <td><strong>Multi-criteria composite</strong></td> <td>Weighted sum</td> <td>Multiple quality dimensions</td> </tr> </tbody> </table>
+<p>A few principles that actually matter in practice:</p>
+<p><strong>Verifiable beats judgeable.</strong> Programmatic checks — code execution, string match — are faster, cheaper, and more consistent than LLM-as-judge. Use LLM-as-judge when there’s no other option, not as the default.</p>
+<p><strong>Reward granularity is a separate decision from reward type.</strong> You can score at the trajectory level (did the final output pass?), turn level (was each tool invocation useful?), or per-step with process rewards. Turn-level supervision, as Nanbeige4.1 does across up to 600 tool calls, enables finer credit assignment — the model can learn that the problem was a bad search query in turn 23, not that the entire episode failed.</p>
+<p><strong>Static rubrics get gamed.</strong> Models learn to write answers that score well on your rubric rather than solving the problem. DR Tulu’s RLER (Rubric-Level Evolving Reward) co-evolves the rubric with the policy during training. Harder to exploit a moving target.</p>
+<p><strong>Noise injection is underrated.</strong> Step-DeepResearch deliberately injects 5–10% tool errors during training. The resulting model handles flaky APIs and unexpected failures in production significantly better.</p>
+<p>State management determines whether the environment is stateless or persistent. Most academic benchmarks are stateless — each episode starts fresh. Enterprise environments are not. <a href="https://arxiv.org/abs/2603.13594">EnterpriseOps-Gym</a> maintains 164 database tables and 512 tools across episodes. Actions in one task affect the state seen by subsequent tasks. That’s a fundamentally different problem for agents to solve.</p>
+<p>Configuration covers turn limits, context budgets, sampling temperature, and curriculum scheduling. These are not afterthoughts. A turn limit of 5 vs. 600 changes what skills the agent can develop. <a href="https://arxiv.org/abs/2509.13311">AgentScaler</a> uses a two-phase curriculum — fundamental capabilities first, then domain-specific tasks — and the ordering matters. Step-DeepResearch progressively scales context windows from 32K to 128K during mid-training.</p>
+<p>The most consequential architectural question: where does the model sit relative to the environment?</p>
+<p><strong>Option A: Model outside the environment (decoupled).</strong> Model is served via API; the environment calls it at each step. Clean separation. Easy to swap models.</p>
+<p><strong>Option B: Model inside the environment (co-located).</strong> Model and environment share the same training loop. Lower latency, tighter integration, harder to reuse.</p>
+<p><strong>Option C: Split architecture.</strong> Trainer, model inference server, and environment are three separate processes communicating via API. This is where the field is landing.</p>
+<p>How real systems implement this:</p>
+<table> <tr> <th>System</th> <th>Topology</th> <th>Notes</th> </tr> <tbody> <tr> <td><strong>Prime Intellect verifiers</strong></td> <td>Option C (Split)</td> <td>Env is a standalone Python package distributed via Environments Hub</td> </tr> <tr> <td><strong>Tongyi DeepResearch</strong></td> <td>Option B (Co-located)</td> <td>Tools, context manager, verifiers inside the training pipeline</td> </tr> <tr> <td><strong>Step-DeepResearch</strong></td> <td>Option B (Co-located)</td> <td>Single-agent ReAct loop embedded in training</td> </tr> <tr> <td><strong>MiroThinker</strong></td> <td>Option C (Split)</td> <td>Tool servers and sandbox run independently from model</td> </tr> <tr> <td><strong>Tinker API</strong></td> <td>Option A (Decoupled, cloud)</td> <td>Model stays remote; researcher sends <code>forward_backward</code> + <code>sample</code> calls via API</td> </tr> <tr> <td><strong><a href="https://arxiv.org/abs/2511.19304">AutoEnv</a></strong></td> <td>Option A (Decoupled)</td> <td>CoreEnv/ObsEnv/SkinEnv abstraction layers</td> </tr> <tr> <td><strong><a href="https://arxiv.org/abs/2603.13594">EnterpriseOps-Gym</a></strong></td> <td>Option A (Decoupled)</td> <td>Containerized sandbox accessible via any model API</td> </tr> </tbody> </table>
+<p>The trade-offs:</p>
+<table> <tr> <th>Dimension</th> <th>Model Outside (A/C)</th> <th>Model Inside (B)</th> </tr> <tbody> <tr> <td><strong>Flexibility</strong></td> <td>Swap models easily; env is reusable</td> <td>Tighter integration</td> </tr> <tr> <td><strong>Scalability</strong></td> <td>Scale inference and training independently</td> <td>Must scale everything together</td> </tr> <tr> <td><strong>Portability</strong></td> <td>Env packages are shareable</td> <td>Env tied to training framework</td> </tr> <tr> <td><strong>Latency</strong></td> <td>Network overhead per tool call</td> <td>No network overhead</td> </tr> <tr> <td><strong>RL compatibility</strong></td> <td>Works with any RL trainer</td> <td>Usually tied to one trainer</td> </tr> </tbody> </table>
+<p>The field has converged on Option C for production training. Prime Intellect’s architecture — environments as standalone installable packages that communicate with models via OpenAI-compatible API endpoints — is becoming the standard. The payoff: environments are publishable, trainer-agnostic, and inference and environment execution can be parallelized across nodes.</p>
+<p>Tinker pushes this further by making even the training compute remote. The researcher controls the algorithm and never touches model weights. The environment’s job is purely generating experience.</p>
+<h2><a href="https://leehanchung.github.io/blogs/2026/03/21/rl-environments-for-llm-agents/#decision-framework">Practical Decision Framework</a></h2>
+<p>When building an RL environment for an LLM agent:</p>
+<p><strong>Do you have ground truth answers?</strong></p>
+<ul> <li>Yes → Exact-match or code-execution verifier</li> <li>No → LLM-as-judge, checklist, or pairwise comparison</li> </ul>
+<p><strong>How many tool calls per episode?</strong></p>
+<ul> <li>&lt; 5 → Single-turn or simple tool-use env, no context management needed</li> <li>5–50 → Multi-turn with basic context management</li> <li>50–600 → Full agentic env with reference-preserving context management</li> </ul>
+<p><strong>Where should the model live?</strong></p>
+<ul> <li>Experimenting across many environments → Model outside (Option A/C), use Prime Intellect Hub</li> <li>Tight RL training loop → Model co-located (Option B)</li> <li>No GPU access → Tinker API</li> </ul>
+<p><strong>What reward granularity?</strong></p>
+<ul> <li>Simple tasks → Outcome-level</li> <li>Long-horizon tasks → Turn-level (Nanbeige4.1) or process rewards (PRIME)</li> <li>Open-ended research → Evolving rubrics (RLER) or checklist-style (Step-DR)</li> </ul>
+<p><strong>How to scale environments?</strong></p>
+<ul> <li>Manual curation → High quality, expensive, this is where you start</li> <li><a href="https://arxiv.org/abs/2511.19304">AutoEnv</a> → Automated generation at ~$4/env</li> <li><a href="https://arxiv.org/abs/2509.13311">AgentScaler</a> → Systematic scaling of heterogeneous simulated environments</li> </ul>
+<p>Three things to pay attention to.</p>
+<p><strong>Environment diversity matters as much as environment quality.</strong> <a href="https://arxiv.org/abs/2509.13311">AgentScaler</a>’s key finding is that heterogeneity of environments drives capability breadth in ways that simply adding more data from the same distribution cannot. You need more kinds of environments, not just more environments.</p>
+<p><strong>Automated environment generation is viable.</strong> At $4 per generated environment, cost is no longer the bottleneck. The bottleneck is verifier quality — auto-generated environments with weak reward functions will teach the wrong behaviors at scale. (<a href="https://arxiv.org/abs/2511.19304">AutoEnv</a>)</p>
+<p><strong>The environment-as-package model is winning.</strong> The <a href="https://github.com/PrimeIntellect-ai/prime-rl">Prime Intellect Environments Hub</a> is creating a shared ecosystem around RL environments, in the same way PyPI and HuggingFace created ecosystems around code and model weights. Environments published once, consumed by any trainer. This is a significant infrastructure shift.</p>
+<p>The model isn’t the only variable. The training ground shapes what the model can become. The task distribution, the harness, the verifier, the state management, the topology — these are the decisions that separate agents that work from agents that demo.</p>
+<h2><a href="https://leehanchung.github.io/blogs/2026/03/21/rl-environments-for-llm-agents/#references">References</a></h2>
+<pre><code>@article{
+    leehanchung,
+    author = {Lee, Hanchung},
+    title = {The Training Grounds: A Taxonomy of RL Environments for LLM Agents},
+    year = {2026},
+    month = {03},
+    day = {21},
+    howpublished = {\url{https://leehanchung.github.io}},
+    url = {https://leehanchung.github.io/blogs/2026/03/21/rl-environments-for-llm-agents/}
+}
+</code></pre></div>
+      
+    </article>
+    
+    <article>
+      <h1>[Daily article] May 23: Running Out of Time (song)</h1>
+      <div class="article-meta">
+        English Wikipedia Article of the Day
+        · 23 May 2026 · <a href="mailto:reader-forwarded-email/68f31aff40cd26bd12d682a4b5762e39">Source</a>
+      </div>
+      <div class="article-body"><div class="rw-email-parsed">
+ <p>
+  "Running Out of Time" is a song by the American rock band Paramore
+(pictured). It was released on May 23, 2023, by Atlantic Records as the
+fourth single from the band's sixth studio album This Is Why (2023).
+Hayley Williams, Taylor York, and Zac Farro wrote the song in the early
+stages of the album's production, and Carlos de la Garza produced it.
+The band premiered the song at a concert at the Grand Ole Opry on
+February 7, 2023, and performed it on Jimmy Kimmel Live! on
+February 14. Described by critics as a pop-rock and dance-rock song,
+"Running Out of Time" deals with time management and comments on social
+anxieties over death, aging, and losing friends. Williams said the song
+was influenced by her personal struggle with punctuality and her
+friendship with Taylor Swift. Critics positively reviewed the song,
+praising its lyrics as playful and its composition as well-balanced. The
+song peaked on several international charts in 2023 and ranked on
+Billboard's year-end Alternative Airplay chart. (Full article...).
+ </p>
+ <p>
+  Read more:
+  <a href="https://en.wikipedia.org/wiki/Running_Out_of_Time_%28song%29">
+   https://en.wikipedia.org/wiki/Running_Out_of_Time_%28song%29
+  </a>
+ </p>
+ <hr/>
+ <p>
+  Today's selected anniversaries:
+ </p>
+ <p>
+  1980:
+ </p>
+ <p>
+  The Shining, the psychological horror film directed by Stanley
+Kubrick, was premiered on 10 screens in New York City and Los Angeles.
+  <a href="https://en.wikipedia.org/wiki/The_Shining_%28film%29">
+   https://en.wikipedia.org/wiki/The_Shining_%28film%29
+  </a>
+ </p>
+ <p>
+  2008:
+ </p>
+ <p>
+  The International Court of Justice awarded the Middle Rocks to
+Malaysia and Pedra Branca to Singapore, resolving a 29-year-old
+territorial dispute in the Singapore Strait.
+  <a href="https://en.wikipedia.org/wiki/Pedra_Branca_dispute">
+   https://en.wikipedia.org/wiki/Pedra_Branca_dispute
+  </a>
+ </p>
+ <p>
+  2021:
+ </p>
+ <p>
+  Ryanair Flight 4978 was forced to land by Belarusian
+authorities, who detained dissident journalist Roman Protasevich.
+  <a href="https://en.wikipedia.org/wiki/Roman_Protasevich">
+   https://en.wikipedia.org/wiki/Roman_Protasevich
+  </a>
+ </p>
+ <hr/>
+ <p>
+  Wiktionary's word of the day:
+ </p>
+ <p>
+  fervent:
+1. Very hot; burning, scorching; also, glowing with heat.
+2. (obsolete)
+3. Of cold: intense, severe.
+4. (pharmacy, historical) Of a drug: having an abundance of heat as one
+of the four qualities believed to be characteristic of all things; hot
+rather than cold, dry, or moist.
+5. (figurative)
+6. Of a person, or their actions, interests, or nature: exhibiting
+persistent belief or conviction, and/or enthusiasm or zeal; ardent,
+earnest, passionate.
+7. (archaic) Of a thing such as a battle, unrest, etc.: intense, severe;
+also, of a wild animal: fierce.
+8. About Word of the Day
+9. Nominate a word
+10. Leave feedback
+  <a href="https://en.wiktionary.org/wiki/fervent">
+   https://en.wiktionary.org/wiki/fervent
+  </a>
+ </p>
+ <hr/>
+ <p>
+  Wikiquote quote of the day:
+ </p>
+ <p>
+  There are addictions to feed and there are mouths to pay So you bargain
+with the Devil but you're okay for today.
+  --Jewel (singer)
+  <a href="https://en.wikiquote.org/wiki/Jewel_%28singer%29">
+   https://en.wikiquote.org/wiki/Jewel_%28singer%29
+  </a>
+ </p></div></div>
+      
+    </article>
+    
+    <article>
+      <h1>2.1.150</h1>
+      <div class="article-meta">
+        Changelog
+        · 23 May 2026 · <a href="https://code.claude.com/docs/en/changelog#2-1-150">Source</a>
+      </div>
+      <div class="article-body"><div><ul>
+<li>Internal infrastructure improvements (no user-facing changes)</li>
+</ul></div></div>
+      
+    </article>
+    
+    <article>
+      <h1>The Bag-of-Documents Model for Query Understanding and Retrieval</h1>
+      <div class="article-meta">
+        Daniel Tunkelang
+        · 19 May 2026 · <a href="https://dtunkelang.medium.com/the-bag-of-documents-model-for-query-understanding-and-retrieval-6d110bff85b0?source=rss-5f6b5aba680------2">Source</a>
+      </div>
+      <div class="article-body"><div><p>Today I had the pleasure of presenting my <a href="https://maven.com/p/7270ba/a-bag-of-documents-model-for-query-understanding-retrieval">recent work on the bag-of-documents model</a> as part of a series of talks hosted by <a href="https://www.treygrainger.com/">Trey Grainger</a> and <a href="https://softwaredoug.com/">Doug Turnbull</a> in the context of their <a href="https://maven.com/search-school/ai-powered-search">AI-powered search classes</a>.</p><p>You can find the <a href="https://speakerdeck.com/dtunkelang/the-bag-of-documents-model-for-query-understanding-and-retrieval">slides</a> below. I also encourage you to check out the <a href="https://github.com/dtunkelang/bag-of-documents">bag-of-documents Github repository</a>, the <a href="https://huggingface.co/datasets/dtunkelang/bag-of-documents">dataset and model on Hugging Face</a>, as well as the live <a href="https://huggingface.co/spaces/dtunkelang/bag-of-documents-demo">Amazon demo</a> and <a href="https://huggingface.co/spaces/dtunkelang/bag-of-documents-bestbuy-demo">Best Buy demo</a>. Enjoy!</p><a href="https://medium.com/media/12dd1c01b9dd78114555f2c6ed60a2fe/href">https://medium.com/media/12dd1c01b9dd78114555f2c6ed60a2fe/href</a></div></div>
+      
+    </article>
+    
+  </body>
+</html>
