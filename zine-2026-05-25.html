@@ -1,0 +1,471 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Fred Talks - 2026-05-25</title>
+    <style>
+      @page {
+        size: A5;
+        margin: 8mm 9mm 9mm;
+      }
+
+      :root {
+        color: #111;
+        font-family: "Times New Roman", Times, serif;
+        --body-text-size: 9.5pt;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        color: #111;
+        background: #fff;
+        font-family: "Times New Roman", Times, serif;
+        line-height: 1.45;
+      }
+
+      a,
+      a:visited {
+        color: #111;
+        text-decoration: underline;
+      }
+
+      .cover {
+        min-height: calc(210mm - 17mm);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        page-break-after: always;
+        border: 1px solid #111;
+        padding: 8mm;
+        background: #fff;
+      }
+
+      .toc-item-meta,
+      .article-meta {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .masthead {
+        margin: 0;
+        font-size: 40pt;
+        line-height: 0.95;
+        text-transform: uppercase;
+      }
+
+      .issue-date {
+        margin: 4mm 0 0;
+        font-size: 14pt;
+      }
+
+      .issue-date sup {
+        font-size: 0.58em;
+        vertical-align: super;
+        line-height: 0;
+      }
+
+      .cover-deck {
+        max-width: 90mm;
+        font-size: 12pt;
+        margin: 0;
+      }
+
+      .toc {
+        border-top: 3px solid #111;
+        padding-top: 6mm;
+      }
+
+      .toc h2 {
+        margin: 0 0 4mm;
+        font-size: 11pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .toc-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .toc-item {
+        padding: 3mm 0;
+        border-bottom: 1px solid rgba(17, 17, 17, 0.2);
+      }
+
+      .toc-item-title {
+        font-size: 12pt;
+        margin: 0 0 1mm;
+      }
+
+      .toc-item-meta {
+        font-size: 8pt;
+      }
+
+      .masthead-compact {
+        margin: 0 0 6mm;
+      }
+
+      .masthead-compact h1 {
+        margin: 0;
+        font-size: 22pt;
+        line-height: 1.1;
+        text-transform: uppercase;
+      }
+
+      .masthead-compact .issue-date {
+        margin: 2mm 0 0;
+        font-size: 11pt;
+      }
+
+      .toc-compact {
+        border-top: 1px solid #111;
+        border-bottom: 1px solid #111;
+        padding: 4mm 0;
+        margin: 0 0 8mm;
+      }
+
+      article + article {
+        margin-top: 10mm;
+        padding-top: 6mm;
+        border-top: 2px solid #111;
+      }
+
+      h1 {
+        margin: 0 0 2mm;
+        font-size: 18pt;
+        line-height: 1.1;
+      }
+
+      .article-meta {
+        font-size: 8.5pt;
+        margin-bottom: 6mm;
+        padding-bottom: 3mm;
+        border-bottom: 1px solid #111;
+      }
+
+      .article-body {
+        font-size: var(--body-text-size);
+        font-family: "Times New Roman", Times, serif;
+      }
+
+      .article-body p,
+      .article-body li,
+      .article-body blockquote,
+      .article-body dd,
+      .article-body dt {
+        margin: 0 0 4mm;
+        orphans: 3;
+        widows: 3;
+      }
+
+      .article-body ul,
+      .article-body ol,
+      .article-body dl {
+        margin: 0 0 4mm 5mm;
+        padding: 0;
+      }
+
+      .article-body h2,
+      .article-body h3,
+      .article-body h4 {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        margin: 7mm 0 3mm;
+        line-height: 1.2;
+      }
+
+      .article-body blockquote {
+        margin-left: 6mm;
+        padding-left: 4mm;
+        border-left: 2px solid #111;
+      }
+
+      .article-body .media-omitted {
+        margin: 0 0 4mm;
+        font-size: 8.5pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(17, 17, 17, 0.65);
+      }
+
+      .article-body figure,
+      .article-body .article-figure,
+      .article-body picture,
+      .article-body .article-picture {
+        display: block;
+        max-width: 72mm;
+        margin: 0 auto 4mm;
+        break-inside: avoid;
+      }
+
+      .article-body img,
+      .article-body .article-image {
+        display: block;
+        max-width: min(100%, 72mm);
+        max-height: 34mm;
+        height: auto;
+        width: auto;
+        object-fit: contain;
+        margin: 0 auto 3mm;
+      }
+
+      .article-body figcaption {
+        margin-top: 1.5mm;
+        font-size: 8.5pt;
+        line-height: 1.3;
+        color: rgba(17, 17, 17, 0.8);
+      }
+
+      .article-note {
+        margin-top: 6mm;
+        padding-top: 3mm;
+        border-top: 1px solid #111;
+        font-size: 9pt;
+        font-style: italic;
+      }
+
+      @media screen {
+        body {
+          padding: 2rem;
+          margin: 0 auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    
+    <header class="masthead-compact">
+      <h1>Fred Talks</h1>
+      <p class="issue-date">
+        25<sup>th</sup> May 2026
+      </p>
+    </header>
+
+    <nav class="toc toc-compact">
+      <h2>Contents</h2>
+      <ol class="toc-list">
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Evolution and Scale of Uber’s Delivery Search Platform</div>
+          <div class="toc-item-meta">
+            Divya Nagar · 2220 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Porting 100k lines from TypeScript to Rust using Claude Code in a month</div>
+          <div class="toc-item-meta">
+            vjeux · 3302 words
+          </div>
+        </li>
+        
+      </ol>
+    </nav>
+    
+
+    
+    <article>
+      <h1>Evolution and Scale of Uber’s Delivery Search Platform</h1>
+      <div class="article-meta">
+        Divya Nagar
+        · 05 Dec 2025 · <a href="https://link.mail.beehiiv.com/ss/c/u001.3a5P_SwQzY5x8USD2q4p0lpdTZ0Q64LSnahkPMOEM2h0AJCGHs6UC5_N0VNm1OYRbjtm47qxhWDmvBzpcYCGZqnCEWbgvVSXHYKMFTFN_BjmM-_4C2ZT516IWTOyDPJ48DKJTHvqfQjGEt_rydPxYsEtvzB3NnQa9QpnHFxFxuDLqopTozgMwmA_t_A5TteVr_AXKG7m45_vxlt2ukDyTfk2ZX8_F4GOkt1MbhjRrfY/4m6/M4WHndjFR_CWoqaYK8vhpA/h15/h001.YAiPwnbR3a-bSXrr0LAlpKBU3c1VLf3TLXnIsWES5w8">Source</a>
+      </div>
+      <div class="article-body"><figure class="article-figure"><img alt="Featured image for Evolution and Scale of Uber’s Delivery Search Platform" src="https://blog.uber-cdn.com/cdn-cgi/image/width=2114,quality=80,onerror=redirect,format=auto/wp-content/uploads/2025/11/cover-17636807348532.png" srcset="https://blog.uber-cdn.com/cdn-cgi/image/width=2114,quality=80,onerror=redirect,format=auto/wp-content/uploads/2025/11/cover-17636807348532.png 2114w, https://blog.uber-cdn.com/cdn-cgi/image/width=300,quality=80,onerror=redirect,format=auto/wp-content/uploads/2025/11/cover-17636807348532.png 300w, https://blog.uber-cdn.com/cdn-cgi/image/width=1024,quality=80,onerror=redirect,format=auto/wp-content/uploads/2025/11/cover-17636807348532.png 1024w, https://blog.uber-cdn.com/cdn-cgi/image/width=768,quality=80,onerror=redirect,format=auto/wp-content/uploads/2025/11/cover-17636807348532.png 768w, https://blog.uber-cdn.com/cdn-cgi/image/width=1536,quality=80,onerror=redirect,format=auto/wp-content/uploads/2025/11/cover-17636807348532.png 1536w, https://blog.uber-cdn.com/cdn-cgi/image/width=2048,quality=80,onerror=redirect,format=auto/wp-content/uploads/2025/11/cover-17636807348532.png 2048w" class="article-image"/></figure>
+<h2>Introduction</h2>
+<p>Search is a primary discovery funnel for Uber Eats: a large share of orders start with people typing into the search bar to find stores, dishes, and grocery items. Strong search directly translates into higher conversion, better basket quality, and faster time-to-order—especially for long-tail queries, new or seasonal items, and multilingual markets. When search misses intent, people bounce or fall back to browsing. When it understands intent, they find what they want in seconds.</p>
+<p>Traditional search stacks begin with lexical matching, which is fast and effective when queries exactly match document text. But real queries are challenging—synonyms (“soda” versus “soft drink”), typos (“mozzarela”), shorthand (“gf pizza”), language mix (“pan” meaning bread in Spanish, but a container for cooking in English), and context (“apple” the fruit vs the company). Lexical methods see strings, not meaning, and aren’t suitable for such queries, producing bad search results.</p>
+<p>Semantic search shifts from matching words to matching meaning. It encodes queries and documents into vectors in the same space, so semantically similar things are close—even without keyword overlap. When properly used, it delivers a search experience that better captures someone’s intent across verticals (stores, dishes, items) and languages.</p>
+<p>Establishing semantic search at scale for industry applications is more than training a model, but instead a whole tech stack including model deployment, ANN (Approximate Nearest Neighbor) index serving at scale, monitoring, version control, and so on. This blog walks you through how Uber Eats built this system, reviewing challenges in this process and the solutions we took.</p>
+<h2>Architecture</h2>
+<p>The general semantic search model architecture is shown in Figure 1. We adopted the classic two-tower structure so that the query and document embedding calculation can be decoupled. The query embeddings are calculated via an online service in real time, while the document embeddings are calculated in a batch manner via offline scheduled services. When training the model, we used the <a href="https://arxiv.org/abs/2205.13147">MRL (Matryoshka Representation Learning)</a>-based infoNCE loss function so that a single model could output various embedding dimensions, and downstream tasks could choose the optimal embedding dimension according to their own size versus quality tradeoffs.</p>
+<p>The latest LLMs (<a href="https://huggingface.co/Qwen">QWEN</a><sup>®</sup>) are used as the backbone embedding layer inside two towers to leverage its world knowledge and cross-lingual abilities. We further finetuned them using Uber Eats in house data to adapt the embedding space to our application scenarios. Currently, this single embedding model supports the content embedding task for all Uber Eats verticals and markets.</p>
+<figure data-wp-block="{&quot;id&quot;:1127049,&quot;width&quot;:&quot;459px&quot;,&quot;height&quot;:&quot;auto&quot;,&quot;sizeSlug&quot;:&quot;large&quot;,&quot;linkDestination&quot;:&quot;none&quot;,&quot;align&quot;:&quot;center&quot;,&quot;hash&quot;:&quot;ec611301-d843-4772-8d0f-d2306c3bc222&quot;,&quot;alt&quot;:&quot;&quot;}" data-wp-block-name="core/image" class="article-figure"><img alt="Image" sizes="auto, (max-width: 639px) 100vw, 639px" src="https://blog.uber-cdn.com/cdn-cgi/image/width=728,quality=80,onerror=redirect,format=auto/wp-content/uploads/2025/11/image-11-20-25-at-3.11pm-17636803154592.jpeg" srcset="https://blog.uber-cdn.com/cdn-cgi/image/width=639,quality=80,onerror=redirect,format=auto/wp-content/uploads/2025/11/image-11-20-25-at-3.11pm-17636803154592.jpeg 639w, https://blog.uber-cdn.com/cdn-cgi/image/width=187,quality=80,onerror=redirect,format=auto/wp-content/uploads/2025/11/image-11-20-25-at-3.11pm-17636803154592.jpeg 187w, https://blog.uber-cdn.com/cdn-cgi/image/width=728,quality=80,onerror=redirect,format=auto/wp-content/uploads/2025/11/image-11-20-25-at-3.11pm-17636803154592.jpeg 728w" class="article-image"/><figcaption>Figure 1: Model training architecture.</figcaption></figure>
+<h3>Model Training and Inference </h3>
+<p>Our model is a two-tower deep neural network built on a Qwen backbone. We use PyTorch<sup>™</sup> with Hugging Face Transformers<sup>®</sup> for model development and Ray<sup>™</sup> for distributed training orchestration. For large-scale training, we use PyTorch’s DDP (Distributed Data Parallel) together with DeepSpeed<sup>®</sup> (ZeRO-3), which shards the optimizer, gradients, and model parameters to handle the immense size of the Qwen model. This setup, combined with mixed-precision training and gradient accumulation, allows us to train on hundreds of millions of data points efficiently. Each successful training run generates versioned artifacts—a unique ID for the query and document models (<em>query_model_id, doc_model_id</em>), and a shared team-specific ID called two-tower-embedding-id (<em>tte_id</em>)—which are meticulously tracked for reproducibility and deployment.</p>
+<p>Given the scale of our document corpus, offline inference is critical. To manage costs, we embed documents at the feature level (for example, store or item) and then join these embeddings back to the full catalog of billions of candidates before indexing. The resulting embeddings are stored in stable <a href="https://www.uber.com/blog/palette-meta-store-journey/">feature store</a> tables, keyed by entity IDs, making them readily available for both retrieval and ranking models. These embeddings are used to build our search index, which are supported by HNSW graphs and store both non-quantized (float32) and quantized (int8) vector representations to optimize for various latency and storage budgets.</p>
+<figure data-wp-block="{&quot;id&quot;:1127052,&quot;sizeSlug&quot;:&quot;large&quot;,&quot;linkDestination&quot;:&quot;none&quot;,&quot;align&quot;:&quot;center&quot;,&quot;hash&quot;:&quot;8d6d2d56-a7ec-4147-922c-3ba4082cb1da&quot;,&quot;alt&quot;:&quot;&quot;}" data-wp-block-name="core/image" class="article-figure"><img alt="Image" sizes="auto, (max-width: 1024px) 100vw, 1024px" src="https://blog.uber-cdn.com/cdn-cgi/image/width=2048,quality=80,onerror=redirect,format=auto/wp-content/uploads/2025/11/figure-2-17636803572365.png" srcset="https://blog.uber-cdn.com/cdn-cgi/image/width=1024,quality=80,onerror=redirect,format=auto/wp-content/uploads/2025/11/figure-2-17636803572365.png 1024w, https://blog.uber-cdn.com/cdn-cgi/image/width=300,quality=80,onerror=redirect,format=auto/wp-content/uploads/2025/11/figure-2-17636803572365.png 300w, https://blog.uber-cdn.com/cdn-cgi/image/width=768,quality=80,onerror=redirect,format=auto/wp-content/uploads/2025/11/figure-2-17636803572365.png 768w, https://blog.uber-cdn.com/cdn-cgi/image/width=1536,quality=80,onerror=redirect,format=auto/wp-content/uploads/2025/11/figure-2-17636803572365.png 1536w, https://blog.uber-cdn.com/cdn-cgi/image/width=2048,quality=80,onerror=redirect,format=auto/wp-content/uploads/2025/11/figure-2-17636803572365.png 2048w" class="article-image"/><figcaption>Figure 2: End-to-end training inference workflow.</figcaption></figure>
+<h2>Development and Deployment Challenges</h2>
+<p>We tackled key challenges in scaling our semantic search system. For example, we had to balance retrieval accuracy with infrastructure and compute costs through careful tuning of ANN parameters, quantization, and embedding dimensions.</p>
+<p>To achieve productionization and reliability, we had to ensure safe, automated, and rollback-capable index deployments with strong validation, versioning, and real-time consistency checks in production.</p>
+<h3>Quality and Cost </h3>
+<p>We use Apache <a href="https://www.uber.com/blog/evolution-of-ubers-search-platform/">Lucene<sup>®</sup> Plus</a> as our primary indexing and retrieval system. To manage the scale and diverse nature of the data, we maintain separate indices for each vertical—OFD (restaurants) and GR (grocery/retail).</p>
+<p>Storing and serving large-scale indexes can be expensive, in terms of infrastructure costs and query latency. To optimize this tradeoff while maintaining strong retrieval quality, we explored several mechanisms to balance cost, latency, and performance. In particular, we ran controlled experiments varying three key factors:</p>
+<ul> <li><strong>Search parameter K</strong>: controls the number of nearest neighbors retrieved per shard in ANN search. By carefully choosing k per shard—guided by data distribution statistics—you can maintain the overall retrieval cohort size and preserve result quality.</li> <li><strong>Quantization strategy</strong>: comparing non-quantized float32 embeddings against compact int7 SQ (scalar-quantized) representations.</li> <li><strong>Embedding dimension</strong>: using different Matryoshka-cut representations generated via MRL (Matryoshka Representation Learning), such as <em>emb_256</em> and <em>emb_512</em>.</li> </ul>
+<p>Here’s how we designed search parameters and quantization:</p>
+<figure data-wp-block="{&quot;id&quot;:1127054,&quot;sizeSlug&quot;:&quot;large&quot;,&quot;linkDestination&quot;:&quot;none&quot;,&quot;align&quot;:&quot;center&quot;,&quot;hash&quot;:&quot;75898822-3839-4aa5-87d6-e3b228f1cceb&quot;,&quot;alt&quot;:&quot;&quot;}" data-wp-block-name="core/image" class="article-figure"><img alt="Image" sizes="auto, (max-width: 1024px) 100vw, 1024px" src="https://blog.uber-cdn.com/cdn-cgi/image/width=1134,quality=80,onerror=redirect,format=auto/wp-content/uploads/2025/11/table-1-17636804049680.png" srcset="https://blog.uber-cdn.com/cdn-cgi/image/width=1024,quality=80,onerror=redirect,format=auto/wp-content/uploads/2025/11/table-1-17636804049680.png 1024w, https://blog.uber-cdn.com/cdn-cgi/image/width=300,quality=80,onerror=redirect,format=auto/wp-content/uploads/2025/11/table-1-17636804049680.png 300w, https://blog.uber-cdn.com/cdn-cgi/image/width=768,quality=80,onerror=redirect,format=auto/wp-content/uploads/2025/11/table-1-17636804049680.png 768w, https://blog.uber-cdn.com/cdn-cgi/image/width=1134,quality=80,onerror=redirect,format=auto/wp-content/uploads/2025/11/table-1-17636804049680.png 1134w" class="article-image"/><figcaption>Table 1: Impact of shard-level k and quantization on recall and cost savings.</figcaption></figure>
+<p>We also used MRL (Matryoshka representation learning) to reduce the dimension of the embeddings to optimize the latency and storage costs further. MRL solves this by training a single model whose embeddings can be cut at different lengths. Shorter versions of the embedding capture coarse information quickly, while longer versions add finer details for higher accuracy. This gives us the flexibility to trade off speed versus quality at inference time, without retraining separate models.</p>
+<p>In our application, we chose the following vector dimensions with equal weights: [128, 256, 512, 768, 1024, 1280, 1536]. In our offline evaluation results, we observed that the MRL provides strong performance in dimension reduction.</p>
+<figure data-wp-block="{&quot;id&quot;:1127056,&quot;sizeSlug&quot;:&quot;large&quot;,&quot;linkDestination&quot;:&quot;none&quot;,&quot;align&quot;:&quot;center&quot;,&quot;hash&quot;:&quot;9e7bda2b-86a6-409a-a282-ce8138b46d69&quot;,&quot;alt&quot;:&quot;&quot;}" data-wp-block-name="core/image" class="article-figure"><img alt="Image" sizes="auto, (max-width: 1024px) 100vw, 1024px" src="https://blog.uber-cdn.com/cdn-cgi/image/width=1940,quality=80,onerror=redirect,format=auto/wp-content/uploads/2025/11/image-11-20-25-at-3.14pm-17636805085507.jpeg" srcset="https://blog.uber-cdn.com/cdn-cgi/image/width=1024,quality=80,onerror=redirect,format=auto/wp-content/uploads/2025/11/image-11-20-25-at-3.14pm-17636805085507.jpeg 1024w, https://blog.uber-cdn.com/cdn-cgi/image/width=300,quality=80,onerror=redirect,format=auto/wp-content/uploads/2025/11/image-11-20-25-at-3.14pm-17636805085507.jpeg 300w, https://blog.uber-cdn.com/cdn-cgi/image/width=768,quality=80,onerror=redirect,format=auto/wp-content/uploads/2025/11/image-11-20-25-at-3.14pm-17636805085507.jpeg 768w, https://blog.uber-cdn.com/cdn-cgi/image/width=1536,quality=80,onerror=redirect,format=auto/wp-content/uploads/2025/11/image-11-20-25-at-3.14pm-17636805085507.jpeg 1536w, https://blog.uber-cdn.com/cdn-cgi/image/width=1940,quality=80,onerror=redirect,format=auto/wp-content/uploads/2025/11/image-11-20-25-at-3.14pm-17636805085507.jpeg 1940w" class="article-image"/><figcaption>Table 2: Dimension reduction performance difference from MRL.</figcaption></figure>
+<p>Lowering shard-level <em>k</em> from 1,200 to around 200 yielded a 34% latency reduction and 17% CPU savings in our experiments, with negligible impact on recall. On top of that, applying scalar quantization (int7) further cut compute costs, reducing latency by more than half compared to fp32 while maintaining recall above 0.95. MRL added another layer of efficiency by enabling us to serve smaller embedding cuts (256 dimensions) with almost no loss (&lt; 0.3% for English and Spanish) in retrieval quality compared to full-size embeddings, while also reducing storage costs by nearly 50%. Together, these optimizations significantly lowered the cost and latency of serving large-scale indexes without any significant compromising in retrieval quality.</p>
+<p>Beyond quantization and k tuning, our vector index is paired with locale-aware lexical fields and boolean pre-filters—including <em>hexagon, city_id, doc_type</em>, and <em>fulfillment_types</em>—that run before the ANN search. These pre-filters dramatically shrink the candidate set up front, ensuring low-latency retrieval even against a multi-billion document corpus. Once the ANN search identifies the top-k candidates per vertical, we optionally apply a lightweight micro-re-ranking step, using a compact neural network, to further refine results before handing them off to downstream rankers.</p>
+<h3>Productionization and Reliability</h3>
+<p>Uber data changes continuously. To keep results fresh, our Delivery semantic search runs a scheduled end-to-end workflow that updates the embedding model and serving index in lockstep on a biweekly cadence. Each run trains or fetches the target model, generates document embeddings, and builds a new Lucene Plus index without changing the live read path.</p>
+<p>To enable seamless model refreshes without disrupting live traffic—and to provide rollback flexibility when issues arise—we adopted a blue/green pattern at the index column level. Each index maintains two fixed columns, <em>embedding_blue</em> and <em>embedding_green</em>, with the active model version mapped to one of them via a lightweight configuration. During each refresh, a new index snapshot is built containing both columns: the active column is preserved as-is, while the inactive column is repopulated with fresh embeddings. This design allows us to safely switch between old and new versions when needed.</p>
+<p>During each refresh, we rebuild a full index snapshot that contains both columns (<em>embedding_blue</em> and <em>embedding_green</em>). Even though only the inactive column is intended to change, the build re-materializes the active column as well, so a bug or bad input could silently corrupt what’s currently serving. To protect production, we gate with automated validations that run before any deployment: they block the flow if inputs are incomplete, if the carried-forward (active) column diverges significantly from the current prod index, or if the newly refreshed column underperforms.</p>
+<p>Concretely, our pipelines run three checks.</p>
+<ul> <li><strong>Completeness:</strong> verify document counts (and key filtered subsets) in the index match the source tables used to compute embeddings—fail fast on drift or partial ingestion. </li> <li><strong>Backward-compatibility:</strong> ensure the unchanged column is byte-for-byte equivalent between the pre-refresh and post-refresh index (for example, at T1 compare <em>embedding_blue</em> across old and new builds if <em>embedding_blue</em> is currently serving. Any mismatch ends the run.</li> <li><strong>Correctness:</strong> deploy the newly built index to a non-prod environment, replay real queries at a controlled rate, and compare recall against the current production index. These checks catch issues like data corruption during indexing, bad distance settings, or upstream feature regressions, ensuring the new index is at least as good as production before we make a switch.</li> </ul>
+<p>We also considered maintaining two separate blue and green indexes instead of two columns within a single index. While that approach would simplify reliability—since we wouldn’t need to touch the production index during a refresh—it’d significantly increase storage and maintenance costs. Given that trade-off, we built a mechanism that lets us safely operate with one index containing two columns.</p>
+<figure data-wp-block="{&quot;id&quot;:1127058,&quot;width&quot;:&quot;620px&quot;,&quot;height&quot;:&quot;auto&quot;,&quot;sizeSlug&quot;:&quot;large&quot;,&quot;linkDestination&quot;:&quot;none&quot;,&quot;align&quot;:&quot;center&quot;,&quot;hash&quot;:&quot;2744e8ad-0a13-4b75-8ec9-c432350777c2&quot;,&quot;alt&quot;:&quot;&quot;}" data-wp-block-name="core/image" class="article-figure"><img alt="Image" sizes="auto, (max-width: 984px) 100vw, 984px" src="https://blog.uber-cdn.com/cdn-cgi/image/width=1522,quality=80,onerror=redirect,format=auto/wp-content/uploads/2025/11/figure-3-17636805454103.png" srcset="https://blog.uber-cdn.com/cdn-cgi/image/width=984,quality=80,onerror=redirect,format=auto/wp-content/uploads/2025/11/figure-3-17636805454103.png 984w, https://blog.uber-cdn.com/cdn-cgi/image/width=288,quality=80,onerror=redirect,format=auto/wp-content/uploads/2025/11/figure-3-17636805454103.png 288w, https://blog.uber-cdn.com/cdn-cgi/image/width=768,quality=80,onerror=redirect,format=auto/wp-content/uploads/2025/11/figure-3-17636805454103.png 768w, https://blog.uber-cdn.com/cdn-cgi/image/width=1476,quality=80,onerror=redirect,format=auto/wp-content/uploads/2025/11/figure-3-17636805454103.png 1476w, https://blog.uber-cdn.com/cdn-cgi/image/width=1522,quality=80,onerror=redirect,format=auto/wp-content/uploads/2025/11/figure-3-17636805454103.png 1522w" class="article-image"/><figcaption>Figure 3: Model&lt;&gt;index deployment and serving flow.</figcaption></figure>
+<p>Even with strong build-time and deploy-time checks, there’s still a risk of human error or bugs. For example, a wrong model-to-column mapping or an index built against a different-than-expected model. To guard against this, we added serving-time reliability checks. Reliability of the production system was a significant challenge during the development process.</p>
+<p>To make the system more reliable and prevent outages, we deploy the new index to production, then roll out the model gradually. The index stores the model ID in its metadata for both columns. On sampled requests, the service verifies that the model used to generate the query embedding matches the model ID recorded on the active index column. On any mismatch, we emit a compatibility-error metric and log full context. If errors remain non-zero over a short window, an alert fires and we automatically roll back the model deployment to the previous version (the index remains unchanged). This protects against version mix-ups and config mistakes without adding latency or extra hops to the read path.</p>
+<h1>Conclusion</h1>
+<p>We built a scalable, multilingual search system for Uber Eats that powers discovery across restaurants, grocery, and retail with speed and precision. Our approach brings together advanced language models and smart architecture choices—like Matryoshka embeddings and Lucene Plus integration—to balance quality, cost, and latency at a global scale.</p>
+<p>What makes this system stand out is its production-first design: it automatically retrains, rebuilds, and refreshes search indexes every two weeks, ensuring that results stay fresh and reliable as data changes daily. With a robust blue/green deployment strategy, strong validation gates, and efficient index optimization, we can safely roll out new models without disrupting live traffic.</p>
+<p>Overall, this platform demonstrates how thoughtful engineering—combining strong modeling, reliable infrastructure, and cost-aware optimization—can deliver a search experience that feels smarter, faster, and more intuitive for users around the world.</p>
+<p><em>Apache</em><em><sup>®</sup></em><em>, Apache Lucene Core</em><em><sup>™</sup></em><em>, and the star logo are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.</em></p>
+<p><em>Deepspeed<sup>®</sup> is a registered trademark of the Microsoft group of companies.</em></p>
+<p><em>Hugging Face<sup>®</sup> is a registered trademark of Hugging Face, Inc.</em></p>
+<p><em>PyTorch, the PyTorch logo and any related marks are trademarks of The Linux Foundation.</em></p>
+<p><em>Qwen<sup>®</sup> is a registered trademark of Alibaba Cloud. </em></p>
+<p><em>Ray is a trademark of Anyscale, Inc.</em></p>
+<p>Stay up to date with the latest from Uber Engineering—follow us on <a href="https://p.uber.com/eng-linkedin">LinkedIn</a> for our newest blog posts and insights.</p>
+<figure class="article-figure"><img alt="Divya Nagar" src="https://blog.uber-cdn.com/cdn-cgi/image/width=2160,quality=80,onerror=redirect,format=auto/wp-content/uploads/2025/11/divya-pic-17636812865896.png" class="article-image"/></figure>
+<p>Divya Nagar</p>
+<p>Divya Nagar is a Staff Software Engineer on the Feature Engine team at Uber, where she leads the development of the Vector Store, the data plane powering embedding use cases across both generative AI and CoreML applications.</p>
+<figure class="article-figure"><img alt="Zheng Liu" src="https://blog.uber-cdn.com/cdn-cgi/image/width=2160,quality=80,onerror=redirect,format=auto/wp-content/uploads/2025/11/zheng-pic-17636817029885.png" class="article-image"/></figure>
+<p>Zheng Liu</p>
+<p>Zheng Liu is a Staff Software Engineer on Uber Eats Search team, where he focuses on improving search experience using advanced deep learning and large language models. He’s a major contributor to Uber Eats semantic search and generative ranking models.</p>
+<figure class="article-figure"><img alt="Jiasen Xu" src="https://blog.uber-cdn.com/cdn-cgi/image/width=2160,quality=80,onerror=redirect,format=auto/wp-content/uploads/2025/11/jiasen-pic-17636819082775.png" class="article-image"/></figure>
+<p>Jiasen Xu</p>
+<p>Jiasen Xu is a Sr. Software Engineer on Uber’s Search Platform team, where he leads the adoption of vector search technologies across the company. His work focuses on advancing large-scale similarity search through expertise in ANN algorithms, indexing libraries, and vector database optimization.</p>
+<figure class="article-figure"><img alt="Bo Ling" src="https://blog.uber-cdn.com/cdn-cgi/image/width=2160,quality=80,onerror=redirect,format=auto/wp-content/uploads/2023/07/Bo_TTE_EngBlog.jpeg" class="article-image"/></figure>
+<p>Bo Ling</p>
+<p>Bo Ling is a Sr. Staff Software Engineer on Uber’s AI Platform team. He works on NLP, large language models, and recommendation systems. He’s the lead engineer for embedding models and LLM on the team.</p>
+<figure class="article-figure"><img alt="Haoyang Chen" src="https://blog.uber-cdn.com/cdn-cgi/image/width=2160,quality=80,onerror=redirect,format=auto/wp-content/uploads/2022/08/bg_9620588e-dcfb-4037-9cb7-73d2e06baea4-Mm_WhKP2XO.jpg" class="article-image"/></figure>
+<p>Haoyang Chen</p>
+<p>Haoyang Chen is a Sr. Staff Software Engineer on Uber Eats Search team, where he leads efforts in semantic search and generative recommendation to enhance the search experience on Uber Eats.</p>
+<p>Posted by Divya Nagar, Zheng Liu, Jiasen Xu, Bo Ling, Haoyang Chen</p>
+<p>Category:</p>
+<p><a data-bits-testid="dotcom-ui.cta-wrapper" href="https://www.uber.com/en-IN/blog/engineering/">Engineering</a></p>
+<p><a data-bits-testid="dotcom-ui.cta-wrapper" href="https://www.uber.com/en-IN/blog/engineering/data/">Data / ML</a></p>
+<p><a data-bits-testid="dotcom-ui.cta-wrapper" href="https://www.uber.com/en-IN/blog/engineering/ai/">Uber AI</a></p></div>
+      
+    </article>
+    
+    <article>
+      <h1>Porting 100k lines from TypeScript to Rust using Claude Code in a month</h1>
+      <div class="article-meta">
+        vjeux
+        · 26 Jan 2026 · <a href="https://blog.vjeux.com/2026/analysis/porting-100k-lines-from-typescript-to-rust-using-claude-code-in-a-month.html">Source</a>
+      </div>
+      <div class="article-body"><div><p>I read <a href="https://www.linkedin.com/posts/galenh_principal-software-engineer-coreai-microsoft-activity-7407863239289729024-WTzf/">this post</a> “Our strategy is to combine AI <em>and</em> Algorithms to rewrite Microsoft’s largest codebases [from C++ to Rust]. Our North Star is ‘1 engineer, 1 month, 1 million lines of code.” and it got me curious, how difficult is it really?</p>
+<p>I've long wanted to build a competitive Pokemon battle AI after watching a lot of <a href="https://www.youtube.com/watch?v=qR9nMPr7o5Q">WolfeyVGC</a> and following the <a href="https://pokeagent.github.io/">PokéAgent challenge</a> at NeurIPS. Thankfully there's an open source project called "<a href="https://github.com/smogon/pokemon-showdown">Pokemon Showdown</a>" that implements all the rules but it's written in JavaScript which is quite slow to run in a training loop. So my holiday project came to life: let's convert it to Rust using Claude!</p>
+<h2>Escaping the sandbox</h2>
+<p>Having the AI able to run arbitrary code on your machine is dangerous, so there's a lot of safeguards put in place. But... at the same time, this is what I want to do in this case. So let me walk through the ways I escaped the various sandboxes.</p>
+<h3>git push</h3>
+<p>Claude runs in a sandbox that limits some operations like ssh access. You need ssh access in order to publish to GitHub. This is very important as I want to be able to check how the AI is doing from my phone while I do some other activities <img alt="😉" class="wp-smiley article-image" src="https://s.w.org/images/core/emoji/11.2.0/72x72/1f609.png" style="height: 1em;"/></p>
+<figure class="wp-block-image article-figure"><img alt="" class="wp-image-5578 article-image" src="https://blog.vjeux.com/wp-content/uploads/2026/01/image-1.png"/></figure>
+<p>What I realized is that I can run the code on my terminal but Claude cannot do it from its own terminal. So what I did was to ask Claude to write a nodejs script that opens an http server on a local port that executes the git commands from the url. Now I just need to keep a tab open on my terminal with this server active and ask Claude to write instructions in Claude.md for it to interact with it.</p>
+<h3>rustc</h3>
+<p>There's an antivirus on my computer that requires a human interaction when an unknown binary is being ran. Since every time we compile it's a new unknown binary, this wasn't going to work.</p>
+<p>What I found is that I can setup a local docker instance and compile + run the code inside of docker which doesn't trigger the antivirus. Again, I asked Claude to generate the right instructions in Claude.md and problem solved.</p>
+<p>The next hurdle was to figure out how to let Claude Code for hours without any human intervention.</p>
+<h3>--yes</h3>
+<p>Claude keeps asking for permission to do things. I tried adding a bunch of things to the allowed commands file and <code>--allow-dangerously-skip-permissions --dangerously-skip-permissions</code>was disabled in my environment (it has now been resolved).</p>
+<p>I realized that I could run an AppleScript that presses enter every few seconds in another tab. This way it's going to say Yes to everything Claude asks to do. So far it hasn't decided to hack my computer...</p>
+<pre class="wp-block-code"><code>#!/bin/bash
+
+osascript -e \
+'tell application "System Events"
+    repeat
+        delay 5
+        key code 36
+    end repeat
+end tell'</code></pre>
+<h3>Never give up</h3>
+<p>Claude after working for some time seem to always stop to recap things. I tried prompting it to never do, even threatening it to no avail.</p>
+<figure class="wp-block-image article-figure"><img alt="" class="wp-image-5579 article-image" src="https://blog.vjeux.com/wp-content/uploads/2026/01/image-2.png"/></figure>
+<p>I tried using the Ralph Wiggum loop but it <a href="https://x.com/Vjeux/status/2007545697193890024">couldn't get it to work</a> and apparently I'm not alone.</p>
+<p>What ended up working is to copy in my clipboard the task I wanted it to do and to tweak the script above to hit the keys "cmd-v" after pressing enter. This way in case it asks a question the "enter" is being used and in case it's not it's queuing the prompt for when Claude is giving back control.</p>
+<h3>Auto-updates</h3>
+<p>There are programs on the computer like software updater that can steal the focus from the terminal window, for example showing a modal. Once that happens, then the cmd-v / enter are no longer sent to the terminal and the execution stops.</p>
+<figure class="wp-block-image article-figure"><img alt="" class="wp-image-5575 article-image" src="https://blog.vjeux.com/wp-content/uploads/2025/12/image.png"/><figcaption><br/></figcaption></figure>
+<p>I used my trusty Auto Clicker by MurGaa from Minecraft days to simulate a left click every few seconds. I place my terminal on the edge of the screen and same for my mouse so that when a modal appears in the middle, it refocuses the terminal correctly.</p>
+<p>It also prevents the computer from going to sleep so that it can run even when I'm not using the laptop or at night.</p>
+<h3>Bugs <img alt="🐜" class="wp-smiley article-image" src="https://s.w.org/images/core/emoji/11.2.0/72x72/1f41c.png" style="height: 1em;"/></h3>
+<p>Reliability when running things for a long period of time is paramount. Overall it's been a pretty smooth ride but I ran into this specific error during a handful of nights which stopped the process. I hope they get to the bottom of it and solve it as I'm not the only one to <a href="https://github.com/anthropics/claude-code/issues/16368">report it</a>!</p>
+<figure class="wp-block-image article-figure"><img alt="" class="wp-image-5580 article-image" src="https://blog.vjeux.com/wp-content/uploads/2026/01/image-3.png"/></figure>
+<p>This setup is far from optimal but has worked so far. Hopefully this gets streamlined in the future!</p>
+<h2>Porting Pokemon</h2>
+<h3>One Shot</h3>
+<p>At the very beginning, I started with a simple prompt asking Claude to port the codebase and make sure that things are done line by line. At first it felt extremely impressive, it generated thousands of lines of Rust that was compiling.</p>
+<p>Sadly it was only an appearance as it took a lot of shortcuts. For example, it created two different structures for what a move is in two different files so that they would both compile independently but didn't work when integrated together. It ported all the functions very loosely where anything that was remotely complicated would not be ported but instead "simplified".</p>
+<p>I didn't realize it yet, I got the loop working to have it port more and more code. The issue is that it created wrong abstractions all over the place and kept adding hardcoded code to make whatever it was supposed to fix work. This wasn't going to go anywhere.</p>
+<h3>Giving it structure</h3>
+<p>At this point I knew that I needed to be a lot more prescriptive for what I wanted out of it. Taking a step back, the end result should have every JavaScript file and every method inside to have a Rust equivalent.</p>
+<p>So I asked Claude to write a script that takes all the files and methods in the JavaScript codebase and put comments in the rust codebase with the JavaScript source, next to the Rust methods.</p>
+<p>It was really important for it to be a script as even when instructed to copy code over, it would mistranslate JavaScript code. Being deterministic here greatly increased the odds of getting the right results.</p>
+<figure class="wp-block-image article-figure"><img alt="" class="wp-image-5581 article-image" src="https://blog.vjeux.com/wp-content/uploads/2026/01/image-4.png"/></figure>
+<h3>Litte Islands</h3>
+<p>The next challenge is that the original files were thousands of lines long, double it with source comments we got to files more than 10k lines long. This causes a ton of issues with the context window where Claude straight up refuses to open the file. So it started reading the file in chunks but without a ton of precision. Also the context grew a lot quicker and compaction became way more frequent.</p>
+<p>So I went ahead and split every method into its own file for the Rust version. This dramatically improved the results. For maximal efficiency I would need to do the same for the JavaScript codebase as well but I was too afraid to do it and accidentally change the behavior so decided not to.</p>
+<div class="wp-block-image"><figure class="aligncenter is-resized article-figure"><img alt="" class="wp-image-5582 article-image" height="305" src="https://blog.vjeux.com/wp-content/uploads/2026/01/image-5.png" width="143"/></figure></div>
+<h3>Cleanup</h3>
+<p>The process of porting went through two repeating phases. I would give a large task to Claude to do in a loop that would churn on it for a day, and then I would need to spend time cleaning up the places where it went into the wrong direction.</p>
+<p>For the cleanup, I still used Claude but gave a lot more specific recommendations. For example, I noticed that it would hardcode moves/abilities/items/... behaviors everywhere in the code when left unchecked, even after explicitly telling it not to. So I would manually look for all these and tell it to move them into the right places.</p>
+<p>This is where engineering skills come into play, all my experience building software let me figure out what went wrong and how to fix it. The good part is that I didn't have to do the cleanup myself, Claude was able to do it just fine when directed to.</p>
+<h2>Integration</h2>
+<h3>Build everything before testing</h3>
+<p>So far, I just made sure that the code compiled, but have never actually put all the pieces together to ensure it actually worked. What Claude really wanted was to do a traditional software building strategy where you make "simple" implementations of all of the pieces and then build them up as time goes.</p>
+<p>But in our case, all this iteration has already happened for 10 years on the pokemon-showdown codebase. It's counter productive to try and re-learn all these lessons and will unlikely converge the same way. What works better is to port everything at once, and then do the integration at the end once.</p>
+<p>I've learned this strategy from working on Skip, a compiler. For years all the building blocks were built independently and then it all came together with nothing to show for but within a month at the end it all worked. I was so shocked.</p>
+<h3>End-to-end test</h3>
+<p>Once most of the codebase was ported one to one, I started putting it all together. The good thing is that we can run and edit the code in JavaScript and in Rust, and the input/output is very simple and standardized: list of pokemons with their options (moves, items, nature, iv/ev spread...) and then the list of actions at each step (moves and switches). Given the same random sequence, it'll advance the state the same way.</p>
+<p>Now I can let Claude generate this testing harness and go through all the issues one by one. Impressively, it was able to figure out all issues and fix them.</p>
+<figure class="wp-block-image article-figure"><img alt="" class="wp-image-5576 article-image" src="https://blog.vjeux.com/wp-content/uploads/2026/01/image.png"/></figure>
+<p>Over the course of 3 weeks it averaged fixing one issue every 20 minutes or so. It fixed hundreds of issues on its own. I never intervened, it was only a matter of time before it fixed every issue that it encountered.</p>
+<div class="wp-block-image"><figure class="aligncenter is-resized article-figure"><img alt="Image" height="529" src="https://pbs.twimg.com/media/G-rvZkbXYAAoWbm?format=jpg&amp;name=large" width="259" class="article-image"/></figure></div>
+<h3>Giving it structure</h3>
+<p>At the beginning, this process was extremely slow. Every time a compaction happened, Claude became "dumb" again and reinvented the wheel, writing down tons of markdown files and test scripts along the way. Or Claude decided to take the easy way out and just generate tons of tests but never actually making them match with JavaScript.</p>
+<p>So, I started looking at what it did well and encoding it. For example, it added a lot of debugging around the PRNG steps and what actions happened at every turn with all the debugging metadata. So I asked it to create a single test script to print down this information for a single step and to print stack traces. Then add instruction to the Claude.md file. This way every investigation started right away.</p>
+<h3>The long slog</h3>
+<p>I built used the existing random number generator to generate battles and could put in a number as a seed. This let me generate consistent battles at an increasing size.</p>
+<p>I started fixing the first 100 battles, then 1000, 10k, 100k and I'm almost done solving all the issues for the first 2.4 million battles! I'm not sure how many more issues there are but the good thing is that they are getting smaller and smaller as the batch size increases.</p>
+<figure class="wp-block-image article-figure"><img alt="" class="wp-image-5583 article-image" src="https://blog.vjeux.com/wp-content/uploads/2026/01/image-6.png"/></figure>
+<h3>Types of issues</h3>
+<p>There are two broad classes of issues that were fixed. The first one that I expected is that Rust has different constraints than JavaScript which need to be taken into account and lead to bugs:</p>
+<ul><li>Rust has the "borrow checker" where a mutable variable cannot be passed in two different contexts at once. The problem is that "Pokemon" and "Battle" have references to each others. So there's a lot of workarounds like doing copies, passing indices instead of the object, providing functions with mutable object as callback...</li><li>The JavaScript codebase uses dynamism heavily where some function return '', undefined, null, 0, 1, 5.2, Pokemon... which all are handled with different behaviors. At first the rust port started using Option&lt;&gt; to handle many of them but then moved to structs with all these variants.</li><li>Rust doesn't support optional arguments so every argument has to be spelled out literally.</li></ul>
+<p>But the second one are due to itself... Claude Code is like a smart student that is trying to find every opportunity to avoid doing the hard work and take the easy way out if it thinks it can get away with it.</p>
+<ul><li>If a fix requires changing more than one or two files, this is a "significant infrastructure" and Claude Code will refuse to do it unless explicitly prompted and will put in whatever hacks it can to make the specific test work.</li><li>Along the same lines, it is going to implement "simplified" versions of things. For some methods, it was better to delete everything and asking it to port it over from scratch than trying to fix all the existing code it created.</li><li>The JavaScript comments are supposed to be the source of truth. But Claude is not above changing the original code if it feels like this is the way to solve the problem...</li><li>If given a list of tasks, it's going to avoid doing the ones that seem difficult until it is absolutely forced to. This is inefficient if not careful as it's going to keep spending time investigating and then skipping all the "hard" ones. Compaction is basically wiping all its memory.</li></ul>
+<h2>Prompts</h2>
+<p>I didn't write a single line of code myself in this project. I alternated between "co-op" where I work with Claude interactively during the day and creating a job for it to run overnight. I'll focus on the night ones for this section.</p>
+<h3>Conversion</h3>
+<p>For the first phase of the project, I mostly used variations of this one. Asking it to go through all the big files one by one and implement them faithfully (it didn't really follow instructions as we've seen later...)</p>
+<blockquote class="wp-block-quote"><p>Open BATTLE_TODO.md to get the list of all the methods in both battle*.rs.<br/>Inspect every single one of them and make sure that they are a direct translation the JavaScript file. If there's a method with the same name, the JavaScript definition will be in the comment.<br/>If there's no JavaScript definition, question whether this method should be there in the rust version. Our goal is to follow as closely as possible the JavaScript version to avoid any bugs in translation. If you notice that the implementation doesn't match, do all the refactoring needed to match 1 to 1.<br/>This will be a complex project. You need to go through all the methods one by one, IN ORDER. YOU CANNOT skip a method because it is too hard or would requiring building new infrastructure. We will call this in a loop so spend as much time as you need building the proper infrastructure to make it 1 to 1 with the JavaScript equivalent. Do not give up.<br/>Update BATTLE_TODO.md and do a git commit after each unit of work.<br/></p></blockquote>
+<h3>Todos</h3>
+<p>Claude Code while porting the methods one by one often decided to write a "simplified" version or add a "TODO" for later. I also found it to be useful when generating work to add the instructions in the codebase itself via a TODO comment, so I don't need to wish that it's going to be read from the context.</p>
+<p>The master md file in practice didn't really work, it quickly became too big to be useful and Claude started creating a bunch more littering the repo with them. Instead I gave it a deterministic way to go through then by calling grep on the codebase, so it knew when to find them.</p>
+<blockquote class="wp-block-quote"><p>We want to fix every TODO in the codebase. <code>TODO</code> or <code>simplif</code> in pokemon-showdown-rs/.<br/>There are hundreds of them, so go diligently one by one. Do not skip them even if they are difficult. I will call this prompt again and again so you don't need to worry about taking too long on any single one.<br/>The port must be exactly one to one. If the infrastructure doesn't exist, please implement it. Do not invent anything.<br/>Make sure it still compiles after each addition and commit and push to git.</p></blockquote>
+<p>At some point the context was poisoned where a TODO was inside of the original js codebase so it changed it to something else which made sense. But then it did the same for all the subsequent TODOs which didn't... Thankfully I could just revert all these commits.</p>
+<h3>Fixing</h3>
+<p>I put in all the instructions to debug in Claude.md and a script to run all the tests which outputs a txt file with progress report. This way Claude was able to just keep going fixing issues after issues.</p>
+<blockquote class="wp-block-quote"><p>We want to fix all the divergences in battles. Please look at 500-seeds-results.txt and fix them one by one. The only way you can fix is by making sure that the differences between javascript and rust are explained by language differences and not logic. Every line between the two must match one by one. If you fixed something specific, it's probably a larger issue, spend the time to figure out if other similar things are broken and do the work to do the larger infrastructure fixes. Make sure it still compiles after each addition and commit and push to git. Check if there are other parts of the codebase that make this mistake.</p></blockquote>
+<p>This is really useful to have this txt file diff committed to GitHub to get a sense of progress on the go!</p>
+<div class="wp-block-image"><figure class="aligncenter is-resized article-figure"><img alt="Image" height="499" src="https://pbs.twimg.com/media/G-cKrxvaoAAGAYA?format=jpg&amp;name=large" width="231" class="article-image"/></figure></div>
+<h2>Epilogue</h2>
+<h3>It works <img alt="🤯" class="wp-smiley article-image" src="https://s.w.org/images/core/emoji/11.2.0/72x72/1f92f.png" style="height: 1em;"/></h3>
+<p>I didn't quite know what to expect coming into this project. They usually tend to die due to the sheer amount of work needed to get anywhere close to something complete. But not this time!</p>
+<p>We have a complete implementation of Pokemon battle system that produces the same results as the existing JavaScript codebase*. This was done through 5000 commits in 4 weeks and the Rust codebase is around 100k lines of code.</p>
+<p>*I wish we had 0 divergences but right now there are 80 out of the first 2.4 million seeds or 0.003%. I need to run it for longer to solve these.</p>
+<h3>Is it fast?</h3>
+<p>The whole point of the project was for it to be faster than the initial JavaScript implementation. Only towards the end of the project where we had a sizable amount of battles running perfectly I felt like it would be a fair time to do a performance comparison.</p>
+<p>I asked Claude Code to parallelize both implementations and was relieved by the results, the Rust port is actually significantly faster, I didn't spend all this time for nothing!</p>
+<figure class="wp-block-image article-figure"><img alt="Image" src="https://pbs.twimg.com/media/G-zV6MgWAAAQMt4?format=jpg&amp;name=large" class="article-image"/></figure>
+<p>I've tried asking Claude to optimize it further, it created <a href="https://github.com/vjeux/pokemon-showdown-rs/blob/master/PERFORMANCE.md">a plan that looks reasonable</a> (I've never interacted with Rust in my life) and it spent a day building many of these optimizations but at the end of the day, none of them actually improved the runtime and some even made it way worse.</p>
+<p>This is a good example of how experience and expertise is still very required in order to get the best out of LLMs.</p>
+<h2>Conclusion</h2>
+<p>This is pretty wild that I was able to port a ~100k lines codebase from JavaScript to Rust in two weeks on my own with Claude Code running 24 hours a day for a month <a href="https://github.com/vjeux/pokemon-showdown-rs/commits/master/">creating 5k commits</a>! I have never written any line of Rust before in my life.</p>
+<p>LLM-based coding agents are such a great new tool for engineers, there's no way I would have been able to do that without Claude Code. That said, it still feels like a tool that requires my engineering expertise and constant babysitting to produce these results.</p>
+<p>Sadly I didn't get to build the Pokemon Battle AI and the winter break is over, so if anybody wants to do it, please <a href="https://github.com/vjeux/pokemon-showdown-rs/commits/master/">have fun with the codebase</a>!</p></div></div>
+      
+    </article>
+    
+  </body>
+</html>
