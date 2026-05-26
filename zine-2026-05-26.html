@@ -1,0 +1,397 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Fred Talks - 2026-05-26</title>
+    <style>
+      @page {
+        size: A5;
+        margin: 8mm 9mm 9mm;
+      }
+
+      :root {
+        color: #111;
+        font-family: "Times New Roman", Times, serif;
+        --body-text-size: 9.5pt;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        color: #111;
+        background: #fff;
+        font-family: "Times New Roman", Times, serif;
+        line-height: 1.45;
+      }
+
+      a,
+      a:visited {
+        color: #111;
+        text-decoration: underline;
+      }
+
+      .cover {
+        min-height: calc(210mm - 17mm);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        page-break-after: always;
+        border: 1px solid #111;
+        padding: 8mm;
+        background: #fff;
+      }
+
+      .toc-item-meta,
+      .article-meta {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .masthead {
+        margin: 0;
+        font-size: 40pt;
+        line-height: 0.95;
+        text-transform: uppercase;
+      }
+
+      .issue-date {
+        margin: 4mm 0 0;
+        font-size: 14pt;
+      }
+
+      .issue-date sup {
+        font-size: 0.58em;
+        vertical-align: super;
+        line-height: 0;
+      }
+
+      .cover-deck {
+        max-width: 90mm;
+        font-size: 12pt;
+        margin: 0;
+      }
+
+      .toc {
+        border-top: 3px solid #111;
+        padding-top: 6mm;
+      }
+
+      .toc h2 {
+        margin: 0 0 4mm;
+        font-size: 11pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .toc-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .toc-item {
+        padding: 3mm 0;
+        border-bottom: 1px solid rgba(17, 17, 17, 0.2);
+      }
+
+      .toc-item-title {
+        font-size: 12pt;
+        margin: 0 0 1mm;
+      }
+
+      .toc-item-meta {
+        font-size: 8pt;
+      }
+
+      .masthead-compact {
+        margin: 0 0 6mm;
+      }
+
+      .masthead-compact h1 {
+        margin: 0;
+        font-size: 22pt;
+        line-height: 1.1;
+        text-transform: uppercase;
+      }
+
+      .masthead-compact .issue-date {
+        margin: 2mm 0 0;
+        font-size: 11pt;
+      }
+
+      .toc-compact {
+        border-top: 1px solid #111;
+        border-bottom: 1px solid #111;
+        padding: 4mm 0;
+        margin: 0 0 8mm;
+      }
+
+      article + article {
+        margin-top: 10mm;
+        padding-top: 6mm;
+        border-top: 2px solid #111;
+      }
+
+      h1 {
+        margin: 0 0 2mm;
+        font-size: 18pt;
+        line-height: 1.1;
+      }
+
+      .article-meta {
+        font-size: 8.5pt;
+        margin-bottom: 6mm;
+        padding-bottom: 3mm;
+        border-bottom: 1px solid #111;
+      }
+
+      .article-body {
+        font-size: var(--body-text-size);
+        font-family: "Times New Roman", Times, serif;
+      }
+
+      .article-body p,
+      .article-body li,
+      .article-body blockquote,
+      .article-body dd,
+      .article-body dt {
+        margin: 0 0 4mm;
+        orphans: 3;
+        widows: 3;
+      }
+
+      .article-body ul,
+      .article-body ol,
+      .article-body dl {
+        margin: 0 0 4mm 5mm;
+        padding: 0;
+      }
+
+      .article-body h2,
+      .article-body h3,
+      .article-body h4 {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        margin: 7mm 0 3mm;
+        line-height: 1.2;
+      }
+
+      .article-body blockquote {
+        margin-left: 6mm;
+        padding-left: 4mm;
+        border-left: 2px solid #111;
+      }
+
+      .article-body .media-omitted {
+        margin: 0 0 4mm;
+        font-size: 8.5pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(17, 17, 17, 0.65);
+      }
+
+      .article-body figure,
+      .article-body .article-figure,
+      .article-body picture,
+      .article-body .article-picture {
+        display: block;
+        max-width: 72mm;
+        margin: 0 auto 4mm;
+        break-inside: avoid;
+      }
+
+      .article-body img,
+      .article-body .article-image {
+        display: block;
+        max-width: min(100%, 72mm);
+        max-height: 34mm;
+        height: auto;
+        width: auto;
+        object-fit: contain;
+        margin: 0 auto 3mm;
+      }
+
+      .article-body figcaption {
+        margin-top: 1.5mm;
+        font-size: 8.5pt;
+        line-height: 1.3;
+        color: rgba(17, 17, 17, 0.8);
+      }
+
+      .article-note {
+        margin-top: 6mm;
+        padding-top: 3mm;
+        border-top: 1px solid #111;
+        font-size: 9pt;
+        font-style: italic;
+      }
+
+      @media screen {
+        body {
+          padding: 2rem;
+          margin: 0 auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    
+    <header class="masthead-compact">
+      <h1>Fred Talks</h1>
+      <p class="issue-date">
+        26<sup>th</sup> May 2026
+      </p>
+    </header>
+
+    <nav class="toc toc-compact">
+      <h2>Contents</h2>
+      <ol class="toc-list">
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Building agents that reach production systems with MCP</div>
+          <div class="toc-item-meta">
+            claude.com · 1746 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Evolution and Scale of Uber’s Delivery Search Platform</div>
+          <div class="toc-item-meta">
+            Divya Nagar · 2220 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">The lies I used to tell myself</div>
+          <div class="toc-item-meta">
+            Cate Hall · 1900 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">The Bag-of-Documents Model for Query Understanding and Retrieval</div>
+          <div class="toc-item-meta">
+            Daniel Tunkelang · 78 words
+          </div>
+        </li>
+        
+      </ol>
+    </nav>
+    
+
+    
+    <article>
+      <h1>Building agents that reach production systems with MCP</h1>
+      <div class="article-meta">
+        claude.com
+        · 23 Apr 2026 · <a href="https://claude.com/blog/building-agents-that-reach-production-systems-with-mcp">Source</a>
+      </div>
+      <div class="article-body"><div><div><p>Agents are only as useful as the systems they can reach. Teams tend to converge on three approaches for connecting them to external systems—direct API calls, CLIs, and MCP. This post lays out where each fits, why production agents tend to land on MCP, and the patterns for building those integrations effectively.</p><h2>Connecting agents to external systems</h2><p>We generally see three paths for connecting agents to external systems: direct API calls, CLIs, and MCP. Each makes sense somewhere, depending on what you're building. The key distinction is whether there's a common layer between agents and services, and how far that layer reaches.</p><h3>Direct API calls</h3><p>The agent calls your API directly—either by writing code that issues HTTP requests inside a code-execution sandbox, or through a generic function-calling tool. This is where most teams start, and it works fine for one agent talking to one service, or a small number of integrations that don't need to be reused across agent platforms.<br/><br/>The challenges start to hit at scale. With no common layer between agents and services, each agent–service pair becomes a bespoke integration with its own auth handling, tool descriptions, and edge cases—the M×N integration problem.</p><h3>Command-line interface (CLI)</h3><p>The agent runs your command-line tool in a shell. This is fast, lightweight, and leans on pre-existing tooling. It works great for local environments and sandboxed containers—anywhere there's a filesystem and a shell. This provides a common layer, but it’s thin. <br/><br/>CLIs hit hard limits reaching mobile, web, or cloud-hosted platforms that don't expose a container, and auth is handled by the CLI's own mechanism—usually a credential file on disk. This is best suited to quick, permissive integrations in local environments.</p><h3>Model Context Protocol (MCP)</h3><p>MCP provides the common layer as a protocol. The agent connects to a server that exposes your system's capabilities, with auth, discovery, and rich semantics standardized. One remote server reaches any compatible client (Claude, ChatGPT, Cursor, VS Code, and more), in any deployment environment.</p><p>It requires a little bit more upfront investment. The return is that the integration is portable, and provides the semantics needed for a feature-rich agent integration.</p><h2>Production agents run in the cloud</h2><p>Production agents increasingly run in the cloud, so they can scale and operate continuously. The systems they need to reach are cloud-hosted too: where your data lives, work is tracked, and your infrastructure runs. Often these systems are remote and behind auth, where MCP provides the common layer. </p><p>We’re already seeing this in adoption. The <a href="https://modelcontextprotocol.io/docs/sdk">MCP SDKs</a> recently surpassed 300 million downloads a month, up from 100 million at the start of the year, with strong adoption across enterprises and popular agentic platforms. Millions of people use MCP with Claude every day, and the protocol underpins much of what we've shipped recently, including <a href="https://claude.com/product/cowork">Claude Cowork</a>, <a href="https://claude.com/blog/claude-managed-agents">Claude Managed Agents</a>, and <a href="https://code.claude.com/docs/en/channels">channels in Claude Code</a>. <br/>‍<br/>As MCP continues to support production agentic systems, we’re sharing patterns for building these integrations well: from building advanced servers to context-efficient clients, and where skills complement the protocol. </p><h2>Building effective MCP servers</h2><p>We have over 200 MCP servers in our <a href="https://claude.ai/directory/connectors">directory</a>, used by millions of people every day. From working closely with enterprises and developers building on the protocol, we’ve spotted a handful of design patterns that determine how reliably agents can use a server.</p><h3>Build remote servers for maximum reach</h3><p>A remote server is what gives you distribution—it's the only configuration that runs across web, mobile, and cloud-hosted agents, and it's what every major client is optimized to consume. Build remote servers so agents can use your system wherever they run. </p><h3>Group tools around intent, not endpoints</h3><p>Fewer, well-described tools consistently outperform exhaustive API mirrors. Don't wrap your API into an MCP server one-to-one—group tools around intent, so the agent can accomplish a task in a couple of calls instead of stitching many primitives together. A single create_issue_from_thread tool beats get_thread + parse_messages + create_issue + link_attachment. See<a href="https://www.anthropic.com/engineering/writing-tools-for-agents"> writing effective tools for agents</a> to learn more about the full pattern.</p><h3>Design for code orchestration when your surface is large</h3><p>If your service requires hundreds of distinct operations, such as Cloudflare, AWS, or Kubernetes, an intent-grouped toolset likely won't cover it. Instead, expose a thin tool surface that accepts code: the agent writes a short script, your server runs it in a sandbox against your API, and only the result returns. <a href="https://github.com/cloudflare/mcp">Cloudflare's MCP server</a> is the reference example—two tools (search and execute) cover ~2,500 endpoints in roughly 1K tokens.</p><h3>Ship rich semantics where they help</h3><p><a href="https://modelcontextprotocol.io/extensions/apps/overview">MCP Apps</a> is the first official protocol extension and lets a tool return an interactive interface, such as a chart, form, or dashboard, all rendered inline in the chat interface. Servers that ship MCP apps tend to see meaningfully higher adoption and retention than those that return text alone. Use it to put your product's UI in front of agents or end-users at the moment it matters—the extension is supported in Claude.ai, Claude Cowork, and many other top AI tools.</p><figure class="article-figure"><p><div class="rw-embed-wrapper"><embed src="https://www.youtube.com/embed/bluAmTHoEow" type="video/mp4"></embed></div></p></figure><p>‍<a href="https://modelcontextprotocol.io/specification/2025-11-25/client/elicitation">Elicitation</a> lets your server pause mid-tool call to ask the user for input. <a href="https://modelcontextprotocol.io/specification/2025-11-25/client/elicitation#form-mode-elicitation-requests">Form mode</a> sends a simple schema and the client renders a native form—use it to request a missing parameter, confirm a destructive action, or disambiguate options. <a href="https://modelcontextprotocol.io/specification/2025-11-25/client/elicitation#url-mode-elicitation-requests">URL mode</a> hands the user to a browser—use it to complete downstream OAuth, take a payment, or collect any credential that should never transit the MCP client. Both keep the user in the flow instead of sending them to a settings page. Form mode is supported broadly; URL mode is supported in Claude Code, with more clients in progress.</p><h3>Lean on standardized auth </h3><p>Standardized auth makes MCP practical for cloud-hosted agents. If your server requires OAuth, the latest <a href="https://modelcontextprotocol.io/specification/2025-11-25">MCP spec</a> supports <a href="https://modelcontextprotocol.io/specification/2025-11-25/basic/authorization#client-id-metadata-documents">CIMD</a> (Client ID Metadata Documents) for client registration—it gives users a fast first-time auth flow and far fewer surprise re-auth prompts. This is our recommended approach for auth, the capability is supported in MCP SDKs, Claude.ai, and Claude Code, and is being broadly adopted across the industry.<br/><br/>Once a user has authorized, the next question is how a cloud-hosted agent holds and reuses those tokens at runtime. <a href="https://platform.claude.com/docs/en/managed-agents/vaults#mcp-oauth-credential">Vaults</a> in <a href="https://platform.claude.com/docs/en/managed-agents/overview">Claude Managed Agents</a> covers this: register a user's OAuth tokens once, reference the vault by ID at session creation, and the platform injects the right credentials into each MCP connection and refreshes them on your behalf—no secret store to build, no tokens to pass around per call.</p><h2>Making MCP clients more context-efficient</h2><p>MCP standardizes how AI agents (<a href="https://modelcontextprotocol.io/docs/develop/build-client#python"><em>clients</em></a>) connect to and work with tools and data sources they need (<a href="https://modelcontextprotocol.io/docs/develop/build-server"><em>servers</em></a>). The server securely exposes a range of capabilities, while the client orchestrates them and manages context. If you’re building an MCP client, make it context-efficient with patterns for progressive disclosure.</p><h3>Load tool definitions on demand with tool search</h3><p><a href="https://platform.claude.com/docs/en/agents-and-tools/tool-use/tool-search-tool">Tool search</a> defers loading all tools into context, rather than loading them upfront. This allows the agent to search the catalog at runtime, pulling in the relevant tools when needed. In our <a href="https://www.anthropic.com/engineering/advanced-tool-use">testing</a>, tool search tends to cut tool-definition tokens by 85%+ while maintaining high selection accuracy. </p><figure class="article-figure"><figcaption>Reducing context usage with tool search. Source: <a href="https://www.anthropic.com/engineering/advanced-tool-use">advanced tool use<br/></a></figcaption></figure><h3>Process tool results in code with programmatic tool calling</h3><p><a href="https://www.anthropic.com/engineering/code-execution-with-mcp">Programmatic tool calling</a> processes tool results in a code-execution sandbox, rather than returning them raw to the model. This lets the agent loop, filter, and aggregate across calls in code, with only the final output reaching context. In our testing, this reduces token usage by roughly <a href="https://platform.claude.com/docs/en/agents-and-tools/tool-use/programmatic-tool-calling">37%</a> on complex multi-step workflows.</p><p>Together, these patterns compose naturally across multiple servers: leaner context, fewer round-trips, faster responses. See<a href="https://www.anthropic.com/engineering/advanced-tool-use"> <em>advanced tool use</em></a> for the full breakdown.</p><h2>Pairing MCP servers with skills</h2><p><a href="https://claude.com/blog/skills-explained">Skills and MCP are complementary</a>. MCP gives an agent access to tools and data from external systems, while skills teach an agent the procedural knowledge of <em>how</em> to use those tools to accomplish real work. The most capable agents use both, and skills make MCP servers scale beyond a handful of connections. There are two general patterns for combining them:</p><h3>Bundle skills and MCP servers as a plugin</h3><p><a href="https://code.claude.com/docs/en/plugins-reference#plugin-components-reference">Plugins</a> for Claude are a useful abstraction that allow developers to bundle skills, MCP servers, hooks, LSP servers, and specialized subagents in one easily-consumable distribution method. Using this approach is the best way to unify multiple context providers with minimal friction. <br/><br/>Combining MCP servers with skills allows Claude to act more like a domain-specialist. Grab your tools via MCP, and give Claude the skills to orchestrate workflows end-to-end. See our <a href="https://claude.ai/directory/plugins/data%40knowledge-work-plugins">data plugin</a> for Cowork as an example, which consists of 10 skills and 8 MCP servers for apps like Snowflake, Databricks, BigQuery, Hex and more.</p><figure class="article-figure"><figcaption>Combining skills with MCP. Source: <a href="https://claude.com/blog/extending-claude-capabilities-with-skills-mcp-servers">Extending Claude’s capabilities with skills and MCP servers</a></figcaption></figure><h3>Distribute skills from an MCP server</h3><p>It's increasingly common for providers to publish a skill alongside their MCP server, so the agent gets both the raw capabilities and an opinionated playbook for using them well. <a href="https://claude.com/connectors/atlassian">Canva</a>, <a href="https://claude.com/connectors/notion">Notion</a>, <a href="https://claude.com/connectors/sentry">Sentry</a>, and more do this today in Claude, listing the skill next to their connector in our <a href="https://claude.com/connectors">web directory</a>.</p><p>To make that pairing portable across every client, the MCP community is actively working on an <a href="https://github.com/modelcontextprotocol/experimental-ext-skills">extension</a> for delivering skills directly from servers. This way the client inherits the relevant expertise automatically, versioned with the API it depends on. We expect this pattern to see broad adoption as the extension stabilizes.</p><h2>The compounding layer </h2><p>We opened with three paths for connecting agents to external systems. In practice, mature integrations will ship all three: the API as the foundation, a CLI for local-first environments, and MCP for cloud-based agents.</p><p>As production agents move to the cloud, MCP becomes the critical layer, and it’s the one that compounds. Today, a remote server reaches every compatible client across any deployment environment, with auth, interactivity, and rich semantics handled by the protocol. As more clients adopt the spec and more extensions land in it, that same server gets more capable without you shipping anything new.</p><p>When building an integration, if your goal is to have production agents in the cloud reach your system, build an MCP server and make it excellent using the patterns above. Every integration built on MCP strengthens the ecosystem: fewer edge cases to solve alone, fewer bespoke integrations to maintain.</p><h3>Acknowledgements</h3><p>Thanks to Den Delimarsky, David Soria Parra, Henry Shi, Felix Rieseberg, Conor Kelly, Molly Vorwerck, Andy Schumeister, Kevin Garcia, Amie Rotherham, Matt Samuels, Angela Jiang, Katelyn Lesse, AJ Rebeiro and Jess Yan<strong> </strong>for their contributions to this blog.</p></div></div></div>
+      
+    </article>
+    
+    <article>
+      <h1>Evolution and Scale of Uber’s Delivery Search Platform</h1>
+      <div class="article-meta">
+        Divya Nagar
+        · 05 Dec 2025 · <a href="https://link.mail.beehiiv.com/ss/c/u001.3a5P_SwQzY5x8USD2q4p0lpdTZ0Q64LSnahkPMOEM2h0AJCGHs6UC5_N0VNm1OYRbjtm47qxhWDmvBzpcYCGZqnCEWbgvVSXHYKMFTFN_BjmM-_4C2ZT516IWTOyDPJ48DKJTHvqfQjGEt_rydPxYsEtvzB3NnQa9QpnHFxFxuDLqopTozgMwmA_t_A5TteVr_AXKG7m45_vxlt2ukDyTfk2ZX8_F4GOkt1MbhjRrfY/4m6/M4WHndjFR_CWoqaYK8vhpA/h15/h001.YAiPwnbR3a-bSXrr0LAlpKBU3c1VLf3TLXnIsWES5w8">Source</a>
+      </div>
+      <div class="article-body"><figure class="article-figure"><img alt="Featured image for Evolution and Scale of Uber’s Delivery Search Platform" src="https://blog.uber-cdn.com/cdn-cgi/image/width=2114,quality=80,onerror=redirect,format=auto/wp-content/uploads/2025/11/cover-17636807348532.png" srcset="https://blog.uber-cdn.com/cdn-cgi/image/width=2114,quality=80,onerror=redirect,format=auto/wp-content/uploads/2025/11/cover-17636807348532.png 2114w, https://blog.uber-cdn.com/cdn-cgi/image/width=300,quality=80,onerror=redirect,format=auto/wp-content/uploads/2025/11/cover-17636807348532.png 300w, https://blog.uber-cdn.com/cdn-cgi/image/width=1024,quality=80,onerror=redirect,format=auto/wp-content/uploads/2025/11/cover-17636807348532.png 1024w, https://blog.uber-cdn.com/cdn-cgi/image/width=768,quality=80,onerror=redirect,format=auto/wp-content/uploads/2025/11/cover-17636807348532.png 768w, https://blog.uber-cdn.com/cdn-cgi/image/width=1536,quality=80,onerror=redirect,format=auto/wp-content/uploads/2025/11/cover-17636807348532.png 1536w, https://blog.uber-cdn.com/cdn-cgi/image/width=2048,quality=80,onerror=redirect,format=auto/wp-content/uploads/2025/11/cover-17636807348532.png 2048w" class="article-image"/></figure>
+<h2>Introduction</h2>
+<p>Search is a primary discovery funnel for Uber Eats: a large share of orders start with people typing into the search bar to find stores, dishes, and grocery items. Strong search directly translates into higher conversion, better basket quality, and faster time-to-order—especially for long-tail queries, new or seasonal items, and multilingual markets. When search misses intent, people bounce or fall back to browsing. When it understands intent, they find what they want in seconds.</p>
+<p>Traditional search stacks begin with lexical matching, which is fast and effective when queries exactly match document text. But real queries are challenging—synonyms (“soda” versus “soft drink”), typos (“mozzarela”), shorthand (“gf pizza”), language mix (“pan” meaning bread in Spanish, but a container for cooking in English), and context (“apple” the fruit vs the company). Lexical methods see strings, not meaning, and aren’t suitable for such queries, producing bad search results.</p>
+<p>Semantic search shifts from matching words to matching meaning. It encodes queries and documents into vectors in the same space, so semantically similar things are close—even without keyword overlap. When properly used, it delivers a search experience that better captures someone’s intent across verticals (stores, dishes, items) and languages.</p>
+<p>Establishing semantic search at scale for industry applications is more than training a model, but instead a whole tech stack including model deployment, ANN (Approximate Nearest Neighbor) index serving at scale, monitoring, version control, and so on. This blog walks you through how Uber Eats built this system, reviewing challenges in this process and the solutions we took.</p>
+<h2>Architecture</h2>
+<p>The general semantic search model architecture is shown in Figure 1. We adopted the classic two-tower structure so that the query and document embedding calculation can be decoupled. The query embeddings are calculated via an online service in real time, while the document embeddings are calculated in a batch manner via offline scheduled services. When training the model, we used the <a href="https://arxiv.org/abs/2205.13147">MRL (Matryoshka Representation Learning)</a>-based infoNCE loss function so that a single model could output various embedding dimensions, and downstream tasks could choose the optimal embedding dimension according to their own size versus quality tradeoffs.</p>
+<p>The latest LLMs (<a href="https://huggingface.co/Qwen">QWEN</a><sup>®</sup>) are used as the backbone embedding layer inside two towers to leverage its world knowledge and cross-lingual abilities. We further finetuned them using Uber Eats in house data to adapt the embedding space to our application scenarios. Currently, this single embedding model supports the content embedding task for all Uber Eats verticals and markets.</p>
+<figure data-wp-block="{&quot;id&quot;:1127049,&quot;width&quot;:&quot;459px&quot;,&quot;height&quot;:&quot;auto&quot;,&quot;sizeSlug&quot;:&quot;large&quot;,&quot;linkDestination&quot;:&quot;none&quot;,&quot;align&quot;:&quot;center&quot;,&quot;hash&quot;:&quot;ec611301-d843-4772-8d0f-d2306c3bc222&quot;,&quot;alt&quot;:&quot;&quot;}" data-wp-block-name="core/image" class="article-figure"><img alt="Image" sizes="auto, (max-width: 639px) 100vw, 639px" src="https://blog.uber-cdn.com/cdn-cgi/image/width=728,quality=80,onerror=redirect,format=auto/wp-content/uploads/2025/11/image-11-20-25-at-3.11pm-17636803154592.jpeg" srcset="https://blog.uber-cdn.com/cdn-cgi/image/width=639,quality=80,onerror=redirect,format=auto/wp-content/uploads/2025/11/image-11-20-25-at-3.11pm-17636803154592.jpeg 639w, https://blog.uber-cdn.com/cdn-cgi/image/width=187,quality=80,onerror=redirect,format=auto/wp-content/uploads/2025/11/image-11-20-25-at-3.11pm-17636803154592.jpeg 187w, https://blog.uber-cdn.com/cdn-cgi/image/width=728,quality=80,onerror=redirect,format=auto/wp-content/uploads/2025/11/image-11-20-25-at-3.11pm-17636803154592.jpeg 728w" class="article-image"/><figcaption>Figure 1: Model training architecture.</figcaption></figure>
+<h3>Model Training and Inference </h3>
+<p>Our model is a two-tower deep neural network built on a Qwen backbone. We use PyTorch<sup>™</sup> with Hugging Face Transformers<sup>®</sup> for model development and Ray<sup>™</sup> for distributed training orchestration. For large-scale training, we use PyTorch’s DDP (Distributed Data Parallel) together with DeepSpeed<sup>®</sup> (ZeRO-3), which shards the optimizer, gradients, and model parameters to handle the immense size of the Qwen model. This setup, combined with mixed-precision training and gradient accumulation, allows us to train on hundreds of millions of data points efficiently. Each successful training run generates versioned artifacts—a unique ID for the query and document models (<em>query_model_id, doc_model_id</em>), and a shared team-specific ID called two-tower-embedding-id (<em>tte_id</em>)—which are meticulously tracked for reproducibility and deployment.</p>
+<p>Given the scale of our document corpus, offline inference is critical. To manage costs, we embed documents at the feature level (for example, store or item) and then join these embeddings back to the full catalog of billions of candidates before indexing. The resulting embeddings are stored in stable <a href="https://www.uber.com/blog/palette-meta-store-journey/">feature store</a> tables, keyed by entity IDs, making them readily available for both retrieval and ranking models. These embeddings are used to build our search index, which are supported by HNSW graphs and store both non-quantized (float32) and quantized (int8) vector representations to optimize for various latency and storage budgets.</p>
+<figure data-wp-block="{&quot;id&quot;:1127052,&quot;sizeSlug&quot;:&quot;large&quot;,&quot;linkDestination&quot;:&quot;none&quot;,&quot;align&quot;:&quot;center&quot;,&quot;hash&quot;:&quot;8d6d2d56-a7ec-4147-922c-3ba4082cb1da&quot;,&quot;alt&quot;:&quot;&quot;}" data-wp-block-name="core/image" class="article-figure"><img alt="Image" sizes="auto, (max-width: 1024px) 100vw, 1024px" src="https://blog.uber-cdn.com/cdn-cgi/image/width=2048,quality=80,onerror=redirect,format=auto/wp-content/uploads/2025/11/figure-2-17636803572365.png" srcset="https://blog.uber-cdn.com/cdn-cgi/image/width=1024,quality=80,onerror=redirect,format=auto/wp-content/uploads/2025/11/figure-2-17636803572365.png 1024w, https://blog.uber-cdn.com/cdn-cgi/image/width=300,quality=80,onerror=redirect,format=auto/wp-content/uploads/2025/11/figure-2-17636803572365.png 300w, https://blog.uber-cdn.com/cdn-cgi/image/width=768,quality=80,onerror=redirect,format=auto/wp-content/uploads/2025/11/figure-2-17636803572365.png 768w, https://blog.uber-cdn.com/cdn-cgi/image/width=1536,quality=80,onerror=redirect,format=auto/wp-content/uploads/2025/11/figure-2-17636803572365.png 1536w, https://blog.uber-cdn.com/cdn-cgi/image/width=2048,quality=80,onerror=redirect,format=auto/wp-content/uploads/2025/11/figure-2-17636803572365.png 2048w" class="article-image"/><figcaption>Figure 2: End-to-end training inference workflow.</figcaption></figure>
+<h2>Development and Deployment Challenges</h2>
+<p>We tackled key challenges in scaling our semantic search system. For example, we had to balance retrieval accuracy with infrastructure and compute costs through careful tuning of ANN parameters, quantization, and embedding dimensions.</p>
+<p>To achieve productionization and reliability, we had to ensure safe, automated, and rollback-capable index deployments with strong validation, versioning, and real-time consistency checks in production.</p>
+<h3>Quality and Cost </h3>
+<p>We use Apache <a href="https://www.uber.com/blog/evolution-of-ubers-search-platform/">Lucene<sup>®</sup> Plus</a> as our primary indexing and retrieval system. To manage the scale and diverse nature of the data, we maintain separate indices for each vertical—OFD (restaurants) and GR (grocery/retail).</p>
+<p>Storing and serving large-scale indexes can be expensive, in terms of infrastructure costs and query latency. To optimize this tradeoff while maintaining strong retrieval quality, we explored several mechanisms to balance cost, latency, and performance. In particular, we ran controlled experiments varying three key factors:</p>
+<ul> <li><strong>Search parameter K</strong>: controls the number of nearest neighbors retrieved per shard in ANN search. By carefully choosing k per shard—guided by data distribution statistics—you can maintain the overall retrieval cohort size and preserve result quality.</li> <li><strong>Quantization strategy</strong>: comparing non-quantized float32 embeddings against compact int7 SQ (scalar-quantized) representations.</li> <li><strong>Embedding dimension</strong>: using different Matryoshka-cut representations generated via MRL (Matryoshka Representation Learning), such as <em>emb_256</em> and <em>emb_512</em>.</li> </ul>
+<p>Here’s how we designed search parameters and quantization:</p>
+<figure data-wp-block="{&quot;id&quot;:1127054,&quot;sizeSlug&quot;:&quot;large&quot;,&quot;linkDestination&quot;:&quot;none&quot;,&quot;align&quot;:&quot;center&quot;,&quot;hash&quot;:&quot;75898822-3839-4aa5-87d6-e3b228f1cceb&quot;,&quot;alt&quot;:&quot;&quot;}" data-wp-block-name="core/image" class="article-figure"><img alt="Image" sizes="auto, (max-width: 1024px) 100vw, 1024px" src="https://blog.uber-cdn.com/cdn-cgi/image/width=1134,quality=80,onerror=redirect,format=auto/wp-content/uploads/2025/11/table-1-17636804049680.png" srcset="https://blog.uber-cdn.com/cdn-cgi/image/width=1024,quality=80,onerror=redirect,format=auto/wp-content/uploads/2025/11/table-1-17636804049680.png 1024w, https://blog.uber-cdn.com/cdn-cgi/image/width=300,quality=80,onerror=redirect,format=auto/wp-content/uploads/2025/11/table-1-17636804049680.png 300w, https://blog.uber-cdn.com/cdn-cgi/image/width=768,quality=80,onerror=redirect,format=auto/wp-content/uploads/2025/11/table-1-17636804049680.png 768w, https://blog.uber-cdn.com/cdn-cgi/image/width=1134,quality=80,onerror=redirect,format=auto/wp-content/uploads/2025/11/table-1-17636804049680.png 1134w" class="article-image"/><figcaption>Table 1: Impact of shard-level k and quantization on recall and cost savings.</figcaption></figure>
+<p>We also used MRL (Matryoshka representation learning) to reduce the dimension of the embeddings to optimize the latency and storage costs further. MRL solves this by training a single model whose embeddings can be cut at different lengths. Shorter versions of the embedding capture coarse information quickly, while longer versions add finer details for higher accuracy. This gives us the flexibility to trade off speed versus quality at inference time, without retraining separate models.</p>
+<p>In our application, we chose the following vector dimensions with equal weights: [128, 256, 512, 768, 1024, 1280, 1536]. In our offline evaluation results, we observed that the MRL provides strong performance in dimension reduction.</p>
+<figure data-wp-block="{&quot;id&quot;:1127056,&quot;sizeSlug&quot;:&quot;large&quot;,&quot;linkDestination&quot;:&quot;none&quot;,&quot;align&quot;:&quot;center&quot;,&quot;hash&quot;:&quot;9e7bda2b-86a6-409a-a282-ce8138b46d69&quot;,&quot;alt&quot;:&quot;&quot;}" data-wp-block-name="core/image" class="article-figure"><img alt="Image" sizes="auto, (max-width: 1024px) 100vw, 1024px" src="https://blog.uber-cdn.com/cdn-cgi/image/width=1940,quality=80,onerror=redirect,format=auto/wp-content/uploads/2025/11/image-11-20-25-at-3.14pm-17636805085507.jpeg" srcset="https://blog.uber-cdn.com/cdn-cgi/image/width=1024,quality=80,onerror=redirect,format=auto/wp-content/uploads/2025/11/image-11-20-25-at-3.14pm-17636805085507.jpeg 1024w, https://blog.uber-cdn.com/cdn-cgi/image/width=300,quality=80,onerror=redirect,format=auto/wp-content/uploads/2025/11/image-11-20-25-at-3.14pm-17636805085507.jpeg 300w, https://blog.uber-cdn.com/cdn-cgi/image/width=768,quality=80,onerror=redirect,format=auto/wp-content/uploads/2025/11/image-11-20-25-at-3.14pm-17636805085507.jpeg 768w, https://blog.uber-cdn.com/cdn-cgi/image/width=1536,quality=80,onerror=redirect,format=auto/wp-content/uploads/2025/11/image-11-20-25-at-3.14pm-17636805085507.jpeg 1536w, https://blog.uber-cdn.com/cdn-cgi/image/width=1940,quality=80,onerror=redirect,format=auto/wp-content/uploads/2025/11/image-11-20-25-at-3.14pm-17636805085507.jpeg 1940w" class="article-image"/><figcaption>Table 2: Dimension reduction performance difference from MRL.</figcaption></figure>
+<p>Lowering shard-level <em>k</em> from 1,200 to around 200 yielded a 34% latency reduction and 17% CPU savings in our experiments, with negligible impact on recall. On top of that, applying scalar quantization (int7) further cut compute costs, reducing latency by more than half compared to fp32 while maintaining recall above 0.95. MRL added another layer of efficiency by enabling us to serve smaller embedding cuts (256 dimensions) with almost no loss (&lt; 0.3% for English and Spanish) in retrieval quality compared to full-size embeddings, while also reducing storage costs by nearly 50%. Together, these optimizations significantly lowered the cost and latency of serving large-scale indexes without any significant compromising in retrieval quality.</p>
+<p>Beyond quantization and k tuning, our vector index is paired with locale-aware lexical fields and boolean pre-filters—including <em>hexagon, city_id, doc_type</em>, and <em>fulfillment_types</em>—that run before the ANN search. These pre-filters dramatically shrink the candidate set up front, ensuring low-latency retrieval even against a multi-billion document corpus. Once the ANN search identifies the top-k candidates per vertical, we optionally apply a lightweight micro-re-ranking step, using a compact neural network, to further refine results before handing them off to downstream rankers.</p>
+<h3>Productionization and Reliability</h3>
+<p>Uber data changes continuously. To keep results fresh, our Delivery semantic search runs a scheduled end-to-end workflow that updates the embedding model and serving index in lockstep on a biweekly cadence. Each run trains or fetches the target model, generates document embeddings, and builds a new Lucene Plus index without changing the live read path.</p>
+<p>To enable seamless model refreshes without disrupting live traffic—and to provide rollback flexibility when issues arise—we adopted a blue/green pattern at the index column level. Each index maintains two fixed columns, <em>embedding_blue</em> and <em>embedding_green</em>, with the active model version mapped to one of them via a lightweight configuration. During each refresh, a new index snapshot is built containing both columns: the active column is preserved as-is, while the inactive column is repopulated with fresh embeddings. This design allows us to safely switch between old and new versions when needed.</p>
+<p>During each refresh, we rebuild a full index snapshot that contains both columns (<em>embedding_blue</em> and <em>embedding_green</em>). Even though only the inactive column is intended to change, the build re-materializes the active column as well, so a bug or bad input could silently corrupt what’s currently serving. To protect production, we gate with automated validations that run before any deployment: they block the flow if inputs are incomplete, if the carried-forward (active) column diverges significantly from the current prod index, or if the newly refreshed column underperforms.</p>
+<p>Concretely, our pipelines run three checks.</p>
+<ul> <li><strong>Completeness:</strong> verify document counts (and key filtered subsets) in the index match the source tables used to compute embeddings—fail fast on drift or partial ingestion. </li> <li><strong>Backward-compatibility:</strong> ensure the unchanged column is byte-for-byte equivalent between the pre-refresh and post-refresh index (for example, at T1 compare <em>embedding_blue</em> across old and new builds if <em>embedding_blue</em> is currently serving. Any mismatch ends the run.</li> <li><strong>Correctness:</strong> deploy the newly built index to a non-prod environment, replay real queries at a controlled rate, and compare recall against the current production index. These checks catch issues like data corruption during indexing, bad distance settings, or upstream feature regressions, ensuring the new index is at least as good as production before we make a switch.</li> </ul>
+<p>We also considered maintaining two separate blue and green indexes instead of two columns within a single index. While that approach would simplify reliability—since we wouldn’t need to touch the production index during a refresh—it’d significantly increase storage and maintenance costs. Given that trade-off, we built a mechanism that lets us safely operate with one index containing two columns.</p>
+<figure data-wp-block="{&quot;id&quot;:1127058,&quot;width&quot;:&quot;620px&quot;,&quot;height&quot;:&quot;auto&quot;,&quot;sizeSlug&quot;:&quot;large&quot;,&quot;linkDestination&quot;:&quot;none&quot;,&quot;align&quot;:&quot;center&quot;,&quot;hash&quot;:&quot;2744e8ad-0a13-4b75-8ec9-c432350777c2&quot;,&quot;alt&quot;:&quot;&quot;}" data-wp-block-name="core/image" class="article-figure"><img alt="Image" sizes="auto, (max-width: 984px) 100vw, 984px" src="https://blog.uber-cdn.com/cdn-cgi/image/width=1522,quality=80,onerror=redirect,format=auto/wp-content/uploads/2025/11/figure-3-17636805454103.png" srcset="https://blog.uber-cdn.com/cdn-cgi/image/width=984,quality=80,onerror=redirect,format=auto/wp-content/uploads/2025/11/figure-3-17636805454103.png 984w, https://blog.uber-cdn.com/cdn-cgi/image/width=288,quality=80,onerror=redirect,format=auto/wp-content/uploads/2025/11/figure-3-17636805454103.png 288w, https://blog.uber-cdn.com/cdn-cgi/image/width=768,quality=80,onerror=redirect,format=auto/wp-content/uploads/2025/11/figure-3-17636805454103.png 768w, https://blog.uber-cdn.com/cdn-cgi/image/width=1476,quality=80,onerror=redirect,format=auto/wp-content/uploads/2025/11/figure-3-17636805454103.png 1476w, https://blog.uber-cdn.com/cdn-cgi/image/width=1522,quality=80,onerror=redirect,format=auto/wp-content/uploads/2025/11/figure-3-17636805454103.png 1522w" class="article-image"/><figcaption>Figure 3: Model&lt;&gt;index deployment and serving flow.</figcaption></figure>
+<p>Even with strong build-time and deploy-time checks, there’s still a risk of human error or bugs. For example, a wrong model-to-column mapping or an index built against a different-than-expected model. To guard against this, we added serving-time reliability checks. Reliability of the production system was a significant challenge during the development process.</p>
+<p>To make the system more reliable and prevent outages, we deploy the new index to production, then roll out the model gradually. The index stores the model ID in its metadata for both columns. On sampled requests, the service verifies that the model used to generate the query embedding matches the model ID recorded on the active index column. On any mismatch, we emit a compatibility-error metric and log full context. If errors remain non-zero over a short window, an alert fires and we automatically roll back the model deployment to the previous version (the index remains unchanged). This protects against version mix-ups and config mistakes without adding latency or extra hops to the read path.</p>
+<h1>Conclusion</h1>
+<p>We built a scalable, multilingual search system for Uber Eats that powers discovery across restaurants, grocery, and retail with speed and precision. Our approach brings together advanced language models and smart architecture choices—like Matryoshka embeddings and Lucene Plus integration—to balance quality, cost, and latency at a global scale.</p>
+<p>What makes this system stand out is its production-first design: it automatically retrains, rebuilds, and refreshes search indexes every two weeks, ensuring that results stay fresh and reliable as data changes daily. With a robust blue/green deployment strategy, strong validation gates, and efficient index optimization, we can safely roll out new models without disrupting live traffic.</p>
+<p>Overall, this platform demonstrates how thoughtful engineering—combining strong modeling, reliable infrastructure, and cost-aware optimization—can deliver a search experience that feels smarter, faster, and more intuitive for users around the world.</p>
+<p><em>Apache</em><em><sup>®</sup></em><em>, Apache Lucene Core</em><em><sup>™</sup></em><em>, and the star logo are either registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries. No endorsement by The Apache Software Foundation is implied by the use of these marks.</em></p>
+<p><em>Deepspeed<sup>®</sup> is a registered trademark of the Microsoft group of companies.</em></p>
+<p><em>Hugging Face<sup>®</sup> is a registered trademark of Hugging Face, Inc.</em></p>
+<p><em>PyTorch, the PyTorch logo and any related marks are trademarks of The Linux Foundation.</em></p>
+<p><em>Qwen<sup>®</sup> is a registered trademark of Alibaba Cloud. </em></p>
+<p><em>Ray is a trademark of Anyscale, Inc.</em></p>
+<p>Stay up to date with the latest from Uber Engineering—follow us on <a href="https://p.uber.com/eng-linkedin">LinkedIn</a> for our newest blog posts and insights.</p>
+<figure class="article-figure"><img alt="Divya Nagar" src="https://blog.uber-cdn.com/cdn-cgi/image/width=2160,quality=80,onerror=redirect,format=auto/wp-content/uploads/2025/11/divya-pic-17636812865896.png" class="article-image"/></figure>
+<p>Divya Nagar</p>
+<p>Divya Nagar is a Staff Software Engineer on the Feature Engine team at Uber, where she leads the development of the Vector Store, the data plane powering embedding use cases across both generative AI and CoreML applications.</p>
+<figure class="article-figure"><img alt="Zheng Liu" src="https://blog.uber-cdn.com/cdn-cgi/image/width=2160,quality=80,onerror=redirect,format=auto/wp-content/uploads/2025/11/zheng-pic-17636817029885.png" class="article-image"/></figure>
+<p>Zheng Liu</p>
+<p>Zheng Liu is a Staff Software Engineer on Uber Eats Search team, where he focuses on improving search experience using advanced deep learning and large language models. He’s a major contributor to Uber Eats semantic search and generative ranking models.</p>
+<figure class="article-figure"><img alt="Jiasen Xu" src="https://blog.uber-cdn.com/cdn-cgi/image/width=2160,quality=80,onerror=redirect,format=auto/wp-content/uploads/2025/11/jiasen-pic-17636819082775.png" class="article-image"/></figure>
+<p>Jiasen Xu</p>
+<p>Jiasen Xu is a Sr. Software Engineer on Uber’s Search Platform team, where he leads the adoption of vector search technologies across the company. His work focuses on advancing large-scale similarity search through expertise in ANN algorithms, indexing libraries, and vector database optimization.</p>
+<figure class="article-figure"><img alt="Bo Ling" src="https://blog.uber-cdn.com/cdn-cgi/image/width=2160,quality=80,onerror=redirect,format=auto/wp-content/uploads/2023/07/Bo_TTE_EngBlog.jpeg" class="article-image"/></figure>
+<p>Bo Ling</p>
+<p>Bo Ling is a Sr. Staff Software Engineer on Uber’s AI Platform team. He works on NLP, large language models, and recommendation systems. He’s the lead engineer for embedding models and LLM on the team.</p>
+<figure class="article-figure"><img alt="Haoyang Chen" src="https://blog.uber-cdn.com/cdn-cgi/image/width=2160,quality=80,onerror=redirect,format=auto/wp-content/uploads/2022/08/bg_9620588e-dcfb-4037-9cb7-73d2e06baea4-Mm_WhKP2XO.jpg" class="article-image"/></figure>
+<p>Haoyang Chen</p>
+<p>Haoyang Chen is a Sr. Staff Software Engineer on Uber Eats Search team, where he leads efforts in semantic search and generative recommendation to enhance the search experience on Uber Eats.</p>
+<p>Posted by Divya Nagar, Zheng Liu, Jiasen Xu, Bo Ling, Haoyang Chen</p>
+<p>Category:</p>
+<p><a data-bits-testid="dotcom-ui.cta-wrapper" href="https://www.uber.com/en-IN/blog/engineering/">Engineering</a></p>
+<p><a data-bits-testid="dotcom-ui.cta-wrapper" href="https://www.uber.com/en-IN/blog/engineering/data/">Data / ML</a></p>
+<p><a data-bits-testid="dotcom-ui.cta-wrapper" href="https://www.uber.com/en-IN/blog/engineering/ai/">Uber AI</a></p></div>
+      
+    </article>
+    
+    <article>
+      <h1>The lies I used to tell myself</h1>
+      <div class="article-meta">
+        Cate Hall
+        · 23 Jan 2026 · <a href="https://usefulfictions.substack.com/p/the-lies-i-used-to-tell-myself">Source</a>
+      </div>
+      <div class="article-body"><div><div class="captioned-image-container"><figure class="article-figure"><a class="image-link image2 is-viewable-img" href="https://substackcdn.com/image/fetch/$s_!petw!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fe40bf234-f1ac-498a-9f69-18ae8ad7a70f_1024x1024.png" target="_blank"><div class="image2-inset"><img alt="" class="sizing-normal article-image" height="1024" src="https://substackcdn.com/image/fetch/$s_!petw!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fe40bf234-f1ac-498a-9f69-18ae8ad7a70f_1024x1024.png" width="1024"/><div class="image-link-expand"><div class="pencraft pc-display-flex pc-gap-8 pc-reset"><button class="pencraft pc-reset pencraft icon-container restack-image" tabindex="0" type="button"></button><button class="pencraft pc-reset pencraft icon-container view-image" tabindex="0" type="button"></button></div></div></div></a></figure></div><h4>1. What doesn’t kill you makes you stronger.</h4><p>When I was 31, my husband of four years, who I loved more than my own life, left me completely out of the blue. We’d had an incredible, epic romance — drawn together like magnets, we married on our third date and spent the years that followed burrowing ever closer together. Maybe that was the problem — I can’t say for sure, because I never got a satisfying explanation out of him. One day I was the protagonist of a Princess Bride-worthy love story; 48 hours later, he moved out.</p><p>From the time we met, I had never contemplated the possibility of living without him, and I didn’t want to. I wanted to die for a long time — at least a couple of years. But as I slowly learned to sequester away thoughts of him and the emotions they brought up, I became convinced of a silver lining: The experience would make me impenetrable. If I survived it, I would know I could survive anything, and nothing would be able to hurt me again.</p><p>It took the better part of a decade and another deeply identity-shifting relationship, with the man who became my second husband, for me to see that I had it all wrong: Impenetrability means avoiding the parts of life that are most life-like. There’s a reason the visual metaphor for love is an arrow.</p><p>The near-fatal catastrophes of our lives don’t always make us stronger. Surviving one hard thing does provide evidence that you can survive other hard things, which is easy to <em>mistake</em> for getting stronger. But in reality they often just make us brittle, make us dissociate and flee from the situations that remind us we can be broken.</p><p></p><h4>2. When you know, you know.</h4><p>Mario Gabriele of the Generalist had a great <a href="https://www.generalist.com/p/observations-on-people-the-world?utm_source=post-email-title&amp;publication_id=15764&amp;post_id=177558144&amp;utm_campaign=email-post-title&amp;isFreemail=true&amp;r=hjebh&amp;triedRedirect=true">“50 Things” style post</a> a few months ago that I found myself nodding along to almost the whole way through. The glaring exception was Number 33: “Love is easy. The difference between bad relationships and meeting your spouse is not a matter of degree, but category. Compatibility is unignorable and effortless.”</p><p>I believed this completely, once. I’ve since come to believe that what’s unignorable and effortless is chemistry. Chemistry can be powerful enough to turn your life sideways, but it’s not the same thing as compatibility. Compatibility is litigated on the timescale of years and decades; it’s not a momentary feeling but a description of what happens during an extended course of change. Do you grow toward one another, or do you grow apart? Does the relationship help you move closer to the person you aspire to be?</p><p>I “just knew” with my first husband. I wasn’t sure with my second. Four years in, the signs have flipped.</p><p></p><h4>3. If it were a good idea, someone would be doing it already.</h4><p>There’s a belief, especially common among wonky types, that you don’t find $20 bills on the sidewalk — if an opportunity were real, someone would have seized it already. This sounds worldly and wise, but it’s actually a form of defensive thinking. It assumes the current way is best, that everything worth doing is being done.</p><p>In my experience, this is just false. When I started playing poker, I discovered that physical tells were basically a wide-open field — despite the fact that most pros believed the topic was played out. If you think you see an opportunity others have missed, you should have a story for why they’re missing it, and you should ask around to stress-test that story. But if no one can give you a satisfying reason, don’t assume one exists. Sometimes the answer really is just inertia or fear.</p><p></p><h4>4. If it’s worth doing, it’s worth doing well.</h4><p>Almost nothing is worth doing “well.” Many things can and should be done to a minimal standard of quality, because anything more is a <a href="https://usefulfictions.substack.com/p/fuck-willpower">waste of effort</a> that can be better allocated. The exceptions aren’t things that should be done “well,” but things that should be done to an exceptionally high standard, probably a much higher one than you see modeled by the people around you.</p><p>This is not semantics; most people really “do everything the way they do anything” — whether that’s in a low-effort or high-effort way. But the point of phoning it in on a lot of stuff is to save your energy to expend on the 1 in 1000 things that really matter … and then to actually spend it.</p><p>A recent example: I decided that I want to narrate my own audiobook for <em>You Can Just Do Things</em>. When I told a friend in the industry this and asked whether they knew any good coaches to work with, they said that hiring a coach wasn’t normal or necessary, because my publisher would decide based on a sample whether I was good enough at reading to do it, and if so give me a producer to work with day-of. But it “1 in 1000” matters to me whether the audiobook is so good no one would ever think of returning it on account of the narration, so I’m not interested in the normal-shaped solution that constitutes doing it “well,” I’m interested in the one that causes me to come to mind when someone asks <a href="https://substack.com/@usefulfictions/note/c-203076054?r=hjebh&amp;utm_source=notes-share-action&amp;utm_medium=web">this question</a>. In this case, that means hiring multiple coaches and practicing for months.</p><p></p><h4>5. If you like your job, you’re doing something wrong.</h4><p>Back when I was more alienated from my emotions, I thought about work like this: You have a budget of energy to spend, and the goal is to efficiently convert that energy into impact. You identify the activity that generates the highest impact per unit of energy, and then you spam that button for as many waking hours as you can stomach. Is it any wonder I was always <a href="https://usefulfictions.substack.com/p/burnout-is-breaking-a-sacred-pact">burning out</a>?</p><p>What I failed to understand is that energy is not fixed. It’s dramatically affected by what you choose to do — some activities increase your energy over time, others deplete it. This feels so obvious to me now that I feel kind of stupid including it here, but I know many people (they are endemic to the Bay Area) who still labor under the false belief. Whether you enjoy what you’re doing affects your ability to do it year in and year out, and dismissing this as “selfish” doesn’t make it untrue. As my husband puts it, the best use of effortful motivation is to engineer your life to require less of it.</p><p></p><h4>6. “All people are insane. They will do anything at any time, and God help anybody who looks for reasons.”</h4><p>This line, from Kurt Vonnegut, used to neatly encapsulate the way I understood other people — which is to say, not at all. Trying to figure out why people did what they did, or imagine what they’d do next, seemed like a fool’s errand. I was judgmental about it, too: I assumed this was a problem, not with me, but with everyone else.</p><p>I didn’t fundamentally move beyond this belief until recent years, when I came into contact with the Enneagram. I imagine there are other personality typing systems that can do something similar, but <a href="https://usefulfictions.substack.com/p/there-are-nine-wolves-inside-of-you">the Enneagram was magical for me</a> because it clued me into the fact that people can have very different motivational systems from my own that are still internally coherent and produce good things in the world.</p><p>People’s behavior was previously incomprehensible to me because I was imputing my own motivational system to them, trying to figure out what would cause me to act the way they did — essentially, concluding that <em>their </em>actions made no sense in light of <em>my </em>goals. But people have wildly diverse emotional hardware, which determines what’s rational for them. And my particular personality — independent, moralistic, systematic, challenge-seeking, competitive — is unusual, so I was especially poorly placed to measure others by the yardstick of myself.</p><p>This shift in perspective was dramatically good for me and for my relationships with other people. It let me see the ecosystem of psychologies as a kind of miracle — wow, it really does take all kinds — rather than a prompt for cosmic horror. And it gave me confidence that, if I invested in understanding people more deeply, they would eventually cease to be total mysteries, prone to bizarre and unreasonable behavior. As far as I can tell, this is the better part of emotional intelligence.</p><p></p><h4>7. Money can’t buy happiness.</h4><p>The good version of this advice is: You’ll still have to work at being happy, even if you’re rich. Money in your bank account won’t do it for you, and wealth comes with its own pathologies, like endless status-chasing. But the common gloss — that money stops mattering past some modest threshold — is basically false.</p><p>You may have heard there’s research showing money doesn’t buy happiness. That research was explosively popular precisely because it was counterintuitive — it betrayed the commonsense intuition that more money means more freedom, more options, more ability to help people you care about. Turns out it was also riddled with methodological problems. More recent work by Matthew Killingsworth (nominative determinism FTW), using large-scale studies that pinged participants about their happiness at random moments, found steady returns to well-being with rising income, no plateau in sight. The myth persists because it serves a psychological function: It helps people without money feel better about their situation, and helps the wealthy downplay their advantages. But it’s not true.</p><p></p><h4>8. Intuition is fake and rationality solves everything.</h4><p>I used to be horribly judgmental of people who made decisions based on intuition, as in, “I just do what feels right.” And then I noticed that whenever I overrode my intuitions, I made <em>terrible </em>decisions. I hired the wrong people, started projects with the wrong people, dated the wrong people, ate food that made me feel bad, did forms of exercise I found unfun and injurious. I don’t have a satisfying theory for why this is, but I know what happens: When I shift from emotional intuition to a logical story about a decision, it’s much easier for my reasoning to get hijacked by plausible-sounding directives that turn out to be nonsense.</p><p>It took me a long time to learn this, and that might have something to do with my training in law and poker. Overriding intuition in favor of explicit reasoning makes sense in contexts that reward systematic rationality, where you will get separated from your money if you count on gut feelings. But most of life isn’t a closed system with enumerated rules and clear outcomes. If you try to explicitly name all the factors that make someone a good friend or co-founder, you might come up with some good indicators, but your crude map will also mislead you about the territory.</p><p>This is why “wisdom is knowledge that can’t be transmitted.” Wise people have navigational skill, not a long list of rules.</p><p></p><p><em><strong><a href="https://mailchi.mp/44578760e686/book-preorder-signup">Sign up to be notified</a> when my book, You Can Just Do Things, is available for purchase.</strong></em></p></div></div>
+      
+    </article>
+    
+    <article>
+      <h1>The Bag-of-Documents Model for Query Understanding and Retrieval</h1>
+      <div class="article-meta">
+        Daniel Tunkelang
+        · 19 May 2026 · <a href="https://dtunkelang.medium.com/the-bag-of-documents-model-for-query-understanding-and-retrieval-6d110bff85b0?source=rss-5f6b5aba680------2">Source</a>
+      </div>
+      <div class="article-body"><div><p>Today I had the pleasure of presenting my <a href="https://maven.com/p/7270ba/a-bag-of-documents-model-for-query-understanding-retrieval">recent work on the bag-of-documents model</a> as part of a series of talks hosted by <a href="https://www.treygrainger.com/">Trey Grainger</a> and <a href="https://softwaredoug.com/">Doug Turnbull</a> in the context of their <a href="https://maven.com/search-school/ai-powered-search">AI-powered search classes</a>.</p><p>You can find the <a href="https://speakerdeck.com/dtunkelang/the-bag-of-documents-model-for-query-understanding-and-retrieval">slides</a> below. I also encourage you to check out the <a href="https://github.com/dtunkelang/bag-of-documents">bag-of-documents Github repository</a>, the <a href="https://huggingface.co/datasets/dtunkelang/bag-of-documents">dataset and model on Hugging Face</a>, as well as the live <a href="https://huggingface.co/spaces/dtunkelang/bag-of-documents-demo">Amazon demo</a> and <a href="https://huggingface.co/spaces/dtunkelang/bag-of-documents-bestbuy-demo">Best Buy demo</a>. Enjoy!</p><a href="https://medium.com/media/12dd1c01b9dd78114555f2c6ed60a2fe/href">https://medium.com/media/12dd1c01b9dd78114555f2c6ed60a2fe/href</a></div></div>
+      
+    </article>
+    
+  </body>
+</html>
