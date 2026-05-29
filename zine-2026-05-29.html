@@ -1,0 +1,516 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Fred Talks - 2026-05-29</title>
+    <style>
+      @page {
+        size: A5;
+        margin: 8mm 9mm 9mm;
+      }
+
+      :root {
+        color: #111;
+        font-family: "Times New Roman", Times, serif;
+        --body-text-size: 9.5pt;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        color: #111;
+        background: #fff;
+        font-family: "Times New Roman", Times, serif;
+        line-height: 1.45;
+      }
+
+      a,
+      a:visited {
+        color: #111;
+        text-decoration: underline;
+      }
+
+      .cover {
+        min-height: calc(210mm - 17mm);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        page-break-after: always;
+        border: 1px solid #111;
+        padding: 8mm;
+        background: #fff;
+      }
+
+      .toc-item-meta,
+      .article-meta {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .masthead {
+        margin: 0;
+        font-size: 40pt;
+        line-height: 0.95;
+        text-transform: uppercase;
+      }
+
+      .issue-date {
+        margin: 4mm 0 0;
+        font-size: 14pt;
+      }
+
+      .issue-date sup {
+        font-size: 0.58em;
+        vertical-align: super;
+        line-height: 0;
+      }
+
+      .cover-deck {
+        max-width: 90mm;
+        font-size: 12pt;
+        margin: 0;
+      }
+
+      .toc {
+        border-top: 3px solid #111;
+        padding-top: 6mm;
+      }
+
+      .toc h2 {
+        margin: 0 0 4mm;
+        font-size: 11pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .toc-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .toc-item {
+        padding: 3mm 0;
+        border-bottom: 1px solid rgba(17, 17, 17, 0.2);
+      }
+
+      .toc-item-title {
+        font-size: 12pt;
+        margin: 0 0 1mm;
+      }
+
+      .toc-item-meta {
+        font-size: 8pt;
+      }
+
+      .masthead-compact {
+        margin: 0 0 6mm;
+      }
+
+      .masthead-compact h1 {
+        margin: 0;
+        font-size: 22pt;
+        line-height: 1.1;
+        text-transform: uppercase;
+      }
+
+      .masthead-compact .issue-date {
+        margin: 2mm 0 0;
+        font-size: 11pt;
+      }
+
+      .toc-compact {
+        border-top: 1px solid #111;
+        border-bottom: 1px solid #111;
+        padding: 4mm 0;
+        margin: 0 0 8mm;
+      }
+
+      article + article {
+        margin-top: 10mm;
+        padding-top: 6mm;
+        border-top: 2px solid #111;
+      }
+
+      h1 {
+        margin: 0 0 2mm;
+        font-size: 18pt;
+        line-height: 1.1;
+      }
+
+      .article-meta {
+        font-size: 8.5pt;
+        margin-bottom: 6mm;
+        padding-bottom: 3mm;
+        border-bottom: 1px solid #111;
+      }
+
+      .article-body {
+        font-size: var(--body-text-size);
+        font-family: "Times New Roman", Times, serif;
+      }
+
+      .article-body p,
+      .article-body li,
+      .article-body blockquote,
+      .article-body dd,
+      .article-body dt {
+        margin: 0 0 4mm;
+        orphans: 3;
+        widows: 3;
+      }
+
+      .article-body ul,
+      .article-body ol,
+      .article-body dl {
+        margin: 0 0 4mm 5mm;
+        padding: 0;
+      }
+
+      .article-body h2,
+      .article-body h3,
+      .article-body h4 {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        margin: 7mm 0 3mm;
+        line-height: 1.2;
+      }
+
+      .article-body blockquote {
+        margin-left: 6mm;
+        padding-left: 4mm;
+        border-left: 2px solid #111;
+      }
+
+      .article-body .media-omitted {
+        margin: 0 0 4mm;
+        font-size: 8.5pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(17, 17, 17, 0.65);
+      }
+
+      .article-body figure,
+      .article-body .article-figure,
+      .article-body picture,
+      .article-body .article-picture {
+        display: block;
+        max-width: 72mm;
+        margin: 0 auto 4mm;
+        break-inside: avoid;
+      }
+
+      .article-body img,
+      .article-body .article-image {
+        display: block;
+        max-width: min(100%, 72mm);
+        max-height: 34mm;
+        height: auto;
+        width: auto;
+        object-fit: contain;
+        margin: 0 auto 3mm;
+      }
+
+      .article-body figcaption {
+        margin-top: 1.5mm;
+        font-size: 8.5pt;
+        line-height: 1.3;
+        color: rgba(17, 17, 17, 0.8);
+      }
+
+      .article-note {
+        margin-top: 6mm;
+        padding-top: 3mm;
+        border-top: 1px solid #111;
+        font-size: 9pt;
+        font-style: italic;
+      }
+
+      @media screen {
+        body {
+          padding: 2rem;
+          margin: 0 auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    
+    <header class="masthead-compact">
+      <h1>Fred Talks</h1>
+      <p class="issue-date">
+        29<sup>th</sup> May 2026
+      </p>
+    </header>
+
+    <nav class="toc toc-compact">
+      <h2>Contents</h2>
+      <ol class="toc-list">
+        
+        <li class="toc-item">
+          <div class="toc-item-title">The lies I used to tell myself</div>
+          <div class="toc-item-meta">
+            Cate Hall · 1900 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Semantic Search Without Embeddings</div>
+          <div class="toc-item-meta">
+            Doug Turnbull · 3143 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">AI makes weak engineers less harmful</div>
+          <div class="toc-item-meta">
+            seangoedecke.com RSS feed · 1085 words
+          </div>
+        </li>
+        
+      </ol>
+    </nav>
+    
+
+    
+    <article>
+      <h1>The lies I used to tell myself</h1>
+      <div class="article-meta">
+        Cate Hall
+        · 23 Jan 2026 · <a href="https://usefulfictions.substack.com/p/the-lies-i-used-to-tell-myself">Source</a>
+      </div>
+      <div class="article-body"><div><div class="captioned-image-container"><figure class="article-figure"><a class="image-link image2 is-viewable-img" href="https://substackcdn.com/image/fetch/$s_!petw!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fe40bf234-f1ac-498a-9f69-18ae8ad7a70f_1024x1024.png" target="_blank"><div class="image2-inset"><img alt="" class="sizing-normal article-image" height="1024" src="https://substackcdn.com/image/fetch/$s_!petw!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fe40bf234-f1ac-498a-9f69-18ae8ad7a70f_1024x1024.png" width="1024"/><div class="image-link-expand"><div class="pencraft pc-display-flex pc-gap-8 pc-reset"><button class="pencraft pc-reset pencraft icon-container restack-image" tabindex="0" type="button"></button><button class="pencraft pc-reset pencraft icon-container view-image" tabindex="0" type="button"></button></div></div></div></a></figure></div><h4>1. What doesn’t kill you makes you stronger.</h4><p>When I was 31, my husband of four years, who I loved more than my own life, left me completely out of the blue. We’d had an incredible, epic romance — drawn together like magnets, we married on our third date and spent the years that followed burrowing ever closer together. Maybe that was the problem — I can’t say for sure, because I never got a satisfying explanation out of him. One day I was the protagonist of a Princess Bride-worthy love story; 48 hours later, he moved out.</p><p>From the time we met, I had never contemplated the possibility of living without him, and I didn’t want to. I wanted to die for a long time — at least a couple of years. But as I slowly learned to sequester away thoughts of him and the emotions they brought up, I became convinced of a silver lining: The experience would make me impenetrable. If I survived it, I would know I could survive anything, and nothing would be able to hurt me again.</p><p>It took the better part of a decade and another deeply identity-shifting relationship, with the man who became my second husband, for me to see that I had it all wrong: Impenetrability means avoiding the parts of life that are most life-like. There’s a reason the visual metaphor for love is an arrow.</p><p>The near-fatal catastrophes of our lives don’t always make us stronger. Surviving one hard thing does provide evidence that you can survive other hard things, which is easy to <em>mistake</em> for getting stronger. But in reality they often just make us brittle, make us dissociate and flee from the situations that remind us we can be broken.</p><p></p><h4>2. When you know, you know.</h4><p>Mario Gabriele of the Generalist had a great <a href="https://www.generalist.com/p/observations-on-people-the-world?utm_source=post-email-title&amp;publication_id=15764&amp;post_id=177558144&amp;utm_campaign=email-post-title&amp;isFreemail=true&amp;r=hjebh&amp;triedRedirect=true">“50 Things” style post</a> a few months ago that I found myself nodding along to almost the whole way through. The glaring exception was Number 33: “Love is easy. The difference between bad relationships and meeting your spouse is not a matter of degree, but category. Compatibility is unignorable and effortless.”</p><p>I believed this completely, once. I’ve since come to believe that what’s unignorable and effortless is chemistry. Chemistry can be powerful enough to turn your life sideways, but it’s not the same thing as compatibility. Compatibility is litigated on the timescale of years and decades; it’s not a momentary feeling but a description of what happens during an extended course of change. Do you grow toward one another, or do you grow apart? Does the relationship help you move closer to the person you aspire to be?</p><p>I “just knew” with my first husband. I wasn’t sure with my second. Four years in, the signs have flipped.</p><p></p><h4>3. If it were a good idea, someone would be doing it already.</h4><p>There’s a belief, especially common among wonky types, that you don’t find $20 bills on the sidewalk — if an opportunity were real, someone would have seized it already. This sounds worldly and wise, but it’s actually a form of defensive thinking. It assumes the current way is best, that everything worth doing is being done.</p><p>In my experience, this is just false. When I started playing poker, I discovered that physical tells were basically a wide-open field — despite the fact that most pros believed the topic was played out. If you think you see an opportunity others have missed, you should have a story for why they’re missing it, and you should ask around to stress-test that story. But if no one can give you a satisfying reason, don’t assume one exists. Sometimes the answer really is just inertia or fear.</p><p></p><h4>4. If it’s worth doing, it’s worth doing well.</h4><p>Almost nothing is worth doing “well.” Many things can and should be done to a minimal standard of quality, because anything more is a <a href="https://usefulfictions.substack.com/p/fuck-willpower">waste of effort</a> that can be better allocated. The exceptions aren’t things that should be done “well,” but things that should be done to an exceptionally high standard, probably a much higher one than you see modeled by the people around you.</p><p>This is not semantics; most people really “do everything the way they do anything” — whether that’s in a low-effort or high-effort way. But the point of phoning it in on a lot of stuff is to save your energy to expend on the 1 in 1000 things that really matter … and then to actually spend it.</p><p>A recent example: I decided that I want to narrate my own audiobook for <em>You Can Just Do Things</em>. When I told a friend in the industry this and asked whether they knew any good coaches to work with, they said that hiring a coach wasn’t normal or necessary, because my publisher would decide based on a sample whether I was good enough at reading to do it, and if so give me a producer to work with day-of. But it “1 in 1000” matters to me whether the audiobook is so good no one would ever think of returning it on account of the narration, so I’m not interested in the normal-shaped solution that constitutes doing it “well,” I’m interested in the one that causes me to come to mind when someone asks <a href="https://substack.com/@usefulfictions/note/c-203076054?r=hjebh&amp;utm_source=notes-share-action&amp;utm_medium=web">this question</a>. In this case, that means hiring multiple coaches and practicing for months.</p><p></p><h4>5. If you like your job, you’re doing something wrong.</h4><p>Back when I was more alienated from my emotions, I thought about work like this: You have a budget of energy to spend, and the goal is to efficiently convert that energy into impact. You identify the activity that generates the highest impact per unit of energy, and then you spam that button for as many waking hours as you can stomach. Is it any wonder I was always <a href="https://usefulfictions.substack.com/p/burnout-is-breaking-a-sacred-pact">burning out</a>?</p><p>What I failed to understand is that energy is not fixed. It’s dramatically affected by what you choose to do — some activities increase your energy over time, others deplete it. This feels so obvious to me now that I feel kind of stupid including it here, but I know many people (they are endemic to the Bay Area) who still labor under the false belief. Whether you enjoy what you’re doing affects your ability to do it year in and year out, and dismissing this as “selfish” doesn’t make it untrue. As my husband puts it, the best use of effortful motivation is to engineer your life to require less of it.</p><p></p><h4>6. “All people are insane. They will do anything at any time, and God help anybody who looks for reasons.”</h4><p>This line, from Kurt Vonnegut, used to neatly encapsulate the way I understood other people — which is to say, not at all. Trying to figure out why people did what they did, or imagine what they’d do next, seemed like a fool’s errand. I was judgmental about it, too: I assumed this was a problem, not with me, but with everyone else.</p><p>I didn’t fundamentally move beyond this belief until recent years, when I came into contact with the Enneagram. I imagine there are other personality typing systems that can do something similar, but <a href="https://usefulfictions.substack.com/p/there-are-nine-wolves-inside-of-you">the Enneagram was magical for me</a> because it clued me into the fact that people can have very different motivational systems from my own that are still internally coherent and produce good things in the world.</p><p>People’s behavior was previously incomprehensible to me because I was imputing my own motivational system to them, trying to figure out what would cause me to act the way they did — essentially, concluding that <em>their </em>actions made no sense in light of <em>my </em>goals. But people have wildly diverse emotional hardware, which determines what’s rational for them. And my particular personality — independent, moralistic, systematic, challenge-seeking, competitive — is unusual, so I was especially poorly placed to measure others by the yardstick of myself.</p><p>This shift in perspective was dramatically good for me and for my relationships with other people. It let me see the ecosystem of psychologies as a kind of miracle — wow, it really does take all kinds — rather than a prompt for cosmic horror. And it gave me confidence that, if I invested in understanding people more deeply, they would eventually cease to be total mysteries, prone to bizarre and unreasonable behavior. As far as I can tell, this is the better part of emotional intelligence.</p><p></p><h4>7. Money can’t buy happiness.</h4><p>The good version of this advice is: You’ll still have to work at being happy, even if you’re rich. Money in your bank account won’t do it for you, and wealth comes with its own pathologies, like endless status-chasing. But the common gloss — that money stops mattering past some modest threshold — is basically false.</p><p>You may have heard there’s research showing money doesn’t buy happiness. That research was explosively popular precisely because it was counterintuitive — it betrayed the commonsense intuition that more money means more freedom, more options, more ability to help people you care about. Turns out it was also riddled with methodological problems. More recent work by Matthew Killingsworth (nominative determinism FTW), using large-scale studies that pinged participants about their happiness at random moments, found steady returns to well-being with rising income, no plateau in sight. The myth persists because it serves a psychological function: It helps people without money feel better about their situation, and helps the wealthy downplay their advantages. But it’s not true.</p><p></p><h4>8. Intuition is fake and rationality solves everything.</h4><p>I used to be horribly judgmental of people who made decisions based on intuition, as in, “I just do what feels right.” And then I noticed that whenever I overrode my intuitions, I made <em>terrible </em>decisions. I hired the wrong people, started projects with the wrong people, dated the wrong people, ate food that made me feel bad, did forms of exercise I found unfun and injurious. I don’t have a satisfying theory for why this is, but I know what happens: When I shift from emotional intuition to a logical story about a decision, it’s much easier for my reasoning to get hijacked by plausible-sounding directives that turn out to be nonsense.</p><p>It took me a long time to learn this, and that might have something to do with my training in law and poker. Overriding intuition in favor of explicit reasoning makes sense in contexts that reward systematic rationality, where you will get separated from your money if you count on gut feelings. But most of life isn’t a closed system with enumerated rules and clear outcomes. If you try to explicitly name all the factors that make someone a good friend or co-founder, you might come up with some good indicators, but your crude map will also mislead you about the territory.</p><p>This is why “wisdom is knowledge that can’t be transmitted.” Wise people have navigational skill, not a long list of rules.</p><p></p><p><em><strong><a href="https://mailchi.mp/44578760e686/book-preorder-signup">Sign up to be notified</a> when my book, You Can Just Do Things, is available for purchase.</strong></em></p></div></div>
+      
+    </article>
+    
+    <article>
+      <h1>Semantic Search Without Embeddings</h1>
+      <div class="article-meta">
+        Doug Turnbull
+        · 08 Jan 2026 · <a href="http://softwaredoug.com/blog/2026/01/08/semantic-search-without-embeddings.html">Source</a>
+      </div>
+      <div class="article-body"><p>When I need to stay warm, I search for “long johns” or “long underwear”. But modern outdoors clothing stores label this a “base layer”. For a waterproof jacket I search for “slickers” or a “ski jacket”, not realizing what I should search for is a “shell.”</p>
+<p>Despite my outdated terminology, search still works. I’m somehow understood and shown the right content.</p>
+<p>We call this <strong>semantic search</strong>. When you hear that, you might think embeddings. Today I want to stretch your thinking beyond. Fantasize and semanticize.</p>
+<p>Some teams wrongly assume semantic search equates to only “vector search”. You have more options, some that might better align to your domain and existing organizational skills. LLMs simplify classic ways of organizing search queries and information.</p>
+<p>Let’s contrast different approaches, and maybe you’ll see there’s another approach that might be a better fit for you.</p>
+<h2>Semantic search - what exactly is it?</h2>
+<p>In semantic search, content and query map to a <strong><em>shared representation</em></strong>. This space has a <strong><em>similarity</em></strong> function that scores similar items higher than less similar.</p>
+<p>Let’s walk through an example.</p>
+<p>A user searching “round red fruit that grows on trees” probably wants an apple.</p>
+<p>Humans know this - search engines don’t. So we need to help.</p>
+<p>We map the query to three properties: <code>[round, red, fruit]</code></p>
+<p>In our search index we’ve also mapped three items into that space:</p>
+<p>An <strong>apple:</strong> <code>[round, red, fruit]</code></p>
+<p>An <strong>orange:</strong> <code>[round, orange, fruit]</code></p>
+<p>A <strong>baseball:</strong> <code>[round, white, ball]</code></p>
+<p>Now we have a shared <em>representation</em>: a three tuple of (<code>shape</code> , <code>color</code>, <code>item type</code>).</p>
+<p>How do we measure similarity? For each property (<code>shape</code>, <code>color</code>, <code>item type</code>) we could score a “1” if they’re equal, otherwise a 0. Then add to get a total score:</p>
+<p>Similarity(query, apple) = 1 + 1 + 1 = 3</p>
+<p>Similarity(query, orange) = 1 + 0 + 1 = 2</p>
+<p>Similarity(query, baseball) = 1 + 0 + 0 = 1</p>
+<p>So the user sees search results</p>
+<ol> <li>Apple (Score 3)</li> <li>Orange (Score 2)</li> <li>Baseball (Score 1)</li> </ol>
+<p>Ok, so a fairly silly method of semantic search. It ignores properties that matter (size, for example). It requires us to comprehensively tag everything. Still many teams try to tag + synonym their way to better search, with middling results.</p>
+<h2>Embeddings for semantic search</h2>
+<p>The default answer to the “semantic search” question is embeddings. The Internet is littered with documentation for <a href="https://softwaredoug.com/blog/2023/02/13/why-vector-search">how vector search works</a>. I’ll do the speedrun here (<a href="https://qdrant.tech/articles/triplet-loss">references</a> <a href="https://stackoverflow.blog/2023/11/09/an-intuitive-introduction-to-text-embeddings/">here</a>).</p>
+<p>We can learn a representation, an embedding, for apple and orange so that <code>similarity(apple, orange) &gt; similarity(apple, baseball)</code>.</p>
+<p>We learn an embedding from training data. We might declare when items get clicked for the same query, they are similar. We notice both “apple” and “orange” get clicked for query “fruit that grows on trees” at high frequency:</p>
+<pre>[fruit that grows on trees 🔍 ]
+1. 🍎 (clicked)
+2. 🥕
+3. 🍊 (clicked)
+</pre>
+<p>We start with a random vector for each. A list of random floating points numbers like <code>[0.01, -0.1, 0.05]</code>. Then we train, in this super-secret-ultra-high-tech algorithm</p>
+<pre><code>for session in sessions:
+    together = []
+    for lhs in session: # ie the apple
+        for rhs in session: # ie the orange
+            if lhs != rhs:
+			          nudge_closer(lhs, rhs) # ie nudge apple closer to orange
+</code></pre>
+<p>(Not shown: nudging away the negative, dissimilar items)</p>
+<p>After training, for many queries+sessions, maybe apple becomes <code>[0.1, -0.2, 0.05]</code> while orange becomes a similar vector: <code>[0.09, -0.21, 0.04]</code>. We measure the similarity with <a href="https://en.wikipedia.org/wiki/Cosine_similarity">cosine similarity</a>, <a href="https://en.wikipedia.org/wiki/Euclidean_distance">euclidean distance</a>, and others. (We can replace “shared search session clicks” with any other notions of “similar”: occurs in the same text passages, both occur in shopping carts, etc).</p>
+<p>Learning an embedding per item presents problems. For example, maybe we just added strawberry 🍓 to our product listings. With no training data, the vector <code>strawberry_vector = embeddings['strawberry']</code> initializes to random garbage. It won’t have a meaningful value until we’ve shown it to many users.</p>
+<p>We’d prefer to to compute embeddings from <strong><em>features</em></strong> of the item. Then strawberry 🍓 could get an embedding right away. IE instead of <code>strawberry_embedding = embeddings['strawberry']</code> we can do <code>strawberry_embedding = f(heart_shaped, red, fruit)</code>. We build an <strong><em>encoder.</em></strong> Given the item’s attributes we compute embeddings that produce the expected similarity. Embedding models downloaded from hugging face specialize in encoding specific type/domain of content for a specific task (search, etc).</p>
+<p>We create encoders for all kinds of features: ordinal values (like a list of shapes, colors), the raw title / description text itself, images and so on. We can also train a <a href="https://eng.snap.com/embedding-based-retrieval">two-tower model</a>: one encoder for queries - ie “round fruit that goes on trees” - and another for documents.</p>
+<p>Like other machine learning models we tradeoff precision for generality. We need the right features, we need enough training data for all the variations in those features (<a href="https://en.wikipedia.org/wiki/Curse_of_dimensionality">curse of dimensionality</a>) and so on.</p>
+<h2>The missing semantic search piece of vector retrieval</h2>
+<p>One pain point comes up right away with embeddings: lack of <em>matching</em>.</p>
+<p>How would users actually react to these search results?</p>
+<pre>[fruit that grows on trees 🔍 ]
+1. 🍎 Apple
+2. 🍊 Orange
+3. ⚾️ Baseball.
+</pre>
+<p>In my experience, negatively.</p>
+<p>It may have the perfect ranking. But search should exclude items outside what the user intended. They find fruit acceptable. But not baseballs.</p>
+<p>So earlier I lied. What users actually want from semantic search:</p>
+<ul> <li><strong>Representation</strong> - some space both queries and content can share representation</li> <li><strong>A similarity function</strong> - A way of measuring how near / far items in the shared representation are from each other</li> <li><strong>Match criteria (new!)</strong> - A system where an item can be said to be “match” or not for the query in the semantic space. It is the thing, or its not the thing.</li> </ul>
+<p>In other words, I gave an incomplete <strong>semantic search definition</strong>. Embeddings thrive on the first 2, but don’t do a great job at including / excluding results.</p>
+<p>Understanding users (and their queries) matters a great deal in search. That requires including / excluding appropriate items based on terminology and categories familiar to users.</p>
+<p>You might think “I’ll just find a cutoff in my embedding similarity”. Sadly, there’s not a magical “at 0.8 similarity it’s not a match”. In some domains / queries one threshold works. In another, a very different threshold. Further, thresholding becomes tougher when users give multiple criteria. An embedding model might rank blood oranges above green apples for query “red apple”. What matters more, the color or item type in the similarity?</p>
+<p>Thresholds help exclude some obviously irrelevant results and improve performance, but they don’t use domain-specific criteria, in the user’s language, to include / exclude results.</p>
+<h2>The other semantic search approach (hierarchical managed taxonomies)</h2>
+<p>One system tries to solve all three problems: <em>Managed vocabularies</em> or <em>taxonomies</em>.</p>
+<p>Taxonomies map queries + content to a hierarchy of concepts, using the language of the domain. Think a neatly organized directory tree. Or the <a href="https://en.wikipedia.org/wiki/Dewey_Decimal_Classification">Dewey Decimal System</a></p>
+<p>Here’s an example from the <a href="https://github.com/wayfair/WANDS">Wayfair WANDS furniture dataset</a> of their category tree; Where you’d categorize “novelty rocking horses” apparently:</p>
+<pre><code>Baby &amp; Kids / Toddler &amp; Kids Playroom / Indoor Play / Rocking Horses / Novelty Rocking Horses
+</code></pre>
+<p>We can take a query for <code>hobby horse</code>. A human, curating a bunch of query rules, could manually map this to a node:</p>
+<pre><code>Baby &amp; Kids / Toddler &amp; Kids Playroom / Indoor Play / Rocking Horses
+</code></pre>
+<p>Assuming the corpus categorizes products correctly, we can search, filter, boost, etc using this.</p>
+<p>We have a <em>representation</em> (the category tree), do we have a similarity function?</p>
+<p>Yes, we can rank as follows:</p>
+<ol> <li>Direct matches <code>Baby &amp; Kids / Toddler &amp; Kids Playroom / Indoor Play / Rocking Horses</code></li> <li>Parents / siblings. <code>Baby &amp; Kids / Toddler &amp; Kids Playroom / Indoor Play / Dollhouses</code></li> <li>Those rank higher than grandparents / cousins (``Baby &amp; Kids / Toddler &amp; Kids Playroom / Beanbag Chairs / …`</li> </ol>
+<p>We can define meaningful match criteria too. We include shared parent categories (ie siblings). But exclude anything beyond cousins / shared grandparents as needed.</p>
+<p>Many teams already maintain systems for organizing and cataloging information. For many domains, a good taxonomy can be a moat. Especially for technical domains (legal, medical, fashion, finance) where precise categorization really matters. Existing <a href="https://www.nlm.nih.gov/mesh/meshhome.html">taxonomies already exists</a>, and statistical fuzziness of embeddings can create huge downside.</p>
+<p>In the past, the management of a taxonomy would be massive. It might require complex rules, mapping of query phrases to taxonomy nodes, and a team of labelers and experts to keep everything straight. This has long been an appeal of embeddings.</p>
+<p>But LLMs sneakily supercharge these old school ways of organizing information. Given a taxonomy, LLMs can easily + cheaply classify products and queries. It’s more approachable to “fine tune”. AI augmented labeling can simplify management of knowledge making it more approachable.</p>
+<h2>Semantic similarity doesn’t need a vector index</h2>
+<p>Above I described a similarity function above (direct matches, then parents, then grandparents). With some creative tokenization, this similarity can happen in a normal BM25 index.</p>
+<p>Consider our query for <code>hobby horse</code>. We know this maps to this node:</p>
+<pre><code>Baby &amp; Kids / Toddler &amp; Kids Playroom / Indoor Play / Rocking Horses
+</code></pre>
+<p>How do we score content in such a way so that direct matches rank higher than siblings, and so on?</p>
+<p>We need is a <a href="https://www.elastic.co/docs/reference/text-analysis/analysis-pathhierarchy-tokenizer">hierarchical tokenizer</a>. A function that produces the full path of every parent directory:</p>
+<pre><code>In: hierarchical_tokenizer("Baby &amp; Kids / Toddler &amp; Kids Playroom / Indoor Play / Rocking Horses")
+Out: ['Baby &amp; Kids',
+      'Baby &amp; Kids / Toddler &amp; Kids Playroom',
+      'Baby &amp; Kids / Toddler &amp; Kids Playroom / Indoor Play',
+      'Baby &amp; Kids / Toddler &amp; Kids Playroom / Indoor Play / Rocking Horses']
+</code></pre>
+<p>If you index using this tokenizer, you’ll recreate scoring needed for the direct &gt; parent &gt; grandparent similarity function I described earlier.</p>
+<p>The key reason: BM25 rewards a rare match over common match.</p>
+<p>Root nodes (ancestors) have higher document frequency, they’re common. Common matches score lower in BM25.</p>
+<p>That’s because every item labeled <code>Baby &amp; Kids / Toddler &amp; Kids Playroom / Indoor Play / Rocking Horses</code> tokenized hierarchically has a <code>Baby &amp; Kids</code> term. So does a document labeled <code>Baby &amp; Kids / Kids Furniture ... / Beanbag Chairs</code> . <code>Baby &amp; Kids</code> happens all over the place - maybe like 10% of the index.</p>
+<p>Child nodes have low document frequency, they’re rare. In BM25, rare, more specific matches outrank common ones.</p>
+<p>A product labeled <code>Baby &amp; Kids / Toddler &amp; Kids Playroom / Indoor Play / Rocking Horses / Traditonal Rocking Horses</code> when tokenized will include the full path in the token. There might be 10 products in the entire index in this exact category. So that rareness - that high specificity - shoots this narrower, closer match to the top.</p>
+<p>To do a deeper walkthrough</p>
+<p>When I come along and search for</p>
+<pre><code>In: hierarchical_tokenizer(
+     "Baby &amp; Kids / Toddler &amp; Kids Playroom / Indoor Play / Rocking Horses / Novelty Rocking Horses"
+)
+Out: ['Baby &amp; Kids',
+      'Baby &amp; Kids / Toddler &amp; Kids Playroom',
+      'Baby &amp; Kids / Toddler &amp; Kids Playroom / Indoor Play',
+      'Baby &amp; Kids / Toddler &amp; Kids Playroom / Indoor Play / Rocking Horses',
+      'Baby &amp; Kids / Toddler &amp; Kids Playroom / Indoor Play / Rocking Horses / Novelty Rocking Horses']
+</code></pre>
+<p>I’m searching for five tokens now, OR’d (really summed):</p>
+<pre><code>"Baby &amp; Kids" OR
+"Baby &amp; Kids / Toddler &amp; Kids Playroom" OR
+"Baby &amp; Kids / Toddler &amp; Kids Playroom / Indoor Play" OR
+"Baby &amp; Kids / Toddler &amp; Kids Playroom / Indoor Play / Rocking Horses" OR
+"Baby &amp; Kids / Toddler &amp; Kids Playroom / Indoor Play / Rocking Horses / Novelty Rocking Horses"
+</code></pre>
+<p>Each token of my query has a job. It matches different levels of specificity, and the closer we get the full query classification tree, the higher the score.</p>
+<table> <tr> <th>Search Term</th> <th>Job</th> <th>Score (due to doc freq)</th> <th>Example of matches</th> </tr> <tbody> <tr> <td>“Baby &amp; Kids”</td> <td>Matches highest level category</td> <td>Lowest</td> <td><strong>Baby &amp; Kids</strong> / Toddler &amp; Kids Bedroom Furniture / Kids Headboards</td> </tr> <tr> <td>“Baby &amp; Kids / Toddler &amp; Kids Playroom”</td> <td>Matches next most specific category Getting to “play” stuff for kids, better than just kid stuff. 👍</td> <td>Low</td> <td><strong>Baby &amp; Kids / Toddler &amp; Kids Playroom</strong> / Playroom Furniture / Baby Gyms &amp; Playmats / Folding Baby Gyms &amp; Playmats</td> </tr> <tr> <td>…</td> <td>…</td> <td>…</td> <td>…</td> </tr> <tr> <td>Baby &amp; Kids / Toddler &amp; Kids Playroom / Indoor Play / Rocking Horses</td> <td>Matches a very, narrow specific category. Horses!🐴 Even if not “Novelty Rocking Horses” its a defensible “match” to the user.</td> <td>High</td> <td><strong>Baby &amp; Kids / Toddler &amp; Kids Playroom / Indoor Play / Rocking Horses / Traditonal Rocking Horses</strong></td> </tr> </tbody> </table>
+<p>While we keep things in horse → toys → playroom → kids order, we haven’t solved the 3rd problem. Limiting matches.</p>
+<p>That one’s easy. At query time, you can decide how much to limit retrieval. Perhaps you only query the direct node and one parent:</p>
+<pre><code>"Baby &amp; Kids / ... / Rocking Horses" OR
+"Baby &amp; Kids / ... / Rocking Horses / Novelty Rocking Horses"
+</code></pre>
+<p>You can tighten / relax in categories that matter to users, <strong><em>semantically,</em></strong> up a layer to still stay within the realm of “kid play”.</p>
+<p>If the taxonomy makes sense to users, if it reflects search behaviors (big ifs), they’ll understand why you include / exclude certain results.</p>
+<p>Importantly, this becomes just ONE component of the ranking / filtering. We can still have other ingredients we can use:</p>
+<ul> <li>Keyword matches (for exact mention of properties in titles + description)</li> <li>Embedding search (perhaps within the category matches)</li> <li>Taxonomies for other entities (colors, materials, etc)</li> </ul>
+<h2>Building a taxonomy: start simple and evolve</h2>
+<p>Building and maintaining a good taxonomy is no joke. That’s why there’s a field of taxonomists you can hire. And I don’t want to elide the tradeoffs with embeddings here. It’s work!</p>
+<p>A taxonomy doesn’t need to be as deep / complex as what I’ve laid out. You can start simple. Ask an LLM. Here’s one with color.</p>
+<blockquote> <p>Take the 7 primary colors. Then nested under each, create subtypes of each color. Generate a list like a directory trees, in the form <code>PRIMARY / SECONDARY</code></p> </blockquote>
+<pre><code>RED / Crimson
+RED / Scarlet
+RED / Burgundy
+RED / Maroon
+RED / Brick Red
+RED / Cherry
+
+ORANGE / Tangerine
+ORANGE / Amber
+ORANGE / Coral
+ORANGE / Burnt Orange
+ORANGE / Peach
+ORANGE / Apricot
+...
+</code></pre>
+<p>It’s a start.</p>
+<p>Generally start simple. Broad, high level, top level categories like <code>Furniture</code> or <code>Baby &amp; Kids</code>. Then eventually you realize this category has become too large and too diverse. You might see a natural in the content split:</p>
+<pre><code>Baby &amp; Kids / Toddler &amp; Kids Playroom
+Baby &amp; Kids / Toddler &amp; Kids Bedroom Furniture
+</code></pre>
+<p>Eventually you get to a point where the distinction between <code>Novelty Rocking Horse</code> and <code>Classic Rocking Horse</code> matters for some reason.</p>
+<p>You may see a flaw: an assumption each product sits within a single category. That categories are mutually exclusive. Reality, of course, is messy: some products may sit between categories. You can imagine a small goofy looking couch that could reasonably tagged under <code>Baby &amp; Kids / Toddler &amp; Kids Bedroom Furniture</code> but also <code>Living Room / Loveseats</code>. In Fashion, some activewear might also be underwear. And what about athleisure?</p>
+<p>One solution could be to double categorize an item. Give it both classifications - with some weight preferring one categorization over another.</p>
+<p>A final concern - there’s a big difference between the official pure way of classifying furniture and how a search user might categorize the products. The exacting, furniture-expert taxonomy might have very sophisticated (and accurate) ways to classify furniture. A messier classification that matches how users think about things might be more useful in the end.</p>
+<h2>Classifying into taxonomies has never been easier</h2>
+<p>Building taxonomy classifiers with LLMs - something I’ve built an <a href="https://maven.com/softwaredoug/cheat-at-search">entire class for</a>, and could be a post on its own. But lets do a quick walkthrough of some simpler approaches.</p>
+<p>Embeddings actually help us here. The sweet spot of embeddings in search might be building better classifiers, not in direct ranking and retrieval.</p>
+<p>Perhaps our products fit in a few thousand unique categories. Imagine we encode an embedding each of these in a small in-memory array of vectors. We’ll use it to lookup categories for our queries.</p>
+<p>Now take a query “hobby horse”. Encode the query into an embedding, and find the most similar category embedding. Maybe this retrieves <code>Baby &amp; Kids / Toddler &amp; Kids Playroom / Indoor Play / Rocking Horses</code>.</p>
+<p>Not accurate enough? Let’s take it up a notch.</p>
+<p>We could ask an LLM to hallucinate a fake label before categorizing. Ask an LLM the following:</p>
+<pre><code>Be creative and hallucinate a set of classifications for the query below that
+look like the real classifications.
+
+Product classifications might look like:
+
+  'Furniture / Living Room Furniture / Coffee Tables &amp; End Tables / Coffee Tables'
+  'Décor &amp; Pillows / Decorative Pillows &amp; Blankets / Throw Pillows'
+  'Furniture / Bedroom Furniture / Dressers &amp; Chests'
+  'Outdoor / Outdoor &amp; Patio Furniture / Patio Furniture Sets / Patio Conversation Sets'
+  'Home Improvement / Bathroom Remodel &amp; Bathroom Fixtures / Bathroom Vanities / All Bathroom Vanities'
+  'Lighting / Wall Lights / Bathroom Vanity Lighting'
+  'Kitchen &amp; Tabletop / Kitchen Organization / Food Storage &amp; Canisters'
+  'School Furniture and Supplies / School Furniture / School Chairs &amp; Seating / Stackable Chairs',
+  'Baby &amp; Kids / Toddler &amp; Kids Bedroom Furniture / Kids Beds',
+
+If you feel inspired, return many unique values in a list. Be creative. 
+Cast a wide net with related but diverse categories.
+
+Here's the query to invent categories for:
+
+hobby horse
+</code></pre>
+<p>When you actively want hallucinations, you can get by with very small models. You’re not relying on the LLM for accuracy, just creativity and close-enough language generation.</p>
+<p>Now let’s say you do this. It gives you a classification like</p>
+<pre><code>'Baby &amp; Kids / Toys / Pretend Play &amp; Dress Up / Pretend Play Toys / Hobby Horses'
+</code></pre>
+<p>More descriptive, closer to the language actually used in the classifications. More likely to give back a real, high quality classification.</p>
+<p>That’s just a taste. The modern landscape for building large multi-label classifiers has gotten easier than ever thanks to LLMs and embeddings.</p>
+<h2>Final thoughts</h2>
+<p>Embeddings are great. But you don’t need embeddings to build “semantic search”. In fact, it can be counter productive for problems requiring exacting, precise matching. As I’ve argued, <a href="https://softwaredoug.com/blog/2025/12/09/rag-users-want-affordances-not-vectors">embeddings are the wrong lens to think about the problem</a>.</p>
+<p>Maybe you don’t need to rebuild everything from scratch, but instead leverage what you’re good at. With the addition of LLMs. Don’t apologize for living with a more organized, approach to semantic search.</p>
+<h3>Enjoy softwaredoug in training course form!</h3>
+<h4>20% off through December 19, 2025 with code ps5</h4>
+<figure class="article-figure"><a href="https://maven.com/softwaredoug/cheat-at-search"><img src="https://softwaredoug.com/assets/media/2025/christmas-cheat-at-search.jpg" class="article-image"/></a></figure>
+<p>I hope you join me at <a href="https://maven.com/softwaredoug/cheat-at-search">Cheat at Search with LLMs</a> to learn how to apply LLMs to search applications. Check out <a href="https://github.com/softwaredoug/softwaredoug.com/edit/master/_includes/post.html">this post</a> for a sneak preview.   </p></div>
+      
+    </article>
+    
+    <article>
+      <h1>AI makes weak engineers less harmful</h1>
+      <div class="article-meta">
+        seangoedecke.com RSS feed
+        · 08 May 2026 · <a href="https://seangoedecke.com/ai-makes-weak-engineers-less-harmful/">Source</a>
+      </div>
+      <div class="article-body"><p>Like other kinds of puzzle-solving, software engineering ability is strongly heavy-tailed. The strongest engineers produce way more useful output than the average, and the weakest engineers often are actively net-negative: instead of moving projects along, they create problems that their colleagues have to spend time solving. That’s why many tech companies try to <a href="https://www.levels.fyi/companies/jane-street/salaries">build</a> a small, ludicrously well-paid team instead of a large team of more average engineers, and so far this seems to be a winning strategy.</p>
+<p>Being effective in a large tech company is often about managing this phenomenon: trying to arrange things so that the most competent people land on projects you want to succeed, and the least competent are shunted out of the way<sup><a href="https://www.seangoedecke.com/ai-makes-weak-engineers-less-harmful/#fn-1">1</a></sup>. For instance, if you’re technical lead on a project, you more or less have to ensure<sup><a href="https://www.seangoedecke.com/ai-makes-weak-engineers-less-harmful/#fn-2">2</a></sup> that the most critical pieces are in the hands of people who won’t screw them up (whether by directly assigning the work, or by making sure someone can “sit on the shoulder” of the engineer who you’re worried about).</p>
+<p>Claude Code changed this. Frontier LLMs don’t have the taste or the system familiarity of a strong engineer, but they have absolutely raised the floor for weak engineers. Instead of getting a pull request that could never possibly work or would cause immediate problems, the worst you’ll now see is a standard LLM pull request: wrong in some ways, baffling in others, but at least functional on the line-by-line level and not so obviously incorrect that someone with no knowledge of the codebase could point it out. That is a huge improvement!</p>
+<p>You can try this out yourself. If you attempt to deliberately make mistakes while working with a coding agent, you’ll find that the agent pushes back hard against many obvious errors (i.e. caching user data with a non-user-specific key, writing an infinite loop that might never terminate, or leaking open files). Of course, the agent will still miss subtle errors, particularly ones that require understanding other parts of the codebase.</p>
+<p>Working with the least effective engineers is now sometimes like working with a Claude Opus or Codex instance that you communicate with over Slack. Occasionally it’s <em>literally</em> that: your colleague is simply pasting your messages into Claude Code and pasting you the response. This is annoying, but it’s a much better experience than working with this kind of engineer directly. After all, you probably already work with a bunch of LLM instances. The Slack interface is not ideal - unlike using Claude Code directly, you sometimes wait hours or days for a response, and you don’t get visibility into the agent’s thought processes - but it’s still helpful on the margin. More compute being thrown at your problem is better than less.</p>
+<p>Of course, this isn’t a great state of affairs for the engineer in question, who is almost certainly learning less than if they were making their own (bad) decisions. It’s also a bad state of affairs for the company, who is paying a human salary and getting a Copilot subscription (which they’re likely also paying for)<sup><a href="https://www.seangoedecke.com/ai-makes-weak-engineers-less-harmful/#fn-3">3</a></sup>. After the current push to figure out what value AI is adding to engineers, I suspect there will be a push to figure out what value <em>engineers are adding to AI</em>, and the engineers who aren’t adding much may find themselves out of a job.</p>
+<p>You can’t talk to Claude-over-Slack like you’d talk to normal Claude. If you tend to handle LLMs roughly (insulting them, or just being very curt), you’ll have to change your communication style. A human is going to read your messages, after all, even if you’re really interacting with a LLM. There’s no point being rude. But if, like me, you say please-and-thank-you to the models<sup><a href="https://www.seangoedecke.com/ai-makes-weak-engineers-less-harmful/#fn-4">4</a></sup>, you can treat your LLM-using coworker as just another Copilot window or Codex tab. It’s far better than having to treat them as an unwitting saboteur.</p>
+<p>Not all net-negative engineers use AI tools like this. Many are strongly convinced in their own wrong opinions about how to build good software, or mistrust AI in general, or believe that relying heavily on LLMs is not a good way to improve<sup><a href="https://www.seangoedecke.com/ai-makes-weak-engineers-less-harmful/#fn-5">5</a></sup>. But <em>no</em> strong engineers use AI tools like this. Even when they’re being lazy or sloppy, a capable engineer will have enough baseline taste to catch obvious AI-generated errors. So the phenomenon of engineers<sup><a href="https://www.seangoedecke.com/ai-makes-weak-engineers-less-harmful/#fn-6">6</a></sup> becoming thin wrappers around Claude Code is limited to the kind of engineers for whom this is an improvement in their work product.</p>
+<ol> <li> <p>More charitably: many “least competent” engineers are just out of their comfort zone, and can be fine or even excel under the right circumstances (though in my view the best engineers are able to do good work in a wide variety of environments). Also, I don’t currently work with a lot of incompetent people. Much of this is based on past experience or talking to other engineers in the industry.</p> <a href="https://www.seangoedecke.com/ai-makes-weak-engineers-less-harmful/#fnref-1">↩</a> </li> <li> <p>Since your managers are doing the same thing, this can sometimes feel like Moneyball: you’re trying to identify underappreciated talent who are strong enough to help you win without being so high-profile that your boss poaches them to lead something else.</p> <a href="https://www.seangoedecke.com/ai-makes-weak-engineers-less-harmful/#fnref-2">↩</a> </li> <li> <p>I suppose it’s better to pay for nothing than to pay for net-negative output, but it still doesn’t seem <em>good</em>.</p> <a href="https://www.seangoedecke.com/ai-makes-weak-engineers-less-harmful/#fnref-3">↩</a> </li> <li> <p>I think this is actually the right way to hold Claude Opus 4.7.</p> <a href="https://www.seangoedecke.com/ai-makes-weak-engineers-less-harmful/#fnref-4">↩</a> </li> <li> <p>Is this true? I think relying on LLMs is not a great way for most engineers to improve, but if LLM output is consistently better than your own, it might be different. So long as you’re paying attention to where the LLM does better, it could actually be a good way to learn.</p> <a href="https://www.seangoedecke.com/ai-makes-weak-engineers-less-harmful/#fnref-5">↩</a> </li> <li> <p>I don’t have as much experience (or anecdotes) about non-engineers falling into this trap, but <a href="https://nooneshappy.com/article/appearing-productive-in-the-workplace/">this post</a> has convinced me that it might be worse.</p> <a href="https://www.seangoedecke.com/ai-makes-weak-engineers-less-harmful/#fnref-6">↩</a> </li> </ol></div>
+      
+    </article>
+    
+  </body>
+</html>
