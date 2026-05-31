@@ -1,0 +1,409 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Fred Talks - 2026-05-31</title>
+    <style>
+      @page {
+        size: A5;
+        margin: 8mm 9mm 9mm;
+      }
+
+      :root {
+        color: #111;
+        font-family: "Times New Roman", Times, serif;
+        --body-text-size: 9.5pt;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        color: #111;
+        background: #fff;
+        font-family: "Times New Roman", Times, serif;
+        line-height: 1.45;
+      }
+
+      a,
+      a:visited {
+        color: #111;
+        text-decoration: underline;
+      }
+
+      .cover {
+        min-height: calc(210mm - 17mm);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        page-break-after: always;
+        border: 1px solid #111;
+        padding: 8mm;
+        background: #fff;
+      }
+
+      .toc-item-meta,
+      .article-meta {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .masthead {
+        margin: 0;
+        font-size: 40pt;
+        line-height: 0.95;
+        text-transform: uppercase;
+      }
+
+      .issue-date {
+        margin: 4mm 0 0;
+        font-size: 14pt;
+      }
+
+      .issue-date sup {
+        font-size: 0.58em;
+        vertical-align: super;
+        line-height: 0;
+      }
+
+      .cover-deck {
+        max-width: 90mm;
+        font-size: 12pt;
+        margin: 0;
+      }
+
+      .toc {
+        border-top: 3px solid #111;
+        padding-top: 6mm;
+      }
+
+      .toc h2 {
+        margin: 0 0 4mm;
+        font-size: 11pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .toc-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .toc-item {
+        padding: 3mm 0;
+        border-bottom: 1px solid rgba(17, 17, 17, 0.2);
+      }
+
+      .toc-item-title {
+        font-size: 12pt;
+        margin: 0 0 1mm;
+      }
+
+      .toc-item-meta {
+        font-size: 8pt;
+      }
+
+      .masthead-compact {
+        margin: 0 0 6mm;
+      }
+
+      .masthead-compact h1 {
+        margin: 0;
+        font-size: 22pt;
+        line-height: 1.1;
+        text-transform: uppercase;
+      }
+
+      .masthead-compact .issue-date {
+        margin: 2mm 0 0;
+        font-size: 11pt;
+      }
+
+      .toc-compact {
+        border-top: 1px solid #111;
+        border-bottom: 1px solid #111;
+        padding: 4mm 0;
+        margin: 0 0 8mm;
+      }
+
+      article + article {
+        margin-top: 10mm;
+        padding-top: 6mm;
+        border-top: 2px solid #111;
+      }
+
+      h1 {
+        margin: 0 0 2mm;
+        font-size: 18pt;
+        line-height: 1.1;
+      }
+
+      .article-meta {
+        font-size: 8.5pt;
+        margin-bottom: 6mm;
+        padding-bottom: 3mm;
+        border-bottom: 1px solid #111;
+      }
+
+      .article-body {
+        font-size: var(--body-text-size);
+        font-family: "Times New Roman", Times, serif;
+      }
+
+      .article-body p,
+      .article-body li,
+      .article-body blockquote,
+      .article-body dd,
+      .article-body dt {
+        margin: 0 0 4mm;
+        orphans: 3;
+        widows: 3;
+      }
+
+      .article-body ul,
+      .article-body ol,
+      .article-body dl {
+        margin: 0 0 4mm 5mm;
+        padding: 0;
+      }
+
+      .article-body h2,
+      .article-body h3,
+      .article-body h4 {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        margin: 7mm 0 3mm;
+        line-height: 1.2;
+      }
+
+      .article-body blockquote {
+        margin-left: 6mm;
+        padding-left: 4mm;
+        border-left: 2px solid #111;
+      }
+
+      .article-body .media-omitted {
+        margin: 0 0 4mm;
+        font-size: 8.5pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(17, 17, 17, 0.65);
+      }
+
+      .article-body figure,
+      .article-body .article-figure,
+      .article-body picture,
+      .article-body .article-picture {
+        display: block;
+        max-width: 72mm;
+        margin: 0 auto 4mm;
+        break-inside: avoid;
+      }
+
+      .article-body img,
+      .article-body .article-image {
+        display: block;
+        max-width: min(100%, 72mm);
+        max-height: 34mm;
+        height: auto;
+        width: auto;
+        object-fit: contain;
+        margin: 0 auto 3mm;
+      }
+
+      .article-body figcaption {
+        margin-top: 1.5mm;
+        font-size: 8.5pt;
+        line-height: 1.3;
+        color: rgba(17, 17, 17, 0.8);
+      }
+
+      .article-note {
+        margin-top: 6mm;
+        padding-top: 3mm;
+        border-top: 1px solid #111;
+        font-size: 9pt;
+        font-style: italic;
+      }
+
+      @media screen {
+        body {
+          padding: 2rem;
+          margin: 0 auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    
+    <header class="masthead-compact">
+      <h1>Fred Talks</h1>
+      <p class="issue-date">
+        31<sup>st</sup> May 2026
+      </p>
+    </header>
+
+    <nav class="toc toc-compact">
+      <h2>Contents</h2>
+      <ol class="toc-list">
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Everything You Know About Latency Is Wrong</div>
+          <div class="toc-item-meta">
+            Tyler Treat · 2691 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Please for the love of all that is holy: Stop writing long boring Titles</div>
+          <div class="toc-item-meta">
+            swyx · 1431 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">What I Learned About Billionaires at Jeff Bezos’s Private Retreat</div>
+          <div class="toc-item-meta">
+            Noah Hawley · 2436 words
+          </div>
+        </li>
+        
+      </ol>
+    </nav>
+    
+
+    
+    <article>
+      <h1>Everything You Know About Latency Is Wrong</h1>
+      <div class="article-meta">
+        Tyler Treat
+        · 01 Mar 2026 · <a href="https://bravenewgeek.com/everything-you-know-about-latency-is-wrong/">Source</a>
+      </div>
+      <div class="article-body"><p>Okay, maybe not <em>everything</em> you know about latency is wrong. But now that I have your attention, we can talk about why the tools and methodologies you use to measure and reason about latency are likely horribly flawed. In fact, they&rsquo;re not just flawed, they&rsquo;re probably <em>lying to your face.</em></p>
+<p>When I went to <a href="http://www.thestrangeloop.com/">Strange Loop</a> in September, I attended a workshop called &ldquo;Understanding Latency and Application Responsiveness&rdquo; by Gil Tene. Gil is the CTO of Azul Systems, which is most renowned for its C4 pauseless garbage collector and associated Zing Java runtime. While the workshop was four and a half hours long, Gil also gave a 40-minute talk called <a href="https://youtu.be/lJ8ydIuPFeU">&ldquo;How NOT to Measure Latency&rdquo;</a> which was basically an abbreviated, less interactive version of the workshop. If you ever get the opportunity to see Gil speak or attend his workshop, I recommend you do. At the very least, do yourself a favor and watch one of his recorded talks or find his slide decks online.</p>
+<p>The remainder of this post is primarily a summarization of that talk. You may not get anything out of it that you wouldn&rsquo;t get out of the talk, but I think it can be helpful to absorb some of these ideas in written form. Plus, for my own benefit, writing about them helps solidify it in my head.</p>
+<h3>What is Latency?</h3>
+<p>Latency is defined as <strong>the time it took one operation to happen.</strong> This means every operation has its own latency&mdash;with one million operations there are one million latencies. As a result, latency <em>cannot</em> be measured as <em>work units / time</em>. What we&rsquo;re interested in is how latency <em>behaves</em>. To do this meaningfully, we must describe the complete distribution of latencies. Latency almost <em>never</em> follows a normal, Gaussian, or Poisson distribution, so looking at averages, medians, and even standard deviations is useless.</p>
+<p>Latency tends to be heavily multi-modal, and part of this is attributed to &ldquo;hiccups&rdquo; in response time. Hiccups resemble periodic freezes and can be due to any number of reasons&mdash;GC pauses, hypervisor pauses, context switches, interrupts, database reindexing, cache buffer flushes to disk, etc. These hiccups never resemble normal distributions and the shift between modes is often rapid and eclectic.</p>
+<figure class="article-figure"><img alt="Screen Shot 2015-10-04 at 4.32.24 PM" src="https://bravenewgeek.com/wp-content/uploads/2015/10/Screen-Shot-2015-10-04-at-4.32.24-PM.png" class="article-image"/></figure>
+<p>How do we meaningfully describe the distribution of latencies? We have to look at percentiles, but it&rsquo;s even more nuanced than this. A trap that many people fall into is fixating on &ldquo;the common case.&rdquo; The problem with this is that there is a lot more to latency behavior than the common case. Not only that, but the &ldquo;common&rdquo; case is likely not as common as you think.</p>
+<p>This is partly a tooling problem. Many of the tools we use do <em>not</em> do a good job of capturing and representing this data. For example, the majority of latency graphs produced by Grafana, such as the one below, are basically worthless. We like to look at pretty charts, and by plotting what&rsquo;s convenient we get a nice colorful graph which is quite readable. Only looking at the 95th percentile is what you do when you want to hide all the bad stuff. As Gil describes, it&rsquo;s a &ldquo;marketing system.&rdquo; Whether it&rsquo;s the CTO, potential customers, or engineers&mdash;someone&rsquo;s getting duped. Furthermore, <em>averaging </em>percentiles is mathematically absurd. To conserve space, we often keep the summaries and throw away the data, but the &ldquo;average of the 95th percentile&rdquo; is a meaningless statement. <a href="http://latencytipoftheday.blogspot.com/2014/06/latencytipoftheday-you-cant-average.html">You cannot average percentiles</a>, yet note the labels in most of your Grafana charts. Unfortunately, it only gets worse from here.</p>
+<figure class="article-figure"><img alt="graph_logbase10_ms" src="https://bravenewgeek.com/wp-content/uploads/2015/10/graph_logbase10_ms.png" class="article-image"/></figure>
+<p>Gil says, &ldquo;The number one indicator you should never get rid of is the maximum value. That is not noise, that is the signal. The rest of it is noise.&rdquo; To this point, someone in the workshop naturally responded with &ldquo;But what if the max is just something like a VM restarting? That doesn&rsquo;t describe the behavior of the system. It&rsquo;s just an unfortunate, unlikely occurrence.&rdquo; By ignoring the maximum, you&rsquo;re effectively saying &ldquo;this doesn&rsquo;t happen.&rdquo; If you can identify the <em>cause</em> as noise, you&rsquo;re okay, but if you&rsquo;re not capturing that data, you have no idea of what&rsquo;s <em>actually </em>happening.</p>
+<h3>How Many Nines?</h3>
+<p>But how many &ldquo;nines&rdquo; do I <em>really</em> need to look at? The 99th percentile, by definition, is the latency below which 99% of the observations may be found. Is the 99th percentile <em>rare</em>? If we have a single search engine node, a single key-value store node, a single database node, or a single CDN node, what is the chance we actually hit the 99th percentile?</p>
+<p>Gil describes some real-world data he collected which shows how many of the web pages we go to actually experience the 99th percentile, displayed in table below. The second column counts the number of HTTP requests generated by a single access of the web page. The third column shows the likelihood of one access experiencing the 99th percentile. With the exception of google.com, every page has a probability of 50% or higher of seeing the 99th percentile.</p>
+<figure class="article-figure"><img alt="Screen Shot 2015-10-04 at 6.15.24 PM" src="https://bravenewgeek.com/wp-content/uploads/2015/10/Screen-Shot-2015-10-04-at-6.15.24-PM.png" class="article-image"/></figure>
+<p>The point Gil makes is that the 99th percentile is what most of your web pages will see. It&rsquo;s not &ldquo;rare.&rdquo;</p>
+<p>What metric is more representative of user experience? We know it&rsquo;s not the average or the median. 95th percentile? 99.9th percentile? Gil walks through a simple, hypothetical example: a typical user session involves five page loads, averaging 40 resources per page. How many users will <em>not</em> experience something <em>worse</em> than the 95th percentile? 0.003%. By looking at the 95th percentile, you&rsquo;re looking at a number which is relevant to 0.003% of your users. This means 99.997% of your users are going to see <em>worse</em> than this number, so why are you even looking at it?</p>
+<p>On the flip side, 18% of your users are going to experience a response time <em>worse</em> than the 99.9th percentile, meaning 82% of users will experience the 99.9th percentile or better. Going further, more than 95% of users will experience the 99.97th percentile and more than 99% of users will experience the 99.995th percentile.</p>
+<p>The median is the number that 99.9999999999% of response times will be <em>worse</em> than. This is why <em>median</em> latency is irrelevant. People often describe &ldquo;typical&rdquo; response time using a median, but the median just describes what everything will be worse than. It&rsquo;s also the most commonly used metric.</p>
+<p>If it&rsquo;s so critical that we look at a lot of nines (and it is), why do most monitoring systems <em>stop</em> at the 95th or 99th percentile? The answer is simply because &ldquo;it&rsquo;s hard!&rdquo; The data collected by most monitoring systems is usually summarized in small, five or ten second windows. This, combined with the fact that we can&rsquo;t average percentiles or derive five nines from a bunch of small samples of percentiles means there&rsquo;s no way to know what the 99.999th percentile for the minute or hour was. We end up throwing away a lot of good data and losing fidelity.</p>
+<h3>A Coordinated Conspiracy</h3>
+<p><a href="https://bravenewgeek.com/benchmark-responsibly/">Benchmarking is hard</a>. Almost all latency benchmarks are broken because almost all benchmarking tools are broken. The number one cause of problems in benchmarks is something called &ldquo;coordinated omission,&rdquo; which Gil refers to as &ldquo;a conspiracy we&rsquo;re all a part of&rdquo; because it&rsquo;s everywhere. Almost all load generators have this problem.</p>
+<p>We can look at a common load-testing example to see how this problem manifests. With this type of test, a client generally issues requests at a certain rate, measures the response time for each request, and puts them in buckets from which we can study percentiles later.</p>
+<p>The problem is what if the thing being measured took longer than the time it would have taken before sending the next thing? What if you&rsquo;re sending something every second, but this particular thing took 1.5 seconds? You wait before you send the next one, but by doing this, you avoided measuring something when the system was problematic. You&rsquo;ve <em>coordinated</em> with it by backing off and not measuring when things were bad. To remain accurate, this method of measuring only works if all responses fit within an expected interval.</p>
+<p>Coordinated omission also occurs in monitoring code. The way we typically measure something is by recording the time before, running the thing, then recording the time after and looking at the delta. We put the deltas in stats buckets and calculate percentiles from that. The code below is taken from a Cassandra benchmark.</p>
+<figure class="article-figure"><img alt="Screen Shot 2015-10-04 at 7.29.09 PM" src="https://bravenewgeek.com/wp-content/uploads/2015/10/Screen-Shot-2015-10-04-at-7.29.09-PM.png" class="article-image"/></figure>
+<p>However, if the system experiences one of the &ldquo;hiccups&rdquo; described earlier, you will only have <em>one</em> bad operation and <em>10,000</em> other operations waiting in line. When those 10,000 other things go through, they will <em>look</em> really good when in reality the experience was <em>really bad</em>. Long operations only get measured once, and delays outside the timing window don&rsquo;t get measured at all.</p>
+<p>In both of these examples, we&rsquo;re omitting data that looks bad on a very selective basis, but just how much of an impact can this have on benchmark results? It turns out the impact is <em>huge</em>.</p>
+<figure class="article-figure"><img alt="Screen Shot 2015-10-04 at 7.27.43 PM" sizes="(max-width: 512px) 100vw, 512px" src="https://bravenewgeek.com/wp-content/uploads/2015/10/Screen-Shot-2015-10-04-at-7.27.43-PM.png" srcset="https://bravenewgeek.com/wp-content/uploads/2015/10/Screen-Shot-2015-10-04-at-7.27.43-PM.png 1472w, https://bravenewgeek.com/wp-content/uploads/2015/10/Screen-Shot-2015-10-04-at-7.27.43-PM-300x151.png 300w, https://bravenewgeek.com/wp-content/uploads/2015/10/Screen-Shot-2015-10-04-at-7.27.43-PM-1024x515.png 1024w" class="article-image"/></figure>
+<p>Imagine a &ldquo;perfect&rdquo; system which processes 100 requests/second at exactly 1 ms per request. Now consider what happens when we freeze the system (for example, using CTRL+Z) after 100 seconds of perfect operation for 100 seconds and repeat. We can intuitively characterize this system:</p>
+<ul> <li>The average over the first 100 seconds is 1 ms.</li> <li>The average over the next 100 seconds is 50 seconds.</li> <li>The average over the 200 seconds is 25 seconds.</li> <li>The 50th percentile is 1 ms.</li> <li>The 75th percentile is 50 seconds.</li> <li>The 99.99th percentile is 100 seconds.</li> </ul>
+<figure class="article-figure"><img alt="Screen Shot 2015-10-04 at 7.49.10 PM" src="https://bravenewgeek.com/wp-content/uploads/2015/10/Screen-Shot-2015-10-04-at-7.49.10-PM.png" class="article-image"/></figure>
+<p>Now we try measuring the system using a load generator. Before freezing, we run 100 seconds at 100 requests/second for a total of 10,000 requests at 1 ms each. After the stall, we get one result of 100 seconds. This is the entirety of our data, and when we do the math, we get these results:</p>
+<ul> <li>The average over the 200 seconds is 10.9 ms (should be 25 seconds).</li> <li>The 50th percentile is 1 ms.</li> <li>The 75th percentile is 1 ms (should be 50 seconds).</li> <li>The 99.99th percentile is 1 ms (should be 100 seconds).</li> </ul>
+<figure class="article-figure"><img alt="Screen Shot 2015-10-04 at 7.57.23 PM" src="https://bravenewgeek.com/wp-content/uploads/2015/10/Screen-Shot-2015-10-04-at-7.57.23-PM.png" class="article-image"/></figure>
+<p>Basically, your load generator and monitoring code tell you the system is ready for production, when in fact it&rsquo;s lying to you! A simple &ldquo;CTRL+Z&rdquo; test can catch coordinated omission, but people rarely do it. It&rsquo;s critical to calibrate your system this way. If you find it giving you these kind of results, throw away all the numbers&mdash;they&rsquo;re worthless.</p>
+<p>You have to measure at random or &ldquo;fair&rdquo; rates. If you measure 10,000 things in the first 100 seconds, you have to measure 10,000 things in the second 100 seconds during the stall. If you do this, you&rsquo;ll get the correct numbers, but they won&rsquo;t be as pretty. Coordinated omission is the simple act of erasing, ignoring, or missing all the &ldquo;bad&rdquo; stuff, but the data is good.</p>
+<p>Surely this data can still be useful though, even if it doesn&rsquo;t accurately represent the system? For example, we can still use it to identify performance regressions or validate improvements, right? Sadly, this couldn&rsquo;t be further from the truth. To see why, imagine we improve our system. Instead of pausing for 100 seconds after 100 seconds of perfect operation, it handles all requests at 5 ms each after 100 seconds. Doing the math, we get the following:</p>
+<ul> <li>The 50th percentile is 1 ms</li> <li>The 75th percentile is 2.5 ms (stall showed 1 ms)</li> <li>The 99.99th percentile is 5 ms (stall showed 1 ms)</li> </ul>
+<p>This data tells us we <em>hurt</em> the four nines and made the system 5x <em>worse</em>! This would tell us to revert the change and go back to the way it was before, which is clearly the <em>wrong</em> decision. With bad data, <em>better can look worse</em>. This shows that you cannot have any intuition based on any of these numbers. The data is garbage.</p>
+<p>With many load generators, the situation is actually much <em>worse</em> than this. These systems work by generating a constant load. If our test is generating 100 requests/second, we run 10,000 requests in the first 100 seconds. When we stall, we process just one request. After the stall, the load generator sees that it&rsquo;s 9,999 requests behind and issues those requests to catch back up. Not only did it get rid of the <em>bad</em> requests, it replaced them with <em>good</em> requests. Now the data is <em>twice</em> as wrong as just dropping the bad requests.</p>
+<p>What coordinated omission is really showing you is <em>service time</em>, not response time. If we imagine a cashier ringing up customers, the <em>service time</em> is the time it takes the cashier to do the work. The <em>response time</em> is the time a customer waits before they reach the register. If the rate of arrival is higher than the service rate, the response time will continue to grow. Because hiccups and other phenomena happen, response times often bounce around. However, coordinated omission lies to you about response time by actually telling you the service time and hiding the fact that things stalled or waited in line.</p>
+<h3>Measuring Latency</h3>
+<p>Latency doesn&rsquo;t live in a vacuum. Measuring response time is important, but you need to look at it in the context of load. But how do we properly measure this? When you&rsquo;re nearly idle, things are nearly perfect, so obviously that&rsquo;s not very useful. When you&rsquo;re pedal to the metal, things fall apart. This is <em>somewhat</em> useful because it tells us how &ldquo;fast&rdquo; we can go before we start getting angry phone calls.</p>
+<p>However, studying the behavior of latency at saturation is like looking at the shape of your car&rsquo;s bumper after wrapping it around a pole. The only thing that matters when you hit the pole is that <em>you hit the pole</em>. There&rsquo;s no point in trying to engineer a better bumper, but we can engineer for the speed at which we lose control. Everything is going to suck at saturation, so it&rsquo;s not super useful to look at beyond determining your operating range.</p>
+<p>What&rsquo;s more important is testing the speeds in between idle and hitting the pole. Define your SLAs and plot those requirements, then run different scenarios using different loads and different configurations. This tells us if we&rsquo;re meeting our SLAs but also how many machines we need to provision to do so. If you don&rsquo;t do this, you don&rsquo;t know how many machines you need.</p>
+<p>How do we capture this data? In an ideal world, we could store information for <em>every </em>request, but this usually isn&rsquo;t practical. <a href="http://hdrhistogram.org/">HdrHistogram</a> is a tool which allows you to capture latency and retain high resolution. It also includes facilities for correcting coordinated omission and plotting latency distributions. The original version of HdrHistogram was written in Java, but there are versions for many other languages.</p>
+<figure class="article-figure"><img alt="Screen Shot 2015-10-05 at 12.00.04 AM" src="https://bravenewgeek.com/wp-content/uploads/2015/10/Screen-Shot-2015-10-05-at-12.00.04-AM.png" class="article-image"/></figure>
+<h3>To Summarize</h3>
+<p>To understand latency, you <em>have</em> to consider the entire distribution. Do this by plotting the latency distribution curve. Simply looking at the 95th or even 99th percentile is not sufficient. Tail latency matters. Worse yet, the median is <em>not</em> representative of the &ldquo;common&rdquo; case, the average even less so. There is no single metric which defines the behavior of latency. Be conscious of your monitoring and benchmarking tools and the data they report. You can&rsquo;t average percentiles.</p>
+<p>Remember that <em>latency is not service time</em>. If you plot your data with coordinated omission, there&rsquo;s often a quick, high rise in the curve. Run a &ldquo;CTRL+Z&rdquo; test to see if you have this problem. A non-omitted test has a much smoother curve. Very few tools actually correct for coordinated omission.</p>
+<p>Latency needs to be measured in the context of load, but constantly running your car into a pole in every test is not useful. This isn&rsquo;t how you&rsquo;re running in production, and if it is, you probably need to provision more machines. Use it to establish your limits and test the sustainable throughputs in between to determine if you&rsquo;re meeting your SLAs. There are a lot of flawed tools out there, but HdrHistogram is one of the few that isn&rsquo;t. It&rsquo;s useful for benchmarking and, since histograms are additive and HdrHistogram uses log buckets, it can also be useful for capturing high-volume data in production.</p>
+<figure class="article-figure"><p class="media-omitted">[IFRAME OMITTED]</p></figure></div>
+      
+    </article>
+    
+    <article>
+      <h1>Please for the love of all that is holy: Stop writing long boring Titles</h1>
+      <div class="article-meta">
+        swyx
+        · 30 Mar 2026 · <a href="https://dx.tips/titles">Source</a>
+      </div>
+      <div class="article-body"><p>People code switch. Every ethnic minority has <a href="https://en.wikipedia.org/wiki/Sorry_to_Bother_You">lived experience of this</a>. When you talk to me in Singapore, I sound very different than when I’m in San Francisco. And the way you talk at work is probably very different from how you talk to your kids and how you talk to your lover.</p>
+<p>I’ve been dealing with a particularly virulent form of code switching in the simple form of titling blogposts and talks. When you ask the writer face to face what their thing is about, they can give you a perfectly human explanation. And then when they send you their piece, it’s all “<strong><em>Leveraging GenAI with Robust Data Foundations to Transform Businesses</em></strong>”. I’ve left my body by the time I read the first word.</p>
+<p>My hope in writing this piece is to <strong>put an end to bad titles</strong>.</p>
+<p>If I sent you this guide, it is not an insult. You just don’t have good title game. That’s ok. You’re great at what you do, title game isn’t your job. I’m the guy that wrote <a href="https://www.swyx.io/how-to-name-things">How To Name Things</a> and <a href="http://swyx.io/two-words">Two Words</a>. I sent you this guide <strong><em>because</em></strong> your shitty title is the main thing stopping your readers from getting to the good part. If you didn’t have anything good, I wouldn’t bother with a lost cause.</p>
+<p>First…</p>
+<h2>Towards Leveraging Corporate Speak For Maximum Enterprise Synergy</h2>
+<p>DO NOT:</p>
+<ul> <li>Start with “Leveraging” or “Towards” or “Navigating” or “Empowering”</li> </ul>
+<p>Yeah just stop. There’s no rescuing this when you start there. Just delete meaningless corporate weasel words. Anything &gt;3 syllables is a red flag.</p>
+<h2>Make It Quotable</h2>
+<p><strong>If you do not try to make your title roll off the tongue, it probably won’t.</strong></p>
+<p>Literally imagine telling your friend about your talk. Telling a new acquaintance to google your blogpost. Having a fan of yours cite it back to you. How much do they stumble? Yeah. This has all happened to me.</p>
+<p>There’s an extremely high correlation between what are considered the best talks and the quotability of titles. <a href="https://www.infoq.com/presentations/Simple-Made-Easy/">Simple Made Easy</a>. <a href="https://www.youtube.com/watch?v=PUv66718DII">Inventing on Principle</a>. Our list of best <a href="https://dx.tips/pitches">demos/pitches</a> of all time.</p>
+<p>Resist colons. It lacks confidence. Why Use Lot Word: <s>When Few Word Do Trick</s>? You’re not <a href="https://en.wikipedia.org/wiki/High_School_Musical:_The_Musical:_The_Series">High School Musical: The Musical: The Series</a>.</p>
+<p>Put the SEO keyword vomit in the description.</p>
+<p>Titles are for humans.</p>
+<h2>Prescribe A Strong Opinion</h2>
+<p>Opinions are one of the most quotable things.</p>
+<p>But more importantly, a good Opinion Piece is load bearing because it is eminently forwardable, and therefore viral and impactful. Your Job To Be Done is to be the definitive, conclusive, piece on that Opinion. Stake out territory in Opinion Space, list out all the arguments for, counter all the arguments against, provide datapoints, and watch that go further than anything you’ve ever done.</p>
+<p>How to know what’s a good opinion? <strong>Three Strikes rule</strong>: If you repeat yourself <a href="https://www.swyx.io/three-strikes">three times</a>, ship it. Even if you’re just quoting others, its fine, credit them and make it your own.</p>
+<p><strong>Mental Models and Frameworks</strong> are more complex opinions that allow others to scaffold their thought around you. My <a href="https://dx.tips/circles">Radiating Circles</a> and <a href="https://www.swyx.io/measuring-devrel">Measuring Developer Relations</a> and <a href="https://www.swyx.io/js-third-age">Third Age of JavaScript</a> did this.</p>
+<p><strong>Opinions contrary to an established opinion</strong> are the hardest to do well and the best when correct. <a href="https://stratechery.com/2013/clayton-christensen-got-wrong/">What Clayton Christensen Got Wrong</a> made Ben Thompson’s career. <a href="http://latent.space/p/ai-engineer">Rise of AI Engineer</a> countered the prevailing Prompt Engineer -and- GPU Rich Startup/ML Engineer narrative at the time, with room to grow.</p>
+<h2>Curiosity Gap Dynamics</h2>
+<p>Marketers know the power of <a href="https://copyhackers.com/2014/04/curiosity-gap/">the Curiosity Gap</a>. Here is where we toy closest with clickbait. I’ll be honest that I wasn’t even sure if I wanted to give it its own subheading, but its a very important concept that you should at least be aware exists, even if you’re going to ignore it.</p>
+<p>Strong enough opinions create their own curiosity gaps; you won’t have to try very hard to make it interesting if you got my attention in 4 words anyway.</p>
+<p>Curiosity gaps done poorly can lead to “<a href="https://www.merriam-webster.com/wordplay/bury-the-lede-versus-lead">burying the lede</a>”, which make your talk less Quotable and you also don’t want to do that.</p>
+<p>Simplest way to put it is; if the most interesting thing about your content is your title, and what people take away after having read your post matches what they would have predicted after reading your title, then you’ve probably said too much and could cut.</p>
+<h2>Play Madlibs</h2>
+<p>You don’t have to invent your title from scratch (nor should you always do what I’m about to suggest). Here’s some templates that work well:</p>
+<ul> <li><p>{<em>BENEFIT EVERYONE WANTS</em>} <strong>without</strong> {<em>DOWNSIDE EVERYBODY EXPECTS</em>}</p> <ul> <li>e.g. <a href="https://nav.al/rich">How to Get Rich (Without Getting Lucky)</a>, <a href="https://x.com/swyx/status/1249793388037025797">How to Market Yourself (Without Being A Celebrity)</a>. See also subtitle of this post.</li> </ul> </li> <li><p>{<em>PRESCRIPTIVE OPINION</em>}, <strong>don’t</strong> {<em>THING YOU DO</em>}</p> <ul> <li><p>e.g. <a href="https://lexi-lambda.github.io/blog/2019/11/05/parse-don-t-validate/">Parse, don’t validate</a></p> </li> <li><p>alternative prescriptive opinion: <strong>Never</strong> {THING YOU DO}</p> </li> <li><p>see also title of this post</p> </li> </ul> </li> <li><p>{<em>POPULAR THING</em>} <strong>IS DEAD</strong></p> <ul> <li><p>unfortunately this is clickbait that works</p> </li> <li><p>e.g. <a href="https://www.youtube.com/watch?v=D2HurSldDkE&amp;t=1833s">Prompt Engineering is Dead</a>, <a href="https://motherduck.com/blog/big-data-is-dead/">Big Data is Dead</a></p> </li> <li><p>when given at a conference for <em>POPULAR THING,</em> this is known as a <a href="https://www.swyx.io/cfp-advice#pick-a-genre">Heresy Talk</a></p> </li> <li><p>opposite also works:</p> <ul> <li><p><a href="https://hn.algolia.com/?dateRange=all&amp;page=0&amp;prefix=true&amp;query=the%20rise%20of&amp;sort=byPopularity&amp;type=story"><strong>The Rise of</strong> {THING}</a></p> </li> <li><p><a href="https://hn.algolia.com/?dateRange=all&amp;page=0&amp;prefix=true&amp;query=unreasonable&amp;sort=byPopularity&amp;type=story"><strong>The Unreasonable Effectiveness of</strong> {THING}</a></p> </li> </ul> </li> </ul> </li> <li><p><strong>Fundamentals of</strong> {THING}</p> <ul> <li><p>straightforward, people love fundamentals</p> </li> <li><p>also <strong>How</strong> {THING} <strong>Really Works</strong></p> </li> <li><p>You can also flip it and go for the <strong>Advanced</strong> {THING} tier content</p> </li> </ul> </li> <li><p>{CONVEY EXPERIENCE/SCALE} with {THING}</p> <ul> <li>e.g. <a href="https://www.oreilly.com/radar/what-we-learned-from-a-year-of-building-with-llms-part-i/">What We Learned from a Year of Building with LLMs</a>, <a href="https://news.ycombinator.com/item?id=40877136">Insights from over <strong><em>10</em></strong>,<strong><em>000</em></strong> comments on "Ask HN: Who Is Hiring" using GPT-4o</a></li> </ul> </li> </ul>
+<p><a href="https://news.ycombinator.com/item?id=40877136">There’s loads more templates that work, please suggest in comments</a> and I can add/review.</p>
+<p>You can also browse the masters of microcopy like <a href="https://stephsmith.io/">Steph Smith</a> and <a href="https://www.youtube.com/@MyFirstMillionPod">Shaan Puri</a>, and if you are worried about clickbait, you can see <a href="https://www.youtube.com/watch?v=S2xHZPH5Sng">Veritasium’s</a> take or <a href="https://simonwillison.net/">Simon Willison’s Highlights</a>.</p>
+<p>also <a href="https://andrewchen.com/">Andrew Chen</a> senpai:</p>
+<h2>Understand Buzzword Metagame</h2>
+<p>Buzzwords work. Because of a mix of human psychology and algorithmic recsys. Don’t avoid them, just use them judiciously. This involves the ability to read the room, which many smart people sadly cannot without significant involvement in the broader community you are trying to speak to. I don’t see any way around it other than trying to authentically immerse, or consult a friendly who does.</p>
+<p>Not all buzzwords are created equal. Databricks/Berkeley tried to push <a href="https://www.databricks.com/glossary/compound-ai-systems">Compound AI Systems</a>, Gartner is pushing <a href="https://www.gartner.com/en/newsroom/press-releases/2024-09-25-gartner-identifies-composite-ai-and-supply-chain-data-governance-as-highest-impact-supply-chain-planning-technology-trends">Composite AI</a> and <a href="https://www.gartner.com/smarterwithgartner/gartner-keynote-the-future-of-business-is-composable">Composable</a> business — this resonates with their audience, but not more broadly.</p>
+<p>Pick the <a href="https://www.youtube.com/watch?v=fqkaBEWPH18">shibboleths</a> that work for the community you want. <a href="http://latent.space/p/ai-engineer">AI Engineer</a> worked for reasons that are well understood now. <a href="https://www.youtube.com/playlist?list=PLNoPYaf7mNI_Iq_TinuafkIE5n_O_Y5Cy">GraphRAG</a> is working outside of the company that coined it. These buzzwords travel, go ahead and put them in there.</p>
+<p>Buzzwords rise and fall. Try to catch them on the rise — go harder than everyone else on the rise up and regularly test their effectiveness, such that by the time your main buzzword has tapped out you’ve got 2-3 others cooking.</p>
+<h2>Workshopping your titles</h2>
+<p>I write this post out of frustration, but also to capture my own thought process. I’m currently procrastinating while writing a Latent Space post.</p>
+<ul> <li><p>The original title was <a href="https://www.youtube.com/watch?v=-rSbvS0qLqY&amp;t=361s">Why every AI Engineer needs an AI Gateway</a>. Good, genuine opinion, load bearing. But not super memorable.</p> </li> <li><p>My next iteration was “<strong>Stop writing model routers, use an LLM Gateway</strong>”. Ok, prescriptive, evocative. But didn’t cover the other elements other than model routing. One could shorten to “Stop writing your own LLM Gateway” but that doesnt quite express what people do.</p> </li> <li><p>My next one is “<strong>It's not your job to DIY an LLM Gateway</strong>”. No buzzword bc “your job” is implied (for a Latent Space audience), a little curiosity gap, LLM buzzword, strong opinion. But still not strong enough.</p> </li> <li><p>Final one is “<strong>LLM Gateway: The One Decision That Removes 100 AI Engineering Decisions</strong>”. Leans on <a href="https://tim.blog/2020/01/20/one-decision-that-removes-100-decisions/">Tim Ferriss’ madlbs</a>.</p> </li> </ul>
+<p>It’s very common for the “tail to wag the dog to wag the tail” - the title is so important to clickthrough and so impactful to the message, that you spend a bunch of time on just the title itself, because that determines the piece you will write, then write the piece, then you go back and tweak the title based on what happened.</p>
+<p>Amateur writers think their content has 95% of the value and then spend 5% on the title. Pros will put the value of titles closer to 50% and then act like it.</p>
+<h2>You Should Break The Rules Once You Understand Human Behavior More Intuitively Than Rules Can Model</h2>
+<p>See title of this post. No better aura than intentional, conspicuous, successful rulebreaking.</p>
+<h2>Subscribe to our newsletter</h2></div>
+      
+    </article>
+    
+    <article>
+      <h1>What I Learned About Billionaires at Jeff Bezos’s Private Retreat</h1>
+      <div class="article-meta">
+        Noah Hawley
+        · 02 May 2026 · <a href="https://theatlantic.com/magazine/2026/05/billionaire-consequence-free-reality/686588/">Source</a>
+      </div>
+      <div class="article-body"><html><body><div>For the richest men on Earth, everything is free and nothing matters.</div><figure class="article-figure"><img alt="Illustration in style of color woodcut of people sitting on logs around wood bonfire on beach at night raising glasses of red wine with butlers serving in background." src="https://cdn.theatlantic.com/thumbor/pU9WUObiJGgn3gTx9M6n66vkXDU=/12x0:2012x1125/1440x810/media/img/2026/04/06/WEL_Hawley_BillionairesRedo/original.png" class="article-image"/><figcaption> (Illustration by Tim Enthoven)</figcaption></figure><p><span class="smallcaps">At the end </span>of Paul Thomas Anderson’s 2007 movie, <i>There Will Be Blood</i>, Daniel Day-Lewis’s oil-baron character, old now and richer than Croesus, beats Paul Dano’s preacher to death with a bowling pin. Dano’s Eli Sunday, a nemesis of Day-Lewis’s Daniel Plainview during his seminal, wealth-building years, has come to sell Plainview the oil-rich land that he once coveted. But Plainview doesn’t need the land anymore, because—as he explains in one of the most famous monologues in modern cinema—he has sucked out all the oil hidden beneath it from an adjoining property, like a milkshake.</p><p>Desperate for money, Eli begs for a loan. Instead, Plainview chases him around a bowling alley and murders him with great enthusiasm. Once it’s over, a butler comes to see what all the noise was about. “I’m finished,” Plainview yells.</p><p>No matter how many times I watch that movie, and I watch it a lot, I have never once taken those words to mean <i>I’m done for</i>. <i>There will now be consequences for my actions</i>. Quite the opposite: They mean that Plainview has completed his journey, through the acquisition of wealth and power, to a realm outside the moral universe. He’s finished, in other words, pretending that the rules of human society apply to him.</p><p>In 2018, I was a guest at Jeff Bezos’s Campfire retreat in Santa Barbara, California. It’s an annual event in which the Amazon founder invites 80-plus guests—celebrities, artists, intellectuals, and anyone else he thinks is interesting—to spend three nights at a private resort. I had recently been approached by Amazon about moving my film-and-television business over from Disney, and although I had declined (or maybe <i>because</i> I had declined), Bezos’s team invited me to Campfire, perhaps keen to impress me with the power of his reach.</p><p><a href="https://www.theatlantic.com/magazine/archive/2024/03/facebook-meta-silicon-valley-politics/677168/">From the March 2024 issue: The rise of techno-authoritarianism</a></p><p>On a warm October Thursday, a fleet of private jets was dispatched to airports in Van Nuys and New York to shepherd guests to Santa Barbara in style. At that point I had only a vague sense of who else was coming—famous people, rich people, influential people, and me. A guest list, I was told, would be given to us once we arrived. Families were invited; an on-site nanny would be provided <i>for each child</i>.</p><p>So my wife and I got our two children from Austin to Los Angeles and took a 45-minute jet ride north, with a television mogul and a comedian on board. Bezos had bought out the entire Biltmore resort for the weekend, as well as the beach club across the street. He had brought in a security firm from Las Vegas to ensure our safety and privacy. Even the weather felt expensive, and when we were shown to our rooms, the designer gift bags we found were filled with luxury goods.</p><p><a href="https://www.theatlantic.com/newsletters/2026/04/gratitude-lists-jeff-bezos-lauren-sanchez-bezos/686797/">Alexandra Petri: The 10 things the Bezoses are almost certainly grateful for each morning</a></p><p>Each morning, we gathered in a lecture hall to hear presentations. If you’ve ever seen a TED Talk, you understand the format. The year I went, a sitting Supreme Court justice was interviewed, and a neurologist talked about technological advances in prosthetics. In the afternoons and evenings, we were encouraged to exchange ideas over drinks and four-course meals, with no set purpose—to network, in other words, with some of the most rarefied talent on Earth. The most common question I heard was “Why am I here?”</p><p>“Why am I here?” asked the 1980s hair-metal singer. “Why am I here?” asked the Pulitzer Prize–winning novelist, the famous anthropologist, the presidential historian. Only the movie stars and the billionaires didn’t ask: They had done this kind of thing before. It turns out there is a circuit of idea festivals. Many tech billionaires host one, and if you find yourself on the right list, you can spend much of the year traveling the world, eating Wagyu, and discussing how to make the world a better place with the most famous talk-show host in history.</p><p>That’s how the weekend started. Here’s how it ended: My wife broke her wrist slipping on wet grass, and both children and I came down with hand, foot, and mouth disease. This is not a joke. One of us went home with her arm in a sling; the other three developed itchy, painful red blisters all over our faces and extremities. If you’re looking for a sign from God as to whether hanging out with the richest man on Earth is right for you, pay attention when he sends you not one plague, but two. Suffice it to say we have never been back to Campfire, nor have we ever been invited.</p><p>At drinks on the second night, the head of a major talent agency asked me what I thought of the weekend. I said, “I’ve spent my whole career trying to figure out how the world works. I didn’t realize I could just come here and ask the people who ran it.” On some level I was kidding. The lead singer of an alt-country band didn’t run the world, nor did a noted author who would later be accused of impropriety. But finding myself at that resort by exclusive invitation, I now knew exactly what people meant when they talked about the elite.</p><p>Sitting in the lecture hall, pencils out, listening to a famous chef explain his humanitarian work, it was easy to feel like the solution to the world’s problems lay within our grasp. And yet, looking around at faces I had only ever seen in a magazine or on-screen, I had an unsettling revelation: This is the hubris of accomplishment. To be declared a genius at one thing is to begin to believe you are a genius at everything.</p><p>Here we were, 80 individuals with a combined net worth that was greater than a small city’s yet infinitesimal compared with the wealth and dominion of our host. How did he view this exercise—as a first step toward changing the world, or as a performative display of his reach and influence?</p><p>Bezos was everywhere that weekend—in a tight T-shirt, laughing too loudly, arms thrown around his teenage sons. He had recently become the world’s second centibillionaire, his net worth hovering somewhere around $112 billion, about half of what it is today. That number, previously unimaginable, had made him unique on a planet of 8 billion people, and you could feel it in the room. Even the richest and most famous among us were drawn to the energy of this impossible wealth.</p><p><a href="https://www.theatlantic.com/ideas/archive/2025/03/bezos-appease-trump-administration/681899/">Martin Baron: Where Jeff Bezos went wrong with <em>The Washington Post</em></a></p><p>Though we didn’t know it at the time, Bezos’s first marriage would be over a few weeks later. My defining impression of his wife that weekend was sadness, even though Bezos made a big show of performing the role of family man. In hindsight, it is that performance that sticks with me. The Jeff Bezos of 2018 acted as if he still believed that people’s impression of him mattered, that his financial and social value could be affected by negative publicity. He still believed that his actions had consequences. He had not yet freed himself—the way Daniel Plainview freed himself—from the rules of men.</p><p>Eight years later, Bezos and two of the world’s other richest men—Mark Zuckerberg and Elon Musk—have clearly left the world of consequences behind. They float in a sensory-deprivation tank the size of the planet, in which their actions are only ever judged by themselves.</p><p>The closer I’ve gotten to the world of wealth, the more I understand that being truly rich doesn’t mean amassing enough money to afford superyachts, private jets, or a million acres of land. It means that everything becomes effectively free. Any asset can be acquired but nothing can ever be lost, because for soon-to-be trillionaires, no level of loss could significantly change their global standing or personal power. For them, the word <i>failure</i> has ceased to mean anything.</p><p><a href="https://www.theatlantic.com/ideas/2026/02/elite-accountability-powerful-impunity/686134/">Adam Serwer: How America chose not to hold the powerful to account</a></p><p>This sense of invulnerability has deep psychological ramifications. If everything is free and nothing matters, then the world and other people exist only to be acted upon, if they are acknowledged at all. This is different from classic narcissism, in which a grandiose but fragile self-image can mask deep insecurity. What I’m talking about is a self-definition in which the individual grows to the size of the universe, and the universe vanishes. Asked recently if there is any check on his power, President Trump—himself a billionaire, and by far the richest president in American history—said, “Yeah, there is one thing. My own morality. My own mind. It’s the only thing that can stop me.” Not domestic or international law, not the will of the voters, not God or the centuries-old morality of civic and religious life.</p><p>Decades of research in developmental psychology have shown that moral reasoning develops through consequences—not punishment, necessarily, but experiencing the effects of your actions on others, receiving honest feedback, <a data-event-element="inline link" href="https://www.theatlantic.com/ideas/2026/03/introspection-knowing-yourself/686602/">having to accommodate reality as it actually is</a> rather than as you wish it to be. It’s not that the wealthy become evil; it’s that their environment stops teaching them the things that nonwealthy people are forced to learn simply by living in a world that pushes back. When you can buy your way out of any mistake, when you can fire anyone who disagrees with you, when your social circle consists entirely of people who need something from you, the basic mechanism by which humans learn that other people are real goes dark.</p><p><a href="https://www.theatlantic.com/ideas/2026/03/introspection-andreessen-thiel-bezos/686566/">Thomas Chatterton Williams: The very powerful men who think introspection is dumb</a></p><p>When Peter Thiel said, “I no longer believe that freedom and democracy are compatible,” he wasn’t talking about your freedom. He was talking about his own. You don’t exist. When Musk took a chainsaw to the federal government as part of <a data-event-element="inline link" href="https://www.theatlantic.com/ideas/archive/2024/12/elon-musk-doge-appointment/680824/">the inside joke he called DOGE</a>, he did so with the air of a man who believed that nothing matters—poverty, chaos, <a data-event-element="inline link" href="https://www.theatlantic.com/technology/archive/2025/06/elon-musk-usaid-cuts/683299/">human suffering</a>. He was having fun. It didn’t even matter that the <a data-event-element="inline link" href="https://www.theatlantic.com/ideas/archive/2025/03/doge-safety-agencies/681865/">entire destructive exercise</a> ultimately yielded no practical financial gains. For him, the outcome was a foregone conclusion: He could only win, because losing had lost its meaning.</p><p>Since the 2024 election, there has been a philosophical shift on the right, and especially among tech billionaires, to vilify the idea of empathy. Musk has called empathy “the fundamental weakness of Western civilization.” He sees it as a weapon wielded by liberal society to bludgeon otherwise rational people into operating against their own interests. Empathy is something done to you by others—a vulnerability they exploit, a back door through which they gain access to your resources and will. This <a data-event-element="inline link" href="https://www.theatlantic.com/ideas/2026/01/war-empathy-hillary-clinton/685809/">rejection of empathy</a> as a human value gives cover to people who don’t want to feel anything at all. If empathy is the problem, then lack of it isn’t a deficiency—<a data-event-element="inline link" href="https://www.theatlantic.com/ideas/archive/2025/06/toxic-empathy-weakness/683355/">it’s an advantage</a>.</p><p><a href="https://www.theatlantic.com/ideas/archive/2025/06/toxic-empathy-weakness/683355/">Elizabeth Bruenig: The conservative attack on empathy</a></p><p>I finally met Bezos on the last day of Campfire, at lunch, after my wife had broken her wrist. I went over to thank him for having us, and he asked how our Campfire experience had been. I told him that it was great, but that unfortunately my wife had broken her wrist that morning when she slipped on the wet grass while kicking a ball with our 6-year-old son.</p><p>The night before, we’d all stood by the pool at the beach club watching a cadre of synchronized swimmers execute a flawless water routine. I had spoken with a famous novelist, who said, “I just don’t understand why I’m here.” A famous rock star was about to start an acoustic set. The famous chef had made paella. Somewhere deep under my skin, a brutal pox was beginning to form.</p><p>The next morning, my wife fell, and I found myself in a black SUV with a team of private-security contractors, who whisked us to the back entrance of a Santa Barbara emergency room, where she was seen and treated right away. We made it back in time to watch the Supreme Court justice Zoom in from Washington, D.C.</p><p><i>How was your Campfire? </i>Bezos asked me an hour later, and because I am an honest person, and because I have been a host myself, I decided he would want to know that there had been a problem, but that his team had reacted quickly and been extremely helpful. To be clear, I was in no way blaming him, nor was I shaking down the richest man on Earth. Instead, I was simply offering Bezos, also a husband and father, a brief human connection.</p><p>But when I told him what had happened, Bezos looked horrified. He did not say “I’m so sorry.” He did not say “Do you need anything?” Instead, he made a face, and in an instant, an aide came and whisked him away. When presented with the opportunity for empathy, even performative empathy, he chose escape.</p><p>A few hours later, on the private plane home, a famous movie producer offered my wife a blanket. My children’s faces were covered in spots. Under my fingernails, red welts were beginning to rise.</p><p>The world has always been run by rich men. The robber barons of the Gilded Age were known for their ruthlessness in the accumulation of wealth—hiring Pinkertons to shoot striking unionists. But they directly engaged with the world around them, using their wealth and power to muscle it into its most profitable form. And although today’s billionaires are clearly manipulating society to maximize their own profit, something else is also happening—a disassociation from the reality of cause and effect, from meaning and history. These men no longer feel the need to change the world in order to succeed, because their success is guaranteed, no matter what happens to the rest of us.</p><p>“I’m finished,” yells Daniel Plainview, perched happily on the polished floor of his own celestial kingdom. Though he has just committed a crime, he has never felt so free.</p><hr/><p><small><i>This article appears in the </i><a data-event-element="inline link" href="https://www.theatlantic.com/magazine/toc/2026/05/"><i>May 2026</i></a><i> print edition with the headline “Everything Is Free and Nothing Matters.”</i></small></p></body></html></div>
+      
+    </article>
+    
+  </body>
+</html>
