@@ -1,0 +1,410 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Fred Talks - 2026-06-03</title>
+    <style>
+      @page {
+        size: A5;
+        margin: 8mm 9mm 9mm;
+      }
+
+      :root {
+        color: #111;
+        font-family: "Times New Roman", Times, serif;
+        --body-text-size: 9.5pt;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        color: #111;
+        background: #fff;
+        font-family: "Times New Roman", Times, serif;
+        line-height: 1.45;
+      }
+
+      a,
+      a:visited {
+        color: #111;
+        text-decoration: underline;
+      }
+
+      .cover {
+        min-height: calc(210mm - 17mm);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        page-break-after: always;
+        border: 1px solid #111;
+        padding: 8mm;
+        background: #fff;
+      }
+
+      .toc-item-meta,
+      .article-meta {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .masthead {
+        margin: 0;
+        font-size: 40pt;
+        line-height: 0.95;
+        text-transform: uppercase;
+      }
+
+      .issue-date {
+        margin: 4mm 0 0;
+        font-size: 14pt;
+      }
+
+      .issue-date sup {
+        font-size: 0.58em;
+        vertical-align: super;
+        line-height: 0;
+      }
+
+      .cover-deck {
+        max-width: 90mm;
+        font-size: 12pt;
+        margin: 0;
+      }
+
+      .toc {
+        border-top: 3px solid #111;
+        padding-top: 6mm;
+      }
+
+      .toc h2 {
+        margin: 0 0 4mm;
+        font-size: 11pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .toc-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .toc-item {
+        padding: 3mm 0;
+        border-bottom: 1px solid rgba(17, 17, 17, 0.2);
+      }
+
+      .toc-item-title {
+        font-size: 12pt;
+        margin: 0 0 1mm;
+      }
+
+      .toc-item-meta {
+        font-size: 8pt;
+      }
+
+      .masthead-compact {
+        margin: 0 0 6mm;
+      }
+
+      .masthead-compact h1 {
+        margin: 0;
+        font-size: 22pt;
+        line-height: 1.1;
+        text-transform: uppercase;
+      }
+
+      .masthead-compact .issue-date {
+        margin: 2mm 0 0;
+        font-size: 11pt;
+      }
+
+      .toc-compact {
+        border-top: 1px solid #111;
+        border-bottom: 1px solid #111;
+        padding: 4mm 0;
+        margin: 0 0 8mm;
+      }
+
+      article + article {
+        margin-top: 10mm;
+        padding-top: 6mm;
+        border-top: 2px solid #111;
+      }
+
+      h1 {
+        margin: 0 0 2mm;
+        font-size: 18pt;
+        line-height: 1.1;
+      }
+
+      .article-meta {
+        font-size: 8.5pt;
+        margin-bottom: 6mm;
+        padding-bottom: 3mm;
+        border-bottom: 1px solid #111;
+      }
+
+      .article-body {
+        font-size: var(--body-text-size);
+        font-family: "Times New Roman", Times, serif;
+      }
+
+      .article-body p,
+      .article-body li,
+      .article-body blockquote,
+      .article-body dd,
+      .article-body dt {
+        margin: 0 0 4mm;
+        orphans: 3;
+        widows: 3;
+      }
+
+      .article-body ul,
+      .article-body ol,
+      .article-body dl {
+        margin: 0 0 4mm 5mm;
+        padding: 0;
+      }
+
+      .article-body h2,
+      .article-body h3,
+      .article-body h4 {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        margin: 7mm 0 3mm;
+        line-height: 1.2;
+      }
+
+      .article-body blockquote {
+        margin-left: 6mm;
+        padding-left: 4mm;
+        border-left: 2px solid #111;
+      }
+
+      .article-body .media-omitted {
+        margin: 0 0 4mm;
+        font-size: 8.5pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(17, 17, 17, 0.65);
+      }
+
+      .article-body figure,
+      .article-body .article-figure,
+      .article-body picture,
+      .article-body .article-picture {
+        display: block;
+        max-width: 72mm;
+        margin: 0 auto 4mm;
+        break-inside: avoid;
+      }
+
+      .article-body img,
+      .article-body .article-image {
+        display: block;
+        max-width: min(100%, 72mm);
+        max-height: 34mm;
+        height: auto;
+        width: auto;
+        object-fit: contain;
+        margin: 0 auto 3mm;
+      }
+
+      .article-body figcaption {
+        margin-top: 1.5mm;
+        font-size: 8.5pt;
+        line-height: 1.3;
+        color: rgba(17, 17, 17, 0.8);
+      }
+
+      .article-note {
+        margin-top: 6mm;
+        padding-top: 3mm;
+        border-top: 1px solid #111;
+        font-size: 9pt;
+        font-style: italic;
+      }
+
+      @media screen {
+        body {
+          padding: 2rem;
+          margin: 0 auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    
+    <header class="masthead-compact">
+      <h1>Fred Talks</h1>
+      <p class="issue-date">
+        3<sup>rd</sup> June 2026
+      </p>
+    </header>
+
+    <nav class="toc toc-compact">
+      <h2>Contents</h2>
+      <ol class="toc-list">
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Luddites and AI datacenters</div>
+          <div class="toc-item-meta">
+            seangoedecke.com RSS feed · 2789 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">The stranger secret: how to talk to anyone – and why you should</div>
+          <div class="toc-item-meta">
+            Viv Groskop · 2062 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">A statistical approach to model evaluations</div>
+          <div class="toc-item-meta">
+            anthropic.com · 1598 words
+          </div>
+        </li>
+        
+      </ol>
+    </nav>
+    
+
+    
+    <article>
+      <h1>Luddites and AI datacenters</h1>
+      <div class="article-meta">
+        seangoedecke.com RSS feed
+        · 22 Apr 2026 · <a href="https://seangoedecke.com/luddites-and-ai-datacenters/">Source</a>
+      </div>
+      <div class="article-body"><p>Is it time to start burning down datacenters?</p>
+<p>Some people think so. An Indianapolis city council member had his house recently <a href="https://www.kbtx.com/2026/04/07/councilman-says-someone-fired-shots-his-home-left-no-data-centers-note/">shot up</a> for supporting datacenters, and Sam Altman’s home was <a href="https://www.wired.com/story/sam-altman-home-attack-openai-san-franisco-office-threat/">firebombed</a> (and then <a href="https://sfstandard.com/2026/04/12/sam-altman-s-home-targeted-second-attack/">shot</a>) shortly afterwards. People from all sides of the argument are <a href="https://www.bloodinthemachine.com/p/why-the-ai-backlash-has-turned-violent">sounding</a> the <a href="https://thesoufancenter.org/intelbrief-2025-november-5/">alarm</a> about imminent violence.</p>
+<p>The obvious historical comparison is <a href="https://en.wikipedia.org/wiki/Luddite">Luddism</a>, the 19th-century phenomenon where English weavers and knitters destroyed the machines that were automating their work, and (in some cases) killed the machines’ owners. Anti-AI people are <a href="https://www.theguardian.com/commentisfree/article/2024/jul/27/harm-ai-artificial-intelligence-backlash-human-labour">reclaiming</a> the term to describe themselves, and many of the leading lights of the anti-AI movement (like <a href="https://www.bloodinthemachine.com/">Brian Merchant</a> or <a href="https://www.versobooks.com/en-gb/products/688-breaking-things-at-work?srsltid=AfmBOorCgru7ReSwbVdt40nZmQaaeGfbpjLV7epM0fSv_V01QSY5b5TP">Gavin Mueller</a>) have written books arguing more or less that the Luddites were right, and we ought to follow their example in order to resist AI automation<sup><a href="https://www.seangoedecke.com/luddites-and-ai-datacenters/#fn-1">1</a></sup>.</p>
+<p>Like many people, I have heard a lot about Luddism and Luddites, but only in the context of it being a general term for someone who is anti-technology. I was interested in learning more about the actual historical movement: what kind of people participated, what it was, and what it accomplished. I read Merchant’s and Mueller’s books, plus others<sup><a href="https://www.seangoedecke.com/luddites-and-ai-datacenters/#fn-2">2</a></sup>, to try and figure all of this out. Who were the actual, historical Luddites? What can we learn from them about burning down datacenters?</p>
+<h3>Who were the Luddites?</h3>
+<p>The Luddites were a decentralized movement of artisans in the 1810s who engaged in violent protest - smashing machines, threatening violence, and ultimately killing people - over the fact that their jobs were being automated away. They were not rich, but they were certainly not unskilled labor: these were people who had apprenticed for <a href="https://archive.org/stream/extractsfromrec01dendgoog/extractsfromrec01dendgoog_djvu.txt?utm_source=chatgpt.com">seven years</a>. They were mostly working from home, producing cloth from raw material given to them by their employer, often with tools rented from that same employer. They were working short weeks (three days, per William Gardiner) at their own discretion.</p>
+<p>In the early 1800s, their skilled labor was becoming unnecessary. With the help of expensive machines, unskilled labor could now produce lower-quality cloth, so employers were beginning to pass over these artisans in favor of cheaper employees: <a href="https://campus.murraystate.edu/academic/faculty/kBinfield/luddites/LudditeHistory.htm">children, unapprenticed workers, and women</a><sup><a href="https://www.seangoedecke.com/luddites-and-ai-datacenters/#fn-3">3</a></sup>. Combined with the bad economic position of England at the time (at war with France, and thus deliberately cutting off much European trade), times were beginning to be very tough indeed. Starvation was a real threat.</p>
+<h3>What did they do?</h3>
+<p>Cloth artisans were groups of capable men who were used to getting their own way, knew each other very well, and were broadly respected in their communities. It was thus a natural response for them to organize into what was effectively a militant union. The Luddites would send anonymous threatening letters to their old (or current) bosses, warning them to stop using their machines. If they didn’t comply, they would raid the workshop or factory, smashing the machines up.</p>
+<p>They typically did not harm people, though they certainly delivered threats of bodily harm or even murder, and the raids were violent enough (e.g. shooting through windows) to have risked accidental deaths. In at least two instances where a factory owner was seen as unusually cruel, the Luddites did attempt assassinations: one unsuccessful, and one successful one that eventually prompted a crackdown that ended the movement for good.</p>
+<p>Luddism was fully decentralized. Different communities could and did decide to engage in machine-raiding independently, particularly when news spread of the tactic succeeding. Although each community had its own influential men, there was never a single “leader of Luddism”. King Ludd himself was a folk-tale figure. This made it an absolute nightmare for the British government to try and suppress them: putting down one Luddist group did nothing to prevent other groups from continuing to operate.</p>
+<h3>All the king’s spies</h3>
+<p>I was surprised by how <em>difficult</em> it was for the government to get a hold of any of the local Luddist ringleaders. The government was willing to offer huge rewards to informers: at one point up to 40x the yearly wage. However, there were no takers for several years. Armies of spies were recruited and tasked with infiltrating Luddist groups, with absolutely no success.</p>
+<p>Why was it so hard? Firstly, because the working class was so overwhelmingly pro-Luddist. People universally blamed the economic situation on the government and the factory owners (rightfully so, since the government had chosen to go to war and the factory owners had chosen to embrace automation). Secondly, the communities in question were so insular and tightly-knit that informers would have to rat on their friends and relatives. The handful of people who did eventually inform lived out the rest of their lives as pariahs.</p>
+<p>Because each group was so insular, any spies trying to infiltrate the movement would have been complete strangers to the community, and would thus have a very hard time gaining the trust of a group of men who had known each other for their whole lives. The spies that did exist were restricted to the occasional inter-group Luddist meetings, where people didn’t all know each other so closely. But it’s unclear how important those meetings were, since Luddist groups didn’t need to coordinate to achieve their goals. According to Merchant, the spies spent much of their time embellishing tales of an imminent revolution to encourage their employers to keep the money flowing.</p>
+<h3>The crackdown</h3>
+<p>In the absence of reliable information, the British government was forced to use force. And they did, sending 12,000 troops<sup><a href="https://www.seangoedecke.com/luddites-and-ai-datacenters/#fn-4">4</a></sup> into the northern counties. This served mainly as an intimidation tactic, since there was no standing Luddite army to fight, and the soldiers spent most of their time marching back and forth or being abused by the townspeople.</p>
+<p>More successful was the imposition of a full police state in Yorkshire, under the magistrate Joseph Radcliffe, who was empowered to randomly grab people off the street and interrogate them for days. That pressure eventually convinced a handful of people to give up their local Luddist organizers, who were tried and inevitably hanged. Their deaths (and the ensuing climate of fear) ended the high-water mark of Luddist activity. Even then, Luddist raids continued on and off for <em>six more years</em> before petering out.</p>
+<h3>Did the Luddites succeed?</h3>
+<p>This is a tricky question. In one sense the answer is obviously no: the movement was crushed, many of their leaders were executed, the textile industry continued to be automated, and today there are no longer thousands of jobs for skilled British weavers, knitters, spinners and dyers. The pro-automation side won.</p>
+<p>However, they did achieve a number of short-lived victories. Their early threats often succeeded in preventing the building of a factory in a particular location, or in delaying the adoption of industrial machinery in a particular shop by years. In one case, hosiers that had been spooked by Luddite activity gave out pre-emptive bonuses to their workers to discourage them from smashing up their machines (which were indeed not smashed).</p>
+<p>The Luddites also scared the hell out of the British government, who (encouraged by their over-eager spies) thought they might have a genuine revolution on their hands. While they didn’t get many legal concessions at the time, the specter of Luddism must have loomed over the labor reform movement of the 1800s, which saw the first anti-child-labor laws and the beginnings of independent inspection of factories.</p>
+<p>Finally, every book I read argued that the Luddism movement may have created the first idea of a “working class”, by unifying many previously-independent groups of workers against a common enemy. Seen this way, the “political arm”<sup><a href="https://www.seangoedecke.com/luddites-and-ai-datacenters/#fn-5">5</a></sup> of Luddism can arguably claim partial credit for every labor victory since the 1800s (though the ringleaders were still hanged and the weavers did still lose their jobs).</p>
+<h3>The Luddist approach in a nutshell</h3>
+<p>We can now describe the “Luddist approach” to fighting technological change:</p>
+<ol> <li>Find a few conspirators in your existing community who agree with your political project (but don’t join a broader organization, since that leaves you vulnerable)</li> <li>Make public anonymous demands in support of your specific goals, backed up by threats of violence, signed by a fictional character that’s easy for other groups to appropriate</li> <li>If your threats are ignored, attack the physical machines in the dead of night, destroying them and threatening (but not killing) any guards</li> <li>Hope your example inspires many more people to independently do (1)-(3) themselves</li> <li>Keep raiding, optionally escalating to assassination of some of the bosses, until you bait a totalitarian crackdown from the government </li> <li>Eventually get arrested and executed, to great public dismay</li> <li>Twenty years later, your example inspires the first national trade unions</li> </ol>
+<p>Note that starting or joining a national movement is <em>not</em> the Luddist approach. Staying almost entirely isolated in small cells helped the Luddists avoid government spies and made them impossible to root out without enforcing a police state. Note also that you need a <em>lot</em> of public support for this to work: so that you get a lot of copycat groups without having to explicitly organize them, and so that your property destruction and murder is taken sympathetically instead of getting you immediately reported and arrested.</p>
+<h3>Why Luddism is not a good model for the anti-AI movement</h3>
+<p>There are many reasons why this doesn’t map onto the current anti-AI movement. First, Luddism grew from a homogeneous group of high-status workers whose jobs almost vanished overnight, not a broad group of people whose jobs are getting slightly worse because of AI (like the gig-economy workers Merchant endlessly references). That meant that Luddites had <em>really specific</em> asks: higher wages for piecework, a phased introduction of specific textiles machinery, and so on. They were not generally demanding that the machines all be immediately destroyed<sup><a href="https://www.seangoedecke.com/luddites-and-ai-datacenters/#fn-6">6</a></sup>.</p>
+<p>Second, Luddism was very local. A pre-existing group of artisans in a particular town would gather in that town - either at work or an inn, say - and decide to petition or raid the businesses in that town that were harming their livelihoods. AI concerns are not like this. It isn’t businesses in Chicago or Tokyo that are making decisions that imperil Chicago’s or Tokyo’s jobs, it’s businesses in San Francisco. Unlike the Luddists, anti-AI activists can’t naturally organize with people they already know to take direct action where they already live.</p>
+<p>Third, Luddist <em>victory</em> could also be local. If you successfully lobby your local cloth business to not use a weaving machine, you have secured your job at that business for a while. But if you successfully lobby your town (or even your country!) to not build a datacenter, it doesn’t meaningfully improve your local position, since your job can be as easily replaced by a datacenter on the other side of the planet.</p>
+<h3>A total failure of leadership</h3>
+<p>Reading through the history of the Luddites from a modern perspective, I was struck by the near-total absence of <em>good government</em>. The artisans were left to work out their grievances with their bosses more or less by themselves, with no formal channels for complaint or any attempt at mediation. When the government did intervene - in response to near-universal unrest in <em>half of the country</em> - they did this:</p>
+<ol> <li>Make machine-breaking and oath-taking capital crimes</li> <li>Dump thousands of soldiers more or less at random into the area, with no plan to guard factories or do anything beyond just hang around in case a revolution broke out</li> <li>Empower a single magistrate to arrest and interrogate whoever he wanted in order to root out the conspiracy</li> </ol>
+<p>I suppose it worked, in the sense that it eventually succeeded in stopping the Luddist raids. But I can’t help but think that even a token gesture of compromise (say, requiring employers to make their wages public, or restricting the most cheap-and-nasty factory-made textile products) would have gone a long way towards calming things down. This almost actually happened! The 1812 Framework Knitters’ Bill, which had these provisions in it, passed the House of Commons but was shot down in the House of Lords.</p>
+<p>Why did the government fail to even make a token attempt at compromise? Before the industrial revolution, I wonder if the workers and bosses of the English textiles industry were genuinely able to often just work out their problems together, so the government never really needed to do large-scale mediation. When that changed - when automation first made it possible for the bosses to durably “win” - government took a long time to realize, so there were some unpleasant decades of disempowered workers trying to bully factory-owners (via riots and death threats), and factory-owners trying to brutalize workers (via direct violence and automation).</p>
+<h3>Final thoughts</h3>
+<p>The Luddites weren’t anti-technology in general. Instead, they were against four or five specific machines that were automating away their skilled work. Contrary to many of the books I read, I think that’s actually fairly well understood today. But what surprised me was how truly decentralized and widespread the movement was. Every town with weavers faced the same incentives (the bosses to industrialize, and the workers to fight back) which created Luddism locally. And <em>nobody</em> was willing to report the Luddites: not for years, or for what would have been a fortune in cash, or in disagreement with their actions. They were only stopped by a truly fascist crackdown, with the army in the streets and the secret police pulling away random citizens for arrest and questioning.</p>
+<p>I can see why modern “Luddites” - who are genuinely anti-technology - talk so much about the legacy of original Luddites. Luddism was a grassroots organization which notched up some real short-term wins, enjoyed near-total support among the public, and didn’t seem to be troubled by infighting at all<sup><a href="https://www.seangoedecke.com/luddites-and-ai-datacenters/#fn-7">7</a></sup>. If you’re an anti-AI campaigner, I bet all of that sounds great<sup><a href="https://www.seangoedecke.com/luddites-and-ai-datacenters/#fn-8">8</a></sup>. But I’m not convinced that the neo-Luddites really are the inheritors of Luddism. A load-bearing feature of Luddism is that it was <em>local</em>: it didn’t have manifestos, or leaders, or factions, or even much explicit ideology beyond the artisans’ immediate practical concerns. These were local men striking back against the local factories harming their local jobs. That simply isn’t the case with AI, where a datacenter in China can take my job in Australia.</p>
+<p>If it isn’t time to start burning down datacenters, what can we do? Well, workers today are better off than the Luddites were, because we stand on their shoulders. Unlike the Luddites, today’s workers can all vote (and I suspect there will be no shortage of anti-AI candidates to vote for). It’s a much less exciting answer to say “try and get better laws passed” than to say “viva the revolution, where’s my Molotov cocktail”. Still, if the Luddites had that option, I suspect they would have used it.</p>
+<ol> <li> <p>I got linked <a href="https://tante.cc/2026/04/21/ai-as-a-fascist-artifact/">this article</a> calling AI a “fascist artifact” (on a blog called “Breaking Frames”, a clear reference to Luddism) while I was writing this blog post.</p> <a href="https://www.seangoedecke.com/luddites-and-ai-datacenters/#fnref-1">↩</a> </li> <li> <p>I really enjoyed Merchant’s book and did not enjoy Mueller’s (which I found to be 10% about the Luddites and 90% about interminable intra-Marxist ideological arguments). I also read <a href="https://www.amazon.com.au/Luddites-Protested-Machinery-Industrial-Revolution/dp/171936186X">The Luddites</a>, which was effectively a dry summary of the ground Merchant covers, a bunch of other essays, and went back and forth with ChatGPT and Claude on some of the key questions.</p> <a href="https://www.seangoedecke.com/luddites-and-ai-datacenters/#fnref-2">↩</a> </li> <li> <p>Merchant (around page 134) attempts to characterize Luddism as a pro-feminist movement, citing some examples of women helping organize raids, but later on even he (page 162) quotes a representative of the Irish weaver’s guild effectively saying “we don’t have your English problems of women working in the industry”. In general it’s a bit frustrating that the popular books on Luddism are all fairly uncritically pro-Luddist (though not surprising, I suppose). Merchant doesn’t touch at all on the Luddist <a href="https://ludditebicentenary.blogspot.com/2011/12/22nd-december-1811-william-milnes.html">practice</a> of going around to knitting-shops with women and “discharging them from working”.</p> <a href="https://www.seangoedecke.com/luddites-and-ai-datacenters/#fnref-3">↩</a> </li> <li> <p>Sometimes this is described as more troops that were sent to fight Napoleon (even by Merchant himself on page 89), but that <a href="https://medium.com/@antonhowes/were-more-troops-sent-to-quash-the-luddites-than-to-fight-napoleon-233c802c216d">isn’t right</a>.</p> <a href="https://www.seangoedecke.com/luddites-and-ai-datacenters/#fnref-4">↩</a> </li> <li> <p>In quotes because it was not an official Luddist group (there were none), just people who were trying to stop the violence through lobbying and legislation.</p> <a href="https://www.seangoedecke.com/luddites-and-ai-datacenters/#fnref-5">↩</a> </li> <li> <p>Otherwise why would any boss agree, instead of just waiting for the Luddites to do it themselves?</p> <a href="https://www.seangoedecke.com/luddites-and-ai-datacenters/#fnref-6">↩</a> </li> <li> <p>As far as I can tell this is true: the Luddists basically had no internal conflict. I think this is because each individual cell knew each other well already, and so handled their disagreements privately (instead of by writing pamphlets), and disagreements between cells didn’t matter that much because they had no need to coordinate.</p> <a href="https://www.seangoedecke.com/luddites-and-ai-datacenters/#fnref-7">↩</a> </li> <li> <p>It beats the hell of the other popular reference, Dune’s <a href="https://dune.fandom.com/wiki/Butlerian_Jihad">Butlerian Jihad</a>, which was two generations of brutal violence followed by the reimposition of the feudal system. (Although, at least the Butlerian Jihad <em>succeeded</em>…)</p> <a href="https://www.seangoedecke.com/luddites-and-ai-datacenters/#fnref-8">↩</a> </li> </ol></div>
+      
+    </article>
+    
+    <article>
+      <h1>The stranger secret: how to talk to anyone – and why you should</h1>
+      <div class="article-meta">
+        Viv Groskop
+        · 09 Mar 2026 · <a href="https://theguardian.com/lifeandstyle/2026/feb/24/stranger-secret-how-to-talk-to-anyone-why-you-should/">Source</a>
+      </div>
+      <div class="article-body"><figure class="article-figure"><picture class="article-picture"><img alt="Two 1950s Women Sitting Under Beauty Salon Hair Dryers Wearing Hairnets Towels Talking Gossip " src="https://i.guim.co.uk/img/media/5426e410425dfa173d930beb0b9a4adadfe2f4ca/0_0_5873_4699/master/5873.jpg?width=465&amp;dpr=1&amp;s=none&amp;crop=none" class="article-image"/></picture><figcaption data-spacefinder-role="inline">The days before we all had mobile phones. Photograph: Debrocke/ClassicStock</figcaption></figure>
+<h2 data-gu-name="standfirst">Forget fear of public speaking. A lot of people now shy away completely from speaking to anyone in public. But if we learn to do this it’s enriching, for ourselves and society</h2>
+<p>It started with two incidents on the same day. In a fairly empty train carriage, a stranger in her 70s approached me: “Do you mind if I sit here? Or did you want to be alone with your thoughts?” I weighed it up for a split second, conscious that I was, in effect, agreeing to a conversation: “No, of course I don’t mind. Sit down.”</p>
+<p>She turned out to be an agreeable, kind woman who had had a difficult day. I didn’t have to say much: “I’m sorry to hear that.” “That’s tough for you.” She occasionally asked me questions about myself, which I dodged politely. I could tell she was only asking so the conversation would not be so one-sided. Some moments are for listening, not sharing. I sensed, without needing to know explicitly, that she was probably returning to an empty house and wanted to process the day out loud. I didn’t feel uncomfortable, as I knew I could duck out at any moment by saying I needed to get back to my phone messages. But instead we talked – or, rather, I listened – for most of the 50-minute journey. I registered that it was an unusual occurrence, this connection, but thought little more of it. A small part of me was glad this kind of thing still happens.</p>
+<p>That evening, I ate at a restaurant with my family. As the waitress brought the bill, we chatted and I learned that she was from Seoul. She was shy and softly spoken. We talked gently about Korean food and what she missed about home. Once again, I thought little of this exchange.</p>
+<p>As we walked home, my 15-year-old son asked: “Is it OK to talk to people in that way?” “What way?” He was asking about the boundaries when it comes to talking to someone about their home country.</p>
+<p>This was a very good question. How do you know, generally, what the terms are of a conversation with a stranger? I realised that there is a sort of unwritten code you learn as you get older, which enables you to assess whether a conversation is a good idea or not. I thought about the woman who had approached me earlier. How did she know it was OK to talk to me? In the end, I replied to my son: “You don’t always know if it’s OK. Sometimes you have to take the risk and find out.”</p>
+<p>Then it struck me. A lot of people have given up taking a chance on other people: that they might want to listen, that they might want to talk. But they have also given up taking a chance on themselves: that they might be able to navigate a conversation with someone new, cope with knockbacks and steer a path through any misunderstandings.</p>
+<figure data-spacefinder-role="inline" data-spacefinder-type="model.dotcomrendering.pageElements.ImageBlockElement" class="article-figure"><picture class="article-picture"><img alt="1970s women chatting over the fence" src="https://i.guim.co.uk/img/media/806c0c1529c7c258159b7c42834c5d1e4a3d8aec/0_0_4687_3730/master/4687.jpg?width=445&amp;dpr=1&amp;s=none&amp;crop=none" class="article-image"/></picture><figcaption data-spacefinder-role="inline">Everybody needs good neighbours. Photograph: Harold M Lambert/Getty Images</figcaption></figure>
+<p>The disappearance of these kinds of interactions from day-to-day life – in pubs, restaurants, shops, queues, on public transport – is striking. I have been talking to people tangentially about this for the past 10 years, ever since I started researching my book, <a data-link-name="in body link" href="https://guardianbookshop.com/how-to-own-the-room-9781804999004/?utm_source=editoriallink&amp;utm_medium=merch&amp;utm_campaign=article">How to Own the Room</a>, which came out in 2018 and went on to become <a data-link-name="in body link" href="https://vivgroskop.com/podcasts/">a podcast</a>. This project was supposed to be about public speaking and confidence. But I realised from people’s reactions to the topic – especially younger people – that their deepest anxiety lies elsewhere, in something much more banal and inexpressible. Forget “public speaking”. What a lot of people don’t like at all any more is “speaking to anyone in public”.</p>
+<p>Many reasons are cited: state-of-the-art don’t-talk-to-me headphones, mobile phones and social media generally, the rise of working from home, the introduction of touchscreens in takeaway restaurants so you barely interact with a human, <a data-link-name="in body link" href="https://www.theguardian.com/commentisfree/2025/feb/02/coffee-shops-not-just-for-hot-drinks-starbucks">the death of third spaces</a>, the pandemic. In the end, the biggest excuse becomes “social norm reinforcement”. This is the idea that if no one talks to you, you don’t talk to anyone either. A casual conversation in a waiting room where no one else is having a casual conversation suddenly sounds not very casual at all.</p>
+<p>On an individual level, some people perfectly understandably cite neurodivergence, introversion, inability to tolerate eye contact or an intense loathing for small talk (especially about the weather) as reasons to avoid these conversations. It’s certainly true that this time six years ago – at the height of lockdown – it would have been rude and unsafe to start a chat, let alone sit next to someone on a train. But now? It can feel as if everyone is still adhering to the 2-metre rule, employing “the tech shield” or even “phantom phone use” (pretending that you need to be on your phone when you don’t).</p>
+<p>This goes deeper than adolescent angst or personal preference. And possibly deeper than our overreliance on phones. We are losing a basic human skill. The ability to speak to others and understand them is being compromised.</p>
+<figure data-spacefinder-role="showcase" data-spacefinder-type="model.dotcomrendering.pageElements.ImageBlockElement" class="article-figure"><picture class="article-picture"><img alt="People sitting at a train station, most staring at their phone or talking on it, a couple reading the paper" src="https://i.guim.co.uk/img/media/e33b9fa479bd5d57161a3fa9eca72285b236a296/0_0_5179_2449/master/5179.jpg?width=445&amp;dpr=1&amp;s=none&amp;crop=none" class="article-image"/></picture><figcaption data-spacefinder-role="inline">Rail passengers at Waterloo East, London, using a variety of ways to avoid talking to each other. Photograph: Windmill Images/Alamy</figcaption></figure>
+<p>Dr Jared Cooney Horvath, a teacher turned cognitive neuroscientist who focuses on speech, has warned that gen Z is the first generation in history to underperform the previous generation on cognitive measures. And Dr Rangan Chatterjee, a bestselling author and father of two teenagers, said in <a data-link-name="in body link" href="https://www.theguardian.com/lifeandstyle/2026/feb/16/dr-rangan-chatterjee-interview-screen-time-mental-health-banning-social-media-18-podcaster">an interview this month</a>: “I think we’re raising a generation of children who have low self-worth, who don’t know how to conduct conversations.”</p>
+<p>It’s not only affecting young people. The psychologist Esther Perel calls it a “<a data-link-name="in body link" href="https://estherperel.substack.com/p/letters-from-esther-talk-to-strangersand">global relational recession</a>”. She writes: “The point is not depth. The point is practice, the gentle strengthening of our social muscles.” On her YouTube channel she recently introduced the topic of <a data-link-name="in body link" href="https://www.youtube.com/watch?v=P3bBOiDOCyc">Talking to Strangers in 2026</a>.</p>
+<p>Something that used to come naturally is now a subject of longing and fascination, as if it were a rare anthropological phenomenon. Videos are springing up on social media, cataloguing encounters with the unknown “other”: earnest, well-meaning, wholesome videos, under the categories “social anxiety”, “extrovert” and “talking to strangers”. Many have the unstated theme of “out and about in the big city”. Some are personal experiments, often extremely ill-advised ones. Can you challenge yourself to tell a joke to an entire train carriage? What happens if you go up to an older woman and tell her she looks beautiful? The (usually young) person doing the filming is often trying to improve themself in some way or attempting to “be braver” or “less socially anxious”. The camera acts as their accountability partner. The people they’re talking to are relegated to the role of “task to be ticked off the list”. Either that or there’s a push towards a Hallmark card effect: “Look, other people are not as horrible as you thought.” (Cue swell of trending motivational audio.)</p>
+<p>The trouble with these social media experiments, of course, is that they are performative and individualistic. There’s an element of commodification: the encounter must be ripe for digital packaging. Often it’s not clear if the filming is consensual. The connections are one-way and border on the exploitative or manipulative. They are designed for individual personal growth or free, self-directed therapy (“this made me more confident”) and for clicks and voyeurism (“check out this person’s reaction”). The effect is to make “talking to absolutely anyone” seem even more alienating, fake and narcissistic. This has spawned a secondary genre of parody videos such as the comedian Al Nash’s “<a data-link-name="in body link" href="https://www.instagram.com/reel/DRxLUgJDToM/">A cup of tea with a stranger – an amazing conversation!</a>” In this clip, an irritating interviewer passes tea to a stranger on a park bench under the guise of “helping you with your loneliness”, only for the encounter to turn awkward when the stranger accidentally drops the cup and smashes it.</p>
+<figure data-spacefinder-role="inline" data-spacefinder-type="model.dotcomrendering.pageElements.ImageBlockElement" class="article-figure"><picture class="article-picture"><img alt="Two 1950s men in shirts, ties, jackets and knitted vests chat by the garden wall" src="https://i.guim.co.uk/img/media/af60923fe9a8687ea8a4cec60216f47c3fcadfbe/0_0_2386_2443/master/2386.jpg?width=445&amp;dpr=1&amp;s=none&amp;crop=none" class="article-image"/></picture><figcaption data-spacefinder-role="inline">Take your cue from Mr Hewitt and Mr Boucker, shown here having a neighbourly chat in 1957.  Photograph: Picture Post/Getty Images</figcaption></figure>
+<p>It’s only natural to fear rejection, humiliation, giving offence or overstepping a boundary when we initiate a conversation – or even when we respond to someone else’s attempt. But according to a study by the University of Virginia (<a data-link-name="in body link" href="https://www.pnas.org/doi/10.1073/pnas.2206992119">Talking with strangers is surprisingly informative</a>), we overstate these fears in our minds: “People tend to underestimate how much they’ll enjoy the conversation, feel connected to their conversation partner and be liked by their conversation partner.”</p>
+<p>The key is to lower the stakes. Make it less of a big deal. Don’t focus on what could go wrong. Also, don’t focus on how amazing this could be. You are just saying, “It’s cold today, isn’t it?” You are not asking someone to join you on a quest for world peace. Similarly, if an approach is made towards you and you don’t want to respond, just be confident and clear either with your gestures (look down, don’t make eye contact) or with speech: “I can’t talk right now.”</p>
+<p>In her work on kindness, the University of Sussex psychologist Gillian Sandstrom calls these conversational gambits “<a data-link-name="in body link" href="https://www.bps.org.uk/psychologist/why-you-should-talk-strangers">small, humanising acts</a>”. It’s important to emphasise the “small” aspect. Sometimes I think people are overwhelmed by the “bigness” in their mind of the fear of interaction, and how disproportionate that seems next to the “smallness” of the pathetic reality. Don’t read too much into passing moments. Trust yourself to read social cues and work out how you stand in relation to them. Know yourself and your own personality. Not everyone wants to talk and not everyone wants to be talked to. And that’s OK. It can depend on the day and on your mood. Give yourself get-out-of-jail-free cards in these conversations. If someone doesn’t respond, assume they didn’t hear you or they’re having a bad day. If someone talks to you and you feel uncomfortable or you’re having a bad day, it is not your job to be kind or nice. If their attempt was well meant, they’ll get over it. We don’t need to avoid each other. But we also don’t have to be on niceness autopilot all the time.</p>
+<p>In any case, our worst fears about these interactions are rarely realised. Last year, the team of Stanford psychologist Prof Jamil Zaki, the author of <a data-link-name="in body link" href="https://guardianbookshop.com/hope-for-cynics-9781472148209/?utm_source=editoriallink&amp;utm_medium=merch&amp;utm_campaign=article">Hope for Cynics: The Surprising Science of Human Goodness</a>, put up posters around campus with messages about approachability and warmth. They found that what students most needed was permission – the reminder to “take a chance”. <a data-link-name="in body link" href="https://news.stanford.edu/stories/2025/03/social-connections-gen-z-research-jamil-zaki">They concluded</a>: “Too often, we’re sure that conversation and connection will exhaust us, or that we can’t count on others.” In our minds, we paint people (and ourselves) as profoundly disappointing. They – and we – are rarely that bad. And even if they are, it will make a good story to tell later to the people who are not strangers to you.</p>
+<figure data-spacefinder-role="showcase" data-spacefinder-type="model.dotcomrendering.pageElements.ImageBlockElement" class="article-figure"><picture class="article-picture"><img alt="People queue up in a supermarket car park, standing well apart from each other" src="https://i.guim.co.uk/img/media/7d24b449824f01e560c7f80a0d1617a788ae83f5/0_0_4365_2190/master/4365.jpg?width=445&amp;dpr=1&amp;s=none&amp;crop=none" class="article-image"/></picture><figcaption data-spacefinder-role="inline">Supermarket shoppers in Rushden, England, observing the 2-metre rule in the first Covid lockdown, 2020. Photograph: David Rogers/Getty Images</figcaption></figure>
+<p>Is it going to change your life if you talk to someone in a shop about the prospect of rain? Probably not. But in light of the current state of the world, even the slightest possibility of brightening someone’s day is valuable. It’s certainly worth the punt. Perhaps the way they respond matters less than the fact that you retained your humanity enough to try something, to risk, to connect.</p>
+<p>Small talk may not profoundly alter your life. But its absence will profoundly alter human life as we know it. We live in a world of intense and often unnecessary division. Small talk is a tiny, free and very possibly priceless reminder of our shared humanity. If we intentionally give up talking to strangers, if we purposely decide to give in to the phone shield, the consequences will be horrible. Arguably, we are already on the verge of doing this. Let’s back up and start a conversation before it’s too late.</p>
+<p>Viv Groskop is hosting a masterclass on How to Own the Room at the Royal Geographic Society, London, on 5 March. Tickets: <a data-link-name="in body link" href="http://howtoacademy.com/">howtoacademy.com</a></p></div>
+      
+    </article>
+    
+    <article>
+      <h1>A statistical approach to model evaluations</h1>
+      <div class="article-meta">
+        anthropic.com
+        · 14 Sep 2025 · <a href="https://www.anthropic.com/research/statistical-approach-to-model-evals">Source</a>
+      </div>
+      <div class="article-body"><p>Suppose an AI model outperforms another model on a benchmark of interest—testing its general knowledge, for example, or its ability to solve computer-coding questions. Is the difference in capabilities real, or could one model simply have gotten lucky in the choice of questions on the benchmark?</p>
+<p>With the amount of public interest in AI model evaluations—informally called “evals”—this question remains surprisingly understudied among the AI research community. This month, we published a <a href="https://arxiv.org/abs/2411.00640">new research paper</a> that attempts to answer the question rigorously. Drawing on statistical theory and the experiment design literature, the paper makes a number of recommendations to the AI research community for reporting eval results in a scientifically informative way. In this post, we briefly go over the reporting recommendations, and the logic behind them.</p>
+<h3>Recommendation #1: Use the Central Limit Theorem</h3>
+<p>Evals often consist of hundreds or thousands of unrelated questions. <a href="https://arxiv.org/abs/2009.03300v3">MMLU</a>, for instance, contains questions as diverse as:</p>
+<ul><li>Who discovered the first virus?</li><li>What is the inverse of 𝑓(𝑥)=4−5𝑥?</li><li>Who said that “Jurisprudence is the eye of law”?</li></ul>
+<p>To compute an overall eval score, each question is separately scored, and then the overall score is (usually) a simple average of these question scores. Typically, researchers focus their attention on this observed average. But in our paper, we argue that the real object of interest should not be the <em>observed</em> average, but rather the <em>theoretical</em> average across all possible questions. So if we imagine that eval questions were drawn from an unseen “question universe,” we can learn about the average score in that universe—that is, we can measure the underlying <em>skill</em>, independent of the “luck of the draw”—using statistical theory.</p>
+<figure class="article-figure"><img data-nimg="1" src="https://www.anthropic.com/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fb34871a36ad66fa0330e3ad6488ee87eb96bddda-2401x1260.png&amp;w=3840&amp;q=75" srcset="/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fb34871a36ad66fa0330e3ad6488ee87eb96bddda-2401x1260.png&amp;w=3840&amp;q=75 1x" class="article-image"/><figcaption>If we imagine that eval questions were drawn from a “question universe,” then eval scores will tend to follow a normal distribution, centered around the average score of all possible questions.</figcaption></figure>
+<p>This formulation buys us analytic robustness: if a new eval were to be created with questions having the same difficulty distribution as the original eval, we should generally expect our original conclusions to hold.</p>
+<p>In technical terms: under the fairly mild conditions of the <a href="https://en.wikipedia.org/wiki/Central_limit_theorem">Central Limit Theorem</a>, the mean values of several random samples taken from the same underlying distribution will tend to follow a <a href="https://en.wikipedia.org/wiki/Normal_distribution">normal distribution</a>. The standard deviation (or width) of that normal distribution is commonly known as the <a href="https://en.wikipedia.org/wiki/Standard_error">standard error of the mean</a>, or SEM. In our paper, we encourage researchers to report the SEM, derived from the Central Limit Theorem, alongside each calculated eval score—and we show researchers how to use the SEM to quantify the difference in theoretical means between two models. A 95% <a href="https://en.wikipedia.org/wiki/Confidence_interval">confidence interval</a> can be calculated from the SEM by adding and subtracting 1.96 × SEM from the mean score.</p>
+<h3>Recommendation #2: Cluster standard errors</h3>
+<p>Many evals violate the above assumption of independently selected questions, and instead consist of groups of closely related questions. For example, several questions in a reading-comprehension eval may ask about the same passage of text. Popular evals that follow this pattern include <a href="https://aclanthology.org/N19-1246/">DROP</a>, <a href="https://arxiv.org/abs/1808.07036">QuAC</a>, <a href="https://aclanthology.org/D17-1082/">RACE</a>, and <a href="https://arxiv.org/abs/1806.03822">SQuAD</a>.</p>
+<p>For these evals, each question’s selection from the “question universe” is no longer independent. Because including several questions about the same passage of text will yield less information than selecting the same number of questions about different passages of text, a naive application of the Central Limit Theorem to the case of non-independent questions will lead us to underestimate the standard error—and potentially mislead analysts into drawing incorrect conclusions from the data.</p>
+<p>Fortunately, the problem of <a href="https://en.wikipedia.org/wiki/Clustered_standard_errors">clustered standard errors</a> has been extensively studied in the social sciences. When the inclusion of questions is non-independent, we recommend clustering standard errors on the unit of <a href="https://en.wikipedia.org/wiki/Randomization">randomization</a> (for example, passage of text), and we provide applicable formulas in our paper.</p>
+<figure class="article-figure"><img data-nimg="1" src="https://www.anthropic.com/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Ff6f90f93dc66380904709a3ef4d63b92332871fd-2401x1260.png&amp;w=3840&amp;q=75" srcset="/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Ff6f90f93dc66380904709a3ef4d63b92332871fd-2401x1260.png&amp;w=3840&amp;q=75 1x" class="article-image"/><figcaption>If questions arrive in related clusters—a common pattern in reading-comprehension evals—eval scores will be more spread-out compared to the non-clustered case.</figcaption></figure>
+<p>In practice, we have found that clustered standard errors on popular evals can be over three times as large as naive standard errors. Ignoring question clustering may lead researchers to inadvertently detect a difference in model capabilities when in fact none exists.</p>
+<h3>Recommendation #3: Reduce variance within questions</h3>
+<p>Variance is a measurement of how spread-out a random variable is. The variance of an eval score is the square of the standard error of the mean, discussed above; this quantity depends on the amount of variance in the score on each individual eval question.</p>
+<p>A key insight of our paper is to decompose a model’s score on a particular question into two terms that are added together:</p>
+<ul><li>The mean score (the average score that the model would achieve if asked the same question an infinite number of times—even if the model might produce a different answer each time); and</li><li>A random component (the difference between a realized question score and the mean score for that question).</li></ul>
+<p>Thanks to the <a href="https://en.wikipedia.org/wiki/Law_of_total_variance">law of total variance</a>, reducing the variance in the random component directly leads to a smaller standard error of the overall mean, and thus greater statistical precision. Our paper highlights two strategies for reducing variance in the random component depending on whether or not the model is asked to think step by step before answering (a prompting technique known as CoT, or chain-of-thought reasoning).</p>
+<p>If an eval uses chain-of-thought reasoning, we recommend resampling answers from the same model several times, and using the question-level averages as the question scores fed into the Central Limit Theorem. We note that the <a href="https://github.com/UKGovernmentBEIS/inspect_ai/">Inspect framework</a> correctly computes standard errors in this way via its <a href="https://inspect.ai-safety-institute.org.uk/scorers.html#sec-reducing-epochs"><em>epochs</em> parameter</a>.</p>
+<figure class="article-figure"><img data-nimg="1" src="https://www.anthropic.com/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fefef59a06ddeb530fa15f31dc0937f28f70f655b-2401x1260.png&amp;w=3840&amp;q=75" srcset="/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fefef59a06ddeb530fa15f31dc0937f28f70f655b-2401x1260.png&amp;w=3840&amp;q=75 1x" class="article-image"/><figcaption>If a model produces answers non-deterministically, then generating (and grading) several answers per question will result in less spread-out eval scores.</figcaption></figure>
+<p>If the eval does not use chain-of-thought reasoning (i.e., its answers are not “path dependent”), we note that the random component in the score may often be eliminated altogether using next-token probabilities from the language model. For example, if the correct answer to a multiple-choice question is “B”, we would simply use the probability of the model producing the token “B” as the question score. We are not aware of an open-source evals framework which implements this technique.</p>
+<h3>Recommendation #4: Analyze paired differences</h3>
+<p>Eval scores don’t have any meaning on their own; they only make sense in relation to one another (one model outperforms another model, or ties another model, or outperforms a person). But could a measured difference between two models be due to the specific choice of questions in the eval, and randomness in the models’ answers? We can find out with a <a href="https://en.wikipedia.org/wiki/Student%27s_t-test">two-sample <em>t</em>-test</a>, using only the standard errors of the mean calculated from both eval scores.</p>
+<p>However, a two-sample test ignores the hidden structure inside eval data. Since the question list is shared across models, conducting a <a href="https://en.wikipedia.org/wiki/Paired_difference_test">paired-differences test</a> lets us eliminate the variance in question difficulty and focus on the variance in responses. In our paper, we show how the result of a paired-differences test will be related to the <a href="https://en.wikipedia.org/wiki/Pearson_correlation_coefficient">Pearson correlation coefficient</a> between two models’ question scores. When the correlation coefficient is higher, the standard error of the mean difference will be smaller.</p>
+<p>In practice, we find the correlation of question scores on popular evals between frontier models to be substantial—between 0.3 and 0.7 on a scale of −1 to +1. Put another way, frontier models have an overall tendency to get the same questions right and wrong. Paired-difference analysis thus represents a “free” variance reduction technique that is very well suited for AI model evals. Therefore, in the interest of extracting the clearest signal from the data, our paper recommends reporting pairwise information—mean differences, standard errors, confidence intervals, and correlations—whenever two or more models are being compared.</p>
+<h3>Recommendation #5: Use power analysis</h3>
+<p>The flip side of the statistical significance coin is statistical power, which is the ability of a statistical test to detect a difference between two models, assuming such a difference exists. If an eval doesn’t have very many questions, confidence intervals associated with any statistical tests will tend to be wide. This means that models will need to have a large underlying difference in capabilities in order to register a statistically significant result—and that small differences will likely go undetected. Power analysis refers to the mathematical relationship between observation count, <a href="https://en.wikipedia.org/wiki/Power_(statistics)">statistical power</a>, the <a href="https://en.wikipedia.org/wiki/False_positive_rate">false positive rate</a>, and the <a href="https://en.wikipedia.org/wiki/Effect_size">effect size</a> of interest.</p>
+<p>In our paper, we show how to apply concepts from power analysis to evals. Specifically, we show researchers how to formulate a hypothesis (such as <em>Model A outperforms Model B by 3 percentage points</em>) and calculate the number of questions that an eval should have in order to test this hypothesis against the null hypothesis (such as <em>Model A and Model B are tied</em>).</p>
+<p>We believe that power analysis will prove helpful to researchers in a number of situations. Our power formula will inform evaluators of models about the number of times to re-sample answers from questions (see Recommendation #3 above), as well as the number of questions that may be included in a random subsample while retaining the desired power properties. Researchers might use the power formula to conclude that an eval with a limited number of available questions is not worth running on a particular pair of models. Developers of new evals may wish to use the formula to help decide how many questions to include.</p>
+<h3>Conclusion</h3>
+<p>Statistics is the science of measurement in the presence of noise. Evals present a number of practical <a href="https://www.anthropic.com/news/evaluating-ai-systems">challenges</a>, and a true <a href="https://www.apolloresearch.ai/blog/we-need-a-science-of-evals">science of evals</a> remains underdeveloped. Statistics can only form one aspect of a science of evals—but a critical one, as an empirical science is only as good as its measuring tools. We hope that the recommendations in our paper <a href="https://arxiv.org/abs/2411.00640"><strong>Adding Error Bars to Evals: A Statistical Approach to Language Model Evaluations</strong></a> will help AI researchers calculate, interpret, and communicate eval numbers with greater precision and clarity than before—and we encourage researchers in the AI community to explore other techniques from experiment design so that they may understand more exactly all the things that they want to measure.</p></div>
+      
+    </article>
+    
+  </body>
+</html>
