@@ -1,0 +1,507 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Fred Talks - 2026-06-04</title>
+    <style>
+      @page {
+        size: A5;
+        margin: 8mm 9mm 9mm;
+      }
+
+      :root {
+        color: #111;
+        font-family: "Times New Roman", Times, serif;
+        --body-text-size: 9.5pt;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        color: #111;
+        background: #fff;
+        font-family: "Times New Roman", Times, serif;
+        line-height: 1.45;
+      }
+
+      a,
+      a:visited {
+        color: #111;
+        text-decoration: underline;
+      }
+
+      .cover {
+        min-height: calc(210mm - 17mm);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        page-break-after: always;
+        border: 1px solid #111;
+        padding: 8mm;
+        background: #fff;
+      }
+
+      .toc-item-meta,
+      .article-meta {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .masthead {
+        margin: 0;
+        font-size: 40pt;
+        line-height: 0.95;
+        text-transform: uppercase;
+      }
+
+      .issue-date {
+        margin: 4mm 0 0;
+        font-size: 14pt;
+      }
+
+      .issue-date sup {
+        font-size: 0.58em;
+        vertical-align: super;
+        line-height: 0;
+      }
+
+      .cover-deck {
+        max-width: 90mm;
+        font-size: 12pt;
+        margin: 0;
+      }
+
+      .toc {
+        border-top: 3px solid #111;
+        padding-top: 6mm;
+      }
+
+      .toc h2 {
+        margin: 0 0 4mm;
+        font-size: 11pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .toc-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .toc-item {
+        padding: 3mm 0;
+        border-bottom: 1px solid rgba(17, 17, 17, 0.2);
+      }
+
+      .toc-item-title {
+        font-size: 12pt;
+        margin: 0 0 1mm;
+      }
+
+      .toc-item-meta {
+        font-size: 8pt;
+      }
+
+      .masthead-compact {
+        margin: 0 0 6mm;
+      }
+
+      .masthead-compact h1 {
+        margin: 0;
+        font-size: 22pt;
+        line-height: 1.1;
+        text-transform: uppercase;
+      }
+
+      .masthead-compact .issue-date {
+        margin: 2mm 0 0;
+        font-size: 11pt;
+      }
+
+      .toc-compact {
+        border-top: 1px solid #111;
+        border-bottom: 1px solid #111;
+        padding: 4mm 0;
+        margin: 0 0 8mm;
+      }
+
+      article + article {
+        margin-top: 10mm;
+        padding-top: 6mm;
+        border-top: 2px solid #111;
+      }
+
+      h1 {
+        margin: 0 0 2mm;
+        font-size: 18pt;
+        line-height: 1.1;
+      }
+
+      .article-meta {
+        font-size: 8.5pt;
+        margin-bottom: 6mm;
+        padding-bottom: 3mm;
+        border-bottom: 1px solid #111;
+      }
+
+      .article-body {
+        font-size: var(--body-text-size);
+        font-family: "Times New Roman", Times, serif;
+      }
+
+      .article-body p,
+      .article-body li,
+      .article-body blockquote,
+      .article-body dd,
+      .article-body dt {
+        margin: 0 0 4mm;
+        orphans: 3;
+        widows: 3;
+      }
+
+      .article-body ul,
+      .article-body ol,
+      .article-body dl {
+        margin: 0 0 4mm 5mm;
+        padding: 0;
+      }
+
+      .article-body h2,
+      .article-body h3,
+      .article-body h4 {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        margin: 7mm 0 3mm;
+        line-height: 1.2;
+      }
+
+      .article-body blockquote {
+        margin-left: 6mm;
+        padding-left: 4mm;
+        border-left: 2px solid #111;
+      }
+
+      .article-body .media-omitted {
+        margin: 0 0 4mm;
+        font-size: 8.5pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(17, 17, 17, 0.65);
+      }
+
+      .article-body figure,
+      .article-body .article-figure,
+      .article-body picture,
+      .article-body .article-picture {
+        display: block;
+        max-width: 72mm;
+        margin: 0 auto 4mm;
+        break-inside: avoid;
+      }
+
+      .article-body img,
+      .article-body .article-image {
+        display: block;
+        max-width: min(100%, 72mm);
+        max-height: 34mm;
+        height: auto;
+        width: auto;
+        object-fit: contain;
+        margin: 0 auto 3mm;
+      }
+
+      .article-body figcaption {
+        margin-top: 1.5mm;
+        font-size: 8.5pt;
+        line-height: 1.3;
+        color: rgba(17, 17, 17, 0.8);
+      }
+
+      .article-note {
+        margin-top: 6mm;
+        padding-top: 3mm;
+        border-top: 1px solid #111;
+        font-size: 9pt;
+        font-style: italic;
+      }
+
+      @media screen {
+        body {
+          padding: 2rem;
+          margin: 0 auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    
+    <header class="masthead-compact">
+      <h1>Fred Talks</h1>
+      <p class="issue-date">
+        4<sup>th</sup> June 2026
+      </p>
+    </header>
+
+    <nav class="toc toc-compact">
+      <h2>Contents</h2>
+      <ol class="toc-list">
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Semantic Search Without Embeddings</div>
+          <div class="toc-item-meta">
+            Doug Turnbull · 3143 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Building Software Is Learning</div>
+          <div class="toc-item-meta">
+            Thorsten Ball · 1302 words
+          </div>
+        </li>
+        
+      </ol>
+    </nav>
+    
+
+    
+    <article>
+      <h1>Semantic Search Without Embeddings</h1>
+      <div class="article-meta">
+        Doug Turnbull
+        · 08 Jan 2026 · <a href="http://softwaredoug.com/blog/2026/01/08/semantic-search-without-embeddings.html">Source</a>
+      </div>
+      <div class="article-body"><p>When I need to stay warm, I search for “long johns” or “long underwear”. But modern outdoors clothing stores label this a “base layer”. For a waterproof jacket I search for “slickers” or a “ski jacket”, not realizing what I should search for is a “shell.”</p>
+<p>Despite my outdated terminology, search still works. I’m somehow understood and shown the right content.</p>
+<p>We call this <strong>semantic search</strong>. When you hear that, you might think embeddings. Today I want to stretch your thinking beyond. Fantasize and semanticize.</p>
+<p>Some teams wrongly assume semantic search equates to only “vector search”. You have more options, some that might better align to your domain and existing organizational skills. LLMs simplify classic ways of organizing search queries and information.</p>
+<p>Let’s contrast different approaches, and maybe you’ll see there’s another approach that might be a better fit for you.</p>
+<h2>Semantic search - what exactly is it?</h2>
+<p>In semantic search, content and query map to a <strong><em>shared representation</em></strong>. This space has a <strong><em>similarity</em></strong> function that scores similar items higher than less similar.</p>
+<p>Let’s walk through an example.</p>
+<p>A user searching “round red fruit that grows on trees” probably wants an apple.</p>
+<p>Humans know this - search engines don’t. So we need to help.</p>
+<p>We map the query to three properties: <code>[round, red, fruit]</code></p>
+<p>In our search index we’ve also mapped three items into that space:</p>
+<p>An <strong>apple:</strong> <code>[round, red, fruit]</code></p>
+<p>An <strong>orange:</strong> <code>[round, orange, fruit]</code></p>
+<p>A <strong>baseball:</strong> <code>[round, white, ball]</code></p>
+<p>Now we have a shared <em>representation</em>: a three tuple of (<code>shape</code> , <code>color</code>, <code>item type</code>).</p>
+<p>How do we measure similarity? For each property (<code>shape</code>, <code>color</code>, <code>item type</code>) we could score a “1” if they’re equal, otherwise a 0. Then add to get a total score:</p>
+<p>Similarity(query, apple) = 1 + 1 + 1 = 3</p>
+<p>Similarity(query, orange) = 1 + 0 + 1 = 2</p>
+<p>Similarity(query, baseball) = 1 + 0 + 0 = 1</p>
+<p>So the user sees search results</p>
+<ol> <li>Apple (Score 3)</li> <li>Orange (Score 2)</li> <li>Baseball (Score 1)</li> </ol>
+<p>Ok, so a fairly silly method of semantic search. It ignores properties that matter (size, for example). It requires us to comprehensively tag everything. Still many teams try to tag + synonym their way to better search, with middling results.</p>
+<h2>Embeddings for semantic search</h2>
+<p>The default answer to the “semantic search” question is embeddings. The Internet is littered with documentation for <a href="https://softwaredoug.com/blog/2023/02/13/why-vector-search">how vector search works</a>. I’ll do the speedrun here (<a href="https://qdrant.tech/articles/triplet-loss">references</a> <a href="https://stackoverflow.blog/2023/11/09/an-intuitive-introduction-to-text-embeddings/">here</a>).</p>
+<p>We can learn a representation, an embedding, for apple and orange so that <code>similarity(apple, orange) &gt; similarity(apple, baseball)</code>.</p>
+<p>We learn an embedding from training data. We might declare when items get clicked for the same query, they are similar. We notice both “apple” and “orange” get clicked for query “fruit that grows on trees” at high frequency:</p>
+<pre>[fruit that grows on trees 🔍 ]
+1. 🍎 (clicked)
+2. 🥕
+3. 🍊 (clicked)
+</pre>
+<p>We start with a random vector for each. A list of random floating points numbers like <code>[0.01, -0.1, 0.05]</code>. Then we train, in this super-secret-ultra-high-tech algorithm</p>
+<pre><code>for session in sessions:
+    together = []
+    for lhs in session: # ie the apple
+        for rhs in session: # ie the orange
+            if lhs != rhs:
+			          nudge_closer(lhs, rhs) # ie nudge apple closer to orange
+</code></pre>
+<p>(Not shown: nudging away the negative, dissimilar items)</p>
+<p>After training, for many queries+sessions, maybe apple becomes <code>[0.1, -0.2, 0.05]</code> while orange becomes a similar vector: <code>[0.09, -0.21, 0.04]</code>. We measure the similarity with <a href="https://en.wikipedia.org/wiki/Cosine_similarity">cosine similarity</a>, <a href="https://en.wikipedia.org/wiki/Euclidean_distance">euclidean distance</a>, and others. (We can replace “shared search session clicks” with any other notions of “similar”: occurs in the same text passages, both occur in shopping carts, etc).</p>
+<p>Learning an embedding per item presents problems. For example, maybe we just added strawberry 🍓 to our product listings. With no training data, the vector <code>strawberry_vector = embeddings['strawberry']</code> initializes to random garbage. It won’t have a meaningful value until we’ve shown it to many users.</p>
+<p>We’d prefer to to compute embeddings from <strong><em>features</em></strong> of the item. Then strawberry 🍓 could get an embedding right away. IE instead of <code>strawberry_embedding = embeddings['strawberry']</code> we can do <code>strawberry_embedding = f(heart_shaped, red, fruit)</code>. We build an <strong><em>encoder.</em></strong> Given the item’s attributes we compute embeddings that produce the expected similarity. Embedding models downloaded from hugging face specialize in encoding specific type/domain of content for a specific task (search, etc).</p>
+<p>We create encoders for all kinds of features: ordinal values (like a list of shapes, colors), the raw title / description text itself, images and so on. We can also train a <a href="https://eng.snap.com/embedding-based-retrieval">two-tower model</a>: one encoder for queries - ie “round fruit that goes on trees” - and another for documents.</p>
+<p>Like other machine learning models we tradeoff precision for generality. We need the right features, we need enough training data for all the variations in those features (<a href="https://en.wikipedia.org/wiki/Curse_of_dimensionality">curse of dimensionality</a>) and so on.</p>
+<h2>The missing semantic search piece of vector retrieval</h2>
+<p>One pain point comes up right away with embeddings: lack of <em>matching</em>.</p>
+<p>How would users actually react to these search results?</p>
+<pre>[fruit that grows on trees 🔍 ]
+1. 🍎 Apple
+2. 🍊 Orange
+3. ⚾️ Baseball.
+</pre>
+<p>In my experience, negatively.</p>
+<p>It may have the perfect ranking. But search should exclude items outside what the user intended. They find fruit acceptable. But not baseballs.</p>
+<p>So earlier I lied. What users actually want from semantic search:</p>
+<ul> <li><strong>Representation</strong> - some space both queries and content can share representation</li> <li><strong>A similarity function</strong> - A way of measuring how near / far items in the shared representation are from each other</li> <li><strong>Match criteria (new!)</strong> - A system where an item can be said to be “match” or not for the query in the semantic space. It is the thing, or its not the thing.</li> </ul>
+<p>In other words, I gave an incomplete <strong>semantic search definition</strong>. Embeddings thrive on the first 2, but don’t do a great job at including / excluding results.</p>
+<p>Understanding users (and their queries) matters a great deal in search. That requires including / excluding appropriate items based on terminology and categories familiar to users.</p>
+<p>You might think “I’ll just find a cutoff in my embedding similarity”. Sadly, there’s not a magical “at 0.8 similarity it’s not a match”. In some domains / queries one threshold works. In another, a very different threshold. Further, thresholding becomes tougher when users give multiple criteria. An embedding model might rank blood oranges above green apples for query “red apple”. What matters more, the color or item type in the similarity?</p>
+<p>Thresholds help exclude some obviously irrelevant results and improve performance, but they don’t use domain-specific criteria, in the user’s language, to include / exclude results.</p>
+<h2>The other semantic search approach (hierarchical managed taxonomies)</h2>
+<p>One system tries to solve all three problems: <em>Managed vocabularies</em> or <em>taxonomies</em>.</p>
+<p>Taxonomies map queries + content to a hierarchy of concepts, using the language of the domain. Think a neatly organized directory tree. Or the <a href="https://en.wikipedia.org/wiki/Dewey_Decimal_Classification">Dewey Decimal System</a></p>
+<p>Here’s an example from the <a href="https://github.com/wayfair/WANDS">Wayfair WANDS furniture dataset</a> of their category tree; Where you’d categorize “novelty rocking horses” apparently:</p>
+<pre><code>Baby &amp; Kids / Toddler &amp; Kids Playroom / Indoor Play / Rocking Horses / Novelty Rocking Horses
+</code></pre>
+<p>We can take a query for <code>hobby horse</code>. A human, curating a bunch of query rules, could manually map this to a node:</p>
+<pre><code>Baby &amp; Kids / Toddler &amp; Kids Playroom / Indoor Play / Rocking Horses
+</code></pre>
+<p>Assuming the corpus categorizes products correctly, we can search, filter, boost, etc using this.</p>
+<p>We have a <em>representation</em> (the category tree), do we have a similarity function?</p>
+<p>Yes, we can rank as follows:</p>
+<ol> <li>Direct matches <code>Baby &amp; Kids / Toddler &amp; Kids Playroom / Indoor Play / Rocking Horses</code></li> <li>Parents / siblings. <code>Baby &amp; Kids / Toddler &amp; Kids Playroom / Indoor Play / Dollhouses</code></li> <li>Those rank higher than grandparents / cousins (``Baby &amp; Kids / Toddler &amp; Kids Playroom / Beanbag Chairs / …`</li> </ol>
+<p>We can define meaningful match criteria too. We include shared parent categories (ie siblings). But exclude anything beyond cousins / shared grandparents as needed.</p>
+<p>Many teams already maintain systems for organizing and cataloging information. For many domains, a good taxonomy can be a moat. Especially for technical domains (legal, medical, fashion, finance) where precise categorization really matters. Existing <a href="https://www.nlm.nih.gov/mesh/meshhome.html">taxonomies already exists</a>, and statistical fuzziness of embeddings can create huge downside.</p>
+<p>In the past, the management of a taxonomy would be massive. It might require complex rules, mapping of query phrases to taxonomy nodes, and a team of labelers and experts to keep everything straight. This has long been an appeal of embeddings.</p>
+<p>But LLMs sneakily supercharge these old school ways of organizing information. Given a taxonomy, LLMs can easily + cheaply classify products and queries. It’s more approachable to “fine tune”. AI augmented labeling can simplify management of knowledge making it more approachable.</p>
+<h2>Semantic similarity doesn’t need a vector index</h2>
+<p>Above I described a similarity function above (direct matches, then parents, then grandparents). With some creative tokenization, this similarity can happen in a normal BM25 index.</p>
+<p>Consider our query for <code>hobby horse</code>. We know this maps to this node:</p>
+<pre><code>Baby &amp; Kids / Toddler &amp; Kids Playroom / Indoor Play / Rocking Horses
+</code></pre>
+<p>How do we score content in such a way so that direct matches rank higher than siblings, and so on?</p>
+<p>We need is a <a href="https://www.elastic.co/docs/reference/text-analysis/analysis-pathhierarchy-tokenizer">hierarchical tokenizer</a>. A function that produces the full path of every parent directory:</p>
+<pre><code>In: hierarchical_tokenizer("Baby &amp; Kids / Toddler &amp; Kids Playroom / Indoor Play / Rocking Horses")
+Out: ['Baby &amp; Kids',
+      'Baby &amp; Kids / Toddler &amp; Kids Playroom',
+      'Baby &amp; Kids / Toddler &amp; Kids Playroom / Indoor Play',
+      'Baby &amp; Kids / Toddler &amp; Kids Playroom / Indoor Play / Rocking Horses']
+</code></pre>
+<p>If you index using this tokenizer, you’ll recreate scoring needed for the direct &gt; parent &gt; grandparent similarity function I described earlier.</p>
+<p>The key reason: BM25 rewards a rare match over common match.</p>
+<p>Root nodes (ancestors) have higher document frequency, they’re common. Common matches score lower in BM25.</p>
+<p>That’s because every item labeled <code>Baby &amp; Kids / Toddler &amp; Kids Playroom / Indoor Play / Rocking Horses</code> tokenized hierarchically has a <code>Baby &amp; Kids</code> term. So does a document labeled <code>Baby &amp; Kids / Kids Furniture ... / Beanbag Chairs</code> . <code>Baby &amp; Kids</code> happens all over the place - maybe like 10% of the index.</p>
+<p>Child nodes have low document frequency, they’re rare. In BM25, rare, more specific matches outrank common ones.</p>
+<p>A product labeled <code>Baby &amp; Kids / Toddler &amp; Kids Playroom / Indoor Play / Rocking Horses / Traditonal Rocking Horses</code> when tokenized will include the full path in the token. There might be 10 products in the entire index in this exact category. So that rareness - that high specificity - shoots this narrower, closer match to the top.</p>
+<p>To do a deeper walkthrough</p>
+<p>When I come along and search for</p>
+<pre><code>In: hierarchical_tokenizer(
+     "Baby &amp; Kids / Toddler &amp; Kids Playroom / Indoor Play / Rocking Horses / Novelty Rocking Horses"
+)
+Out: ['Baby &amp; Kids',
+      'Baby &amp; Kids / Toddler &amp; Kids Playroom',
+      'Baby &amp; Kids / Toddler &amp; Kids Playroom / Indoor Play',
+      'Baby &amp; Kids / Toddler &amp; Kids Playroom / Indoor Play / Rocking Horses',
+      'Baby &amp; Kids / Toddler &amp; Kids Playroom / Indoor Play / Rocking Horses / Novelty Rocking Horses']
+</code></pre>
+<p>I’m searching for five tokens now, OR’d (really summed):</p>
+<pre><code>"Baby &amp; Kids" OR
+"Baby &amp; Kids / Toddler &amp; Kids Playroom" OR
+"Baby &amp; Kids / Toddler &amp; Kids Playroom / Indoor Play" OR
+"Baby &amp; Kids / Toddler &amp; Kids Playroom / Indoor Play / Rocking Horses" OR
+"Baby &amp; Kids / Toddler &amp; Kids Playroom / Indoor Play / Rocking Horses / Novelty Rocking Horses"
+</code></pre>
+<p>Each token of my query has a job. It matches different levels of specificity, and the closer we get the full query classification tree, the higher the score.</p>
+<table> <tr> <th>Search Term</th> <th>Job</th> <th>Score (due to doc freq)</th> <th>Example of matches</th> </tr> <tbody> <tr> <td>“Baby &amp; Kids”</td> <td>Matches highest level category</td> <td>Lowest</td> <td><strong>Baby &amp; Kids</strong> / Toddler &amp; Kids Bedroom Furniture / Kids Headboards</td> </tr> <tr> <td>“Baby &amp; Kids / Toddler &amp; Kids Playroom”</td> <td>Matches next most specific category Getting to “play” stuff for kids, better than just kid stuff. 👍</td> <td>Low</td> <td><strong>Baby &amp; Kids / Toddler &amp; Kids Playroom</strong> / Playroom Furniture / Baby Gyms &amp; Playmats / Folding Baby Gyms &amp; Playmats</td> </tr> <tr> <td>…</td> <td>…</td> <td>…</td> <td>…</td> </tr> <tr> <td>Baby &amp; Kids / Toddler &amp; Kids Playroom / Indoor Play / Rocking Horses</td> <td>Matches a very, narrow specific category. Horses!🐴 Even if not “Novelty Rocking Horses” its a defensible “match” to the user.</td> <td>High</td> <td><strong>Baby &amp; Kids / Toddler &amp; Kids Playroom / Indoor Play / Rocking Horses / Traditonal Rocking Horses</strong></td> </tr> </tbody> </table>
+<p>While we keep things in horse → toys → playroom → kids order, we haven’t solved the 3rd problem. Limiting matches.</p>
+<p>That one’s easy. At query time, you can decide how much to limit retrieval. Perhaps you only query the direct node and one parent:</p>
+<pre><code>"Baby &amp; Kids / ... / Rocking Horses" OR
+"Baby &amp; Kids / ... / Rocking Horses / Novelty Rocking Horses"
+</code></pre>
+<p>You can tighten / relax in categories that matter to users, <strong><em>semantically,</em></strong> up a layer to still stay within the realm of “kid play”.</p>
+<p>If the taxonomy makes sense to users, if it reflects search behaviors (big ifs), they’ll understand why you include / exclude certain results.</p>
+<p>Importantly, this becomes just ONE component of the ranking / filtering. We can still have other ingredients we can use:</p>
+<ul> <li>Keyword matches (for exact mention of properties in titles + description)</li> <li>Embedding search (perhaps within the category matches)</li> <li>Taxonomies for other entities (colors, materials, etc)</li> </ul>
+<h2>Building a taxonomy: start simple and evolve</h2>
+<p>Building and maintaining a good taxonomy is no joke. That’s why there’s a field of taxonomists you can hire. And I don’t want to elide the tradeoffs with embeddings here. It’s work!</p>
+<p>A taxonomy doesn’t need to be as deep / complex as what I’ve laid out. You can start simple. Ask an LLM. Here’s one with color.</p>
+<blockquote> <p>Take the 7 primary colors. Then nested under each, create subtypes of each color. Generate a list like a directory trees, in the form <code>PRIMARY / SECONDARY</code></p> </blockquote>
+<pre><code>RED / Crimson
+RED / Scarlet
+RED / Burgundy
+RED / Maroon
+RED / Brick Red
+RED / Cherry
+
+ORANGE / Tangerine
+ORANGE / Amber
+ORANGE / Coral
+ORANGE / Burnt Orange
+ORANGE / Peach
+ORANGE / Apricot
+...
+</code></pre>
+<p>It’s a start.</p>
+<p>Generally start simple. Broad, high level, top level categories like <code>Furniture</code> or <code>Baby &amp; Kids</code>. Then eventually you realize this category has become too large and too diverse. You might see a natural in the content split:</p>
+<pre><code>Baby &amp; Kids / Toddler &amp; Kids Playroom
+Baby &amp; Kids / Toddler &amp; Kids Bedroom Furniture
+</code></pre>
+<p>Eventually you get to a point where the distinction between <code>Novelty Rocking Horse</code> and <code>Classic Rocking Horse</code> matters for some reason.</p>
+<p>You may see a flaw: an assumption each product sits within a single category. That categories are mutually exclusive. Reality, of course, is messy: some products may sit between categories. You can imagine a small goofy looking couch that could reasonably tagged under <code>Baby &amp; Kids / Toddler &amp; Kids Bedroom Furniture</code> but also <code>Living Room / Loveseats</code>. In Fashion, some activewear might also be underwear. And what about athleisure?</p>
+<p>One solution could be to double categorize an item. Give it both classifications - with some weight preferring one categorization over another.</p>
+<p>A final concern - there’s a big difference between the official pure way of classifying furniture and how a search user might categorize the products. The exacting, furniture-expert taxonomy might have very sophisticated (and accurate) ways to classify furniture. A messier classification that matches how users think about things might be more useful in the end.</p>
+<h2>Classifying into taxonomies has never been easier</h2>
+<p>Building taxonomy classifiers with LLMs - something I’ve built an <a href="https://maven.com/softwaredoug/cheat-at-search">entire class for</a>, and could be a post on its own. But lets do a quick walkthrough of some simpler approaches.</p>
+<p>Embeddings actually help us here. The sweet spot of embeddings in search might be building better classifiers, not in direct ranking and retrieval.</p>
+<p>Perhaps our products fit in a few thousand unique categories. Imagine we encode an embedding each of these in a small in-memory array of vectors. We’ll use it to lookup categories for our queries.</p>
+<p>Now take a query “hobby horse”. Encode the query into an embedding, and find the most similar category embedding. Maybe this retrieves <code>Baby &amp; Kids / Toddler &amp; Kids Playroom / Indoor Play / Rocking Horses</code>.</p>
+<p>Not accurate enough? Let’s take it up a notch.</p>
+<p>We could ask an LLM to hallucinate a fake label before categorizing. Ask an LLM the following:</p>
+<pre><code>Be creative and hallucinate a set of classifications for the query below that
+look like the real classifications.
+
+Product classifications might look like:
+
+  'Furniture / Living Room Furniture / Coffee Tables &amp; End Tables / Coffee Tables'
+  'Décor &amp; Pillows / Decorative Pillows &amp; Blankets / Throw Pillows'
+  'Furniture / Bedroom Furniture / Dressers &amp; Chests'
+  'Outdoor / Outdoor &amp; Patio Furniture / Patio Furniture Sets / Patio Conversation Sets'
+  'Home Improvement / Bathroom Remodel &amp; Bathroom Fixtures / Bathroom Vanities / All Bathroom Vanities'
+  'Lighting / Wall Lights / Bathroom Vanity Lighting'
+  'Kitchen &amp; Tabletop / Kitchen Organization / Food Storage &amp; Canisters'
+  'School Furniture and Supplies / School Furniture / School Chairs &amp; Seating / Stackable Chairs',
+  'Baby &amp; Kids / Toddler &amp; Kids Bedroom Furniture / Kids Beds',
+
+If you feel inspired, return many unique values in a list. Be creative. 
+Cast a wide net with related but diverse categories.
+
+Here's the query to invent categories for:
+
+hobby horse
+</code></pre>
+<p>When you actively want hallucinations, you can get by with very small models. You’re not relying on the LLM for accuracy, just creativity and close-enough language generation.</p>
+<p>Now let’s say you do this. It gives you a classification like</p>
+<pre><code>'Baby &amp; Kids / Toys / Pretend Play &amp; Dress Up / Pretend Play Toys / Hobby Horses'
+</code></pre>
+<p>More descriptive, closer to the language actually used in the classifications. More likely to give back a real, high quality classification.</p>
+<p>That’s just a taste. The modern landscape for building large multi-label classifiers has gotten easier than ever thanks to LLMs and embeddings.</p>
+<h2>Final thoughts</h2>
+<p>Embeddings are great. But you don’t need embeddings to build “semantic search”. In fact, it can be counter productive for problems requiring exacting, precise matching. As I’ve argued, <a href="https://softwaredoug.com/blog/2025/12/09/rag-users-want-affordances-not-vectors">embeddings are the wrong lens to think about the problem</a>.</p>
+<p>Maybe you don’t need to rebuild everything from scratch, but instead leverage what you’re good at. With the addition of LLMs. Don’t apologize for living with a more organized, approach to semantic search.</p>
+<h3>Enjoy softwaredoug in training course form!</h3>
+<h4>20% off through December 19, 2025 with code ps5</h4>
+<figure class="article-figure"><a href="https://maven.com/softwaredoug/cheat-at-search"><img src="https://softwaredoug.com/assets/media/2025/christmas-cheat-at-search.jpg" class="article-image"/></a></figure>
+<p>I hope you join me at <a href="https://maven.com/softwaredoug/cheat-at-search">Cheat at Search with LLMs</a> to learn how to apply LLMs to search applications. Check out <a href="https://github.com/softwaredoug/softwaredoug.com/edit/master/_includes/post.html">this post</a> for a sneak preview.   </p></div>
+      
+    </article>
+    
+    <article>
+      <h1>Building Software Is Learning</h1>
+      <div class="article-meta">
+        Thorsten Ball
+        · 02 Jun 2026 · <a href="https://registerspill.thorstenball.com/p/building-software-is-learning">Source</a>
+      </div>
+      <div class="article-body"><div><h3>An internal note to the Amp team on feedback and shipping faster</h3><p><em>A few weeks ago I shared the following as an internal message with the Amp team. I showed it to a friend while talking about feedback loops and he told me to post this publicly. So here we go. Unedited, straight up copy &amp; pasted from our Slack.</em></p><div class="captioned-image-container"><figure class="article-figure"><a class="image-link image2" href="https://substackcdn.com/image/fetch/$s_!hrv7!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F96e29137-aa72-415c-a9e3-95232387f055.tif" target="_blank"><div class="image2-inset"><img alt="" class="sizing-normal article-image" height="12" src="https://substackcdn.com/image/fetch/$s_!hrv7!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F96e29137-aa72-415c-a9e3-95232387f055.tif" width="154"/><div></div></div></a></figure></div><p>You know what’s rare?</p><pre><code>person a: “we need this feature”
+person b: “yes, let me build it”
+...
+person b: “done.”
+person a: “fantastic, exactly what I wanted.”</code></pre><p>That basically <em>NEVER</em> what happens. At least not when you’re building something <em>new</em>. It might happen when you fix a bug or when you port something that already exists in another app to a new language or framework, ... Or when you’re building after a spec.<br/><br/>But when there’s no spec, and when you’re building something new?<br/><br/>Here’s how that works:</p><pre><code>person a: “we need this feature”
+person b: “yes, let me build it”
+[...]
+person b: “done.”
+person a: “hmm, actually, that’s not what I meant. what I meant is: [...]”</code></pre><p>Or this:</p><pre><code>person a: “we need this feature”
+person b: “yes, let me build it”
+[...]
+person b: “you know what... There’s 3 ways to do this, actually, and I’m not sure what the best way to do this is?”
+person a: “ah, I see, I think given that we want to ship this tomorrow, let’s go with way 1”</code></pre><p>Or:</p><pre><code>person a: “we need this feature”
+person b: “yes, let me build it”
+[...]
+person b: “done.”
+person a: “Don’t like it”</code></pre><p>Now why does that happen, again and again and again?<br/><br/>Because <em>building new software is learning</em>! If you’re building something new and you don’t yet fully know how exactly it’s supposed to work, you will learn what exactly it is that you’re building as you’re doing it. Let me repeat: building new software is learning.<br/><br/>So far, so good, right? But here’s the very important bit, the one bit I want you to take with you into this week: there is <em>no way in hell</em>, absolutely zero chance, that you can build something new <em>and</em> avoid bumping into “that’s not what I meant”, or “now that I’m working on it I’m not actually sure”, or “hmm, now that I use it, I don’t like it”. Because the only way you could avoid that would be to fully specify what you want up front and, well, guess what programming is? It’s fully specifying what you want. You can’t avoid it, because you can’t define it yet, because <em>building software is learning</em>!<br/><br/>Now that was the bad news. Here’s the good ones. You <em>can</em> to reduce the time the <code>...</code> from the examples above takes — the time between the confident “yes, let me build this” and the humbled “oh, I see”.<br/><br/>And that, in turns out, is <strong>the most important thing you can do</strong> when you’re building something new: reducing the time it takes you to go from “let me try something” to getting your ass whooped by reality.<br/><br/>If someone says “we need this feature”, don’t go “yes, let me build it” and hack on something for 4 weeks only for the other person to ultimately go “that’s not what I meant.” No. Instead, embrace that <em>we need to learn</em>, that we need to try and play around with this idea as fast as possible, in a way that lets us learn. To embrace that idea means that you try to figure out “what is it they mean” <em>as fast as possible</em>, with the minimal effort required, so you can LEARN what it is you’re building.<br/><br/>Instead of going away for 4 weeks and hacking on something, you instead can do stuff like this:</p><ul><li><p>... build a prototype, in 1hr, and show it to them, and they go “no, that’s not what I meant, you should change this part here”</p></li><li><p>... write down a spec of how you’d approach it, in 30min, and show it to them, and they go “no that’s not what I meant”</p></li><li><p>... cut up the thing in multiple things and ship one every day, so that every day what you built hits reality and you get to learn, because on day 2 someone says “know what, we should change...”</p></li><li><p>... reduce the scope, figure out what the things are that we’re already sure about and skip those, and instead focus on the bits that we don’t know yet — that’s where we need to learn. don’t add 5 ways to login, if all we need to learn right now is 1.</p></li><li><p>... fake a demo video, show that around, get input on that - Quinn’s done it many times</p></li><li><p>... write the news post that explains the idea — why waste effort building something for a week if the idea can be captured in 3 paragraphs?</p></li><li><p>... write the example code that would go into the README, show that around, does that look like a good API? People don’t need an SDK built if they dislike the API in the readme.</p></li><li><p>...</p></li></ul><p>There’s more options that I didn’t list here. And you don’t have to pick only one. In fact, for something big, you should probably do a few of these things. Or you vary them, or combine them, or ...<br/><br/>What <em>exactly </em>you do doesn’t matter as much as constantly asking: how can I get feedback on what I’m trying to build as soon as possible? And “feedback” here is used in the widest sense possible. Feedback comes in all shapes and sizes: feedback from the CI system on main, feedback from colleagues, feedback from users, feedback from <em>you</em> once you actually use it.<br/><br/>And if you follow that question — how can I get feedback as soon as possible, so I can learn? — you’ll also find out how to chop things up and how to ship them:</p><ul><li><p>you won’t get good feedback if you ship an “MVP” of an idea that’s so obviously buggy that all you’ll get is bug reports for 3 days, not actual feedback on how useful it is</p></li><li><p>you won’t get good feedback if the people supposed to give you feedback have to jump through 8 hurdles to test it</p></li><li><p>you won’t get good feedback if you keep your changes on a branch for 3 weeks, because by the time you merge your 27 commits and CI blows up you have 27 possible causes, vs. 1 if you had merged them one by one</p></li><li><p>want feedback on the design of your skateboard? sure, show them the deck, no need for wheels. want feedback on how your skateboard feels? you can’t ship it to testers without wheels on it.</p></li><li><p>...</p></li></ul><p>So. Here’s what I want you to think about going into this week: how can I get feedback on what I’m building on as fast as possible? when is the last time I got valuable feedback on what I’m building? in what frequency do I get feedback on what I’m building? why is that frequency so low?<br/><br/>Because we’re building something new, in a time when software is changing (background vocals: <em>everything is changing</em>), and no one has a clue what the fuck is going on - so <strong>the most important thing is to embrace that and </strong><em><strong>as soon as possible, as often as possible, ship things on which we can get feedback on, in a way that gives us valuable feedback — by CI, by production, by our teammates, by select users, by select customers, by all of our users</strong>.</em></p><p>Yes, italics <em><strong>and</strong></em> bold. Because building software is learning and we want to learn as much as possible.</p></div></div>
+      
+    </article>
+    
+  </body>
+</html>
