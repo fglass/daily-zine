@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Fred Talks - 2026-06-08</title>
+    <style>
+      @page {
+        size: A5;
+        margin: 8mm 9mm 9mm;
+      }
+
+      :root {
+        color: #111;
+        font-family: "Times New Roman", Times, serif;
+        --body-text-size: 9.5pt;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        color: #111;
+        background: #fff;
+        font-family: "Times New Roman", Times, serif;
+        line-height: 1.45;
+      }
+
+      a,
+      a:visited {
+        color: #111;
+        text-decoration: underline;
+      }
+
+      .cover {
+        min-height: calc(210mm - 17mm);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        page-break-after: always;
+        border: 1px solid #111;
+        padding: 8mm;
+        background: #fff;
+      }
+
+      .toc-item-meta,
+      .article-meta {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .masthead {
+        margin: 0;
+        font-size: 40pt;
+        line-height: 0.95;
+        text-transform: uppercase;
+      }
+
+      .issue-date {
+        margin: 4mm 0 0;
+        font-size: 14pt;
+      }
+
+      .issue-date sup {
+        font-size: 0.58em;
+        vertical-align: super;
+        line-height: 0;
+      }
+
+      .cover-deck {
+        max-width: 90mm;
+        font-size: 12pt;
+        margin: 0;
+      }
+
+      .toc {
+        border-top: 3px solid #111;
+        padding-top: 6mm;
+      }
+
+      .toc h2 {
+        margin: 0 0 4mm;
+        font-size: 11pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .toc-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .toc-item {
+        padding: 3mm 0;
+        border-bottom: 1px solid rgba(17, 17, 17, 0.2);
+      }
+
+      .toc-item-title {
+        font-size: 12pt;
+        margin: 0 0 1mm;
+      }
+
+      .toc-item-meta {
+        font-size: 8pt;
+      }
+
+      .masthead-compact {
+        margin: 0 0 6mm;
+      }
+
+      .masthead-compact h1 {
+        margin: 0;
+        font-size: 22pt;
+        line-height: 1.1;
+        text-transform: uppercase;
+      }
+
+      .masthead-compact .issue-date {
+        margin: 2mm 0 0;
+        font-size: 11pt;
+      }
+
+      .toc-compact {
+        border-top: 1px solid #111;
+        border-bottom: 1px solid #111;
+        padding: 4mm 0;
+        margin: 0 0 8mm;
+      }
+
+      article + article {
+        margin-top: 10mm;
+        padding-top: 6mm;
+        border-top: 2px solid #111;
+      }
+
+      h1 {
+        margin: 0 0 2mm;
+        font-size: 18pt;
+        line-height: 1.1;
+      }
+
+      .article-meta {
+        font-size: 8.5pt;
+        margin-bottom: 6mm;
+        padding-bottom: 3mm;
+        border-bottom: 1px solid #111;
+      }
+
+      .article-body {
+        font-size: var(--body-text-size);
+        font-family: "Times New Roman", Times, serif;
+      }
+
+      .article-body p,
+      .article-body li,
+      .article-body blockquote,
+      .article-body dd,
+      .article-body dt {
+        margin: 0 0 4mm;
+        orphans: 3;
+        widows: 3;
+      }
+
+      .article-body ul,
+      .article-body ol,
+      .article-body dl {
+        margin: 0 0 4mm 5mm;
+        padding: 0;
+      }
+
+      .article-body h2,
+      .article-body h3,
+      .article-body h4 {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        margin: 7mm 0 3mm;
+        line-height: 1.2;
+      }
+
+      .article-body blockquote {
+        margin-left: 6mm;
+        padding-left: 4mm;
+        border-left: 2px solid #111;
+      }
+
+      .article-body .media-omitted {
+        margin: 0 0 4mm;
+        font-size: 8.5pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(17, 17, 17, 0.65);
+      }
+
+      .article-body figure,
+      .article-body .article-figure,
+      .article-body picture,
+      .article-body .article-picture {
+        display: block;
+        max-width: 72mm;
+        margin: 0 auto 4mm;
+        break-inside: avoid;
+      }
+
+      .article-body img,
+      .article-body .article-image {
+        display: block;
+        max-width: min(100%, 72mm);
+        max-height: 34mm;
+        height: auto;
+        width: auto;
+        object-fit: contain;
+        margin: 0 auto 3mm;
+      }
+
+      .article-body figcaption {
+        margin-top: 1.5mm;
+        font-size: 8.5pt;
+        line-height: 1.3;
+        color: rgba(17, 17, 17, 0.8);
+      }
+
+      .article-note {
+        margin-top: 6mm;
+        padding-top: 3mm;
+        border-top: 1px solid #111;
+        font-size: 9pt;
+        font-style: italic;
+      }
+
+      @media screen {
+        body {
+          padding: 2rem;
+          margin: 0 auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    
+    <header class="masthead-compact">
+      <h1>Fred Talks</h1>
+      <p class="issue-date">
+        8<sup>th</sup> June 2026
+      </p>
+    </header>
+
+    <nav class="toc toc-compact">
+      <h2>Contents</h2>
+      <ol class="toc-list">
+        
+        <li class="toc-item">
+          <div class="toc-item-title">The Night Watch</div>
+          <div class="toc-item-meta">
+            James Mickens · 2675 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Luddites and AI datacenters</div>
+          <div class="toc-item-meta">
+            seangoedecke.com RSS feed · 2789 words
+          </div>
+        </li>
+        
+      </ol>
+    </nav>
+    
+
+    
+    <article>
+      <h1>The Night Watch</h1>
+      <div class="article-meta">
+        James Mickens
+        · 11 Apr 2026 · <a href="https://www.usenix.org/system/files/1311_05-08_mickens.pdf">Source</a>
+      </div>
+      <div class="article-body"><div><p></p><p>The Night Watch</p><p><br/></p><p>J AM E S M I C K E N S</p><p><br/></p><p><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/Qh_zJJv8ZR0hQwDrpMtI4o0UpsKc2Lc5K3V_L4-iyNg-PhqvNH_Sl5vCey.png" class="article-image"/></p><p>James Mickens is a researcher in the Distributed Systems group at Microsoft’s Redmond lab. His current research focuses on web applications,</p><p>with an emphasis on the design of JavaScript frameworks that allow developers to diagnose and fix bugs in widely deployed web applications. James also works on fast, scalable storage systems for datacenters.</p><p><a href="mailto:mickens@microsoft.com" target="_blank">James received his PhD in computer science from the University of Michigan, and a bachelor’s degree in computer science from Georgia Tech. </a><a href="mailto:mickens@microsoft.com" target="_blank">mickens@microsoft.com</a></p><p><br/></p><p>s a highly trained academic researcher, I spend a lot of time trying to advance the frontiers of human knowledge. However, as someone who was born in the South, I secretly believe that true progress is</p><p>A</p><p></p><p>a fantasy, and that I need to prepare for the end times, and for the chickens coming home to roost, and fast zombies, and slow zombies, and the polite zombies who say “sir” and “ma’am” but then try to eat your brain to acquire your skills. When the revolution comes, I need to be prepared; thus, in the quiet moments, when I’m not producing incredible scientific breakthroughs, I think about what I’ll do when the weather forecast inevitably becomes</p><p>RIVERS OF BLOOD ALL DAY EVERY DAY. The main thing that I ponder is who will be in my gang, because the likelihood of post-apocalyptic survival is directly related to the size and quality of your rag-tag group of associates. There are some obvious people who I’ll need to recruit: a locksmith (to open doors); a demolitions expert (for when the locksmith has run out of ideas); and a person who can procure, train, and then throw snakes at my enemies</p><p>(because, in a world without hope, snake throwing is a reasonable way to resolve disputes). All of these people will play a role in my ultimate success as a dystopian warlord philosopher. However, the most important person in my gang will be a systems programmer. A person who can debug a device driver or a distributed system is a person who can be trusted in a Hobbesian nightmare of breathtaking scope; a systems programmer has seen the terrors of the world and understood the intrinsic horror of existence. The systems programmer has written drivers for buggy devices whose firmware was implemented by a drunken child or a sober goldfish. The systems program- mer has traced a network problem across eight machines, three time zones, and a brief diversion into Amish country, where the problem was transmitted in the front left hoof of a mule named Deliverance. The systems program- mer has read the kernel source, to better understand the deep ways of the universe, and the systems programmer has seen the comment in the sched- uler that says “DOES THIS WORK LOL,” and the systems programmer has wept instead of LOLed, and the systems programmer has submitted a kernel patch to restore balance to The Force and fix the priority inversion that was causing MySQL to hang. A systems programmer will know what to do when society breaks down, because the systems programmer already lives in a world without law.</p><p><br/></p><p>Listen: I’m not saying that other kinds of computer people</p><p>are useless. I believe (but cannot prove) that PHP developers have souls. I think it’s great that database people keep trying to improve select-from-where, even though the only queries that cannot be expressed using select-from-where are inap- propriate limericks from “The Canterbury Tales.” In some way that I don’t yet understand, I’m glad that theorists are investigating the equivalence between five-dimensional Tur- ing machines and Edward Scissorhands. In most situations, GUI designers should not be forced to fight each other with tridents and nets as I yell “THERE ARE NO MODAL DIA- LOGS IN SPARTA.” I am like the Statue of Liberty: I accept everyone, even the wretched and the huddled and people who enjoy Haskell. But when things get tough, I need mission-crit- ical people; I need a person who can wear night-vision goggles and descend from a helicopter on ropes and do classified things to protect my freedom while country music plays in the background. A systems person can do that. I can realistically give a kernel hacker a nickname like “Diamondback” or “Zeus Hammer.” In contrast, no one has ever said, “These semi-</p><p>transparent icons are really semi-transparent! IS THIS THE WORK OF ZEUS HAMMER?”</p><p>I picked that last example at random. You must believe me when I say that I have the utmost respect for HCI people.</p><p>However, when HCI people debug their code, it’s like an</p><p>art show or a meeting of the United Nations. There are tea breaks and witticisms exchanged in French; wearing a non- functional scarf is optional, but encouraged. When HCI code doesn’t work, the problem can be resolved using grand theo- ries that relate form and perception to your deeply personal feelings about ovals. There will be rich debates about the socioeconomic implications of Helvetica Light, and at some point, you will have to decide whether serifs are daring state- ments of modernity, or tools of hegemonic oppression that implicitly support feudalism and illiteracy. Is pinching-and- dragging less elegant than circling-and-lightly-caressing?</p><p>These urgent mysteries will not solve themselves. And yet, after a long day of debugging HCI code, there is always hope, and there is no true anger; even if you fear that your drop- down list should be a radio button, the drop-down list will suffice until tomorrow, when the sun will rise, glorious and</p><p>vibrant, and inspire you to combine scroll bars and left-click- ing in poignant ways that you will commemorate in a sonnet when you return from your local farmer’s market.</p><p>This is not the world of the systems hacker. When you debug a distributed system or an OS kernel, you do it Texas-style. You gather some mean, stoic people, people who have seen things die, and you get some primitive tools, like a compass and a rucksack and a stick that’s pointed on one end, and you walk into the wilderness and you look for trouble, possibly while</p><p>using chewing tobacco. As a systems hacker, you must be pre- pared to do savage things, unspeakable things, to kill runaway threads with your bare hands, to write directly to network ports using telnet and an old copy of an RFC that you found in the Vatican. When you debug systems code, there are no high- level debates about font choices and the best kind of turquoise, because this is the Old Testament, an angry and monochro- matic world, and it doesn’t matter whether your Arial is Bold or Condensed when people are covered in boils and pestilence and Egyptian pharaoh oppression. HCI people discover bugs by receiving a concerned email from their therapist. Systems people discover bugs by waking up and discovering that their first-born children are missing and “ETIMEDOUT ” has been written in blood on the wall.</p><p>What is despair? I have known it—hear my song. Despair is when you’re debugging a kernel driver and you look at a mem- ory dump and you see that a pointer has a value of 7. THERE IS NO HARDWARE ARCHITECTURE THAT IS ALIGNED ON</p><p>7. Furthermore, 7 IS TOO SMALL AND ONLY EVIL CODE WOULD TRY TO ACCESS SMALL NUMBER MEMORY.</p><p>Misaligned, small-number memory accesses have stolen decades from my life. The only things worse than misaligned, small-number memory accesses are accesses with aligned buf- fer pointers, but impossibly large buffer lengths. Nothing ruins a Friday at 5 P.M. faster than taking one last pass through the log file and discovering a word-aligned buffer address, but a buffer length of NUMBER OF ELECTRONS IN THE UNI-</p><p>VERSE. This is a sorrow that lingers, because a 2893 byte read is the only thing that both Republicans and Democrats agree is wrong. It’s like, maybe Medicare is a good idea, maybe not, but there’s no way to justify reading everything that ever existed a jillion times into a mega-jillion sized array. This constant war on happiness is what non-systems people do not understand about the systems world. I mean, when a machine learning</p><p>algorithm mistakenly identifies a cat as an elephant, this is</p><p>actually hilarious. You can print a picture of a cat wearing an elephant costume and add an ironic caption that will entertain people who have middling intellects, and you can hand out cop- ies of the photo at work and rejoice in the fact that everything is still fundamentally okay. There is nothing funny to print when you have a misaligned memory access, because your machine is dead and there are no printers in the spirit world.</p><p>An impossibly large buffer error is even worse, because these errors often linger in the background, quietly overwriting your state with evil; if a misaligned memory access is like a criminal burning down your house in a fail-stop manner, an impossibly large buffer error is like a criminal who breaks into your house, sprinkles sand atop random bedsheets and toothbrushes, and then waits for you to slowly discover that your world has been tainted by madness. Indeed, the common discovery mode for an impossibly large buffer error is that your program seems to</p><p><br/></p><p>be working fine, and then it tries to display a string that should say “Hello world,” but instead it prints “#a[5]:3!” or another syntactically correct Perl script, and you’re like WHAT THE HOW THE, and then you realize that your prodigal memory accesses have been stomping around the heap like the Incred- ible Hulk when asked to write an essay entitled “Smashing Considered Harmful.”</p><p>You might ask, “Why would someone write code in a grotesque language that exposes raw memory addresses? Why not use</p><p>a modern language with garbage collection and functional programming and free massages after lunch?” Here’s the answer: Pointers are real. They’re what the hardware under- stands. Somebody has to deal with them. You can’t just place a LISP book on top of an x86 chip and hope that the hardware learns about lambda calculus by osmosis. Denying the exis- tence of pointers is like living in ancient Greece and denying the existence of Krackens and then being confused about why none of your ships ever make it to Morocco, or Ur-Morocco,</p><p>or whatever Morocco was called back then. Pointers are like Krackens—real, living things that must be dealt with so that polite society can exist. Make no mistake, I don’t want to write systems software in a language like C++. Similar to the Necro- nomicon, a C++ source code file is a wicked, obscure document that’s filled with cryptic incantations and forbidden knowl- edge. When it’s 3 A.M., and you’ve been debugging for 12 hours, and you encounter a virtual static friend protected volatile</p><p>templated function pointer, you want to go into hibernation and awake as a werewolf and then find the people who wrote the C++ standard and bring ruin to the things that they love. The C++ STL, with its dyslexia-inducing syntax blizzard of colons and angle brackets, guarantees that if you try to declare any reasonable data structure, your first seven attempts will result in compiler errors of Wagnerian fierceness:</p><p>Syntax error: unmatched thing in thing from std::nonstd::<u> </u> map&lt;_Cyrillic, _$$$dollars&gt;const basic_string&lt; epic_ mystery,mongoose_traits &amp;lt; char&gt;, <u>  </u>default_alloc_&lt;casual_ Fridays = maybe&gt;&gt;</p><p>One time I tried to create a list&lt;map&lt;int&gt;&gt;, and my syntax errors caused the dead to walk among the living. Such things are clearly unfortunate. Thus, I fully support high-level lan- guages in which pointers are hidden and types are strong and the declaration of data structures does not require you to solve a syntactical puzzle generated by a malevolent extraterrestrial species. That being said, if you find yourself drinking a martini and writing programs in garbage-collected, object-oriented Esperanto, be aware that the only reason that the Esperanto runtime works is because there are systems people who have exchanged any hope of losing their virginity for the exciting opportunity to think about hex numbers and their relationships</p><p>with the operating system, the hardware, and ancient blood rituals that Bjarne Stroustrup performed at Stonehenge.</p><p>Perhaps the worst thing about being a systems person is that other, non-systems people think that they understand the daily tragedies that compose your life. For example, a few weeks ago, I was debugging a new network file system that my research group created. The bug was inside a kernel-mode component, so my machines were crashing in spectacular and vindic-</p><p>tive ways. After a few days of manually rebooting servers, I had transformed into a shambling, broken man, kind of like a computer scientist version of Saddam Hussein when he was pulled from his bunker, all scraggly beard and dead eyes and florid, nonsensical ramblings about semi-imagined enemies.</p><p>As I paced the hallways, muttering Nixonian rants about my code, one of my colleagues from the HCI group asked me what my problem was. I described the bug, which involved concur- rent threads and corrupted state and asynchronous message delivery across multiple machines, and my coworker said,</p><p>“Yeah, that sounds bad. Have you checked the log files for errors?” I said, “Indeed, I would do that if I hadn’t broken every component that a logging system needs to log data. I have a network file system, and I have broken the network, and I have broken the file system, and my machines crash when I make eye contact with them. I HAVE NO TOOLS BECAUSE I’VE DESTROYED MY TOOLS WITH MY TOOLS. My only logging</p><p>option is to hire monks to transcribe the subjective experience of watching my machines die as I weep tears of blood.” My co- worker, in an earnest attempt to sympathize, recounted one of his personal debugging stories, a story that essentially involved an addition operation that had been mistakenly replaced with</p><p>a multiplication operation. I listened to this story, and I said, “Look, I get it. Multiplication is not addition. This has been known for years. However, multiplication and addition are at least related. Multiplication is like addition, but with more addition. Multiplication is a grown-up pterodactyl, and addi- tion is a baby pterodactyl. Thus, in your debugging story, your code is wayward, but it basically has the right idea. In contrast, there is no family-friendly GRE analogy that relates what my code should do, and what it is actually doing. I had the mod-</p><p>est goal of translating a file read into a network operation, and now my machines have tuberculosis and orifice containment issues. Do you see the difference between our lives? When you asked a girl to the prom, you discovered that her father was a cop. When I asked a girl to the prom, I DISCOVERED THAT HER FATHER WAS STALIN.”</p><p>In conclusion, I’m not saying that everyone should be a systems hacker. GUIs are useful. Spell-checkers are useful. I’m glad that people are working on new kinds of bouncing icons because they believe that humanity has solved cancer and homelessness and now lives in a consequence-free world</p><p><br/></p><p>of immersive sprites. That’s exciting, and I wish that I could join those people in the 27th century. But I live here, and I live now, and in my neighborhood, people are dying in the streets. It’s like, French is a great idea, but nobody is going to invent French if they’re constantly being attacked by bears. Do you see? SYSTEMS HACKERS SOLVE THE BEAR MENACE.</p><p>Only through the constant vigilance of my people do you get</p><p>the freedom to think about croissants and subtle puns involv- ing the true father of Louis XIV. So, if you see me wandering the halls, trying to explain synchronization bugs to confused monks, rest assured that every day, in every way, it gets a little better. For you, not me. I’ll always be furious at the number 7, but such is the hero’s journey.</p><p><br/></p><p><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/3PjVhm7SHAnNCFsrp4vYcMmjj4SbJW6_Nw3I8kCRkHo-Ttoq4t_0PjAixm.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/zu6piHoR3bKYZi8-bhTBDVes4mGPSwexqfHxhL2XV7c-fnmEuB_ncwO73o.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/BKRuB5D8rBa8HdORYoDsAG6E90Wxw-g5jzU5jNVL0SA-JTKhjG_mbyyoPB.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/vHq8DNX8KgbuwOrW5x382wBldGETJ_QYyCfJ7YvliGg-jXfgAF_o9Kq1Td.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/_hhGPcB-wnqc7Hnf0vlR-s9YoIerGTz5j1nzLF9EZJk-S6jgeu_wRLQZhx.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/BKWddr7mDr1b6vKoiuzT9S8wMfYmeWkFDHeUWXsXm-U-yn92ap_882g4tc.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/Ljll433Q85CHGZ11YSI8iwrSVzMulhf_alYDpGGHoWk-GQOhDC_AVH7JxR.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/9GWpw0igxFQBm9ou8MytnTuLjZAhYXJaKDpH7BBnldE-GpM9TP_vSR4tBG.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/o2Fev3AVMUxSlY-2J_kGIvtq6ByKB0zIP4yn6kOCFyk-UBZuJf_arJQIcs.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/Xudf2kb-JiTw-bGQeeKnuj5AVyH6QLWtcquVcSM7MKA-KdAkcQ_XxDwLTZ.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/hjRl1nz9wufUszQToA5y5jkEV26Q1Joh-Wb5DyURj00-ftwTzI_bFqqJ9N.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/HQ9IrO9DjZpOKeo0SBpG0PQ7PqI0tnFYcdHm60Xmp-w-6WcDjD_3FQbRGB.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/6xPTbWKef5Tx-Vhxff76tPrfZYE0jP1ofMjQ1AeyoFo-kNEPiT_ehz6XQh.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/yMRGU8iN4_0-UiKWfZV4O8P4NI96Uo6bKGd0xFZUfGM-DCPm2E_r6h3DVu.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/DdXYx8C0PDURQ_9sC-YpVVYvQcf0H7WsGVvc7aNlfNs-JADKKu_L4dXsj1.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/g0QHbZNs1N6ILk9mvaiOcn469uJltkjOjJm2tAgIGms-lc0DFt_pzteoe5.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/-ZQiQHqvWk3k208XO-fFM_KQI7jYpa0U4PWRwFfZmi4-jBoftz_UyYAJhQ.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/je5pVOg4iC_CKMY3kkak7SpW1bJjZ9bYxbelxBxJkYw-I4g_1D_b9icttQ.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/_yG37F0Ne-FE1e3ye7alCuIciUaoPw3TM2zNGnrEjiQ-LV6QAz_zwrScIL.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/MFAFSOuOEOGqJ655FpAwV1iWq_vtVGFNVU8AzWvTLWE-__I7sj_VyZuSB2.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/1jvrpT5BbqcPvkdTJebUKwKuRnnoth6ZRKkvFu1zqFY-4kCoUf_FMuVHNJ.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/GqkC-r47Olk3MK9ZfKR5JUXtsYIn0k35OULb7-46lpY-ImSCi4_qL5c0Fl.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/Cfi4KP8QlMJoXO20drN_-Pmz1ymZQHrLzDAuA1m2iTY-9Kktc1_GrrDaQO.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/qU4C4LNTzvu5a5yyRN_jTk2Vo6ja5PLVAcPsjOcgruc--4duo2_iOYWYgk.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/6h5FaIF8n_ImMtl9-wUQL1pY4UCwe6ShoJ-emKcZJlw-HNgmis_7IE6s9r.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/U7UQ12j1nrwIeXEtChEgxyj1iUbqjnIL8azTEKZ8ERg-mGn-ux_meEMikJ.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/0dXzLDFT43xEsh9KSPiZBeUSE55cg4LXBCYTUBclXpc-n0B6Zy_jUCdIxw.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/v5cKOT1MyuR7Q0J46JCzj4tfPE2Kh0WV3A8dW4mj9PE-fJoKj0_7IzpAwT.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/NXA_a7aZqfzD9e7sp4LyeVK0bt_ypoVuvrYNOkl-N5s-WcbOa2_NFdYZfe.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/09Fg0DVT-G10gdWFwMK9KSePZ3hv94eFgAMUAus6Vpo-iXi4nr_GUZg5fN.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/7HCO_Yz47hxS01U0Dvw83-G3oCQi_XPigYGxPtYSQXQ-qHWcyR_Oc38EO9.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/ZyKwjfvFVWMYOErKBJnBlX5kHnkXG6iURgCUBRkG23c-g4SZ_f_BRDpDIH.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/g1JfUtkpM102XJIXL1-_DF4jlKVkN73XelpeN-rbASo-Z3Rxe6_eV3T37T.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/ZqfF49Oq4gdxEwJQOnNr6cfnuwsw6WxyfNld8zXNkHU-X8E80p_nDd3ymo.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/j_aDFBxxPMKW1N1mQUiJD4Jv6sLvpgfDiVR_KYF15Yo-f-7gW__1Lrq8AE.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/X-rieWMGjDA3xhrFurgaVaoxVmOxGR1Gh5yWTulc8qc-5VWrpr_52uT7Ex.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/J0xH79919-Y-223udc_HjCkMou04iC-nM0gubKiV1zA-Czi66a_JiE87DE.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/-RgteSd4yAk_j608MaIw17AiWyVbpfSXPV49vhMjPq8-hh2rn9_RhGKlDl.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/qeMbUEBS5ivfsD7glHzGBCIP6gZxQyqCmZMS8_uPxIA-bNVeOY_bHIqKR0.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/m7htRL5yJwMBtLmrL2Sn9_WF0j7cbAXWynMsLz9iIQg-biESR8_p2TU36x.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/68FgZ46Dr-qlarRaZFW3Y-TJ2t6BsaFvGj6wMbHUZqY-e4jqWJ_7EnCXWN.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/odl1eG3KcxKWrDg_4KZlCGsAWK-Q5c0QdD6UEuK_uGk-B_5-ap_59TRnEf.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/nSs-ZwKiOxvQVjnwXzopfMSpZg6WETqwUNWsiQiD7bg-kDqNyf_556hL1M.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/blsJ1zGV7cw7yqPeKopXcPyv0xm-ahhrzwosz38ZwgM-Mndfp9_xP5Xptf.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/N4y9pAPhOW18YXsmDv5Tg4j8rPO6poNWLD-iIMYwtXg-9xg0ap_Fhj4MUC.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/G0pJsD4r__jnJu6Xagukx3ARxLhZ8TQEOPsrcehWl-I-35jJz-_BjrTOa2.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/377DrrLyQVfpIRl7w1nhp8rCXEib0QFUHJX0iWbXwCE-TGw66Y_Y6zIMig.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/N5bwSeNlv3R01-p5MvqgBQCIPwKNuDqTZrzIQYOBE4c-Lt1OUR_eG2HS8J.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/Uj4jTnGVwUZBKWzpcG-fWeteFhynvvxnChThxd7y6GM-CpT3Zv_rzsZoXx.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/2Q8SzdZ0E-uoSkurUo71zMdPuFBY5jAucH1Hxr7tSe8-FXHV8-_o3py9iI.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/f-cJudd5ZIX0zH93wBWiPd76QWhZvkQROzphrw8q4Lk-0MJpI4_nXHHIRm.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/4hylgy8BJ6DbXeHsaQu4RJHkIJZSzcCsaUDmFqSVAyM-Ogr0o7_j0dTzDf.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/W6EYed5UyuB9s0lgdHYN7heF1p0WaKjDUGI5baET8tI-zatTlx_3WFx9YF.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/UEyFXXe1FQOuttF6PAa_KSYV8I1Ijuv_2rK1DokyGFA-GohX5F_yCuDOxQ.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/z8y6R5sxvlSgDbEDW7_6BT5uK37GLMmYMASYMBUR82w-AMWOcI_t4hroEw.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/RsCulUTlhMRpRH2mBb1zNtn4iiIS-t423DqqU8Uej2o-X7XpCp_RY0ijzQ.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/kHBrdcBHSazzsaNzKWKvbViAnuQB5l3ZhOuDbEDPKPk-o71Hfo_A0ZNZw9.png" class="article-image"/></p><h1>Do you know about the USENIX Open Access Policy?</h1><p><br/></p><p>USENIX is the first computing association to offer free and open access to all of our conferences proceedings and videos. We stand by our mission to foster excellence and innovation while supporting research with a practical bias. Your membership fees play a major role in making this endeavor successful.</p><p><br/></p><p>Please help us support open access.</p><p>Renew your USENIX membership</p><p>and ask your colleagues to join or renew today!</p><p><br/></p><p><a href="http://www.usenix.org/membership">www.usenix.org/membership</a></p></div></div>
+      
+    </article>
+    
+    <article>
+      <h1>Luddites and AI datacenters</h1>
+      <div class="article-meta">
+        seangoedecke.com RSS feed
+        · 22 Apr 2026 · <a href="https://seangoedecke.com/luddites-and-ai-datacenters/">Source</a>
+      </div>
+      <div class="article-body"><p>Is it time to start burning down datacenters?</p>
+<p>Some people think so. An Indianapolis city council member had his house recently <a href="https://www.kbtx.com/2026/04/07/councilman-says-someone-fired-shots-his-home-left-no-data-centers-note/">shot up</a> for supporting datacenters, and Sam Altman’s home was <a href="https://www.wired.com/story/sam-altman-home-attack-openai-san-franisco-office-threat/">firebombed</a> (and then <a href="https://sfstandard.com/2026/04/12/sam-altman-s-home-targeted-second-attack/">shot</a>) shortly afterwards. People from all sides of the argument are <a href="https://www.bloodinthemachine.com/p/why-the-ai-backlash-has-turned-violent">sounding</a> the <a href="https://thesoufancenter.org/intelbrief-2025-november-5/">alarm</a> about imminent violence.</p>
+<p>The obvious historical comparison is <a href="https://en.wikipedia.org/wiki/Luddite">Luddism</a>, the 19th-century phenomenon where English weavers and knitters destroyed the machines that were automating their work, and (in some cases) killed the machines’ owners. Anti-AI people are <a href="https://www.theguardian.com/commentisfree/article/2024/jul/27/harm-ai-artificial-intelligence-backlash-human-labour">reclaiming</a> the term to describe themselves, and many of the leading lights of the anti-AI movement (like <a href="https://www.bloodinthemachine.com/">Brian Merchant</a> or <a href="https://www.versobooks.com/en-gb/products/688-breaking-things-at-work?srsltid=AfmBOorCgru7ReSwbVdt40nZmQaaeGfbpjLV7epM0fSv_V01QSY5b5TP">Gavin Mueller</a>) have written books arguing more or less that the Luddites were right, and we ought to follow their example in order to resist AI automation<sup><a href="https://www.seangoedecke.com/luddites-and-ai-datacenters/#fn-1">1</a></sup>.</p>
+<p>Like many people, I have heard a lot about Luddism and Luddites, but only in the context of it being a general term for someone who is anti-technology. I was interested in learning more about the actual historical movement: what kind of people participated, what it was, and what it accomplished. I read Merchant’s and Mueller’s books, plus others<sup><a href="https://www.seangoedecke.com/luddites-and-ai-datacenters/#fn-2">2</a></sup>, to try and figure all of this out. Who were the actual, historical Luddites? What can we learn from them about burning down datacenters?</p>
+<h3>Who were the Luddites?</h3>
+<p>The Luddites were a decentralized movement of artisans in the 1810s who engaged in violent protest - smashing machines, threatening violence, and ultimately killing people - over the fact that their jobs were being automated away. They were not rich, but they were certainly not unskilled labor: these were people who had apprenticed for <a href="https://archive.org/stream/extractsfromrec01dendgoog/extractsfromrec01dendgoog_djvu.txt?utm_source=chatgpt.com">seven years</a>. They were mostly working from home, producing cloth from raw material given to them by their employer, often with tools rented from that same employer. They were working short weeks (three days, per William Gardiner) at their own discretion.</p>
+<p>In the early 1800s, their skilled labor was becoming unnecessary. With the help of expensive machines, unskilled labor could now produce lower-quality cloth, so employers were beginning to pass over these artisans in favor of cheaper employees: <a href="https://campus.murraystate.edu/academic/faculty/kBinfield/luddites/LudditeHistory.htm">children, unapprenticed workers, and women</a><sup><a href="https://www.seangoedecke.com/luddites-and-ai-datacenters/#fn-3">3</a></sup>. Combined with the bad economic position of England at the time (at war with France, and thus deliberately cutting off much European trade), times were beginning to be very tough indeed. Starvation was a real threat.</p>
+<h3>What did they do?</h3>
+<p>Cloth artisans were groups of capable men who were used to getting their own way, knew each other very well, and were broadly respected in their communities. It was thus a natural response for them to organize into what was effectively a militant union. The Luddites would send anonymous threatening letters to their old (or current) bosses, warning them to stop using their machines. If they didn’t comply, they would raid the workshop or factory, smashing the machines up.</p>
+<p>They typically did not harm people, though they certainly delivered threats of bodily harm or even murder, and the raids were violent enough (e.g. shooting through windows) to have risked accidental deaths. In at least two instances where a factory owner was seen as unusually cruel, the Luddites did attempt assassinations: one unsuccessful, and one successful one that eventually prompted a crackdown that ended the movement for good.</p>
+<p>Luddism was fully decentralized. Different communities could and did decide to engage in machine-raiding independently, particularly when news spread of the tactic succeeding. Although each community had its own influential men, there was never a single “leader of Luddism”. King Ludd himself was a folk-tale figure. This made it an absolute nightmare for the British government to try and suppress them: putting down one Luddist group did nothing to prevent other groups from continuing to operate.</p>
+<h3>All the king’s spies</h3>
+<p>I was surprised by how <em>difficult</em> it was for the government to get a hold of any of the local Luddist ringleaders. The government was willing to offer huge rewards to informers: at one point up to 40x the yearly wage. However, there were no takers for several years. Armies of spies were recruited and tasked with infiltrating Luddist groups, with absolutely no success.</p>
+<p>Why was it so hard? Firstly, because the working class was so overwhelmingly pro-Luddist. People universally blamed the economic situation on the government and the factory owners (rightfully so, since the government had chosen to go to war and the factory owners had chosen to embrace automation). Secondly, the communities in question were so insular and tightly-knit that informers would have to rat on their friends and relatives. The handful of people who did eventually inform lived out the rest of their lives as pariahs.</p>
+<p>Because each group was so insular, any spies trying to infiltrate the movement would have been complete strangers to the community, and would thus have a very hard time gaining the trust of a group of men who had known each other for their whole lives. The spies that did exist were restricted to the occasional inter-group Luddist meetings, where people didn’t all know each other so closely. But it’s unclear how important those meetings were, since Luddist groups didn’t need to coordinate to achieve their goals. According to Merchant, the spies spent much of their time embellishing tales of an imminent revolution to encourage their employers to keep the money flowing.</p>
+<h3>The crackdown</h3>
+<p>In the absence of reliable information, the British government was forced to use force. And they did, sending 12,000 troops<sup><a href="https://www.seangoedecke.com/luddites-and-ai-datacenters/#fn-4">4</a></sup> into the northern counties. This served mainly as an intimidation tactic, since there was no standing Luddite army to fight, and the soldiers spent most of their time marching back and forth or being abused by the townspeople.</p>
+<p>More successful was the imposition of a full police state in Yorkshire, under the magistrate Joseph Radcliffe, who was empowered to randomly grab people off the street and interrogate them for days. That pressure eventually convinced a handful of people to give up their local Luddist organizers, who were tried and inevitably hanged. Their deaths (and the ensuing climate of fear) ended the high-water mark of Luddist activity. Even then, Luddist raids continued on and off for <em>six more years</em> before petering out.</p>
+<h3>Did the Luddites succeed?</h3>
+<p>This is a tricky question. In one sense the answer is obviously no: the movement was crushed, many of their leaders were executed, the textile industry continued to be automated, and today there are no longer thousands of jobs for skilled British weavers, knitters, spinners and dyers. The pro-automation side won.</p>
+<p>However, they did achieve a number of short-lived victories. Their early threats often succeeded in preventing the building of a factory in a particular location, or in delaying the adoption of industrial machinery in a particular shop by years. In one case, hosiers that had been spooked by Luddite activity gave out pre-emptive bonuses to their workers to discourage them from smashing up their machines (which were indeed not smashed).</p>
+<p>The Luddites also scared the hell out of the British government, who (encouraged by their over-eager spies) thought they might have a genuine revolution on their hands. While they didn’t get many legal concessions at the time, the specter of Luddism must have loomed over the labor reform movement of the 1800s, which saw the first anti-child-labor laws and the beginnings of independent inspection of factories.</p>
+<p>Finally, every book I read argued that the Luddism movement may have created the first idea of a “working class”, by unifying many previously-independent groups of workers against a common enemy. Seen this way, the “political arm”<sup><a href="https://www.seangoedecke.com/luddites-and-ai-datacenters/#fn-5">5</a></sup> of Luddism can arguably claim partial credit for every labor victory since the 1800s (though the ringleaders were still hanged and the weavers did still lose their jobs).</p>
+<h3>The Luddist approach in a nutshell</h3>
+<p>We can now describe the “Luddist approach” to fighting technological change:</p>
+<ol> <li>Find a few conspirators in your existing community who agree with your political project (but don’t join a broader organization, since that leaves you vulnerable)</li> <li>Make public anonymous demands in support of your specific goals, backed up by threats of violence, signed by a fictional character that’s easy for other groups to appropriate</li> <li>If your threats are ignored, attack the physical machines in the dead of night, destroying them and threatening (but not killing) any guards</li> <li>Hope your example inspires many more people to independently do (1)-(3) themselves</li> <li>Keep raiding, optionally escalating to assassination of some of the bosses, until you bait a totalitarian crackdown from the government </li> <li>Eventually get arrested and executed, to great public dismay</li> <li>Twenty years later, your example inspires the first national trade unions</li> </ol>
+<p>Note that starting or joining a national movement is <em>not</em> the Luddist approach. Staying almost entirely isolated in small cells helped the Luddists avoid government spies and made them impossible to root out without enforcing a police state. Note also that you need a <em>lot</em> of public support for this to work: so that you get a lot of copycat groups without having to explicitly organize them, and so that your property destruction and murder is taken sympathetically instead of getting you immediately reported and arrested.</p>
+<h3>Why Luddism is not a good model for the anti-AI movement</h3>
+<p>There are many reasons why this doesn’t map onto the current anti-AI movement. First, Luddism grew from a homogeneous group of high-status workers whose jobs almost vanished overnight, not a broad group of people whose jobs are getting slightly worse because of AI (like the gig-economy workers Merchant endlessly references). That meant that Luddites had <em>really specific</em> asks: higher wages for piecework, a phased introduction of specific textiles machinery, and so on. They were not generally demanding that the machines all be immediately destroyed<sup><a href="https://www.seangoedecke.com/luddites-and-ai-datacenters/#fn-6">6</a></sup>.</p>
+<p>Second, Luddism was very local. A pre-existing group of artisans in a particular town would gather in that town - either at work or an inn, say - and decide to petition or raid the businesses in that town that were harming their livelihoods. AI concerns are not like this. It isn’t businesses in Chicago or Tokyo that are making decisions that imperil Chicago’s or Tokyo’s jobs, it’s businesses in San Francisco. Unlike the Luddists, anti-AI activists can’t naturally organize with people they already know to take direct action where they already live.</p>
+<p>Third, Luddist <em>victory</em> could also be local. If you successfully lobby your local cloth business to not use a weaving machine, you have secured your job at that business for a while. But if you successfully lobby your town (or even your country!) to not build a datacenter, it doesn’t meaningfully improve your local position, since your job can be as easily replaced by a datacenter on the other side of the planet.</p>
+<h3>A total failure of leadership</h3>
+<p>Reading through the history of the Luddites from a modern perspective, I was struck by the near-total absence of <em>good government</em>. The artisans were left to work out their grievances with their bosses more or less by themselves, with no formal channels for complaint or any attempt at mediation. When the government did intervene - in response to near-universal unrest in <em>half of the country</em> - they did this:</p>
+<ol> <li>Make machine-breaking and oath-taking capital crimes</li> <li>Dump thousands of soldiers more or less at random into the area, with no plan to guard factories or do anything beyond just hang around in case a revolution broke out</li> <li>Empower a single magistrate to arrest and interrogate whoever he wanted in order to root out the conspiracy</li> </ol>
+<p>I suppose it worked, in the sense that it eventually succeeded in stopping the Luddist raids. But I can’t help but think that even a token gesture of compromise (say, requiring employers to make their wages public, or restricting the most cheap-and-nasty factory-made textile products) would have gone a long way towards calming things down. This almost actually happened! The 1812 Framework Knitters’ Bill, which had these provisions in it, passed the House of Commons but was shot down in the House of Lords.</p>
+<p>Why did the government fail to even make a token attempt at compromise? Before the industrial revolution, I wonder if the workers and bosses of the English textiles industry were genuinely able to often just work out their problems together, so the government never really needed to do large-scale mediation. When that changed - when automation first made it possible for the bosses to durably “win” - government took a long time to realize, so there were some unpleasant decades of disempowered workers trying to bully factory-owners (via riots and death threats), and factory-owners trying to brutalize workers (via direct violence and automation).</p>
+<h3>Final thoughts</h3>
+<p>The Luddites weren’t anti-technology in general. Instead, they were against four or five specific machines that were automating away their skilled work. Contrary to many of the books I read, I think that’s actually fairly well understood today. But what surprised me was how truly decentralized and widespread the movement was. Every town with weavers faced the same incentives (the bosses to industrialize, and the workers to fight back) which created Luddism locally. And <em>nobody</em> was willing to report the Luddites: not for years, or for what would have been a fortune in cash, or in disagreement with their actions. They were only stopped by a truly fascist crackdown, with the army in the streets and the secret police pulling away random citizens for arrest and questioning.</p>
+<p>I can see why modern “Luddites” - who are genuinely anti-technology - talk so much about the legacy of original Luddites. Luddism was a grassroots organization which notched up some real short-term wins, enjoyed near-total support among the public, and didn’t seem to be troubled by infighting at all<sup><a href="https://www.seangoedecke.com/luddites-and-ai-datacenters/#fn-7">7</a></sup>. If you’re an anti-AI campaigner, I bet all of that sounds great<sup><a href="https://www.seangoedecke.com/luddites-and-ai-datacenters/#fn-8">8</a></sup>. But I’m not convinced that the neo-Luddites really are the inheritors of Luddism. A load-bearing feature of Luddism is that it was <em>local</em>: it didn’t have manifestos, or leaders, or factions, or even much explicit ideology beyond the artisans’ immediate practical concerns. These were local men striking back against the local factories harming their local jobs. That simply isn’t the case with AI, where a datacenter in China can take my job in Australia.</p>
+<p>If it isn’t time to start burning down datacenters, what can we do? Well, workers today are better off than the Luddites were, because we stand on their shoulders. Unlike the Luddites, today’s workers can all vote (and I suspect there will be no shortage of anti-AI candidates to vote for). It’s a much less exciting answer to say “try and get better laws passed” than to say “viva the revolution, where’s my Molotov cocktail”. Still, if the Luddites had that option, I suspect they would have used it.</p>
+<ol> <li> <p>I got linked <a href="https://tante.cc/2026/04/21/ai-as-a-fascist-artifact/">this article</a> calling AI a “fascist artifact” (on a blog called “Breaking Frames”, a clear reference to Luddism) while I was writing this blog post.</p> <a href="https://www.seangoedecke.com/luddites-and-ai-datacenters/#fnref-1">↩</a> </li> <li> <p>I really enjoyed Merchant’s book and did not enjoy Mueller’s (which I found to be 10% about the Luddites and 90% about interminable intra-Marxist ideological arguments). I also read <a href="https://www.amazon.com.au/Luddites-Protested-Machinery-Industrial-Revolution/dp/171936186X">The Luddites</a>, which was effectively a dry summary of the ground Merchant covers, a bunch of other essays, and went back and forth with ChatGPT and Claude on some of the key questions.</p> <a href="https://www.seangoedecke.com/luddites-and-ai-datacenters/#fnref-2">↩</a> </li> <li> <p>Merchant (around page 134) attempts to characterize Luddism as a pro-feminist movement, citing some examples of women helping organize raids, but later on even he (page 162) quotes a representative of the Irish weaver’s guild effectively saying “we don’t have your English problems of women working in the industry”. In general it’s a bit frustrating that the popular books on Luddism are all fairly uncritically pro-Luddist (though not surprising, I suppose). Merchant doesn’t touch at all on the Luddist <a href="https://ludditebicentenary.blogspot.com/2011/12/22nd-december-1811-william-milnes.html">practice</a> of going around to knitting-shops with women and “discharging them from working”.</p> <a href="https://www.seangoedecke.com/luddites-and-ai-datacenters/#fnref-3">↩</a> </li> <li> <p>Sometimes this is described as more troops that were sent to fight Napoleon (even by Merchant himself on page 89), but that <a href="https://medium.com/@antonhowes/were-more-troops-sent-to-quash-the-luddites-than-to-fight-napoleon-233c802c216d">isn’t right</a>.</p> <a href="https://www.seangoedecke.com/luddites-and-ai-datacenters/#fnref-4">↩</a> </li> <li> <p>In quotes because it was not an official Luddist group (there were none), just people who were trying to stop the violence through lobbying and legislation.</p> <a href="https://www.seangoedecke.com/luddites-and-ai-datacenters/#fnref-5">↩</a> </li> <li> <p>Otherwise why would any boss agree, instead of just waiting for the Luddites to do it themselves?</p> <a href="https://www.seangoedecke.com/luddites-and-ai-datacenters/#fnref-6">↩</a> </li> <li> <p>As far as I can tell this is true: the Luddists basically had no internal conflict. I think this is because each individual cell knew each other well already, and so handled their disagreements privately (instead of by writing pamphlets), and disagreements between cells didn’t matter that much because they had no need to coordinate.</p> <a href="https://www.seangoedecke.com/luddites-and-ai-datacenters/#fnref-7">↩</a> </li> <li> <p>It beats the hell of the other popular reference, Dune’s <a href="https://dune.fandom.com/wiki/Butlerian_Jihad">Butlerian Jihad</a>, which was two generations of brutal violence followed by the reimposition of the feudal system. (Although, at least the Butlerian Jihad <em>succeeded</em>…)</p> <a href="https://www.seangoedecke.com/luddites-and-ai-datacenters/#fnref-8">↩</a> </li> </ol></div>
+      
+    </article>
+    
+  </body>
+</html>
