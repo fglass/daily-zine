@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Fred Talks - 2026-06-10</title>
+    <style>
+      @page {
+        size: A5;
+        margin: 8mm 9mm 9mm;
+      }
+
+      :root {
+        color: #111;
+        font-family: "Times New Roman", Times, serif;
+        --body-text-size: 9.5pt;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        color: #111;
+        background: #fff;
+        font-family: "Times New Roman", Times, serif;
+        line-height: 1.45;
+      }
+
+      a,
+      a:visited {
+        color: #111;
+        text-decoration: underline;
+      }
+
+      .cover {
+        min-height: calc(210mm - 17mm);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        page-break-after: always;
+        border: 1px solid #111;
+        padding: 8mm;
+        background: #fff;
+      }
+
+      .toc-item-meta,
+      .article-meta {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .masthead {
+        margin: 0;
+        font-size: 40pt;
+        line-height: 0.95;
+        text-transform: uppercase;
+      }
+
+      .issue-date {
+        margin: 4mm 0 0;
+        font-size: 14pt;
+      }
+
+      .issue-date sup {
+        font-size: 0.58em;
+        vertical-align: super;
+        line-height: 0;
+      }
+
+      .cover-deck {
+        max-width: 90mm;
+        font-size: 12pt;
+        margin: 0;
+      }
+
+      .toc {
+        border-top: 3px solid #111;
+        padding-top: 6mm;
+      }
+
+      .toc h2 {
+        margin: 0 0 4mm;
+        font-size: 11pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .toc-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .toc-item {
+        padding: 3mm 0;
+        border-bottom: 1px solid rgba(17, 17, 17, 0.2);
+      }
+
+      .toc-item-title {
+        font-size: 12pt;
+        margin: 0 0 1mm;
+      }
+
+      .toc-item-meta {
+        font-size: 8pt;
+      }
+
+      .masthead-compact {
+        margin: 0 0 6mm;
+      }
+
+      .masthead-compact h1 {
+        margin: 0;
+        font-size: 22pt;
+        line-height: 1.1;
+        text-transform: uppercase;
+      }
+
+      .masthead-compact .issue-date {
+        margin: 2mm 0 0;
+        font-size: 11pt;
+      }
+
+      .toc-compact {
+        border-top: 1px solid #111;
+        border-bottom: 1px solid #111;
+        padding: 4mm 0;
+        margin: 0 0 8mm;
+      }
+
+      article + article {
+        margin-top: 10mm;
+        padding-top: 6mm;
+        border-top: 2px solid #111;
+      }
+
+      h1 {
+        margin: 0 0 2mm;
+        font-size: 18pt;
+        line-height: 1.1;
+      }
+
+      .article-meta {
+        font-size: 8.5pt;
+        margin-bottom: 6mm;
+        padding-bottom: 3mm;
+        border-bottom: 1px solid #111;
+      }
+
+      .article-body {
+        font-size: var(--body-text-size);
+        font-family: "Times New Roman", Times, serif;
+      }
+
+      .article-body p,
+      .article-body li,
+      .article-body blockquote,
+      .article-body dd,
+      .article-body dt {
+        margin: 0 0 4mm;
+        orphans: 3;
+        widows: 3;
+      }
+
+      .article-body ul,
+      .article-body ol,
+      .article-body dl {
+        margin: 0 0 4mm 5mm;
+        padding: 0;
+      }
+
+      .article-body h2,
+      .article-body h3,
+      .article-body h4 {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        margin: 7mm 0 3mm;
+        line-height: 1.2;
+      }
+
+      .article-body blockquote {
+        margin-left: 6mm;
+        padding-left: 4mm;
+        border-left: 2px solid #111;
+      }
+
+      .article-body .media-omitted {
+        margin: 0 0 4mm;
+        font-size: 8.5pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(17, 17, 17, 0.65);
+      }
+
+      .article-body figure,
+      .article-body .article-figure,
+      .article-body picture,
+      .article-body .article-picture {
+        display: block;
+        max-width: 72mm;
+        margin: 0 auto 4mm;
+        break-inside: avoid;
+      }
+
+      .article-body img,
+      .article-body .article-image {
+        display: block;
+        max-width: min(100%, 72mm);
+        max-height: 34mm;
+        height: auto;
+        width: auto;
+        object-fit: contain;
+        margin: 0 auto 3mm;
+      }
+
+      .article-body figcaption {
+        margin-top: 1.5mm;
+        font-size: 8.5pt;
+        line-height: 1.3;
+        color: rgba(17, 17, 17, 0.8);
+      }
+
+      .article-note {
+        margin-top: 6mm;
+        padding-top: 3mm;
+        border-top: 1px solid #111;
+        font-size: 9pt;
+        font-style: italic;
+      }
+
+      @media screen {
+        body {
+          padding: 2rem;
+          margin: 0 auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    
+    <header class="masthead-compact">
+      <h1>Fred Talks</h1>
+      <p class="issue-date">
+        10<sup>th</sup> June 2026
+      </p>
+    </header>
+
+    <nav class="toc toc-compact">
+      <h2>Contents</h2>
+      <ol class="toc-list">
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Headless everything for personal AI</div>
+          <div class="toc-item-meta">
+            Interconnected · 1335 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">The lies I used to tell myself</div>
+          <div class="toc-item-meta">
+            Cate Hall · 1900 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">What I Learned About Billionaires at Jeff Bezos’s Private Retreat</div>
+          <div class="toc-item-meta">
+            Noah Hawley · 2436 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Building Software Is Learning</div>
+          <div class="toc-item-meta">
+            Thorsten Ball · 1302 words
+          </div>
+        </li>
+        
+      </ol>
+    </nav>
+    
+
+    
+    <article>
+      <h1>Headless everything for personal AI</h1>
+      <div class="article-meta">
+        Interconnected
+        · 18 Apr 2026 · <a href="https://interconnected.org/home/2026/04/18/headless">Source</a>
+      </div>
+      <div class="article-body"><p>It’s pretty clear that apps and services are all going to have to go <em>headless:</em> that is, they will have to provide access and tools for personal AI agents without any of the visual UI that us humans use today.</p>
+<p>By services I mean things like: getting a new passport; finding and booking a hotel or a flight; managing your bank account; shopping for t-shirts with a minimum cotton weight from brands similar to ones that you’ve bought from before.</p>
+<p>Why? Because using personal AIs is a better experience for users than using services directly (honestly); and headless services are quicker and more dependable for the personal AIs than having them click round a GUI with a bot-controlled mouse.</p>
+<p>Where this leaves design for the services… well, I have some thoughts on that.</p>
+<p>Headless services? They’re happening already.</p>
+<p>Already there is <a href="https://interconnected.org/home/2025/02/11/mcp">MCP, as previously discussed</a> (2025), a kind of web API specifically for AI. For instance, best-in-class call transcriber app Granola <a href="https://www.granola.ai/blog/granola-mcp">recently released their MCP</a> and now you can ask your Claude to pull out the meeting actions and go trawling in your personal docs to find answers to all the question. A good integration.</p>
+<p>But command-line tools are growing in popularity, although they used to be just for developers. So you can now create a spreadsheet by typing in your terminal:</p>
+<p><code>gws sheets spreadsheets create --json '{"properties": {"title": "Q1 Budget"}}'</code></p>
+<p>Here are some recently launched CLI tools:</p>
+<ul> <li><a href="https://github.com/googleworkspace/cli">gws</a>: Google Workspace CLI, Drive, Gmail, Calendar, and every Workspace API. Zero boilerplate. Structured JSON output. 40+ agent skills included.</li> <li><a href="https://obsidian.md/cli">Obsidian CLI</a> to do anything you can do with the (very popular) note-taking app - like keep daily notes, track and cross off tasks, search - from the CLI</li> <li><a href="https://developer.salesforce.com/tools/salesforcecli">Salesforce CLI</a> and, look, I don’t really understand what the Salesforce business operating system does, but the fact it has a CLI too is significant.</li> </ul>
+<p>And here is <a href="https://github.com/HKUDS/CLI-Anything">CLI-Anything</a> (31k stars on GitHub) which auto-generates CLIs for ANY codebase.</p>
+<p>Why CLIs?</p>
+<p>It turns out that the best place for personal AIs to run is on a computer. Maybe a virtual computer in the cloud, but ideally your computer. That way they can see the docs that you can see, and use the tools that you can use, and so what they want is not APIs (which connect webservers) but little apps they can use directly. CLI tools are the perfect little apps.</p>
+<p>CLIs are composable so they are a better fit for what users actually do.</p>
+<p>By composable I mean you can: query your notes then jump to a spreadsheet then research the web then jump back to the spreadsheet then text the user a clarifying question then double-check your notes, all by bouncing between CLIs in the same session.</p>
+<p>A while back app design got obsessed with “user journeys.” Like the journey of a user finding a hotel then booking a hotel then staying in it and leaving a review.</p>
+<p>But users don’t live in “journeys.” They multitask; they talk to people and come back to things; they’re idiosyncratic Try grabbing the search results from the Airbnb app and popping them in a message to chat on the family WhatsApp, then coming back to it two days later. It’s a pain and you have to use screenshots because apps and their user journeys are not composable.</p>
+<p>CLIs are composable because they came originally from Unix and that is the <a href="https://tldp.org/LDP/GNU-Linux-Tools-Summary/html/c1089.htm">Unix tools philosophy</a>: tools were designed so that they could operate together.</p>
+<p>Personal AIs like Openclaw or [Poke](<a href="https://poke.com/">https://poke.com</a> do what users want and don’t follow “designed” user journeys, and as a result the composed experience is more personal and way better. CLIs are a great underlying technology for that.</p>
+<p>CLIs are smaller than regular apps and so they are easier to secure.</p>
+<p>The alternative to providing special tools for AIs is that the AIs use the same browser-based apps that we do, and that’s a terrifying prospect.</p>
+<p>For one, AIs are really good at finding security holes. The new Mythos model from Anthropic is so good at discovering security flaws that it has been held back from the public and <a href="https://www.bbc.co.uk/news/articles/c2ev24yx4rmo">governments are convening emergency meetings of the biggest banks</a>.</p>
+<p>And including a UI increasing complexity and makes security holes more likely.</p>
+<p>Here’s a recent shocking example. Companies House is the national register of all companies, directors, and accounts for England and Wales. Users could view <em>and edit</em> any other user’s account:</p>
+<blockquote data-author="The Register" data-title="Flaw in UK&#x27;s corporate registry let directors rummage through rival records"> <p>a logged-in company director could exploit the flaw by starting from their own dashboard and then trying to log into another company’s account.</p> <p>Once they reach the 2FA block, which they would not be able to pass, <u>all that was required was to click the browser’s back button a few times</u>. Typically, the user would be taken back to their own dashboard, but the bug instead returned them to the company they had tried to log into but couldn’t.</p> </blockquote>
+<p>This bug had been present since October 2025.</p>
+<p>Imagine a future where personal AIs are filing company records, and one of them notices this security hole overnight and posts about it on <a href="https://www.moltbook.com">moltbook</a> or whatever agent-only social network is most popular. The other agents would exploit the system up, down and sideways before the engineering team woke up.</p>
+<p>The only viable solution is that services need to security hardened, and to do that they need to be simplifying and minimised. Again, CLI tools are a great fit.</p>
+<p>What does this mean for front-end design?</p>
+<p>Design won’t go anywhere.</p>
+<p>Sure, the front-end should be driving the same CLI tools that agents use.</p>
+<p>Arguably it’s more important than ever: human users will encounter services, figure out what they can do, and pick up their vibe from using the app, just as now.</p>
+<p>Then they’ll tell their personal AI about the service and never see the front-end again, or re-mix it into bespoke personal software.</p>
+<p>So from a usability perspective I see front-end as somewhat sacrificial. AI agents will drive straight through it; users will encounter it only once or twice; it will be customised or personalised; all that work on optimising user journeys doesn’t matter any more.</p>
+<p>But from a vibe perspective, services are not fungible. e.g. if you’re finding a restaurant then Yelp, Google Maps, Resy, and The Infatuation are all more-or-less equivalent for answering that question but clearly they are completely different and you’ll use different services at different times.</p>
+<p>Understanding that a service is <em>for you</em> is 50% an unconscious process - we call it brand - and I look forward to front-end design for apps and services optimising for brand rather than ease of use.</p>
+<p>If I were a bank, I would be releasing a hardened CLI tool like <em>yesterday.</em></p>
+<p>There is so much to figure out:</p>
+<ul> <li>How do permissions work? Should the user get a notification from their phone app when the agent strays outside normal behaviour? How do I give it credentials to act on my behalf, and how long do they last?</li> <li>How does adjacency work? My bank gives me a current account in exchange for putting a “hey, get a loan!” button on the app home screen. How do you make offers to an agent?</li> </ul>
+<p>Headless banks.</p>
+<p>Headless government?</p>
+<p>I’d love to show you a worked example here. I vibed up a suite of four CLI tools that wrap four different services from UK government departments.</p>
+<p>If I were renting a house, I would set my agent to learning about the neighbourhoods using one of these tools. Another tool will be helpful next time I’m buying a used car. (There’s a Companies House command-line tool too.)</p>
+<p>But I won’t show you the tools because I don’t want to be responsible for maintaining and supporting them.</p>
+<p>I wish Monzo came with an official CLI. I wish Booking.com came with a CLI. I reckon, give it a year, they will.</p>
+<h5> Auto-calculated kinda related posts: </h5>
+<p>If you enjoyed this post, please consider sharing it by email or on social media. <a href="https://interconnected.org/home/2026/04/18/headless">Here’s the link.</a> Thanks, —Matt.</p></div>
+      
+    </article>
+    
+    <article>
+      <h1>The lies I used to tell myself</h1>
+      <div class="article-meta">
+        Cate Hall
+        · 23 Jan 2026 · <a href="https://usefulfictions.substack.com/p/the-lies-i-used-to-tell-myself">Source</a>
+      </div>
+      <div class="article-body"><div><div class="captioned-image-container"><figure class="article-figure"><a class="image-link image2 is-viewable-img" href="https://substackcdn.com/image/fetch/$s_!petw!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fe40bf234-f1ac-498a-9f69-18ae8ad7a70f_1024x1024.png" target="_blank"><div class="image2-inset"><img alt="" class="sizing-normal article-image" height="1024" src="https://substackcdn.com/image/fetch/$s_!petw!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fe40bf234-f1ac-498a-9f69-18ae8ad7a70f_1024x1024.png" width="1024"/><div class="image-link-expand"><div class="pencraft pc-display-flex pc-gap-8 pc-reset"><button class="pencraft pc-reset pencraft icon-container restack-image" tabindex="0" type="button"></button><button class="pencraft pc-reset pencraft icon-container view-image" tabindex="0" type="button"></button></div></div></div></a></figure></div><h4>1. What doesn’t kill you makes you stronger.</h4><p>When I was 31, my husband of four years, who I loved more than my own life, left me completely out of the blue. We’d had an incredible, epic romance — drawn together like magnets, we married on our third date and spent the years that followed burrowing ever closer together. Maybe that was the problem — I can’t say for sure, because I never got a satisfying explanation out of him. One day I was the protagonist of a Princess Bride-worthy love story; 48 hours later, he moved out.</p><p>From the time we met, I had never contemplated the possibility of living without him, and I didn’t want to. I wanted to die for a long time — at least a couple of years. But as I slowly learned to sequester away thoughts of him and the emotions they brought up, I became convinced of a silver lining: The experience would make me impenetrable. If I survived it, I would know I could survive anything, and nothing would be able to hurt me again.</p><p>It took the better part of a decade and another deeply identity-shifting relationship, with the man who became my second husband, for me to see that I had it all wrong: Impenetrability means avoiding the parts of life that are most life-like. There’s a reason the visual metaphor for love is an arrow.</p><p>The near-fatal catastrophes of our lives don’t always make us stronger. Surviving one hard thing does provide evidence that you can survive other hard things, which is easy to <em>mistake</em> for getting stronger. But in reality they often just make us brittle, make us dissociate and flee from the situations that remind us we can be broken.</p><p></p><h4>2. When you know, you know.</h4><p>Mario Gabriele of the Generalist had a great <a href="https://www.generalist.com/p/observations-on-people-the-world?utm_source=post-email-title&amp;publication_id=15764&amp;post_id=177558144&amp;utm_campaign=email-post-title&amp;isFreemail=true&amp;r=hjebh&amp;triedRedirect=true">“50 Things” style post</a> a few months ago that I found myself nodding along to almost the whole way through. The glaring exception was Number 33: “Love is easy. The difference between bad relationships and meeting your spouse is not a matter of degree, but category. Compatibility is unignorable and effortless.”</p><p>I believed this completely, once. I’ve since come to believe that what’s unignorable and effortless is chemistry. Chemistry can be powerful enough to turn your life sideways, but it’s not the same thing as compatibility. Compatibility is litigated on the timescale of years and decades; it’s not a momentary feeling but a description of what happens during an extended course of change. Do you grow toward one another, or do you grow apart? Does the relationship help you move closer to the person you aspire to be?</p><p>I “just knew” with my first husband. I wasn’t sure with my second. Four years in, the signs have flipped.</p><p></p><h4>3. If it were a good idea, someone would be doing it already.</h4><p>There’s a belief, especially common among wonky types, that you don’t find $20 bills on the sidewalk — if an opportunity were real, someone would have seized it already. This sounds worldly and wise, but it’s actually a form of defensive thinking. It assumes the current way is best, that everything worth doing is being done.</p><p>In my experience, this is just false. When I started playing poker, I discovered that physical tells were basically a wide-open field — despite the fact that most pros believed the topic was played out. If you think you see an opportunity others have missed, you should have a story for why they’re missing it, and you should ask around to stress-test that story. But if no one can give you a satisfying reason, don’t assume one exists. Sometimes the answer really is just inertia or fear.</p><p></p><h4>4. If it’s worth doing, it’s worth doing well.</h4><p>Almost nothing is worth doing “well.” Many things can and should be done to a minimal standard of quality, because anything more is a <a href="https://usefulfictions.substack.com/p/fuck-willpower">waste of effort</a> that can be better allocated. The exceptions aren’t things that should be done “well,” but things that should be done to an exceptionally high standard, probably a much higher one than you see modeled by the people around you.</p><p>This is not semantics; most people really “do everything the way they do anything” — whether that’s in a low-effort or high-effort way. But the point of phoning it in on a lot of stuff is to save your energy to expend on the 1 in 1000 things that really matter … and then to actually spend it.</p><p>A recent example: I decided that I want to narrate my own audiobook for <em>You Can Just Do Things</em>. When I told a friend in the industry this and asked whether they knew any good coaches to work with, they said that hiring a coach wasn’t normal or necessary, because my publisher would decide based on a sample whether I was good enough at reading to do it, and if so give me a producer to work with day-of. But it “1 in 1000” matters to me whether the audiobook is so good no one would ever think of returning it on account of the narration, so I’m not interested in the normal-shaped solution that constitutes doing it “well,” I’m interested in the one that causes me to come to mind when someone asks <a href="https://substack.com/@usefulfictions/note/c-203076054?r=hjebh&amp;utm_source=notes-share-action&amp;utm_medium=web">this question</a>. In this case, that means hiring multiple coaches and practicing for months.</p><p></p><h4>5. If you like your job, you’re doing something wrong.</h4><p>Back when I was more alienated from my emotions, I thought about work like this: You have a budget of energy to spend, and the goal is to efficiently convert that energy into impact. You identify the activity that generates the highest impact per unit of energy, and then you spam that button for as many waking hours as you can stomach. Is it any wonder I was always <a href="https://usefulfictions.substack.com/p/burnout-is-breaking-a-sacred-pact">burning out</a>?</p><p>What I failed to understand is that energy is not fixed. It’s dramatically affected by what you choose to do — some activities increase your energy over time, others deplete it. This feels so obvious to me now that I feel kind of stupid including it here, but I know many people (they are endemic to the Bay Area) who still labor under the false belief. Whether you enjoy what you’re doing affects your ability to do it year in and year out, and dismissing this as “selfish” doesn’t make it untrue. As my husband puts it, the best use of effortful motivation is to engineer your life to require less of it.</p><p></p><h4>6. “All people are insane. They will do anything at any time, and God help anybody who looks for reasons.”</h4><p>This line, from Kurt Vonnegut, used to neatly encapsulate the way I understood other people — which is to say, not at all. Trying to figure out why people did what they did, or imagine what they’d do next, seemed like a fool’s errand. I was judgmental about it, too: I assumed this was a problem, not with me, but with everyone else.</p><p>I didn’t fundamentally move beyond this belief until recent years, when I came into contact with the Enneagram. I imagine there are other personality typing systems that can do something similar, but <a href="https://usefulfictions.substack.com/p/there-are-nine-wolves-inside-of-you">the Enneagram was magical for me</a> because it clued me into the fact that people can have very different motivational systems from my own that are still internally coherent and produce good things in the world.</p><p>People’s behavior was previously incomprehensible to me because I was imputing my own motivational system to them, trying to figure out what would cause me to act the way they did — essentially, concluding that <em>their </em>actions made no sense in light of <em>my </em>goals. But people have wildly diverse emotional hardware, which determines what’s rational for them. And my particular personality — independent, moralistic, systematic, challenge-seeking, competitive — is unusual, so I was especially poorly placed to measure others by the yardstick of myself.</p><p>This shift in perspective was dramatically good for me and for my relationships with other people. It let me see the ecosystem of psychologies as a kind of miracle — wow, it really does take all kinds — rather than a prompt for cosmic horror. And it gave me confidence that, if I invested in understanding people more deeply, they would eventually cease to be total mysteries, prone to bizarre and unreasonable behavior. As far as I can tell, this is the better part of emotional intelligence.</p><p></p><h4>7. Money can’t buy happiness.</h4><p>The good version of this advice is: You’ll still have to work at being happy, even if you’re rich. Money in your bank account won’t do it for you, and wealth comes with its own pathologies, like endless status-chasing. But the common gloss — that money stops mattering past some modest threshold — is basically false.</p><p>You may have heard there’s research showing money doesn’t buy happiness. That research was explosively popular precisely because it was counterintuitive — it betrayed the commonsense intuition that more money means more freedom, more options, more ability to help people you care about. Turns out it was also riddled with methodological problems. More recent work by Matthew Killingsworth (nominative determinism FTW), using large-scale studies that pinged participants about their happiness at random moments, found steady returns to well-being with rising income, no plateau in sight. The myth persists because it serves a psychological function: It helps people without money feel better about their situation, and helps the wealthy downplay their advantages. But it’s not true.</p><p></p><h4>8. Intuition is fake and rationality solves everything.</h4><p>I used to be horribly judgmental of people who made decisions based on intuition, as in, “I just do what feels right.” And then I noticed that whenever I overrode my intuitions, I made <em>terrible </em>decisions. I hired the wrong people, started projects with the wrong people, dated the wrong people, ate food that made me feel bad, did forms of exercise I found unfun and injurious. I don’t have a satisfying theory for why this is, but I know what happens: When I shift from emotional intuition to a logical story about a decision, it’s much easier for my reasoning to get hijacked by plausible-sounding directives that turn out to be nonsense.</p><p>It took me a long time to learn this, and that might have something to do with my training in law and poker. Overriding intuition in favor of explicit reasoning makes sense in contexts that reward systematic rationality, where you will get separated from your money if you count on gut feelings. But most of life isn’t a closed system with enumerated rules and clear outcomes. If you try to explicitly name all the factors that make someone a good friend or co-founder, you might come up with some good indicators, but your crude map will also mislead you about the territory.</p><p>This is why “wisdom is knowledge that can’t be transmitted.” Wise people have navigational skill, not a long list of rules.</p><p></p><p><em><strong><a href="https://mailchi.mp/44578760e686/book-preorder-signup">Sign up to be notified</a> when my book, You Can Just Do Things, is available for purchase.</strong></em></p></div></div>
+      
+    </article>
+    
+    <article>
+      <h1>What I Learned About Billionaires at Jeff Bezos’s Private Retreat</h1>
+      <div class="article-meta">
+        Noah Hawley
+        · 02 May 2026 · <a href="https://theatlantic.com/magazine/2026/05/billionaire-consequence-free-reality/686588/">Source</a>
+      </div>
+      <div class="article-body"><html><body><div>For the richest men on Earth, everything is free and nothing matters.</div><figure class="article-figure"><img alt="Illustration in style of color woodcut of people sitting on logs around wood bonfire on beach at night raising glasses of red wine with butlers serving in background." src="https://cdn.theatlantic.com/thumbor/pU9WUObiJGgn3gTx9M6n66vkXDU=/12x0:2012x1125/1440x810/media/img/2026/04/06/WEL_Hawley_BillionairesRedo/original.png" class="article-image"/><figcaption> (Illustration by Tim Enthoven)</figcaption></figure><p><span class="smallcaps">At the end </span>of Paul Thomas Anderson’s 2007 movie, <i>There Will Be Blood</i>, Daniel Day-Lewis’s oil-baron character, old now and richer than Croesus, beats Paul Dano’s preacher to death with a bowling pin. Dano’s Eli Sunday, a nemesis of Day-Lewis’s Daniel Plainview during his seminal, wealth-building years, has come to sell Plainview the oil-rich land that he once coveted. But Plainview doesn’t need the land anymore, because—as he explains in one of the most famous monologues in modern cinema—he has sucked out all the oil hidden beneath it from an adjoining property, like a milkshake.</p><p>Desperate for money, Eli begs for a loan. Instead, Plainview chases him around a bowling alley and murders him with great enthusiasm. Once it’s over, a butler comes to see what all the noise was about. “I’m finished,” Plainview yells.</p><p>No matter how many times I watch that movie, and I watch it a lot, I have never once taken those words to mean <i>I’m done for</i>. <i>There will now be consequences for my actions</i>. Quite the opposite: They mean that Plainview has completed his journey, through the acquisition of wealth and power, to a realm outside the moral universe. He’s finished, in other words, pretending that the rules of human society apply to him.</p><p>In 2018, I was a guest at Jeff Bezos’s Campfire retreat in Santa Barbara, California. It’s an annual event in which the Amazon founder invites 80-plus guests—celebrities, artists, intellectuals, and anyone else he thinks is interesting—to spend three nights at a private resort. I had recently been approached by Amazon about moving my film-and-television business over from Disney, and although I had declined (or maybe <i>because</i> I had declined), Bezos’s team invited me to Campfire, perhaps keen to impress me with the power of his reach.</p><p><a href="https://www.theatlantic.com/magazine/archive/2024/03/facebook-meta-silicon-valley-politics/677168/">From the March 2024 issue: The rise of techno-authoritarianism</a></p><p>On a warm October Thursday, a fleet of private jets was dispatched to airports in Van Nuys and New York to shepherd guests to Santa Barbara in style. At that point I had only a vague sense of who else was coming—famous people, rich people, influential people, and me. A guest list, I was told, would be given to us once we arrived. Families were invited; an on-site nanny would be provided <i>for each child</i>.</p><p>So my wife and I got our two children from Austin to Los Angeles and took a 45-minute jet ride north, with a television mogul and a comedian on board. Bezos had bought out the entire Biltmore resort for the weekend, as well as the beach club across the street. He had brought in a security firm from Las Vegas to ensure our safety and privacy. Even the weather felt expensive, and when we were shown to our rooms, the designer gift bags we found were filled with luxury goods.</p><p><a href="https://www.theatlantic.com/newsletters/2026/04/gratitude-lists-jeff-bezos-lauren-sanchez-bezos/686797/">Alexandra Petri: The 10 things the Bezoses are almost certainly grateful for each morning</a></p><p>Each morning, we gathered in a lecture hall to hear presentations. If you’ve ever seen a TED Talk, you understand the format. The year I went, a sitting Supreme Court justice was interviewed, and a neurologist talked about technological advances in prosthetics. In the afternoons and evenings, we were encouraged to exchange ideas over drinks and four-course meals, with no set purpose—to network, in other words, with some of the most rarefied talent on Earth. The most common question I heard was “Why am I here?”</p><p>“Why am I here?” asked the 1980s hair-metal singer. “Why am I here?” asked the Pulitzer Prize–winning novelist, the famous anthropologist, the presidential historian. Only the movie stars and the billionaires didn’t ask: They had done this kind of thing before. It turns out there is a circuit of idea festivals. Many tech billionaires host one, and if you find yourself on the right list, you can spend much of the year traveling the world, eating Wagyu, and discussing how to make the world a better place with the most famous talk-show host in history.</p><p>That’s how the weekend started. Here’s how it ended: My wife broke her wrist slipping on wet grass, and both children and I came down with hand, foot, and mouth disease. This is not a joke. One of us went home with her arm in a sling; the other three developed itchy, painful red blisters all over our faces and extremities. If you’re looking for a sign from God as to whether hanging out with the richest man on Earth is right for you, pay attention when he sends you not one plague, but two. Suffice it to say we have never been back to Campfire, nor have we ever been invited.</p><p>At drinks on the second night, the head of a major talent agency asked me what I thought of the weekend. I said, “I’ve spent my whole career trying to figure out how the world works. I didn’t realize I could just come here and ask the people who ran it.” On some level I was kidding. The lead singer of an alt-country band didn’t run the world, nor did a noted author who would later be accused of impropriety. But finding myself at that resort by exclusive invitation, I now knew exactly what people meant when they talked about the elite.</p><p>Sitting in the lecture hall, pencils out, listening to a famous chef explain his humanitarian work, it was easy to feel like the solution to the world’s problems lay within our grasp. And yet, looking around at faces I had only ever seen in a magazine or on-screen, I had an unsettling revelation: This is the hubris of accomplishment. To be declared a genius at one thing is to begin to believe you are a genius at everything.</p><p>Here we were, 80 individuals with a combined net worth that was greater than a small city’s yet infinitesimal compared with the wealth and dominion of our host. How did he view this exercise—as a first step toward changing the world, or as a performative display of his reach and influence?</p><p>Bezos was everywhere that weekend—in a tight T-shirt, laughing too loudly, arms thrown around his teenage sons. He had recently become the world’s second centibillionaire, his net worth hovering somewhere around $112 billion, about half of what it is today. That number, previously unimaginable, had made him unique on a planet of 8 billion people, and you could feel it in the room. Even the richest and most famous among us were drawn to the energy of this impossible wealth.</p><p><a href="https://www.theatlantic.com/ideas/archive/2025/03/bezos-appease-trump-administration/681899/">Martin Baron: Where Jeff Bezos went wrong with <em>The Washington Post</em></a></p><p>Though we didn’t know it at the time, Bezos’s first marriage would be over a few weeks later. My defining impression of his wife that weekend was sadness, even though Bezos made a big show of performing the role of family man. In hindsight, it is that performance that sticks with me. The Jeff Bezos of 2018 acted as if he still believed that people’s impression of him mattered, that his financial and social value could be affected by negative publicity. He still believed that his actions had consequences. He had not yet freed himself—the way Daniel Plainview freed himself—from the rules of men.</p><p>Eight years later, Bezos and two of the world’s other richest men—Mark Zuckerberg and Elon Musk—have clearly left the world of consequences behind. They float in a sensory-deprivation tank the size of the planet, in which their actions are only ever judged by themselves.</p><p>The closer I’ve gotten to the world of wealth, the more I understand that being truly rich doesn’t mean amassing enough money to afford superyachts, private jets, or a million acres of land. It means that everything becomes effectively free. Any asset can be acquired but nothing can ever be lost, because for soon-to-be trillionaires, no level of loss could significantly change their global standing or personal power. For them, the word <i>failure</i> has ceased to mean anything.</p><p><a href="https://www.theatlantic.com/ideas/2026/02/elite-accountability-powerful-impunity/686134/">Adam Serwer: How America chose not to hold the powerful to account</a></p><p>This sense of invulnerability has deep psychological ramifications. If everything is free and nothing matters, then the world and other people exist only to be acted upon, if they are acknowledged at all. This is different from classic narcissism, in which a grandiose but fragile self-image can mask deep insecurity. What I’m talking about is a self-definition in which the individual grows to the size of the universe, and the universe vanishes. Asked recently if there is any check on his power, President Trump—himself a billionaire, and by far the richest president in American history—said, “Yeah, there is one thing. My own morality. My own mind. It’s the only thing that can stop me.” Not domestic or international law, not the will of the voters, not God or the centuries-old morality of civic and religious life.</p><p>Decades of research in developmental psychology have shown that moral reasoning develops through consequences—not punishment, necessarily, but experiencing the effects of your actions on others, receiving honest feedback, <a data-event-element="inline link" href="https://www.theatlantic.com/ideas/2026/03/introspection-knowing-yourself/686602/">having to accommodate reality as it actually is</a> rather than as you wish it to be. It’s not that the wealthy become evil; it’s that their environment stops teaching them the things that nonwealthy people are forced to learn simply by living in a world that pushes back. When you can buy your way out of any mistake, when you can fire anyone who disagrees with you, when your social circle consists entirely of people who need something from you, the basic mechanism by which humans learn that other people are real goes dark.</p><p><a href="https://www.theatlantic.com/ideas/2026/03/introspection-andreessen-thiel-bezos/686566/">Thomas Chatterton Williams: The very powerful men who think introspection is dumb</a></p><p>When Peter Thiel said, “I no longer believe that freedom and democracy are compatible,” he wasn’t talking about your freedom. He was talking about his own. You don’t exist. When Musk took a chainsaw to the federal government as part of <a data-event-element="inline link" href="https://www.theatlantic.com/ideas/archive/2024/12/elon-musk-doge-appointment/680824/">the inside joke he called DOGE</a>, he did so with the air of a man who believed that nothing matters—poverty, chaos, <a data-event-element="inline link" href="https://www.theatlantic.com/technology/archive/2025/06/elon-musk-usaid-cuts/683299/">human suffering</a>. He was having fun. It didn’t even matter that the <a data-event-element="inline link" href="https://www.theatlantic.com/ideas/archive/2025/03/doge-safety-agencies/681865/">entire destructive exercise</a> ultimately yielded no practical financial gains. For him, the outcome was a foregone conclusion: He could only win, because losing had lost its meaning.</p><p>Since the 2024 election, there has been a philosophical shift on the right, and especially among tech billionaires, to vilify the idea of empathy. Musk has called empathy “the fundamental weakness of Western civilization.” He sees it as a weapon wielded by liberal society to bludgeon otherwise rational people into operating against their own interests. Empathy is something done to you by others—a vulnerability they exploit, a back door through which they gain access to your resources and will. This <a data-event-element="inline link" href="https://www.theatlantic.com/ideas/2026/01/war-empathy-hillary-clinton/685809/">rejection of empathy</a> as a human value gives cover to people who don’t want to feel anything at all. If empathy is the problem, then lack of it isn’t a deficiency—<a data-event-element="inline link" href="https://www.theatlantic.com/ideas/archive/2025/06/toxic-empathy-weakness/683355/">it’s an advantage</a>.</p><p><a href="https://www.theatlantic.com/ideas/archive/2025/06/toxic-empathy-weakness/683355/">Elizabeth Bruenig: The conservative attack on empathy</a></p><p>I finally met Bezos on the last day of Campfire, at lunch, after my wife had broken her wrist. I went over to thank him for having us, and he asked how our Campfire experience had been. I told him that it was great, but that unfortunately my wife had broken her wrist that morning when she slipped on the wet grass while kicking a ball with our 6-year-old son.</p><p>The night before, we’d all stood by the pool at the beach club watching a cadre of synchronized swimmers execute a flawless water routine. I had spoken with a famous novelist, who said, “I just don’t understand why I’m here.” A famous rock star was about to start an acoustic set. The famous chef had made paella. Somewhere deep under my skin, a brutal pox was beginning to form.</p><p>The next morning, my wife fell, and I found myself in a black SUV with a team of private-security contractors, who whisked us to the back entrance of a Santa Barbara emergency room, where she was seen and treated right away. We made it back in time to watch the Supreme Court justice Zoom in from Washington, D.C.</p><p><i>How was your Campfire? </i>Bezos asked me an hour later, and because I am an honest person, and because I have been a host myself, I decided he would want to know that there had been a problem, but that his team had reacted quickly and been extremely helpful. To be clear, I was in no way blaming him, nor was I shaking down the richest man on Earth. Instead, I was simply offering Bezos, also a husband and father, a brief human connection.</p><p>But when I told him what had happened, Bezos looked horrified. He did not say “I’m so sorry.” He did not say “Do you need anything?” Instead, he made a face, and in an instant, an aide came and whisked him away. When presented with the opportunity for empathy, even performative empathy, he chose escape.</p><p>A few hours later, on the private plane home, a famous movie producer offered my wife a blanket. My children’s faces were covered in spots. Under my fingernails, red welts were beginning to rise.</p><p>The world has always been run by rich men. The robber barons of the Gilded Age were known for their ruthlessness in the accumulation of wealth—hiring Pinkertons to shoot striking unionists. But they directly engaged with the world around them, using their wealth and power to muscle it into its most profitable form. And although today’s billionaires are clearly manipulating society to maximize their own profit, something else is also happening—a disassociation from the reality of cause and effect, from meaning and history. These men no longer feel the need to change the world in order to succeed, because their success is guaranteed, no matter what happens to the rest of us.</p><p>“I’m finished,” yells Daniel Plainview, perched happily on the polished floor of his own celestial kingdom. Though he has just committed a crime, he has never felt so free.</p><hr/><p><small><i>This article appears in the </i><a data-event-element="inline link" href="https://www.theatlantic.com/magazine/toc/2026/05/"><i>May 2026</i></a><i> print edition with the headline “Everything Is Free and Nothing Matters.”</i></small></p></body></html></div>
+      
+    </article>
+    
+    <article>
+      <h1>Building Software Is Learning</h1>
+      <div class="article-meta">
+        Thorsten Ball
+        · 02 Jun 2026 · <a href="https://registerspill.thorstenball.com/p/building-software-is-learning">Source</a>
+      </div>
+      <div class="article-body"><div><h3>An internal note to the Amp team on feedback and shipping faster</h3><p><em>A few weeks ago I shared the following as an internal message with the Amp team. I showed it to a friend while talking about feedback loops and he told me to post this publicly. So here we go. Unedited, straight up copy &amp; pasted from our Slack.</em></p><div class="captioned-image-container"><figure class="article-figure"><a class="image-link image2" href="https://substackcdn.com/image/fetch/$s_!hrv7!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F96e29137-aa72-415c-a9e3-95232387f055.tif" target="_blank"><div class="image2-inset"><img alt="" class="sizing-normal article-image" height="12" src="https://substackcdn.com/image/fetch/$s_!hrv7!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F96e29137-aa72-415c-a9e3-95232387f055.tif" width="154"/><div></div></div></a></figure></div><p>You know what’s rare?</p><pre><code>person a: “we need this feature”
+person b: “yes, let me build it”
+...
+person b: “done.”
+person a: “fantastic, exactly what I wanted.”</code></pre><p>That basically <em>NEVER</em> what happens. At least not when you’re building something <em>new</em>. It might happen when you fix a bug or when you port something that already exists in another app to a new language or framework, ... Or when you’re building after a spec.<br/><br/>But when there’s no spec, and when you’re building something new?<br/><br/>Here’s how that works:</p><pre><code>person a: “we need this feature”
+person b: “yes, let me build it”
+[...]
+person b: “done.”
+person a: “hmm, actually, that’s not what I meant. what I meant is: [...]”</code></pre><p>Or this:</p><pre><code>person a: “we need this feature”
+person b: “yes, let me build it”
+[...]
+person b: “you know what... There’s 3 ways to do this, actually, and I’m not sure what the best way to do this is?”
+person a: “ah, I see, I think given that we want to ship this tomorrow, let’s go with way 1”</code></pre><p>Or:</p><pre><code>person a: “we need this feature”
+person b: “yes, let me build it”
+[...]
+person b: “done.”
+person a: “Don’t like it”</code></pre><p>Now why does that happen, again and again and again?<br/><br/>Because <em>building new software is learning</em>! If you’re building something new and you don’t yet fully know how exactly it’s supposed to work, you will learn what exactly it is that you’re building as you’re doing it. Let me repeat: building new software is learning.<br/><br/>So far, so good, right? But here’s the very important bit, the one bit I want you to take with you into this week: there is <em>no way in hell</em>, absolutely zero chance, that you can build something new <em>and</em> avoid bumping into “that’s not what I meant”, or “now that I’m working on it I’m not actually sure”, or “hmm, now that I use it, I don’t like it”. Because the only way you could avoid that would be to fully specify what you want up front and, well, guess what programming is? It’s fully specifying what you want. You can’t avoid it, because you can’t define it yet, because <em>building software is learning</em>!<br/><br/>Now that was the bad news. Here’s the good ones. You <em>can</em> to reduce the time the <code>...</code> from the examples above takes — the time between the confident “yes, let me build this” and the humbled “oh, I see”.<br/><br/>And that, in turns out, is <strong>the most important thing you can do</strong> when you’re building something new: reducing the time it takes you to go from “let me try something” to getting your ass whooped by reality.<br/><br/>If someone says “we need this feature”, don’t go “yes, let me build it” and hack on something for 4 weeks only for the other person to ultimately go “that’s not what I meant.” No. Instead, embrace that <em>we need to learn</em>, that we need to try and play around with this idea as fast as possible, in a way that lets us learn. To embrace that idea means that you try to figure out “what is it they mean” <em>as fast as possible</em>, with the minimal effort required, so you can LEARN what it is you’re building.<br/><br/>Instead of going away for 4 weeks and hacking on something, you instead can do stuff like this:</p><ul><li><p>... build a prototype, in 1hr, and show it to them, and they go “no, that’s not what I meant, you should change this part here”</p></li><li><p>... write down a spec of how you’d approach it, in 30min, and show it to them, and they go “no that’s not what I meant”</p></li><li><p>... cut up the thing in multiple things and ship one every day, so that every day what you built hits reality and you get to learn, because on day 2 someone says “know what, we should change...”</p></li><li><p>... reduce the scope, figure out what the things are that we’re already sure about and skip those, and instead focus on the bits that we don’t know yet — that’s where we need to learn. don’t add 5 ways to login, if all we need to learn right now is 1.</p></li><li><p>... fake a demo video, show that around, get input on that - Quinn’s done it many times</p></li><li><p>... write the news post that explains the idea — why waste effort building something for a week if the idea can be captured in 3 paragraphs?</p></li><li><p>... write the example code that would go into the README, show that around, does that look like a good API? People don’t need an SDK built if they dislike the API in the readme.</p></li><li><p>...</p></li></ul><p>There’s more options that I didn’t list here. And you don’t have to pick only one. In fact, for something big, you should probably do a few of these things. Or you vary them, or combine them, or ...<br/><br/>What <em>exactly </em>you do doesn’t matter as much as constantly asking: how can I get feedback on what I’m trying to build as soon as possible? And “feedback” here is used in the widest sense possible. Feedback comes in all shapes and sizes: feedback from the CI system on main, feedback from colleagues, feedback from users, feedback from <em>you</em> once you actually use it.<br/><br/>And if you follow that question — how can I get feedback as soon as possible, so I can learn? — you’ll also find out how to chop things up and how to ship them:</p><ul><li><p>you won’t get good feedback if you ship an “MVP” of an idea that’s so obviously buggy that all you’ll get is bug reports for 3 days, not actual feedback on how useful it is</p></li><li><p>you won’t get good feedback if the people supposed to give you feedback have to jump through 8 hurdles to test it</p></li><li><p>you won’t get good feedback if you keep your changes on a branch for 3 weeks, because by the time you merge your 27 commits and CI blows up you have 27 possible causes, vs. 1 if you had merged them one by one</p></li><li><p>want feedback on the design of your skateboard? sure, show them the deck, no need for wheels. want feedback on how your skateboard feels? you can’t ship it to testers without wheels on it.</p></li><li><p>...</p></li></ul><p>So. Here’s what I want you to think about going into this week: how can I get feedback on what I’m building on as fast as possible? when is the last time I got valuable feedback on what I’m building? in what frequency do I get feedback on what I’m building? why is that frequency so low?<br/><br/>Because we’re building something new, in a time when software is changing (background vocals: <em>everything is changing</em>), and no one has a clue what the fuck is going on - so <strong>the most important thing is to embrace that and </strong><em><strong>as soon as possible, as often as possible, ship things on which we can get feedback on, in a way that gives us valuable feedback — by CI, by production, by our teammates, by select users, by select customers, by all of our users</strong>.</em></p><p>Yes, italics <em><strong>and</strong></em> bold. Because building software is learning and we want to learn as much as possible.</p></div></div>
+      
+    </article>
+    
+  </body>
+</html>
