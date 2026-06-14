@@ -1,0 +1,591 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Fred Talks - 2026-06-14</title>
+    <style>
+      @page {
+        size: A5;
+        margin: 8mm 9mm 9mm;
+      }
+
+      :root {
+        color: #111;
+        font-family: "Times New Roman", Times, serif;
+        --body-text-size: 9.5pt;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        color: #111;
+        background: #fff;
+        font-family: "Times New Roman", Times, serif;
+        line-height: 1.45;
+      }
+
+      a,
+      a:visited {
+        color: #111;
+        text-decoration: underline;
+      }
+
+      .cover {
+        min-height: calc(210mm - 17mm);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        page-break-after: always;
+        border: 1px solid #111;
+        padding: 8mm;
+        background: #fff;
+      }
+
+      .toc-item-meta,
+      .article-meta {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .masthead {
+        margin: 0;
+        font-size: 40pt;
+        line-height: 0.95;
+        text-transform: uppercase;
+      }
+
+      .issue-date {
+        margin: 4mm 0 0;
+        font-size: 14pt;
+      }
+
+      .issue-date sup {
+        font-size: 0.58em;
+        vertical-align: super;
+        line-height: 0;
+      }
+
+      .cover-deck {
+        max-width: 90mm;
+        font-size: 12pt;
+        margin: 0;
+      }
+
+      .toc {
+        border-top: 3px solid #111;
+        padding-top: 6mm;
+      }
+
+      .toc h2 {
+        margin: 0 0 4mm;
+        font-size: 11pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .toc-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .toc-item {
+        padding: 3mm 0;
+        border-bottom: 1px solid rgba(17, 17, 17, 0.2);
+      }
+
+      .toc-item-title {
+        font-size: 12pt;
+        margin: 0 0 1mm;
+      }
+
+      .toc-item-meta {
+        font-size: 8pt;
+      }
+
+      .masthead-compact {
+        margin: 0 0 6mm;
+      }
+
+      .masthead-compact h1 {
+        margin: 0;
+        font-size: 22pt;
+        line-height: 1.1;
+        text-transform: uppercase;
+      }
+
+      .masthead-compact .issue-date {
+        margin: 2mm 0 0;
+        font-size: 11pt;
+      }
+
+      .toc-compact {
+        border-top: 1px solid #111;
+        border-bottom: 1px solid #111;
+        padding: 4mm 0;
+        margin: 0 0 8mm;
+      }
+
+      article + article {
+        margin-top: 10mm;
+        padding-top: 6mm;
+        border-top: 2px solid #111;
+      }
+
+      h1 {
+        margin: 0 0 2mm;
+        font-size: 18pt;
+        line-height: 1.1;
+      }
+
+      .article-meta {
+        font-size: 8.5pt;
+        margin-bottom: 6mm;
+        padding-bottom: 3mm;
+        border-bottom: 1px solid #111;
+      }
+
+      .article-body {
+        font-size: var(--body-text-size);
+        font-family: "Times New Roman", Times, serif;
+      }
+
+      .article-body p,
+      .article-body li,
+      .article-body blockquote,
+      .article-body dd,
+      .article-body dt {
+        margin: 0 0 4mm;
+        orphans: 3;
+        widows: 3;
+      }
+
+      .article-body ul,
+      .article-body ol,
+      .article-body dl {
+        margin: 0 0 4mm 5mm;
+        padding: 0;
+      }
+
+      .article-body h2,
+      .article-body h3,
+      .article-body h4 {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        margin: 7mm 0 3mm;
+        line-height: 1.2;
+      }
+
+      .article-body blockquote {
+        margin-left: 6mm;
+        padding-left: 4mm;
+        border-left: 2px solid #111;
+      }
+
+      .article-body .media-omitted {
+        margin: 0 0 4mm;
+        font-size: 8.5pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(17, 17, 17, 0.65);
+      }
+
+      .article-body figure,
+      .article-body .article-figure,
+      .article-body picture,
+      .article-body .article-picture {
+        display: block;
+        max-width: 72mm;
+        margin: 0 auto 4mm;
+        break-inside: avoid;
+      }
+
+      .article-body img,
+      .article-body .article-image {
+        display: block;
+        max-width: min(100%, 72mm);
+        max-height: 34mm;
+        height: auto;
+        width: auto;
+        object-fit: contain;
+        margin: 0 auto 3mm;
+      }
+
+      .article-body figcaption {
+        margin-top: 1.5mm;
+        font-size: 8.5pt;
+        line-height: 1.3;
+        color: rgba(17, 17, 17, 0.8);
+      }
+
+      .article-note {
+        margin-top: 6mm;
+        padding-top: 3mm;
+        border-top: 1px solid #111;
+        font-size: 9pt;
+        font-style: italic;
+      }
+
+      @media screen {
+        body {
+          padding: 2rem;
+          margin: 0 auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    
+    <header class="masthead-compact">
+      <h1>Fred Talks</h1>
+      <p class="issue-date">
+        14<sup>th</sup> June 2026
+      </p>
+    </header>
+
+    <nav class="toc toc-compact">
+      <h2>Contents</h2>
+      <ol class="toc-list">
+        
+        <li class="toc-item">
+          <div class="toc-item-title">LLM Judges aren’t the shortcut you think</div>
+          <div class="toc-item-meta">
+            Doug Turnbull · 1869 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">It&#39;s-a Me, Agentic AI</div>
+          <div class="toc-item-meta">
+            Han, Not Solo · 2362 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">The Oracle and the Firm</div>
+          <div class="toc-item-meta">
+            Calvin French-Owen · 847 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">[Daily article] June 14: Early life and education of Donald Trump</div>
+          <div class="toc-item-meta">
+            English Wikipedia Article of the Day · 329 words
+          </div>
+        </li>
+        
+      </ol>
+    </nav>
+    
+
+    
+    <article>
+      <h1>LLM Judges aren’t the shortcut you think</h1>
+      <div class="article-meta">
+        Doug Turnbull
+        · 03 Nov 2025 · <a href="http://softwaredoug.com/blog/2025/11/02/llm-judges-arent-the-shortcut-you-think.html">Source</a>
+      </div>
+      <div class="article-body"><p>Is “LLM as a judge” overhyped? After years of implementing LLM judges for clients, I find more of them recognize the limitations.</p>
+<p>LLM judges fail for the same reason any evaluation method fails: teams lack good data+evaluation to begin with. LLM judges aren’t the shortcut teams hope. Instead, they are themselves a thing that needs data and monitoring to get use out of.</p>
+<p>Let me walk through the pitfalls of LLM as a judge (for search) that you’ll encounter.</p>
+<h2>LLM as a judge</h2>
+<p>When I talk about LLM as a judge, my focus is search. I mean creating a <a href="https://softwaredoug.com/blog/2021/02/21/what-is-a-judgment-list">judgment list</a>. For search that means labeling how relevant a document is for a query. How relevant is the product “garden trowel” for a <code>q=shovels</code>? Maybe this “garden trowel” is less relevant than “iron spade”?</p>
+<p>In the ancient past, to improve the search, I would be limited to a tiny hand-labeled judgment list. Labeling by hand is expensive. Datasets drift out of date quickly. New use cases arise. So we constantly need humans to relabel.</p>
+<p>These costs inspire teams to use LLMs to build judgments, They:</p>
+<ol> <li>Start with a ground truth of human labels</li> <li>Build a prompt to approximate that ground truth</li> <li>Apply those prompts to go beyond the ground truth to new query / documents</li> </ol>
+<p>If done well, we can sit at our laptop, tinker with relevance algorithms, and continue to tune without bother humans for non-stop relabeling.</p>
+<p>Sounds promising. But teams often ignore many of the assumptions and nuance underlying the task of LLM labeling. Let’s go through them, and we’ll see at the end, maybe LLMs should play a different role in evaluation?</p>
+<h2>Problem one - LLM evals don’t know what’s engaging to users</h2>
+<p>Users’ ever-evolving lizard brains drive conversions. And while optimizing for just lizard brains would itself be a nightmare, so would only focusing on an LLM’s opinion.</p>
+<p>LLMs do a better job approximating <em>human evaluations</em>. In search, we call these evaluations <em>explicit</em> judgments. They use human labelers’ basic knowledge of the world to label a result as <em>topically relevant</em> to the query or not.</p>
+<p>Topical relevance is only one kind of relevance. As an example, for a search of “articles about harry potter”. The article is either factually about Harry Potter or its not. We might also consider other gradations:</p>
+<ul> <li>Is the article well written?</li> <li>Is it article from an authoritative source?</li> <li>Is the article about a tangential topic? Dumbledore vs Gandalf etc?</li> </ul>
+<p>All of which relate to topicality, authority, and knowledge. An LLM excels at this — LLMs live in a world of facts and knowledge.</p>
+<p>But LLMs don’t have limbic systems. So their evaluations come with limitations.</p>
+<p>In real search applications, “relevance” goes beyond topicality. I worked at Reddit on search. A search for “harry potter” might mean anything from a memes, to drama about JK Rowling, to every kind of juicy controversy, spicy post, or oddity. People search for “cybertruck” not for reviews but to see silly videos.</p>
+<p>Then there’s the more mundane. I found at Shopify, users preferred plain or black clothing over flashy items based on their clicks. Unless you tell an LLM this (because you’ve done the analysis) an LLM won’t intrinsically catch this.</p>
+<p>Often the “topical” part of search is relatively easy. But engaging search, that captures these human oddities, must go beyond world-knowledge to at least get <em>some</em> of a user’s lizard brain.</p>
+<h2>Problem two - the last 10% of disagreement is the important stuff</h2>
+<p>Many teams get excited when they immediately see 70-80% agreement with human labelers. With a bit of tuning, they can inch closer to 90%.</p>
+<p>In my experience, that last bit of human-LLM disagreement matters. Those are the non-obvious cases. Search deals with a big <a href="https://zilliz.com/ai-faq/what-is-hard-negative-mining-and-how-does-it-improve-embeddings">hard negatives</a> challenge. Those examples that deceptively seem relevant naive search algorithms (or labelers), but are, in fact irrelevant. That last 10-30% might be what more careful labelers would catch. Or represented in clickstream based labels.</p>
+<p>For example on this furniture dataset, a LLM doesn’t understand that a “bistro table” is meant for <strong><em>outdoor</em></strong> use in US furniture lingo. That’s not obvious to an LLM: The LLM imagines I’m opening a restaurant.</p>
+<p>Simple algorithms often capture that first 80-90%. It’s the 10-20% you need great labels for. So pay attention not just to coverage. But for which use cases.</p>
+<p>A 90% coverage might be good regression tests, it might not help you go beyond easier wins.</p>
+<h2>Problem three - sneaky overfitting</h2>
+<p>So far, I’ve mentioned a few strange cases the LLM judge might miss: a bistro table is meant for outdoor usage. Users preferring darker clothing items.</p>
+<p>The savvy prompt engineer will want to fill the prompt with examples to help the LLM perform better on these cases.</p>
+<p>But beware overfitting to these particular failure cases.</p>
+<p>With every new rule, you push the model’s meager attention away from the general problem, and towards your exceptions. Layer example after example, and you’ll find yourself with a brittle system focused excessively on specific use cases.</p>
+<p>Overfitting with prompts can be sneaky. Playing whack-a-mole with your eval data can degrade generality. You can get perfect results on the eval set, only to expand to unseen queries, and find the gains no longer hold.</p>
+<p>To do a good job, you need holdout data you’re not tuning against. A set of judgments you don’t peak at. Because peaking might cause you to sneak a change into the prompt, making the holdout less useful as an independent validation step.</p>
+<p>Add rules and exceptions carefully, you’ll be surprised how easy it is to pull an LLM away from its generality.</p>
+<h2>Problem four - LLMs only evaluate the document it sees</h2>
+<p>LLMs only evaluate the document it sees. IE:</p>
+<pre><code>Query: outdoor seating
+Product Name: Bistro Table
+Product Description: Enjoy this lovely bistro table on your porch...
+</code></pre>
+<p>Is this enough information for evaluating the product? Is it what a user sees?</p>
+<p>Suddenly, you decide to add new information about the product</p>
+<pre><code>Query: outdoor seating
+Product Name: Bistro Table
+Product Description: Enjoy this lovely bistro table on your porch...
+Category: Outdoors
+</code></pre>
+<p>What are we evaluating truly?</p>
+<ul> <li>The products relevance?</li> <li>The usefulness of a set of product properties for determining relevance?</li> <li>How comprehensively you’re describing products to an LLM?</li> </ul>
+<p>Really it gets down to a classic problem in search. There’s perceived relevance - the relevance of the product, as it appears in your product page. Then there’s actual relevance - the detailed, thoughtful understanding of your product by a user. A lot depends not just on true relevance, but how it’s presented to users.</p>
+<h2>Problem five - Your LLM judge can’t be trusted on novel use cases</h2>
+<p>I assume the goal of LLM as a judge in to align to human labelers. But rarely do those judgments comprehensively represent every use case.</p>
+<p>Search metrics with human evals don’t go up-and-to-the-right. They seesaw as teams reactively label, solve, label, solve ad infinitum. In my experience it’s rare to find a team build a true, comprehensive human labeled evals covering every use case. Even if we did, we’d need to account for evolving search use cases.</p>
+<p>The flow usually goes like this: we want to solve a problem (search by product name). So we capture some judgments for that use case. Relevance starts low. We work a bit to improve this use case and it goes up. Yay!</p>
+<p>But the boss comes to our desk and suggests we have a new problem to solve: search of furniture by the room (living room, etc). We gather more labels. We know we’re bad at this use case. So search metrics go back down. Sad 😟</p>
+<p>We solve that use case, it goes back up to where it was before. Repeat. Up and down. See-saw.</p>
+<p>This presents a problem for an LLM judge. If our human labels only focus on a subset of use cases, <strong>we’re also aligning our LLM judges on a subset of use cases.</strong></p>
+<p>Our LLM judge generalizes to just a piece of the problem. The LLM judge can’t be trusted on a new use case until we measure it’s abilities in that use case.</p>
+<p>So if you seesaw its human labeling, you must seesaw the alignment of the LLM judge to the use cases we capture in human eval. As we adopt a new use case, we need more human labels. We need to retest the LLM judge. And so on.</p>
+<p>The task of human labeling does not end with LLM Judges. In fact its even more crucial.</p>
+<h2>How to LLM as a judge</h2>
+<p>Here’s how I use LLM judges:</p>
+<ul> <li>To extend labels on use cases I already measure decently to new queries (because I can trust alignment of the LLM on this use case)</li> <li>As a safeguard against regressions</li> </ul>
+<p>I trust the LLM judge to flag a regression on the use cases my human labels cover. The LLM is aligned and measured against these. I don’t trust the LLM to discover new, unexpected ways users search. I look to the users for that, not LLMs.</p>
+<p>Still many teams don’t even do decent monitoring of topical relevance. There are plenty of obviously broken search engines. The ones that would benefit from an LLM judge, likely would benefit from rounds of human labeling first needed before blindly trusting an LLM judge.</p>
+<h2>We already have automated data labeling at home kids</h2>
+<p>If we have enough labels to evaluate LLM as a judge on a use case, we have enough to train an ML model to recover those labels. We can then see a better place LLM’s fit into evaluation:</p>
+<ul> <li>LLMs focus on factual, topical parts of the problem. But miss other parts of the problem</li> <li>LLMs might see a subset of the content features</li> <li>Other non-LLM features might help us better evaluate relevance (embedding similarity, text matches, etc)</li> <li>Other ground-truths (besides human) might be a better definition of relevance (ie engagement based labels)</li> </ul>
+<p>Instead of LLM as a Judge, <strong>why not Learning to Rank as a judge?</strong> We seem to have forgotten that ranking models provide value beyond directly deploying them to production. They can help guide more manual search tuning as well.</p>
+<p>I’m becoming more of a fan of LLM-for-feature-generation over LLM as a judge. LLMs can cover the topical part of relevance. You can ask them “Which of these product names is more relevant to the query?”. The downstream, traditional ML model is agnostic to where the features come from. They could be an embedding similarity, LLM decision, lexical similarity, or more.</p>
+<p>That’s much more my interest these days. When someone says “LLM as a judge” I nod and say yes let’s build that, but then go on and probably look into using LLM features heavily in a larger model. LLMs can be very useful for rapid feature development: they’re promptable and easy to play with.</p>
+<p>If you’re interested in this approach, check out this <a href="https://softwaredoug.com/blog/2025/01/21/llm-judge-decision-tree">blog post</a> and the corresponding <a href="https://www.youtube.com/watch?v=S7EXkGDcd7A">Haystack talk</a>. Also a talk from Shopify <a href="https://www.albertocastelo.com/blog/2024-06-12-mices-talk">choosing cross encoders for evaluation over LLMs</a></p>
+<p>Enjoy!</p>
+<h3>Enjoy softwaredoug in training course form!</h3>
+<figure class="article-figure"><a href="https://maven.com/softwaredoug/cheat-at-search"><img src="https://softwaredoug.com/assets/media/2025/cheat-at-search-social.png" class="article-image"/></a></figure>
+<p>I hope you join me at <a href="https://maven.com/softwaredoug/cheat-at-search">Cheat at Search with LLMs</a> to learn how to apply LLMs to search applications. Check out <a href="https://github.com/softwaredoug/softwaredoug.com/edit/master/_includes/post.html">this post</a> for a sneak preview.   </p></div>
+      
+    </article>
+    
+    <article>
+      <h1>It&#39;s-a Me, Agentic AI</h1>
+      <div class="article-meta">
+        Han, Not Solo
+        · 01 Mar 2026 · <a href="https://leehanchung.github.io/blogs/2026/02/18/mario-agentic-ai/">Source</a>
+      </div>
+      <div class="article-body"><p>Agentic AI is a fairly recent development that combines reasoning (<a href="https://cdn.openai.com/o1-system-card-20241205.pdf">OpenAI, 2024</a>) tool use (<a href="https://arxiv.org/abs/2302.04761">Schick et al, 2023</a>) in the same AI model. But an agentic AI system is not just the model, but also the harness, the environments, the tools, rewards, evaluations, and all of the infrastructure to support it. In this post, let’s use the top grossing franchise, Mario, to tell this story for understanding how agentic AI models are developed, how agent harnesses work, and how reinforcement learning ties everything together. If you survived World 8-4 as a kid, you already have the intuition for building agentic AI systems.</p>
+<figure class="article-figure"><img alt="alt text" src="https://leehanchung.github.io/assets/img/2026-02-18/00-tb.png" class="article-image"/><figcaption>alt text</figcaption></figure>
+<p>Small Mario is the <strong>base pretrained model</strong>. He’s just come out of pretraining on a massive corpus of platform game physics. He can walk. He can jump. He can move left and right. These are his base capabilities, the raw knowledge compressed from the training data.</p>
+<p>But Small Mario is fragile. One hit from a Goomba and he’s dead. He can’t break bricks. He can’t take damage. He has potential, but he’s not yet useful for anything beyond the most trivial tasks.</p>
+<p>This is your base LLM fresh off pretraining. It has absorbed enormous amounts of knowledge, it can do next-token prediction, and it can sort-of follow instructions. But ask it to do anything real, reliably, in production, and it falls apart on the first obstacle. One Goomba and it’s game over.</p>
+<h2><a href="https://leehanchung.github.io/blogs/2026/02/18/mario-agentic-ai/#model-harness">The Super Mushroom: Model Harness</a></h2>
+<p>Then Mario finds the <strong>Super Mushroom</strong>. He doubles in size. He can now break bricks. He can take a hit without dying. He goes from fragile to capable.</p>
+<p>The Super Mushroom is the <strong>model harness</strong>, the entire infrastructure and post-training pipeline that transforms a base model into something production-ready. This includes:</p>
+<ul> <li><strong>Instruction tuning</strong> (RLHF, DPO, etc.) to make the model actually follow directions</li> <li><strong>System prompts</strong> that define personality and constraints</li> <li><strong>Safety guardrails</strong> so it doesn’t run off cliffs</li> <li><strong>Memory and context management</strong> so it remembers where it’s been</li> <li><strong>Tool-use training</strong> so it knows power-ups exist and how to grab them</li> </ul>
+<p>Without the Super Mushroom, Mario is a liability. With it, he’s a platform for greatness. Similarly, without the model harness, a base LLM is a research artifact. With it, it’s a product.</p>
+<blockquote> <p>The Super Mushroom doesn’t change WHO Mario is. It changes what he can SURVIVE. The model harness doesn’t change the model’s core knowledge. It changes what the model can handle in production.</p> </blockquote>
+<p>Now here’s where it gets interesting. Super Mario can pick up <strong>power-ups</strong> that give him entirely new capabilities:</p>
+<table> <tr> <th>Power-Up</th> <th>Mario Ability</th> <th>Agent Equivalent</th> </tr> <tbody> <tr> <td><strong>Fire Flower</strong></td> <td>Throw fireballs to defeat enemies at range</td> <td><strong>Code execution</strong> - reach out and run code to solve problems the model can’t solve with text alone</td> </tr> <tr> <td><strong>Frog Suit</strong></td> <td>Swim through water levels with ease</td> <td><strong>Web search</strong> - navigate and retrieve information from an environment the model wasn’t trained on</td> </tr> <tr> <td><strong>Raccoon Leaf</strong></td> <td>Fly and reach otherwise inaccessible areas</td> <td><strong>File system access</strong> - explore and modify the codebase, reach files the model couldn’t otherwise touch</td> </tr> <tr> <td><strong>Hammer Suit</strong></td> <td>Throw hammers, defeat almost anything</td> <td><strong>Shell/terminal access</strong> - the most powerful tool, can interact with the full system</td> </tr> <tr> <td><strong>Star</strong></td> <td>Temporary invincibility, blow through everything</td> <td><strong>Extended thinking/reasoning mode</strong> - brute force through complex problems at higher compute cost</td> </tr> <tr> <td><strong>Cape Feather</strong></td> <td>Sustained flight and spin attack</td> <td><strong>MCP servers</strong> - sustained, extensible access to external services and APIs</td> </tr> </tbody> </table>
+<p>Each power-up doesn’t replace Mario’s core abilities. Mario still walks and jumps. The power-ups <strong>extend</strong> what he can do. A Fire Flower Mario can still jump on Goombas, but now he can also shoot fireballs at Piranha Plants hiding in pipes.</p>
+<p>This is exactly how agent tools work. The LLM still does what LLMs do: reasoning, language understanding, and planning. Tools extend the model’s reach into environments it can’t operate in alone. An LLM can’t execute Python by itself, just like Mario can’t throw fireballs without a Fire Flower. But give it the right tool, and suddenly the problem space opens up.</p>
+<p>And critically, <strong>Mario has to learn WHEN to use each power-up</strong>. Frog Suit is amazing in water levels, useless on land. Fire Flower is great against Goombas, pointless against Thwomps. The model needs to learn tool selection, knowing which tool to reach for in which context. This is one of the hardest parts of building agentic systems.</p>
+<p>One power-up deserves special attention: the <strong>Star</strong>. When Mario grabs a Star, he becomes invincible. He plows through Goombas, Koopa Troopas, Piranha Plants, everything in his path just disintegrates. Nothing can stop him. This is not dissimilar to having an engineering manager who’s really good at clearing organizational blockers for their engineers. The Goombas and Piranha Plants of bureaucracy, cross-team dependencies, access requests, and priority conflicts just melt away. Star power is temporary and expensive, but when you need to blast through a critical path, nothing else comes close.</p>
+<h2><a href="https://leehanchung.github.io/blogs/2026/02/18/mario-agentic-ai/#environments">The Mushroom Kingdom: Environments and Tasks</a></h2>
+<p>Now let’s talk about the world Mario operates in. Every level in the Mushroom Kingdom is an <strong>environment</strong>, and every environment is composed of the same building blocks:</p>
+<table> <tr> <th>Level Element</th> <th>Environment Equivalent</th> </tr> <tbody> <tr> <td><strong>Bricks</strong></td> <td>Structured data, APIs, databases that can be broken open to reveal resources</td> </tr> <tr> <td><strong>? Blocks</strong></td> <td>Unknown information sources, sometimes containing exactly what you need</td> </tr> <tr> <td><strong>Pipes</strong></td> <td>Entry points to sub-tasks, function calls, or deeper exploration</td> </tr> <tr> <td><strong>Coins</strong></td> <td>Incremental progress signals, intermediate rewards</td> </tr> <tr> <td><strong>Goombas</strong></td> <td>Common obstacles, predictable errors, edge cases</td> </tr> <tr> <td><strong>Koopa Troopas</strong></td> <td>Recyclable obstacles, errors whose solutions can be reused as tools</td> </tr> <tr> <td><strong>Piranha Plants</strong></td> <td>Traps hiding in seemingly safe passages, hallucination triggers</td> </tr> <tr> <td><strong>Vines</strong></td> <td>Hidden paths to bonus areas, unexpected shortcuts</td> </tr> <tr> <td><strong>Clouds / Platforms</strong></td> <td>Abstractions and scaffolding that support traversal</td> </tr> <tr> <td><strong>Pits</strong></td> <td>Catastrophic failures, unrecoverable errors</td> </tr> </tbody> </table>
+<p>Every level remixes these elements differently. World 1-1 is simple, a few Goombas, some bricks, a clear path to the flag. World 8-4 is a maze of pipes, hidden paths, and a boss fight with Bowser. Same building blocks, radically different difficulty.</p>
+<p>Throughout each level, Mario interacts with the environment as <strong>tool use</strong>. He enters pipes to warp from one place to another, the equivalent of an API call that transports you to an entirely different context. He bumps ? Blocks from below to discover power-ups, new agent skills materializing from the environment when you know where to look. He breaks bricks to clear paths or reveal hidden rewards, structured data yielding its value when you apply force in the right direction. He stomps on a Koopa shell and kicks it forward, turning an obstacle into a projectile that clears a line of Goombas, repurposing error outputs as inputs to solve downstream problems. The environment isn’t just a backdrop. It’s a toolbox.</p>
+<p>Having an environment is not enough. We need to define <strong>what we want to achieve</strong> from playing the game. These are the <strong>tasks</strong>.</p>
+<p>Mario can play the same level with completely different objectives. Complete the level. Complete the level in the shortest amount of time. Get the highest score. Collect the most coins. Accumulate the most 1-up lives. Find all the hidden rewards. Stomp on every last Goomba. Each objective produces a fundamentally different play style from the same environment.</p>
+<p>This is exactly the task definition problem in agentic AI. The same model operating in the same environment can be pointed at wildly different goals. “Summarize this codebase” and “refactor this codebase” use the same files, the same tools, the same context, but they require entirely different strategies. The task is what transforms an environment from a sandbox into a mission.</p>
+<h2><a href="https://leehanchung.github.io/blogs/2026/02/18/mario-agentic-ai/#rewards">The Flagpole: Evaluations and Reward Modeling</a></h2>
+<p>At the end of every level, there’s a <strong>flagpole</strong>. Mario jumps on it, pulls down the flag, and receives a reward. The higher he grabs the flag, the bigger the reward. Some levels end with a boss fight against Bowser, where the reward is freeing a Toad (or eventually, the Princess).</p>
+<p>This is the <strong>reward signal</strong> in reinforcement learning. But here’s the critical question: how do we actually <strong>measure</strong> how well the game was played? This is <strong>evaluation</strong>, or <strong>reward modeling</strong>, and it is where the machine learning engineering discipline really shines. (or research engineer, applied AI engineer. )</p>
+<p>The evaluation could be the raw score. It could be the number of 1-ups gained. Coins collected. Goombas stomped. Time remaining. Different paths discovered. Most frequently, it is a <strong>combination</strong> of some or all of the above, weighted and balanced against each other. Do we reward Mario more for speed or for thoroughness? For survival or for aggression? For finding secrets or for staying on the critical path?</p>
+<table> <tr> <th>Evaluation Metric</th> <th>Mario Measure</th> <th>Agent Measure</th> </tr> <tbody> <tr> <td><strong>Speed</strong></td> <td>Time remaining on the clock</td> <td>Task completion latency</td> </tr> <tr> <td><strong>Score</strong></td> <td>Points accumulated</td> <td>Overall output quality</td> </tr> <tr> <td><strong>Collection</strong></td> <td>Coins gathered</td> <td>Information retrieved, resources used efficiently</td> </tr> <tr> <td><strong>Completeness</strong></td> <td>Hidden blocks found, secrets discovered</td> <td>Edge cases handled, comprehensive coverage</td> </tr> <tr> <td><strong>Efficiency</strong></td> <td>Enemies defeated per life</td> <td>Correct tool invocations per task</td> </tr> <tr> <td><strong>Exploration</strong></td> <td>Different paths taken</td> <td>Novel approaches discovered</td> </tr> </tbody> </table>
+<p>Designing these rewards is a strict machine learning engineering discipline. A poorly shaped reward function produces an agent that technically completes tasks but in degenerate ways, like a Mario speedrunner who clips through walls. Impressive, but not what we actually wanted. Reward hacking is the Goodhart’s Law of agentic AI: when a measure becomes a target, it ceases to be a good measure.</p>
+<p>Here’s where the full picture comes together. How does Mario learn to complete levels? <strong>Reinforcement learning.</strong></p>
+<p>Mario starts each level knowing nothing about its specific layout. He has to:</p>
+<ol> <li><strong>Observe</strong> the current state, what’s on screen, where the enemies are, what power-ups are available</li> <li><strong>Decide</strong> on an action based on his policy, jump, run, shoot, or wait</li> <li><strong>Act</strong> and receive feedback from the environment</li> <li><strong>Update</strong> his policy based on the outcome</li> </ol>
+<p>This is the MDP (Markov Decision Process) loop. The same loop described in <a href="https://leehanchung.github.io/blogs/2025/05/09/agent-is-workflow/">Agents Are Workflows</a>. The same loop that every agentic AI system runs:</p>
+<p>The value of Mario’s current state equals the expected immediate reward plus the discounted value of the next state. Should Mario jump NOW to get the coin, or wait and avoid the Goomba? The optimal policy  balances immediate rewards against future outcomes.</p>
+<p>Through repeated play (training episodes), Mario learns:</p>
+<ul> <li>Which obstacles can be jumped on vs. avoided</li> <li>When to use power-ups vs. save them</li> <li>Which pipes lead to shortcuts vs. dead ends</li> <li>How to handle boss fights</li> </ul>
+<p>An agentic AI model goes through the same process. Through reinforcement learning (PPO, DPO, GRPO, or whatever the latest acronym is), the model learns:</p>
+<ul> <li>Which tools to invoke for which subtasks</li> <li>When to think longer vs. act immediately</li> <li>Which approaches work for which problem types</li> <li>How to decompose complex tasks into manageable steps</li> </ul>
+<p>So who’s actually making all of this work? Mario doesn’t train himself.</p>
+<p>To teach agent Mario to be really good at the game, we employ an <strong>Machine Learning Engineer (MLE)</strong>. The MLE is the game designer and coach rolled into one. They construct mock environments, set up the harnesses and tools, define the tasks that Mario needs to achieve, and most importantly, <strong>design the reward function</strong>. The MLE decides what “good” looks like. Do we reward Mario for speed? Thoroughness? Both? How much? This reward design is the single highest leverage decision in the entire pipeline. Get it right and Mario learns to play beautifully. Get it wrong and Mario learns to exploit glitches.</p>
+<p>Once the MLE has designed the training setup, the <strong>Machine Learning Systems Engineers (MLSys)</strong> take over. They are the ones who actually run the show at scale. They set up the environment and agent Mario across hundreds to hundreds of thousands of environments, tasks and iterations. They manage the compute, the distributed training runs, the data pipelines. They collect the reasoning traces, the sequences of observations, actions, and outcomes from every single episode Mario plays. And from these traces, they run the reinforcement learning algorithms that allow agent Mario to learn from experience.</p>
+<p>This is the unsexy but critical part. An MLE can design the most elegant reward function in the world, but without MLSys engineers standing up the infrastructure to run millions of training episodes and collect the resulting data, Mario never gets past World 1-1.</p>
+<h2><a href="https://leehanchung.github.io/blogs/2026/02/18/mario-agentic-ai/#agent-frameworks">Worlds: Agent Frameworks and Domains</a></h2>
+<p>The Mushroom Kingdom isn’t one level. It’s organized into <strong>Worlds</strong>, each with a distinct theme and set of challenges:</p>
+<table> <tr> <th>World</th> <th>Theme</th> <th>Agent Domain</th> </tr> <tbody> <tr> <td><strong>World 1</strong></td> <td>Grassland, basics</td> <td>Simple text tasks, Q&amp;A, summarization</td> </tr> <tr> <td><strong>World 2</strong></td> <td>Desert</td> <td>Data analysis, structured environments</td> </tr> <tr> <td><strong>World 3</strong></td> <td>Water</td> <td>Web and API navigation</td> </tr> <tr> <td><strong>World 4</strong></td> <td>Giant Land</td> <td>Large-scale refactoring, migrations</td> </tr> <tr> <td><strong>World 5</strong></td> <td>Sky</td> <td>Architecture and system design</td> </tr> <tr> <td><strong>World 6</strong></td> <td>Ice</td> <td>Debugging in fragile or legacy environments</td> </tr> <tr> <td><strong>World 7</strong></td> <td>Pipe Maze</td> <td>Complex multi-step workflows with dependencies</td> </tr> <tr> <td><strong>World 8</strong></td> <td>Bowser’s Castle</td> <td>Full autonomous task completion with adversarial conditions</td> </tr> </tbody> </table>
+<p>Agent frameworks are the <strong>World Maps</strong> - they organize how the agent navigates between levels (subtasks) and worlds (domains). Some frameworks are rigid, you follow the path laid out. Others let you pick your route. The best ones (like how Super Mario Bros. 3 introduced the overworld map) let the agent make strategic choices about which level to tackle next.</p>
+<p>But remember: <a href="https://leehanchung.github.io/blogs/2025/06/26/no-code-low-code-full-code/">the model is the product</a>. The World Map (framework) is useful scaffolding, but Mario does the actual playing. As models get stronger, they need less scaffolding. Today’s World 8 is tomorrow’s World 1.</p>
+<h2><a href="https://leehanchung.github.io/blogs/2026/02/18/mario-agentic-ai/#conclusion">Conclusion</a></h2>
+<p>The entire agentic AI stack maps to Mario with surprising fidelity:</p>
+<table> <tr> <th>Mario</th> <th>Agentic AI</th> </tr> <tbody> <tr> <td>Small Mario</td> <td>Base pretrained model</td> </tr> <tr> <td>Super Mushroom</td> <td>Model harness and post-training</td> </tr> <tr> <td>Power-ups</td> <td>Agent tools and skills</td> </tr> <tr> <td>Star Power</td> <td>Engineering manager clearing blockers</td> </tr> <tr> <td>Levels</td> <td>Task environments</td> </tr> <tr> <td>Pipes, bricks, shells</td> <td>Tool use within the environment</td> </tr> <tr> <td>Objectives (speed, score, coins)</td> <td>Task definitions</td> </tr> <tr> <td>Flagpole / Boss</td> <td>Reward signal and evaluation</td> </tr> <tr> <td>Reward design</td> <td>Reward modeling (ML engineering discipline)</td> </tr> <tr> <td>Learning to play</td> <td>Reinforcement learning</td> </tr> <tr> <td>MLE as game designer</td> <td>ML engineer designing tasks and rewards</td> </tr> <tr> <td>MLSys running millions of episodes</td> <td>ML infrastructure for training at scale</td> </tr> <tr> <td>World Map</td> <td>Agent framework</td> </tr> <tr> <td>Multiplayer</td> <td>Multi-agent systems</td> </tr> </tbody> </table>
+<p>The next time someone asks you to explain agentic AI, ask them: have you played Mario?</p>
+<p>If they can understand that Small Mario needs a mushroom to survive, power-ups to be effective, and practice to master each level, they can understand agentic AI development.</p>
+<p>Now go save Princess Peach.</p>
+<h2><a href="https://leehanchung.github.io/blogs/2026/02/18/mario-agentic-ai/#references">References</a></h2>
+<pre><code>@article{
+    leehanchung,
+    author = {Lee, Hanchung},
+    title = {It's-a Me, Agentic AI},
+    year = {2026},
+    month = {02},
+    day = {18},
+    howpublished = {\url{https://leehanchung.github.io}},
+    url = {https://leehanchung.github.io/blogs/2026/02/18/mario-agentic-ai/}
+}
+</code></pre></div>
+      
+    </article>
+    
+    <article>
+      <h1>The Oracle and the Firm</h1>
+      <div class="article-meta">
+        Calvin French-Owen
+        · 13 Jun 2026 · <a href="https://calv.info/the-oracle-and-the-firm">Source</a>
+      </div>
+      <div class="article-body"><p>Like most of the internet, I've been diving into Fable 5 over the last 24h. And like most of the internet, I've been pretty blown away with the quality.</p>
+<p>But as I've been using both Fable and GPT-5.5, I couldn't help but notice there are clear differences in approach which make the two models behave quite differently. And we're seeing two very different training regimes play out.</p>
+<p>For any frontier model, accomplishing real work is an exercise in <strong>context management</strong>. The model needs to solve a problem across a very large number of tokens; some are explored via tool calls, others are the model thinking. Then it needs to produce a result.</p>
+<p>To get models to solve harder and harder tasks that run for increasing amounts of time, you need to figure out how to scale that context management.</p>
+<h2>OpenAI: the oracle</h2>
+<p>Since roughly ChatGPT 5.3-Codex, I've noticed that the model has improved a <em>lot</em> at dealing with long context windows. It stays coherent even across long-running tasks or <code>/goal</code> implementations, despite having a smaller context window than the corresponding Opus models (~200k vs 1m).</p>
+<p>The approach Codex takes is <strong>compaction</strong>, and there are two naive approaches you can use:</p>
+<ol> <li>you have a separate (sometimes smaller) model output a new message based upon the trajectory. <ul> <li><em>e.g. ask 5.5 to summarize everything in the thread up to 1k tokens</em></li> </ul> </li> <li>you remove certain categories of calls from the conversation. <ul> <li><em>e.g. remove all tool calls, then begin inference</em></li> </ul> </li> </ol>
+<p>You might even imagine doing this in parallel: compacting up to a certain number of messages in a thread, and then leaving more recent ones in full fidelity.</p>
+<p>Since earlier this year, Codex has shipped native server-side compaction <a href="https://openai.com/index/equip-responses-api-computer-environment/">built into the responses API</a>. When the produced tokens start to overflow the context window, Codex can run a process to compact everything and retain only the relevant information.</p>
+<p>Given that the compaction happens server side, it has two nice properties: a) OpenAI can change the implementation easily and at will without affecting clients and b) the API can take advantage of much better K/V caching for long-running threads by routing to the right GPU.</p>
+<p>The net result, I think about like an 'Oracle'. Codex typically keeps one long thread going with frequent compactions. You will see sub-agents which execute on clean paths, but it tends to happen less often, unless nudged by the user.</p>
+<p>Because the single thread is managing everything related to user responses, it maintains a lot of coherence. Small details which are relevant to the overall trajectory are <em>remembered</em>.</p>
+<h2>Anthropic: the firm</h2>
+<p>Compaction is just one way of dealing with context windows. The other approach you could take is <em>splitting</em> context windows across various agents. In this technique, you split the problem into various sub-problems, then have each agent execute on the sub-problem within it's own context window.</p>
+<p>Since at least Opus 4.1, I've noticed Claude Code will eagerly take this approach. For any research of the codebase, the model will invoke <code>Explore</code> sub-agents which leverage Haiku to create a quick summary.</p>
+<p>And when running Fable 5, it goes <em>nuts</em>.</p>
+<figure class="article-figure"><img src="https://calv.info/the-oracle-and-the-firm/subagents.png" class="article-image"/></figure>
+<p>This is very different approach: sub-agents are now able to do large amounts of work within a context window, and then pass back only the relevant information to the parent agent.</p>
+<p>In effect, this looks <em>more</em> like the way human organizations run. Everyone has their set of goals and inputs and outputs. They see some subset of the total information available, and make decisions based upon that. And we all communicate via language. But we don't get to see the hidden state in one another's heads.</p>
+<p>Claude models <em>also</em> compact, and it <a href="https://news.ycombinator.com/item?id=47601622">takes advantage of a few of these different approaches</a>. But the compaction is slow and requires users to upgrade the client consistently, so I assume the training regime has leaned more on delegating to sub-agents.</p>
+<h2>Takeaways</h2>
+<p><strong>Cost and token efficiency</strong>: I suspect that Anthropic models tend to cost more because the sub-agents often end up doing duplicate work. They may be searching similar files because they aren't actively communicating.</p>
+<figure class="article-figure"><img src="https://calv.info/the-oracle-and-the-firm/cursorbench.png" class="article-image"/></figure>
+<p><strong>Perceived speed:</strong> Anthropic models will often seem to be "doing more", because the tokens are being produced in parallel vs serial. Many more tokens are produced during that time.</p>
+<p><strong>'Forgetting':</strong> a friend pointed me to some cases where Anthropic models seem less coherent, or more often tend to misreport facts to the user. I think this is true, and it's easily explained with the message-passing approach taken by sub-agents. If a sub-agent deemed a fact was not worth reporting back to the parent agent, then it will be missing from the context. In this way, the Anthropic models can more easily 'miss' obvious facts, even if it seemed like they at one point had done the research. This can happen with compaction too, but it's less likely, because the model is doing 'less work' to omit or preserve tokens.</p>
+<p>In the end state, I expect we will see <strong>both</strong> approaches combined. Anthropic will improve their compaction (which right now is too lossy), and OpenAI will train for multi-agent setups.</p></div>
+      
+    </article>
+    
+    <article>
+      <h1>[Daily article] June 14: Early life and education of Donald Trump</h1>
+      <div class="article-meta">
+        English Wikipedia Article of the Day
+        · 14 Jun 2026 · <a href="mailto:reader-forwarded-email/6454d2bd850afa237bd7f9915626901f">Source</a>
+      </div>
+      <div class="article-body"><div class="rw-email-parsed">
+ <p>
+  The early life of Donald Trump, the 45th and 47th president of the
+United States, began with his birth on June 14, 1946, in the borough of
+Queens in New York City. Donald Trump's father was Fred Trump, a real-
+estate developer; his mother Mary Anne Trump was a Scottish immigrant.
+Donald was enrolled at age five at the Kew-Forest School, a private
+school in Queens. When Donald was in seventh grade, Fred discovered that
+his son was secretly going  into Manhattan to obtain knives. Donald was
+sent to the New York Military Academy (NYMA); he graduated in May 1964.
+Trump attended Fordham University from 1964 to 1966, studying economics.
+His college enrollment—and later a medical exemption—allowed him to
+defer the Vietnam War draft. In his sophomore year, seeking a larger
+business network, Trump applied to transfer to the Wharton School of the
+University of Pennsylvania, an Ivy League school favored by his father.
+Trump graduated from Penn in May 1968 with a Bachelor of Science in
+economics. (Full article...).
+ </p>
+ <p>
+  Read more:
+  <a href="https://en.wikipedia.org/wiki/Early_life_and_education_of_Donald_Trump">
+   https://en.wikipedia.org/wiki/Early_life_and_education_of_Donald_Trump
+  </a>
+ </p>
+ <hr/>
+ <p>
+  Today's selected anniversaries:
+ </p>
+ <p>
+  1846:
+ </p>
+ <p>
+  Settlers in Sonoma began rebelling against Mexico, later
+proclaiming the California Republic and  raising a homemade flag with a
+bear and a star.
+  <a href="https://en.wikipedia.org/wiki/California_Republic">
+   https://en.wikipedia.org/wiki/California_Republic
+  </a>
+ </p>
+ <p>
+  1940:
+ </p>
+ <p>
+  Second World War: Four days after the French government fled
+Paris, German forces occupied the French capital, a major accomplishment
+in the Fall Rot operation.
+  <a href="https://en.wikipedia.org/wiki/Fall_Rot">
+   https://en.wikipedia.org/wiki/Fall_Rot
+  </a>
+ </p>
+ <p>
+  1966:
+ </p>
+ <p>
+  The Vatican formally abolished its 427-year-old list of
+prohibited books (title page pictured).
+  <a href="https://en.wikipedia.org/wiki/Index_Librorum_Prohibitorum">
+   https://en.wikipedia.org/wiki/Index_Librorum_Prohibitorum
+  </a>
+ </p>
+ <p>
+  1996:
+ </p>
+ <p>
+  After an 81-day standoff sparked by their refusal to be evicted
+from their foreclosed property in Jordan, Montana, the Christian Patriot
+group Montana Freemen surrendered to the FBI.
+  <a href="https://en.wikipedia.org/wiki/Montana_Freemen">
+   https://en.wikipedia.org/wiki/Montana_Freemen
+  </a>
+ </p>
+ <hr/>
+ <p>
+  Wiktionary's word of the day:
+ </p>
+ <p>
+  quotationist:
+1. One who makes, or is given to making, quotations; a quoter.
+2. About Word of the Day
+3. Nominate a word
+4. Leave feedback
+  <a href="https://en.wiktionary.org/wiki/quotationist">
+   https://en.wiktionary.org/wiki/quotationist
+  </a>
+ </p>
+ <hr/>
+ <p>
+  Wikiquote quote of the day:
+ </p>
+ <p>
+  ”
+  --Donald Trump
+  <a href="https://en.wikiquote.org/wiki/Donald_Trump">
+   https://en.wikiquote.org/wiki/Donald_Trump
+  </a>
+ </p></div></div>
+      
+    </article>
+    
+  </body>
+</html>
