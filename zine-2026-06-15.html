@@ -1,0 +1,435 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Fred Talks - 2026-06-15</title>
+    <style>
+      @page {
+        size: A5;
+        margin: 8mm 9mm 9mm;
+      }
+
+      :root {
+        color: #111;
+        font-family: "Times New Roman", Times, serif;
+        --body-text-size: 9.5pt;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        color: #111;
+        background: #fff;
+        font-family: "Times New Roman", Times, serif;
+        line-height: 1.45;
+      }
+
+      a,
+      a:visited {
+        color: #111;
+        text-decoration: underline;
+      }
+
+      .cover {
+        min-height: calc(210mm - 17mm);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        page-break-after: always;
+        border: 1px solid #111;
+        padding: 8mm;
+        background: #fff;
+      }
+
+      .toc-item-meta,
+      .article-meta {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .masthead {
+        margin: 0;
+        font-size: 40pt;
+        line-height: 0.95;
+        text-transform: uppercase;
+      }
+
+      .issue-date {
+        margin: 4mm 0 0;
+        font-size: 14pt;
+      }
+
+      .issue-date sup {
+        font-size: 0.58em;
+        vertical-align: super;
+        line-height: 0;
+      }
+
+      .cover-deck {
+        max-width: 90mm;
+        font-size: 12pt;
+        margin: 0;
+      }
+
+      .toc {
+        border-top: 3px solid #111;
+        padding-top: 6mm;
+      }
+
+      .toc h2 {
+        margin: 0 0 4mm;
+        font-size: 11pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .toc-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .toc-item {
+        padding: 3mm 0;
+        border-bottom: 1px solid rgba(17, 17, 17, 0.2);
+      }
+
+      .toc-item-title {
+        font-size: 12pt;
+        margin: 0 0 1mm;
+      }
+
+      .toc-item-meta {
+        font-size: 8pt;
+      }
+
+      .masthead-compact {
+        margin: 0 0 6mm;
+      }
+
+      .masthead-compact h1 {
+        margin: 0;
+        font-size: 22pt;
+        line-height: 1.1;
+        text-transform: uppercase;
+      }
+
+      .masthead-compact .issue-date {
+        margin: 2mm 0 0;
+        font-size: 11pt;
+      }
+
+      .toc-compact {
+        border-top: 1px solid #111;
+        border-bottom: 1px solid #111;
+        padding: 4mm 0;
+        margin: 0 0 8mm;
+      }
+
+      article + article {
+        margin-top: 10mm;
+        padding-top: 6mm;
+        border-top: 2px solid #111;
+      }
+
+      h1 {
+        margin: 0 0 2mm;
+        font-size: 18pt;
+        line-height: 1.1;
+      }
+
+      .article-meta {
+        font-size: 8.5pt;
+        margin-bottom: 6mm;
+        padding-bottom: 3mm;
+        border-bottom: 1px solid #111;
+      }
+
+      .article-body {
+        font-size: var(--body-text-size);
+        font-family: "Times New Roman", Times, serif;
+      }
+
+      .article-body p,
+      .article-body li,
+      .article-body blockquote,
+      .article-body dd,
+      .article-body dt {
+        margin: 0 0 4mm;
+        orphans: 3;
+        widows: 3;
+      }
+
+      .article-body ul,
+      .article-body ol,
+      .article-body dl {
+        margin: 0 0 4mm 5mm;
+        padding: 0;
+      }
+
+      .article-body h2,
+      .article-body h3,
+      .article-body h4 {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        margin: 7mm 0 3mm;
+        line-height: 1.2;
+      }
+
+      .article-body blockquote {
+        margin-left: 6mm;
+        padding-left: 4mm;
+        border-left: 2px solid #111;
+      }
+
+      .article-body .media-omitted {
+        margin: 0 0 4mm;
+        font-size: 8.5pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(17, 17, 17, 0.65);
+      }
+
+      .article-body figure,
+      .article-body .article-figure,
+      .article-body picture,
+      .article-body .article-picture {
+        display: block;
+        max-width: 72mm;
+        margin: 0 auto 4mm;
+        break-inside: avoid;
+      }
+
+      .article-body img,
+      .article-body .article-image {
+        display: block;
+        max-width: min(100%, 72mm);
+        max-height: 34mm;
+        height: auto;
+        width: auto;
+        object-fit: contain;
+        margin: 0 auto 3mm;
+      }
+
+      .article-body figcaption {
+        margin-top: 1.5mm;
+        font-size: 8.5pt;
+        line-height: 1.3;
+        color: rgba(17, 17, 17, 0.8);
+      }
+
+      .article-note {
+        margin-top: 6mm;
+        padding-top: 3mm;
+        border-top: 1px solid #111;
+        font-size: 9pt;
+        font-style: italic;
+      }
+
+      @media screen {
+        body {
+          padding: 2rem;
+          margin: 0 auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    
+    <header class="masthead-compact">
+      <h1>Fred Talks</h1>
+      <p class="issue-date">
+        15<sup>th</sup> June 2026
+      </p>
+    </header>
+
+    <nav class="toc toc-compact">
+      <h2>Contents</h2>
+      <ol class="toc-list">
+        
+        <li class="toc-item">
+          <div class="toc-item-title">It&#39;s-a Me, Agentic AI</div>
+          <div class="toc-item-meta">
+            Han, Not Solo · 2362 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Hidden Technical Debt of AI Systems: Agent Runtime</div>
+          <div class="toc-item-meta">
+            Han, Not Solo · 3224 words
+          </div>
+        </li>
+        
+      </ol>
+    </nav>
+    
+
+    
+    <article>
+      <h1>It&#39;s-a Me, Agentic AI</h1>
+      <div class="article-meta">
+        Han, Not Solo
+        · 01 Mar 2026 · <a href="https://leehanchung.github.io/blogs/2026/02/18/mario-agentic-ai/">Source</a>
+      </div>
+      <div class="article-body"><p>Agentic AI is a fairly recent development that combines reasoning (<a href="https://cdn.openai.com/o1-system-card-20241205.pdf">OpenAI, 2024</a>) tool use (<a href="https://arxiv.org/abs/2302.04761">Schick et al, 2023</a>) in the same AI model. But an agentic AI system is not just the model, but also the harness, the environments, the tools, rewards, evaluations, and all of the infrastructure to support it. In this post, let’s use the top grossing franchise, Mario, to tell this story for understanding how agentic AI models are developed, how agent harnesses work, and how reinforcement learning ties everything together. If you survived World 8-4 as a kid, you already have the intuition for building agentic AI systems.</p>
+<figure class="article-figure"><img alt="alt text" src="https://leehanchung.github.io/assets/img/2026-02-18/00-tb.png" class="article-image"/><figcaption>alt text</figcaption></figure>
+<p>Small Mario is the <strong>base pretrained model</strong>. He’s just come out of pretraining on a massive corpus of platform game physics. He can walk. He can jump. He can move left and right. These are his base capabilities, the raw knowledge compressed from the training data.</p>
+<p>But Small Mario is fragile. One hit from a Goomba and he’s dead. He can’t break bricks. He can’t take damage. He has potential, but he’s not yet useful for anything beyond the most trivial tasks.</p>
+<p>This is your base LLM fresh off pretraining. It has absorbed enormous amounts of knowledge, it can do next-token prediction, and it can sort-of follow instructions. But ask it to do anything real, reliably, in production, and it falls apart on the first obstacle. One Goomba and it’s game over.</p>
+<h2><a href="https://leehanchung.github.io/blogs/2026/02/18/mario-agentic-ai/#model-harness">The Super Mushroom: Model Harness</a></h2>
+<p>Then Mario finds the <strong>Super Mushroom</strong>. He doubles in size. He can now break bricks. He can take a hit without dying. He goes from fragile to capable.</p>
+<p>The Super Mushroom is the <strong>model harness</strong>, the entire infrastructure and post-training pipeline that transforms a base model into something production-ready. This includes:</p>
+<ul> <li><strong>Instruction tuning</strong> (RLHF, DPO, etc.) to make the model actually follow directions</li> <li><strong>System prompts</strong> that define personality and constraints</li> <li><strong>Safety guardrails</strong> so it doesn’t run off cliffs</li> <li><strong>Memory and context management</strong> so it remembers where it’s been</li> <li><strong>Tool-use training</strong> so it knows power-ups exist and how to grab them</li> </ul>
+<p>Without the Super Mushroom, Mario is a liability. With it, he’s a platform for greatness. Similarly, without the model harness, a base LLM is a research artifact. With it, it’s a product.</p>
+<blockquote> <p>The Super Mushroom doesn’t change WHO Mario is. It changes what he can SURVIVE. The model harness doesn’t change the model’s core knowledge. It changes what the model can handle in production.</p> </blockquote>
+<p>Now here’s where it gets interesting. Super Mario can pick up <strong>power-ups</strong> that give him entirely new capabilities:</p>
+<table> <tr> <th>Power-Up</th> <th>Mario Ability</th> <th>Agent Equivalent</th> </tr> <tbody> <tr> <td><strong>Fire Flower</strong></td> <td>Throw fireballs to defeat enemies at range</td> <td><strong>Code execution</strong> - reach out and run code to solve problems the model can’t solve with text alone</td> </tr> <tr> <td><strong>Frog Suit</strong></td> <td>Swim through water levels with ease</td> <td><strong>Web search</strong> - navigate and retrieve information from an environment the model wasn’t trained on</td> </tr> <tr> <td><strong>Raccoon Leaf</strong></td> <td>Fly and reach otherwise inaccessible areas</td> <td><strong>File system access</strong> - explore and modify the codebase, reach files the model couldn’t otherwise touch</td> </tr> <tr> <td><strong>Hammer Suit</strong></td> <td>Throw hammers, defeat almost anything</td> <td><strong>Shell/terminal access</strong> - the most powerful tool, can interact with the full system</td> </tr> <tr> <td><strong>Star</strong></td> <td>Temporary invincibility, blow through everything</td> <td><strong>Extended thinking/reasoning mode</strong> - brute force through complex problems at higher compute cost</td> </tr> <tr> <td><strong>Cape Feather</strong></td> <td>Sustained flight and spin attack</td> <td><strong>MCP servers</strong> - sustained, extensible access to external services and APIs</td> </tr> </tbody> </table>
+<p>Each power-up doesn’t replace Mario’s core abilities. Mario still walks and jumps. The power-ups <strong>extend</strong> what he can do. A Fire Flower Mario can still jump on Goombas, but now he can also shoot fireballs at Piranha Plants hiding in pipes.</p>
+<p>This is exactly how agent tools work. The LLM still does what LLMs do: reasoning, language understanding, and planning. Tools extend the model’s reach into environments it can’t operate in alone. An LLM can’t execute Python by itself, just like Mario can’t throw fireballs without a Fire Flower. But give it the right tool, and suddenly the problem space opens up.</p>
+<p>And critically, <strong>Mario has to learn WHEN to use each power-up</strong>. Frog Suit is amazing in water levels, useless on land. Fire Flower is great against Goombas, pointless against Thwomps. The model needs to learn tool selection, knowing which tool to reach for in which context. This is one of the hardest parts of building agentic systems.</p>
+<p>One power-up deserves special attention: the <strong>Star</strong>. When Mario grabs a Star, he becomes invincible. He plows through Goombas, Koopa Troopas, Piranha Plants, everything in his path just disintegrates. Nothing can stop him. This is not dissimilar to having an engineering manager who’s really good at clearing organizational blockers for their engineers. The Goombas and Piranha Plants of bureaucracy, cross-team dependencies, access requests, and priority conflicts just melt away. Star power is temporary and expensive, but when you need to blast through a critical path, nothing else comes close.</p>
+<h2><a href="https://leehanchung.github.io/blogs/2026/02/18/mario-agentic-ai/#environments">The Mushroom Kingdom: Environments and Tasks</a></h2>
+<p>Now let’s talk about the world Mario operates in. Every level in the Mushroom Kingdom is an <strong>environment</strong>, and every environment is composed of the same building blocks:</p>
+<table> <tr> <th>Level Element</th> <th>Environment Equivalent</th> </tr> <tbody> <tr> <td><strong>Bricks</strong></td> <td>Structured data, APIs, databases that can be broken open to reveal resources</td> </tr> <tr> <td><strong>? Blocks</strong></td> <td>Unknown information sources, sometimes containing exactly what you need</td> </tr> <tr> <td><strong>Pipes</strong></td> <td>Entry points to sub-tasks, function calls, or deeper exploration</td> </tr> <tr> <td><strong>Coins</strong></td> <td>Incremental progress signals, intermediate rewards</td> </tr> <tr> <td><strong>Goombas</strong></td> <td>Common obstacles, predictable errors, edge cases</td> </tr> <tr> <td><strong>Koopa Troopas</strong></td> <td>Recyclable obstacles, errors whose solutions can be reused as tools</td> </tr> <tr> <td><strong>Piranha Plants</strong></td> <td>Traps hiding in seemingly safe passages, hallucination triggers</td> </tr> <tr> <td><strong>Vines</strong></td> <td>Hidden paths to bonus areas, unexpected shortcuts</td> </tr> <tr> <td><strong>Clouds / Platforms</strong></td> <td>Abstractions and scaffolding that support traversal</td> </tr> <tr> <td><strong>Pits</strong></td> <td>Catastrophic failures, unrecoverable errors</td> </tr> </tbody> </table>
+<p>Every level remixes these elements differently. World 1-1 is simple, a few Goombas, some bricks, a clear path to the flag. World 8-4 is a maze of pipes, hidden paths, and a boss fight with Bowser. Same building blocks, radically different difficulty.</p>
+<p>Throughout each level, Mario interacts with the environment as <strong>tool use</strong>. He enters pipes to warp from one place to another, the equivalent of an API call that transports you to an entirely different context. He bumps ? Blocks from below to discover power-ups, new agent skills materializing from the environment when you know where to look. He breaks bricks to clear paths or reveal hidden rewards, structured data yielding its value when you apply force in the right direction. He stomps on a Koopa shell and kicks it forward, turning an obstacle into a projectile that clears a line of Goombas, repurposing error outputs as inputs to solve downstream problems. The environment isn’t just a backdrop. It’s a toolbox.</p>
+<p>Having an environment is not enough. We need to define <strong>what we want to achieve</strong> from playing the game. These are the <strong>tasks</strong>.</p>
+<p>Mario can play the same level with completely different objectives. Complete the level. Complete the level in the shortest amount of time. Get the highest score. Collect the most coins. Accumulate the most 1-up lives. Find all the hidden rewards. Stomp on every last Goomba. Each objective produces a fundamentally different play style from the same environment.</p>
+<p>This is exactly the task definition problem in agentic AI. The same model operating in the same environment can be pointed at wildly different goals. “Summarize this codebase” and “refactor this codebase” use the same files, the same tools, the same context, but they require entirely different strategies. The task is what transforms an environment from a sandbox into a mission.</p>
+<h2><a href="https://leehanchung.github.io/blogs/2026/02/18/mario-agentic-ai/#rewards">The Flagpole: Evaluations and Reward Modeling</a></h2>
+<p>At the end of every level, there’s a <strong>flagpole</strong>. Mario jumps on it, pulls down the flag, and receives a reward. The higher he grabs the flag, the bigger the reward. Some levels end with a boss fight against Bowser, where the reward is freeing a Toad (or eventually, the Princess).</p>
+<p>This is the <strong>reward signal</strong> in reinforcement learning. But here’s the critical question: how do we actually <strong>measure</strong> how well the game was played? This is <strong>evaluation</strong>, or <strong>reward modeling</strong>, and it is where the machine learning engineering discipline really shines. (or research engineer, applied AI engineer. )</p>
+<p>The evaluation could be the raw score. It could be the number of 1-ups gained. Coins collected. Goombas stomped. Time remaining. Different paths discovered. Most frequently, it is a <strong>combination</strong> of some or all of the above, weighted and balanced against each other. Do we reward Mario more for speed or for thoroughness? For survival or for aggression? For finding secrets or for staying on the critical path?</p>
+<table> <tr> <th>Evaluation Metric</th> <th>Mario Measure</th> <th>Agent Measure</th> </tr> <tbody> <tr> <td><strong>Speed</strong></td> <td>Time remaining on the clock</td> <td>Task completion latency</td> </tr> <tr> <td><strong>Score</strong></td> <td>Points accumulated</td> <td>Overall output quality</td> </tr> <tr> <td><strong>Collection</strong></td> <td>Coins gathered</td> <td>Information retrieved, resources used efficiently</td> </tr> <tr> <td><strong>Completeness</strong></td> <td>Hidden blocks found, secrets discovered</td> <td>Edge cases handled, comprehensive coverage</td> </tr> <tr> <td><strong>Efficiency</strong></td> <td>Enemies defeated per life</td> <td>Correct tool invocations per task</td> </tr> <tr> <td><strong>Exploration</strong></td> <td>Different paths taken</td> <td>Novel approaches discovered</td> </tr> </tbody> </table>
+<p>Designing these rewards is a strict machine learning engineering discipline. A poorly shaped reward function produces an agent that technically completes tasks but in degenerate ways, like a Mario speedrunner who clips through walls. Impressive, but not what we actually wanted. Reward hacking is the Goodhart’s Law of agentic AI: when a measure becomes a target, it ceases to be a good measure.</p>
+<p>Here’s where the full picture comes together. How does Mario learn to complete levels? <strong>Reinforcement learning.</strong></p>
+<p>Mario starts each level knowing nothing about its specific layout. He has to:</p>
+<ol> <li><strong>Observe</strong> the current state, what’s on screen, where the enemies are, what power-ups are available</li> <li><strong>Decide</strong> on an action based on his policy, jump, run, shoot, or wait</li> <li><strong>Act</strong> and receive feedback from the environment</li> <li><strong>Update</strong> his policy based on the outcome</li> </ol>
+<p>This is the MDP (Markov Decision Process) loop. The same loop described in <a href="https://leehanchung.github.io/blogs/2025/05/09/agent-is-workflow/">Agents Are Workflows</a>. The same loop that every agentic AI system runs:</p>
+<p>The value of Mario’s current state equals the expected immediate reward plus the discounted value of the next state. Should Mario jump NOW to get the coin, or wait and avoid the Goomba? The optimal policy  balances immediate rewards against future outcomes.</p>
+<p>Through repeated play (training episodes), Mario learns:</p>
+<ul> <li>Which obstacles can be jumped on vs. avoided</li> <li>When to use power-ups vs. save them</li> <li>Which pipes lead to shortcuts vs. dead ends</li> <li>How to handle boss fights</li> </ul>
+<p>An agentic AI model goes through the same process. Through reinforcement learning (PPO, DPO, GRPO, or whatever the latest acronym is), the model learns:</p>
+<ul> <li>Which tools to invoke for which subtasks</li> <li>When to think longer vs. act immediately</li> <li>Which approaches work for which problem types</li> <li>How to decompose complex tasks into manageable steps</li> </ul>
+<p>So who’s actually making all of this work? Mario doesn’t train himself.</p>
+<p>To teach agent Mario to be really good at the game, we employ an <strong>Machine Learning Engineer (MLE)</strong>. The MLE is the game designer and coach rolled into one. They construct mock environments, set up the harnesses and tools, define the tasks that Mario needs to achieve, and most importantly, <strong>design the reward function</strong>. The MLE decides what “good” looks like. Do we reward Mario for speed? Thoroughness? Both? How much? This reward design is the single highest leverage decision in the entire pipeline. Get it right and Mario learns to play beautifully. Get it wrong and Mario learns to exploit glitches.</p>
+<p>Once the MLE has designed the training setup, the <strong>Machine Learning Systems Engineers (MLSys)</strong> take over. They are the ones who actually run the show at scale. They set up the environment and agent Mario across hundreds to hundreds of thousands of environments, tasks and iterations. They manage the compute, the distributed training runs, the data pipelines. They collect the reasoning traces, the sequences of observations, actions, and outcomes from every single episode Mario plays. And from these traces, they run the reinforcement learning algorithms that allow agent Mario to learn from experience.</p>
+<p>This is the unsexy but critical part. An MLE can design the most elegant reward function in the world, but without MLSys engineers standing up the infrastructure to run millions of training episodes and collect the resulting data, Mario never gets past World 1-1.</p>
+<h2><a href="https://leehanchung.github.io/blogs/2026/02/18/mario-agentic-ai/#agent-frameworks">Worlds: Agent Frameworks and Domains</a></h2>
+<p>The Mushroom Kingdom isn’t one level. It’s organized into <strong>Worlds</strong>, each with a distinct theme and set of challenges:</p>
+<table> <tr> <th>World</th> <th>Theme</th> <th>Agent Domain</th> </tr> <tbody> <tr> <td><strong>World 1</strong></td> <td>Grassland, basics</td> <td>Simple text tasks, Q&amp;A, summarization</td> </tr> <tr> <td><strong>World 2</strong></td> <td>Desert</td> <td>Data analysis, structured environments</td> </tr> <tr> <td><strong>World 3</strong></td> <td>Water</td> <td>Web and API navigation</td> </tr> <tr> <td><strong>World 4</strong></td> <td>Giant Land</td> <td>Large-scale refactoring, migrations</td> </tr> <tr> <td><strong>World 5</strong></td> <td>Sky</td> <td>Architecture and system design</td> </tr> <tr> <td><strong>World 6</strong></td> <td>Ice</td> <td>Debugging in fragile or legacy environments</td> </tr> <tr> <td><strong>World 7</strong></td> <td>Pipe Maze</td> <td>Complex multi-step workflows with dependencies</td> </tr> <tr> <td><strong>World 8</strong></td> <td>Bowser’s Castle</td> <td>Full autonomous task completion with adversarial conditions</td> </tr> </tbody> </table>
+<p>Agent frameworks are the <strong>World Maps</strong> - they organize how the agent navigates between levels (subtasks) and worlds (domains). Some frameworks are rigid, you follow the path laid out. Others let you pick your route. The best ones (like how Super Mario Bros. 3 introduced the overworld map) let the agent make strategic choices about which level to tackle next.</p>
+<p>But remember: <a href="https://leehanchung.github.io/blogs/2025/06/26/no-code-low-code-full-code/">the model is the product</a>. The World Map (framework) is useful scaffolding, but Mario does the actual playing. As models get stronger, they need less scaffolding. Today’s World 8 is tomorrow’s World 1.</p>
+<h2><a href="https://leehanchung.github.io/blogs/2026/02/18/mario-agentic-ai/#conclusion">Conclusion</a></h2>
+<p>The entire agentic AI stack maps to Mario with surprising fidelity:</p>
+<table> <tr> <th>Mario</th> <th>Agentic AI</th> </tr> <tbody> <tr> <td>Small Mario</td> <td>Base pretrained model</td> </tr> <tr> <td>Super Mushroom</td> <td>Model harness and post-training</td> </tr> <tr> <td>Power-ups</td> <td>Agent tools and skills</td> </tr> <tr> <td>Star Power</td> <td>Engineering manager clearing blockers</td> </tr> <tr> <td>Levels</td> <td>Task environments</td> </tr> <tr> <td>Pipes, bricks, shells</td> <td>Tool use within the environment</td> </tr> <tr> <td>Objectives (speed, score, coins)</td> <td>Task definitions</td> </tr> <tr> <td>Flagpole / Boss</td> <td>Reward signal and evaluation</td> </tr> <tr> <td>Reward design</td> <td>Reward modeling (ML engineering discipline)</td> </tr> <tr> <td>Learning to play</td> <td>Reinforcement learning</td> </tr> <tr> <td>MLE as game designer</td> <td>ML engineer designing tasks and rewards</td> </tr> <tr> <td>MLSys running millions of episodes</td> <td>ML infrastructure for training at scale</td> </tr> <tr> <td>World Map</td> <td>Agent framework</td> </tr> <tr> <td>Multiplayer</td> <td>Multi-agent systems</td> </tr> </tbody> </table>
+<p>The next time someone asks you to explain agentic AI, ask them: have you played Mario?</p>
+<p>If they can understand that Small Mario needs a mushroom to survive, power-ups to be effective, and practice to master each level, they can understand agentic AI development.</p>
+<p>Now go save Princess Peach.</p>
+<h2><a href="https://leehanchung.github.io/blogs/2026/02/18/mario-agentic-ai/#references">References</a></h2>
+<pre><code>@article{
+    leehanchung,
+    author = {Lee, Hanchung},
+    title = {It's-a Me, Agentic AI},
+    year = {2026},
+    month = {02},
+    day = {18},
+    howpublished = {\url{https://leehanchung.github.io}},
+    url = {https://leehanchung.github.io/blogs/2026/02/18/mario-agentic-ai/}
+}
+</code></pre></div>
+      
+    </article>
+    
+    <article>
+      <h1>Hidden Technical Debt of AI Systems: Agent Runtime</h1>
+      <div class="article-meta">
+        Han, Not Solo
+        · 27 Apr 2026 · <a href="https://leehanchung.github.io/blogs/2026/04/24/hidden-technical-debt-agent-runtime/">Source</a>
+      </div>
+      <div class="article-body"><p>Eleven years ago, Sculley et al. drew <a href="https://papers.nips.cc/paper_files/paper/2015/hash/86df7dcfd896fcaf2674f757a2463eba-Abstract.html">the diagram</a> everyone in MLOps has seen: a tiny black box labeled “ML Code” surrounded by a sprawl of much larger boxes — data collection, feature extraction, configuration, monitoring, serving infrastructure. The point of the diagram was that the model code is the smallest piece of a real ML system, and that everything else is where the technical debt accumulates.</p>
+<figure class="article-figure"><img alt="Hidden Technical Debt in Agentic AI Systems" src="https://leehanchung.github.io/assets/img/2026-04-24/01-hidden-technical-debt.png" class="article-image"/><figcaption>Hidden Technical Debt in Agentic AI Systems</figcaption></figure>
+<p>The same diagram is being redrawn for agents. The agentic model call is the small box. The largest box to the right that is currently driving most of the spend and influencing how system architecture will be done in the futureincidents, is the <strong>agent runtime</strong>, or agent serving infrastructure.</p>
+<p>The agent is not the model. The agent is the harness plus the model, running inside the runtime. And almost nobody is treating it that way.</p>
+<h2>What an Agent Runtime Actually Is</h2>
+<p>A agentic model by itself maps from text input to text output. Other modalities are in play, but the primary fabric is still text. An agent is what you get when you wrap the agentic model with harnesses so it can take actions, observe effects, feed those observation back into the next call. The execution environment where that happens is the runtime.</p>
+<p>Concretely, an agent runtime is the union of:</p>
+<ul> <li><strong>compute substrate</strong> — a container, microVM, or full VM where code runs.</li> <li><strong>filesystem</strong> the agent can read and write, often with snapshot and rollback semantics.</li> <li><strong>tools</strong> — shell, code interpreter, browser, file editor, MCP servers — exposed to the model as callable interfaces.</li> <li><strong>network boundary</strong> that defines what the agent can reach and what can reach it.</li> <li><strong>state model</strong> that decides what persists across turns, across episodes, and across users.</li> <li><strong>lifecycle controller</strong> that starts, suspends, snapshots, resumes, and tears down environments.</li> </ul>
+<p>In the <a href="https://leehanchung.github.io/blogs/2026/03/21/rl-environments-for-llm-agents/">taxonomy of RL environments for LLM agents</a>, these are the  (harness) and  (state) components. In production, this is the part that decides whether your agent finishes a task in eight seconds or eight minutes, whether two users can share an environment safely, and whether a malicious prompt can read your secrets.</p>
+<p>Most teams shipping agents today have not built this layer. They have rented it, glued it together from cloud primitives that were designed for a different workload, or simply not thought about it yet. That last group is the one accumulating the most debt.</p>
+<h2>Why Sandboxing Is Not Optional</h2>
+<p>Models hallucinate code. They run <code>rm -rf</code>. They paste credentials into curl commands. They follow instructions embedded in untrusted documents. They retry the same failing command in a tight loop and burn through a quota. None of these are exotic edge cases — they are the modal behavior of capable models when handed unrestricted tool access.</p>
+<p>The sandbox is what stops these behaviors from becoming incidents. Four reasons it has to exist as a first-class layer rather than a hopeful disclaimer in the system prompt:</p>
+<p><strong>Isolation against the model’s mistakes.</strong> A coding agent that mounts your repo and has shell access can, and eventually will, delete the wrong directory. Filesystem isolation, copy-on-write snapshots, and per-session ephemerality turn destructive actions into recoverable ones.</p>
+<p><strong>Isolation against prompt injection.</strong> The agent reads tool outputs. Tool outputs are attacker-controlled the moment the agent visits a webpage, opens a PDF, or processes a customer email. A sandbox is the only thing standing between an injected instruction and your production database. This is the agent-systems version of the SQL injection lesson, and we are at roughly the 2003 stage of learning it.</p>
+<p><strong>Multi-tenancy at training scale.</strong> RL training spins up thousands of concurrent rollouts. Each rollout needs its own filesystem, its own process tree, its own network namespace. Without strong isolation primitives, one rollout’s flaky shell command takes down a neighbor’s training step.</p>
+<p><strong>Reproducibility.</strong> A sandbox you can snapshot is a sandbox you can replay. Replay is how you debug a six-hour agent trajectory without re-running the whole thing. It is also how you turn a production failure into a regression test.</p>
+<p>A web app’s runtime can be sloppy because the user is the one driving and a refresh fixes most things. An agent’s runtime cannot, because the agent will keep going long after a human would have stopped to ask a question.</p>
+<p>The Cognition team is direct about this in <a href="https://cognition.ai/blog/what-we-learned-building-cloud-agents">their post-mortem on building Devin’s cloud agent infrastructure</a>: containerized agents share a kernel, and a single compromised session can reach every other container’s filesystem, credentials, and network connections. Because agents generate their own code, run arbitrary commands, and probe the environment in unpredictable ways, kernel-escape is not a theoretical risk — it is the working assumption. Their conclusion, after more than a year of hypervisor engineering, is the same one the broader infrastructure community has converged on for any untrusted-code workload: VM-level isolation, where each session gets its own kernel and there is no shared attack surface.</p>
+<p>Manus team has famously built and snapped shotted all their agent runtimes in a restorable format so users can come back in the future to replay what agents have done.</p>
+<h2>The Isolation Primitive Stack</h2>
+<p>Most of the differentiation between sandbox vendors lives one layer down, in the isolation primitive they pick. There are five primitives in serious use, with very different trade-offs.</p>
+<table> <tr> <th>Primitive</th> <th>Isolation model</th> <th>Cold start</th> <th>Workload fit</th> <th>Notable users</th> </tr> <tbody> <tr> <td><strong>Linux containers (runc, Podman)</strong></td> <td>Shared host kernel, namespaces + cgroups + seccomp</td> <td>~100ms</td> <td>Trusted code, internal CI</td> <td>Docker, Kubernetes default</td> </tr> <tr> <td><strong>Firecracker</strong></td> <td>KVM-based microVM, dedicated kernel per VM, ~5MB Rust VMM</td> <td>~125ms boot, sub-second from snapshot</td> <td>Untrusted code at high density</td> <td>AWS Lambda, Fargate, E2B, Fly.io</td> </tr> <tr> <td><strong>gVisor</strong></td> <td>Userspace kernel intercepting syscalls; runc-compatible runtime</td> <td>Container-class</td> <td>Defense in depth where a microVM is overkill; GPU virtualization</td> <td>Google Cloud Run, App Engine, Modal</td> </tr> <tr> <td><strong>Kata Containers</strong></td> <td>Lightweight VM per pod, OCI-compatible</td> <td>Few hundred ms</td> <td>Multi-tenant Kubernetes</td> <td>Confidential Containers, some managed K8s</td> </tr> <tr> <td><strong>V8 isolates</strong></td> <td>Per-tenant JS heap inside a single process</td> <td>Sub-millisecond</td> <td>JavaScript-only, no arbitrary binaries</td> <td>Cloudflare Workers, Deno Deploy</td> </tr> </tbody> </table>
+<p>A few things are worth saying out loud about this table.</p>
+<p><strong>Containers are not a sandbox for agent code.</strong> They are a packaging and resource-control mechanism. The shared kernel means a kernel exploit, a misconfigured capability, or a sloppy seccomp profile takes down the isolation boundary. It is not okay for an agent that may execute attacker-controlled instructions hidden in a web page.</p>
+<p><strong>Firecracker is the de facto industry primitive for this category.</strong> AWS open-sourced it in 2018 to power Lambda and Fargate, and almost all agent-sandbox startup runs on top of it, including E2B, Fly.io, Vercel Sandbox. It boots a stripped-down Linux kernel inside KVM in roughly 125 milliseconds and uses about five megabytes of memory for the VMM itself. The combination of strong isolation, fast boot, high density is what makes thousands of concurrent rollouts economically viable.</p>
+<p><strong>gVisor is the middle path.</strong> It runs a userspace kernel that intercepts and re-implements Linux syscalls, giving you stronger isolation than namespaces without paying the full cost of a hardware VM. The trade-off is that some syscalls are slower or unsupported, which matters for workloads that hit the kernel hard. Google uses it for Cloud Run and App Engine; it is the right pick when you want defense-in-depth on top of containers but cannot move to microVMs.</p>
+<p><strong>Kata Containers fit a specific niche.</strong> They are an OCI-compatible runtime that wraps each pod in a lightweight VM, which lets you run untrusted workloads on Kubernetes without rewriting the orchestration layer. The cost is that you inherit Kubernetes’ assumptions about pod lifetime, which do not match how agents actually behave.</p>
+<p><strong>V8 isolates are the wrong primitive for general agent workloads.</strong> They are extraordinary for JavaScript-only edge compute but an agent that needs to run arbitrary Python, install packages, drive a browser, or execute compiled binaries cannot live inside a V8 heap. Cloudflare’s own Sandbox product addresses this by adding container-class compute alongside isolates.</p>
+<p>The picks higher up the stack inherit these trade-offs. When a sandbox vendor advertises “VM-level isolation” they almost always mean Firecracker. When they advertise “millisecond cold starts” without VM isolation, they usually mean V8 isolates with a different threat model. The vendor brochure abstracts the primitive away; the threat model and the workload do not.</p>
+<h2>The Startup Sandbox Landscape</h2>
+<p>A category of “sandbox-as-a-service” companies has emerged in the last two years, almost all of them building on top of the primitives above. <a href="https://northflank.com/blog/top-modal-sandboxes-alternatives-for-secure-ai-code-execution">Northflank’s roundup of Modal Sandboxes alternatives</a> is a good market snapshot — the differentiation is in the developer ergonomics, the snapshot model, and the mix of tools that come pre-wired, not in the isolation layer underneath.</p>
+<table> <tr> <th>Vendor</th> <th>Isolation</th> <th>Snapshot model</th> <th>Cold start</th> <th>Notable design choice</th> </tr> <tbody> <tr> <td><strong>Modal</strong></td> <td>gVisor</td> <td>Filesystem diffs from base image</td> <td>Sub-second from snapshot</td> <td>GPU support</td> </tr> <tr> <td><strong>E2B</strong></td> <td>Firecracker microVM</td> <td>Full VM snapshot</td> <td>~150ms</td> <td>Open-source SDK, language-agnostic, popular in the agent dev community</td> </tr> <tr> <td><strong>Daytona</strong></td> <td>Containers / VMs</td> <td>Forkable workspaces</td> <td>Few seconds</td> <td>Forked dev environments, OCI-compatible</td> </tr> <tr> <td><strong>Northflank</strong></td> <td>Containers, GPU-aware</td> <td>Persistent volumes</td> <td>Container-class</td> <td>GPU sandboxes for agents that train or run inference inside the loop</td> </tr> <tr> <td><strong>Browserbase / Steel / Hyperbrowser</strong></td> <td>Containerized browsers</td> <td>Session replay</td> <td>Seconds</td> <td>Browser-only runtimes for web agents — DOM, screenshots, CDP</td> </tr> <tr> <td><strong>Cloudflare Workers Sandbox</strong></td> <td>V8 isolates + containers</td> <td>Object snapshots</td> <td>Milliseconds</td> <td>Edge-first, shared-nothing model</td> </tr> <tr> <td><strong>Vercel Sandbox</strong></td> <td>Firecracker</td> <td>Snapshot from build</td> <td>Sub-second</td> <td>Tied to Vercel’s deploy and preview model</td> </tr> </tbody> </table>
+<p>The reference Modal case study is <a href="https://modal.com/blog/how-ramp-built-a-full-context-background-coding-agent-on-modal">Ramp Inspect</a>: a background coding agent that now writes more than half of Ramp’s merged pull requests, with each session running in its own Modal sandbox containing Postgres, Redis, Temporal, RabbitMQ, a VS Code server, and a VNC stack with Chromium. Filesystem snapshots are refreshed every thirty minutes by a cron, so a new session is working on a prompt within seconds. The lesson buried in that architecture is that the agent’s productivity is bounded by the runtime’s startup time, not by the model’s tokens-per-second.</p>
+<p>The browser-runtime category exists because driving Chromium is its own engineering problem — CDP, profiles, residential IPs, captcha handling, session persistence — and no general-purpose sandbox has it built in. Expect this to consolidate into the general-purpose vendors over the next eighteen months, the same way headless browsers absorbed into the major test frameworks.</p>
+<p>It is also worth noting what nobody on this list does themselves. None of these vendors writes their own hypervisor. They all stand on top of the primitives in the previous section, which is what lets the category exist. The startups that have tried to build a complete stack — including the hypervisor — have ended up looking more like Cognition: years of engineering investment to get something that is finally indistinguishable from “we run on Firecracker with custom snapshot logic.”</p>
+<h2>The Hyperscaler Sandbox Landscape</h2>
+<p>The hyperscalers got to this market late and are still catching up.</p>
+<p><strong>AWS Bedrock AgentCore</strong> ships a Code Interpreter and a Browser Tool as managed runtimes for agents. The isolation is microVM-class, the integrations point at the rest of the AWS data plane, and the pricing model is per-session. However, it has major gaps relative to the startups, where the runtime has to be coded and shipped like a Lambda function, instead of having the flexibility to support heterogeneous workloads, e.g, different agent harness + model combinations. Not a major problem for production, but a major problem for research and development.</p>
+<p><strong>Azure Container Apps Dynamic Sessions</strong> uses Hyper-V isolation and advertises sub-second start times for code interpreter sessions. It is the most directly comparable hyperscaler offering to E2B and Modal in terms of intent. The integration story is strongest if you are already on Azure OpenAI and AKS. It also suffers from the flexibility to support heterogeneous workloads.</p>
+<p><strong>GCP Cloud Run Sandboxes</strong> is ahead of the pack with the usability similar to Modal, E2B, Daytona and the likes. It’s built on top of Cloud Run, which uses gVisor. Supports heterogeneous workloads.</p>
+<p><strong>Lambda, Fargate, App Runner, Cloud Run.</strong> It is tempting to use these as agent sandboxes because they are cheap and already in your account. They are designed for stateless, request-response workloads with strict execution-time limits and no native snapshot model. They will work for a demo. They will not work for an agent that runs for six hours, mutates a filesystem, and needs to fork mid-trajectory.</p>
+<p>The hyperscaler offerings are converging on the right shape — microVM isolation, fast snapshots, managed tools — but the primitives underneath were built for web workloads. The startups had the advantage of building on top of those primitives without inheriting the legacy product surface area.</p>
+<h2>Experimentation and Production Want Different Runtimes</h2>
+<p>One of the major difference how AI engineering differes from traditional web development is the difference in development and production infrastructure requiremetns. Here’s the difference between your training cluster (if you are training models), experimentation and evaluation runs, vs production workload.</p>
+<table> <tr> <th>Dimension</th> <th>Experimentation / Training</th> <th>Production / Serving</th> </tr> <tbody> <tr> <td><strong>Concurrency shape</strong></td> <td>Thousands of parallel rollouts, bursty</td> <td>One session per user, steady-state</td> </tr> <tr> <td><strong>Cold start tolerance</strong></td> <td>Critical — 5s × 10k rollouts is real money</td> <td>Forgivable — users wait</td> </tr> <tr> <td><strong>State model</strong></td> <td>Fork, branch, replay, snapshot</td> <td>Durable, per-user, auditable</td> </tr> <tr> <td><strong>Network policy</strong></td> <td>Often offline or recorded for determinism</td> <td>Open internet, real APIs</td> </tr> <tr> <td><strong>Failure model</strong></td> <td>Drop the rollout, sample more</td> <td>Retry, degrade, page someone</td> </tr> <tr> <td><strong>Observability</strong></td> <td>Full trace, every token, replayable</td> <td>SLOs, error budgets, sampling</td> </tr> <tr> <td><strong>Cost model</strong></td> <td>Spot, preemptible, batch</td> <td>Reserved, predictable, latency-bound</td> </tr> <tr> <td><strong>Determinism</strong></td> <td>Required for reproducible runs</td> <td>Often counterproductive</td> </tr> <tr> <td><strong>Lifetime</strong></td> <td>Seconds to minutes</td> <td>Minutes to hours, or pinned for a session</td> </tr> </tbody> </table>
+<p>A training rollout wants to start in 200 milliseconds, run for thirty seconds against a frozen snapshot of the world, get scored, and disappear. A production session wants to start in two seconds, hold state for a forty-minute conversation, talk to the live internet, and survive a transient failure without losing the user’s work.</p>
+<p>The production side has a requirement that almost nobody surfaces in eval reports: the agent needs to survive the <strong>async gaps</strong> in real engineering work. <a href="https://cognition.ai/blog/what-we-learned-building-cloud-agents">Cognition’s experience report</a> is the cleanest articulation of this — an agent opens a PR, waits on CI, responds to a review comment, reruns tests, pushes a follow-up commit. Between each step there are minutes, hours, sometimes days where the agent’s working state has to persist. A containerized agent can only survive these gaps by burning compute to stay alive, and if the container is rescheduled or times out the session is lost. Their solution was hypervisor-level snapshotting of the full machine state — memory, process tree, filesystem — so compute shuts down while the agent is idle and resumes exactly where it left off when a CI result arrives. Building that took longer than any other piece of infrastructure they had shipped to date.</p>
+<p>Optimizing the same runtime for both training and production is how you end up with a system that is too slow for training and too brittle for production. Most teams discover this after the first time they try to “just deploy what we trained on” and find the latency budget eaten by a startup model that was fine when amortized over ten thousand rollouts and intolerable when paid by a single user staring at a spinner.</p>
+<h2>Dev/Prod Parity Is the Real Problem</h2>
+<p>In 2011, <a href="https://12factor.net/">Twelve-Factor App</a> told us to keep development, staging, and production as similar as possible. That advice was about reducing the gap between where the engineer types code and where the code runs. For agents, the gap that matters is between where the agent <strong>trained</strong> and <strong>experimented</strong> and where the agent <strong>runs</strong>.</p>
+<p>An agent learns the runtime. Tool latencies, failure modes, shell quirks, filesystem layout, the exact way <code>ls</code> formats output, the way the browser resolves redirects. The model picks up all of it during training and bakes it into the policy, or the optimizer (RLM or GEPA) picks up all of it during training and bakes it into the harness or the prompts. Move these to a different runtime and the behavior shifts. Tools that were idempotent become flaky. Commands that were instant now block. Snapshots that existed disappear. The agent has no abstract concept of “shell”; it has a concept of “the shell I trained on.”</p>
+<p>This is a new flavor of distributional shift. It is not the data shift the MLOps community has been worrying about for a decade. It is <strong>runtime shift</strong>, and it shows up as silent quality regressions that no eval catches because the eval runs in the training runtime.</p>
+<p>There are three honest paths through this:</p>
+<p><strong>Co-locate train and prod on the same runtime.</strong> Pick one sandbox provider, run RL rollouts on it, run production sessions on it, accept the lock-in. This is what the most disciplined AI engineering teams are doing.</p>
+<p><strong>Define a runtime contract and enforce it on both sides.</strong> A small, versioned interface — “this is the shell, these are the tools, these are the latencies, these are the failure modes” — that you implement once on your training infrastructure and once on your production infrastructure. The contract is the abstraction; the sandbox underneath can vary. This is harder than it sounds because the contract has to cover not just the API surface but the timing and failure semantics that the agent has learned.</p>
+<p><strong>Train against production noise.</strong> Inject latency, errors, and tool failures during training so the agent’s policy is robust to runtime variance instead of dependent on a specific runtime. <a href="https://arxiv.org/abs/2512.20491">Step-DeepResearch</a> reports tangible gains from injecting 5–10% tool errors during training. This is the runtime analog of dropout.</p>
+<p>The wrong answer, the one most teams are unconsciously picking, is to pick a sandbox for production as a software engineering solution, and forget all about the requirements from AI and machine learning, then spend the next quarters chasing flakiness of agent performances.</p>
+<h2>The Bill That Is Coming Due</h2>
+<p>Sculley’s argument was that ML systems accumulate technical debt in places that traditional software engineering does not have language for — feedback loops, configuration sprawl, undeclared consumers, glue code. Agent systems inherit all of that and add a new line item: the runtime debt.</p>
+<p>Runtime debt looks like this. A team picks the sandbox that was easiest to integrate at prototype time. Production traffic exposes a different mix of failure modes. The team patches around the gap with retries, longer timeouts, and prompt-engineered apologies. The agent’s behavior gets entangled with that runtime’s quirks with whack-a-mole without disciplined research and development. A year later, switching runtimes is a six-month migration because nobody can predict which behaviors will move.</p>
+<p>The agent has to live on a runtime. The teams that internalize that early will spend the next two years compounding the advantage. The teams that do not will spend the next two years paying down a debt they did not know they were taking on.</p>
+<h2><a href="https://leehanchung.github.io/blogs/2026/04/24/hidden-technical-debt-agent-runtime/#references">References</a></h2>
+<ul> <li><a href="https://papers.nips.cc/paper_files/paper/2015/hash/86df7dcfd896fcaf2674f757a2463eba-Abstract.html">Sculley, D., Holt, G., Golovin, D., Davydov, E., Phillips, T., Ebner, D., Chaudhary, V., Young, M., Crespo, J.-F., &amp; Dennison, D. (2015). Hidden Technical Debt in Machine Learning Systems. NeurIPS. https://papers.nips.cc/paper_files/paper/2015/hash/86df7dcfd896fcaf2674f757a2463eba-Abstract.html</a></li> <li><a href="https://leehanchung.github.io/blogs/2026/03/21/rl-environments-for-llm-agents/">Lee, H. (2026). A Taxonomy of RL Environments for LLM Agents. Han, Not Solo. https://leehanchung.github.io/blogs/2026/03/21/rl-environments-for-llm-agents/</a></li> <li><a href="https://modal.com/blog/how-ramp-built-a-full-context-background-coding-agent-on-modal">Workman, G. (2026). How Ramp built a full-context background coding agent on Modal. Modal Blog. https://modal.com/blog/how-ramp-built-a-full-context-background-coding-agent-on-modal</a></li> <li><a href="https://openai.com/index/harness-engineering/">Lopopolo, R. (2026). Harness engineering: leveraging Codex in an agent-first world. OpenAI. https://openai.com/index/harness-engineering/</a></li> <li><a href="https://learn.microsoft.com/en-us/azure/container-apps/sessions">Microsoft. (2024). Azure Container Apps Dynamic Sessions. https://learn.microsoft.com/en-us/azure/container-apps/sessions</a></li> <li><a href="https://firecracker-microvm.github.io/">Firecracker. AWS open-source microVM. https://firecracker-microvm.github.io/</a></li> <li><a href="https://northflank.com/blog/top-modal-sandboxes-alternatives-for-secure-ai-code-execution">Northflank. (2026). Top Modal Sandboxes Alternatives for Secure AI Code Execution. https://northflank.com/blog/top-modal-sandboxes-alternatives-for-secure-ai-code-execution</a></li> </ul>
+<pre><code>@article{
+    leehanchung,
+    author = {Lee, Hanchung},
+    title = {Hidden Technical Debt of AI Systems: Agent Runtime},
+    year = {2026},
+    month = {04},
+    day = {24},
+    howpublished = {\url{https://leehanchung.github.io}},
+    url = {https://leehanchung.github.io/blogs/2026/04/24/hidden-technical-debt-agent-runtime/}
+}
+</code></pre></div>
+      
+    </article>
+    
+  </body>
+</html>
