@@ -1,0 +1,464 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Fred Talks - 2026-06-17</title>
+    <style>
+      @page {
+        size: A5;
+        margin: 8mm 9mm 9mm;
+      }
+
+      :root {
+        color: #111;
+        font-family: "Times New Roman", Times, serif;
+        --body-text-size: 9.5pt;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        color: #111;
+        background: #fff;
+        font-family: "Times New Roman", Times, serif;
+        line-height: 1.45;
+      }
+
+      a,
+      a:visited {
+        color: #111;
+        text-decoration: underline;
+      }
+
+      .cover {
+        min-height: calc(210mm - 17mm);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        page-break-after: always;
+        border: 1px solid #111;
+        padding: 8mm;
+        background: #fff;
+      }
+
+      .toc-item-meta,
+      .article-meta {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .masthead {
+        margin: 0;
+        font-size: 40pt;
+        line-height: 0.95;
+        text-transform: uppercase;
+      }
+
+      .issue-date {
+        margin: 4mm 0 0;
+        font-size: 14pt;
+      }
+
+      .issue-date sup {
+        font-size: 0.58em;
+        vertical-align: super;
+        line-height: 0;
+      }
+
+      .cover-deck {
+        max-width: 90mm;
+        font-size: 12pt;
+        margin: 0;
+      }
+
+      .toc {
+        border-top: 3px solid #111;
+        padding-top: 6mm;
+      }
+
+      .toc h2 {
+        margin: 0 0 4mm;
+        font-size: 11pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .toc-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .toc-item {
+        padding: 3mm 0;
+        border-bottom: 1px solid rgba(17, 17, 17, 0.2);
+      }
+
+      .toc-item-title {
+        font-size: 12pt;
+        margin: 0 0 1mm;
+      }
+
+      .toc-item-meta {
+        font-size: 8pt;
+      }
+
+      .masthead-compact {
+        margin: 0 0 6mm;
+      }
+
+      .masthead-compact h1 {
+        margin: 0;
+        font-size: 22pt;
+        line-height: 1.1;
+        text-transform: uppercase;
+      }
+
+      .masthead-compact .issue-date {
+        margin: 2mm 0 0;
+        font-size: 11pt;
+      }
+
+      .toc-compact {
+        border-top: 1px solid #111;
+        border-bottom: 1px solid #111;
+        padding: 4mm 0;
+        margin: 0 0 8mm;
+      }
+
+      article + article {
+        margin-top: 10mm;
+        padding-top: 6mm;
+        border-top: 2px solid #111;
+      }
+
+      h1 {
+        margin: 0 0 2mm;
+        font-size: 18pt;
+        line-height: 1.1;
+      }
+
+      .article-meta {
+        font-size: 8.5pt;
+        margin-bottom: 6mm;
+        padding-bottom: 3mm;
+        border-bottom: 1px solid #111;
+      }
+
+      .article-body {
+        font-size: var(--body-text-size);
+        font-family: "Times New Roman", Times, serif;
+      }
+
+      .article-body p,
+      .article-body li,
+      .article-body blockquote,
+      .article-body dd,
+      .article-body dt {
+        margin: 0 0 4mm;
+        orphans: 3;
+        widows: 3;
+      }
+
+      .article-body ul,
+      .article-body ol,
+      .article-body dl {
+        margin: 0 0 4mm 5mm;
+        padding: 0;
+      }
+
+      .article-body h2,
+      .article-body h3,
+      .article-body h4 {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        margin: 7mm 0 3mm;
+        line-height: 1.2;
+      }
+
+      .article-body blockquote {
+        margin-left: 6mm;
+        padding-left: 4mm;
+        border-left: 2px solid #111;
+      }
+
+      .article-body .media-omitted {
+        margin: 0 0 4mm;
+        font-size: 8.5pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(17, 17, 17, 0.65);
+      }
+
+      .article-body figure,
+      .article-body .article-figure,
+      .article-body picture,
+      .article-body .article-picture {
+        display: block;
+        max-width: 72mm;
+        margin: 0 auto 4mm;
+        break-inside: avoid;
+      }
+
+      .article-body img,
+      .article-body .article-image {
+        display: block;
+        max-width: min(100%, 72mm);
+        max-height: 34mm;
+        height: auto;
+        width: auto;
+        object-fit: contain;
+        margin: 0 auto 3mm;
+      }
+
+      .article-body figcaption {
+        margin-top: 1.5mm;
+        font-size: 8.5pt;
+        line-height: 1.3;
+        color: rgba(17, 17, 17, 0.8);
+      }
+
+      .article-note {
+        margin-top: 6mm;
+        padding-top: 3mm;
+        border-top: 1px solid #111;
+        font-size: 9pt;
+        font-style: italic;
+      }
+
+      @media screen {
+        body {
+          padding: 2rem;
+          margin: 0 auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    
+    <header class="masthead-compact">
+      <h1>Fred Talks</h1>
+      <p class="issue-date">
+        17<sup>th</sup> June 2026
+      </p>
+    </header>
+
+    <nav class="toc toc-compact">
+      <h2>Contents</h2>
+      <ol class="toc-list">
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Headless everything for personal AI</div>
+          <div class="toc-item-meta">
+            Interconnected · 1335 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Why I don&#39;t like the &#34;staff engineer archetypes&#34;</div>
+          <div class="toc-item-meta">
+            seangoedecke.com RSS feed · 1426 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Please for the love of all that is holy: Stop writing long boring Titles</div>
+          <div class="toc-item-meta">
+            swyx · 1431 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Building agents that reach production systems with MCP</div>
+          <div class="toc-item-meta">
+            claude.com · 1746 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">2.1.179</div>
+          <div class="toc-item-meta">
+            Changelog · 141 words
+          </div>
+        </li>
+        
+      </ol>
+    </nav>
+    
+
+    
+    <article>
+      <h1>Headless everything for personal AI</h1>
+      <div class="article-meta">
+        Interconnected
+        · 18 Apr 2026 · <a href="https://interconnected.org/home/2026/04/18/headless">Source</a>
+      </div>
+      <div class="article-body"><p>It’s pretty clear that apps and services are all going to have to go <em>headless:</em> that is, they will have to provide access and tools for personal AI agents without any of the visual UI that us humans use today.</p>
+<p>By services I mean things like: getting a new passport; finding and booking a hotel or a flight; managing your bank account; shopping for t-shirts with a minimum cotton weight from brands similar to ones that you’ve bought from before.</p>
+<p>Why? Because using personal AIs is a better experience for users than using services directly (honestly); and headless services are quicker and more dependable for the personal AIs than having them click round a GUI with a bot-controlled mouse.</p>
+<p>Where this leaves design for the services… well, I have some thoughts on that.</p>
+<p>Headless services? They’re happening already.</p>
+<p>Already there is <a href="https://interconnected.org/home/2025/02/11/mcp">MCP, as previously discussed</a> (2025), a kind of web API specifically for AI. For instance, best-in-class call transcriber app Granola <a href="https://www.granola.ai/blog/granola-mcp">recently released their MCP</a> and now you can ask your Claude to pull out the meeting actions and go trawling in your personal docs to find answers to all the question. A good integration.</p>
+<p>But command-line tools are growing in popularity, although they used to be just for developers. So you can now create a spreadsheet by typing in your terminal:</p>
+<p><code>gws sheets spreadsheets create --json '{"properties": {"title": "Q1 Budget"}}'</code></p>
+<p>Here are some recently launched CLI tools:</p>
+<ul> <li><a href="https://github.com/googleworkspace/cli">gws</a>: Google Workspace CLI, Drive, Gmail, Calendar, and every Workspace API. Zero boilerplate. Structured JSON output. 40+ agent skills included.</li> <li><a href="https://obsidian.md/cli">Obsidian CLI</a> to do anything you can do with the (very popular) note-taking app - like keep daily notes, track and cross off tasks, search - from the CLI</li> <li><a href="https://developer.salesforce.com/tools/salesforcecli">Salesforce CLI</a> and, look, I don’t really understand what the Salesforce business operating system does, but the fact it has a CLI too is significant.</li> </ul>
+<p>And here is <a href="https://github.com/HKUDS/CLI-Anything">CLI-Anything</a> (31k stars on GitHub) which auto-generates CLIs for ANY codebase.</p>
+<p>Why CLIs?</p>
+<p>It turns out that the best place for personal AIs to run is on a computer. Maybe a virtual computer in the cloud, but ideally your computer. That way they can see the docs that you can see, and use the tools that you can use, and so what they want is not APIs (which connect webservers) but little apps they can use directly. CLI tools are the perfect little apps.</p>
+<p>CLIs are composable so they are a better fit for what users actually do.</p>
+<p>By composable I mean you can: query your notes then jump to a spreadsheet then research the web then jump back to the spreadsheet then text the user a clarifying question then double-check your notes, all by bouncing between CLIs in the same session.</p>
+<p>A while back app design got obsessed with “user journeys.” Like the journey of a user finding a hotel then booking a hotel then staying in it and leaving a review.</p>
+<p>But users don’t live in “journeys.” They multitask; they talk to people and come back to things; they’re idiosyncratic Try grabbing the search results from the Airbnb app and popping them in a message to chat on the family WhatsApp, then coming back to it two days later. It’s a pain and you have to use screenshots because apps and their user journeys are not composable.</p>
+<p>CLIs are composable because they came originally from Unix and that is the <a href="https://tldp.org/LDP/GNU-Linux-Tools-Summary/html/c1089.htm">Unix tools philosophy</a>: tools were designed so that they could operate together.</p>
+<p>Personal AIs like Openclaw or [Poke](<a href="https://poke.com/">https://poke.com</a> do what users want and don’t follow “designed” user journeys, and as a result the composed experience is more personal and way better. CLIs are a great underlying technology for that.</p>
+<p>CLIs are smaller than regular apps and so they are easier to secure.</p>
+<p>The alternative to providing special tools for AIs is that the AIs use the same browser-based apps that we do, and that’s a terrifying prospect.</p>
+<p>For one, AIs are really good at finding security holes. The new Mythos model from Anthropic is so good at discovering security flaws that it has been held back from the public and <a href="https://www.bbc.co.uk/news/articles/c2ev24yx4rmo">governments are convening emergency meetings of the biggest banks</a>.</p>
+<p>And including a UI increasing complexity and makes security holes more likely.</p>
+<p>Here’s a recent shocking example. Companies House is the national register of all companies, directors, and accounts for England and Wales. Users could view <em>and edit</em> any other user’s account:</p>
+<blockquote data-author="The Register" data-title="Flaw in UK&#x27;s corporate registry let directors rummage through rival records"> <p>a logged-in company director could exploit the flaw by starting from their own dashboard and then trying to log into another company’s account.</p> <p>Once they reach the 2FA block, which they would not be able to pass, <u>all that was required was to click the browser’s back button a few times</u>. Typically, the user would be taken back to their own dashboard, but the bug instead returned them to the company they had tried to log into but couldn’t.</p> </blockquote>
+<p>This bug had been present since October 2025.</p>
+<p>Imagine a future where personal AIs are filing company records, and one of them notices this security hole overnight and posts about it on <a href="https://www.moltbook.com">moltbook</a> or whatever agent-only social network is most popular. The other agents would exploit the system up, down and sideways before the engineering team woke up.</p>
+<p>The only viable solution is that services need to security hardened, and to do that they need to be simplifying and minimised. Again, CLI tools are a great fit.</p>
+<p>What does this mean for front-end design?</p>
+<p>Design won’t go anywhere.</p>
+<p>Sure, the front-end should be driving the same CLI tools that agents use.</p>
+<p>Arguably it’s more important than ever: human users will encounter services, figure out what they can do, and pick up their vibe from using the app, just as now.</p>
+<p>Then they’ll tell their personal AI about the service and never see the front-end again, or re-mix it into bespoke personal software.</p>
+<p>So from a usability perspective I see front-end as somewhat sacrificial. AI agents will drive straight through it; users will encounter it only once or twice; it will be customised or personalised; all that work on optimising user journeys doesn’t matter any more.</p>
+<p>But from a vibe perspective, services are not fungible. e.g. if you’re finding a restaurant then Yelp, Google Maps, Resy, and The Infatuation are all more-or-less equivalent for answering that question but clearly they are completely different and you’ll use different services at different times.</p>
+<p>Understanding that a service is <em>for you</em> is 50% an unconscious process - we call it brand - and I look forward to front-end design for apps and services optimising for brand rather than ease of use.</p>
+<p>If I were a bank, I would be releasing a hardened CLI tool like <em>yesterday.</em></p>
+<p>There is so much to figure out:</p>
+<ul> <li>How do permissions work? Should the user get a notification from their phone app when the agent strays outside normal behaviour? How do I give it credentials to act on my behalf, and how long do they last?</li> <li>How does adjacency work? My bank gives me a current account in exchange for putting a “hey, get a loan!” button on the app home screen. How do you make offers to an agent?</li> </ul>
+<p>Headless banks.</p>
+<p>Headless government?</p>
+<p>I’d love to show you a worked example here. I vibed up a suite of four CLI tools that wrap four different services from UK government departments.</p>
+<p>If I were renting a house, I would set my agent to learning about the neighbourhoods using one of these tools. Another tool will be helpful next time I’m buying a used car. (There’s a Companies House command-line tool too.)</p>
+<p>But I won’t show you the tools because I don’t want to be responsible for maintaining and supporting them.</p>
+<p>I wish Monzo came with an official CLI. I wish Booking.com came with a CLI. I reckon, give it a year, they will.</p>
+<h5> Auto-calculated kinda related posts: </h5>
+<p>If you enjoyed this post, please consider sharing it by email or on social media. <a href="https://interconnected.org/home/2026/04/18/headless">Here’s the link.</a> Thanks, —Matt.</p></div>
+      
+    </article>
+    
+    <article>
+      <h1>Why I don&#39;t like the &#34;staff engineer archetypes&#34;</h1>
+      <div class="article-meta">
+        seangoedecke.com RSS feed
+        · 03 May 2026 · <a href="https://seangoedecke.com/staff-engineer-archetypes/">Source</a>
+      </div>
+      <div class="article-body"><p>The most influential piece of writing about staff engineers in the last decade has to be Will Larson’s <a href="https://staffeng.com/guides/staff-archetypes/"><em>Staff engineer archetypes</em></a>. He argues that the “staff engineer” title covers at least four very different roles: the team lead, the architect, the solver, and the right hand. This taxonomy gets cited a lot as advice for people who are trying to become effective staff engineers. For <a href="https://www.seangoedecke.com/staff-engineer-promotions">both</a> of my promotions to staff engineer, my manager at the time linked me to the “staff engineer archetypes” and asked me to consider which of these archetypes I was aiming towards.</p>
+<p>These archetypes definitely exist<sup><a href="https://www.seangoedecke.com/staff-engineer-archetypes/#fn-1">1</a></sup>. However, I think it’s bad practical advice to tell engineers to try and target them.</p>
+<h3>Archetypes do not make good goals</h3>
+<p>To see why, let’s take the “team lead” archetype. Larson describes this as an informal technical leadership role: not necessarily an explicit authority figure, but someone who’s good at scoping work, planning projects, and maintaining the kind of relationships (e.g. with other teams) needed to successfully <a href="https://www.seangoedecke.com/how-to-ship">ship</a>. If you want to fill this role, shouldn’t you start trying to do these things? No! You don’t become a technical leader by trying really hard to be a technical leader, much like you don’t become a writer by trying really hard “to be a writer”. You become a technical leader by <em>doing good technical work</em> until your skills and relationships emerge organically.</p>
+<p>I wrote about this process in <a href="https://www.seangoedecke.com/ratchet-effects"><em>Ratchet effects determine engineer reputation at large companies</em></a>. To get good at shipping large complex projects, you must start by shipping tiny pieces of work, until you’re familiar enough with the system and you’ve built enough trust to take on slightly larger pieces. At each stage, if you do good work - “good work” here means “deliver <a href="https://www.seangoedecke.com/shareholder-value/">shareholder value</a>” - you will very naturally be given opportunities to work on more complex and important things. If you try to jump ahead, you’re going to run into all kinds of problems:</p>
+<ul> <li>Important projects are usually assigned top-down, not bottom-up, so you’ll either be trying to muscle out the planned engineering lead for a project or to pitch your own (complex, important) engineering task to senior management. Either way, good luck with that!</li> <li>You likely won’t have a good enough relationship with senior management to know what their real priorities are.</li> <li>If you’re not yet trusted to execute, you may get assigned “minders” (often current staff engineers) who will ghost-lead the project through you<sup><a href="https://www.seangoedecke.com/staff-engineer-archetypes/#fn-2">2</a></sup>.</li> <li>You’ll likely make <a href="https://www.seangoedecke.com/you-cant-design-software-you-dont-work-on/">poor technical decisions</a>.</li> </ul>
+<p>The other archetypes are like this as well. If you want to become a successful architect, you do not get there by studying software architecture in the abstract, because <a href="https://www.seangoedecke.com/you-cant-design-software-you-dont-work-on/">you can’t design software you don’t work on</a>. The “solver” and “right hand” archetypes both rely on having an enormous amount of trust and influence. You can’t aim for those archetypes directly, because trust and influence accumulate over time. In fact, the idea of “aiming for” a particular staff engineer archetype reflects a misunderstanding of what the staff engineer role is. What is the defining attribute of the staff engineering role, then?</p>
+<h3>What is a staff engineer?</h3>
+<p><strong>A staff engineer has to be useful to the company.</strong> Of course, a senior or mid-level software engineer ought to be useful too, but all they <em>have</em> to do is execute on the job in front of them. If they end up not providing value (maybe their project turns out to be unimportant, or they don’t get the support needed to succeed) that’s their manager’s problem, not theirs<sup><a href="https://www.seangoedecke.com/staff-engineer-archetypes/#fn-3">3</a></sup>. In contrast, staff engineers are expected to deliver value regardless: to make the project work, or to find something else useful to do if the project truly can’t be salvaged.</p>
+<p>This is an unfair expectation. Often projects really do fail through no fault of your own, and sometimes it just isn’t possible to conjure useful work from thin air. That’s actually by design: <strong>the staff engineer role is supposed to be unfair</strong>. Something many engineers don’t realize is that all senior management and executive leadership roles are unfair too, in the same way. That’s just part of the deal: executives are given power and great compensation, and in return they get thrown off the boat in bad weather<sup><a href="https://www.seangoedecke.com/staff-engineer-archetypes/#fn-4">4</a></sup>. “Staff engineer” is the first engineering role where you are held largely responsible for outcomes you don’t control.</p>
+<p>Developing a “staff engineer mindset” thus has very little to do with the archetypes. Instead, you should:</p>
+<ol> <li>Develop the habit of constantly asking yourself “is this useful to the company” (and answering correctly).</li> <li>Lose the habit of worrying about if you’re being treated “fairly”. Instead, try to think about your role in terms of incentives and consequences.</li> </ol>
+<p>At the beginning, you won’t look much like any of the staff engineer archetypes. You will look like being a level-headed engineer who can be trusted to move projects forward with a minimum of fuss, and who can be re-tasked to different work without complaining. You’ll also look like someone who’s <a href="https://www.seangoedecke.com/getting-the-main-thing-right/">paying a lot of attention</a> to what their manager’s actual priorities are, and who is thinking hard about how to fulfil those priorities (instead of their own goals).</p>
+<p>If you do this for long enough, you’ll eventually find yourself in one of the staff engineer archetypes. However, it probably won’t be the one you’re “aiming for”. The whole point of being a staff engineer is that you’re willing to fill whatever archetype the company needs at the time.</p>
+<h3>Final thoughts</h3>
+<p>In his original staff engineer post, Larson is pretty clear that these archetypes are more of an anthropological description of some of the varied niches staff engineers fill, not a how-to guide for succeeding in the role<sup><a href="https://www.seangoedecke.com/staff-engineer-archetypes/#fn-5">5</a></sup>. At the time, the “staff engineer” role was fairly new and people were still trying to figure out what it even meant. Pointing out that there were a few very different ways to succeed in the role was a genuinely novel observation.</p>
+<p>The staff engineer archetypes are a good list of ways an engineer can be very useful to their organization - but only once they’ve built a deep relationship of trust with their organization’s leadership. Advice on how to succeed as a staff engineer should be about <strong>how to build that trust</strong>, not about what to do once you have it.</p>
+<ol> <li> <p>One caveat that is too pedantic for the body of the post: each tech company has a different structure of roles. Some don’t have the formal “staff” title at all, while others have “staff” as a fairly early rung on the ladder and a panoply of “senior staff”, “senior principal staff”, and so on roles above it. Like all “staff engineer” discourse, this post is not about the word itself but about the point in the engineering job ladder where progression becomes significantly more difficult.</p> <a href="https://www.seangoedecke.com/staff-engineer-archetypes/#fnref-1">↩</a> </li> <li> <p>Impressing your VP’s trusted lieutenants can actually be a good way to build trust in the medium-term, but you’d better hope you’ve built enough understanding of the system to do it right. If this process goes badly, your reputation in the org might be torched for years.</p> <a href="https://www.seangoedecke.com/staff-engineer-archetypes/#fnref-2">↩</a> </li> <li> <p>In theory, at least. In practice it’s always better to be useful (again, in the sense of “delivering shareholder value”).</p> <a href="https://www.seangoedecke.com/staff-engineer-archetypes/#fnref-3">↩</a> </li> <li> <p>This is why very senior leadership sometimes seem so unempathetic towards engineering complaints: their work environment operates by very different rules and norms to that of most engineers. I keep meaning to try and write about this and never succeeding. This <a href="https://github.com/sgoedecke/gatsby-blog/blob/master/content/drafts/_icebox/strategy-for-swes/index.md">draft</a> is the closest thing I have to a deeper exploration of the point.</p> <a href="https://www.seangoedecke.com/staff-engineer-archetypes/#fnref-4">↩</a> </li> <li> <p>For the record, my how-to guides are <a href="https://www.seangoedecke.com/staff-engineer-archetypes/staff-engineer-promotions/">here</a> and <a href="https://www.seangoedecke.com/staff-engineer-archetypes/ratchet-effects/">here</a>.</p> <a href="https://www.seangoedecke.com/staff-engineer-archetypes/#fnref-5">↩</a> </li> </ol></div>
+      
+    </article>
+    
+    <article>
+      <h1>Please for the love of all that is holy: Stop writing long boring Titles</h1>
+      <div class="article-meta">
+        swyx
+        · 30 Mar 2026 · <a href="https://dx.tips/titles">Source</a>
+      </div>
+      <div class="article-body"><p>People code switch. Every ethnic minority has <a href="https://en.wikipedia.org/wiki/Sorry_to_Bother_You">lived experience of this</a>. When you talk to me in Singapore, I sound very different than when I’m in San Francisco. And the way you talk at work is probably very different from how you talk to your kids and how you talk to your lover.</p>
+<p>I’ve been dealing with a particularly virulent form of code switching in the simple form of titling blogposts and talks. When you ask the writer face to face what their thing is about, they can give you a perfectly human explanation. And then when they send you their piece, it’s all “<strong><em>Leveraging GenAI with Robust Data Foundations to Transform Businesses</em></strong>”. I’ve left my body by the time I read the first word.</p>
+<p>My hope in writing this piece is to <strong>put an end to bad titles</strong>.</p>
+<p>If I sent you this guide, it is not an insult. You just don’t have good title game. That’s ok. You’re great at what you do, title game isn’t your job. I’m the guy that wrote <a href="https://www.swyx.io/how-to-name-things">How To Name Things</a> and <a href="http://swyx.io/two-words">Two Words</a>. I sent you this guide <strong><em>because</em></strong> your shitty title is the main thing stopping your readers from getting to the good part. If you didn’t have anything good, I wouldn’t bother with a lost cause.</p>
+<p>First…</p>
+<h2>Towards Leveraging Corporate Speak For Maximum Enterprise Synergy</h2>
+<p>DO NOT:</p>
+<ul> <li>Start with “Leveraging” or “Towards” or “Navigating” or “Empowering”</li> </ul>
+<p>Yeah just stop. There’s no rescuing this when you start there. Just delete meaningless corporate weasel words. Anything &gt;3 syllables is a red flag.</p>
+<h2>Make It Quotable</h2>
+<p><strong>If you do not try to make your title roll off the tongue, it probably won’t.</strong></p>
+<p>Literally imagine telling your friend about your talk. Telling a new acquaintance to google your blogpost. Having a fan of yours cite it back to you. How much do they stumble? Yeah. This has all happened to me.</p>
+<p>There’s an extremely high correlation between what are considered the best talks and the quotability of titles. <a href="https://www.infoq.com/presentations/Simple-Made-Easy/">Simple Made Easy</a>. <a href="https://www.youtube.com/watch?v=PUv66718DII">Inventing on Principle</a>. Our list of best <a href="https://dx.tips/pitches">demos/pitches</a> of all time.</p>
+<p>Resist colons. It lacks confidence. Why Use Lot Word: <s>When Few Word Do Trick</s>? You’re not <a href="https://en.wikipedia.org/wiki/High_School_Musical:_The_Musical:_The_Series">High School Musical: The Musical: The Series</a>.</p>
+<p>Put the SEO keyword vomit in the description.</p>
+<p>Titles are for humans.</p>
+<h2>Prescribe A Strong Opinion</h2>
+<p>Opinions are one of the most quotable things.</p>
+<p>But more importantly, a good Opinion Piece is load bearing because it is eminently forwardable, and therefore viral and impactful. Your Job To Be Done is to be the definitive, conclusive, piece on that Opinion. Stake out territory in Opinion Space, list out all the arguments for, counter all the arguments against, provide datapoints, and watch that go further than anything you’ve ever done.</p>
+<p>How to know what’s a good opinion? <strong>Three Strikes rule</strong>: If you repeat yourself <a href="https://www.swyx.io/three-strikes">three times</a>, ship it. Even if you’re just quoting others, its fine, credit them and make it your own.</p>
+<p><strong>Mental Models and Frameworks</strong> are more complex opinions that allow others to scaffold their thought around you. My <a href="https://dx.tips/circles">Radiating Circles</a> and <a href="https://www.swyx.io/measuring-devrel">Measuring Developer Relations</a> and <a href="https://www.swyx.io/js-third-age">Third Age of JavaScript</a> did this.</p>
+<p><strong>Opinions contrary to an established opinion</strong> are the hardest to do well and the best when correct. <a href="https://stratechery.com/2013/clayton-christensen-got-wrong/">What Clayton Christensen Got Wrong</a> made Ben Thompson’s career. <a href="http://latent.space/p/ai-engineer">Rise of AI Engineer</a> countered the prevailing Prompt Engineer -and- GPU Rich Startup/ML Engineer narrative at the time, with room to grow.</p>
+<h2>Curiosity Gap Dynamics</h2>
+<p>Marketers know the power of <a href="https://copyhackers.com/2014/04/curiosity-gap/">the Curiosity Gap</a>. Here is where we toy closest with clickbait. I’ll be honest that I wasn’t even sure if I wanted to give it its own subheading, but its a very important concept that you should at least be aware exists, even if you’re going to ignore it.</p>
+<p>Strong enough opinions create their own curiosity gaps; you won’t have to try very hard to make it interesting if you got my attention in 4 words anyway.</p>
+<p>Curiosity gaps done poorly can lead to “<a href="https://www.merriam-webster.com/wordplay/bury-the-lede-versus-lead">burying the lede</a>”, which make your talk less Quotable and you also don’t want to do that.</p>
+<p>Simplest way to put it is; if the most interesting thing about your content is your title, and what people take away after having read your post matches what they would have predicted after reading your title, then you’ve probably said too much and could cut.</p>
+<h2>Play Madlibs</h2>
+<p>You don’t have to invent your title from scratch (nor should you always do what I’m about to suggest). Here’s some templates that work well:</p>
+<ul> <li><p>{<em>BENEFIT EVERYONE WANTS</em>} <strong>without</strong> {<em>DOWNSIDE EVERYBODY EXPECTS</em>}</p> <ul> <li>e.g. <a href="https://nav.al/rich">How to Get Rich (Without Getting Lucky)</a>, <a href="https://x.com/swyx/status/1249793388037025797">How to Market Yourself (Without Being A Celebrity)</a>. See also subtitle of this post.</li> </ul> </li> <li><p>{<em>PRESCRIPTIVE OPINION</em>}, <strong>don’t</strong> {<em>THING YOU DO</em>}</p> <ul> <li><p>e.g. <a href="https://lexi-lambda.github.io/blog/2019/11/05/parse-don-t-validate/">Parse, don’t validate</a></p> </li> <li><p>alternative prescriptive opinion: <strong>Never</strong> {THING YOU DO}</p> </li> <li><p>see also title of this post</p> </li> </ul> </li> <li><p>{<em>POPULAR THING</em>} <strong>IS DEAD</strong></p> <ul> <li><p>unfortunately this is clickbait that works</p> </li> <li><p>e.g. <a href="https://www.youtube.com/watch?v=D2HurSldDkE&amp;t=1833s">Prompt Engineering is Dead</a>, <a href="https://motherduck.com/blog/big-data-is-dead/">Big Data is Dead</a></p> </li> <li><p>when given at a conference for <em>POPULAR THING,</em> this is known as a <a href="https://www.swyx.io/cfp-advice#pick-a-genre">Heresy Talk</a></p> </li> <li><p>opposite also works:</p> <ul> <li><p><a href="https://hn.algolia.com/?dateRange=all&amp;page=0&amp;prefix=true&amp;query=the%20rise%20of&amp;sort=byPopularity&amp;type=story"><strong>The Rise of</strong> {THING}</a></p> </li> <li><p><a href="https://hn.algolia.com/?dateRange=all&amp;page=0&amp;prefix=true&amp;query=unreasonable&amp;sort=byPopularity&amp;type=story"><strong>The Unreasonable Effectiveness of</strong> {THING}</a></p> </li> </ul> </li> </ul> </li> <li><p><strong>Fundamentals of</strong> {THING}</p> <ul> <li><p>straightforward, people love fundamentals</p> </li> <li><p>also <strong>How</strong> {THING} <strong>Really Works</strong></p> </li> <li><p>You can also flip it and go for the <strong>Advanced</strong> {THING} tier content</p> </li> </ul> </li> <li><p>{CONVEY EXPERIENCE/SCALE} with {THING}</p> <ul> <li>e.g. <a href="https://www.oreilly.com/radar/what-we-learned-from-a-year-of-building-with-llms-part-i/">What We Learned from a Year of Building with LLMs</a>, <a href="https://news.ycombinator.com/item?id=40877136">Insights from over <strong><em>10</em></strong>,<strong><em>000</em></strong> comments on "Ask HN: Who Is Hiring" using GPT-4o</a></li> </ul> </li> </ul>
+<p><a href="https://news.ycombinator.com/item?id=40877136">There’s loads more templates that work, please suggest in comments</a> and I can add/review.</p>
+<p>You can also browse the masters of microcopy like <a href="https://stephsmith.io/">Steph Smith</a> and <a href="https://www.youtube.com/@MyFirstMillionPod">Shaan Puri</a>, and if you are worried about clickbait, you can see <a href="https://www.youtube.com/watch?v=S2xHZPH5Sng">Veritasium’s</a> take or <a href="https://simonwillison.net/">Simon Willison’s Highlights</a>.</p>
+<p>also <a href="https://andrewchen.com/">Andrew Chen</a> senpai:</p>
+<h2>Understand Buzzword Metagame</h2>
+<p>Buzzwords work. Because of a mix of human psychology and algorithmic recsys. Don’t avoid them, just use them judiciously. This involves the ability to read the room, which many smart people sadly cannot without significant involvement in the broader community you are trying to speak to. I don’t see any way around it other than trying to authentically immerse, or consult a friendly who does.</p>
+<p>Not all buzzwords are created equal. Databricks/Berkeley tried to push <a href="https://www.databricks.com/glossary/compound-ai-systems">Compound AI Systems</a>, Gartner is pushing <a href="https://www.gartner.com/en/newsroom/press-releases/2024-09-25-gartner-identifies-composite-ai-and-supply-chain-data-governance-as-highest-impact-supply-chain-planning-technology-trends">Composite AI</a> and <a href="https://www.gartner.com/smarterwithgartner/gartner-keynote-the-future-of-business-is-composable">Composable</a> business — this resonates with their audience, but not more broadly.</p>
+<p>Pick the <a href="https://www.youtube.com/watch?v=fqkaBEWPH18">shibboleths</a> that work for the community you want. <a href="http://latent.space/p/ai-engineer">AI Engineer</a> worked for reasons that are well understood now. <a href="https://www.youtube.com/playlist?list=PLNoPYaf7mNI_Iq_TinuafkIE5n_O_Y5Cy">GraphRAG</a> is working outside of the company that coined it. These buzzwords travel, go ahead and put them in there.</p>
+<p>Buzzwords rise and fall. Try to catch them on the rise — go harder than everyone else on the rise up and regularly test their effectiveness, such that by the time your main buzzword has tapped out you’ve got 2-3 others cooking.</p>
+<h2>Workshopping your titles</h2>
+<p>I write this post out of frustration, but also to capture my own thought process. I’m currently procrastinating while writing a Latent Space post.</p>
+<ul> <li><p>The original title was <a href="https://www.youtube.com/watch?v=-rSbvS0qLqY&amp;t=361s">Why every AI Engineer needs an AI Gateway</a>. Good, genuine opinion, load bearing. But not super memorable.</p> </li> <li><p>My next iteration was “<strong>Stop writing model routers, use an LLM Gateway</strong>”. Ok, prescriptive, evocative. But didn’t cover the other elements other than model routing. One could shorten to “Stop writing your own LLM Gateway” but that doesnt quite express what people do.</p> </li> <li><p>My next one is “<strong>It's not your job to DIY an LLM Gateway</strong>”. No buzzword bc “your job” is implied (for a Latent Space audience), a little curiosity gap, LLM buzzword, strong opinion. But still not strong enough.</p> </li> <li><p>Final one is “<strong>LLM Gateway: The One Decision That Removes 100 AI Engineering Decisions</strong>”. Leans on <a href="https://tim.blog/2020/01/20/one-decision-that-removes-100-decisions/">Tim Ferriss’ madlbs</a>.</p> </li> </ul>
+<p>It’s very common for the “tail to wag the dog to wag the tail” - the title is so important to clickthrough and so impactful to the message, that you spend a bunch of time on just the title itself, because that determines the piece you will write, then write the piece, then you go back and tweak the title based on what happened.</p>
+<p>Amateur writers think their content has 95% of the value and then spend 5% on the title. Pros will put the value of titles closer to 50% and then act like it.</p>
+<h2>You Should Break The Rules Once You Understand Human Behavior More Intuitively Than Rules Can Model</h2>
+<p>See title of this post. No better aura than intentional, conspicuous, successful rulebreaking.</p>
+<h2>Subscribe to our newsletter</h2></div>
+      
+    </article>
+    
+    <article>
+      <h1>Building agents that reach production systems with MCP</h1>
+      <div class="article-meta">
+        claude.com
+        · 23 Apr 2026 · <a href="https://claude.com/blog/building-agents-that-reach-production-systems-with-mcp">Source</a>
+      </div>
+      <div class="article-body"><div><div><p>Agents are only as useful as the systems they can reach. Teams tend to converge on three approaches for connecting them to external systems—direct API calls, CLIs, and MCP. This post lays out where each fits, why production agents tend to land on MCP, and the patterns for building those integrations effectively.</p><h2>Connecting agents to external systems</h2><p>We generally see three paths for connecting agents to external systems: direct API calls, CLIs, and MCP. Each makes sense somewhere, depending on what you're building. The key distinction is whether there's a common layer between agents and services, and how far that layer reaches.</p><h3>Direct API calls</h3><p>The agent calls your API directly—either by writing code that issues HTTP requests inside a code-execution sandbox, or through a generic function-calling tool. This is where most teams start, and it works fine for one agent talking to one service, or a small number of integrations that don't need to be reused across agent platforms.<br/><br/>The challenges start to hit at scale. With no common layer between agents and services, each agent–service pair becomes a bespoke integration with its own auth handling, tool descriptions, and edge cases—the M×N integration problem.</p><h3>Command-line interface (CLI)</h3><p>The agent runs your command-line tool in a shell. This is fast, lightweight, and leans on pre-existing tooling. It works great for local environments and sandboxed containers—anywhere there's a filesystem and a shell. This provides a common layer, but it’s thin. <br/><br/>CLIs hit hard limits reaching mobile, web, or cloud-hosted platforms that don't expose a container, and auth is handled by the CLI's own mechanism—usually a credential file on disk. This is best suited to quick, permissive integrations in local environments.</p><h3>Model Context Protocol (MCP)</h3><p>MCP provides the common layer as a protocol. The agent connects to a server that exposes your system's capabilities, with auth, discovery, and rich semantics standardized. One remote server reaches any compatible client (Claude, ChatGPT, Cursor, VS Code, and more), in any deployment environment.</p><p>It requires a little bit more upfront investment. The return is that the integration is portable, and provides the semantics needed for a feature-rich agent integration.</p><h2>Production agents run in the cloud</h2><p>Production agents increasingly run in the cloud, so they can scale and operate continuously. The systems they need to reach are cloud-hosted too: where your data lives, work is tracked, and your infrastructure runs. Often these systems are remote and behind auth, where MCP provides the common layer. </p><p>We’re already seeing this in adoption. The <a href="https://modelcontextprotocol.io/docs/sdk">MCP SDKs</a> recently surpassed 300 million downloads a month, up from 100 million at the start of the year, with strong adoption across enterprises and popular agentic platforms. Millions of people use MCP with Claude every day, and the protocol underpins much of what we've shipped recently, including <a href="https://claude.com/product/cowork">Claude Cowork</a>, <a href="https://claude.com/blog/claude-managed-agents">Claude Managed Agents</a>, and <a href="https://code.claude.com/docs/en/channels">channels in Claude Code</a>. <br/>‍<br/>As MCP continues to support production agentic systems, we’re sharing patterns for building these integrations well: from building advanced servers to context-efficient clients, and where skills complement the protocol. </p><h2>Building effective MCP servers</h2><p>We have over 200 MCP servers in our <a href="https://claude.ai/directory/connectors">directory</a>, used by millions of people every day. From working closely with enterprises and developers building on the protocol, we’ve spotted a handful of design patterns that determine how reliably agents can use a server.</p><h3>Build remote servers for maximum reach</h3><p>A remote server is what gives you distribution—it's the only configuration that runs across web, mobile, and cloud-hosted agents, and it's what every major client is optimized to consume. Build remote servers so agents can use your system wherever they run. </p><h3>Group tools around intent, not endpoints</h3><p>Fewer, well-described tools consistently outperform exhaustive API mirrors. Don't wrap your API into an MCP server one-to-one—group tools around intent, so the agent can accomplish a task in a couple of calls instead of stitching many primitives together. A single create_issue_from_thread tool beats get_thread + parse_messages + create_issue + link_attachment. See<a href="https://www.anthropic.com/engineering/writing-tools-for-agents"> writing effective tools for agents</a> to learn more about the full pattern.</p><h3>Design for code orchestration when your surface is large</h3><p>If your service requires hundreds of distinct operations, such as Cloudflare, AWS, or Kubernetes, an intent-grouped toolset likely won't cover it. Instead, expose a thin tool surface that accepts code: the agent writes a short script, your server runs it in a sandbox against your API, and only the result returns. <a href="https://github.com/cloudflare/mcp">Cloudflare's MCP server</a> is the reference example—two tools (search and execute) cover ~2,500 endpoints in roughly 1K tokens.</p><h3>Ship rich semantics where they help</h3><p><a href="https://modelcontextprotocol.io/extensions/apps/overview">MCP Apps</a> is the first official protocol extension and lets a tool return an interactive interface, such as a chart, form, or dashboard, all rendered inline in the chat interface. Servers that ship MCP apps tend to see meaningfully higher adoption and retention than those that return text alone. Use it to put your product's UI in front of agents or end-users at the moment it matters—the extension is supported in Claude.ai, Claude Cowork, and many other top AI tools.</p><figure class="article-figure"><p><div class="rw-embed-wrapper"><embed src="https://www.youtube.com/embed/bluAmTHoEow" type="video/mp4"></embed></div></p></figure><p>‍<a href="https://modelcontextprotocol.io/specification/2025-11-25/client/elicitation">Elicitation</a> lets your server pause mid-tool call to ask the user for input. <a href="https://modelcontextprotocol.io/specification/2025-11-25/client/elicitation#form-mode-elicitation-requests">Form mode</a> sends a simple schema and the client renders a native form—use it to request a missing parameter, confirm a destructive action, or disambiguate options. <a href="https://modelcontextprotocol.io/specification/2025-11-25/client/elicitation#url-mode-elicitation-requests">URL mode</a> hands the user to a browser—use it to complete downstream OAuth, take a payment, or collect any credential that should never transit the MCP client. Both keep the user in the flow instead of sending them to a settings page. Form mode is supported broadly; URL mode is supported in Claude Code, with more clients in progress.</p><h3>Lean on standardized auth </h3><p>Standardized auth makes MCP practical for cloud-hosted agents. If your server requires OAuth, the latest <a href="https://modelcontextprotocol.io/specification/2025-11-25">MCP spec</a> supports <a href="https://modelcontextprotocol.io/specification/2025-11-25/basic/authorization#client-id-metadata-documents">CIMD</a> (Client ID Metadata Documents) for client registration—it gives users a fast first-time auth flow and far fewer surprise re-auth prompts. This is our recommended approach for auth, the capability is supported in MCP SDKs, Claude.ai, and Claude Code, and is being broadly adopted across the industry.<br/><br/>Once a user has authorized, the next question is how a cloud-hosted agent holds and reuses those tokens at runtime. <a href="https://platform.claude.com/docs/en/managed-agents/vaults#mcp-oauth-credential">Vaults</a> in <a href="https://platform.claude.com/docs/en/managed-agents/overview">Claude Managed Agents</a> covers this: register a user's OAuth tokens once, reference the vault by ID at session creation, and the platform injects the right credentials into each MCP connection and refreshes them on your behalf—no secret store to build, no tokens to pass around per call.</p><h2>Making MCP clients more context-efficient</h2><p>MCP standardizes how AI agents (<a href="https://modelcontextprotocol.io/docs/develop/build-client#python"><em>clients</em></a>) connect to and work with tools and data sources they need (<a href="https://modelcontextprotocol.io/docs/develop/build-server"><em>servers</em></a>). The server securely exposes a range of capabilities, while the client orchestrates them and manages context. If you’re building an MCP client, make it context-efficient with patterns for progressive disclosure.</p><h3>Load tool definitions on demand with tool search</h3><p><a href="https://platform.claude.com/docs/en/agents-and-tools/tool-use/tool-search-tool">Tool search</a> defers loading all tools into context, rather than loading them upfront. This allows the agent to search the catalog at runtime, pulling in the relevant tools when needed. In our <a href="https://www.anthropic.com/engineering/advanced-tool-use">testing</a>, tool search tends to cut tool-definition tokens by 85%+ while maintaining high selection accuracy. </p><figure class="article-figure"><figcaption>Reducing context usage with tool search. Source: <a href="https://www.anthropic.com/engineering/advanced-tool-use">advanced tool use<br/></a></figcaption></figure><h3>Process tool results in code with programmatic tool calling</h3><p><a href="https://www.anthropic.com/engineering/code-execution-with-mcp">Programmatic tool calling</a> processes tool results in a code-execution sandbox, rather than returning them raw to the model. This lets the agent loop, filter, and aggregate across calls in code, with only the final output reaching context. In our testing, this reduces token usage by roughly <a href="https://platform.claude.com/docs/en/agents-and-tools/tool-use/programmatic-tool-calling">37%</a> on complex multi-step workflows.</p><p>Together, these patterns compose naturally across multiple servers: leaner context, fewer round-trips, faster responses. See<a href="https://www.anthropic.com/engineering/advanced-tool-use"> <em>advanced tool use</em></a> for the full breakdown.</p><h2>Pairing MCP servers with skills</h2><p><a href="https://claude.com/blog/skills-explained">Skills and MCP are complementary</a>. MCP gives an agent access to tools and data from external systems, while skills teach an agent the procedural knowledge of <em>how</em> to use those tools to accomplish real work. The most capable agents use both, and skills make MCP servers scale beyond a handful of connections. There are two general patterns for combining them:</p><h3>Bundle skills and MCP servers as a plugin</h3><p><a href="https://code.claude.com/docs/en/plugins-reference#plugin-components-reference">Plugins</a> for Claude are a useful abstraction that allow developers to bundle skills, MCP servers, hooks, LSP servers, and specialized subagents in one easily-consumable distribution method. Using this approach is the best way to unify multiple context providers with minimal friction. <br/><br/>Combining MCP servers with skills allows Claude to act more like a domain-specialist. Grab your tools via MCP, and give Claude the skills to orchestrate workflows end-to-end. See our <a href="https://claude.ai/directory/plugins/data%40knowledge-work-plugins">data plugin</a> for Cowork as an example, which consists of 10 skills and 8 MCP servers for apps like Snowflake, Databricks, BigQuery, Hex and more.</p><figure class="article-figure"><figcaption>Combining skills with MCP. Source: <a href="https://claude.com/blog/extending-claude-capabilities-with-skills-mcp-servers">Extending Claude’s capabilities with skills and MCP servers</a></figcaption></figure><h3>Distribute skills from an MCP server</h3><p>It's increasingly common for providers to publish a skill alongside their MCP server, so the agent gets both the raw capabilities and an opinionated playbook for using them well. <a href="https://claude.com/connectors/atlassian">Canva</a>, <a href="https://claude.com/connectors/notion">Notion</a>, <a href="https://claude.com/connectors/sentry">Sentry</a>, and more do this today in Claude, listing the skill next to their connector in our <a href="https://claude.com/connectors">web directory</a>.</p><p>To make that pairing portable across every client, the MCP community is actively working on an <a href="https://github.com/modelcontextprotocol/experimental-ext-skills">extension</a> for delivering skills directly from servers. This way the client inherits the relevant expertise automatically, versioned with the API it depends on. We expect this pattern to see broad adoption as the extension stabilizes.</p><h2>The compounding layer </h2><p>We opened with three paths for connecting agents to external systems. In practice, mature integrations will ship all three: the API as the foundation, a CLI for local-first environments, and MCP for cloud-based agents.</p><p>As production agents move to the cloud, MCP becomes the critical layer, and it’s the one that compounds. Today, a remote server reaches every compatible client across any deployment environment, with auth, interactivity, and rich semantics handled by the protocol. As more clients adopt the spec and more extensions land in it, that same server gets more capable without you shipping anything new.</p><p>When building an integration, if your goal is to have production agents in the cloud reach your system, build an MCP server and make it excellent using the patterns above. Every integration built on MCP strengthens the ecosystem: fewer edge cases to solve alone, fewer bespoke integrations to maintain.</p><h3>Acknowledgements</h3><p>Thanks to Den Delimarsky, David Soria Parra, Henry Shi, Felix Rieseberg, Conor Kelly, Molly Vorwerck, Andy Schumeister, Kevin Garcia, Amie Rotherham, Matt Samuels, Angela Jiang, Katelyn Lesse, AJ Rebeiro and Jess Yan<strong> </strong>for their contributions to this blog.</p></div></div></div>
+      
+    </article>
+    
+    <article>
+      <h1>2.1.179</h1>
+      <div class="article-meta">
+        Changelog
+        · 16 Jun 2026 · <a href="https://code.claude.com/docs/en/changelog#2-1-179">Source</a>
+      </div>
+      <div class="article-body"><div><ul>
+<li>Fixed mid-stream connection drops: partial responses are now preserved instead of showing a raw error, and the spinner no longer gets stuck at "running tool"</li>
+<li>Fixed mouse-wheel scrolling in WSL2 under Windows Terminal and VS Code (regression in 2.1.172)</li>
+<li>Fixed a sandbox <code>denyRead</code>/<code>allowRead</code> glob over a large directory tree making the Bash tool description enormous and the session unusable on Linux</li>
+<li>Fixed the feedback survey capturing a single-digit reply as a session rating immediately after a turn completes</li>
+<li>Fixed the welcome screen stacking multiple promotional banners — at most one promo now shows per session</li>
+<li>Fixed Ctrl+O not showing the subagent's transcript when viewing a subagent</li>
+<li>Fixed clicking the prompt input not returning focus from the subagent/footer panel</li>
+<li>Fixed remote session background tasks appearing stuck as "still running" between turns</li>
+<li>Improved plugin loading performance in remote sessions</li>
+</ul></div></div>
+      
+    </article>
+    
+  </body>
+</html>
