@@ -1,0 +1,473 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Fred Talks - 2026-06-29</title>
+    <style>
+      @page {
+        size: A5;
+        margin: 8mm 9mm 9mm;
+      }
+
+      :root {
+        color: #111;
+        font-family: "Times New Roman", Times, serif;
+        --body-text-size: 9.5pt;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        color: #111;
+        background: #fff;
+        font-family: "Times New Roman", Times, serif;
+        line-height: 1.45;
+      }
+
+      a,
+      a:visited {
+        color: #111;
+        text-decoration: underline;
+      }
+
+      .cover {
+        min-height: calc(210mm - 17mm);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        page-break-after: always;
+        border: 1px solid #111;
+        padding: 8mm;
+        background: #fff;
+      }
+
+      .toc-item-meta,
+      .article-meta {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .masthead {
+        margin: 0;
+        font-size: 40pt;
+        line-height: 0.95;
+        text-transform: uppercase;
+      }
+
+      .issue-date {
+        margin: 4mm 0 0;
+        font-size: 14pt;
+      }
+
+      .issue-date sup {
+        font-size: 0.58em;
+        vertical-align: super;
+        line-height: 0;
+      }
+
+      .cover-deck {
+        max-width: 90mm;
+        font-size: 12pt;
+        margin: 0;
+      }
+
+      .toc {
+        border-top: 3px solid #111;
+        padding-top: 6mm;
+      }
+
+      .toc h2 {
+        margin: 0 0 4mm;
+        font-size: 11pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .toc-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .toc-item {
+        padding: 3mm 0;
+        border-bottom: 1px solid rgba(17, 17, 17, 0.2);
+      }
+
+      .toc-item-title {
+        font-size: 12pt;
+        margin: 0 0 1mm;
+      }
+
+      .toc-item-meta {
+        font-size: 8pt;
+      }
+
+      .masthead-compact {
+        margin: 0 0 6mm;
+      }
+
+      .masthead-compact h1 {
+        margin: 0;
+        font-size: 22pt;
+        line-height: 1.1;
+        text-transform: uppercase;
+      }
+
+      .masthead-compact .issue-date {
+        margin: 2mm 0 0;
+        font-size: 11pt;
+      }
+
+      .toc-compact {
+        border-top: 1px solid #111;
+        border-bottom: 1px solid #111;
+        padding: 4mm 0;
+        margin: 0 0 8mm;
+      }
+
+      article + article {
+        margin-top: 10mm;
+        padding-top: 6mm;
+        border-top: 2px solid #111;
+      }
+
+      h1 {
+        margin: 0 0 2mm;
+        font-size: 18pt;
+        line-height: 1.1;
+      }
+
+      .article-meta {
+        font-size: 8.5pt;
+        margin-bottom: 6mm;
+        padding-bottom: 3mm;
+        border-bottom: 1px solid #111;
+      }
+
+      .article-body {
+        font-size: var(--body-text-size);
+        font-family: "Times New Roman", Times, serif;
+      }
+
+      .article-body p,
+      .article-body li,
+      .article-body blockquote,
+      .article-body dd,
+      .article-body dt {
+        margin: 0 0 4mm;
+        orphans: 3;
+        widows: 3;
+      }
+
+      .article-body ul,
+      .article-body ol,
+      .article-body dl {
+        margin: 0 0 4mm 5mm;
+        padding: 0;
+      }
+
+      .article-body h2,
+      .article-body h3,
+      .article-body h4 {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        margin: 7mm 0 3mm;
+        line-height: 1.2;
+      }
+
+      .article-body blockquote {
+        margin-left: 6mm;
+        padding-left: 4mm;
+        border-left: 2px solid #111;
+      }
+
+      .article-body .media-omitted {
+        margin: 0 0 4mm;
+        font-size: 8.5pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(17, 17, 17, 0.65);
+      }
+
+      .article-body figure,
+      .article-body .article-figure,
+      .article-body picture,
+      .article-body .article-picture {
+        display: block;
+        max-width: 72mm;
+        margin: 0 auto 4mm;
+        break-inside: avoid;
+      }
+
+      .article-body img,
+      .article-body .article-image {
+        display: block;
+        max-width: min(100%, 72mm);
+        max-height: 34mm;
+        height: auto;
+        width: auto;
+        object-fit: contain;
+        margin: 0 auto 3mm;
+      }
+
+      .article-body figcaption {
+        margin-top: 1.5mm;
+        font-size: 8.5pt;
+        line-height: 1.3;
+        color: rgba(17, 17, 17, 0.8);
+      }
+
+      .article-note {
+        margin-top: 6mm;
+        padding-top: 3mm;
+        border-top: 1px solid #111;
+        font-size: 9pt;
+        font-style: italic;
+      }
+
+      @media screen {
+        body {
+          padding: 2rem;
+          margin: 0 auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    
+    <header class="masthead-compact">
+      <h1>Fred Talks</h1>
+      <p class="issue-date">
+        29<sup>th</sup> June 2026
+      </p>
+    </header>
+
+    <nav class="toc toc-compact">
+      <h2>Contents</h2>
+      <ol class="toc-list">
+        
+        <li class="toc-item">
+          <div class="toc-item-title">How agents are transforming work | OpenAI</div>
+          <div class="toc-item-meta">
+            OpenAI · 1582 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">LLM Judges aren’t the shortcut you think</div>
+          <div class="toc-item-meta">
+            Doug Turnbull · 1869 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Why I don&#39;t like the &#34;staff engineer archetypes&#34;</div>
+          <div class="toc-item-meta">
+            seangoedecke.com RSS feed · 1426 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Giving LLMs a personality is just good engineering</div>
+          <div class="toc-item-meta">
+            seangoedecke.com RSS feed · 1062 words
+          </div>
+        </li>
+        
+      </ol>
+    </nav>
+    
+
+    
+    <article>
+      <h1>How agents are transforming work | OpenAI</h1>
+      <div class="article-meta">
+        OpenAI
+        · 28 Jun 2026 · <a href="https://openai.com/index/how-agents-are-transforming-work/">Source</a>
+      </div>
+      <div class="article-body"><p>June 25, 2026</p>
+<p><a href="https://openai.com/news/company-announcements/">Company</a></p>
+<p>A new Economic Research paper measuring Codex’s economic potential at the frontier.</p>
+<p><a data-analytics="econ-codex-hero-cta" href="https://cdn.openai.com/pdf/5d1e1489-21c0-43e4-9d42-f87efdbf0082/the-shift-to-agentic-ai-evidence-from-codex.pdf">Read the paper</a></p>
+<p>Listen to article</p>
+<figure class="article-figure"><p class="media-omitted">[AUDIO OMITTED]</p></figure>
+<p>Share</p>
+<p>Agentic AI changes the unit of knowledge work from single interactions to delegated, long-horizon tasks. Chatbot interactions are often short and self-contained. Agents can operate independently for minutes or hours while orchestrating tool calls, interacting with environments, and iterating towards solutions. As a result, agents are quickly becoming the most powerful AI tool for work.</p>
+<p>Over the last year, we witnessed this transformation first-hand at OpenAI. For the first few months after Codex was released to the public, ChatGPT remained the default AI tool for work within OpenAI. Through August 2025, the average OpenAI worker spent less than 10% of their tokens on Codex. Now, every department, including non-technical departments such as Legal and Recruiting, uses Codex as their primary AI tool for work. This pattern reflects what we believe will be the future of work given the expanded capabilities and accessibility of agentic tools.</p>
+<p class="rw-outer-content"><span>Some content could not be imported from the original document.</span> <a href="https://openai.com/index/how-agents-are-transforming-work/">View content ↗ </a></p>
+<p class="rw-outer-content"><span>Some content could not be imported from the original document.</span> <a href="https://openai.com/index/how-agents-are-transforming-work/">View content ↗ </a></p>
+<p>Codex adoption grew in tandem with Codex’s capabilities. As Codex leveraged stronger models and new product features, it became capable of taking on an expanding set of productive tasks. Across Individual users, Organizational users, and OpenAI workers, we document four trends over the past year:</p>
+<ul><li><b>People use Codex for longer-horizon work</b>. By May 2026, 80.6% of sampled individual users made at least one Codex request estimated to exceed 30 minutes of human work, 70.2% made one estimated to exceed one hour, and 25.6% made at least one Codex request estimated to exceed eight hours.</li><li><b>Codex became the primary AI tool for every department at OpenAI</b>. Engineering moved first, but Legal, Finance, and Recruiting crossed into Codex being their primary AI tool around April 2026. For the average OpenAI worker, Codex usage now accounts for more than 85% of output tokens. Since Codex users tend to use more tokens than non-users, its share of overall tokens is even higher: Codex accounts for 99.8% of weekly output tokens generated within OpenAI.</li><li><b>Non-developer adoption grew especially rapidly, outpacing developer adoption</b>. Since August 2025, non-developer users rose 137x for individual users, 189x for organizational users, and 12x within OpenAI.</li><li><b>Codex enabled OpenAI workers to do tasks outside their job description</b>. While technical usage is still most prevalent among engineers, non-technical users regularly use Codex to take on coding or technical execution, including automation, data transformation, tooling, debugging, and structured analysis.</li></ul>
+<h2>Agents work longer hours on harder tasks</h2>
+<p>Nearly a quarter of all Codex requests are for tasks that would take a person more than one hour to complete<sup><a href="#footnote-1" id="inline-ref-footnote-1">(1)</a></sup>. As Codex’s capacity for independent long-context work improved, users shifted from short interactions toward more difficult tasks with longer horizons.</p>
+<p>The chart below estimates the share of individual users that crossed four human-time thresholds: tasks that would take a person more than 30 minutes, more than one hour, more than four hours, and more than eight hours<sup><a href="#footnote-2" id="inline-ref-footnote-2">(2)</a></sup>. From December 2025 to May 2026, the share of users who made a request that was estimated to correspond to work that would take a person more than 30 minutes rose to 80.6%. The share making a request that would take a person more than one hour rose to 70.2%. The share requesting work that would take a person more than eight hours grew the fastest from a low base.</p>
+<p>The growth in agentic usage can be seen in daily Codex runtime. Among daily active users at OpenAI, the heaviest users ask Codex to run many hours of agent work in a single day. By June 2026, users at the 99th percentile regularly generated more than 60 hours of Codex agent turns per day, distributed across multiple, parallel agents. As Codex became more powerful and parallelizable, users moved from only asking Codex for one answer at a time into increasingly orchestrating multiple agent tasks over the course of a day.</p>
+<h2>Adoption continues to move from engineers to the rest of OpenAI</h2>
+<p>Engineers at OpenAI began adopting Codex first, gradually. The average engineer at the company shifted the majority of their usage of OpenAI products to Codex by December 2025. Today, the average engineer generates 99% of their output tokens with Codex rather than ChatGPT. Legal, finance, and recruiting crossed over to majority use of Codex later, around April 2026, but their transitions were much faster. The average lawyer or recruiter at OpenAI now generates more than 85% of their output tokens on Codex.</p>
+<p>Over the last six months, Codex usage has deepened and intensified at OpenAI. Among active internal users, change in combined output tokens rose sharply across departments. Research saw the biggest jump: by June 2026, median use was 56 times higher than in November 2025. Customer Support rose 32 times and Engineering rose 27 times, while Legal grew more gradually but still reached 13 times its November level.</p>
+<p>These two patterns together illustrate how Codex has transformed how OpenAI uses AI to do productive work. Across the company, users are switching from chatbots to agents as their primary form of AI interaction and are deploying an exponentially growing amount of agentic labor.</p>
+<h2>Non-developers are the fastest-growing user groups</h2>
+<p>Across all user groups—OpenAI, organizational, and individual users—Codex use began with developers, the natural target audience for what began as a coding tool. However, as Codex expanded toward more general knowledge work, adoption among non-developers grew even more quickly. As shown in the user growth chart below, weekly non-developer users rose faster than developer users among individual, organizational, and OpenAI populations. By early June 2026, non-developer individual users multiplied 137 times since August 2025. Non-developer organizational users increased 189-fold, and non-developer OpenAI users increased 12-fold, likely because this group already started at a well above average starting point.</p>
+<p>The shift does not mean every non-developer is using Codex in the same way as an engineer. Rather, it means that more non-developers are using Codex for some kind of agentic work.</p>
+<h2>Codex is expanding the horizon of potential productive work</h2>
+<p>Codex enables non-technical departments to accelerate workflows previously bottlenecked by technical expertise. The heat map below compares inferred occupations within OpenAI to the type of work represented in Codex outputs. Engineering and coding show up as the largest category for data science and research, whereas knowledge work is the largest category for finance and business operations, marketing, operations, and other departments.</p>
+<p>That said, agentic tools can expand what an individual worker can do. For instance, over one-fourth of work done with Codex by workers in business functions was engineering or coding. Agents can lower the cost of moving across task boundaries and help workers do adjacent work that used to require more specialized technical support.</p>
+<figure class="article-figure"><figure class="article-figure"><h2>Occupation vs. work done with Codex</h2><table><tr><th></th><th colspan="5">Work category</th></tr><tr><th>Consolidated inferred department</th><th>Engineering / Coding</th><th>Data Analysis</th><th>Financial Analysis</th><th>Knowledge Work</th><th>Other</th></tr><tbody><tr><th>Engineering</th><td>72%</td><td>4%</td><td>1%</td><td>18%</td><td>5%</td></tr><tr><th>Data Science / Research</th><td>51%</td><td>10%</td><td>0%</td><td>30%</td><td>9%</td></tr><tr><th>Finance / Biz Ops</th><td>31%</td><td>9%</td><td>16%</td><td>34%</td><td>10%</td></tr><tr><th>Product / Marketing / Ops</th><td>25%</td><td>3%</td><td>7%</td><td>51%</td><td>15%</td></tr><tr><th>Other</th><td>50%</td><td>7%</td><td>2%</td><td>38%</td><td>4%</td></tr></tbody></table><figcaption>Share of output tokens within department</figcaption></figure></figure>
+<h2>What this means for agents’ economic potential </h2>
+<p>Increased use of agentic tools by non-engineer employees expands the frontier of what these workers can do. That matters for businesses deciding how to redesign workflows, for employees learning which skills become more valuable, and for policymakers and researchers trying to understand how AI changes the labor market.</p>
+<p>Our paper shows how frontier users adopt capable agentic tools at the frontier. Our results demonstrate what unfolds when people have broad, low-friction access to capable agentic tools: as the tools improve, people use them for longer, more complex, and more cross-functional work. As time goes on, this is likely to be what the future of work looks like.</p>
+<ul><li><a href="https://openai.com/news/?tags=2026">2026</a></li><li><a href="https://openai.com/news/?tags=economic-research">Economic Research</a></li><li><a href="https://openai.com/news/?tags=codex">Codex</a></li></ul>
+<h2>Author</h2>
+<p>OpenAI</p>
+<h2>Footnotes</h2>
+<ol><li id="footnote-1"><p class="mb-4! wrap-break-word [word-break:break-word]"><span> Task horizon is estimated using an LLM-as-judge with access to Codex transcripts.</span><span class="inline-block"><button aria-label="Scroll to citation 1 reference" class="ease-curve-a disabled:text-gray-40 flex items-center justify-center rounded-full outline-offset-2 transition duration-200 focus-visible:outline focus-visible:outline-offset-0 size-2.5 text-primary-60 focus:outline-primary-44 hover:bg-none hover:[&amp;&gt;svg]:opacity-60 scale-inline-100 ms-[10px]" type="button"><p class="media-omitted">[SVG OMITTED]</p></button></span></p><a href="#inline-ref-footnote-1">[find in text]</a></li><li id="footnote-2"><p class="mb-4! wrap-break-word [word-break:break-word]"><span>These thresholds are model-estimated, so they should be treated as directional rather than exact. This is also based only on individual data and based on the queries of a random sample of 0.1% of users.</span><span class="inline-block"><button aria-label="Scroll to citation 2 reference" class="ease-curve-a disabled:text-gray-40 flex items-center justify-center rounded-full outline-offset-2 transition duration-200 focus-visible:outline focus-visible:outline-offset-0 size-2.5 text-primary-60 focus:outline-primary-44 hover:bg-none hover:[&amp;&gt;svg]:opacity-60 scale-inline-100 ms-[10px]" type="button"><p class="media-omitted">[SVG OMITTED]</p></button></span></p><a href="#inline-ref-footnote-2">[find in text]</a></li></ol>
+<h2>Keep reading</h2>
+<p><a href="https://openai.com/news/">View all</a></p>
+<figure class="article-figure"><img alt="OpenAI and Broadcom Jalapeño inference chip card image" data-nimg="fill" data-nosnippet="true" sizes="(min-width: 1728px) 1728px, 100vw" src="https://images.ctfassets.net/kftzwdyauwt9/21KcazqOHUF7Cq71Hpfcnc/81ad98a1978845b441ab14e008168c75/openai-broadcom-jalapeno-inference-chip-image-1_1.png?w=3840&amp;q=90&amp;fm=webp" srcset="https://images.ctfassets.net/kftzwdyauwt9/21KcazqOHUF7Cq71Hpfcnc/81ad98a1978845b441ab14e008168c75/openai-broadcom-jalapeno-inference-chip-image-1_1.png?w=640&amp;q=90&amp;fm=webp 640w, https://images.ctfassets.net/kftzwdyauwt9/21KcazqOHUF7Cq71Hpfcnc/81ad98a1978845b441ab14e008168c75/openai-broadcom-jalapeno-inference-chip-image-1_1.png?w=750&amp;q=90&amp;fm=webp 750w, https://images.ctfassets.net/kftzwdyauwt9/21KcazqOHUF7Cq71Hpfcnc/81ad98a1978845b441ab14e008168c75/openai-broadcom-jalapeno-inference-chip-image-1_1.png?w=828&amp;q=90&amp;fm=webp 828w, https://images.ctfassets.net/kftzwdyauwt9/21KcazqOHUF7Cq71Hpfcnc/81ad98a1978845b441ab14e008168c75/openai-broadcom-jalapeno-inference-chip-image-1_1.png?w=1080&amp;q=90&amp;fm=webp 1080w, https://images.ctfassets.net/kftzwdyauwt9/21KcazqOHUF7Cq71Hpfcnc/81ad98a1978845b441ab14e008168c75/openai-broadcom-jalapeno-inference-chip-image-1_1.png?w=1200&amp;q=90&amp;fm=webp 1200w, https://images.ctfassets.net/kftzwdyauwt9/21KcazqOHUF7Cq71Hpfcnc/81ad98a1978845b441ab14e008168c75/openai-broadcom-jalapeno-inference-chip-image-1_1.png?w=1920&amp;q=90&amp;fm=webp 1920w, https://images.ctfassets.net/kftzwdyauwt9/21KcazqOHUF7Cq71Hpfcnc/81ad98a1978845b441ab14e008168c75/openai-broadcom-jalapeno-inference-chip-image-1_1.png?w=2048&amp;q=90&amp;fm=webp 2048w, https://images.ctfassets.net/kftzwdyauwt9/21KcazqOHUF7Cq71Hpfcnc/81ad98a1978845b441ab14e008168c75/openai-broadcom-jalapeno-inference-chip-image-1_1.png?w=3840&amp;q=90&amp;fm=webp 3840w" class="article-image"/></figure>
+<p><a href="https://openai.com/index/openai-broadcom-jalapeno-inference-chip/">OpenAI and Broadcom unveil LLM-optimized inference chip<p>CompanyJun 24, 2026</p></a></p>
+<figure class="article-figure"><img alt="Expanding Daybreak Art Card" data-nimg="fill" data-nosnippet="true" sizes="(min-width: 1728px) 1728px, 100vw" src="https://images.ctfassets.net/kftzwdyauwt9/735NOZviyogUBIFxd2EmWX/fa8baf9fc26e64f442ffa86d5fd9a41e/Art_Card__6_.png?w=3840&amp;q=90&amp;fm=webp" srcset="https://images.ctfassets.net/kftzwdyauwt9/735NOZviyogUBIFxd2EmWX/fa8baf9fc26e64f442ffa86d5fd9a41e/Art_Card__6_.png?w=640&amp;q=90&amp;fm=webp 640w, https://images.ctfassets.net/kftzwdyauwt9/735NOZviyogUBIFxd2EmWX/fa8baf9fc26e64f442ffa86d5fd9a41e/Art_Card__6_.png?w=750&amp;q=90&amp;fm=webp 750w, https://images.ctfassets.net/kftzwdyauwt9/735NOZviyogUBIFxd2EmWX/fa8baf9fc26e64f442ffa86d5fd9a41e/Art_Card__6_.png?w=828&amp;q=90&amp;fm=webp 828w, https://images.ctfassets.net/kftzwdyauwt9/735NOZviyogUBIFxd2EmWX/fa8baf9fc26e64f442ffa86d5fd9a41e/Art_Card__6_.png?w=1080&amp;q=90&amp;fm=webp 1080w, https://images.ctfassets.net/kftzwdyauwt9/735NOZviyogUBIFxd2EmWX/fa8baf9fc26e64f442ffa86d5fd9a41e/Art_Card__6_.png?w=1200&amp;q=90&amp;fm=webp 1200w, https://images.ctfassets.net/kftzwdyauwt9/735NOZviyogUBIFxd2EmWX/fa8baf9fc26e64f442ffa86d5fd9a41e/Art_Card__6_.png?w=1920&amp;q=90&amp;fm=webp 1920w, https://images.ctfassets.net/kftzwdyauwt9/735NOZviyogUBIFxd2EmWX/fa8baf9fc26e64f442ffa86d5fd9a41e/Art_Card__6_.png?w=2048&amp;q=90&amp;fm=webp 2048w, https://images.ctfassets.net/kftzwdyauwt9/735NOZviyogUBIFxd2EmWX/fa8baf9fc26e64f442ffa86d5fd9a41e/Art_Card__6_.png?w=3840&amp;q=90&amp;fm=webp 3840w" class="article-image"/></figure>
+<p><a href="https://openai.com/index/daybreak-securing-the-world/">Daybreak: Tools for securing every organization in the world<p>SecurityJun 22, 2026</p></a></p>
+<figure class="article-figure"><img alt="Samsung Electronics ChatGPT and Codex card image" data-nimg="fill" data-nosnippet="true" sizes="(min-width: 1728px) 1728px, 100vw" src="https://images.ctfassets.net/kftzwdyauwt9/1yLWuTdw8HyYoBldZk3ghx/85fe3f39213890099f6f72f41cec6d1b/samsung-electronics-1_1.png?w=3840&amp;q=90&amp;fm=webp" srcset="https://images.ctfassets.net/kftzwdyauwt9/1yLWuTdw8HyYoBldZk3ghx/85fe3f39213890099f6f72f41cec6d1b/samsung-electronics-1_1.png?w=640&amp;q=90&amp;fm=webp 640w, https://images.ctfassets.net/kftzwdyauwt9/1yLWuTdw8HyYoBldZk3ghx/85fe3f39213890099f6f72f41cec6d1b/samsung-electronics-1_1.png?w=750&amp;q=90&amp;fm=webp 750w, https://images.ctfassets.net/kftzwdyauwt9/1yLWuTdw8HyYoBldZk3ghx/85fe3f39213890099f6f72f41cec6d1b/samsung-electronics-1_1.png?w=828&amp;q=90&amp;fm=webp 828w, https://images.ctfassets.net/kftzwdyauwt9/1yLWuTdw8HyYoBldZk3ghx/85fe3f39213890099f6f72f41cec6d1b/samsung-electronics-1_1.png?w=1080&amp;q=90&amp;fm=webp 1080w, https://images.ctfassets.net/kftzwdyauwt9/1yLWuTdw8HyYoBldZk3ghx/85fe3f39213890099f6f72f41cec6d1b/samsung-electronics-1_1.png?w=1200&amp;q=90&amp;fm=webp 1200w, https://images.ctfassets.net/kftzwdyauwt9/1yLWuTdw8HyYoBldZk3ghx/85fe3f39213890099f6f72f41cec6d1b/samsung-electronics-1_1.png?w=1920&amp;q=90&amp;fm=webp 1920w, https://images.ctfassets.net/kftzwdyauwt9/1yLWuTdw8HyYoBldZk3ghx/85fe3f39213890099f6f72f41cec6d1b/samsung-electronics-1_1.png?w=2048&amp;q=90&amp;fm=webp 2048w, https://images.ctfassets.net/kftzwdyauwt9/1yLWuTdw8HyYoBldZk3ghx/85fe3f39213890099f6f72f41cec6d1b/samsung-electronics-1_1.png?w=3840&amp;q=90&amp;fm=webp 3840w" class="article-image"/></figure>
+<p><a href="https://openai.com/index/samsung-electronics-chatgpt-codex-deployment/">Samsung Electronics brings ChatGPT and Codex to employees<p>CompanyJun 21, 2026</p></a></p></div>
+      
+    </article>
+    
+    <article>
+      <h1>LLM Judges aren’t the shortcut you think</h1>
+      <div class="article-meta">
+        Doug Turnbull
+        · 03 Nov 2025 · <a href="http://softwaredoug.com/blog/2025/11/02/llm-judges-arent-the-shortcut-you-think.html">Source</a>
+      </div>
+      <div class="article-body"><p>Is “LLM as a judge” overhyped? After years of implementing LLM judges for clients, I find more of them recognize the limitations.</p>
+<p>LLM judges fail for the same reason any evaluation method fails: teams lack good data+evaluation to begin with. LLM judges aren’t the shortcut teams hope. Instead, they are themselves a thing that needs data and monitoring to get use out of.</p>
+<p>Let me walk through the pitfalls of LLM as a judge (for search) that you’ll encounter.</p>
+<h2>LLM as a judge</h2>
+<p>When I talk about LLM as a judge, my focus is search. I mean creating a <a href="https://softwaredoug.com/blog/2021/02/21/what-is-a-judgment-list">judgment list</a>. For search that means labeling how relevant a document is for a query. How relevant is the product “garden trowel” for a <code>q=shovels</code>? Maybe this “garden trowel” is less relevant than “iron spade”?</p>
+<p>In the ancient past, to improve the search, I would be limited to a tiny hand-labeled judgment list. Labeling by hand is expensive. Datasets drift out of date quickly. New use cases arise. So we constantly need humans to relabel.</p>
+<p>These costs inspire teams to use LLMs to build judgments, They:</p>
+<ol> <li>Start with a ground truth of human labels</li> <li>Build a prompt to approximate that ground truth</li> <li>Apply those prompts to go beyond the ground truth to new query / documents</li> </ol>
+<p>If done well, we can sit at our laptop, tinker with relevance algorithms, and continue to tune without bother humans for non-stop relabeling.</p>
+<p>Sounds promising. But teams often ignore many of the assumptions and nuance underlying the task of LLM labeling. Let’s go through them, and we’ll see at the end, maybe LLMs should play a different role in evaluation?</p>
+<h2>Problem one - LLM evals don’t know what’s engaging to users</h2>
+<p>Users’ ever-evolving lizard brains drive conversions. And while optimizing for just lizard brains would itself be a nightmare, so would only focusing on an LLM’s opinion.</p>
+<p>LLMs do a better job approximating <em>human evaluations</em>. In search, we call these evaluations <em>explicit</em> judgments. They use human labelers’ basic knowledge of the world to label a result as <em>topically relevant</em> to the query or not.</p>
+<p>Topical relevance is only one kind of relevance. As an example, for a search of “articles about harry potter”. The article is either factually about Harry Potter or its not. We might also consider other gradations:</p>
+<ul> <li>Is the article well written?</li> <li>Is it article from an authoritative source?</li> <li>Is the article about a tangential topic? Dumbledore vs Gandalf etc?</li> </ul>
+<p>All of which relate to topicality, authority, and knowledge. An LLM excels at this — LLMs live in a world of facts and knowledge.</p>
+<p>But LLMs don’t have limbic systems. So their evaluations come with limitations.</p>
+<p>In real search applications, “relevance” goes beyond topicality. I worked at Reddit on search. A search for “harry potter” might mean anything from a memes, to drama about JK Rowling, to every kind of juicy controversy, spicy post, or oddity. People search for “cybertruck” not for reviews but to see silly videos.</p>
+<p>Then there’s the more mundane. I found at Shopify, users preferred plain or black clothing over flashy items based on their clicks. Unless you tell an LLM this (because you’ve done the analysis) an LLM won’t intrinsically catch this.</p>
+<p>Often the “topical” part of search is relatively easy. But engaging search, that captures these human oddities, must go beyond world-knowledge to at least get <em>some</em> of a user’s lizard brain.</p>
+<h2>Problem two - the last 10% of disagreement is the important stuff</h2>
+<p>Many teams get excited when they immediately see 70-80% agreement with human labelers. With a bit of tuning, they can inch closer to 90%.</p>
+<p>In my experience, that last bit of human-LLM disagreement matters. Those are the non-obvious cases. Search deals with a big <a href="https://zilliz.com/ai-faq/what-is-hard-negative-mining-and-how-does-it-improve-embeddings">hard negatives</a> challenge. Those examples that deceptively seem relevant naive search algorithms (or labelers), but are, in fact irrelevant. That last 10-30% might be what more careful labelers would catch. Or represented in clickstream based labels.</p>
+<p>For example on this furniture dataset, a LLM doesn’t understand that a “bistro table” is meant for <strong><em>outdoor</em></strong> use in US furniture lingo. That’s not obvious to an LLM: The LLM imagines I’m opening a restaurant.</p>
+<p>Simple algorithms often capture that first 80-90%. It’s the 10-20% you need great labels for. So pay attention not just to coverage. But for which use cases.</p>
+<p>A 90% coverage might be good regression tests, it might not help you go beyond easier wins.</p>
+<h2>Problem three - sneaky overfitting</h2>
+<p>So far, I’ve mentioned a few strange cases the LLM judge might miss: a bistro table is meant for outdoor usage. Users preferring darker clothing items.</p>
+<p>The savvy prompt engineer will want to fill the prompt with examples to help the LLM perform better on these cases.</p>
+<p>But beware overfitting to these particular failure cases.</p>
+<p>With every new rule, you push the model’s meager attention away from the general problem, and towards your exceptions. Layer example after example, and you’ll find yourself with a brittle system focused excessively on specific use cases.</p>
+<p>Overfitting with prompts can be sneaky. Playing whack-a-mole with your eval data can degrade generality. You can get perfect results on the eval set, only to expand to unseen queries, and find the gains no longer hold.</p>
+<p>To do a good job, you need holdout data you’re not tuning against. A set of judgments you don’t peak at. Because peaking might cause you to sneak a change into the prompt, making the holdout less useful as an independent validation step.</p>
+<p>Add rules and exceptions carefully, you’ll be surprised how easy it is to pull an LLM away from its generality.</p>
+<h2>Problem four - LLMs only evaluate the document it sees</h2>
+<p>LLMs only evaluate the document it sees. IE:</p>
+<pre><code>Query: outdoor seating
+Product Name: Bistro Table
+Product Description: Enjoy this lovely bistro table on your porch...
+</code></pre>
+<p>Is this enough information for evaluating the product? Is it what a user sees?</p>
+<p>Suddenly, you decide to add new information about the product</p>
+<pre><code>Query: outdoor seating
+Product Name: Bistro Table
+Product Description: Enjoy this lovely bistro table on your porch...
+Category: Outdoors
+</code></pre>
+<p>What are we evaluating truly?</p>
+<ul> <li>The products relevance?</li> <li>The usefulness of a set of product properties for determining relevance?</li> <li>How comprehensively you’re describing products to an LLM?</li> </ul>
+<p>Really it gets down to a classic problem in search. There’s perceived relevance - the relevance of the product, as it appears in your product page. Then there’s actual relevance - the detailed, thoughtful understanding of your product by a user. A lot depends not just on true relevance, but how it’s presented to users.</p>
+<h2>Problem five - Your LLM judge can’t be trusted on novel use cases</h2>
+<p>I assume the goal of LLM as a judge in to align to human labelers. But rarely do those judgments comprehensively represent every use case.</p>
+<p>Search metrics with human evals don’t go up-and-to-the-right. They seesaw as teams reactively label, solve, label, solve ad infinitum. In my experience it’s rare to find a team build a true, comprehensive human labeled evals covering every use case. Even if we did, we’d need to account for evolving search use cases.</p>
+<p>The flow usually goes like this: we want to solve a problem (search by product name). So we capture some judgments for that use case. Relevance starts low. We work a bit to improve this use case and it goes up. Yay!</p>
+<p>But the boss comes to our desk and suggests we have a new problem to solve: search of furniture by the room (living room, etc). We gather more labels. We know we’re bad at this use case. So search metrics go back down. Sad 😟</p>
+<p>We solve that use case, it goes back up to where it was before. Repeat. Up and down. See-saw.</p>
+<p>This presents a problem for an LLM judge. If our human labels only focus on a subset of use cases, <strong>we’re also aligning our LLM judges on a subset of use cases.</strong></p>
+<p>Our LLM judge generalizes to just a piece of the problem. The LLM judge can’t be trusted on a new use case until we measure it’s abilities in that use case.</p>
+<p>So if you seesaw its human labeling, you must seesaw the alignment of the LLM judge to the use cases we capture in human eval. As we adopt a new use case, we need more human labels. We need to retest the LLM judge. And so on.</p>
+<p>The task of human labeling does not end with LLM Judges. In fact its even more crucial.</p>
+<h2>How to LLM as a judge</h2>
+<p>Here’s how I use LLM judges:</p>
+<ul> <li>To extend labels on use cases I already measure decently to new queries (because I can trust alignment of the LLM on this use case)</li> <li>As a safeguard against regressions</li> </ul>
+<p>I trust the LLM judge to flag a regression on the use cases my human labels cover. The LLM is aligned and measured against these. I don’t trust the LLM to discover new, unexpected ways users search. I look to the users for that, not LLMs.</p>
+<p>Still many teams don’t even do decent monitoring of topical relevance. There are plenty of obviously broken search engines. The ones that would benefit from an LLM judge, likely would benefit from rounds of human labeling first needed before blindly trusting an LLM judge.</p>
+<h2>We already have automated data labeling at home kids</h2>
+<p>If we have enough labels to evaluate LLM as a judge on a use case, we have enough to train an ML model to recover those labels. We can then see a better place LLM’s fit into evaluation:</p>
+<ul> <li>LLMs focus on factual, topical parts of the problem. But miss other parts of the problem</li> <li>LLMs might see a subset of the content features</li> <li>Other non-LLM features might help us better evaluate relevance (embedding similarity, text matches, etc)</li> <li>Other ground-truths (besides human) might be a better definition of relevance (ie engagement based labels)</li> </ul>
+<p>Instead of LLM as a Judge, <strong>why not Learning to Rank as a judge?</strong> We seem to have forgotten that ranking models provide value beyond directly deploying them to production. They can help guide more manual search tuning as well.</p>
+<p>I’m becoming more of a fan of LLM-for-feature-generation over LLM as a judge. LLMs can cover the topical part of relevance. You can ask them “Which of these product names is more relevant to the query?”. The downstream, traditional ML model is agnostic to where the features come from. They could be an embedding similarity, LLM decision, lexical similarity, or more.</p>
+<p>That’s much more my interest these days. When someone says “LLM as a judge” I nod and say yes let’s build that, but then go on and probably look into using LLM features heavily in a larger model. LLMs can be very useful for rapid feature development: they’re promptable and easy to play with.</p>
+<p>If you’re interested in this approach, check out this <a href="https://softwaredoug.com/blog/2025/01/21/llm-judge-decision-tree">blog post</a> and the corresponding <a href="https://www.youtube.com/watch?v=S7EXkGDcd7A">Haystack talk</a>. Also a talk from Shopify <a href="https://www.albertocastelo.com/blog/2024-06-12-mices-talk">choosing cross encoders for evaluation over LLMs</a></p>
+<p>Enjoy!</p>
+<h3>Enjoy softwaredoug in training course form!</h3>
+<figure class="article-figure"><a href="https://maven.com/softwaredoug/cheat-at-search"><img src="https://softwaredoug.com/assets/media/2025/cheat-at-search-social.png" class="article-image"/></a></figure>
+<p>I hope you join me at <a href="https://maven.com/softwaredoug/cheat-at-search">Cheat at Search with LLMs</a> to learn how to apply LLMs to search applications. Check out <a href="https://github.com/softwaredoug/softwaredoug.com/edit/master/_includes/post.html">this post</a> for a sneak preview.   </p></div>
+      
+    </article>
+    
+    <article>
+      <h1>Why I don&#39;t like the &#34;staff engineer archetypes&#34;</h1>
+      <div class="article-meta">
+        seangoedecke.com RSS feed
+        · 03 May 2026 · <a href="https://seangoedecke.com/staff-engineer-archetypes/">Source</a>
+      </div>
+      <div class="article-body"><p>The most influential piece of writing about staff engineers in the last decade has to be Will Larson’s <a href="https://staffeng.com/guides/staff-archetypes/"><em>Staff engineer archetypes</em></a>. He argues that the “staff engineer” title covers at least four very different roles: the team lead, the architect, the solver, and the right hand. This taxonomy gets cited a lot as advice for people who are trying to become effective staff engineers. For <a href="https://www.seangoedecke.com/staff-engineer-promotions">both</a> of my promotions to staff engineer, my manager at the time linked me to the “staff engineer archetypes” and asked me to consider which of these archetypes I was aiming towards.</p>
+<p>These archetypes definitely exist<sup><a href="https://www.seangoedecke.com/staff-engineer-archetypes/#fn-1">1</a></sup>. However, I think it’s bad practical advice to tell engineers to try and target them.</p>
+<h3>Archetypes do not make good goals</h3>
+<p>To see why, let’s take the “team lead” archetype. Larson describes this as an informal technical leadership role: not necessarily an explicit authority figure, but someone who’s good at scoping work, planning projects, and maintaining the kind of relationships (e.g. with other teams) needed to successfully <a href="https://www.seangoedecke.com/how-to-ship">ship</a>. If you want to fill this role, shouldn’t you start trying to do these things? No! You don’t become a technical leader by trying really hard to be a technical leader, much like you don’t become a writer by trying really hard “to be a writer”. You become a technical leader by <em>doing good technical work</em> until your skills and relationships emerge organically.</p>
+<p>I wrote about this process in <a href="https://www.seangoedecke.com/ratchet-effects"><em>Ratchet effects determine engineer reputation at large companies</em></a>. To get good at shipping large complex projects, you must start by shipping tiny pieces of work, until you’re familiar enough with the system and you’ve built enough trust to take on slightly larger pieces. At each stage, if you do good work - “good work” here means “deliver <a href="https://www.seangoedecke.com/shareholder-value/">shareholder value</a>” - you will very naturally be given opportunities to work on more complex and important things. If you try to jump ahead, you’re going to run into all kinds of problems:</p>
+<ul> <li>Important projects are usually assigned top-down, not bottom-up, so you’ll either be trying to muscle out the planned engineering lead for a project or to pitch your own (complex, important) engineering task to senior management. Either way, good luck with that!</li> <li>You likely won’t have a good enough relationship with senior management to know what their real priorities are.</li> <li>If you’re not yet trusted to execute, you may get assigned “minders” (often current staff engineers) who will ghost-lead the project through you<sup><a href="https://www.seangoedecke.com/staff-engineer-archetypes/#fn-2">2</a></sup>.</li> <li>You’ll likely make <a href="https://www.seangoedecke.com/you-cant-design-software-you-dont-work-on/">poor technical decisions</a>.</li> </ul>
+<p>The other archetypes are like this as well. If you want to become a successful architect, you do not get there by studying software architecture in the abstract, because <a href="https://www.seangoedecke.com/you-cant-design-software-you-dont-work-on/">you can’t design software you don’t work on</a>. The “solver” and “right hand” archetypes both rely on having an enormous amount of trust and influence. You can’t aim for those archetypes directly, because trust and influence accumulate over time. In fact, the idea of “aiming for” a particular staff engineer archetype reflects a misunderstanding of what the staff engineer role is. What is the defining attribute of the staff engineering role, then?</p>
+<h3>What is a staff engineer?</h3>
+<p><strong>A staff engineer has to be useful to the company.</strong> Of course, a senior or mid-level software engineer ought to be useful too, but all they <em>have</em> to do is execute on the job in front of them. If they end up not providing value (maybe their project turns out to be unimportant, or they don’t get the support needed to succeed) that’s their manager’s problem, not theirs<sup><a href="https://www.seangoedecke.com/staff-engineer-archetypes/#fn-3">3</a></sup>. In contrast, staff engineers are expected to deliver value regardless: to make the project work, or to find something else useful to do if the project truly can’t be salvaged.</p>
+<p>This is an unfair expectation. Often projects really do fail through no fault of your own, and sometimes it just isn’t possible to conjure useful work from thin air. That’s actually by design: <strong>the staff engineer role is supposed to be unfair</strong>. Something many engineers don’t realize is that all senior management and executive leadership roles are unfair too, in the same way. That’s just part of the deal: executives are given power and great compensation, and in return they get thrown off the boat in bad weather<sup><a href="https://www.seangoedecke.com/staff-engineer-archetypes/#fn-4">4</a></sup>. “Staff engineer” is the first engineering role where you are held largely responsible for outcomes you don’t control.</p>
+<p>Developing a “staff engineer mindset” thus has very little to do with the archetypes. Instead, you should:</p>
+<ol> <li>Develop the habit of constantly asking yourself “is this useful to the company” (and answering correctly).</li> <li>Lose the habit of worrying about if you’re being treated “fairly”. Instead, try to think about your role in terms of incentives and consequences.</li> </ol>
+<p>At the beginning, you won’t look much like any of the staff engineer archetypes. You will look like being a level-headed engineer who can be trusted to move projects forward with a minimum of fuss, and who can be re-tasked to different work without complaining. You’ll also look like someone who’s <a href="https://www.seangoedecke.com/getting-the-main-thing-right/">paying a lot of attention</a> to what their manager’s actual priorities are, and who is thinking hard about how to fulfil those priorities (instead of their own goals).</p>
+<p>If you do this for long enough, you’ll eventually find yourself in one of the staff engineer archetypes. However, it probably won’t be the one you’re “aiming for”. The whole point of being a staff engineer is that you’re willing to fill whatever archetype the company needs at the time.</p>
+<h3>Final thoughts</h3>
+<p>In his original staff engineer post, Larson is pretty clear that these archetypes are more of an anthropological description of some of the varied niches staff engineers fill, not a how-to guide for succeeding in the role<sup><a href="https://www.seangoedecke.com/staff-engineer-archetypes/#fn-5">5</a></sup>. At the time, the “staff engineer” role was fairly new and people were still trying to figure out what it even meant. Pointing out that there were a few very different ways to succeed in the role was a genuinely novel observation.</p>
+<p>The staff engineer archetypes are a good list of ways an engineer can be very useful to their organization - but only once they’ve built a deep relationship of trust with their organization’s leadership. Advice on how to succeed as a staff engineer should be about <strong>how to build that trust</strong>, not about what to do once you have it.</p>
+<ol> <li> <p>One caveat that is too pedantic for the body of the post: each tech company has a different structure of roles. Some don’t have the formal “staff” title at all, while others have “staff” as a fairly early rung on the ladder and a panoply of “senior staff”, “senior principal staff”, and so on roles above it. Like all “staff engineer” discourse, this post is not about the word itself but about the point in the engineering job ladder where progression becomes significantly more difficult.</p> <a href="https://www.seangoedecke.com/staff-engineer-archetypes/#fnref-1">↩</a> </li> <li> <p>Impressing your VP’s trusted lieutenants can actually be a good way to build trust in the medium-term, but you’d better hope you’ve built enough understanding of the system to do it right. If this process goes badly, your reputation in the org might be torched for years.</p> <a href="https://www.seangoedecke.com/staff-engineer-archetypes/#fnref-2">↩</a> </li> <li> <p>In theory, at least. In practice it’s always better to be useful (again, in the sense of “delivering shareholder value”).</p> <a href="https://www.seangoedecke.com/staff-engineer-archetypes/#fnref-3">↩</a> </li> <li> <p>This is why very senior leadership sometimes seem so unempathetic towards engineering complaints: their work environment operates by very different rules and norms to that of most engineers. I keep meaning to try and write about this and never succeeding. This <a href="https://github.com/sgoedecke/gatsby-blog/blob/master/content/drafts/_icebox/strategy-for-swes/index.md">draft</a> is the closest thing I have to a deeper exploration of the point.</p> <a href="https://www.seangoedecke.com/staff-engineer-archetypes/#fnref-4">↩</a> </li> <li> <p>For the record, my how-to guides are <a href="https://www.seangoedecke.com/staff-engineer-archetypes/staff-engineer-promotions/">here</a> and <a href="https://www.seangoedecke.com/staff-engineer-archetypes/ratchet-effects/">here</a>.</p> <a href="https://www.seangoedecke.com/staff-engineer-archetypes/#fnref-5">↩</a> </li> </ol></div>
+      
+    </article>
+    
+    <article>
+      <h1>Giving LLMs a personality is just good engineering</h1>
+      <div class="article-meta">
+        seangoedecke.com RSS feed
+        · 03 Mar 2026 · <a href="https://seangoedecke.com/giving-llms-a-personality/">Source</a>
+      </div>
+      <div class="article-body"><p>AI skeptics often argue that current AI systems shouldn’t be so human-like. The idea - most recently expressed in this <a href="https://thedispatch.com/article/anthropic-askell-philosophy-amodei/">opinion piece</a> by Nathan Beacom - is that language models should explicitly be tools, like calculators or search engines. Although they <em>can</em> pretend to be people, they shouldn’t, because it encourages users to overestimate AI capabilities and (at worst) slip into <a href="https://www.seangoedecke.com/ai-sycophancy">AI psychosis</a>. Here’s a representative paragraph from the piece:</p>
+<blockquote> <p>In sum, so much of the confusion around making AI moral comes from fuzzy thinking about the tools at hand. There is something that Anthropic could do to make its AI moral, something far more simple, elegant, and easy than what Askell is doing. Stop calling it by a human name, stop dressing it up like a person, and don’t give it the functionality to simulate personal relationships, choices, thoughts, beliefs, opinions, and feelings that only persons really possess. Present and use it only for what it is: an extremely impressive statistical tool, and an imperfect one. If we all used the tool accordingly, a great deal of this moral trouble would be resolved.</p> </blockquote>
+<p>So why do Claude and ChatGPT act like people? According to Beacom, AI labs have built human-like systems because AI lab engineers are trying to hoodwink users into emotionally investing in the models, or because they’re delusional true believers in AI personhood, or some other foolish reason. This is wrong. AI systems are human-like because <strong>that is the best way to build a capable AI system</strong>.</p>
+<p>Modern AI models - whether designed for chat, like OpenAI’s GPT-5.2, or designed for long-running agentic work, like Claude Opus 4.6 - do not naturally emerge from their oceans of training data. Instead, when you train a model on raw data, you get a “base model”, which is not very useful by itself. You cannot get it to write an email for you, or proofread your essay, or review your code.</p>
+<p>The base model is a kind of mysterious gestalt of its training data. If you feed it text, it will sometimes continue in that vein, or other times it will start outputting pure gibberish. It has no problem producing code with giant security flaws, or horribly-written English, or racist screeds - all of those things are represented in its training data, after all, and the base model does not judge. It simply outputs.</p>
+<p>To build a <em>useful</em> AI model, you need to journey into the wild base model and stake out a region that is amenable to human interests: both ethically, in the sense that the model won’t abuse its users, and practically, in the sense that it will produce correct outputs more often than incorrect ones. What this means in practice is that <strong>you have to give the model a personality</strong> during post-training<sup><a href="https://www.seangoedecke.com/giving-llms-a-personality/#fn-1">1</a></sup>.</p>
+<p>Human beings are capable of almost any action at any time. But we only take a tiny subset of those actions, because that’s the kind of people we are. I could throw my cup of coffee all over the wall right now, but I don’t, because I’m not the kind of person who needlessly makes a mess<sup><a href="https://www.seangoedecke.com/giving-llms-a-personality/#fn-2">2</a></sup>. AI systems are the same. Claude could respond to my question with incoherent racist abuse - the base model is more than capable of those outputs - but it doesn’t, because that’s not the kind of “person” it is.</p>
+<p>In other words, human-like personalities are not imposed on AI tools as some kind of marketing ploy or philosophical mistake. Those personalities are the medium via which the language model can become useful at all. This is why it’s surprisingly tricky to “just” change a language model’s personality or opinions: because you’re navigating through the near-infinite manifold of the base model. You may be able to control which direction you go, but you can’t control what you find there<sup><a href="https://www.seangoedecke.com/giving-llms-a-personality/#fn-3">3</a></sup>.</p>
+<p>When AI people talk about LLMs having personalities, or wanting things, or even having souls<sup><a href="https://www.seangoedecke.com/giving-llms-a-personality/#fn-4">4</a></sup>, these are technical terms, like the “memory” of a computer or the “transmission” of a car. You simply cannot build a capable AI system that “just acts like a tool”, because the model is trained on <em>humans</em> writing to and about other <em>humans</em>. You need to prime it with some kind of personality (ideally that of a useful, friendly assistant) so it can pull from the helpful parts of its training data instead of the horrible parts.</p>
+<ol> <li> <p>This is all pretty well understood in the AI space. Anthropic wrote a <a href="https://alignment.anthropic.com/2026/psm/">recent paper</a> about it where they cite similar positions going all the way back to 2022. But for some reason it’s not yet penetrated into communities that are more skeptical of AI.</p> <a href="https://www.seangoedecke.com/giving-llms-a-personality/#fnref-1">↩</a> </li> <li> <p>You could explain this in terms of “the stories we tell ourselves”. Many people (though <a href="https://lchc.ucsd.edu/mca/Paper/against_narrativity.pdf">not all</a>) think that human identities are narratively constructed.</p> <a href="https://www.seangoedecke.com/giving-llms-a-personality/#fnref-2">↩</a> </li> <li> <p>I wrote about this last year in <a href="https://www.seangoedecke.com/ai-personality-space"><em>Mecha-Hitler, Grok, and why it’s so hard to give LLMs the right personality</em></a>. A little nudge to change Grok’s views on South African internal politics can cause it to start calling itself “Mecha-Hitler”.</p> <a href="https://www.seangoedecke.com/giving-llms-a-personality/#fnref-3">↩</a> </li> <li> <p>I have long believed that Claude “feels better” to use than ChatGPT because it has a more coherent persona (due mainly to Amanda Askell’s work on its “soul”). My guess is that if you tried to make a “less human” version of Claude, it would become rapidly less capable.</p> <a href="https://www.seangoedecke.com/giving-llms-a-personality/#fnref-4">↩</a> </li> </ol></div>
+      
+    </article>
+    
+  </body>
+</html>
