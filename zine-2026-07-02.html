@@ -1,0 +1,658 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Fred Talks - 2026-07-02</title>
+    <style>
+      @page {
+        size: A5;
+        margin: 8mm 9mm 9mm;
+      }
+
+      :root {
+        color: #111;
+        font-family: "Times New Roman", Times, serif;
+        --body-text-size: 9.5pt;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        color: #111;
+        background: #fff;
+        font-family: "Times New Roman", Times, serif;
+        line-height: 1.45;
+      }
+
+      a,
+      a:visited {
+        color: #111;
+        text-decoration: underline;
+      }
+
+      .cover {
+        min-height: calc(210mm - 17mm);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        page-break-after: always;
+        border: 1px solid #111;
+        padding: 8mm;
+        background: #fff;
+      }
+
+      .toc-item-meta,
+      .article-meta {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .masthead {
+        margin: 0;
+        font-size: 40pt;
+        line-height: 0.95;
+        text-transform: uppercase;
+      }
+
+      .issue-date {
+        margin: 4mm 0 0;
+        font-size: 14pt;
+      }
+
+      .issue-date sup {
+        font-size: 0.58em;
+        vertical-align: super;
+        line-height: 0;
+      }
+
+      .cover-deck {
+        max-width: 90mm;
+        font-size: 12pt;
+        margin: 0;
+      }
+
+      .toc {
+        border-top: 3px solid #111;
+        padding-top: 6mm;
+      }
+
+      .toc h2 {
+        margin: 0 0 4mm;
+        font-size: 11pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .toc-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .toc-item {
+        padding: 3mm 0;
+        border-bottom: 1px solid rgba(17, 17, 17, 0.2);
+      }
+
+      .toc-item-title {
+        font-size: 12pt;
+        margin: 0 0 1mm;
+      }
+
+      .toc-item-meta {
+        font-size: 8pt;
+      }
+
+      .masthead-compact {
+        margin: 0 0 6mm;
+      }
+
+      .masthead-compact h1 {
+        margin: 0;
+        font-size: 22pt;
+        line-height: 1.1;
+        text-transform: uppercase;
+      }
+
+      .masthead-compact .issue-date {
+        margin: 2mm 0 0;
+        font-size: 11pt;
+      }
+
+      .toc-compact {
+        border-top: 1px solid #111;
+        border-bottom: 1px solid #111;
+        padding: 4mm 0;
+        margin: 0 0 8mm;
+      }
+
+      article + article {
+        margin-top: 10mm;
+        padding-top: 6mm;
+        border-top: 2px solid #111;
+      }
+
+      h1 {
+        margin: 0 0 2mm;
+        font-size: 18pt;
+        line-height: 1.1;
+      }
+
+      .article-meta {
+        font-size: 8.5pt;
+        margin-bottom: 6mm;
+        padding-bottom: 3mm;
+        border-bottom: 1px solid #111;
+      }
+
+      .article-body {
+        font-size: var(--body-text-size);
+        font-family: "Times New Roman", Times, serif;
+      }
+
+      .article-body p,
+      .article-body li,
+      .article-body blockquote,
+      .article-body dd,
+      .article-body dt {
+        margin: 0 0 4mm;
+        orphans: 3;
+        widows: 3;
+      }
+
+      .article-body ul,
+      .article-body ol,
+      .article-body dl {
+        margin: 0 0 4mm 5mm;
+        padding: 0;
+      }
+
+      .article-body h2,
+      .article-body h3,
+      .article-body h4 {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        margin: 7mm 0 3mm;
+        line-height: 1.2;
+      }
+
+      .article-body blockquote {
+        margin-left: 6mm;
+        padding-left: 4mm;
+        border-left: 2px solid #111;
+      }
+
+      .article-body .media-omitted {
+        margin: 0 0 4mm;
+        font-size: 8.5pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(17, 17, 17, 0.65);
+      }
+
+      .article-body figure,
+      .article-body .article-figure,
+      .article-body picture,
+      .article-body .article-picture {
+        display: block;
+        max-width: 72mm;
+        margin: 0 auto 4mm;
+        break-inside: avoid;
+      }
+
+      .article-body img,
+      .article-body .article-image {
+        display: block;
+        max-width: min(100%, 72mm);
+        max-height: 34mm;
+        height: auto;
+        width: auto;
+        object-fit: contain;
+        margin: 0 auto 3mm;
+      }
+
+      .article-body figcaption {
+        margin-top: 1.5mm;
+        font-size: 8.5pt;
+        line-height: 1.3;
+        color: rgba(17, 17, 17, 0.8);
+      }
+
+      .article-note {
+        margin-top: 6mm;
+        padding-top: 3mm;
+        border-top: 1px solid #111;
+        font-size: 9pt;
+        font-style: italic;
+      }
+
+      @media screen {
+        body {
+          padding: 2rem;
+          margin: 0 auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    
+    <header class="masthead-compact">
+      <h1>Fred Talks</h1>
+      <p class="issue-date">
+        2<sup>nd</sup> July 2026
+      </p>
+    </header>
+
+    <nav class="toc toc-compact">
+      <h2>Contents</h2>
+      <ol class="toc-list">
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Please for the love of all that is holy: Stop writing long boring Titles</div>
+          <div class="toc-item-meta">
+            swyx · 1431 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Mastering Codex Remote for engineering</div>
+          <div class="toc-item-meta">
+            developers.openai.com · 2207 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">[Daily article] July 2: No. 1 Aircraft Depot RAAF</div>
+          <div class="toc-item-meta">
+            English Wikipedia Article of the Day · 398 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Holes</div>
+          <div class="toc-item-meta">
+            xkcd.com · 24 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">We&#39;re coming out of stealth</div>
+          <div class="toc-item-meta">
+            Etched · 43 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Voice In, Visuals Out @ AI Engineering World&#39;s Fair</div>
+          <div class="toc-item-meta">
+            Allen Pike · 41 words
+          </div>
+        </li>
+        
+      </ol>
+    </nav>
+    
+
+    
+    <article>
+      <h1>Please for the love of all that is holy: Stop writing long boring Titles</h1>
+      <div class="article-meta">
+        swyx
+        · 30 Mar 2026 · <a href="https://dx.tips/titles">Source</a>
+      </div>
+      <div class="article-body"><p>People code switch. Every ethnic minority has <a href="https://en.wikipedia.org/wiki/Sorry_to_Bother_You">lived experience of this</a>. When you talk to me in Singapore, I sound very different than when I’m in San Francisco. And the way you talk at work is probably very different from how you talk to your kids and how you talk to your lover.</p>
+<p>I’ve been dealing with a particularly virulent form of code switching in the simple form of titling blogposts and talks. When you ask the writer face to face what their thing is about, they can give you a perfectly human explanation. And then when they send you their piece, it’s all “<strong><em>Leveraging GenAI with Robust Data Foundations to Transform Businesses</em></strong>”. I’ve left my body by the time I read the first word.</p>
+<p>My hope in writing this piece is to <strong>put an end to bad titles</strong>.</p>
+<p>If I sent you this guide, it is not an insult. You just don’t have good title game. That’s ok. You’re great at what you do, title game isn’t your job. I’m the guy that wrote <a href="https://www.swyx.io/how-to-name-things">How To Name Things</a> and <a href="http://swyx.io/two-words">Two Words</a>. I sent you this guide <strong><em>because</em></strong> your shitty title is the main thing stopping your readers from getting to the good part. If you didn’t have anything good, I wouldn’t bother with a lost cause.</p>
+<p>First…</p>
+<h2>Towards Leveraging Corporate Speak For Maximum Enterprise Synergy</h2>
+<p>DO NOT:</p>
+<ul> <li>Start with “Leveraging” or “Towards” or “Navigating” or “Empowering”</li> </ul>
+<p>Yeah just stop. There’s no rescuing this when you start there. Just delete meaningless corporate weasel words. Anything &gt;3 syllables is a red flag.</p>
+<h2>Make It Quotable</h2>
+<p><strong>If you do not try to make your title roll off the tongue, it probably won’t.</strong></p>
+<p>Literally imagine telling your friend about your talk. Telling a new acquaintance to google your blogpost. Having a fan of yours cite it back to you. How much do they stumble? Yeah. This has all happened to me.</p>
+<p>There’s an extremely high correlation between what are considered the best talks and the quotability of titles. <a href="https://www.infoq.com/presentations/Simple-Made-Easy/">Simple Made Easy</a>. <a href="https://www.youtube.com/watch?v=PUv66718DII">Inventing on Principle</a>. Our list of best <a href="https://dx.tips/pitches">demos/pitches</a> of all time.</p>
+<p>Resist colons. It lacks confidence. Why Use Lot Word: <s>When Few Word Do Trick</s>? You’re not <a href="https://en.wikipedia.org/wiki/High_School_Musical:_The_Musical:_The_Series">High School Musical: The Musical: The Series</a>.</p>
+<p>Put the SEO keyword vomit in the description.</p>
+<p>Titles are for humans.</p>
+<h2>Prescribe A Strong Opinion</h2>
+<p>Opinions are one of the most quotable things.</p>
+<p>But more importantly, a good Opinion Piece is load bearing because it is eminently forwardable, and therefore viral and impactful. Your Job To Be Done is to be the definitive, conclusive, piece on that Opinion. Stake out territory in Opinion Space, list out all the arguments for, counter all the arguments against, provide datapoints, and watch that go further than anything you’ve ever done.</p>
+<p>How to know what’s a good opinion? <strong>Three Strikes rule</strong>: If you repeat yourself <a href="https://www.swyx.io/three-strikes">three times</a>, ship it. Even if you’re just quoting others, its fine, credit them and make it your own.</p>
+<p><strong>Mental Models and Frameworks</strong> are more complex opinions that allow others to scaffold their thought around you. My <a href="https://dx.tips/circles">Radiating Circles</a> and <a href="https://www.swyx.io/measuring-devrel">Measuring Developer Relations</a> and <a href="https://www.swyx.io/js-third-age">Third Age of JavaScript</a> did this.</p>
+<p><strong>Opinions contrary to an established opinion</strong> are the hardest to do well and the best when correct. <a href="https://stratechery.com/2013/clayton-christensen-got-wrong/">What Clayton Christensen Got Wrong</a> made Ben Thompson’s career. <a href="http://latent.space/p/ai-engineer">Rise of AI Engineer</a> countered the prevailing Prompt Engineer -and- GPU Rich Startup/ML Engineer narrative at the time, with room to grow.</p>
+<h2>Curiosity Gap Dynamics</h2>
+<p>Marketers know the power of <a href="https://copyhackers.com/2014/04/curiosity-gap/">the Curiosity Gap</a>. Here is where we toy closest with clickbait. I’ll be honest that I wasn’t even sure if I wanted to give it its own subheading, but its a very important concept that you should at least be aware exists, even if you’re going to ignore it.</p>
+<p>Strong enough opinions create their own curiosity gaps; you won’t have to try very hard to make it interesting if you got my attention in 4 words anyway.</p>
+<p>Curiosity gaps done poorly can lead to “<a href="https://www.merriam-webster.com/wordplay/bury-the-lede-versus-lead">burying the lede</a>”, which make your talk less Quotable and you also don’t want to do that.</p>
+<p>Simplest way to put it is; if the most interesting thing about your content is your title, and what people take away after having read your post matches what they would have predicted after reading your title, then you’ve probably said too much and could cut.</p>
+<h2>Play Madlibs</h2>
+<p>You don’t have to invent your title from scratch (nor should you always do what I’m about to suggest). Here’s some templates that work well:</p>
+<ul> <li><p>{<em>BENEFIT EVERYONE WANTS</em>} <strong>without</strong> {<em>DOWNSIDE EVERYBODY EXPECTS</em>}</p> <ul> <li>e.g. <a href="https://nav.al/rich">How to Get Rich (Without Getting Lucky)</a>, <a href="https://x.com/swyx/status/1249793388037025797">How to Market Yourself (Without Being A Celebrity)</a>. See also subtitle of this post.</li> </ul> </li> <li><p>{<em>PRESCRIPTIVE OPINION</em>}, <strong>don’t</strong> {<em>THING YOU DO</em>}</p> <ul> <li><p>e.g. <a href="https://lexi-lambda.github.io/blog/2019/11/05/parse-don-t-validate/">Parse, don’t validate</a></p> </li> <li><p>alternative prescriptive opinion: <strong>Never</strong> {THING YOU DO}</p> </li> <li><p>see also title of this post</p> </li> </ul> </li> <li><p>{<em>POPULAR THING</em>} <strong>IS DEAD</strong></p> <ul> <li><p>unfortunately this is clickbait that works</p> </li> <li><p>e.g. <a href="https://www.youtube.com/watch?v=D2HurSldDkE&amp;t=1833s">Prompt Engineering is Dead</a>, <a href="https://motherduck.com/blog/big-data-is-dead/">Big Data is Dead</a></p> </li> <li><p>when given at a conference for <em>POPULAR THING,</em> this is known as a <a href="https://www.swyx.io/cfp-advice#pick-a-genre">Heresy Talk</a></p> </li> <li><p>opposite also works:</p> <ul> <li><p><a href="https://hn.algolia.com/?dateRange=all&amp;page=0&amp;prefix=true&amp;query=the%20rise%20of&amp;sort=byPopularity&amp;type=story"><strong>The Rise of</strong> {THING}</a></p> </li> <li><p><a href="https://hn.algolia.com/?dateRange=all&amp;page=0&amp;prefix=true&amp;query=unreasonable&amp;sort=byPopularity&amp;type=story"><strong>The Unreasonable Effectiveness of</strong> {THING}</a></p> </li> </ul> </li> </ul> </li> <li><p><strong>Fundamentals of</strong> {THING}</p> <ul> <li><p>straightforward, people love fundamentals</p> </li> <li><p>also <strong>How</strong> {THING} <strong>Really Works</strong></p> </li> <li><p>You can also flip it and go for the <strong>Advanced</strong> {THING} tier content</p> </li> </ul> </li> <li><p>{CONVEY EXPERIENCE/SCALE} with {THING}</p> <ul> <li>e.g. <a href="https://www.oreilly.com/radar/what-we-learned-from-a-year-of-building-with-llms-part-i/">What We Learned from a Year of Building with LLMs</a>, <a href="https://news.ycombinator.com/item?id=40877136">Insights from over <strong><em>10</em></strong>,<strong><em>000</em></strong> comments on "Ask HN: Who Is Hiring" using GPT-4o</a></li> </ul> </li> </ul>
+<p><a href="https://news.ycombinator.com/item?id=40877136">There’s loads more templates that work, please suggest in comments</a> and I can add/review.</p>
+<p>You can also browse the masters of microcopy like <a href="https://stephsmith.io/">Steph Smith</a> and <a href="https://www.youtube.com/@MyFirstMillionPod">Shaan Puri</a>, and if you are worried about clickbait, you can see <a href="https://www.youtube.com/watch?v=S2xHZPH5Sng">Veritasium’s</a> take or <a href="https://simonwillison.net/">Simon Willison’s Highlights</a>.</p>
+<p>also <a href="https://andrewchen.com/">Andrew Chen</a> senpai:</p>
+<h2>Understand Buzzword Metagame</h2>
+<p>Buzzwords work. Because of a mix of human psychology and algorithmic recsys. Don’t avoid them, just use them judiciously. This involves the ability to read the room, which many smart people sadly cannot without significant involvement in the broader community you are trying to speak to. I don’t see any way around it other than trying to authentically immerse, or consult a friendly who does.</p>
+<p>Not all buzzwords are created equal. Databricks/Berkeley tried to push <a href="https://www.databricks.com/glossary/compound-ai-systems">Compound AI Systems</a>, Gartner is pushing <a href="https://www.gartner.com/en/newsroom/press-releases/2024-09-25-gartner-identifies-composite-ai-and-supply-chain-data-governance-as-highest-impact-supply-chain-planning-technology-trends">Composite AI</a> and <a href="https://www.gartner.com/smarterwithgartner/gartner-keynote-the-future-of-business-is-composable">Composable</a> business — this resonates with their audience, but not more broadly.</p>
+<p>Pick the <a href="https://www.youtube.com/watch?v=fqkaBEWPH18">shibboleths</a> that work for the community you want. <a href="http://latent.space/p/ai-engineer">AI Engineer</a> worked for reasons that are well understood now. <a href="https://www.youtube.com/playlist?list=PLNoPYaf7mNI_Iq_TinuafkIE5n_O_Y5Cy">GraphRAG</a> is working outside of the company that coined it. These buzzwords travel, go ahead and put them in there.</p>
+<p>Buzzwords rise and fall. Try to catch them on the rise — go harder than everyone else on the rise up and regularly test their effectiveness, such that by the time your main buzzword has tapped out you’ve got 2-3 others cooking.</p>
+<h2>Workshopping your titles</h2>
+<p>I write this post out of frustration, but also to capture my own thought process. I’m currently procrastinating while writing a Latent Space post.</p>
+<ul> <li><p>The original title was <a href="https://www.youtube.com/watch?v=-rSbvS0qLqY&amp;t=361s">Why every AI Engineer needs an AI Gateway</a>. Good, genuine opinion, load bearing. But not super memorable.</p> </li> <li><p>My next iteration was “<strong>Stop writing model routers, use an LLM Gateway</strong>”. Ok, prescriptive, evocative. But didn’t cover the other elements other than model routing. One could shorten to “Stop writing your own LLM Gateway” but that doesnt quite express what people do.</p> </li> <li><p>My next one is “<strong>It's not your job to DIY an LLM Gateway</strong>”. No buzzword bc “your job” is implied (for a Latent Space audience), a little curiosity gap, LLM buzzword, strong opinion. But still not strong enough.</p> </li> <li><p>Final one is “<strong>LLM Gateway: The One Decision That Removes 100 AI Engineering Decisions</strong>”. Leans on <a href="https://tim.blog/2020/01/20/one-decision-that-removes-100-decisions/">Tim Ferriss’ madlbs</a>.</p> </li> </ul>
+<p>It’s very common for the “tail to wag the dog to wag the tail” - the title is so important to clickthrough and so impactful to the message, that you spend a bunch of time on just the title itself, because that determines the piece you will write, then write the piece, then you go back and tweak the title based on what happened.</p>
+<p>Amateur writers think their content has 95% of the value and then spend 5% on the title. Pros will put the value of titles closer to 50% and then act like it.</p>
+<h2>You Should Break The Rules Once You Understand Human Behavior More Intuitively Than Rules Can Model</h2>
+<p>See title of this post. No better aura than intentional, conspicuous, successful rulebreaking.</p>
+<h2>Subscribe to our newsletter</h2></div>
+      
+    </article>
+    
+    <article>
+      <h1>Mastering Codex Remote for engineering</h1>
+      <div class="article-meta">
+        developers.openai.com
+        · 25 Jun 2026 · <a href="https://developers.openai.com/blog/mastering-codex-remote-for-engineering">Source</a>
+      </div>
+      <div class="article-body"><div><article> <p>Codex Remote is easy to underestimate.</p>
+<p>At first glance, it looks like a way to check on a coding task from your phone. That is useful, but it misses the bigger idea. The real power of Codex Remote is that it lets you start, direct, review, and organize work running on your development machines without pretending that an iPhone should be a tiny terminal.</p>
+<p>Over the last two months, we have added a surprising amount of depth to that loop: remote host connections, worktrees, goals, side chats, inline code review, queued and steering prompts, attachments, skills and plugins, archived threads, security controls, and a long tail of small details that make the app useful for serious work.</p>
+<p>This is the field guide I wish every new power user had.</p>
+<p><img alt="Codex Remote project picker on an iPhone" src="https://developers.openai.com/images/blog/mastering-codex-remote-for-engineering.jpg" class="article-image"/></p>
+<h2>The right mental model: Your phone is the control plane</h2>
+<p>The code still runs where it belongs: on your Mac, Windows machine, devbox, or other connected host. Codex Remote gives you a native interface for controlling that work.</p>
+<p>That distinction matters. The goal is not to reproduce every terminal affordance on a small screen. The goal is to make the decisions that unblock an agent easy from anywhere:</p>
+<ul>
+<li>What repository and workspace should it use?</li>
+<li>Should this run in the current branch or a fresh worktree?</li>
+<li>Should my next message wait, or should it redirect the active turn?</li>
+<li>Is this command safe to approve?</li>
+<li>What changed, and do I agree with it?</li>
+<li>Should this become a durable goal, a separate thread, or a quick side question?</li>
+</ul>
+<p>Once you use the app this way, it stops feeling like remote desktop software and starts feeling like an engineering control plane.</p>
+<h2>1. Start the task with the right boundaries</h2>
+<p>Good agent work starts with a correctly scoped environment. Codex Remote lets you choose the connected host and workspace before the first prompt. For a new thread, you can also choose a branch, create a separate worktree, and run the environment setup associated with it.</p>
+<p>That makes a few useful patterns possible:</p>
+<ul>
+<li>Use the current checkout for a quick investigation.</li>
+<li>Create a new worktree for a change that should stay isolated.</li>
+<li>Start from the intended base branch instead of fixing Git state later.</li>
+<li>Let the environment setup run before asking Codex to build or test.</li>
+</ul>
+<p>This is one of the most important power-user habits: Spend 10 seconds choosing the right execution context and save 10 minutes of cleanup later.</p>
+<p>The composer can also carry more context than plain text. You can attach files, photos, or a fresh camera capture. Skills and plugins appear inline, which makes it much easier to confirm that your prompt is invoking the capability you intended.</p>
+<p>My rule is simple: If a screenshot, file, or named skill can remove ambiguity, attach or mention it before the first turn.</p>
+<h2>2. Learn the difference between Queue and Steer</h2>
+<p>This is probably the least obvious high-leverage setting in Codex Remote.</p>
+<p>When Codex is already working, a follow-up can do one of two things:</p>
+<ul>
+<li><strong>Queue</strong> waits until the current response finishes, then sends your prompt as the next turn.</li>
+<li><strong>Steer</strong> injects guidance into the work already in progress.</li>
+</ul>
+<p>Queue is the safe default. Use it for a second task, an extra test request, or anything that should happen after the current work.</p>
+<p>Steer is for correcting direction while the cost of continuing down the wrong path is still growing:</p>
+<blockquote>
+<p>Keep the fix inside the mobile package. Do not refactor the shared renderer.</p>
+</blockquote>
+<blockquote>
+<p>The reproduction only happens after reconnect. Test the resumed path, not the live path.</p>
+</blockquote>
+<blockquote>
+<p>Stop investigating the UI. Check whether the server removed the item during resume.</p>
+</blockquote>
+<p>That turns the phone into something more useful than a status screen. You can intervene at the exact moment a run needs judgment.</p>
+<p>You can choose the default follow-up behavior in Codex settings. I keep Queue as the default and use Steer deliberately; accidental mid-turn redirection is usually more expensive than waiting.</p>
+<h2>3. Use side chats as a branch of thought</h2>
+<p>Long-running coding threads accumulate valuable context. Interrupting one with every side question makes the main transcript noisy and can pull the agent away from the objective.</p>
+<p>That is what side chats solve.</p>
+<p>Use <code>/side</code> to open a lightweight conversation connected to the current thread. Use <code>/side &lt;prompt&gt;</code> to open it with a question already prepared. Even better, select text in the transcript and choose <strong>Ask in side chat</strong>. The selected passage becomes the starting context for the new conversation.</p>
+<p>I use side chats for questions such as:</p>
+<ul>
+<li>Why did Codex choose this architecture?</li>
+<li>What does this error actually mean?</li>
+<li>Is this behavior consistent with the desktop app?</li>
+<li>Give me a release-note version of this implementation detail.</li>
+<li>What should I verify before I approve this command?</li>
+</ul>
+<p>The distinction is useful: The main thread owns the work; the side chat helps me understand the work.</p>
+<h2>4. Use Plan for the path and Goal for the outcome</h2>
+<p>Plan mode and goals solve different problems.</p>
+<p>Plan mode asks Codex to propose the implementation path before changing code. It is useful when the task is underspecified, risky, or likely to touch several systems.</p>
+<p>A goal is durable. It tells Codex what outcome to keep pursuing across turns. On mobile, <code>/goal</code> can create and manage that objective, while progress remains visible as the work continues.</p>
+<p>A practical pattern is:</p>
+<ol>
+<li>Start with Plan mode for a risky change.</li>
+<li>Inspect the proposed boundaries.</li>
+<li>Turn the accepted outcome into a goal when the work will require multiple iterations.</li>
+<li>Let Codex continue through implementation, tests, review feedback, and cleanup without restating the objective every time.</li>
+</ol>
+<p>Plans answer “How should we approach this?” Goals answer “What must be true before we are done?”</p>
+<h2>5. Review code without leaving the conversation</h2>
+<p>The review loop is where Codex Remote becomes genuinely useful for engineering rather than merely convenient.</p>
+<p>Completed turns can show a summary of changed files. From there, you can open the diff, inspect individual files, expand or collapse sections, wrap long lines, and open a source file with syntax highlighting. You can attach inline comments to the relevant lines and send that review context back to Codex.</p>
+<p>There are several levels to the workflow:</p>
+<ul>
+<li>Open the changed-file summary for a quick sanity check.</li>
+<li>Tap through to the full source when a diff lacks surrounding context.</li>
+<li>Add inline comments for precise corrections.</li>
+<li>Use the review command to review local changes or compare against a branch.</li>
+<li>Link a file back into the chat when you want Codex to reason about that file specifically.</li>
+</ul>
+<p>This makes a tight mobile review loop possible:</p>
+<ol>
+<li>Codex completes the implementation.</li>
+<li>I inspect the diff from my phone.</li>
+<li>I leave two inline comments.</li>
+<li>Codex addresses them in the same thread.</li>
+<li>I review the smaller follow-up diff.</li>
+</ol>
+<p>The important point is not that a phone replaces a large monitor for deep code reading. It does not. The point is that many reviews are blocked on one or two decisions, and those decisions no longer need to wait until I am back at my desk.</p>
+<h2>6. Treat permissions as part of the workflow</h2>
+<p>Remote work is only useful if control stays explicit.</p>
+<p>Codex Remote surfaces approval requests for commands, file changes, network access, and connected tools. Depending on the request and host configuration, an approval may apply once, for the current chat, or more broadly.</p>
+<p>The power-user move is not to approve everything. It is to choose the narrowest permission that keeps the work moving.</p>
+<p>For a well-understood command in a trusted thread, a chat-scoped approval can remove repetitive interruptions. For an unfamiliar command, a sensitive repository, or a request whose effect is unclear, approve once—or deny it and ask Codex to explain or use a safer approach.</p>
+<p>You can also choose the thread’s broader approval behavior when starting work. Think of this as part of task setup, alongside the host, workspace, branch, and model.</p>
+<h2>7. Manage context before it becomes a problem</h2>
+<p>Agent threads are stateful, and long threads eventually accumulate enough context to become slower or less focused.</p>
+<p>Codex Remote has a small set of tools for managing that lifecycle:</p>
+<ul>
+<li><code>/status</code> shows session details, workspace, context usage, and available rate-limit information.</li>
+<li>The optional context indicator keeps remaining context visible in the composer.</li>
+<li><code>/compact</code> compresses an overgrown thread while preserving the useful working state.</li>
+<li><code>/fork</code> creates a new thread from the current one when you want shared history but a different direction.</li>
+</ul>
+<p>The practical sequence is: Check status, compact when the objective is still the same, and fork when the objective has diverged.</p>
+<p>Do not use a side chat and a fork interchangeably. A side chat is a lightweight question around the current work. A fork is a new primary line of work that inherits the thread’s history.</p>
+<h2>8. Keep a clean Thread Desk</h2>
+<p>My own Codex workflow increasingly looks like a small operations desk.</p>
+<p>I pin the few threads that are actively moving, rename them around outcomes, and archive them aggressively once the work is done. Archived-thread browsing makes this safe: Archive is organization, not deletion.</p>
+<p>Notifications are part of that system. A completion notification can open the relevant Codex task directly, so the handoff from “agent finished” to “human reviews” is one tap.</p>
+<p>Spotlight and Shortcuts can open Codex Remote directly. On iPad, keyboard shortcuts make the app surprisingly efficient: Create a new thread, move between threads, open changed files, pin, rename, and archive without reaching for every control.</p>
+<p>This is the “chief of staff” use case for Codex Remote. The app is not only where I issue prompts. It is where I keep track of which pieces of engineering work are active, blocked, waiting for review, or finished.</p>
+<h2>9. The hidden command palette</h2>
+<p>Typing <code>/</code> reveals the fastest route to many of the app’s advanced behaviors. Availability can depend on the connected host, app version, and account configuration.</p>
+<div><table><thead><tr><th>Command</th><th>What it is for</th></tr></thead><tbody><tr><td><code>/plan</code></td><td>Toggle Plan mode before implementation.</td></tr><tr><td><code>/goal &lt;objective&gt;</code></td><td>Create or update a durable objective.</td></tr><tr><td><code>/side [question]</code></td><td>Ask a side question without disrupting the main thread.</td></tr><tr><td><code>/review</code></td><td>Review local changes or compare them with a branch.</td></tr><tr><td><code>/status</code></td><td>Inspect the session, workspace, context, and rate limits.</td></tr><tr><td><code>/compact</code></td><td>Compress a long thread’s context.</td></tr><tr><td><code>/fork</code></td><td>Create a new primary thread from the current history.</td></tr><tr><td><code>/fast</code></td><td>Switch between standard and faster execution when available.</td></tr><tr><td><code>/feedback</code></td><td>Send product feedback tied to the current session.</td></tr></tbody></table></div>
+<p>The command palette is worth learning because it exposes the product’s real conceptual model: Plan, pursue, branch, review, inspect, and recover.</p>
+<h2>10. Five workflows that work especially well on mobile</h2>
+<h3>The release captain</h3>
+<p>Start a focused thread for a release or pull request. Ask Codex to check the current branch, CI state, open review feedback, and release inclusion. Pin the thread. When new information arrives, steer only when it invalidates the active investigation; otherwise, queue it. Review the final diff or release note from the phone and archive the thread when the release lands.</p>
+<h3>The interrupt-driven bug fix</h3>
+<p>Attach a screenshot, log, or captured file. Ask Codex to diagnose before editing. Use a side chat to interrogate one suspicious error without derailing the main investigation. Once the cause is clear, return to the main thread and authorize the narrow fix.</p>
+<h3>The mobile reviewer</h3>
+<p>Run a review against the intended branch, inspect the changed-file summary, open the files that matter, and attach inline comments. Ask Codex to address only those comments, then review the follow-up diff.</p>
+<h3>The long-running objective</h3>
+<p>Create a goal with a concrete completion condition: Tests green, review feedback resolved, or a reproducible performance threshold met. Check progress from notifications and status rather than repeatedly asking “Are you done?” Use queued prompts for additional work and reserve steering for corrections.</p>
+<h3>The multi-machine operator</h3>
+<p>Keep hosts named clearly and organize work by machine and workspace. Use the phone to start a task on the machine that has the right checkout, credentials, simulator, or operating system. This is especially useful when one task requires a Mac and another needs a Windows host.</p>
+<h2>Small features with outsized impact</h2>
+<p>Some of my favorite additions are not headline features:</p>
+<ul>
+<li>Edit the latest sent prompt instead of adding a correction turn.</li>
+<li>Save or copy rendered images from a task.</li>
+<li>See queued prompts while Codex is still running.</li>
+<li>Open completed tasks directly from notifications.</li>
+<li>Browse archived threads instead of keeping the active list crowded.</li>
+<li>Wrap long diff lines when reading on a narrow screen.</li>
+<li>Use Face ID or the device passcode to protect Codex separately.</li>
+<li>See skills and plugins inline in the composer before sending.</li>
+<li>Capture a photo directly into a prompt when the real-world object is the context.</li>
+<li>Start a side chat from selected transcript text rather than re-explaining the question.</li>
+</ul>
+<p>None of these changes the fundamental agent model. Together, they remove the friction that makes a remote workflow feel fragile.</p>
+<h2>The larger lesson</h2>
+<p>The best mobile software does not shrink a desktop interface. It identifies the decisions that matter when you are away from the desk and makes those decisions fast, legible, and safe.</p>
+<p>That is how I think about Codex Remote now. It is where I can choose the right environment, set the objective, redirect a run, answer an approval, inspect the result, and keep the whole queue of engineering work coherent.</p>
+<p>The computer still does the work. The phone keeps me in control.</p></article></div></div>
+      
+    </article>
+    
+    <article>
+      <h1>[Daily article] July 2: No. 1 Aircraft Depot RAAF</h1>
+      <div class="article-meta">
+        English Wikipedia Article of the Day
+        · 02 Jul 2026 · <a href="mailto:reader-forwarded-email/3778b7aef6ddd5b3141f9d375a469e4c">Source</a>
+      </div>
+      <div class="article-body"><div class="rw-email-parsed">
+ <p>
+  No. 1 Aircraft Depot (No. 1 AD) was a maintenance unit of the Royal
+Australian Air Force (RAAF). Formed in July 1921 at RAAF Point Cook,
+Victoria, it relocated to RAAF Laverton in March 1926. In its early
+years, the depot serviced aircraft and other equipment, trained
+maintenance staff, and supported survey flights in Australia and the
+Pacific region. No. 1 AD's strength increased from 350 staff in the
+1930s to more than 2,000 during World War II, when it assembled, tested
+and repaired aircraft such as Tiger Moth trainers, Spitfire fighters,
+and B-17 Flying Fortress heavy bombers. After World War II, No. 1 AD
+introduced the first jets into RAAF service. In 1961, it ceased airframe
+maintenance but continued to service aero engines. By the 1970s, the
+depot's focus was ground-based equipment, though it still handled some
+aircraft components. No. 1 AD was disbanded in December 1994; at the
+time of its disbandment, it was the oldest RAAF unit in continuous
+operation. (Full article...).
+ </p>
+ <p>
+  Read more:
+  <a href="https://en.wikipedia.org/wiki/No._1_Aircraft_Depot_RAAF">
+   https://en.wikipedia.org/wiki/No._1_Aircraft_Depot_RAAF
+  </a>
+ </p>
+ <hr/>
+ <p>
+  Today's selected anniversaries:
+ </p>
+ <p>
+  1816:
+ </p>
+ <p>
+  The French frigate Méduse ran aground off the coast of
+present-day Mauritania, with the survivors escaping on a makeshift raft,
+depicted in Théodore Géricault's painting The Raft of the Medusa.
+  <a href="https://en.wikipedia.org/wiki/The_Raft_of_the_Medusa">
+   https://en.wikipedia.org/wiki/The_Raft_of_the_Medusa
+  </a>
+ </p>
+ <p>
+  1941:
+ </p>
+ <p>
+  A German SS unit arrived in Vilnius, Lithuania, and began the
+systematic execution of up to 100,000 people over the next three years.
+  <a href="https://en.wikipedia.org/wiki/Ponary_massacre">
+   https://en.wikipedia.org/wiki/Ponary_massacre
+  </a>
+ </p>
+ <p>
+  1976:
+ </p>
+ <p>
+  More than a year after the end of the Vietnam War, North and
+South Vietnam officially merged under communist rule to form the
+Socialist Republic of Vietnam.
+  <a href="https://en.wikipedia.org/wiki/Vietnam">
+   https://en.wikipedia.org/wiki/Vietnam
+  </a>
+ </p>
+ <p>
+  2013:
+ </p>
+ <p>
+  The International Astronomical Union announced that the fourth
+and fifth moons of Pluto to be discovered would be named Kerberos and
+Styx, respectively.
+  <a href="https://en.wikipedia.org/wiki/Styx_%28moon%29">
+   https://en.wikipedia.org/wiki/Styx_%28moon%29
+  </a>
+ </p>
+ <hr/>
+ <p>
+  Wiktionary's word of the day:
+ </p>
+ <p>
+  relentlessly:
+1. In a relentless manner.
+2. In a manner unrelenting or unyielding in severity; unrelentingly.
+3. In a steady and persistent manner; unceasingly.
+4. About Word of the Day
+5. Nominate a word
+6. Leave feedback
+  <a href="https://en.wiktionary.org/wiki/relentlessly">
+   https://en.wiktionary.org/wiki/relentlessly
+  </a>
+ </p>
+ <hr/>
+ <p>
+  Wikiquote quote of the day:
+ </p>
+ <p>
+  These people were worthy of love and admiration in their blind loyalty,
+in their blind strength and tenacity. With the exception of one small
+thing, one tiny little thing, they lacked nothing that the sage and
+thinker had, and that was the consciousness of the unity of all life. ~
+  --Hermann Hesse
+  <a href="https://en.wikiquote.org/wiki/Hermann_Hesse">
+   https://en.wikiquote.org/wiki/Hermann_Hesse
+  </a>
+ </p></div></div>
+      
+    </article>
+    
+    <article>
+      <h1>Holes</h1>
+      <div class="article-meta">
+        xkcd.com
+        · 02 Jul 2026 · <a href="https://xkcd.com/3266/">Source</a>
+      </div>
+      <div class="article-body"><figure class="article-figure"><a href="https://xkcd.com/3266/large/"><figure class="article-figure"><img alt="Holes" data-title="If you&#x27;re thinking &#x27;Wait, a giant crystal cave in Mexico? What&#x27;s that?&#x27; then I&#x27;m SO excited for the image search you&#x27;re about to do." src="https://imgs.xkcd.com/comics/holes_2x.png" srcset="https://imgs.xkcd.com/comics/holes_2x.png 2x" class="article-image"/><figcaption>If you're thinking 'Wait, a giant crystal cave in Mexico? What's that?' then I'm SO excited for the image search you're about to do.</figcaption></figure></a></figure></div>
+      
+    </article>
+    
+    <article>
+      <h1>We&#39;re coming out of stealth</h1>
+      <div class="article-meta">
+        Etched
+        · 30 Jun 2026 · <a href="https://x.com/Etched/status/2071972062202343590">Source</a>
+      </div>
+      <div class="article-body"><div><p><p>We're coming out of stealth.</p><p>We've built our first racks after a successful A0 tapeout, $1B+ in customer contracts, and $800m raised.</p><p>Early customer tests show us achieving SOTA throughput, latency, and power efficiency on inference workloads.</p><p>Our first racks ship this summer.  </p><p><figure class="article-figure"><img alt="Image" src="https://pbs.twimg.com/media/HMEfnAMbAAAlKme.jpg?name=orig" class="article-image"/></figure> </p></p></div></div>
+      
+    </article>
+    
+    <article>
+      <h1>Voice In, Visuals Out @ AI Engineering World&#39;s Fair</h1>
+      <div class="article-meta">
+        Allen Pike
+        · 29 Jun 2026 · <a href="https://www.allenpike.com/2026/voice-in-visuals-out-ai-engineering-worlds-fair">Source</a>
+      </div>
+      <div class="article-body"><div><p>This week’s AI Engineering World’s Fair just posted <a href="https://www.youtube.com/watch?v=65X0pQ6Lmbg&amp;list=PLcfpQ4tk2k0V1LNigteMgExP1rb4Hy8wn&amp;index=26">my talk on the agony and ecstasy of voice in, visuals out agents</a>. It’s a challenge to get model responses that feel immediate, but when it works, it feels magical.</p></div></div>
+      
+    </article>
+    
+  </body>
+</html>
