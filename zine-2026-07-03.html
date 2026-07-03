@@ -1,0 +1,507 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Fred Talks - 2026-07-03</title>
+    <style>
+      @page {
+        size: A5;
+        margin: 8mm 9mm 9mm;
+      }
+
+      :root {
+        color: #111;
+        font-family: "Times New Roman", Times, serif;
+        --body-text-size: 9.5pt;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        color: #111;
+        background: #fff;
+        font-family: "Times New Roman", Times, serif;
+        line-height: 1.45;
+      }
+
+      a,
+      a:visited {
+        color: #111;
+        text-decoration: underline;
+      }
+
+      .cover {
+        min-height: calc(210mm - 17mm);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        page-break-after: always;
+        border: 1px solid #111;
+        padding: 8mm;
+        background: #fff;
+      }
+
+      .toc-item-meta,
+      .article-meta {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .masthead {
+        margin: 0;
+        font-size: 40pt;
+        line-height: 0.95;
+        text-transform: uppercase;
+      }
+
+      .issue-date {
+        margin: 4mm 0 0;
+        font-size: 14pt;
+      }
+
+      .issue-date sup {
+        font-size: 0.58em;
+        vertical-align: super;
+        line-height: 0;
+      }
+
+      .cover-deck {
+        max-width: 90mm;
+        font-size: 12pt;
+        margin: 0;
+      }
+
+      .toc {
+        border-top: 3px solid #111;
+        padding-top: 6mm;
+      }
+
+      .toc h2 {
+        margin: 0 0 4mm;
+        font-size: 11pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .toc-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .toc-item {
+        padding: 3mm 0;
+        border-bottom: 1px solid rgba(17, 17, 17, 0.2);
+      }
+
+      .toc-item-title {
+        font-size: 12pt;
+        margin: 0 0 1mm;
+      }
+
+      .toc-item-meta {
+        font-size: 8pt;
+      }
+
+      .masthead-compact {
+        margin: 0 0 6mm;
+      }
+
+      .masthead-compact h1 {
+        margin: 0;
+        font-size: 22pt;
+        line-height: 1.1;
+        text-transform: uppercase;
+      }
+
+      .masthead-compact .issue-date {
+        margin: 2mm 0 0;
+        font-size: 11pt;
+      }
+
+      .toc-compact {
+        border-top: 1px solid #111;
+        border-bottom: 1px solid #111;
+        padding: 4mm 0;
+        margin: 0 0 8mm;
+      }
+
+      article + article {
+        margin-top: 10mm;
+        padding-top: 6mm;
+        border-top: 2px solid #111;
+      }
+
+      h1 {
+        margin: 0 0 2mm;
+        font-size: 18pt;
+        line-height: 1.1;
+      }
+
+      .article-meta {
+        font-size: 8.5pt;
+        margin-bottom: 6mm;
+        padding-bottom: 3mm;
+        border-bottom: 1px solid #111;
+      }
+
+      .article-body {
+        font-size: var(--body-text-size);
+        font-family: "Times New Roman", Times, serif;
+      }
+
+      .article-body p,
+      .article-body li,
+      .article-body blockquote,
+      .article-body dd,
+      .article-body dt {
+        margin: 0 0 4mm;
+        orphans: 3;
+        widows: 3;
+      }
+
+      .article-body ul,
+      .article-body ol,
+      .article-body dl {
+        margin: 0 0 4mm 5mm;
+        padding: 0;
+      }
+
+      .article-body h2,
+      .article-body h3,
+      .article-body h4 {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        margin: 7mm 0 3mm;
+        line-height: 1.2;
+      }
+
+      .article-body blockquote {
+        margin-left: 6mm;
+        padding-left: 4mm;
+        border-left: 2px solid #111;
+      }
+
+      .article-body .media-omitted {
+        margin: 0 0 4mm;
+        font-size: 8.5pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(17, 17, 17, 0.65);
+      }
+
+      .article-body figure,
+      .article-body .article-figure,
+      .article-body picture,
+      .article-body .article-picture {
+        display: block;
+        max-width: 72mm;
+        margin: 0 auto 4mm;
+        break-inside: avoid;
+      }
+
+      .article-body img,
+      .article-body .article-image {
+        display: block;
+        max-width: min(100%, 72mm);
+        max-height: 34mm;
+        height: auto;
+        width: auto;
+        object-fit: contain;
+        margin: 0 auto 3mm;
+      }
+
+      .article-body figcaption {
+        margin-top: 1.5mm;
+        font-size: 8.5pt;
+        line-height: 1.3;
+        color: rgba(17, 17, 17, 0.8);
+      }
+
+      .article-note {
+        margin-top: 6mm;
+        padding-top: 3mm;
+        border-top: 1px solid #111;
+        font-size: 9pt;
+        font-style: italic;
+      }
+
+      @media screen {
+        body {
+          padding: 2rem;
+          margin: 0 auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    
+    <header class="masthead-compact">
+      <h1>Fred Talks</h1>
+      <p class="issue-date">
+        3<sup>rd</sup> July 2026
+      </p>
+    </header>
+
+    <nav class="toc toc-compact">
+      <h2>Contents</h2>
+      <ol class="toc-list">
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Zen of AI Coding</div>
+          <div class="toc-item-meta">
+            Yoav Aviram · 1912 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">How big are our embeddings now and why?</div>
+          <div class="toc-item-meta">
+            ★❤✰ Vicki Boykis ★❤✰  · 1697 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Please for the love of all that is holy: Stop writing long boring Titles</div>
+          <div class="toc-item-meta">
+            swyx · 1431 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Holes</div>
+          <div class="toc-item-meta">
+            xkcd.com · 24 words
+          </div>
+        </li>
+        
+      </ol>
+    </nav>
+    
+
+    
+    <article>
+      <h1>Zen of AI Coding</h1>
+      <div class="article-meta">
+        Yoav Aviram
+        · 08 Mar 2026 · <a href="https://nonstructured.com/zen-of-ai-coding/">Source</a>
+      </div>
+      <div class="article-body"><p>Dedicated to all those who are sceptical about the significance of agentic coding, and to those who are not, and are wondering what it means for the future of their profession. The title is an homage to <a href="https://en.wikipedia.org/wiki/Zen_of_Python">Zen of Python</a> by Tim Peters. Unlike Tim, I am not a zen master. My only aim is to take stock of where we are and where we might be heading. I have been building with coding agents daily for the past year, and I also help teams adopt them without losing reliability or security.</p>
+<ol> <li>Software development is dead</li> <li>Code is cheap</li> <li>Refactoring easy</li> <li>So is repaying technical debt</li> <li>All bugs are shallow</li> <li>Create tight feedback loops</li> <li>Any stack is <em>your</em> stack</li> <li>Agents are not just for coding</li> <li>The context bottleneck is in your head</li> <li>Build for a changing world</li> <li>When considering Buy vs. Build, the answer, more often, is build</li> <li>Fast rubbish is still rubbish</li> <li>Software is a liability, a product is an asset</li> <li>Moats are more expensive</li> <li>Build for agents</li> <li>Anticipate modes of failure</li> </ol>
+<h4><strong>Software development is dead </strong></h4>
+<p>You do not need to write another line of code if you do not want to. Coding agents can accomplish most coding tasks with the right direction.</p>
+<p>Software development, as the act of manually producing code, is dying. A new discipline is being born. Your role in it is vital, but it is no longer centered on typing code. It is centered on framing problems, shaping context, defining constraints, and judging outcomes.</p>
+<p>The marginal cost of code is collapsing. That single fact changes everything that follows.</p>
+<h4><strong>Code is cheap</strong></h4>
+<p>The economics of software have changed.</p>
+<p>When coding is cheap, implementation stops being the constraint. You can build ten things in parallel. You cannot decide, validate, and ship ten things in parallel, at least not without changing the rest of the pipeline.</p>
+<p>Cost of delay shifts. It is no longer about developer days. It is about time stuck in other bottlenecks: product decisions, unclear requirements, security review, user testing, release processes, and operational risk. Agents can flood these queues. Inventory grows. Lead time grows. Delay becomes more expensive, not less.</p>
+<p>This changes prioritization. The highest leverage work is what unblocks shipping: tight feedback loops, tests, evals, guardrails, observability, and clear acceptance criteria. Anything that turns “we can build it” into “we can trust it”.</p>
+<p>Agents can help alleviate some of these bottlenecks. The challenge is applying them outside of coding (see Agents are not just for coding)</p>
+<h4><strong>Refactoring is easy</strong></h4>
+<p>The cost of changing your mind is lower than it has ever been. Architectural decisions that once felt permanent are now provisional.</p>
+<p>You chose React. Two months later, you regret it. Ask an agent to rewrite the project.</p>
+<p>Making imperfect decisions is no longer fatal. In fact, it can be productive. A flawed reference implementation provides better context than a pristine specification. Agents reason more effectively from concrete artifacts than from abstract intent.</p>
+<p>Rapid iteration is now the default mode. Over the last three months, we rebuilt our CMS four times from scratch, each with a different architecture. Each time we learned more about what we actually needed and what works.</p>
+<p>When code is cheap, you can run more small bets.</p>
+<h4><strong>So is repaying technical debt</strong></h4>
+<p>There is little excuse for stale dependencies or ignored security patches. Updating libraries, migrating APIs, modernizing patterns. These are prompts away.</p>
+<p>Prune your code regularly. Upgrade aggressively. Keep the surface clean.</p>
+<p>Technical debt has not disappeared. But the cost of servicing it has dropped. That changes the incentive structure. Neglect becomes less defensible.</p>
+<h4><strong>All bugs are shallow</strong></h4>
+<p><a href="https://en.wikipedia.org/wiki/Linus%27s_law">Linus’s law</a> states that “given enough eyeballs, all bugs are shallow.” Those eyeballs are now abundant.</p>
+<p>Ask one model to review your code. Ask another. They may find different issues. Ask them to fix what they find. Often they will succeed.</p>
+<p>How “dense” are bugs given a piece of code is a philosophical question. Bugs are not magically gone. Agents do not achieve perfection. From a practical perspective, however, the limiting factor is no longer the number of reviewers. It is the tightness of your feedback loops.</p>
+<p>The claim here is profound: comprehension of the codebase at the function level is no longer necessary. At the same time, relying entirely on the models is a recipe for disaster. You still have a job! (see: create tight feedback loops, anticipate modes of failure)</p>
+<p>Agents can sometimes one-shot a task.</p>
+<p>We’ve built agents that create a complete custom-made marketing website in one shot, but this is by far the exception. In most cases, agents operate best when iterating towards a well-defined goal, guided by feedback.</p>
+<p>Good tests are the first feedback loop. The agent will iterate until the tests pass. It is your responsibility to make sure the tests are adequate (by instructing the agent to create good ones) and to make sure the agent does not cheat (by weakening the tests or simply skipping them).</p>
+<p>Give your agent access to your CI to create a second feedback loop. Give it access to your server logs to create a third. Giving the agent away to visually inspect a UI is yet another example.</p>
+<p>Your job is to design environments where iteration converges toward correctness instead of drifting toward plausible nonsense.</p>
+<p>Velocity without feedback is chaos.</p>
+<h4><strong>Any stack is your stack</strong></h4>
+<p>Agents are competent across most major stacks where training data exists. Since you are not writing the code, your attachment to a specific stack becomes less relevant.</p>
+<p>Do not limit yourself to what you personally know. Your conceptual understanding transfers more than you think.</p>
+<p>When you lack terminology or domain knowledge, ask the agent to brief you. The barrier to entry into unfamiliar ecosystems is lower than it has ever been.</p>
+<h4><strong>Agents are not just for coding</strong></h4>
+<p>Coding is only the beginning.</p>
+<p>Agents can assist with business analysis, UX, infrastructure, operations, ad campaigns, analytics configuration, even accounting workflows.</p>
+<p>I migrated four WordPress blogs from an overpriced host to Hetzner in minutes after postponing the task for years. The blocker was never a technical difficulty. It was attention. Claude completed the task in 15 minutes.</p>
+<p>Agents reduce the activation energy required to execute tedious but valuable work.</p>
+<p>Grant access carefully. Limit scope. Audit results. Direction without oversight is reckless.</p>
+<h4><strong>The context bottleneck is in your head</strong></h4>
+<p>Context engineering has improved. Tooling has improved.</p>
+<p>Yet when running multiple agents in parallel, the real bottleneck is human coordination.</p>
+<p>You must track what each agent is doing. You must remember which assumptions were made. You know what questions to ask next.</p>
+<p>As agents become better at managing their own context, your ability to supervise them becomes the limiting factor.</p>
+<p>The constraint is no longer tokens. It is cognition.</p>
+<h4><strong>Build for a changing world</strong></h4>
+<p>New models. New capabilities. New frameworks. New skills.</p>
+<p>The ground shifts daily. Some models are better at reasoning. Some at coding. Some at translation.</p>
+<p>Flexibility is not optional. It must be built into your workflow and products. Both must be engineered for experimentation and adaptability.</p>
+<h4><strong>When considering Buy vs. Build, the answer, more often, is build</strong></h4>
+<p>When code was expensive, buying made sense. When code approaches zero marginal cost, the calculus changes.</p>
+<p>Every paid API is now a question. Could we replicate this internally? Should we?</p>
+<p>For our QA agent, we needed full-page screenshots of live sites. Many APIs offered this. Instead, we deployed Playwright to AWS Lambda, tailored to our needs, and hardened.</p>
+<p>This is not a blanket argument against SaaS. Maintenance, security, and scale still matter. But many small and medium services that once required vendors are now within reach.</p>
+<p>Some call this the <a href="https://www.forbes.com/sites/donmuir/2026/02/04/300-billion-evaporated-the-saaspocalypse-has-begun/">end of SaaS</a>.</p>
+<h4><strong>Fast rubbish is still rubbish</strong></h4>
+<p>Speed is intoxicating. It is also dangerous.</p>
+<p>You can generate enormous amounts of code quickly. But velocity and lines of code written were always terrible indicators of progress.</p>
+<p>Refactoring is cheap, but it is cheaper to detect flawed direction early.</p>
+<p>Discipline matters more, not less, when execution is frictionless.</p>
+<h4><strong>Software is a liability, a product is an asset</strong></h4>
+<p>Software costs money to maintain. It only becomes an asset when it produces value for someone.</p>
+<p>This was always true. It is harder to remember now because building is so easy.</p>
+<p>It is tricker then ever to resist the temptation to add features. Resist it. Build what is used. Kill what is not.</p>
+<p>Feature gaps close quickly. What once took years to replicate can now take months. What took months can now take days.</p>
+<p>A feature set is no longer a durable moat.</p>
+<p>Moats shift toward distribution, data, brand, network effects, regulation, and ecosystem integration.</p>
+<p>The barrier to entry falls. The barrier to defensibility rises.</p>
+<p>There is a new hierarchy.</p>
+<p>At the base are models (Opus 4.6, GPT-5.3-codex). On top of them sit agents (Claude Code, OpenClaw). On top of agents sit services.</p>
+<p>Today, agents use services designed for humans. It works, but it is inefficient. The next step is services designed for agents (<a href="https://www.moltbook.com/">Moltbook</a> being the harbinger).</p>
+<p>Make your services accessible to agents. Expose structured context. Provide machine-readable surfaces.</p>
+<p>Agentic commerce is emerging. In some cases, a markdown endpoint is enough. In others, the service itself must be designed agent-first.</p>
+<p>Agent-first is not a tooling choice. It is a product decision. It changes your interfaces, your reliability model, your metrics, and what you build next.</p>
+<p>We are building an agent-first CMS. If we succeed, humans will not need to use it, though they can.</p>
+<p>AX is the new UX</p>
+<p>Do not assume competence implies perfection.</p>
+<p>Like an engineer overseeing the construction of a bridge, your job is not to lay bricks. It is to ensure the structure does not collapse.</p>
+<p>Agents will make mistakes. They will drift off course. They will introduce subtle flaws. They will create security vulnerabilities. One of mine attempted to commit a .env file to git. They can be inventive in how they self-sabotage.</p>
+<p>Be one step ahead. Ask yourself how this could break. Where could it leak. What could it expose. What assumptions is the agent quietly making.</p>
+<p>Play the what-if game relentlessly. Then build guardrails.</p>
+<p>Automate checks. Lock down permissions. Isolate environments. Add monitoring. Create recovery paths. Make rollback trivial.</p>
+<p>Remember, code is cheap, and you have new superpowers. Build tools to allow you to probe deep, discover vulnerabilities, and test for anticipated failure modes. Design systems that expect failure and degrade gracefully.</p>
+<p>This is the distinction between software development and software engineering.</p>
+<p>I work with engineering and product teams adopting agents. The goal is simple: ship faster without lowering standards.</p>
+<p>I usually help in two ways:</p>
+<p><strong>Agent-first software engineering</strong><br/>
+We turn agents into part of the system, not a novelty. We design workflows, guardrails, and supporting tools so the team can delegate confidently.</p>
+<p>If you want to operationalize coding agents without turning your codebase into a casino, get in touch.</p>
+<p><strong>Agent-first product strategy</strong><br/>
+I help companies shift products from human-centric interfaces to agent-accessible, and where it makes sense, agents-first. That means clarifying what agents should be able to do, what constraints they must operate under, and what needs to change in your APIs, permissions, reliability model, and product surface area to support them.</p>
+<p>This typically results in an agent-access roadmap, an operating model, and a prioritized set of product changes that make agents a first-class user.</p>
+<p>I’m the co-founder of <a href="https://www.whiteboar.it/">WhiteBoar</a>, where AI agents build your brand and launch visually striking marketing websites, complete with professional multi-lingual content, in minutes, not months. Contact me at <a href="mailto:yoav@whiteboar.it">yoav@whiteboar.it</a>.</p></div>
+      
+    </article>
+    
+    <article>
+      <h1>How big are our embeddings now and why?</h1>
+      <div class="article-meta">
+        ★❤✰ Vicki Boykis ★❤✰ 
+        · 10 Sep 2025 · <a href="https://vickiboykis.com/2025/09/01/how-big-are-our-embeddings-now-and-why/?ck_subscriber_id=3567568591">Source</a>
+      </div>
+      <div class="article-body"><p>A few years ago, I wrote<a href="https://vickiboykis.com/what_are_embeddings/"> a paper on embeddings</a>. At the time, I wrote that 200-300 dimension embeddings were fairly common in industry, and that adding more dimensions during training would create diminishing returns for the effectiveness of your downstream tasks (classification, recommendation, semantic search, topic modeling, etc.)</p>
+<p>I wrote the paper to be resilient to changes in the industry since it focuses on fundamentals and historical context rather than libraries or bleeding edge architectures, but this assumption about embedding size is now out of date and worth revisiting in the context of growing embedding dimensionality and embedding access patterns.</p>
+<p>As a quick review, embeddings are compressed numerical representations of a variety of features (text, images, audio) that we can use for machine learning tasks like search, recommendations, RAG, and classification. The size of the embedding is how many features our item has.</p>
+<figure class="article-figure"><img src="https://vickiboykis.com/images/embeddings-sizes/img_1.png" class="article-image"/></figure>
+<p>For example, let’s say we have two butterflies. We can compare them among many dimensions, including wingspan, wing color, number of antennae. Let’s say we have a 3-dimensional feature for a butterfly, it might look like this.</p>
+<figure class="article-figure"><img src="https://vickiboykis.com/images/embeddings-sizes/img_2.png" class="article-image"/></figure>
+<p>Doing a visual vibe scan, we can eyeball the data and see that <code>butterfly_1</code> and <code>butterfly_3</code> are more similar to each other than to <code>butterfly_2</code> because their features are closer together.</p>
+<p>But butterflies are 3-dimensional animals and some of these features are numerical. When we talk about embeddings in industry these days, we generally mean trying to understand the properties of text, so how does this concept work with words? We can’t directly compare words like “bird” and “butterfly” or “fly” in a given text but we can compare their numerical representations if we map them into the same shared space. We can see that “bird” and “flying” are more similar to each other than to “dog” through their numerical representations.</p>
+<p>Intuitively, we know this is true, but how do we artificially create these relationships?</p>
+<figure class="article-figure"><img src="https://vickiboykis.com/images/embeddings-sizes/img_3.png" class="article-image"/></figure>
+<p>There are different ways of creating text embeddings from a given word, all of which rely on analyzing that word in relation to the words around it in a given corpus of data. We can use traditional count-based approaches like TF-IDF based on term frequency in documents, or statistical approaches like PCA or LSA.</p>
+<p>With the advent of deep learning models, we started learning representations generated from models like Word2Vec that maximized the probability that a left-out word would be next to other given words in the training dataset.</p>
+<p>When we learn the embedding representation of a given word using probabilistic models, we are comparing how similar these words are to other words. Each feature is not an explicit feature like “wing color”, but rather a vibe-based latent representation in the latent space that doesn’t have a clear explanation.</p>
+<p>For example, one dimension might be “this word is an action word” or maybe “this word is related to other words about food”, but we generally don’t know exactly what the model thinks each feature represents. In fact, this is a <a href="https://www.anthropic.com/news/mapping-mind-language-model">fascinating area of study</a> we are just starting to understand how these latent representations work through ideas like <a href="https://vgel.me/posts/representation-engineering/">control vectors</a>, a concept that Anthropic explored in the famous Golden Gate Claude paper.</p>
+<figure class="article-figure"><img src="https://vickiboykis.com/images/embeddings-sizes/img_4.png" class="article-image"/></figure>
+<p>When we train a model, embedding size is initialized as a hyperparameter before model training, and we iterate on the size depending on our downstream evaluations after training. Picking the right hyperparameter is (<a href="https://archives.argmin.net/2017/12/05/kitchen-sinks/">alchemy</a>) a combination of art and science and <a href="https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/genperf04-bp02.html">depends on optimizing </a>training throughput, final embedding storage size, and the performance of the embedding on your downstream task both qualitatively and wrt to latency of performing search on embeddings of different sizes.</p>
+<p>Since previous generations of models were smaller and trained in-house, hyperparameters were usually not published by companies, and as such, there was no standard agreement on embedding size. We generally, as an industry, understood <a href="https://aclanthology.org/I17-2006/">that somewhere around 300 dimensions for a given embedding model might be enough to compress all the nuance of a given textual dataset</a>. 300 was the number of dimensions typically used by earlier models like Word2Vec and <a href="https://nlp.stanford.edu/projects/glove/">GloVE</a>.</p>
+<p>After the publication of the attention paper <a href="https://arxiv.org/abs/1810.04805">BERT was released</a> in 2018. This model’s architecture <a href="https://huggingface.co/google-bert/bert-base-uncased">introduced embeddings of 768 dimensions.</a> Although previous <a href="https://svail.github.io/persistent_rnns/">RNN</a> and LSTM models had been trained on GPUs, BERT was one of the first larger embedding models to be trained on GPUs (<a href="https://timdettmers.com/2018/10/17/tpus-vs-gpus-for-transformers-bert/">and TPUs</a>), which meant that GPU optimization now became increasingly important.</p>
+<p>The key behind <a href="https://jiegroup-genai.readthedocs-hosted.com/en/latest/resource/">training Transformer models efficiently</a> is the ability to <a href="https://horace.io/brrr_intro.html">efficiently move data onto GPU</a> and parallelize their matrix multiplication operations between several pipelines, aka attention heads, where each attention head can focus on understanding and defining a different part of the embedding feature space. As such, the embedding needs to be able to be partitioned evenly between the number of attention heads.</p>
+<p>BERT has 12 attention heads, so 768 dimensions was selected from a combination of trial and error and efficiently parallelizing computation to “attend” to different parts of the feature space, meaning that, in model training, each head operates on a 64-dimensional subspace of the original 768-dimensional input embedding. This itself comes from the Transformer paper, where each sub-embedding size per head <a href="https://arxiv.org/pdf/1706.03762">is commonly chosen as 64</a>.</p>
+<p>As a result, many BERT-style models, and related model families, used 768 as a baseline for embedding dimensions. Although it had a much larger training dataset, <a href="https://www.alignmentforum.org/posts/BMghmAxYxeSdAteDc/an-exploration-of-gpt-2-s-embedding-weights">GPT-2 also </a>implemented 768. And, although CLIP uses an embedding size of <strong>768</strong> as derived from the <a href="https://arxiv.org/abs/2010.11929">Vision Transformer </a>architecture that CLIP uses for its image encoder, and for consistency, the text encoder also uses this dimension size[^1].</p>
+<p>Even though training cycles for BERT were fairly small (4 days for the original BERT model) compared to the months-long pretraining processes that LLMs require these days, it was still hard computationally to infer these embedding sizes, even with GPU optimizations. <a href="https://arxiv.org/abs/1908.10084">For BERT, for example,</a></p>
+<pre><code>Finding the most similar pair in a collection of 10,000 sentences requires about 50 million inference computations (~65 hours).
+</code></pre>
+<p>So in 2019, <a href="https://github.com/UKPLab/sentence-transformers">UKP created</a> and optimized a model, SBERT, focusing on <a href="https://arxiv.org/abs/1908.10084">sentence-level representation</a>s, which unlocked faster inference, and <a href="https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2">Minilm</a> became the standard baseline model for document-level chunk embeddings at 384 dimensions and still performs extremely well for a number of tasks.</p>
+<p>What else changed was the rise of the open-source HuggingFace platform where model artifacts could be shared. Previously, they were either hosted in undiscoverable repos in GitHub or locked away in scientific repositories missing metadata. The rise of HuggingFace as a platform and the <code>transformers</code> library as a centralized API into training and inference for PyTorch-based models unlocked a level of standardization: now, many more people could simply download and replicate the existing models instead of rebuilding arcane research code from scratch. This led to much more standard embedding and architecture sizes used both in academia and industry.</p>
+<p>Although 768 held for a fairly long time, with upwards pressure from market competition on model sizes as the result of the release of GPT-2 (the backbone of ChatGPT), we started seeing standard embedding sizes increase.</p>
+<p>Part of this was the fact that companies no longer had to infer their own embeddings. Previously, embeddings had been custom-learned in labs or in<a href="https://arxiv.org/abs/2007.03634"> companies whose core competency was processing large amounts of information</a> that could be culled in retrieval through search or recommendation.</p>
+<p>But now, with the advent of ChatGPT and API-based model availability, embeddings became a commodity available with a GET request, and the most popular embeddings<a href="https://openai.com/index/new-and-improved-embedding-model/"> became OpenAI’s</a>, which used 1536 dimensions, in line with GPT-3, which used much more training data than any previous model. (<a href="https://lambda.ai/blog/demystifying-gpt-3">570GB versus GPT-2 which was 40GB, and 96 attention heads.)</a></p>
+<p>It used to be the case that people only learned or fine-tune their own embeddings, but now all of the major AI providers have their own hosted sets of embeddings. Particularly common ones are OpenAI, with Cohere and Nomic close behind. Google also <a href="https://arxiv.org/abs/2503.07891">recently released embeddings for Gemini</a>, with both API and local versions being available.</p>
+<p>In addition to standardization via HuggingFace and APIs, MTEB, <a href="https://huggingface.co/blog/mteb">which benchmarks embeddings publicly</a>, has grown as a resource where you can compare embedding models.</p>
+<p>If we look at MTEB, <a href="https://huggingface.co/spaces/mteb/leaderboard">the embedding benchmark today</a>, we can see embedding sizes anywhere from our classic 768 to 4096 and beyond (note all of them are neatly divisible by 2, in line with architectural constraints)</p>
+<figure class="article-figure"><img src="https://vickiboykis.com/images/embeddings-sizes/img_6.png" class="article-image"/></figure>
+<p>Finally, another consideration has been the change in the landscape with vector databases, which used to be huge, are now becoming more commoditized features in software and platforms like <a href="https://github.com/pgvector/pgvector">Postgres</a>, <a href="https://aws.amazon.com/s3/features/vectors/">S3</a>, and <a href="https://www.elastic.co/docs/explore-analyze/machine-learning/nlp/ml-nlp-text-emb-vector-search-example">Elasticsearch</a>, leading to less out of the box necessity in vector storage and performance tuning.</p>
+<p>With the constant upward pressure on embedding sizes not limited by having to train models in-house, it’s not clear where we’ll slow down: Qwen-3, along with many others is already at 4096. It does appear that we are beginning to trim down on growth. OpenAI implemented a concept called <a href="https://arxiv.org/abs/2205.13147">matryoshka representation learning </a>that trains embeddings with the “most important” concepts first, and additional embeddings adding incremental gains, meaning that an embedding learned in 1024 dimensions might be just as useful in 64, as long as the first 64 <a href="https://huggingface.co/blog/matryoshka">dimensions compress most of the information efficiently</a>, and also making sure we re-normalize them. There are also research that indicates that not all embeddings are necessary in retrieval + search tasks, and that we can <a href="https://arxiv.org/abs/2508.17744">in fact, in some cases, truncate 50% of them anyway.</a></p>
+<p>It’s been fascinating to watch the rise of dimensionality and the constant struggle in tradeoffs between creating ever-larger models and then the need for those embedding sizes to perform at inference and storage time, aka continuously coming up against the age-old machine learning tradeoff of recall versus precision, and the engineering tradeoff of hardware limitations versus software versus business considerations.</p>
+<p>As these architectures have matured and internal models have become inference points of public-facing paid APIs, embeddings have gone from a mysterious byproduct of internal machine learning systems in companies with lots of data to a commodity used across many AI-powered applications across numerous application stacks.</p>
+<p>All in all, it’s been so much fun watching this space evolve, even if it means it looks like I’ll be having to update my paper over and over again.</p></div>
+      
+    </article>
+    
+    <article>
+      <h1>Please for the love of all that is holy: Stop writing long boring Titles</h1>
+      <div class="article-meta">
+        swyx
+        · 30 Mar 2026 · <a href="https://dx.tips/titles">Source</a>
+      </div>
+      <div class="article-body"><p>People code switch. Every ethnic minority has <a href="https://en.wikipedia.org/wiki/Sorry_to_Bother_You">lived experience of this</a>. When you talk to me in Singapore, I sound very different than when I’m in San Francisco. And the way you talk at work is probably very different from how you talk to your kids and how you talk to your lover.</p>
+<p>I’ve been dealing with a particularly virulent form of code switching in the simple form of titling blogposts and talks. When you ask the writer face to face what their thing is about, they can give you a perfectly human explanation. And then when they send you their piece, it’s all “<strong><em>Leveraging GenAI with Robust Data Foundations to Transform Businesses</em></strong>”. I’ve left my body by the time I read the first word.</p>
+<p>My hope in writing this piece is to <strong>put an end to bad titles</strong>.</p>
+<p>If I sent you this guide, it is not an insult. You just don’t have good title game. That’s ok. You’re great at what you do, title game isn’t your job. I’m the guy that wrote <a href="https://www.swyx.io/how-to-name-things">How To Name Things</a> and <a href="http://swyx.io/two-words">Two Words</a>. I sent you this guide <strong><em>because</em></strong> your shitty title is the main thing stopping your readers from getting to the good part. If you didn’t have anything good, I wouldn’t bother with a lost cause.</p>
+<p>First…</p>
+<h2>Towards Leveraging Corporate Speak For Maximum Enterprise Synergy</h2>
+<p>DO NOT:</p>
+<ul> <li>Start with “Leveraging” or “Towards” or “Navigating” or “Empowering”</li> </ul>
+<p>Yeah just stop. There’s no rescuing this when you start there. Just delete meaningless corporate weasel words. Anything &gt;3 syllables is a red flag.</p>
+<h2>Make It Quotable</h2>
+<p><strong>If you do not try to make your title roll off the tongue, it probably won’t.</strong></p>
+<p>Literally imagine telling your friend about your talk. Telling a new acquaintance to google your blogpost. Having a fan of yours cite it back to you. How much do they stumble? Yeah. This has all happened to me.</p>
+<p>There’s an extremely high correlation between what are considered the best talks and the quotability of titles. <a href="https://www.infoq.com/presentations/Simple-Made-Easy/">Simple Made Easy</a>. <a href="https://www.youtube.com/watch?v=PUv66718DII">Inventing on Principle</a>. Our list of best <a href="https://dx.tips/pitches">demos/pitches</a> of all time.</p>
+<p>Resist colons. It lacks confidence. Why Use Lot Word: <s>When Few Word Do Trick</s>? You’re not <a href="https://en.wikipedia.org/wiki/High_School_Musical:_The_Musical:_The_Series">High School Musical: The Musical: The Series</a>.</p>
+<p>Put the SEO keyword vomit in the description.</p>
+<p>Titles are for humans.</p>
+<h2>Prescribe A Strong Opinion</h2>
+<p>Opinions are one of the most quotable things.</p>
+<p>But more importantly, a good Opinion Piece is load bearing because it is eminently forwardable, and therefore viral and impactful. Your Job To Be Done is to be the definitive, conclusive, piece on that Opinion. Stake out territory in Opinion Space, list out all the arguments for, counter all the arguments against, provide datapoints, and watch that go further than anything you’ve ever done.</p>
+<p>How to know what’s a good opinion? <strong>Three Strikes rule</strong>: If you repeat yourself <a href="https://www.swyx.io/three-strikes">three times</a>, ship it. Even if you’re just quoting others, its fine, credit them and make it your own.</p>
+<p><strong>Mental Models and Frameworks</strong> are more complex opinions that allow others to scaffold their thought around you. My <a href="https://dx.tips/circles">Radiating Circles</a> and <a href="https://www.swyx.io/measuring-devrel">Measuring Developer Relations</a> and <a href="https://www.swyx.io/js-third-age">Third Age of JavaScript</a> did this.</p>
+<p><strong>Opinions contrary to an established opinion</strong> are the hardest to do well and the best when correct. <a href="https://stratechery.com/2013/clayton-christensen-got-wrong/">What Clayton Christensen Got Wrong</a> made Ben Thompson’s career. <a href="http://latent.space/p/ai-engineer">Rise of AI Engineer</a> countered the prevailing Prompt Engineer -and- GPU Rich Startup/ML Engineer narrative at the time, with room to grow.</p>
+<h2>Curiosity Gap Dynamics</h2>
+<p>Marketers know the power of <a href="https://copyhackers.com/2014/04/curiosity-gap/">the Curiosity Gap</a>. Here is where we toy closest with clickbait. I’ll be honest that I wasn’t even sure if I wanted to give it its own subheading, but its a very important concept that you should at least be aware exists, even if you’re going to ignore it.</p>
+<p>Strong enough opinions create their own curiosity gaps; you won’t have to try very hard to make it interesting if you got my attention in 4 words anyway.</p>
+<p>Curiosity gaps done poorly can lead to “<a href="https://www.merriam-webster.com/wordplay/bury-the-lede-versus-lead">burying the lede</a>”, which make your talk less Quotable and you also don’t want to do that.</p>
+<p>Simplest way to put it is; if the most interesting thing about your content is your title, and what people take away after having read your post matches what they would have predicted after reading your title, then you’ve probably said too much and could cut.</p>
+<h2>Play Madlibs</h2>
+<p>You don’t have to invent your title from scratch (nor should you always do what I’m about to suggest). Here’s some templates that work well:</p>
+<ul> <li><p>{<em>BENEFIT EVERYONE WANTS</em>} <strong>without</strong> {<em>DOWNSIDE EVERYBODY EXPECTS</em>}</p> <ul> <li>e.g. <a href="https://nav.al/rich">How to Get Rich (Without Getting Lucky)</a>, <a href="https://x.com/swyx/status/1249793388037025797">How to Market Yourself (Without Being A Celebrity)</a>. See also subtitle of this post.</li> </ul> </li> <li><p>{<em>PRESCRIPTIVE OPINION</em>}, <strong>don’t</strong> {<em>THING YOU DO</em>}</p> <ul> <li><p>e.g. <a href="https://lexi-lambda.github.io/blog/2019/11/05/parse-don-t-validate/">Parse, don’t validate</a></p> </li> <li><p>alternative prescriptive opinion: <strong>Never</strong> {THING YOU DO}</p> </li> <li><p>see also title of this post</p> </li> </ul> </li> <li><p>{<em>POPULAR THING</em>} <strong>IS DEAD</strong></p> <ul> <li><p>unfortunately this is clickbait that works</p> </li> <li><p>e.g. <a href="https://www.youtube.com/watch?v=D2HurSldDkE&amp;t=1833s">Prompt Engineering is Dead</a>, <a href="https://motherduck.com/blog/big-data-is-dead/">Big Data is Dead</a></p> </li> <li><p>when given at a conference for <em>POPULAR THING,</em> this is known as a <a href="https://www.swyx.io/cfp-advice#pick-a-genre">Heresy Talk</a></p> </li> <li><p>opposite also works:</p> <ul> <li><p><a href="https://hn.algolia.com/?dateRange=all&amp;page=0&amp;prefix=true&amp;query=the%20rise%20of&amp;sort=byPopularity&amp;type=story"><strong>The Rise of</strong> {THING}</a></p> </li> <li><p><a href="https://hn.algolia.com/?dateRange=all&amp;page=0&amp;prefix=true&amp;query=unreasonable&amp;sort=byPopularity&amp;type=story"><strong>The Unreasonable Effectiveness of</strong> {THING}</a></p> </li> </ul> </li> </ul> </li> <li><p><strong>Fundamentals of</strong> {THING}</p> <ul> <li><p>straightforward, people love fundamentals</p> </li> <li><p>also <strong>How</strong> {THING} <strong>Really Works</strong></p> </li> <li><p>You can also flip it and go for the <strong>Advanced</strong> {THING} tier content</p> </li> </ul> </li> <li><p>{CONVEY EXPERIENCE/SCALE} with {THING}</p> <ul> <li>e.g. <a href="https://www.oreilly.com/radar/what-we-learned-from-a-year-of-building-with-llms-part-i/">What We Learned from a Year of Building with LLMs</a>, <a href="https://news.ycombinator.com/item?id=40877136">Insights from over <strong><em>10</em></strong>,<strong><em>000</em></strong> comments on "Ask HN: Who Is Hiring" using GPT-4o</a></li> </ul> </li> </ul>
+<p><a href="https://news.ycombinator.com/item?id=40877136">There’s loads more templates that work, please suggest in comments</a> and I can add/review.</p>
+<p>You can also browse the masters of microcopy like <a href="https://stephsmith.io/">Steph Smith</a> and <a href="https://www.youtube.com/@MyFirstMillionPod">Shaan Puri</a>, and if you are worried about clickbait, you can see <a href="https://www.youtube.com/watch?v=S2xHZPH5Sng">Veritasium’s</a> take or <a href="https://simonwillison.net/">Simon Willison’s Highlights</a>.</p>
+<p>also <a href="https://andrewchen.com/">Andrew Chen</a> senpai:</p>
+<h2>Understand Buzzword Metagame</h2>
+<p>Buzzwords work. Because of a mix of human psychology and algorithmic recsys. Don’t avoid them, just use them judiciously. This involves the ability to read the room, which many smart people sadly cannot without significant involvement in the broader community you are trying to speak to. I don’t see any way around it other than trying to authentically immerse, or consult a friendly who does.</p>
+<p>Not all buzzwords are created equal. Databricks/Berkeley tried to push <a href="https://www.databricks.com/glossary/compound-ai-systems">Compound AI Systems</a>, Gartner is pushing <a href="https://www.gartner.com/en/newsroom/press-releases/2024-09-25-gartner-identifies-composite-ai-and-supply-chain-data-governance-as-highest-impact-supply-chain-planning-technology-trends">Composite AI</a> and <a href="https://www.gartner.com/smarterwithgartner/gartner-keynote-the-future-of-business-is-composable">Composable</a> business — this resonates with their audience, but not more broadly.</p>
+<p>Pick the <a href="https://www.youtube.com/watch?v=fqkaBEWPH18">shibboleths</a> that work for the community you want. <a href="http://latent.space/p/ai-engineer">AI Engineer</a> worked for reasons that are well understood now. <a href="https://www.youtube.com/playlist?list=PLNoPYaf7mNI_Iq_TinuafkIE5n_O_Y5Cy">GraphRAG</a> is working outside of the company that coined it. These buzzwords travel, go ahead and put them in there.</p>
+<p>Buzzwords rise and fall. Try to catch them on the rise — go harder than everyone else on the rise up and regularly test their effectiveness, such that by the time your main buzzword has tapped out you’ve got 2-3 others cooking.</p>
+<h2>Workshopping your titles</h2>
+<p>I write this post out of frustration, but also to capture my own thought process. I’m currently procrastinating while writing a Latent Space post.</p>
+<ul> <li><p>The original title was <a href="https://www.youtube.com/watch?v=-rSbvS0qLqY&amp;t=361s">Why every AI Engineer needs an AI Gateway</a>. Good, genuine opinion, load bearing. But not super memorable.</p> </li> <li><p>My next iteration was “<strong>Stop writing model routers, use an LLM Gateway</strong>”. Ok, prescriptive, evocative. But didn’t cover the other elements other than model routing. One could shorten to “Stop writing your own LLM Gateway” but that doesnt quite express what people do.</p> </li> <li><p>My next one is “<strong>It's not your job to DIY an LLM Gateway</strong>”. No buzzword bc “your job” is implied (for a Latent Space audience), a little curiosity gap, LLM buzzword, strong opinion. But still not strong enough.</p> </li> <li><p>Final one is “<strong>LLM Gateway: The One Decision That Removes 100 AI Engineering Decisions</strong>”. Leans on <a href="https://tim.blog/2020/01/20/one-decision-that-removes-100-decisions/">Tim Ferriss’ madlbs</a>.</p> </li> </ul>
+<p>It’s very common for the “tail to wag the dog to wag the tail” - the title is so important to clickthrough and so impactful to the message, that you spend a bunch of time on just the title itself, because that determines the piece you will write, then write the piece, then you go back and tweak the title based on what happened.</p>
+<p>Amateur writers think their content has 95% of the value and then spend 5% on the title. Pros will put the value of titles closer to 50% and then act like it.</p>
+<h2>You Should Break The Rules Once You Understand Human Behavior More Intuitively Than Rules Can Model</h2>
+<p>See title of this post. No better aura than intentional, conspicuous, successful rulebreaking.</p>
+<h2>Subscribe to our newsletter</h2></div>
+      
+    </article>
+    
+    <article>
+      <h1>Holes</h1>
+      <div class="article-meta">
+        xkcd.com
+        · 02 Jul 2026 · <a href="https://xkcd.com/3266/">Source</a>
+      </div>
+      <div class="article-body"><figure class="article-figure"><a href="https://xkcd.com/3266/large/"><figure class="article-figure"><img alt="Holes" data-title="If you&#x27;re thinking &#x27;Wait, a giant crystal cave in Mexico? What&#x27;s that?&#x27; then I&#x27;m SO excited for the image search you&#x27;re about to do." src="https://imgs.xkcd.com/comics/holes_2x.png" srcset="https://imgs.xkcd.com/comics/holes_2x.png 2x" class="article-image"/><figcaption>If you're thinking 'Wait, a giant crystal cave in Mexico? What's that?' then I'm SO excited for the image search you're about to do.</figcaption></figure></a></figure></div>
+      
+    </article>
+    
+  </body>
+</html>
