@@ -1,0 +1,453 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Fred Talks - 2026-07-05</title>
+    <style>
+      @page {
+        size: A5;
+        margin: 8mm 9mm 9mm;
+      }
+
+      :root {
+        color: #111;
+        font-family: "Times New Roman", Times, serif;
+        --body-text-size: 9.5pt;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        color: #111;
+        background: #fff;
+        font-family: "Times New Roman", Times, serif;
+        line-height: 1.45;
+      }
+
+      a,
+      a:visited {
+        color: #111;
+        text-decoration: underline;
+      }
+
+      .cover {
+        min-height: calc(210mm - 17mm);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        page-break-after: always;
+        border: 1px solid #111;
+        padding: 8mm;
+        background: #fff;
+      }
+
+      .toc-item-meta,
+      .article-meta {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .masthead {
+        margin: 0;
+        font-size: 40pt;
+        line-height: 0.95;
+        text-transform: uppercase;
+      }
+
+      .issue-date {
+        margin: 4mm 0 0;
+        font-size: 14pt;
+      }
+
+      .issue-date sup {
+        font-size: 0.58em;
+        vertical-align: super;
+        line-height: 0;
+      }
+
+      .cover-deck {
+        max-width: 90mm;
+        font-size: 12pt;
+        margin: 0;
+      }
+
+      .toc {
+        border-top: 3px solid #111;
+        padding-top: 6mm;
+      }
+
+      .toc h2 {
+        margin: 0 0 4mm;
+        font-size: 11pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .toc-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .toc-item {
+        padding: 3mm 0;
+        border-bottom: 1px solid rgba(17, 17, 17, 0.2);
+      }
+
+      .toc-item-title {
+        font-size: 12pt;
+        margin: 0 0 1mm;
+      }
+
+      .toc-item-meta {
+        font-size: 8pt;
+      }
+
+      .masthead-compact {
+        margin: 0 0 6mm;
+      }
+
+      .masthead-compact h1 {
+        margin: 0;
+        font-size: 22pt;
+        line-height: 1.1;
+        text-transform: uppercase;
+      }
+
+      .masthead-compact .issue-date {
+        margin: 2mm 0 0;
+        font-size: 11pt;
+      }
+
+      .toc-compact {
+        border-top: 1px solid #111;
+        border-bottom: 1px solid #111;
+        padding: 4mm 0;
+        margin: 0 0 8mm;
+      }
+
+      article + article {
+        margin-top: 10mm;
+        padding-top: 6mm;
+        border-top: 2px solid #111;
+      }
+
+      h1 {
+        margin: 0 0 2mm;
+        font-size: 18pt;
+        line-height: 1.1;
+      }
+
+      .article-meta {
+        font-size: 8.5pt;
+        margin-bottom: 6mm;
+        padding-bottom: 3mm;
+        border-bottom: 1px solid #111;
+      }
+
+      .article-body {
+        font-size: var(--body-text-size);
+        font-family: "Times New Roman", Times, serif;
+      }
+
+      .article-body p,
+      .article-body li,
+      .article-body blockquote,
+      .article-body dd,
+      .article-body dt {
+        margin: 0 0 4mm;
+        orphans: 3;
+        widows: 3;
+      }
+
+      .article-body ul,
+      .article-body ol,
+      .article-body dl {
+        margin: 0 0 4mm 5mm;
+        padding: 0;
+      }
+
+      .article-body h2,
+      .article-body h3,
+      .article-body h4 {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        margin: 7mm 0 3mm;
+        line-height: 1.2;
+      }
+
+      .article-body blockquote {
+        margin-left: 6mm;
+        padding-left: 4mm;
+        border-left: 2px solid #111;
+      }
+
+      .article-body .media-omitted {
+        margin: 0 0 4mm;
+        font-size: 8.5pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(17, 17, 17, 0.65);
+      }
+
+      .article-body figure,
+      .article-body .article-figure,
+      .article-body picture,
+      .article-body .article-picture {
+        display: block;
+        max-width: 72mm;
+        margin: 0 auto 4mm;
+        break-inside: avoid;
+      }
+
+      .article-body img,
+      .article-body .article-image {
+        display: block;
+        max-width: min(100%, 72mm);
+        max-height: 34mm;
+        height: auto;
+        width: auto;
+        object-fit: contain;
+        margin: 0 auto 3mm;
+      }
+
+      .article-body figcaption {
+        margin-top: 1.5mm;
+        font-size: 8.5pt;
+        line-height: 1.3;
+        color: rgba(17, 17, 17, 0.8);
+      }
+
+      .article-note {
+        margin-top: 6mm;
+        padding-top: 3mm;
+        border-top: 1px solid #111;
+        font-size: 9pt;
+        font-style: italic;
+      }
+
+      @media screen {
+        body {
+          padding: 2rem;
+          margin: 0 auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    
+    <header class="masthead-compact">
+      <h1>Fred Talks</h1>
+      <p class="issue-date">
+        5<sup>th</sup> July 2026
+      </p>
+    </header>
+
+    <nav class="toc toc-compact">
+      <h2>Contents</h2>
+      <ol class="toc-list">
+        
+        <li class="toc-item">
+          <div class="toc-item-title">The Self-Help Trap: What 20+ Years of “Optimizing” Has Taught Me</div>
+          <div class="toc-item-meta">
+            Tim Ferriss · 3114 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Luddites and AI datacenters</div>
+          <div class="toc-item-meta">
+            seangoedecke.com RSS feed · 2789 words
+          </div>
+        </li>
+        
+      </ol>
+    </nav>
+    
+
+    
+    <article>
+      <h1>The Self-Help Trap: What 20+ Years of “Optimizing” Has Taught Me</h1>
+      <div class="article-meta">
+        Tim Ferriss
+        · 08 Mar 2026 · <a href="https://tim.blog/2026/03/04/the-self-help-trap/">Source</a>
+      </div>
+      <div class="article-body"><figure class="article-figure"><img alt="" data-lazy-sizes="(max-width: 1000px) 100vw, 1000px" data-lazy-src="https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image.jpeg?resize=1024%2C768&amp;ssl=1" data-lazy-srcset="https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image.jpeg?resize=1024%2C768&amp;ssl=1 1024w, https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image.jpeg?resize=300%2C225&amp;ssl=1 300w, https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image.jpeg?resize=768%2C576&amp;ssl=1 768w, https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image.jpeg?resize=1536%2C1152&amp;ssl=1 1536w, https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image.jpeg?w=1600&amp;ssl=1 1600w" data-ll-status="loaded" data-recalc-dims="1" sizes="(max-width: 1000px) 100vw, 1000px" src="https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image.jpeg?w=1600&amp;ssl=1" srcset="https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image.jpeg?resize=1024%2C768&amp;ssl=1 1024w, https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image.jpeg?resize=300%2C225&amp;ssl=1 300w, https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image.jpeg?resize=768%2C576&amp;ssl=1 768w, https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image.jpeg?resize=1536%2C1152&amp;ssl=1 1536w, https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image.jpeg?w=1600&amp;ssl=1 1600w" class="article-image"/><figcaption>One danger of modern self-help.</figcaption></figure>
+<blockquote> <p><strong>“We cannot reason ourselves out of our basic irrationality. All we can do is to learn the art of being irrational in a reasonable way.”<br/></strong> — Aldous Huxley, <em>Island</em></p> </blockquote>
+<p>It was cold out, but none of us were cold.</p>
+<p>I sat with five men in the mountains of Montana. As the sun set, the fire in the center cast dancing light on our faces. Reclined against fallen trees in a tight circle, we ate mushrooms and fish we’d found under trees and along streams. The whole crew burst into laughter yet again, and one of the guides passed around a fresh batch of pine needle tea.</p>
+<p>Bathed in warmth, I took off a layer and glanced skyward through an opening in the trees. The stars shone like crystals on black velvet, and the show—the biggest meteor shower of the year—was starting.</p>
+<p>In that moment, there was nothing to do. Nothing to improve. Nothing to fix.</p>
+<p>It was perfect.</p>
+<p>***</p>
+<p>The older I get, the more I think that self-help can be a trap. Sometimes the cure is worse than the disease. I say this after ~20 years of writing self-help and a lifetime of consuming it.</p>
+<p>Spend enough time in the world of “improvement,” and you’ll notice something strange: The people most obsessed with self-help are often the least helped by it. Behind the smiles and motivational quotes, behind closed doors and after a drink or two, the truth is that they’re not able to outsmart their worries.</p>
+<p>On one hand, perhaps this unhappiness is precisely what lands one in self-development in the first place, right? I long assumed this about myself, and it’s partially true.</p>
+<p>On the other hand, what if self-help <em>itself</em> is actually creating or amplifying unhappiness?</p>
+<p><em>Modern self-help contains an in-built flaw:</em></p>
+<p><strong><em>To continually improve yourself, you must continually locate the ways you are broken.</em></strong></p>
+<p>Fortunately, there are a few perspective shifts that make all the difference. It took me embarrassingly long to figure them out.</p>
+<p>To get started, let’s take a fresh look at an old concept.</p>
+<h3><strong>MASLOW’S HIERARCHY OF NEEDS?</strong></h3>
+<blockquote> <p><strong>“I suppose it is tempting, if the only tool you have is a hammer, to treat everything as if it were a nail.”<br/></strong>― Abraham Maslow</p> </blockquote>
+<p>Maslow’s Hierarchy of Needs has captured the minds of hundreds of millions. It offers simplicity in a terrifyingly complex world.</p>
+<p>Abraham Maslow’s “<a href="https://psychclassics.yorku.ca/Maslow/motivation.htm">A Theory of Human Motivation</a>” (1943) contains five levels, which are typically presented like the below pyramid. This one is pulled from <a href="https://en.wikipedia.org/wiki/Maslow%27s_hierarchy_of_needs">the Wikipedia entry</a> on the subject:</p>
+<figure class="article-figure"><img alt="" data-lazy-sizes="(max-width: 1000px) 100vw, 1000px" data-lazy-src="https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image.png?resize=1024%2C576&amp;ssl=1" data-lazy-srcset="https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image.png?resize=1024%2C576&amp;ssl=1 1024w, https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image.png?resize=300%2C169&amp;ssl=1 300w, https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image.png?resize=768%2C432&amp;ssl=1 768w, https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image.png?resize=1536%2C864&amp;ssl=1 1536w, https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image.png?w=1920&amp;ssl=1 1920w" data-recalc-dims="1" src="https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image.png?resize=1024%2C576&amp;ssl=1" class="article-image"/></figure>
+<p>We’ve all seen it. Clear as day, you can see the goal post at the top: self-actualization.</p>
+<p>LFG! It’s time to journal and 80/20 myself! Pass me a shaman and some modafinil.</p>
+<p>That’s the mission. That’s the point.</p>
+<p>Right?</p>
+<p>But hold on. A critical footnote got lost in the shuffle. In his later writings, especially notes compiled in <a href="https://www.amazon.com/Farther-Reaches-Human-Nature/dp/0140194703?tag=offsitoftimfe-20"><em>The Farther Reaches of Human Nature</em></a> (1971), Maslow added a <em>sixth</em> level above self-actualization:</p>
+<p><strong>Self-transcendence.<br/>
+<br/>
+</strong>That update never quite made it out of the crib. The consultants are to blame, but that comes later.</p>
+<p><strong>Self-transcendence means going beyond the self</strong> — seeking connection with something greater, such as service to others, nature, art, or the divine. Why is it important? Well, for one thing, as <a href="https://tim.blog/2014/10/15/money-master-the-game/">Tony Robbins</a> put it at an event long ago: “‘I, I, I, me, me, me’ gets to be a really fucking boring song.”</p>
+<p>But it’s not just a boring song; it’s dangerous to your health.</p>
+<h3><strong>DON’T BE A SOMO</strong></h3>
+<blockquote> <p><strong>“The man who renounces himself, comes to himself.” <br/></strong>— Ralph Waldo Emerson</p> </blockquote>
+<p>Self-help is dangerous precisely because it easily becomes self-fixation.</p>
+<p>A focus on improving the self usually first requires finding problems with the self. This is quite the pickle. In a society that rewards problem-solving, you can end up hallucinating or exaggerating unease in order to fix it. This leaves you always in the red, always one step behind. Imagine a dog chasing its tail that has committed to being unhappy until it catches the tail… but it’s always just a few inches short. Still, it whirls around and around, “doing the work.” Perfection always recedes by one more book, one more seminar, one more habit tracker.</p>
+<p>Put in more colorful terms, misdirected self-help turns you into a self-obsessed masturbatory <a href="https://en.wikipedia.org/wiki/Ouroboros">ouroboros</a> (SOMO).</p>
+<p>To remind me of the SOMO risk, I have this sticker on my laptop:</p>
+<figure class="article-figure"><img alt="" data-lazy-sizes="(max-width: 1000px) 100vw, 1000px" data-lazy-src="https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image.jpeg?resize=1024%2C768&amp;ssl=1" data-lazy-srcset="https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image.jpeg?resize=1024%2C768&amp;ssl=1 1024w, https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image.jpeg?resize=300%2C225&amp;ssl=1 300w, https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image.jpeg?resize=768%2C576&amp;ssl=1 768w, https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image.jpeg?resize=1536%2C1152&amp;ssl=1 1536w, https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image.jpeg?w=1600&amp;ssl=1 1600w" data-recalc-dims="1" src="https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image.jpeg?resize=1024%2C768&amp;ssl=1" class="article-image"/><figcaption><em><em>A picture is worth a thousand social media posts about yourself. Sticker from </em><a href="https://theporouswalker.com/products/plant-copy?_pos=1&amp;_sid=27cbc0341&amp;_ss=r"><em>Porous Walker</em></a><em>.</em></em></figcaption></figure>
+<p>Now, to be clear, I still love self-help. Ain’t no way Timmy can give up the sauce. There’s a place for it.</p>
+<p>From The Bible to Seneca, and from Ben Franklin to Stephen Covey and far beyond, there’s a lot of valuable advice worth taking. I used to mainline it all – no time to waste! – and jump straight into action. This did some good, but there was a lot of collateral damage.</p>
+<p>Why?</p>
+<p>Because there are at least three “tectonic plates of self-help” that I couldn’t see for decades, and they dictate how much net-positive or net-negative comes from all the striving. Before you sprint, you want to calibrate your direction.</p>
+<h3><strong>THE THREE TECTONIC PLATES OF SELF-HELP</strong></h3>
+<blockquote> <p><strong>“As to methods there may be a million and then some, but principles are few. The man who grasps principles can successfully select his own methods. The man who tries methods, ignoring principles, is sure to have trouble.”</strong><br/>— Harrington Emerson</p> </blockquote>
+<p>In the last few years, my life has become much more of a joy than a grind, and that’s because I’ve focused on three tectonic plates.</p>
+<p>Let’s take a close look at each.</p>
+<h3><strong>1. Intention</strong></h3>
+<p><em><strong>Individual or Social?</strong><br/>
+</em><br/>
+Americans, in particular, worship at the altar of the rugged individualist. There are clear upsides to this. But steeped in a culture – offline and especially online – that puts the self on a pedestal, we can take self-improvement to be an end unto itself: a better self.</p>
+<p>But is it an end unto itself? Does it automatically produce good things? I now have my doubts.</p>
+<p>Here’s one analogy I’ve drawn for myself.</p>
+<p>Let’s pretend that life is the game of soccer. You can work on the mechanics of soccer by yourself. You can always get better at dribbling, shooting, and running drills as a solo practitioner. You can read dozens of books, study tape, and earn a PhD in the physics of ball flight. You can post videos of stunning shots on YouTube and get showered by emojis.</p>
+<p>But none of this is actually playing the game of soccer.</p>
+<p>You can spend your whole life preparing for, instead of playing, the game of life.</p>
+<p>But why would anyone, including yours truly, succumb to this?</p>
+<p>Subconsciously, it spares you from the messiest but most rewarding game of all: human interaction. Perhaps people hurt or traumatized you long ago. You might also justify the endless polishing, as I did, with some version of “Once I’ve perfected myself, then I’ll be ready for relationships.” But here’s the rub: that practice is exactly endless. You can always get better at dribbling and penalty kicks.</p>
+<p>Digging further, focusing on improving the self is often in service of trying to control the world, especially if things were unpredictable or unstable when growing up. Banish emotion, live by spreadsheets, and all can be well. All can be <em>controlled</em>, or so the illusion goes. But as soon as you’re interacting with – let alone depending on – other people, control as a construct goes out the window. And so we consciously or subconsciously avoid the messiness. This is also one of the reasons why a lot of optimizing achiever folks have a hard time in intimate relationships.</p>
+<p>So how do I think about “self-help” now, having realized all of the above?</p>
+<p>It is refreshingly simple: the goal is to build and improve my relationships. The sooner you get on the real field with real players, the sooner you can get to playing soccer and engaging with life. No more auto-fellating, even with the best of intentions. We’ve evolved over millions of years to be deeply social creatures, and the more you dodge that IN REAL PHYSICAL LIFE, the more you will suffer. This is why solitary confinement in prisons is often considered cruel and unusual punishment… and yet we do it to ourselves all the time.</p>
+<p>There are a few questions that help corral this tectonic plate of <em>intention</em>:</p>
+<ul> <li>How does any given “self-help” help me in my relationships, and how can I apply it with other people <em>today</em> or <em>this week</em>?</li> <li>How can I take the ship out of the harbor and test it where it counts?</li> </ul>
+<h3><strong>2. Audience</strong></h3>
+<p><strong><em>Do you have an audience for your self-development? If so, be careful.</em></strong></p>
+<p>Nary a minute can be spent on social media without bumping into a CAPS-rich “HOW X CHANGED MY LIFE” or a photo carousel of an ayahuasca retreat. If only Costa Rica got a dime for every bikini-clad healer under a waterfall!</p>
+<p>Welcome to the theater of performative self-help. I won’t belabor this, as we’ve all seen it, but I suggest reading about the <a href="https://www.gurwinder.blog/p/the-perils-of-audience-capture">insidious creep of audience capture here</a>, and don’t forge ahead in the fame game before reading <a href="https://tim.blog/2020/02/02/reasons-to-not-become-famous/">11 reasons not to become famous</a>. It’s hard to put the genie back in the bottle, so you should know what that genie will do to your life.</p>
+<p>But the truth is that most of us aren’t extreme examples of this. But even minor tendencies in this direction can do extreme damage over time.</p>
+<p>Below are a few questions that I’ve found helpful for nudging this particular tectonic plate in the right direction:</p>
+<ul> <li>If you couldn’t tell a soul about “the work” you’re doing, would you still do it? If not, you’re not developing yourself; you’re curating yourself. </li> <li>How has sharing your personal development created tradeoffs? </li> <li>If you <em>had to</em> take down 20% of your most popular posts, which would you take down and why?</li> <li>Are you describing strong catalysts (psychedelics, The Hoffman Process, you name it) instead of doing the post-session integration that makes them truly valuable?</li> <li>Have you become more robust or more fragile by offering your inner workings up to public vote? </li> <li>Has your social presence made you more or less of the person you want to be? How would the you of three or five years ago feel about your last year of posts? What about the you of 10 years from now?</li> </ul>
+<h3><strong>3. Assumption</strong></h3>
+<p><strong><em>What are the fundamental assumptions behind your doing “the work”?</em></strong></p>
+<p>Let’s begin with <a href="https://essenceofbuddhism.wordpress.com/2014/05/18/ajahn-chah-and-the-big-heavy-boulder/">a Buddhist parable</a> that I first heard from the incredible <a href="https://tim.blog/2023/07/28/jack-kornfield-3/">Jack Kornfield</a>.</p>
+<blockquote> <p><em>The old Master points to a big boulder and asks a disciple, “See that large rock over there?”</em></p> <p><em>“Yes”, says the disciple.</em></p> <p><em>“Do you think it’s heavy?” continues the Master.</em></p> <p><em>“Yes, it’s very heavy!” replies the student.</em></p> <p><em>“Only if you pick it up,” smiles the Master.</em></p> </blockquote>
+<p>Once again, the fundamental assumption behind self-help is often this: Something is not OK. Something is wrong. Something is not enough. Something needs fixing. If I can’t find it, I’ll create it.</p>
+<p>We’ve established this. But there is a follow-on assumption that matters a lot.</p>
+<p><em>If I fix the things that aren’t OK, all will be well. If I improve myself enough, if I only work hard enough, I can finally eliminate my suffering.</em></p>
+<p>I hate to inform you, but this doesn’t work. I’m also thrilled to inform you that this doesn’t work. You can stop picking up a lot of boulders.</p>
+<p>There is one book that most opened my eyes to this reframe – <a href="https://www.amazon.com/Already-Free-Buddhism-Psychotherapy-Liberation/dp/1622034112?tag=offsitoftimfe-20"><em>Already Free: Buddhism Meets Psychotherapy on the Path of Liberation</em></a> by Bruce Tift. It offers a terrifying but ultimately liberating realization: there is no perfect escape from suffering. It doesn’t exist. But there is a way to find your long-sought unclenching, and it lies in cultivating your skill of acceptance as much as that of improvement.</p>
+<p>Now, I can hear the chorus: <em>Has Tim gone soft? Given up the good fight? Is he telling everyone to chill after he himself red-lined and got the spoils? How convenient!</em> <em>And…</em></p>
+<p>Hold on a second. I’m telling you – intelligent acceptance is high-leverage. It’s probably one of the highest forms of leverage. This is an approach that helps preserve your energy for where it really matters. My early forays into Stoicism and <a href="https://tim.blog/2017/07/06/tao-of-seneca/">Seneca The Younger</a> helped set the conditions for my biggest wins from 2004-2010. Still, I only learned a small fraction of what I needed.</p>
+<p>So how do you cultivate your skill of acceptance without becoming complacent?</p>
+<p>This is a big question and what I love about Bruce’s book. Compared to a strictly Western or purely Eastern book, he blends them and offers a surgical guide to using <em>both</em> action and acceptance. You don’t have to be a bull in a china shop or a cow in the rain; there is a middle path. That middle path is where all the gold is buried.</p>
+<p>If the only tool you have is “self-improvement,” you’ll become a hammer looking for nails in a world that is 50% screws. I tried it. It can create the veneer of success, but it will leave your inner world in turmoil.</p>
+<p>Suffice to say, the dual dance is the most joyful. Upgrade your toolkit with that in mind. Read Bruce’s book. If it doesn’t click, try <a href="https://www.amazon.com/Radical-Acceptance-Embracing-Heart-Buddha/dp/0553380990/?tag=offsitoftimfe-20"><em>Radical Acceptance: Embracing Your Life with the Heart of a Buddha</em></a> by Tara Brach, which had a large impact on my life a decade before I found Bruce’s book. In a sense, <a href="https://tim.blog/2017/07/06/tao-of-seneca/">the writing of Seneca</a> prepared me for <a href="https://www.amazon.com/Radical-Acceptance-Embracing-Heart-Buddha/dp/0553380990/?tag=offsitoftimfe-20">Tara</a>, which then prepared me for <a href="https://www.amazon.com/Already-Free-Buddhism-Psychotherapy-Liberation/dp/1622034112?tag=offsitoftimfe-20">Bruce</a>. So grab them all and thank me later.</p>
+<p>If you want serenity, you need to be able to put the <a href="https://en.wikipedia.org/wiki/Serenity_Prayer#Versions">Serenity Prayer</a> into practice. Seriously, <a href="https://www.instagram.com/reels/DTyC9AgCak3/">I read it all the time</a>.</p>
+<h3><strong>MASLOW’S HAMBURGER OF NEEDS?</strong></h3>
+<blockquote> <p><strong>“The more one forgets himself—by giving himself to a cause to serve or another person to love—the more human he is and the more he actualizes himself. What is called ‘self-actualization’ is not an attainable aim at all, for the simple reason that the more one would strive for it, the more he would miss it. In other words, self-actualization is possible only as a side-effect of self-transcendence.”</strong><br/>― Viktor E. Frankl</p> </blockquote>
+<p>How can we easily keep ourselves on the right track?</p>
+<p>As I remind myself these days: <strong>It’s the relationships, stupid.</strong></p>
+<p>For a nice simple visual, let’s revise Maslow’s pyramid with all of this in mind. This is easy, as Maslow never drew his model as a rigid pyramid!</p>
+<p>He described “classes” of needs that were unfixed, overlapping, and that could reverse in order. And believe it or not, self-actualization was only ever for the “self-actualizing minority.” In the 1960s, his work was co-opted by consultants and corporate trainers who needed a progression to sell. <a href="https://qz.com/work/1588491/maslow-didnt-make-the-pyramid-that-changed-management-history">True story</a>.</p>
+<p>Given all this, and after decades of trial and error, here’s where I’ve landed:</p>
+<p><strong>Maslow’s Hamburger of Needs.</strong></p>
+<p>Ahhh… what? Not to worry. It’s the same good ol’ Maslow ingredients, but I think of it as a hamburger:</p>
+<figure class="article-figure"><img alt="" data-lazy-sizes="(max-width: 1000px) 100vw, 1000px" data-lazy-src="https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image-1.png?resize=1024%2C683&amp;ssl=1" data-lazy-srcset="https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image-1.png?resize=1024%2C683&amp;ssl=1 1024w, https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image-1.png?resize=300%2C200&amp;ssl=1 300w, https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image-1.png?resize=768%2C512&amp;ssl=1 768w, https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image-1.png?w=1536&amp;ssl=1 1536w" data-recalc-dims="1" src="https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image-1.png?resize=1024%2C683&amp;ssl=1" class="article-image"/></figure>
+<p>For our purposes, the meat, the whole point of the hamburger, is that middle layer: relationships. That is the center of life. The heartbeat.</p>
+<p>As luck would have it, when you improve the heartbeat, it also feeds everything else.</p>
+<p>You’ll notice that the meat contains Abe’s most-important addendum—the sixth level of self-transcendence. Focusing on things bigger than yourself is a critical piece of the ultimate puzzle. Faith, nature, family, meditation, causes that outlive you, etc. – take your pick. But be careful. If you do it to inflate the ego or impress others, it’s self-obsession again, not self-transcendence. If you need credit, it doesn’t count.</p>
+<p>Of course, it should go without saying but the top and bottom layers matter a lot. A hamburger is a giant mess without the bun. Friends will get sick of you crashing on their couch and eating their food.</p>
+<p>But the bread and dressing layers exist to serve the middle. That’s the payload. Everything is in service of the payload. And the payload circulates benefits back to the edges, and then the cycle repeats. Even if you think this is oversimplified claptrap, temporarily assuming it’s true will help you.</p>
+<p>What if nearly everything you focused on — calendar, habits, goals — aimed to improve your relational life somehow? What if you took this as a challenge for even a week? Your lens on the world changes dramatically.</p>
+<p>You say yes differently.<br/>
+You say no more clearly.<br/>
+Your to-do list for life slowly transforms.</p>
+<p><strong>What if all that you focused on, all that you do, had to improve that middle layer in some fashion?</strong></p>
+<p>It’s a damn hard question if you’ve been on the <em>self</em>-help train for a while. I get it.</p>
+<p>So let’s try something easier: <strong>What if it only changed how you approach your to-do list? Try hamburger-first each day for 1-2 weeks and tell me what happens. Add and do the things that improve your relational life FIRST. Nothing on the list? Create something. It could be as simple as cooking dinner for your spouse, complimenting at least three people a day for a week, or introducing yourself to the barista you see every morning. Getting started is how you get grooving.</strong></p>
+<h3><strong>ARE YOU DOING SELF-HELP, OR IS SELF-HELP DOING YOU?</strong></h3>
+<blockquote> <p><strong>For friendship makes prosperity more shining and lessens adversity by dividing and sharing it.</strong><br/>— Marcus Tullius Cicero</p> </blockquote>
+<p>In his <a href="https://tim.blog/2016/01/22/the-tao-of-seneca/"><em>Moral Letters to Lucilius</em></a>, Seneca the Younger famously wrote that “These individuals [who put money at the center of life] have riches just as we say that we ‘have a fever,’ when really the fever has us.”</p>
+<p>What if self-help is similar?</p>
+<p>Obsessing over the self never provides peace. It cannot make you whole, as you aren’t the whole. Becoming whole starts by putting down the rock you didn’t even know you were carrying.<br/>
+<em><br/>
+</em>Because at the end of the day—and at the end of a Montana night—the point was never yourself.</p>
+<p>It was never the pyramid.</p>
+<p>It was never the optimization.</p>
+<p>It was the people around the fire.</p>
+<h3>Share this:</h3>
+<ul data-sharing-events-added="true"><li><a data-shared="sharing-twitter-113812" href="https://tim.blog/2026/03/04/the-self-help-trap/?share=twitter&amp;nb=1"> Share on X (Opens in new window) X </a></li><li><a data-shared="sharing-facebook-113812" href="https://tim.blog/2026/03/04/the-self-help-trap/?share=facebook&amp;nb=1"> Share on Facebook (Opens in new window) Facebook </a></li><li><a data-shared="sharing-linkedin-113812" href="https://tim.blog/2026/03/04/the-self-help-trap/?share=linkedin&amp;nb=1"> Share on LinkedIn (Opens in new window) LinkedIn </a></li><li><a data-email-share-error-text="If you&#x27;re having problems sharing via email, you might not have email set up for your browser. You may need to create a new email yourself." data-email-share-error-title="Do you have email set up?" data-email-share-nonce="715f07735d" data-email-share-track-url="https://tim.blog/2026/03/04/the-self-help-trap/?share=email" data-shared="sharing-email-113812" href="mailto:?subject=%5BShared%20Post%5D%20The%20Self-Help%20Trap%3A%20What%2020%2B%20Years%20of%20%22Optimizing%22%20Has%20Taught%20Me&amp;body=https%3A%2F%2Ftim.blog%2F2026%2F03%2F04%2Fthe-self-help-trap%2F&amp;share=email&amp;nb=1"> Email a link to a friend (Opens in new window) Email </a></li><li><a href="https://tim.blog/2026/03/04/the-self-help-trap/#">More</a></li></ul></div>
+      
+    </article>
+    
+    <article>
+      <h1>Luddites and AI datacenters</h1>
+      <div class="article-meta">
+        seangoedecke.com RSS feed
+        · 22 Apr 2026 · <a href="https://seangoedecke.com/luddites-and-ai-datacenters/">Source</a>
+      </div>
+      <div class="article-body"><p>Is it time to start burning down datacenters?</p>
+<p>Some people think so. An Indianapolis city council member had his house recently <a href="https://www.kbtx.com/2026/04/07/councilman-says-someone-fired-shots-his-home-left-no-data-centers-note/">shot up</a> for supporting datacenters, and Sam Altman’s home was <a href="https://www.wired.com/story/sam-altman-home-attack-openai-san-franisco-office-threat/">firebombed</a> (and then <a href="https://sfstandard.com/2026/04/12/sam-altman-s-home-targeted-second-attack/">shot</a>) shortly afterwards. People from all sides of the argument are <a href="https://www.bloodinthemachine.com/p/why-the-ai-backlash-has-turned-violent">sounding</a> the <a href="https://thesoufancenter.org/intelbrief-2025-november-5/">alarm</a> about imminent violence.</p>
+<p>The obvious historical comparison is <a href="https://en.wikipedia.org/wiki/Luddite">Luddism</a>, the 19th-century phenomenon where English weavers and knitters destroyed the machines that were automating their work, and (in some cases) killed the machines’ owners. Anti-AI people are <a href="https://www.theguardian.com/commentisfree/article/2024/jul/27/harm-ai-artificial-intelligence-backlash-human-labour">reclaiming</a> the term to describe themselves, and many of the leading lights of the anti-AI movement (like <a href="https://www.bloodinthemachine.com/">Brian Merchant</a> or <a href="https://www.versobooks.com/en-gb/products/688-breaking-things-at-work?srsltid=AfmBOorCgru7ReSwbVdt40nZmQaaeGfbpjLV7epM0fSv_V01QSY5b5TP">Gavin Mueller</a>) have written books arguing more or less that the Luddites were right, and we ought to follow their example in order to resist AI automation<sup><a href="https://www.seangoedecke.com/luddites-and-ai-datacenters/#fn-1">1</a></sup>.</p>
+<p>Like many people, I have heard a lot about Luddism and Luddites, but only in the context of it being a general term for someone who is anti-technology. I was interested in learning more about the actual historical movement: what kind of people participated, what it was, and what it accomplished. I read Merchant’s and Mueller’s books, plus others<sup><a href="https://www.seangoedecke.com/luddites-and-ai-datacenters/#fn-2">2</a></sup>, to try and figure all of this out. Who were the actual, historical Luddites? What can we learn from them about burning down datacenters?</p>
+<h3>Who were the Luddites?</h3>
+<p>The Luddites were a decentralized movement of artisans in the 1810s who engaged in violent protest - smashing machines, threatening violence, and ultimately killing people - over the fact that their jobs were being automated away. They were not rich, but they were certainly not unskilled labor: these were people who had apprenticed for <a href="https://archive.org/stream/extractsfromrec01dendgoog/extractsfromrec01dendgoog_djvu.txt?utm_source=chatgpt.com">seven years</a>. They were mostly working from home, producing cloth from raw material given to them by their employer, often with tools rented from that same employer. They were working short weeks (three days, per William Gardiner) at their own discretion.</p>
+<p>In the early 1800s, their skilled labor was becoming unnecessary. With the help of expensive machines, unskilled labor could now produce lower-quality cloth, so employers were beginning to pass over these artisans in favor of cheaper employees: <a href="https://campus.murraystate.edu/academic/faculty/kBinfield/luddites/LudditeHistory.htm">children, unapprenticed workers, and women</a><sup><a href="https://www.seangoedecke.com/luddites-and-ai-datacenters/#fn-3">3</a></sup>. Combined with the bad economic position of England at the time (at war with France, and thus deliberately cutting off much European trade), times were beginning to be very tough indeed. Starvation was a real threat.</p>
+<h3>What did they do?</h3>
+<p>Cloth artisans were groups of capable men who were used to getting their own way, knew each other very well, and were broadly respected in their communities. It was thus a natural response for them to organize into what was effectively a militant union. The Luddites would send anonymous threatening letters to their old (or current) bosses, warning them to stop using their machines. If they didn’t comply, they would raid the workshop or factory, smashing the machines up.</p>
+<p>They typically did not harm people, though they certainly delivered threats of bodily harm or even murder, and the raids were violent enough (e.g. shooting through windows) to have risked accidental deaths. In at least two instances where a factory owner was seen as unusually cruel, the Luddites did attempt assassinations: one unsuccessful, and one successful one that eventually prompted a crackdown that ended the movement for good.</p>
+<p>Luddism was fully decentralized. Different communities could and did decide to engage in machine-raiding independently, particularly when news spread of the tactic succeeding. Although each community had its own influential men, there was never a single “leader of Luddism”. King Ludd himself was a folk-tale figure. This made it an absolute nightmare for the British government to try and suppress them: putting down one Luddist group did nothing to prevent other groups from continuing to operate.</p>
+<h3>All the king’s spies</h3>
+<p>I was surprised by how <em>difficult</em> it was for the government to get a hold of any of the local Luddist ringleaders. The government was willing to offer huge rewards to informers: at one point up to 40x the yearly wage. However, there were no takers for several years. Armies of spies were recruited and tasked with infiltrating Luddist groups, with absolutely no success.</p>
+<p>Why was it so hard? Firstly, because the working class was so overwhelmingly pro-Luddist. People universally blamed the economic situation on the government and the factory owners (rightfully so, since the government had chosen to go to war and the factory owners had chosen to embrace automation). Secondly, the communities in question were so insular and tightly-knit that informers would have to rat on their friends and relatives. The handful of people who did eventually inform lived out the rest of their lives as pariahs.</p>
+<p>Because each group was so insular, any spies trying to infiltrate the movement would have been complete strangers to the community, and would thus have a very hard time gaining the trust of a group of men who had known each other for their whole lives. The spies that did exist were restricted to the occasional inter-group Luddist meetings, where people didn’t all know each other so closely. But it’s unclear how important those meetings were, since Luddist groups didn’t need to coordinate to achieve their goals. According to Merchant, the spies spent much of their time embellishing tales of an imminent revolution to encourage their employers to keep the money flowing.</p>
+<h3>The crackdown</h3>
+<p>In the absence of reliable information, the British government was forced to use force. And they did, sending 12,000 troops<sup><a href="https://www.seangoedecke.com/luddites-and-ai-datacenters/#fn-4">4</a></sup> into the northern counties. This served mainly as an intimidation tactic, since there was no standing Luddite army to fight, and the soldiers spent most of their time marching back and forth or being abused by the townspeople.</p>
+<p>More successful was the imposition of a full police state in Yorkshire, under the magistrate Joseph Radcliffe, who was empowered to randomly grab people off the street and interrogate them for days. That pressure eventually convinced a handful of people to give up their local Luddist organizers, who were tried and inevitably hanged. Their deaths (and the ensuing climate of fear) ended the high-water mark of Luddist activity. Even then, Luddist raids continued on and off for <em>six more years</em> before petering out.</p>
+<h3>Did the Luddites succeed?</h3>
+<p>This is a tricky question. In one sense the answer is obviously no: the movement was crushed, many of their leaders were executed, the textile industry continued to be automated, and today there are no longer thousands of jobs for skilled British weavers, knitters, spinners and dyers. The pro-automation side won.</p>
+<p>However, they did achieve a number of short-lived victories. Their early threats often succeeded in preventing the building of a factory in a particular location, or in delaying the adoption of industrial machinery in a particular shop by years. In one case, hosiers that had been spooked by Luddite activity gave out pre-emptive bonuses to their workers to discourage them from smashing up their machines (which were indeed not smashed).</p>
+<p>The Luddites also scared the hell out of the British government, who (encouraged by their over-eager spies) thought they might have a genuine revolution on their hands. While they didn’t get many legal concessions at the time, the specter of Luddism must have loomed over the labor reform movement of the 1800s, which saw the first anti-child-labor laws and the beginnings of independent inspection of factories.</p>
+<p>Finally, every book I read argued that the Luddism movement may have created the first idea of a “working class”, by unifying many previously-independent groups of workers against a common enemy. Seen this way, the “political arm”<sup><a href="https://www.seangoedecke.com/luddites-and-ai-datacenters/#fn-5">5</a></sup> of Luddism can arguably claim partial credit for every labor victory since the 1800s (though the ringleaders were still hanged and the weavers did still lose their jobs).</p>
+<h3>The Luddist approach in a nutshell</h3>
+<p>We can now describe the “Luddist approach” to fighting technological change:</p>
+<ol> <li>Find a few conspirators in your existing community who agree with your political project (but don’t join a broader organization, since that leaves you vulnerable)</li> <li>Make public anonymous demands in support of your specific goals, backed up by threats of violence, signed by a fictional character that’s easy for other groups to appropriate</li> <li>If your threats are ignored, attack the physical machines in the dead of night, destroying them and threatening (but not killing) any guards</li> <li>Hope your example inspires many more people to independently do (1)-(3) themselves</li> <li>Keep raiding, optionally escalating to assassination of some of the bosses, until you bait a totalitarian crackdown from the government </li> <li>Eventually get arrested and executed, to great public dismay</li> <li>Twenty years later, your example inspires the first national trade unions</li> </ol>
+<p>Note that starting or joining a national movement is <em>not</em> the Luddist approach. Staying almost entirely isolated in small cells helped the Luddists avoid government spies and made them impossible to root out without enforcing a police state. Note also that you need a <em>lot</em> of public support for this to work: so that you get a lot of copycat groups without having to explicitly organize them, and so that your property destruction and murder is taken sympathetically instead of getting you immediately reported and arrested.</p>
+<h3>Why Luddism is not a good model for the anti-AI movement</h3>
+<p>There are many reasons why this doesn’t map onto the current anti-AI movement. First, Luddism grew from a homogeneous group of high-status workers whose jobs almost vanished overnight, not a broad group of people whose jobs are getting slightly worse because of AI (like the gig-economy workers Merchant endlessly references). That meant that Luddites had <em>really specific</em> asks: higher wages for piecework, a phased introduction of specific textiles machinery, and so on. They were not generally demanding that the machines all be immediately destroyed<sup><a href="https://www.seangoedecke.com/luddites-and-ai-datacenters/#fn-6">6</a></sup>.</p>
+<p>Second, Luddism was very local. A pre-existing group of artisans in a particular town would gather in that town - either at work or an inn, say - and decide to petition or raid the businesses in that town that were harming their livelihoods. AI concerns are not like this. It isn’t businesses in Chicago or Tokyo that are making decisions that imperil Chicago’s or Tokyo’s jobs, it’s businesses in San Francisco. Unlike the Luddists, anti-AI activists can’t naturally organize with people they already know to take direct action where they already live.</p>
+<p>Third, Luddist <em>victory</em> could also be local. If you successfully lobby your local cloth business to not use a weaving machine, you have secured your job at that business for a while. But if you successfully lobby your town (or even your country!) to not build a datacenter, it doesn’t meaningfully improve your local position, since your job can be as easily replaced by a datacenter on the other side of the planet.</p>
+<h3>A total failure of leadership</h3>
+<p>Reading through the history of the Luddites from a modern perspective, I was struck by the near-total absence of <em>good government</em>. The artisans were left to work out their grievances with their bosses more or less by themselves, with no formal channels for complaint or any attempt at mediation. When the government did intervene - in response to near-universal unrest in <em>half of the country</em> - they did this:</p>
+<ol> <li>Make machine-breaking and oath-taking capital crimes</li> <li>Dump thousands of soldiers more or less at random into the area, with no plan to guard factories or do anything beyond just hang around in case a revolution broke out</li> <li>Empower a single magistrate to arrest and interrogate whoever he wanted in order to root out the conspiracy</li> </ol>
+<p>I suppose it worked, in the sense that it eventually succeeded in stopping the Luddist raids. But I can’t help but think that even a token gesture of compromise (say, requiring employers to make their wages public, or restricting the most cheap-and-nasty factory-made textile products) would have gone a long way towards calming things down. This almost actually happened! The 1812 Framework Knitters’ Bill, which had these provisions in it, passed the House of Commons but was shot down in the House of Lords.</p>
+<p>Why did the government fail to even make a token attempt at compromise? Before the industrial revolution, I wonder if the workers and bosses of the English textiles industry were genuinely able to often just work out their problems together, so the government never really needed to do large-scale mediation. When that changed - when automation first made it possible for the bosses to durably “win” - government took a long time to realize, so there were some unpleasant decades of disempowered workers trying to bully factory-owners (via riots and death threats), and factory-owners trying to brutalize workers (via direct violence and automation).</p>
+<h3>Final thoughts</h3>
+<p>The Luddites weren’t anti-technology in general. Instead, they were against four or five specific machines that were automating away their skilled work. Contrary to many of the books I read, I think that’s actually fairly well understood today. But what surprised me was how truly decentralized and widespread the movement was. Every town with weavers faced the same incentives (the bosses to industrialize, and the workers to fight back) which created Luddism locally. And <em>nobody</em> was willing to report the Luddites: not for years, or for what would have been a fortune in cash, or in disagreement with their actions. They were only stopped by a truly fascist crackdown, with the army in the streets and the secret police pulling away random citizens for arrest and questioning.</p>
+<p>I can see why modern “Luddites” - who are genuinely anti-technology - talk so much about the legacy of original Luddites. Luddism was a grassroots organization which notched up some real short-term wins, enjoyed near-total support among the public, and didn’t seem to be troubled by infighting at all<sup><a href="https://www.seangoedecke.com/luddites-and-ai-datacenters/#fn-7">7</a></sup>. If you’re an anti-AI campaigner, I bet all of that sounds great<sup><a href="https://www.seangoedecke.com/luddites-and-ai-datacenters/#fn-8">8</a></sup>. But I’m not convinced that the neo-Luddites really are the inheritors of Luddism. A load-bearing feature of Luddism is that it was <em>local</em>: it didn’t have manifestos, or leaders, or factions, or even much explicit ideology beyond the artisans’ immediate practical concerns. These were local men striking back against the local factories harming their local jobs. That simply isn’t the case with AI, where a datacenter in China can take my job in Australia.</p>
+<p>If it isn’t time to start burning down datacenters, what can we do? Well, workers today are better off than the Luddites were, because we stand on their shoulders. Unlike the Luddites, today’s workers can all vote (and I suspect there will be no shortage of anti-AI candidates to vote for). It’s a much less exciting answer to say “try and get better laws passed” than to say “viva the revolution, where’s my Molotov cocktail”. Still, if the Luddites had that option, I suspect they would have used it.</p>
+<ol> <li> <p>I got linked <a href="https://tante.cc/2026/04/21/ai-as-a-fascist-artifact/">this article</a> calling AI a “fascist artifact” (on a blog called “Breaking Frames”, a clear reference to Luddism) while I was writing this blog post.</p> <a href="https://www.seangoedecke.com/luddites-and-ai-datacenters/#fnref-1">↩</a> </li> <li> <p>I really enjoyed Merchant’s book and did not enjoy Mueller’s (which I found to be 10% about the Luddites and 90% about interminable intra-Marxist ideological arguments). I also read <a href="https://www.amazon.com.au/Luddites-Protested-Machinery-Industrial-Revolution/dp/171936186X">The Luddites</a>, which was effectively a dry summary of the ground Merchant covers, a bunch of other essays, and went back and forth with ChatGPT and Claude on some of the key questions.</p> <a href="https://www.seangoedecke.com/luddites-and-ai-datacenters/#fnref-2">↩</a> </li> <li> <p>Merchant (around page 134) attempts to characterize Luddism as a pro-feminist movement, citing some examples of women helping organize raids, but later on even he (page 162) quotes a representative of the Irish weaver’s guild effectively saying “we don’t have your English problems of women working in the industry”. In general it’s a bit frustrating that the popular books on Luddism are all fairly uncritically pro-Luddist (though not surprising, I suppose). Merchant doesn’t touch at all on the Luddist <a href="https://ludditebicentenary.blogspot.com/2011/12/22nd-december-1811-william-milnes.html">practice</a> of going around to knitting-shops with women and “discharging them from working”.</p> <a href="https://www.seangoedecke.com/luddites-and-ai-datacenters/#fnref-3">↩</a> </li> <li> <p>Sometimes this is described as more troops that were sent to fight Napoleon (even by Merchant himself on page 89), but that <a href="https://medium.com/@antonhowes/were-more-troops-sent-to-quash-the-luddites-than-to-fight-napoleon-233c802c216d">isn’t right</a>.</p> <a href="https://www.seangoedecke.com/luddites-and-ai-datacenters/#fnref-4">↩</a> </li> <li> <p>In quotes because it was not an official Luddist group (there were none), just people who were trying to stop the violence through lobbying and legislation.</p> <a href="https://www.seangoedecke.com/luddites-and-ai-datacenters/#fnref-5">↩</a> </li> <li> <p>Otherwise why would any boss agree, instead of just waiting for the Luddites to do it themselves?</p> <a href="https://www.seangoedecke.com/luddites-and-ai-datacenters/#fnref-6">↩</a> </li> <li> <p>As far as I can tell this is true: the Luddists basically had no internal conflict. I think this is because each individual cell knew each other well already, and so handled their disagreements privately (instead of by writing pamphlets), and disagreements between cells didn’t matter that much because they had no need to coordinate.</p> <a href="https://www.seangoedecke.com/luddites-and-ai-datacenters/#fnref-7">↩</a> </li> <li> <p>It beats the hell of the other popular reference, Dune’s <a href="https://dune.fandom.com/wiki/Butlerian_Jihad">Butlerian Jihad</a>, which was two generations of brutal violence followed by the reimposition of the feudal system. (Although, at least the Butlerian Jihad <em>succeeded</em>…)</p> <a href="https://www.seangoedecke.com/luddites-and-ai-datacenters/#fnref-8">↩</a> </li> </ol></div>
+      
+    </article>
+    
+  </body>
+</html>
