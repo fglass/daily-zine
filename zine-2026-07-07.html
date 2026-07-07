@@ -1,0 +1,420 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Fred Talks - 2026-07-07</title>
+    <style>
+      @page {
+        size: A5;
+        margin: 8mm 9mm 9mm;
+      }
+
+      :root {
+        color: #111;
+        font-family: "Times New Roman", Times, serif;
+        --body-text-size: 9.5pt;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        color: #111;
+        background: #fff;
+        font-family: "Times New Roman", Times, serif;
+        line-height: 1.45;
+      }
+
+      a,
+      a:visited {
+        color: #111;
+        text-decoration: underline;
+      }
+
+      .cover {
+        min-height: calc(210mm - 17mm);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        page-break-after: always;
+        border: 1px solid #111;
+        padding: 8mm;
+        background: #fff;
+      }
+
+      .toc-item-meta,
+      .article-meta {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .masthead {
+        margin: 0;
+        font-size: 40pt;
+        line-height: 0.95;
+        text-transform: uppercase;
+      }
+
+      .issue-date {
+        margin: 4mm 0 0;
+        font-size: 14pt;
+      }
+
+      .issue-date sup {
+        font-size: 0.58em;
+        vertical-align: super;
+        line-height: 0;
+      }
+
+      .cover-deck {
+        max-width: 90mm;
+        font-size: 12pt;
+        margin: 0;
+      }
+
+      .toc {
+        border-top: 3px solid #111;
+        padding-top: 6mm;
+      }
+
+      .toc h2 {
+        margin: 0 0 4mm;
+        font-size: 11pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .toc-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .toc-item {
+        padding: 3mm 0;
+        border-bottom: 1px solid rgba(17, 17, 17, 0.2);
+      }
+
+      .toc-item-title {
+        font-size: 12pt;
+        margin: 0 0 1mm;
+      }
+
+      .toc-item-meta {
+        font-size: 8pt;
+      }
+
+      .masthead-compact {
+        margin: 0 0 6mm;
+      }
+
+      .masthead-compact h1 {
+        margin: 0;
+        font-size: 22pt;
+        line-height: 1.1;
+        text-transform: uppercase;
+      }
+
+      .masthead-compact .issue-date {
+        margin: 2mm 0 0;
+        font-size: 11pt;
+      }
+
+      .toc-compact {
+        border-top: 1px solid #111;
+        border-bottom: 1px solid #111;
+        padding: 4mm 0;
+        margin: 0 0 8mm;
+      }
+
+      article + article {
+        margin-top: 10mm;
+        padding-top: 6mm;
+        border-top: 2px solid #111;
+      }
+
+      h1 {
+        margin: 0 0 2mm;
+        font-size: 18pt;
+        line-height: 1.1;
+      }
+
+      .article-meta {
+        font-size: 8.5pt;
+        margin-bottom: 6mm;
+        padding-bottom: 3mm;
+        border-bottom: 1px solid #111;
+      }
+
+      .article-body {
+        font-size: var(--body-text-size);
+        font-family: "Times New Roman", Times, serif;
+      }
+
+      .article-body p,
+      .article-body li,
+      .article-body blockquote,
+      .article-body dd,
+      .article-body dt {
+        margin: 0 0 4mm;
+        orphans: 3;
+        widows: 3;
+      }
+
+      .article-body ul,
+      .article-body ol,
+      .article-body dl {
+        margin: 0 0 4mm 5mm;
+        padding: 0;
+      }
+
+      .article-body h2,
+      .article-body h3,
+      .article-body h4 {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        margin: 7mm 0 3mm;
+        line-height: 1.2;
+      }
+
+      .article-body blockquote {
+        margin-left: 6mm;
+        padding-left: 4mm;
+        border-left: 2px solid #111;
+      }
+
+      .article-body .media-omitted {
+        margin: 0 0 4mm;
+        font-size: 8.5pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(17, 17, 17, 0.65);
+      }
+
+      .article-body figure,
+      .article-body .article-figure,
+      .article-body picture,
+      .article-body .article-picture {
+        display: block;
+        max-width: 72mm;
+        margin: 0 auto 4mm;
+        break-inside: avoid;
+      }
+
+      .article-body img,
+      .article-body .article-image {
+        display: block;
+        max-width: min(100%, 72mm);
+        max-height: 34mm;
+        height: auto;
+        width: auto;
+        object-fit: contain;
+        margin: 0 auto 3mm;
+      }
+
+      .article-body figcaption {
+        margin-top: 1.5mm;
+        font-size: 8.5pt;
+        line-height: 1.3;
+        color: rgba(17, 17, 17, 0.8);
+      }
+
+      .article-note {
+        margin-top: 6mm;
+        padding-top: 3mm;
+        border-top: 1px solid #111;
+        font-size: 9pt;
+        font-style: italic;
+      }
+
+      @media screen {
+        body {
+          padding: 2rem;
+          margin: 0 auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    
+    <header class="masthead-compact">
+      <h1>Fred Talks</h1>
+      <p class="issue-date">
+        7<sup>th</sup> July 2026
+      </p>
+    </header>
+
+    <nav class="toc toc-compact">
+      <h2>Contents</h2>
+      <ol class="toc-list">
+        
+        <li class="toc-item">
+          <div class="toc-item-title">The Training Grounds: A Taxonomy of RL Environments for LLM Agents</div>
+          <div class="toc-item-meta">
+            Han, Not Solo · 1766 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Why I don&#39;t like the &#34;staff engineer archetypes&#34;</div>
+          <div class="toc-item-meta">
+            seangoedecke.com RSS feed · 1426 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">The future of enterprise software</div>
+          <div class="toc-item-meta">
+            Aaron Levie · 1851 words
+          </div>
+        </li>
+        
+      </ol>
+    </nav>
+    
+
+    
+    <article>
+      <h1>The Training Grounds: A Taxonomy of RL Environments for LLM Agents</h1>
+      <div class="article-meta">
+        Han, Not Solo
+        · 22 Mar 2026 · <a href="https://leehanchung.github.io/blogs/2026/03/21/rl-environments-for-llm-agents/">Source</a>
+      </div>
+      <div class="article-body"><p>Model architecture gets all the attention. Post-training recipes follow close behind. The training environment — what the model actually practices on, how its work gets judged, what tools it can use — barely enters the conversation. That’s the part that actually determines what the agent can learn to do.</p>
+<p>A model trained only on single-turn Q&amp;A will struggle the moment you ask it to maintain state across a 50-step enterprise workflow. A model trained with a poorly designed reward function will learn to game the metric, not solve the problem. The environment isn’t a detail. It’s half the system.</p>
+<h2><a href="https://leehanchung.github.io/blogs/2026/03/21/rl-environments-for-llm-agents/#canonical-loop">The Canonical Loop</a></h2>
+<p>An RL environment for an LLM agent bundles three things: a dataset of task inputs, a harness for the model, and a reward function to score outputs. The training loop looks like this:</p>
+<pre><code>┌─────────────┐    prompt      ┌──────────┐   action    ┌───────┐
+│    Task     │───────────────&gt;│  Agent   │────────────&gt;│ Tools │
+│   Dataset   │                │ Harness  │&lt;────────────│  Env  │
+└─────────────┘                │ (Model)  │ observation  └───────┘
+                               └────┬─────┘
+                                    │ completion
+                                    v
+                             ┌──────────────┐
+                             │  Verifier /  │──&gt; reward ──&gt; Trainer
+                             │   Rubric     │
+                             └──────────────┘
+</code></pre>
+<p>Formally, a complete RL environment is a tuple:</p>
+<p>Task distribution, harness, verifier, state management, configuration. Let’s go through each.</p>
+<p>The task distribution is the set of problems the agent trains on. Not all tasks are equal, and not just in difficulty. They vary structurally in ways that demand different capabilities:</p>
+<table> <tr> <th>Task Type</th> <th>What the Agent Must Do</th> <th>Example Systems</th> </tr> <tbody> <tr> <td><strong>Single-turn Q&amp;A</strong></td> <td>One prompt → one response, check answer</td> <td>Math benchmarks, SimpleQA</td> </tr> <tr> <td><strong>Multi-hop search</strong></td> <td>Chain searches, synthesize sources</td> <td>BrowseComp, WebWalkerQA</td> </tr> <tr> <td><strong>Open-ended research</strong></td> <td>No single correct answer; report quality matters</td> <td>ADR-Bench, ResearchRubrics</td> </tr> <tr> <td><strong>Agentic tool-use</strong></td> <td>Call tools correctly in sequence</td> <td>tau-bench, function-calling benchmarks</td> </tr> <tr> <td><strong>Stateful enterprise</strong></td> <td>Modify persistent DB state, work within access controls</td> <td>EnterpriseOps-Gym</td> </tr> <tr> <td><strong>Code execution</strong></td> <td>Write code, run it, check outputs</td> <td>SWE-Bench, LiveCodeBench</td> </tr> </tbody> </table>
+<p>Training only on tasks with ground-truth answers produces an agent that’s never learned to reason under ambiguity. Training only in clean, deterministic environments produces an agent that falls apart in production. The task distribution is a design decision with direct consequences.</p>
+<p><strong>Task synthesis is increasingly a first-class problem.</strong> With real-world research tasks, you rarely have a large labeled dataset. Strategies that have emerged:</p>
+<ul> <li><strong>Back translation</strong>: Start from a desired output, reconstruct the query that would produce it</li> <li><strong>Graph-based synthesis</strong>: Build a knowledge graph, generate multi-hop queries over it</li> <li><strong>Automated environment generation</strong>: Use LLM coding agents to write new environment code. <a href="https://arxiv.org/abs/2511.19304">AutoEnv</a> reports ~$4/env average cost.</li> <li><strong>Curriculum construction</strong>: Order tasks by difficulty and increase complexity during training</li> </ul>
+<p>The cheapest-to-collect tasks are single-turn with verifiable answers. The most valuable tasks for long-horizon behavior are expensive to construct. This tension drives most environment design decisions.</p>
+<p>The harness is the scaffolding that mediates between the model and the environment. It controls how the model interacts, not what it knows.</p>
+<pre><code>H = {
+    rollout_protocol,   # SingleTurn | MultiTurn | Agentic
+    tools,              # Available tools in this episode
+    system_prompt,      # Instructions for the agent
+    context_manager,    # How to handle context overflow
+    turn_limit,         # Max interactions per episode
+    sandbox,            # Code execution sandbox
+    state               # Persistent state across turns
+}
+</code></pre>
+<p>Rollout protocols range from trivial to complex:</p>
+<table> <tr> <th>Harness Type</th> <th>Description</th> <th>When to Use</th> </tr> <tbody> <tr> <td><strong>Single-Turn</strong></td> <td>One prompt, one response</td> <td>Math, factual QA</td> </tr> <tr> <td><strong>Multi-Turn</strong></td> <td>Back-and-forth dialogue</td> <td>Games, structured tasks</td> </tr> <tr> <td><strong>Tool-Use</strong></td> <td>Model calls tools, receives results</td> <td>Agent benchmarks</td> </tr> <tr> <td><strong>Stateful Tool-Use</strong></td> <td>Tools modify persistent state</td> <td>Enterprise workflows, SWE-Bench</td> </tr> <tr> <td><strong>Agentic ReAct</strong></td> <td>Full Thought→Action→Observation loop</td> <td>Deep research, complex workflows</td> </tr> </tbody> </table>
+<p>Tools span a wide taxonomy:</p>
+<table> <tr> <th>Category</th> <th>Tools</th> <th>Deterministic?</th> <th>Stateful?</th> </tr> <tbody> <tr> <td><strong>Information retrieval</strong></td> <td>web_search, scholar_search</td> <td>No (live web)</td> <td>No</td> </tr> <tr> <td><strong>Content extraction</strong></td> <td>jina_reader, visit, web_scrape</td> <td>No</td> <td>No</td> </tr> <tr> <td><strong>Code execution</strong></td> <td>python_interpreter, shell, sandbox</td> <td>Yes (given same code)</td> <td>Yes</td> </tr> <tr> <td><strong>File operations</strong></td> <td>file_read, file_write</td> <td>Yes</td> <td>Yes</td> </tr> <tr> <td><strong>Browser automation</strong></td> <td>playwright, link_click</td> <td>No</td> <td>Yes</td> </tr> <tr> <td><strong>Task management</strong></td> <td>todo, section_write</td> <td>Yes</td> <td>Yes</td> </tr> </tbody> </table>
+<p>The mix of deterministic/non-deterministic and stateful/stateless tools has real implications for reproducibility and reward assignment. Non-deterministic tools mean two runs of the same trajectory can produce different outcomes — which complicates both debugging and verifier design.</p>
+<p><strong>Context management</strong> is where most teams underinvest, especially for long-horizon tasks. A 600-turn research episode blows past any practical context window. Strategies used in production:</p>
+<table> <tr> <th>Strategy</th> <th>Description</th> <th>Trade-off</th> </tr> <tbody> <tr> <td><strong>Recency-based retention</strong></td> <td>Keep N most recent turns</td> <td>Simple, but loses early context</td> </tr> <tr> <td><strong>Markovian reconstruction</strong></td> <td>Reconstruct state from scratch each turn</td> <td>Principled, expensive</td> </tr> <tr> <td><strong>Reference-preserving summarization</strong></td> <td>Summarize old context, keep citations</td> <td>Preserves verifiability</td> </tr> <tr> <td><strong>Reference-preserving folding</strong></td> <td>Compress context without losing references</td> <td>Best for research tasks</td> </tr> </tbody> </table>
+<p>An agent doing multi-hour research needs to remember why it started searching in a particular direction twelve tool calls ago. Dropping that context causes repeated work and lost threads.</p>
+<p>The verifier maps a completion to a reward:</p>
+<p>In Atari, the score is unambiguous. In deep research, what counts as a good answer is not. The verifier is where this gets hard.</p>
+<table> <tr> <th>Type</th> <th>Reward Signal</th> <th>When to Use</th> </tr> <tbody> <tr> <td><strong>Exact match</strong></td> <td>Binary (0/1)</td> <td>Ground truth available</td> </tr> <tr> <td><strong>Code execution</strong></td> <td>Binary or partial</td> <td>Output can be tested programmatically</td> </tr> <tr> <td><strong>LLM-as-judge</strong></td> <td>Continuous [0,1]</td> <td>Open-ended quality, no other option</td> </tr> <tr> <td><strong>Checklist-style</strong></td> <td>Continuous</td> <td>Multi-criteria research tasks</td> </tr> <tr> <td><strong>Evolving rubric (RLER)</strong></td> <td>Continuous</td> <td>Resistant to reward hacking</td> </tr> <tr> <td><strong>Process reward model (PRM)</strong></td> <td>Per-step continuous</td> <td>Long-horizon credit assignment</td> </tr> <tr> <td><strong>Pairwise comparison</strong></td> <td>Relative rank</td> <td>Relative quality matters more than absolute</td> </tr> <tr> <td><strong>Multi-criteria composite</strong></td> <td>Weighted sum</td> <td>Multiple quality dimensions</td> </tr> </tbody> </table>
+<p>A few principles that actually matter in practice:</p>
+<p><strong>Verifiable beats judgeable.</strong> Programmatic checks — code execution, string match — are faster, cheaper, and more consistent than LLM-as-judge. Use LLM-as-judge when there’s no other option, not as the default.</p>
+<p><strong>Reward granularity is a separate decision from reward type.</strong> You can score at the trajectory level (did the final output pass?), turn level (was each tool invocation useful?), or per-step with process rewards. Turn-level supervision, as Nanbeige4.1 does across up to 600 tool calls, enables finer credit assignment — the model can learn that the problem was a bad search query in turn 23, not that the entire episode failed.</p>
+<p><strong>Static rubrics get gamed.</strong> Models learn to write answers that score well on your rubric rather than solving the problem. DR Tulu’s RLER (Rubric-Level Evolving Reward) co-evolves the rubric with the policy during training. Harder to exploit a moving target.</p>
+<p><strong>Noise injection is underrated.</strong> Step-DeepResearch deliberately injects 5–10% tool errors during training. The resulting model handles flaky APIs and unexpected failures in production significantly better.</p>
+<p>State management determines whether the environment is stateless or persistent. Most academic benchmarks are stateless — each episode starts fresh. Enterprise environments are not. <a href="https://arxiv.org/abs/2603.13594">EnterpriseOps-Gym</a> maintains 164 database tables and 512 tools across episodes. Actions in one task affect the state seen by subsequent tasks. That’s a fundamentally different problem for agents to solve.</p>
+<p>Configuration covers turn limits, context budgets, sampling temperature, and curriculum scheduling. These are not afterthoughts. A turn limit of 5 vs. 600 changes what skills the agent can develop. <a href="https://arxiv.org/abs/2509.13311">AgentScaler</a> uses a two-phase curriculum — fundamental capabilities first, then domain-specific tasks — and the ordering matters. Step-DeepResearch progressively scales context windows from 32K to 128K during mid-training.</p>
+<p>The most consequential architectural question: where does the model sit relative to the environment?</p>
+<p><strong>Option A: Model outside the environment (decoupled).</strong> Model is served via API; the environment calls it at each step. Clean separation. Easy to swap models.</p>
+<p><strong>Option B: Model inside the environment (co-located).</strong> Model and environment share the same training loop. Lower latency, tighter integration, harder to reuse.</p>
+<p><strong>Option C: Split architecture.</strong> Trainer, model inference server, and environment are three separate processes communicating via API. This is where the field is landing.</p>
+<p>How real systems implement this:</p>
+<table> <tr> <th>System</th> <th>Topology</th> <th>Notes</th> </tr> <tbody> <tr> <td><strong>Prime Intellect verifiers</strong></td> <td>Option C (Split)</td> <td>Env is a standalone Python package distributed via Environments Hub</td> </tr> <tr> <td><strong>Tongyi DeepResearch</strong></td> <td>Option B (Co-located)</td> <td>Tools, context manager, verifiers inside the training pipeline</td> </tr> <tr> <td><strong>Step-DeepResearch</strong></td> <td>Option B (Co-located)</td> <td>Single-agent ReAct loop embedded in training</td> </tr> <tr> <td><strong>MiroThinker</strong></td> <td>Option C (Split)</td> <td>Tool servers and sandbox run independently from model</td> </tr> <tr> <td><strong>Tinker API</strong></td> <td>Option A (Decoupled, cloud)</td> <td>Model stays remote; researcher sends <code>forward_backward</code> + <code>sample</code> calls via API</td> </tr> <tr> <td><strong><a href="https://arxiv.org/abs/2511.19304">AutoEnv</a></strong></td> <td>Option A (Decoupled)</td> <td>CoreEnv/ObsEnv/SkinEnv abstraction layers</td> </tr> <tr> <td><strong><a href="https://arxiv.org/abs/2603.13594">EnterpriseOps-Gym</a></strong></td> <td>Option A (Decoupled)</td> <td>Containerized sandbox accessible via any model API</td> </tr> </tbody> </table>
+<p>The trade-offs:</p>
+<table> <tr> <th>Dimension</th> <th>Model Outside (A/C)</th> <th>Model Inside (B)</th> </tr> <tbody> <tr> <td><strong>Flexibility</strong></td> <td>Swap models easily; env is reusable</td> <td>Tighter integration</td> </tr> <tr> <td><strong>Scalability</strong></td> <td>Scale inference and training independently</td> <td>Must scale everything together</td> </tr> <tr> <td><strong>Portability</strong></td> <td>Env packages are shareable</td> <td>Env tied to training framework</td> </tr> <tr> <td><strong>Latency</strong></td> <td>Network overhead per tool call</td> <td>No network overhead</td> </tr> <tr> <td><strong>RL compatibility</strong></td> <td>Works with any RL trainer</td> <td>Usually tied to one trainer</td> </tr> </tbody> </table>
+<p>The field has converged on Option C for production training. Prime Intellect’s architecture — environments as standalone installable packages that communicate with models via OpenAI-compatible API endpoints — is becoming the standard. The payoff: environments are publishable, trainer-agnostic, and inference and environment execution can be parallelized across nodes.</p>
+<p>Tinker pushes this further by making even the training compute remote. The researcher controls the algorithm and never touches model weights. The environment’s job is purely generating experience.</p>
+<h2><a href="https://leehanchung.github.io/blogs/2026/03/21/rl-environments-for-llm-agents/#decision-framework">Practical Decision Framework</a></h2>
+<p>When building an RL environment for an LLM agent:</p>
+<p><strong>Do you have ground truth answers?</strong></p>
+<ul> <li>Yes → Exact-match or code-execution verifier</li> <li>No → LLM-as-judge, checklist, or pairwise comparison</li> </ul>
+<p><strong>How many tool calls per episode?</strong></p>
+<ul> <li>&lt; 5 → Single-turn or simple tool-use env, no context management needed</li> <li>5–50 → Multi-turn with basic context management</li> <li>50–600 → Full agentic env with reference-preserving context management</li> </ul>
+<p><strong>Where should the model live?</strong></p>
+<ul> <li>Experimenting across many environments → Model outside (Option A/C), use Prime Intellect Hub</li> <li>Tight RL training loop → Model co-located (Option B)</li> <li>No GPU access → Tinker API</li> </ul>
+<p><strong>What reward granularity?</strong></p>
+<ul> <li>Simple tasks → Outcome-level</li> <li>Long-horizon tasks → Turn-level (Nanbeige4.1) or process rewards (PRIME)</li> <li>Open-ended research → Evolving rubrics (RLER) or checklist-style (Step-DR)</li> </ul>
+<p><strong>How to scale environments?</strong></p>
+<ul> <li>Manual curation → High quality, expensive, this is where you start</li> <li><a href="https://arxiv.org/abs/2511.19304">AutoEnv</a> → Automated generation at ~$4/env</li> <li><a href="https://arxiv.org/abs/2509.13311">AgentScaler</a> → Systematic scaling of heterogeneous simulated environments</li> </ul>
+<p>Three things to pay attention to.</p>
+<p><strong>Environment diversity matters as much as environment quality.</strong> <a href="https://arxiv.org/abs/2509.13311">AgentScaler</a>’s key finding is that heterogeneity of environments drives capability breadth in ways that simply adding more data from the same distribution cannot. You need more kinds of environments, not just more environments.</p>
+<p><strong>Automated environment generation is viable.</strong> At $4 per generated environment, cost is no longer the bottleneck. The bottleneck is verifier quality — auto-generated environments with weak reward functions will teach the wrong behaviors at scale. (<a href="https://arxiv.org/abs/2511.19304">AutoEnv</a>)</p>
+<p><strong>The environment-as-package model is winning.</strong> The <a href="https://github.com/PrimeIntellect-ai/prime-rl">Prime Intellect Environments Hub</a> is creating a shared ecosystem around RL environments, in the same way PyPI and HuggingFace created ecosystems around code and model weights. Environments published once, consumed by any trainer. This is a significant infrastructure shift.</p>
+<p>The model isn’t the only variable. The training ground shapes what the model can become. The task distribution, the harness, the verifier, the state management, the topology — these are the decisions that separate agents that work from agents that demo.</p>
+<h2><a href="https://leehanchung.github.io/blogs/2026/03/21/rl-environments-for-llm-agents/#references">References</a></h2>
+<pre><code>@article{
+    leehanchung,
+    author = {Lee, Hanchung},
+    title = {The Training Grounds: A Taxonomy of RL Environments for LLM Agents},
+    year = {2026},
+    month = {03},
+    day = {21},
+    howpublished = {\url{https://leehanchung.github.io}},
+    url = {https://leehanchung.github.io/blogs/2026/03/21/rl-environments-for-llm-agents/}
+}
+</code></pre></div>
+      
+    </article>
+    
+    <article>
+      <h1>Why I don&#39;t like the &#34;staff engineer archetypes&#34;</h1>
+      <div class="article-meta">
+        seangoedecke.com RSS feed
+        · 03 May 2026 · <a href="https://seangoedecke.com/staff-engineer-archetypes/">Source</a>
+      </div>
+      <div class="article-body"><p>The most influential piece of writing about staff engineers in the last decade has to be Will Larson’s <a href="https://staffeng.com/guides/staff-archetypes/"><em>Staff engineer archetypes</em></a>. He argues that the “staff engineer” title covers at least four very different roles: the team lead, the architect, the solver, and the right hand. This taxonomy gets cited a lot as advice for people who are trying to become effective staff engineers. For <a href="https://www.seangoedecke.com/staff-engineer-promotions">both</a> of my promotions to staff engineer, my manager at the time linked me to the “staff engineer archetypes” and asked me to consider which of these archetypes I was aiming towards.</p>
+<p>These archetypes definitely exist<sup><a href="https://www.seangoedecke.com/staff-engineer-archetypes/#fn-1">1</a></sup>. However, I think it’s bad practical advice to tell engineers to try and target them.</p>
+<h3>Archetypes do not make good goals</h3>
+<p>To see why, let’s take the “team lead” archetype. Larson describes this as an informal technical leadership role: not necessarily an explicit authority figure, but someone who’s good at scoping work, planning projects, and maintaining the kind of relationships (e.g. with other teams) needed to successfully <a href="https://www.seangoedecke.com/how-to-ship">ship</a>. If you want to fill this role, shouldn’t you start trying to do these things? No! You don’t become a technical leader by trying really hard to be a technical leader, much like you don’t become a writer by trying really hard “to be a writer”. You become a technical leader by <em>doing good technical work</em> until your skills and relationships emerge organically.</p>
+<p>I wrote about this process in <a href="https://www.seangoedecke.com/ratchet-effects"><em>Ratchet effects determine engineer reputation at large companies</em></a>. To get good at shipping large complex projects, you must start by shipping tiny pieces of work, until you’re familiar enough with the system and you’ve built enough trust to take on slightly larger pieces. At each stage, if you do good work - “good work” here means “deliver <a href="https://www.seangoedecke.com/shareholder-value/">shareholder value</a>” - you will very naturally be given opportunities to work on more complex and important things. If you try to jump ahead, you’re going to run into all kinds of problems:</p>
+<ul> <li>Important projects are usually assigned top-down, not bottom-up, so you’ll either be trying to muscle out the planned engineering lead for a project or to pitch your own (complex, important) engineering task to senior management. Either way, good luck with that!</li> <li>You likely won’t have a good enough relationship with senior management to know what their real priorities are.</li> <li>If you’re not yet trusted to execute, you may get assigned “minders” (often current staff engineers) who will ghost-lead the project through you<sup><a href="https://www.seangoedecke.com/staff-engineer-archetypes/#fn-2">2</a></sup>.</li> <li>You’ll likely make <a href="https://www.seangoedecke.com/you-cant-design-software-you-dont-work-on/">poor technical decisions</a>.</li> </ul>
+<p>The other archetypes are like this as well. If you want to become a successful architect, you do not get there by studying software architecture in the abstract, because <a href="https://www.seangoedecke.com/you-cant-design-software-you-dont-work-on/">you can’t design software you don’t work on</a>. The “solver” and “right hand” archetypes both rely on having an enormous amount of trust and influence. You can’t aim for those archetypes directly, because trust and influence accumulate over time. In fact, the idea of “aiming for” a particular staff engineer archetype reflects a misunderstanding of what the staff engineer role is. What is the defining attribute of the staff engineering role, then?</p>
+<h3>What is a staff engineer?</h3>
+<p><strong>A staff engineer has to be useful to the company.</strong> Of course, a senior or mid-level software engineer ought to be useful too, but all they <em>have</em> to do is execute on the job in front of them. If they end up not providing value (maybe their project turns out to be unimportant, or they don’t get the support needed to succeed) that’s their manager’s problem, not theirs<sup><a href="https://www.seangoedecke.com/staff-engineer-archetypes/#fn-3">3</a></sup>. In contrast, staff engineers are expected to deliver value regardless: to make the project work, or to find something else useful to do if the project truly can’t be salvaged.</p>
+<p>This is an unfair expectation. Often projects really do fail through no fault of your own, and sometimes it just isn’t possible to conjure useful work from thin air. That’s actually by design: <strong>the staff engineer role is supposed to be unfair</strong>. Something many engineers don’t realize is that all senior management and executive leadership roles are unfair too, in the same way. That’s just part of the deal: executives are given power and great compensation, and in return they get thrown off the boat in bad weather<sup><a href="https://www.seangoedecke.com/staff-engineer-archetypes/#fn-4">4</a></sup>. “Staff engineer” is the first engineering role where you are held largely responsible for outcomes you don’t control.</p>
+<p>Developing a “staff engineer mindset” thus has very little to do with the archetypes. Instead, you should:</p>
+<ol> <li>Develop the habit of constantly asking yourself “is this useful to the company” (and answering correctly).</li> <li>Lose the habit of worrying about if you’re being treated “fairly”. Instead, try to think about your role in terms of incentives and consequences.</li> </ol>
+<p>At the beginning, you won’t look much like any of the staff engineer archetypes. You will look like being a level-headed engineer who can be trusted to move projects forward with a minimum of fuss, and who can be re-tasked to different work without complaining. You’ll also look like someone who’s <a href="https://www.seangoedecke.com/getting-the-main-thing-right/">paying a lot of attention</a> to what their manager’s actual priorities are, and who is thinking hard about how to fulfil those priorities (instead of their own goals).</p>
+<p>If you do this for long enough, you’ll eventually find yourself in one of the staff engineer archetypes. However, it probably won’t be the one you’re “aiming for”. The whole point of being a staff engineer is that you’re willing to fill whatever archetype the company needs at the time.</p>
+<h3>Final thoughts</h3>
+<p>In his original staff engineer post, Larson is pretty clear that these archetypes are more of an anthropological description of some of the varied niches staff engineers fill, not a how-to guide for succeeding in the role<sup><a href="https://www.seangoedecke.com/staff-engineer-archetypes/#fn-5">5</a></sup>. At the time, the “staff engineer” role was fairly new and people were still trying to figure out what it even meant. Pointing out that there were a few very different ways to succeed in the role was a genuinely novel observation.</p>
+<p>The staff engineer archetypes are a good list of ways an engineer can be very useful to their organization - but only once they’ve built a deep relationship of trust with their organization’s leadership. Advice on how to succeed as a staff engineer should be about <strong>how to build that trust</strong>, not about what to do once you have it.</p>
+<ol> <li> <p>One caveat that is too pedantic for the body of the post: each tech company has a different structure of roles. Some don’t have the formal “staff” title at all, while others have “staff” as a fairly early rung on the ladder and a panoply of “senior staff”, “senior principal staff”, and so on roles above it. Like all “staff engineer” discourse, this post is not about the word itself but about the point in the engineering job ladder where progression becomes significantly more difficult.</p> <a href="https://www.seangoedecke.com/staff-engineer-archetypes/#fnref-1">↩</a> </li> <li> <p>Impressing your VP’s trusted lieutenants can actually be a good way to build trust in the medium-term, but you’d better hope you’ve built enough understanding of the system to do it right. If this process goes badly, your reputation in the org might be torched for years.</p> <a href="https://www.seangoedecke.com/staff-engineer-archetypes/#fnref-2">↩</a> </li> <li> <p>In theory, at least. In practice it’s always better to be useful (again, in the sense of “delivering shareholder value”).</p> <a href="https://www.seangoedecke.com/staff-engineer-archetypes/#fnref-3">↩</a> </li> <li> <p>This is why very senior leadership sometimes seem so unempathetic towards engineering complaints: their work environment operates by very different rules and norms to that of most engineers. I keep meaning to try and write about this and never succeeding. This <a href="https://github.com/sgoedecke/gatsby-blog/blob/master/content/drafts/_icebox/strategy-for-swes/index.md">draft</a> is the closest thing I have to a deeper exploration of the point.</p> <a href="https://www.seangoedecke.com/staff-engineer-archetypes/#fnref-4">↩</a> </li> <li> <p>For the record, my how-to guides are <a href="https://www.seangoedecke.com/staff-engineer-archetypes/staff-engineer-promotions/">here</a> and <a href="https://www.seangoedecke.com/staff-engineer-archetypes/ratchet-effects/">here</a>.</p> <a href="https://www.seangoedecke.com/staff-engineer-archetypes/#fnref-5">↩</a> </li> </ol></div>
+      
+    </article>
+    
+    <article>
+      <h1>The future of enterprise software</h1>
+      <div class="article-meta">
+        Aaron Levie
+        · 28 Jan 2026 · <a href="https://x.com/levie/status/2013018817610518642/?rw_tt_thread=True">Source</a>
+      </div>
+      <div class="article-body"><div><p data-rw-toc-level="1" data-rw-toc-title="The future of enterprise software"><p>One of the biggest topics right now in the tech world is what does the future of software look like when AI agents are doing a substantial amount of work in the enterprise. Does software get compressed and simply become a database that agents leverage? Do we use AI agents to code all our own personalized enterprise software in the future? Do startups or incumbents win this new battle? How big are software markets in a world of agents using these tools? And much much more.  </p><p>It’s impossible to try and tackle all of these questions sufficiently in one sitting, but I figured I’d lay out a bit of a roadmap for what enterprise software looks like in the future.  </p><p><strong>Why companies buy software</strong> </p><p>Firstly, we should all get on the same page about why companies use and buy enterprise software in the first place. You can think of enterprise software as a codification of a company’s processes. These are the parts of your company that you <em>don’t</em> want to change spontaneously, because they provide the structure for your workflows and operations to keep your business running, or allow you to do the other work that really matters.  </p><p>A large car company decides to procure an ERP system because it’s the backbone for complex global operations where failures could mean far more than the cost of the system. It’s responsible for keeping track of tens or hundreds of billions in revenue, and the company wants to ensure that every single transaction that they make goes through the exact same way every single time, with five 9s of uptime and reliability, and with an output that they can get accepted and approved by the auditors. Jobs are on the line, all the way up to the CEO, based on how well this system performs.  </p><p>And the reason that companies choose to use software vendors that specialize in certain domains instead of just building this technology themselves can best be understood by the concept of “core” vs. “context,” popularized by Geoffrey Moore. The core stuff is what makes your company unique (like your core product, your talent, your culture, and so on), and the context is absolutely necessary, but largely non-differentiating between firms (think all of your systems of record like payroll, IT ticket responses, ERP systems, content management platforms, and so on).  </p><p>For software that handles your company’s context activities, your customer will rarely notice when these things work great, but they’ll certainly notice the downstream impacts when they don’t. This is why you “rent” these services from software providers that do this as their day job for thousands or millions of other companies. And incidentally, much of this software helps define these underlying workflows in your organization so you don’t have to -- so each company doesn’t have to reinvent the wheel each on how to handle HR, IT ticketing, and so on.  </p><p><strong>Deterministic vs. non-deterministic systems</strong> </p><p>Ok, but if an enterprise is filled with 100X more AI Agents in the future, won’t that eventually consume all the use-cases that software did previously?  </p><p>If you take the analogy of the industrial world, software is like the machinery in a manufacturing plant; and agents are like the people that operate that machinery. Just like machinery in a plant, in deterministic software, you want things to happen the same way, every time: you want data that goes into your ERP system to be calculated based on the business rules you’ve setup; you want security permissions you’ve set for accessing critical files to behave the same way every time, and not leak information between users; and you don’t want an HR system probabilistically generating new reporting structures for employees on every load.  </p><p>Conversely, you want <em>non-deterministic</em> systems (in this case AI agents) for the things that people have always tended to do in these systems. An agent filling out notes from a user’s client meeting in a CRM system, generating a sales presentation for a new customer, answering a customer support inquiry with the best products to leverage, doing research or providing analysis on a set of enterprise documents and data for an important decision, and so on. As a result, the non-deterministic and deterministic elements of software end up working in a complementary fashion.  </p><p>In contrast to some of the public discussion, I’d argue that in a world of 100X more AI agents than people in an enterprise, the value of the systems of record and tools agents will use will go up, not down. Because in this new world, software provides the guardrails on which agents can operate successfully within an enterprise, and gives them the underlying tools to use to be more productive themselves and work alongside people.  </p><p>For instance, if you ask an AI agent to generate 10X the number of outbound email and marketing messages, where will all those agents find the data to work with, and where will the leads end up going to have a human sales rep act on them? Almost certainly some form of a CRM system. Or when an AI Agent processes reviews invoices and transactions, where will they enter this data when they’re done to kick off a supply chain workflow? Again, an existing or reinvented ERP system. As long as we have humans and agents interacting with one another, there will need to be deterministic software that bridges these interactions seamlessly.  </p><p>And as a result of all of these new agentic users within our software systems, the size of enterprise software markets are going to increase massively.  </p><p><strong>Unconstrained software markets</strong> </p><p>Traditionally, software companies have been stuck within the constraints of existing IT budgets, which tend to tap out around 3-7% of a company’s revenue. This creates an inherent upper limit for what the budget can be for software, which translates into the total addressable market of various technology categories. Now, with AI Agents, the software is actually bringing along the work with the software, which means the budget software players are going after is the total spend that goes into doing that work in the company, not just the tech to enable it. This inevitably leads to a substantial increase in TAM for most software categories whose markets were artificially held back in size previously.  </p><p>For instance, a contract management vendor just a few years ago was limited by the number of attorneys within an organization that needed to manage and review contracts. However, in a world of AI agents, that cap no longer exists, where you might have agents running continuously processing and reviewing contracts and providing extend legal services for any company. The size of the legal services market in the US is somewhere around $400B, nearly 50-100X larger than the corresponding software categories in legal space. You can easily see how AI agents making the legal industry meaningfully more productive could capture multiple percentage points of that $400B in spend, thus multiplying the size of the legal software market overnight.  </p><p>The same analogy holds for almost any software category that was artificially constrained by a customer's headcount, or limited software spend, previously. We're already seeing this in spaces like coding, where the AI agents in coding are generating orders of magnitude more revenue for the new coding startups than the prior IDE categories generated. And we can expect this same dynamic for most other areas of knowledge work over time, from healthcare and financial services to legal and marketing. Tools that bring along work will generate far more revenue than the prior era of tools used to.  </p><p><strong>The opportunity ahead for software</strong> </p><p>Now, the big open question is who wins in this technology wave. If we have learned anything from Clayton Christensen’s Innovator’s Dilemma framework, we know that incumbents tend to lose in markets when there’s a new tech or business model innovation that is unattractive to them because it represents less revenue or profitability. Conversely, they tend to hold their own when the new business model or technology is supportive of their existing business, or perhaps even enhances it. Ultimately, in AI, we’ll likely see examples of both outcomes.  </p><p>Some existing software categories, like customer support or coding, are changing so rapidly that many incumbents will be unable to change their business models or technology stacks fast enough to respond to the growing demands of the new market, even if getting to the other side would be economically attractive. Similarly, as Jaya Gupta and Ashu Garg outlined in their piece on context graphs, there are many new categories of agent-native software that will need to be created for the first time because no existing vendor logically can capture the way the agent needs to do its work. This will create tremendous opportunities for new startups to build AI agents within these categories, and we’re seeing new ones crop up every day.  </p><p>Conversely, there are a number of existing SaaS players are in a natural position to power agents in their relevant work categories, especially those that have the natural context necessary for AI agents to be successful in automating work. Unsurprisingly, I’d expect there to be a correlation between the strength of a software company’s moat and the amount of data they house, how complex the underlying workflows are, the number of connections there are with other systems, how intertwined a human-in-the-loop element is to the underlying agentic workflow, and how naturally AI agents can be plugged into these workflows (either as native users or via API in external agentic products).  </p><p>Of course, this will mean that the business model of software (new upstarts and incumbents) will have to evolve over time. Today, the vast majority of SaaS products charge on a per-seat basis, which generally corresponds to most of the usage that the software sees today by its end users. But in a world where AI agents do most of the interaction and work on software, enterprise systems will have to evolve to support more of a consumption and usage-based model over time. AI agents don't cleanly fit as seats on software, because any given AI agent can do a varied amount of work within a system (e.g. you could have 1 agent doing a billion things or a billion agents doing one thing).  </p><p>Inevitably, we’ll see a mix of both outcomes. Users (or people) will continue to be seats within software, and AI agents that represent extended usage will be monetized through consumption. We're already seeing this play out in AI-native coding products and other platforms where there's an end-user seat component mixed with a consumption model on top. Obviously depending on the human vs. agent value proposition mix, the revenue stream will slide between these two ends of the continuum.  </p><p>Ultimately, there’s still plenty that needs to play out before we fully see what the future holds for enterprise software. But it will certainly be the most dynamic and exciting period we've ever seen in software history.  </p></p></div></div>
+      
+    </article>
+    
+  </body>
+</html>
