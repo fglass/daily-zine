@@ -1,0 +1,601 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Fred Talks - 2026-07-12</title>
+    <style>
+      @page {
+        size: A5;
+        margin: 8mm 9mm 9mm;
+      }
+
+      :root {
+        color: #111;
+        font-family: "Times New Roman", Times, serif;
+        --body-text-size: 9.5pt;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        color: #111;
+        background: #fff;
+        font-family: "Times New Roman", Times, serif;
+        line-height: 1.45;
+      }
+
+      a,
+      a:visited {
+        color: #111;
+        text-decoration: underline;
+      }
+
+      .cover {
+        min-height: calc(210mm - 17mm);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        page-break-after: always;
+        border: 1px solid #111;
+        padding: 8mm;
+        background: #fff;
+      }
+
+      .toc-item-meta,
+      .article-meta {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .masthead {
+        margin: 0;
+        font-size: 40pt;
+        line-height: 0.95;
+        text-transform: uppercase;
+      }
+
+      .issue-date {
+        margin: 4mm 0 0;
+        font-size: 14pt;
+      }
+
+      .issue-date sup {
+        font-size: 0.58em;
+        vertical-align: super;
+        line-height: 0;
+      }
+
+      .cover-deck {
+        max-width: 90mm;
+        font-size: 12pt;
+        margin: 0;
+      }
+
+      .toc {
+        border-top: 3px solid #111;
+        padding-top: 6mm;
+      }
+
+      .toc h2 {
+        margin: 0 0 4mm;
+        font-size: 11pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .toc-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .toc-item {
+        padding: 3mm 0;
+        border-bottom: 1px solid rgba(17, 17, 17, 0.2);
+      }
+
+      .toc-item-title {
+        font-size: 12pt;
+        margin: 0 0 1mm;
+      }
+
+      .toc-item-meta {
+        font-size: 8pt;
+      }
+
+      .masthead-compact {
+        margin: 0 0 6mm;
+      }
+
+      .masthead-compact h1 {
+        margin: 0;
+        font-size: 22pt;
+        line-height: 1.1;
+        text-transform: uppercase;
+      }
+
+      .masthead-compact .issue-date {
+        margin: 2mm 0 0;
+        font-size: 11pt;
+      }
+
+      .toc-compact {
+        border-top: 1px solid #111;
+        border-bottom: 1px solid #111;
+        padding: 4mm 0;
+        margin: 0 0 8mm;
+      }
+
+      article + article {
+        margin-top: 10mm;
+        padding-top: 6mm;
+        border-top: 2px solid #111;
+      }
+
+      h1 {
+        margin: 0 0 2mm;
+        font-size: 18pt;
+        line-height: 1.1;
+      }
+
+      .article-meta {
+        font-size: 8.5pt;
+        margin-bottom: 6mm;
+        padding-bottom: 3mm;
+        border-bottom: 1px solid #111;
+      }
+
+      .article-body {
+        font-size: var(--body-text-size);
+        font-family: "Times New Roman", Times, serif;
+      }
+
+      .article-body p,
+      .article-body li,
+      .article-body blockquote,
+      .article-body dd,
+      .article-body dt {
+        margin: 0 0 4mm;
+        orphans: 3;
+        widows: 3;
+      }
+
+      .article-body ul,
+      .article-body ol,
+      .article-body dl {
+        margin: 0 0 4mm 5mm;
+        padding: 0;
+      }
+
+      .article-body h2,
+      .article-body h3,
+      .article-body h4 {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        margin: 7mm 0 3mm;
+        line-height: 1.2;
+      }
+
+      .article-body blockquote {
+        margin-left: 6mm;
+        padding-left: 4mm;
+        border-left: 2px solid #111;
+      }
+
+      .article-body .media-omitted {
+        margin: 0 0 4mm;
+        font-size: 8.5pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(17, 17, 17, 0.65);
+      }
+
+      .article-body figure,
+      .article-body .article-figure,
+      .article-body picture,
+      .article-body .article-picture {
+        display: block;
+        max-width: 72mm;
+        margin: 0 auto 4mm;
+        break-inside: avoid;
+      }
+
+      .article-body img,
+      .article-body .article-image {
+        display: block;
+        max-width: min(100%, 72mm);
+        max-height: 34mm;
+        height: auto;
+        width: auto;
+        object-fit: contain;
+        margin: 0 auto 3mm;
+      }
+
+      .article-body figcaption {
+        margin-top: 1.5mm;
+        font-size: 8.5pt;
+        line-height: 1.3;
+        color: rgba(17, 17, 17, 0.8);
+      }
+
+      .article-note {
+        margin-top: 6mm;
+        padding-top: 3mm;
+        border-top: 1px solid #111;
+        font-size: 9pt;
+        font-style: italic;
+      }
+
+      @media screen {
+        body {
+          padding: 2rem;
+          margin: 0 auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    
+    <header class="masthead-compact">
+      <h1>Fred Talks</h1>
+      <p class="issue-date">
+        12<sup>th</sup> July 2026
+      </p>
+    </header>
+
+    <nav class="toc toc-compact">
+      <h2>Contents</h2>
+      <ol class="toc-list">
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Agentic search - retrieval, harness, or model?</div>
+          <div class="toc-item-meta">
+            Doug Turnbull · 1535 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">LLM Judges aren’t the shortcut you think</div>
+          <div class="toc-item-meta">
+            Doug Turnbull · 1869 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">A non-anthropomorphized view of LLMs</div>
+          <div class="toc-item-meta">
+            halvar.flake · 1478 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">[Daily article] July 12: Wikipedia:Featured topics/Liverpool F.C.</div>
+          <div class="toc-item-meta">
+            English Wikipedia Article of the Day · 337 words
+          </div>
+        </li>
+        
+      </ol>
+    </nav>
+    
+
+    
+    <article>
+      <h1>Agentic search - retrieval, harness, or model?</h1>
+      <div class="article-meta">
+        Doug Turnbull
+        · 09 Jun 2026 · <a href="http://softwaredoug.com/blog/2026/06/08/three-kinds-of-agentic-search.html">Source</a>
+      </div>
+      <div class="article-body"><p>Agentic search gets interesting when agents do not know how to find the right answer.</p>
+<p>Oh, the agent might think it knows. It might confidently BS us. But the agent’s poor domain intuition steers itself astray.</p>
+<p>Agents make false assumptions about what <em>our</em> users think is relevant. Our fashionista users think “red shoes” should return high-heels. When I worked at one company ABE wasn’t a president, it was an A/B testing tool. Agents need context to know these things - and <a href="https://www.youtube.com/watch?v=ynJyIKwjonM">context engineering needs agentic search</a></p>
+<p>Confusingly, depending who you talk to, agentic search can mean one of three distinct implementation patterns:</p>
+<ul> <li><strong>Retrieval-centric</strong> - just build good search so agents can use it to fill in missing context</li> <li><strong>Harness-centric</strong> - steer the agent towards needed context, even with bad search</li> <li><strong>Model-centric</strong> - fine tune an LLM to know how to search <em>our</em> data</li> </ul>
+<p>In this post, I’ll walk through each. With a bit more breadth, you might appreciate which flavor your colleagues seem to mean when they say “agentic search”</p>
+<h2>Retrieval-Centric Implementation</h2>
+<p>When frontier models don’t know, they search. Ask ChatGPT a question about news, it’ll search. Ask it about a very specific technical problem, it’ll search. During training, LLMs see <em>search</em> examples as a technique to learn what it doesn’t know. To find what it needs.</p>
+<p>Therefore, we just need to build good search to solve any conceivable query from an agent.</p>
+<p>Let’s assume we run an e-commerce catalog. For us, when users search “red shoes” they mean “red high heels”. But the agent doesn’t know that. Luckily it asks <em>search</em>. Below we see it returns the right results.</p>
+<p>Below we see initial retrieval to lexical / vector backends pulls back some reasonable, if naive, “red shoe” candidates. Still that’s not quite right. Luckily the reranker shapes the results towards our understanding of that intent.</p>
+<figure class="article-figure"><img alt="image.png" src="https://softwaredoug.com/assets/media/2026/three-kinds-of-agentic-search/image.png" class="article-image"/></figure>
+<p>Of course we might have other components here - query understanding, diversity, custom embedding models, and more.</p>
+<p>The important point is that <em>search leads the agent by the nose</em> towards what’s relevant. We assume search can define what a good “red shoe” is, overriding the agent’s perspective.</p>
+<p>Most teams build retrieval-centric approaches with classic RAG. Chunks of answers, and embeddings trained to recognize them as answers.</p>
+<p>Unfortunately, answers don’t always look tied to the question. For example:</p>
+<p>Question:</p>
+<blockquote> <p>Synopsis of the book Ubik</p> </blockquote>
+<p>Answer:</p>
+<blockquote> <p>By the year 1992, humanity has colonized the Moon and psychic powers are common. The protagonist, Joe Chip, is a debt-ridden technician working for Runciter Associates, a “prudence organization” employing “inertials”—people with the ability to negate the powers of telepaths and “precogs”—to enforce the privacy of clients.</p> </blockquote>
+<p>If you don’t know the book Ubik, it’s not clear that this answers the question. The agent says “cool story bro” and ignores the info.</p>
+<p>Search like this actually is divorced from the web search trusted by fronteir models. The web contains titles, headings, and other elements placing the answer in context.</p>
+<h3>The big downside? Search remains hard. We’re not Google.</h3>
+<p>Most importantly, we don’t have perfect search like Google or Bing. Even with good search - almost nobody builds <em>google quality results.</em> And since agents trust search - simple distractors in retrieval can, as Lester Solbakken says, <a href="https://2026.berlinbuzzwords.de/session/when-better-retrieval-makes-agents-worse/">easily confuse reasoning</a>.</p>
+<h2>Harness-centric implementations</h2>
+<p>Who should be in charge? Should the agent manage the search process? Or should search drive the agent?</p>
+<p>Moving the emphasis to the harness, we put the agent in charge.</p>
+<p>Imagine stripping search tools down to core retrieval primitives. Just a BM25 backend. Or a filesystem with CLI tools. We tell the agent find to what it needs with these untuned tools. The agent might struggle more, but hey, its smart, it can get figure it out. Right?</p>
+<p>Still, the agent might find what it thinks is relevant, as it does in the image below. Sadly that’s not what’s actually relevant. To help the agent, we inject external knowledge. We let a judge direct the agent, correcting its mistakes, and guiding it towards better search strategies.</p>
+<p>So when the agent returns results, it’s not the “user” that receives the candidates. Instead a judge labels results as relevant or not. The agent gets the hint, finding results similar to those labeled relevant. Avoiding those labeled irrelevant. To steel from Jo Kristian Bergem, this is <a href="https://program.berlinbuzzwords.de/bbuzz26/talk/PLNTP9/">relevance feedback on steroids</a>.</p>
+<figure class="article-figure"><img alt="image.png" src="https://softwaredoug.com/assets/media/2026/three-kinds-of-agentic-search/image%201.png" class="article-image"/></figure>
+<p>This works. Look at the ESCI dataset. If I have an oracle labeling with judgments from these datasets, I get quite significant improvements.</p>
+<table> <tr> <th>Variant</th> <th>NDCG@10</th> <th>Description</th> </tr> <tbody> <tr> <td>ESCI BM25</td> <td>0.2895</td> <td>Simple BM25 weighing name / description</td> </tr> <tr> <td>ESCI agentic</td> <td>0.4101</td> <td>GPT5-mini tool calling loop w/ BM25+e5 embeddings tools</td> </tr> <tr> <td>ESCI agentic w/ oracle</td> <td>0.5843</td> <td>GPT5-mini tool calling loop w/ BM25+e5 embeddings tools. Judge responds with feedback once</td> </tr> </tbody> </table>
+<p>Here the second row we trust the agent’s interpretation of queries. That provides a large gain over BM25. But inject more domain knowledge via a judge (the third row) and agent performance improves dramatically.</p>
+<p>We can guide agents with information ahead of time too. For example, I’ve seen teams take inspiration from skills in coding agents. Imagine a targeted query plan that tells the agent how to use it’s tools to solve a specific problem.</p>
+<figure class="article-figure"><img alt="image.png" src="https://softwaredoug.com/assets/media/2026/three-kinds-of-agentic-search/image%202.png" class="article-image"/></figure>
+<h3>Optimizing content helps harnesses</h3>
+<p>We help agents even further by optimizing content for findability. That’s the trick we’ve played on ourselves with coding agents. We write docs to explain to agents why something’s useful. We don’t just rely on that dumb chunk, we document the purpose of the knowledge:</p>
+<blockquote> <p>/books/scifi/ubik.txt</p> </blockquote>
+<blockquote> <p>## About Book Ubik Ubik is a book by Philip K. Dick</p> <p>## Synopsis</p> <p>By the year 1992, humanity has colonized the Moon and psychic powers are common. The protagonist, Joe Chip, is a debt-ridden technician working for Runciter Associates, a “prudence organization” employing “inertials”—people with the ability to negate the powers of telepaths and “precogs”—to enforce the privacy of clients.</p> </blockquote>
+<p>Unlike a naive chunk, this bit of information has purpose. It’s clear, when its in the context, what problem it solves.</p>
+<p>By organizing + cataloging information we’ve done what every search developer wishes their content team would do: actually optimize content to be findable.</p>
+<h3>The downside: cost</h3>
+<p>The major downside here? Token costs. The exploration here requires more than just issuing a search and retrieving one set of results. It’s an agent’s exploration of the environment. And that exploration starts fresh with every new context window.</p>
+<h2>Model-centric approach</h2>
+<p>What if we literally fine-tuned the LLM to search efficiently?</p>
+<p>The harness based approach takes a long, winding path towards relevant results. With every fresh context, it wastes calls relearning what works over-and-over. It’s costly and slow.</p>
+<p>Could we train a model that doesn’t repeat the same mistakes with our tools?</p>
+<p>Our judge helps label some of the agent’s reasoning / tool-calling paths as useful. And label others less so. Once you have labeled traces, you can fine-tune an open weights model to proactively, efficiently make the right tool calls given the input.</p>
+<p>Below, for example, the model knows exactly how to search for our “red shoes” query given its extensive fine tuning.</p>
+<figure class="article-figure"><img alt="image.png" src="https://softwaredoug.com/assets/media/2026/three-kinds-of-agentic-search/image%203.png" class="article-image"/></figure>
+<p>Now we’ve built a model targeting the search task. We don’t tune our retrievers much. Instead we continue to use the simpler / dumb search tools.</p>
+<p>Even cooler, the agentic search model’s behavior can change just by adjusting the system prompt. “This is an e-commerce search task, optimize for top 10 ranking” might be different from “You’re retrieving chunks for financial research, maximize diversity and relevance at the same time.”</p>
+<p>Further the models can stay smaller. By just focusing no the search part - not the entire domain problem - they can shrink to a manageable size allowing them to be self hosted.</p>
+<h3>The downside? Early days</h3>
+<p>The OG in the space is <a href="http://sid.ai">SID</a>. Other contenders like Glean’s Waldo model have sense entered. They’re all promising, but not widely adopted. Many unknown unknowns exist. In a sense, we don’t yet know the upside or downsides yet. I suspect though this paradigm has tremendous promise in the years ahead.</p>
+<p>In other words - stay tuned!</p>
+<h2>The alchemy of ambiguity</h2>
+<p>People use “agentic search” confusingly and inconsistenly. They focus on their part of the problem. That means we have a collection of solutions like enriched base metals - and its unclear what alchemy brings them together.</p>
+<p>We’re converging on a fascinating mix of easier to organize data (like <a href="https://pageindex.ai/about">PageIndex</a>). I’m seeing patterns in harness design that mirror coding agents - hooks / evaluators that steer agents. Or “skills” that guide them a priori. Much like with coding - the agents eat the harnesses. When a successful pattern emerges, agents, in our case agentic search models, train to memorize these patterns.</p>
+<p>Retrieval also seems to be moving towards agent-centric approaches. Agents have <a href="https://hornet.dev/blog/this-is-what-agentic-retrieval-looks-like">their own specific, unique retrieval patterns</a>. We’re finally seeing late interaction + learned sparse retrieval approaches have their day from companies like <a href="http://lighton.ai">LightOn</a> and <a href="http://mixedbread.ai">MixedBread</a></p>
+<p>We’re swimming in an interesting retrieval primordial goop, what comes out may be an obvious combination - or look nothing like the component parts. Exciting times!</p>
+<h3>Enjoy softwaredoug in training course form!</h3>
+<h4>Starting May 18!</h4>
+<p>Signup here - <a href="http://maven.com/softwaredoug/cheat-at-search">http://maven.com/softwaredoug/cheat-at-search</a></p>
+<figure class="article-figure"><a href="https://maven.com/softwaredoug/cheat-at-search"><img src="https://softwaredoug.com/assets/media/2026/cheat-at-search-social.png" class="article-image"/></a></figure>
+<p>I hope you join me at <a href="https://maven.com/softwaredoug/cheat-at-search">Cheat at Search with Agents</a> to learn use agents in search. build better RAG and use LLMs in query understanding.   </p></div>
+      
+    </article>
+    
+    <article>
+      <h1>LLM Judges aren’t the shortcut you think</h1>
+      <div class="article-meta">
+        Doug Turnbull
+        · 03 Nov 2025 · <a href="http://softwaredoug.com/blog/2025/11/02/llm-judges-arent-the-shortcut-you-think.html">Source</a>
+      </div>
+      <div class="article-body"><p>Is “LLM as a judge” overhyped? After years of implementing LLM judges for clients, I find more of them recognize the limitations.</p>
+<p>LLM judges fail for the same reason any evaluation method fails: teams lack good data+evaluation to begin with. LLM judges aren’t the shortcut teams hope. Instead, they are themselves a thing that needs data and monitoring to get use out of.</p>
+<p>Let me walk through the pitfalls of LLM as a judge (for search) that you’ll encounter.</p>
+<h2>LLM as a judge</h2>
+<p>When I talk about LLM as a judge, my focus is search. I mean creating a <a href="https://softwaredoug.com/blog/2021/02/21/what-is-a-judgment-list">judgment list</a>. For search that means labeling how relevant a document is for a query. How relevant is the product “garden trowel” for a <code>q=shovels</code>? Maybe this “garden trowel” is less relevant than “iron spade”?</p>
+<p>In the ancient past, to improve the search, I would be limited to a tiny hand-labeled judgment list. Labeling by hand is expensive. Datasets drift out of date quickly. New use cases arise. So we constantly need humans to relabel.</p>
+<p>These costs inspire teams to use LLMs to build judgments, They:</p>
+<ol> <li>Start with a ground truth of human labels</li> <li>Build a prompt to approximate that ground truth</li> <li>Apply those prompts to go beyond the ground truth to new query / documents</li> </ol>
+<p>If done well, we can sit at our laptop, tinker with relevance algorithms, and continue to tune without bother humans for non-stop relabeling.</p>
+<p>Sounds promising. But teams often ignore many of the assumptions and nuance underlying the task of LLM labeling. Let’s go through them, and we’ll see at the end, maybe LLMs should play a different role in evaluation?</p>
+<h2>Problem one - LLM evals don’t know what’s engaging to users</h2>
+<p>Users’ ever-evolving lizard brains drive conversions. And while optimizing for just lizard brains would itself be a nightmare, so would only focusing on an LLM’s opinion.</p>
+<p>LLMs do a better job approximating <em>human evaluations</em>. In search, we call these evaluations <em>explicit</em> judgments. They use human labelers’ basic knowledge of the world to label a result as <em>topically relevant</em> to the query or not.</p>
+<p>Topical relevance is only one kind of relevance. As an example, for a search of “articles about harry potter”. The article is either factually about Harry Potter or its not. We might also consider other gradations:</p>
+<ul> <li>Is the article well written?</li> <li>Is it article from an authoritative source?</li> <li>Is the article about a tangential topic? Dumbledore vs Gandalf etc?</li> </ul>
+<p>All of which relate to topicality, authority, and knowledge. An LLM excels at this — LLMs live in a world of facts and knowledge.</p>
+<p>But LLMs don’t have limbic systems. So their evaluations come with limitations.</p>
+<p>In real search applications, “relevance” goes beyond topicality. I worked at Reddit on search. A search for “harry potter” might mean anything from a memes, to drama about JK Rowling, to every kind of juicy controversy, spicy post, or oddity. People search for “cybertruck” not for reviews but to see silly videos.</p>
+<p>Then there’s the more mundane. I found at Shopify, users preferred plain or black clothing over flashy items based on their clicks. Unless you tell an LLM this (because you’ve done the analysis) an LLM won’t intrinsically catch this.</p>
+<p>Often the “topical” part of search is relatively easy. But engaging search, that captures these human oddities, must go beyond world-knowledge to at least get <em>some</em> of a user’s lizard brain.</p>
+<h2>Problem two - the last 10% of disagreement is the important stuff</h2>
+<p>Many teams get excited when they immediately see 70-80% agreement with human labelers. With a bit of tuning, they can inch closer to 90%.</p>
+<p>In my experience, that last bit of human-LLM disagreement matters. Those are the non-obvious cases. Search deals with a big <a href="https://zilliz.com/ai-faq/what-is-hard-negative-mining-and-how-does-it-improve-embeddings">hard negatives</a> challenge. Those examples that deceptively seem relevant naive search algorithms (or labelers), but are, in fact irrelevant. That last 10-30% might be what more careful labelers would catch. Or represented in clickstream based labels.</p>
+<p>For example on this furniture dataset, a LLM doesn’t understand that a “bistro table” is meant for <strong><em>outdoor</em></strong> use in US furniture lingo. That’s not obvious to an LLM: The LLM imagines I’m opening a restaurant.</p>
+<p>Simple algorithms often capture that first 80-90%. It’s the 10-20% you need great labels for. So pay attention not just to coverage. But for which use cases.</p>
+<p>A 90% coverage might be good regression tests, it might not help you go beyond easier wins.</p>
+<h2>Problem three - sneaky overfitting</h2>
+<p>So far, I’ve mentioned a few strange cases the LLM judge might miss: a bistro table is meant for outdoor usage. Users preferring darker clothing items.</p>
+<p>The savvy prompt engineer will want to fill the prompt with examples to help the LLM perform better on these cases.</p>
+<p>But beware overfitting to these particular failure cases.</p>
+<p>With every new rule, you push the model’s meager attention away from the general problem, and towards your exceptions. Layer example after example, and you’ll find yourself with a brittle system focused excessively on specific use cases.</p>
+<p>Overfitting with prompts can be sneaky. Playing whack-a-mole with your eval data can degrade generality. You can get perfect results on the eval set, only to expand to unseen queries, and find the gains no longer hold.</p>
+<p>To do a good job, you need holdout data you’re not tuning against. A set of judgments you don’t peak at. Because peaking might cause you to sneak a change into the prompt, making the holdout less useful as an independent validation step.</p>
+<p>Add rules and exceptions carefully, you’ll be surprised how easy it is to pull an LLM away from its generality.</p>
+<h2>Problem four - LLMs only evaluate the document it sees</h2>
+<p>LLMs only evaluate the document it sees. IE:</p>
+<pre><code>Query: outdoor seating
+Product Name: Bistro Table
+Product Description: Enjoy this lovely bistro table on your porch...
+</code></pre>
+<p>Is this enough information for evaluating the product? Is it what a user sees?</p>
+<p>Suddenly, you decide to add new information about the product</p>
+<pre><code>Query: outdoor seating
+Product Name: Bistro Table
+Product Description: Enjoy this lovely bistro table on your porch...
+Category: Outdoors
+</code></pre>
+<p>What are we evaluating truly?</p>
+<ul> <li>The products relevance?</li> <li>The usefulness of a set of product properties for determining relevance?</li> <li>How comprehensively you’re describing products to an LLM?</li> </ul>
+<p>Really it gets down to a classic problem in search. There’s perceived relevance - the relevance of the product, as it appears in your product page. Then there’s actual relevance - the detailed, thoughtful understanding of your product by a user. A lot depends not just on true relevance, but how it’s presented to users.</p>
+<h2>Problem five - Your LLM judge can’t be trusted on novel use cases</h2>
+<p>I assume the goal of LLM as a judge in to align to human labelers. But rarely do those judgments comprehensively represent every use case.</p>
+<p>Search metrics with human evals don’t go up-and-to-the-right. They seesaw as teams reactively label, solve, label, solve ad infinitum. In my experience it’s rare to find a team build a true, comprehensive human labeled evals covering every use case. Even if we did, we’d need to account for evolving search use cases.</p>
+<p>The flow usually goes like this: we want to solve a problem (search by product name). So we capture some judgments for that use case. Relevance starts low. We work a bit to improve this use case and it goes up. Yay!</p>
+<p>But the boss comes to our desk and suggests we have a new problem to solve: search of furniture by the room (living room, etc). We gather more labels. We know we’re bad at this use case. So search metrics go back down. Sad 😟</p>
+<p>We solve that use case, it goes back up to where it was before. Repeat. Up and down. See-saw.</p>
+<p>This presents a problem for an LLM judge. If our human labels only focus on a subset of use cases, <strong>we’re also aligning our LLM judges on a subset of use cases.</strong></p>
+<p>Our LLM judge generalizes to just a piece of the problem. The LLM judge can’t be trusted on a new use case until we measure it’s abilities in that use case.</p>
+<p>So if you seesaw its human labeling, you must seesaw the alignment of the LLM judge to the use cases we capture in human eval. As we adopt a new use case, we need more human labels. We need to retest the LLM judge. And so on.</p>
+<p>The task of human labeling does not end with LLM Judges. In fact its even more crucial.</p>
+<h2>How to LLM as a judge</h2>
+<p>Here’s how I use LLM judges:</p>
+<ul> <li>To extend labels on use cases I already measure decently to new queries (because I can trust alignment of the LLM on this use case)</li> <li>As a safeguard against regressions</li> </ul>
+<p>I trust the LLM judge to flag a regression on the use cases my human labels cover. The LLM is aligned and measured against these. I don’t trust the LLM to discover new, unexpected ways users search. I look to the users for that, not LLMs.</p>
+<p>Still many teams don’t even do decent monitoring of topical relevance. There are plenty of obviously broken search engines. The ones that would benefit from an LLM judge, likely would benefit from rounds of human labeling first needed before blindly trusting an LLM judge.</p>
+<h2>We already have automated data labeling at home kids</h2>
+<p>If we have enough labels to evaluate LLM as a judge on a use case, we have enough to train an ML model to recover those labels. We can then see a better place LLM’s fit into evaluation:</p>
+<ul> <li>LLMs focus on factual, topical parts of the problem. But miss other parts of the problem</li> <li>LLMs might see a subset of the content features</li> <li>Other non-LLM features might help us better evaluate relevance (embedding similarity, text matches, etc)</li> <li>Other ground-truths (besides human) might be a better definition of relevance (ie engagement based labels)</li> </ul>
+<p>Instead of LLM as a Judge, <strong>why not Learning to Rank as a judge?</strong> We seem to have forgotten that ranking models provide value beyond directly deploying them to production. They can help guide more manual search tuning as well.</p>
+<p>I’m becoming more of a fan of LLM-for-feature-generation over LLM as a judge. LLMs can cover the topical part of relevance. You can ask them “Which of these product names is more relevant to the query?”. The downstream, traditional ML model is agnostic to where the features come from. They could be an embedding similarity, LLM decision, lexical similarity, or more.</p>
+<p>That’s much more my interest these days. When someone says “LLM as a judge” I nod and say yes let’s build that, but then go on and probably look into using LLM features heavily in a larger model. LLMs can be very useful for rapid feature development: they’re promptable and easy to play with.</p>
+<p>If you’re interested in this approach, check out this <a href="https://softwaredoug.com/blog/2025/01/21/llm-judge-decision-tree">blog post</a> and the corresponding <a href="https://www.youtube.com/watch?v=S7EXkGDcd7A">Haystack talk</a>. Also a talk from Shopify <a href="https://www.albertocastelo.com/blog/2024-06-12-mices-talk">choosing cross encoders for evaluation over LLMs</a></p>
+<p>Enjoy!</p>
+<h3>Enjoy softwaredoug in training course form!</h3>
+<figure class="article-figure"><a href="https://maven.com/softwaredoug/cheat-at-search"><img src="https://softwaredoug.com/assets/media/2025/cheat-at-search-social.png" class="article-image"/></a></figure>
+<p>I hope you join me at <a href="https://maven.com/softwaredoug/cheat-at-search">Cheat at Search with LLMs</a> to learn how to apply LLMs to search applications. Check out <a href="https://github.com/softwaredoug/softwaredoug.com/edit/master/_includes/post.html">this post</a> for a sneak preview.   </p></div>
+      
+    </article>
+    
+    <article>
+      <h1>A non-anthropomorphized view of LLMs</h1>
+      <div class="article-meta">
+        halvar.flake
+        · 14 Sep 2025 · <a href="https://addxorrol.blogspot.com/2025/07/a-non-anthropomorphized-view-of-llms.html">Source</a>
+      </div>
+      <div class="article-body"><p>In many discussions where questions of "alignment" or "AI safety" crop up, I am baffled by seriously intelligent people imbuing almost magical human-like powers to something that - in my mind - is just MatMul with interspersed nonlinearities.</p>
+<p>In one of these discussions, somebody correctly called me out on the simplistic nature of this argument - "a brain is just some proteins and currents". I felt like I should explain my argument a bit more, because it feels less simplistic to me:</p>
+<h3>The space of words</h3>
+<p>The tokenization and embedding step maps individual words (or tokens) to some  vectors. So let us imagine for a second that we have  in front of us. A piece of text is then a path through this space - going from word to word to word, tracing a (possibly convoluted) line.</p>
+<p>Imagine now that you label each of the "words" that form the path with a number: The last word with 1, counting forward until you hit the first word or the maximum context length . If you've ever played the game "Snake", picture something similar, but played in very high-dimensional space - you're moving forward through space with the tail getting truncated off.</p>
+<p>The LLM takes your previous path into account, calculates probabilities for the next point to go to, and then makes a random pick into the next point according to these probabilities. An LLM instantiated with a fixed random seed is a mapping of the form .</p>
+<p>In my mind, the paths generated by these mappings look a lot like <a href="https://en.m.wikipedia.org/wiki/Attractor">strange attractors</a> in dynamical systems - complicated, convoluted paths that are structured-ish.</p>
+<h3>Learning the mapping</h3>
+<p>We obtain this mapping by training it to mimic human text. For this, we use approximately all human writing we can obtain, plus corpora written by human experts on a particular topic, plus some automatically generated pieces of text in domains where we can automatically generate and validate them.</p>
+<h3>Paths to avoid</h3>
+<p>There are certain language sequences we wish to avoid - because the sequences these models generate try to mimic human speech in all it's empirical structure, but we feel that some of the things that humans have empirically written are very undesirable to be generated. We also feel that a variety of other paths should ideally not be generated, if - when interpreted by either humans or other computer systems - undesirable results arise.</p>
+<p>We can't specify strictly in a mathematical sense which paths we would prefer not to generate, but we can provide examples and counterexamples, and we try to hence nudge the complicated learnt distribution away from them.</p>
+<h3>"Alignment" for LLMs</h3>
+<p>Alignment and safety for LLMs mean that <b>we should be able to quantify and bound the probability with which certain undesirable sequences are generated.</b> The trouble is that we largely fail at describing "undesirable" except by example, which makes calculating bounds difficult.</p>
+<p>For a given LLM (without random seed) and sequence, it is trivial to calculate the probability of the sequence to be generated. So if we had a way of somehow summing or integrating over these probabilities, we could say with certainty "this model will generate an undesirable sequence once every N model evaluations". We can't, currently, and that sucks, but at the heart, this is the mathematical and computational problem we'd need to solve.</p>
+<h3>The surprising utility of LLMs</h3>
+<p>LLMs solve a large number of problems that could previously not be solved algorithmically. NLP (as the field was a few years ago) has largely been solved.</p>
+<p>I can write a request in plain English to summarize a document for me and put some key datapoints from the document in a structured JSON format, and modern models will just do that. I can ask a model to generate a children's book story involving raceboats and generate illustrations, and the model will generate something that is passable. And much more, all of which would have seemed like absolute science fiction 5-6 years ago.</p>
+<p>We're on a pretty steep improvement curve, so I expect the number of currently-intractable problems that these models can solve to keep increasing for a while.</p>
+<h3>Where anthropomorphization loses me</h3>
+<p>The moment that people ascribe properties such as "consciousness" or "ethics" or "values" or "morals" to these learnt mappings is where I tend to get lost. We are speaking about a big recurrence equation that produces a new word, and that stops producing words if we don't crank the shaft.</p>
+<p>To me, wondering if this contraption will "wake up" is similarly bewildering as if I was to ask a computational meteorologist if he isn't afraid of his meteorological numerical calculation will "wake up".</p>
+<p>I am baffled that the AI discussions seem to never move away from treating a function to generate sequences of words as something that resembles a human. Statements such as "an AI agent could become an insider threat so it needs monitoring" are simultaneously unsurprising (you have a randomized sequence generator fed into your shell, literally <b>anything</b> can happen!) and baffling (you talk as if you believe the dice you play with had a mind of their own and could decide to conspire against you).</p>
+<p>Instead of saying "we cannot ensure that no harmful sequences will be generated by our function, partially because we don't know how to specify and enumerate harmful sequences", we talk about "behaviors", "ethical constraints", and "harmful actions in pursuit of their goals". All of these are anthropocentric concepts that - in my mind - do not apply to functions or other mathematical objects. And using them muddles the discussion, and our thinking about what we're doing when we create, analyze, deploy and monitor LLMs.</p>
+<p>This muddles the public discussion. We have many historical examples of humanity ascribing bad random events to "the wrath of god(s)" (earthquakes, famines, etc.), "evil spirits" and so forth. The fact that intelligent highly educated researchers talk about these mathematical objects in anthropomorphic terms makes the technology seem mysterious, scary, and magical.</p>
+<p>We should think in terms of "this is a function to generate sequences" and "by providing prefixes we can steer the sequence generation around in the space of words and change the probabilities for output sequences". And for every possible undesirable output sequence of a length smaller than , we can pick a context that maximizes the probability of this undesirable output sequence.</p>
+<p>A much clearer formulation, which helps more clearly articulate the problems to solve.</p>
+<h3>Why many AI luminaries tend to anthropomorphize</h3>
+<p>Perhaps I am fighting windmills, or rather a self-selection bias: A fair number of current AI luminaries have self-selected by their belief that they might be the ones getting to AGI - "creating a god" so to speak, the creation of something like life, as good as or better than humans. You are more likely to choose this career path if you believe that it is feasible, and that current approaches might get you there. Possibly I am asking people to "please let go of the belief that you based your life around" when I am asking for an end to anthropomorphization of LLMs, which won't fly.</p>
+<h3>Why I think human consciousness isn't comparable to an LLM</h3>
+<p>The following is uncomfortably philosophical, but: In my worldview, humans are dramatically different things than a function . For hundreds of millions of years, nature generated new versions, and only a small number of these versions survived. Human thought is a poorly-understood process, involving enormously many neurons, extremely high-bandwidth input, an extremely complicated cocktail of hormones, constant monitoring of energy levels, and millions of years of harsh selection pressure.</p>
+<p>We understand essentially nothing about it. In contrast to an LLM, given a human and a sequence of words, I cannot begin putting a probability on "will this human generate this sequence".</p>
+<p>To repeat myself: To me, considering that any human concept such as ethics, will to survive, or fear, apply to an LLM appears similarly strange as if we were discussing the feelings of a numerical meteorology simulation.</p>
+<h3>The real issues</h3>
+<p>The function class represented by modern LLMs are very useful. Even if we never get anywhere close to AGI and just deploy the current state of technology everywhere where it might be useful, we will get a dramatically different world. LLMs might end up being similarly impactful as electrification.</p>
+<p>My grandfather lived from 1904 to 1981, a period which encompassed moving from gas lamps to electric, the replacement of horse carriages by cars, nuclear power, transistors, all the way to computers. It also spanned two world wars, the rise of Communism and Stalinism, almost the entire lifetime of the USSR and GDR etc. The world on his birth looked nothing like the world when he died.</p>
+<p>Navigating the dramatic changes of the next few decades while trying to avoid world wars and murderous ideologies is difficult enough without muddying our thinking.</p></div>
+      
+    </article>
+    
+    <article>
+      <h1>[Daily article] July 12: Wikipedia:Featured topics/Liverpool F.C.</h1>
+      <div class="article-meta">
+        English Wikipedia Article of the Day
+        · 12 Jul 2026 · <a href="mailto:reader-forwarded-email/13f4569b86eb085de84a5daf101cfb7c">Source</a>
+      </div>
+      <div class="article-body"><div class="rw-email-parsed">
+ <p>
+  Since 1985, Liverpool Football Club has seen the appointment of Kenny
+Dalglish as manager, the Hillsborough disaster, and the club's return to
+European competition. Liverpool won a Premier League and FA Cup double
+in Dalglish's first season, and won further league titles in 1987–88
+and 1989–90. A crush of people at Hillsborough Stadium in April 1989
+resulted in 96 deaths (memorial pictured) and led to the end of standing
+terraces. In 2001, Liverpool won a unique treble of trophies, and a year
+later finished second to Arsenal, their highest league finish in 11
+years. Liverpool won the UEFA Champions League for the fifth time in
+Rafael Benítez's debut season in 2005, and he guided the club to
+another FA Cup victory in 2006. Since 2015, Jürgen Klopp has led
+Liverpool to consecutive Champions League finals; the 2019 win sealed a
+sixth Champions League title and ended a seven-year trophy drought,
+followed by a win in the 2019 UEFA Super Cup. (
+ </p>
+ <p>
+  Read more:
+  <a href="https://en.wikipedia.org/wiki/Wikipedia:Featured_topics/Liverpool_F.C.">
+   https://en.wikipedia.org/wiki/Wikipedia:Featured_topics/Liverpool_F.C.
+  </a>
+ </p>
+ <hr/>
+ <p>
+  Today's selected anniversaries:
+ </p>
+ <p>
+  1963:
+ </p>
+ <p>
+  Sixteen-year-old Pauline Reade, the first victim of serial
+killers Ian Brady and Myra Hindley, disappeared in Gorton, England.
+  <a href="https://en.wikipedia.org/wiki/Moors_murders">
+   https://en.wikipedia.org/wiki/Moors_murders
+  </a>
+ </p>
+ <p>
+  1979:
+ </p>
+ <p>
+  Rowdy fans at Comiskey Park in Chicago stormed the field during
+a Major League Baseball promotional event at which a crate of disco
+records was blown up.
+  <a href="https://en.wikipedia.org/wiki/Disco_Demolition_Night">
+   https://en.wikipedia.org/wiki/Disco_Demolition_Night
+  </a>
+ </p>
+ <p>
+  1998:
+ </p>
+ <p>
+  France defeated the defending champions Brazil 3–0 to win
+their first FIFA World Cup title.
+  <a href="https://en.wikipedia.org/wiki/1998_FIFA_World_Cup_final">
+   https://en.wikipedia.org/wiki/1998_FIFA_World_Cup_final
+  </a>
+ </p>
+ <p>
+  2006:
+ </p>
+ <p>
+  Hezbollah forces crossed the Israel–Lebanon border and
+attacked Israeli military positions while firing rockets and mortars at
+Israeli towns, sparking a five-week war.
+  <a href="https://en.wikipedia.org/wiki/2006_Hezbollah_cross-border_raid">
+   https://en.wikipedia.org/wiki/2006_Hezbollah_cross-border_raid
+  </a>
+ </p>
+ <hr/>
+ <p>
+  Wiktionary's word of the day:
+ </p>
+ <p>
+  fortuitous:
+1. Happening by fortune or chance; accidental, coincidental.
+2. Having good fortune or success; fortunate, lucky.
+3. (law) Happening independently of human control; uncontrollable.
+4. About Word of the Day
+5. Nominate a word
+6. Leave feedback
+  <a href="https://en.wiktionary.org/wiki/fortuitous">
+   https://en.wiktionary.org/wiki/fortuitous
+  </a>
+ </p>
+ <hr/>
+ <p>
+  Wikiquote quote of the day:
+ </p>
+ <p>
+  The best preparation for tomorrow is to do today's work superbly well.
+  --William Osler
+  <a href="https://en.wikiquote.org/wiki/William_Osler">
+   https://en.wikiquote.org/wiki/William_Osler
+  </a>
+ </p></div></div>
+      
+    </article>
+    
+  </body>
+</html>
