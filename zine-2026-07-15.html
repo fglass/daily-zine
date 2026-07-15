@@ -1,0 +1,470 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Fred Talks - 2026-07-15</title>
+    <style>
+      @page {
+        size: A5;
+        margin: 8mm 9mm 9mm;
+      }
+
+      :root {
+        color: #111;
+        font-family: "Times New Roman", Times, serif;
+        --body-text-size: 9.5pt;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        color: #111;
+        background: #fff;
+        font-family: "Times New Roman", Times, serif;
+        line-height: 1.45;
+      }
+
+      a,
+      a:visited {
+        color: #111;
+        text-decoration: underline;
+      }
+
+      .cover {
+        min-height: calc(210mm - 17mm);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        page-break-after: always;
+        border: 1px solid #111;
+        padding: 8mm;
+        background: #fff;
+      }
+
+      .toc-item-meta,
+      .article-meta {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .masthead {
+        margin: 0;
+        font-size: 40pt;
+        line-height: 0.95;
+        text-transform: uppercase;
+      }
+
+      .issue-date {
+        margin: 4mm 0 0;
+        font-size: 14pt;
+      }
+
+      .issue-date sup {
+        font-size: 0.58em;
+        vertical-align: super;
+        line-height: 0;
+      }
+
+      .cover-deck {
+        max-width: 90mm;
+        font-size: 12pt;
+        margin: 0;
+      }
+
+      .toc {
+        border-top: 3px solid #111;
+        padding-top: 6mm;
+      }
+
+      .toc h2 {
+        margin: 0 0 4mm;
+        font-size: 11pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .toc-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .toc-item {
+        padding: 3mm 0;
+        border-bottom: 1px solid rgba(17, 17, 17, 0.2);
+      }
+
+      .toc-item-title {
+        font-size: 12pt;
+        margin: 0 0 1mm;
+      }
+
+      .toc-item-meta {
+        font-size: 8pt;
+      }
+
+      .masthead-compact {
+        margin: 0 0 6mm;
+      }
+
+      .masthead-compact h1 {
+        margin: 0;
+        font-size: 22pt;
+        line-height: 1.1;
+        text-transform: uppercase;
+      }
+
+      .masthead-compact .issue-date {
+        margin: 2mm 0 0;
+        font-size: 11pt;
+      }
+
+      .toc-compact {
+        border-top: 1px solid #111;
+        border-bottom: 1px solid #111;
+        padding: 4mm 0;
+        margin: 0 0 8mm;
+      }
+
+      article + article {
+        margin-top: 10mm;
+        padding-top: 6mm;
+        border-top: 2px solid #111;
+      }
+
+      h1 {
+        margin: 0 0 2mm;
+        font-size: 18pt;
+        line-height: 1.1;
+      }
+
+      .article-meta {
+        font-size: 8.5pt;
+        margin-bottom: 6mm;
+        padding-bottom: 3mm;
+        border-bottom: 1px solid #111;
+      }
+
+      .article-body {
+        font-size: var(--body-text-size);
+        font-family: "Times New Roman", Times, serif;
+      }
+
+      .article-body p,
+      .article-body li,
+      .article-body blockquote,
+      .article-body dd,
+      .article-body dt {
+        margin: 0 0 4mm;
+        orphans: 3;
+        widows: 3;
+      }
+
+      .article-body ul,
+      .article-body ol,
+      .article-body dl {
+        margin: 0 0 4mm 5mm;
+        padding: 0;
+      }
+
+      .article-body h2,
+      .article-body h3,
+      .article-body h4 {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        margin: 7mm 0 3mm;
+        line-height: 1.2;
+      }
+
+      .article-body blockquote {
+        margin-left: 6mm;
+        padding-left: 4mm;
+        border-left: 2px solid #111;
+      }
+
+      .article-body .media-omitted {
+        margin: 0 0 4mm;
+        font-size: 8.5pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(17, 17, 17, 0.65);
+      }
+
+      .article-body figure,
+      .article-body .article-figure,
+      .article-body picture,
+      .article-body .article-picture {
+        display: block;
+        max-width: 72mm;
+        margin: 0 auto 4mm;
+        break-inside: avoid;
+      }
+
+      .article-body img,
+      .article-body .article-image {
+        display: block;
+        max-width: min(100%, 72mm);
+        max-height: 34mm;
+        height: auto;
+        width: auto;
+        object-fit: contain;
+        margin: 0 auto 3mm;
+      }
+
+      .article-body figcaption {
+        margin-top: 1.5mm;
+        font-size: 8.5pt;
+        line-height: 1.3;
+        color: rgba(17, 17, 17, 0.8);
+      }
+
+      .article-note {
+        margin-top: 6mm;
+        padding-top: 3mm;
+        border-top: 1px solid #111;
+        font-size: 9pt;
+        font-style: italic;
+      }
+
+      @media screen {
+        body {
+          padding: 2rem;
+          margin: 0 auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    
+    <header class="masthead-compact">
+      <h1>Fred Talks</h1>
+      <p class="issue-date">
+        15<sup>th</sup> July 2026
+      </p>
+    </header>
+
+    <nav class="toc toc-compact">
+      <h2>Contents</h2>
+      <ol class="toc-list">
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Luddites and AI datacenters</div>
+          <div class="toc-item-meta">
+            seangoedecke.com RSS feed · 2789 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Surrender as a non-stupid life strategy</div>
+          <div class="toc-item-meta">
+            Sasha Chapin · 2104 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">A statistical approach to model evaluations</div>
+          <div class="toc-item-meta">
+            anthropic.com · 1598 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Deep Work Checklist</div>
+          <div class="toc-item-meta">
+            Recovering Overthinker · 70 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Codex CLI Release: 0.144.4</div>
+          <div class="toc-item-meta">
+            Codex changelog · 17 words
+          </div>
+        </li>
+        
+      </ol>
+    </nav>
+    
+
+    
+    <article>
+      <h1>Luddites and AI datacenters</h1>
+      <div class="article-meta">
+        seangoedecke.com RSS feed
+        · 22 Apr 2026 · <a href="https://seangoedecke.com/luddites-and-ai-datacenters/">Source</a>
+      </div>
+      <div class="article-body"><p>Is it time to start burning down datacenters?</p>
+<p>Some people think so. An Indianapolis city council member had his house recently <a href="https://www.kbtx.com/2026/04/07/councilman-says-someone-fired-shots-his-home-left-no-data-centers-note/">shot up</a> for supporting datacenters, and Sam Altman’s home was <a href="https://www.wired.com/story/sam-altman-home-attack-openai-san-franisco-office-threat/">firebombed</a> (and then <a href="https://sfstandard.com/2026/04/12/sam-altman-s-home-targeted-second-attack/">shot</a>) shortly afterwards. People from all sides of the argument are <a href="https://www.bloodinthemachine.com/p/why-the-ai-backlash-has-turned-violent">sounding</a> the <a href="https://thesoufancenter.org/intelbrief-2025-november-5/">alarm</a> about imminent violence.</p>
+<p>The obvious historical comparison is <a href="https://en.wikipedia.org/wiki/Luddite">Luddism</a>, the 19th-century phenomenon where English weavers and knitters destroyed the machines that were automating their work, and (in some cases) killed the machines’ owners. Anti-AI people are <a href="https://www.theguardian.com/commentisfree/article/2024/jul/27/harm-ai-artificial-intelligence-backlash-human-labour">reclaiming</a> the term to describe themselves, and many of the leading lights of the anti-AI movement (like <a href="https://www.bloodinthemachine.com/">Brian Merchant</a> or <a href="https://www.versobooks.com/en-gb/products/688-breaking-things-at-work?srsltid=AfmBOorCgru7ReSwbVdt40nZmQaaeGfbpjLV7epM0fSv_V01QSY5b5TP">Gavin Mueller</a>) have written books arguing more or less that the Luddites were right, and we ought to follow their example in order to resist AI automation<sup><a href="https://www.seangoedecke.com/luddites-and-ai-datacenters/#fn-1">1</a></sup>.</p>
+<p>Like many people, I have heard a lot about Luddism and Luddites, but only in the context of it being a general term for someone who is anti-technology. I was interested in learning more about the actual historical movement: what kind of people participated, what it was, and what it accomplished. I read Merchant’s and Mueller’s books, plus others<sup><a href="https://www.seangoedecke.com/luddites-and-ai-datacenters/#fn-2">2</a></sup>, to try and figure all of this out. Who were the actual, historical Luddites? What can we learn from them about burning down datacenters?</p>
+<h3>Who were the Luddites?</h3>
+<p>The Luddites were a decentralized movement of artisans in the 1810s who engaged in violent protest - smashing machines, threatening violence, and ultimately killing people - over the fact that their jobs were being automated away. They were not rich, but they were certainly not unskilled labor: these were people who had apprenticed for <a href="https://archive.org/stream/extractsfromrec01dendgoog/extractsfromrec01dendgoog_djvu.txt?utm_source=chatgpt.com">seven years</a>. They were mostly working from home, producing cloth from raw material given to them by their employer, often with tools rented from that same employer. They were working short weeks (three days, per William Gardiner) at their own discretion.</p>
+<p>In the early 1800s, their skilled labor was becoming unnecessary. With the help of expensive machines, unskilled labor could now produce lower-quality cloth, so employers were beginning to pass over these artisans in favor of cheaper employees: <a href="https://campus.murraystate.edu/academic/faculty/kBinfield/luddites/LudditeHistory.htm">children, unapprenticed workers, and women</a><sup><a href="https://www.seangoedecke.com/luddites-and-ai-datacenters/#fn-3">3</a></sup>. Combined with the bad economic position of England at the time (at war with France, and thus deliberately cutting off much European trade), times were beginning to be very tough indeed. Starvation was a real threat.</p>
+<h3>What did they do?</h3>
+<p>Cloth artisans were groups of capable men who were used to getting their own way, knew each other very well, and were broadly respected in their communities. It was thus a natural response for them to organize into what was effectively a militant union. The Luddites would send anonymous threatening letters to their old (or current) bosses, warning them to stop using their machines. If they didn’t comply, they would raid the workshop or factory, smashing the machines up.</p>
+<p>They typically did not harm people, though they certainly delivered threats of bodily harm or even murder, and the raids were violent enough (e.g. shooting through windows) to have risked accidental deaths. In at least two instances where a factory owner was seen as unusually cruel, the Luddites did attempt assassinations: one unsuccessful, and one successful one that eventually prompted a crackdown that ended the movement for good.</p>
+<p>Luddism was fully decentralized. Different communities could and did decide to engage in machine-raiding independently, particularly when news spread of the tactic succeeding. Although each community had its own influential men, there was never a single “leader of Luddism”. King Ludd himself was a folk-tale figure. This made it an absolute nightmare for the British government to try and suppress them: putting down one Luddist group did nothing to prevent other groups from continuing to operate.</p>
+<h3>All the king’s spies</h3>
+<p>I was surprised by how <em>difficult</em> it was for the government to get a hold of any of the local Luddist ringleaders. The government was willing to offer huge rewards to informers: at one point up to 40x the yearly wage. However, there were no takers for several years. Armies of spies were recruited and tasked with infiltrating Luddist groups, with absolutely no success.</p>
+<p>Why was it so hard? Firstly, because the working class was so overwhelmingly pro-Luddist. People universally blamed the economic situation on the government and the factory owners (rightfully so, since the government had chosen to go to war and the factory owners had chosen to embrace automation). Secondly, the communities in question were so insular and tightly-knit that informers would have to rat on their friends and relatives. The handful of people who did eventually inform lived out the rest of their lives as pariahs.</p>
+<p>Because each group was so insular, any spies trying to infiltrate the movement would have been complete strangers to the community, and would thus have a very hard time gaining the trust of a group of men who had known each other for their whole lives. The spies that did exist were restricted to the occasional inter-group Luddist meetings, where people didn’t all know each other so closely. But it’s unclear how important those meetings were, since Luddist groups didn’t need to coordinate to achieve their goals. According to Merchant, the spies spent much of their time embellishing tales of an imminent revolution to encourage their employers to keep the money flowing.</p>
+<h3>The crackdown</h3>
+<p>In the absence of reliable information, the British government was forced to use force. And they did, sending 12,000 troops<sup><a href="https://www.seangoedecke.com/luddites-and-ai-datacenters/#fn-4">4</a></sup> into the northern counties. This served mainly as an intimidation tactic, since there was no standing Luddite army to fight, and the soldiers spent most of their time marching back and forth or being abused by the townspeople.</p>
+<p>More successful was the imposition of a full police state in Yorkshire, under the magistrate Joseph Radcliffe, who was empowered to randomly grab people off the street and interrogate them for days. That pressure eventually convinced a handful of people to give up their local Luddist organizers, who were tried and inevitably hanged. Their deaths (and the ensuing climate of fear) ended the high-water mark of Luddist activity. Even then, Luddist raids continued on and off for <em>six more years</em> before petering out.</p>
+<h3>Did the Luddites succeed?</h3>
+<p>This is a tricky question. In one sense the answer is obviously no: the movement was crushed, many of their leaders were executed, the textile industry continued to be automated, and today there are no longer thousands of jobs for skilled British weavers, knitters, spinners and dyers. The pro-automation side won.</p>
+<p>However, they did achieve a number of short-lived victories. Their early threats often succeeded in preventing the building of a factory in a particular location, or in delaying the adoption of industrial machinery in a particular shop by years. In one case, hosiers that had been spooked by Luddite activity gave out pre-emptive bonuses to their workers to discourage them from smashing up their machines (which were indeed not smashed).</p>
+<p>The Luddites also scared the hell out of the British government, who (encouraged by their over-eager spies) thought they might have a genuine revolution on their hands. While they didn’t get many legal concessions at the time, the specter of Luddism must have loomed over the labor reform movement of the 1800s, which saw the first anti-child-labor laws and the beginnings of independent inspection of factories.</p>
+<p>Finally, every book I read argued that the Luddism movement may have created the first idea of a “working class”, by unifying many previously-independent groups of workers against a common enemy. Seen this way, the “political arm”<sup><a href="https://www.seangoedecke.com/luddites-and-ai-datacenters/#fn-5">5</a></sup> of Luddism can arguably claim partial credit for every labor victory since the 1800s (though the ringleaders were still hanged and the weavers did still lose their jobs).</p>
+<h3>The Luddist approach in a nutshell</h3>
+<p>We can now describe the “Luddist approach” to fighting technological change:</p>
+<ol> <li>Find a few conspirators in your existing community who agree with your political project (but don’t join a broader organization, since that leaves you vulnerable)</li> <li>Make public anonymous demands in support of your specific goals, backed up by threats of violence, signed by a fictional character that’s easy for other groups to appropriate</li> <li>If your threats are ignored, attack the physical machines in the dead of night, destroying them and threatening (but not killing) any guards</li> <li>Hope your example inspires many more people to independently do (1)-(3) themselves</li> <li>Keep raiding, optionally escalating to assassination of some of the bosses, until you bait a totalitarian crackdown from the government </li> <li>Eventually get arrested and executed, to great public dismay</li> <li>Twenty years later, your example inspires the first national trade unions</li> </ol>
+<p>Note that starting or joining a national movement is <em>not</em> the Luddist approach. Staying almost entirely isolated in small cells helped the Luddists avoid government spies and made them impossible to root out without enforcing a police state. Note also that you need a <em>lot</em> of public support for this to work: so that you get a lot of copycat groups without having to explicitly organize them, and so that your property destruction and murder is taken sympathetically instead of getting you immediately reported and arrested.</p>
+<h3>Why Luddism is not a good model for the anti-AI movement</h3>
+<p>There are many reasons why this doesn’t map onto the current anti-AI movement. First, Luddism grew from a homogeneous group of high-status workers whose jobs almost vanished overnight, not a broad group of people whose jobs are getting slightly worse because of AI (like the gig-economy workers Merchant endlessly references). That meant that Luddites had <em>really specific</em> asks: higher wages for piecework, a phased introduction of specific textiles machinery, and so on. They were not generally demanding that the machines all be immediately destroyed<sup><a href="https://www.seangoedecke.com/luddites-and-ai-datacenters/#fn-6">6</a></sup>.</p>
+<p>Second, Luddism was very local. A pre-existing group of artisans in a particular town would gather in that town - either at work or an inn, say - and decide to petition or raid the businesses in that town that were harming their livelihoods. AI concerns are not like this. It isn’t businesses in Chicago or Tokyo that are making decisions that imperil Chicago’s or Tokyo’s jobs, it’s businesses in San Francisco. Unlike the Luddists, anti-AI activists can’t naturally organize with people they already know to take direct action where they already live.</p>
+<p>Third, Luddist <em>victory</em> could also be local. If you successfully lobby your local cloth business to not use a weaving machine, you have secured your job at that business for a while. But if you successfully lobby your town (or even your country!) to not build a datacenter, it doesn’t meaningfully improve your local position, since your job can be as easily replaced by a datacenter on the other side of the planet.</p>
+<h3>A total failure of leadership</h3>
+<p>Reading through the history of the Luddites from a modern perspective, I was struck by the near-total absence of <em>good government</em>. The artisans were left to work out their grievances with their bosses more or less by themselves, with no formal channels for complaint or any attempt at mediation. When the government did intervene - in response to near-universal unrest in <em>half of the country</em> - they did this:</p>
+<ol> <li>Make machine-breaking and oath-taking capital crimes</li> <li>Dump thousands of soldiers more or less at random into the area, with no plan to guard factories or do anything beyond just hang around in case a revolution broke out</li> <li>Empower a single magistrate to arrest and interrogate whoever he wanted in order to root out the conspiracy</li> </ol>
+<p>I suppose it worked, in the sense that it eventually succeeded in stopping the Luddist raids. But I can’t help but think that even a token gesture of compromise (say, requiring employers to make their wages public, or restricting the most cheap-and-nasty factory-made textile products) would have gone a long way towards calming things down. This almost actually happened! The 1812 Framework Knitters’ Bill, which had these provisions in it, passed the House of Commons but was shot down in the House of Lords.</p>
+<p>Why did the government fail to even make a token attempt at compromise? Before the industrial revolution, I wonder if the workers and bosses of the English textiles industry were genuinely able to often just work out their problems together, so the government never really needed to do large-scale mediation. When that changed - when automation first made it possible for the bosses to durably “win” - government took a long time to realize, so there were some unpleasant decades of disempowered workers trying to bully factory-owners (via riots and death threats), and factory-owners trying to brutalize workers (via direct violence and automation).</p>
+<h3>Final thoughts</h3>
+<p>The Luddites weren’t anti-technology in general. Instead, they were against four or five specific machines that were automating away their skilled work. Contrary to many of the books I read, I think that’s actually fairly well understood today. But what surprised me was how truly decentralized and widespread the movement was. Every town with weavers faced the same incentives (the bosses to industrialize, and the workers to fight back) which created Luddism locally. And <em>nobody</em> was willing to report the Luddites: not for years, or for what would have been a fortune in cash, or in disagreement with their actions. They were only stopped by a truly fascist crackdown, with the army in the streets and the secret police pulling away random citizens for arrest and questioning.</p>
+<p>I can see why modern “Luddites” - who are genuinely anti-technology - talk so much about the legacy of original Luddites. Luddism was a grassroots organization which notched up some real short-term wins, enjoyed near-total support among the public, and didn’t seem to be troubled by infighting at all<sup><a href="https://www.seangoedecke.com/luddites-and-ai-datacenters/#fn-7">7</a></sup>. If you’re an anti-AI campaigner, I bet all of that sounds great<sup><a href="https://www.seangoedecke.com/luddites-and-ai-datacenters/#fn-8">8</a></sup>. But I’m not convinced that the neo-Luddites really are the inheritors of Luddism. A load-bearing feature of Luddism is that it was <em>local</em>: it didn’t have manifestos, or leaders, or factions, or even much explicit ideology beyond the artisans’ immediate practical concerns. These were local men striking back against the local factories harming their local jobs. That simply isn’t the case with AI, where a datacenter in China can take my job in Australia.</p>
+<p>If it isn’t time to start burning down datacenters, what can we do? Well, workers today are better off than the Luddites were, because we stand on their shoulders. Unlike the Luddites, today’s workers can all vote (and I suspect there will be no shortage of anti-AI candidates to vote for). It’s a much less exciting answer to say “try and get better laws passed” than to say “viva the revolution, where’s my Molotov cocktail”. Still, if the Luddites had that option, I suspect they would have used it.</p>
+<ol> <li> <p>I got linked <a href="https://tante.cc/2026/04/21/ai-as-a-fascist-artifact/">this article</a> calling AI a “fascist artifact” (on a blog called “Breaking Frames”, a clear reference to Luddism) while I was writing this blog post.</p> <a href="https://www.seangoedecke.com/luddites-and-ai-datacenters/#fnref-1">↩</a> </li> <li> <p>I really enjoyed Merchant’s book and did not enjoy Mueller’s (which I found to be 10% about the Luddites and 90% about interminable intra-Marxist ideological arguments). I also read <a href="https://www.amazon.com.au/Luddites-Protested-Machinery-Industrial-Revolution/dp/171936186X">The Luddites</a>, which was effectively a dry summary of the ground Merchant covers, a bunch of other essays, and went back and forth with ChatGPT and Claude on some of the key questions.</p> <a href="https://www.seangoedecke.com/luddites-and-ai-datacenters/#fnref-2">↩</a> </li> <li> <p>Merchant (around page 134) attempts to characterize Luddism as a pro-feminist movement, citing some examples of women helping organize raids, but later on even he (page 162) quotes a representative of the Irish weaver’s guild effectively saying “we don’t have your English problems of women working in the industry”. In general it’s a bit frustrating that the popular books on Luddism are all fairly uncritically pro-Luddist (though not surprising, I suppose). Merchant doesn’t touch at all on the Luddist <a href="https://ludditebicentenary.blogspot.com/2011/12/22nd-december-1811-william-milnes.html">practice</a> of going around to knitting-shops with women and “discharging them from working”.</p> <a href="https://www.seangoedecke.com/luddites-and-ai-datacenters/#fnref-3">↩</a> </li> <li> <p>Sometimes this is described as more troops that were sent to fight Napoleon (even by Merchant himself on page 89), but that <a href="https://medium.com/@antonhowes/were-more-troops-sent-to-quash-the-luddites-than-to-fight-napoleon-233c802c216d">isn’t right</a>.</p> <a href="https://www.seangoedecke.com/luddites-and-ai-datacenters/#fnref-4">↩</a> </li> <li> <p>In quotes because it was not an official Luddist group (there were none), just people who were trying to stop the violence through lobbying and legislation.</p> <a href="https://www.seangoedecke.com/luddites-and-ai-datacenters/#fnref-5">↩</a> </li> <li> <p>Otherwise why would any boss agree, instead of just waiting for the Luddites to do it themselves?</p> <a href="https://www.seangoedecke.com/luddites-and-ai-datacenters/#fnref-6">↩</a> </li> <li> <p>As far as I can tell this is true: the Luddists basically had no internal conflict. I think this is because each individual cell knew each other well already, and so handled their disagreements privately (instead of by writing pamphlets), and disagreements between cells didn’t matter that much because they had no need to coordinate.</p> <a href="https://www.seangoedecke.com/luddites-and-ai-datacenters/#fnref-7">↩</a> </li> <li> <p>It beats the hell of the other popular reference, Dune’s <a href="https://dune.fandom.com/wiki/Butlerian_Jihad">Butlerian Jihad</a>, which was two generations of brutal violence followed by the reimposition of the feudal system. (Although, at least the Butlerian Jihad <em>succeeded</em>…)</p> <a href="https://www.seangoedecke.com/luddites-and-ai-datacenters/#fnref-8">↩</a> </li> </ol></div>
+      
+    </article>
+    
+    <article>
+      <h1>Surrender as a non-stupid life strategy</h1>
+      <div class="article-meta">
+        Sasha Chapin
+        · 04 Jul 2026 · <a href="https://sashachapin.substack.com/p/should-you-be-in-charge-of-your-life">Source</a>
+      </div>
+      <div class="article-body"><p>After getting everything I wanted in my 20s, and discovering that I was still miserable, I decided that I should no longer be in charge of choosing what I want, and I slowly settled into a frame of, “I’ll do whatever God seems to want from me.”</p>
+<p>Some years after making that decision, I’m much happier. My life is richer, and I’m doing more for others. Regularly, I react with positive disbelief when I look at what my life has become. It looks like I’ve been executing a genius strategy. But in reality, I am living in a state of ongoing confusion, just seeing what happens.</p>
+<p>If you’ve achieved a bunch of your goals, and you’re still not happy with your life, consider giving up on self-chosen plans. Instead, listen to your life, inner and outer, and see if you can feel a current. Then fall into it, especially if it has nothing to do with the story you had about where you were supposed to be going.</p>
+<p>This choice is known as surrender. As with most cliches, I don’t think I can explain the profound experiential content of surrender—what it feels like, why it works. But perhaps I can lay out a constellation of propositions<a data-component-name="FootnoteAnchorToDOM" href="#footnote-1" id="footnote-anchor-1"><sup> [1] </sup></a> that will, together, illuminate a worldview very different from the one I once inhabited.</p>
+<h3><strong>Knowing and not-knowing yourself</strong></h3>
+<p><strong>1.1</strong> The planning part of your mind, the one that generates ambitions and hypothetical situations, is a small part of your overall intelligence. Anyone who is halfway good at sex, comedy, or any creative art will know this. Designing your life based on what that part of your mind wants is like designing your house to fit the needs of your right hand. Congratulations, your house is filled with fidget spinners and soap.</p>
+<p><strong>1.2</strong> A large percentage of human suffering is anticipatory tension, or dreading a future experience such that you actualize its potential suffering in the now. Anticipatory tension is using the illusion of knowledge to generate the illusion of control. Much of what people call planning is this.</p>
+<p><strong>1.3</strong> My best outfits are all selected by someone else. When I’m at a clothing store, and I meet an employee who seems engaged, I tell them to dress me for maximum attractiveness. They do a much better job than I do. Of course: I can’t see myself as well as someone else can. This is why I try to listen to what the world apparently wants to do with me,rather than who I imagine I am.</p>
+<p><strong>1.4</strong> Often, our self-image is a defense against the traits we reject in ourselves. “I love to be spontaneous,” says the most calculating person you’ve ever met. Thus, if you’re trying to live in self-loathing and denial, one way is to sculpt your life around the self-image you’ve decided on.</p>
+<p><strong>1.5</strong> I’ve discovered that scrutinizing my motives too closely is a great way to stop creating. The unexamined life may not be worth living, but the fully examined life is a pinned butterfly in a glass case. I’ve concluded that my life is a grand artistic project, but I’m best off not knowing what it is.</p>
+<p><strong>1.6</strong> You know that person who had important ripple effects in your life, based on a brief meeting or a kind gesture they extended to you, which meant nothing to them, but everything to you? Or that interesting stranger whose manner cast a brief spell on you, lingering in your memory disproportionately? That’s you also, you’re that person. Most of your impact on others, you will never fully apprehend or appreciate. Thus, it’s not important to know what you’re doing.</p>
+<p><strong>1.7</strong> The proper end of introspection is not being filled with facts about oneself. Your introspection is successful if it is finite, if it leads you towards direct contact with experience. Get out of the way of your becoming.</p>
+<h3><strong>Choice and authenticity</strong></h3>
+<p><strong>2.1</strong> People feel most themselves when they are unselfconscious, which is to say, their actions emerge without apparent control. Think of the phrase “singing with abandon.” In our most profound moments of intimacy, we have abandoned the wheel. Who is driving, at that moment? What if we simply let that driver have the wheel more often? It takes practice to notice when that’s the person taking over the wheel—as opposed to our reactive, fear-based conditioning, which is also eager to take the job. Surrender is a skill.</p>
+<p><strong>2.2</strong> When people talk about “being authentic,” they are often referring to executing some program, some persona, that they’ve devised privately. Of course, our impression of such people is that they’re unnatural and unoriginal. They assign us the job of reinforcing a character we never agreed on.</p>
+<p><strong>2.3</strong> Surrender is something that happens through you, not something chosen<a data-component-name="FootnoteAnchorToDOM" href="#footnote-2" id="footnote-anchor-2"><sup> [2] </sup></a>. I couldn’t have skipped the part of my life when I was contriving everything. And the way I’m living now wouldn’t work without the skills I accumulated during that period of contrivance. If you’re reading this and thinking, “gosh, I wish person <em>x </em>would see the wisdom of surrender,” you have discovered an opportunity to surrender to interpersonal helplessness.</p>
+<p><strong>2.4</strong> Often, the apparent struggle to make a decision is an attempt to meet an internal flailing quota, after which we will feel affirmed in the choice we already knew we were making. Sometimes you can just skip all of that, and admit that you’re scared of what you know you will do. And then do it.</p>
+<h3><strong>Goals, outcomes, effort</strong></h3>
+<p><strong>3.1</strong> Discovered goals are entirely different from preconceived goals. Let’s say you notice that when you play guitar and sing, people stop what they’re doing to stare at you. The discovered goal of being a musician has presented itself. You are more likely to be successful than someone who privately dreams of being a musician without prompting from existence. Noticing such opportunities requires a lack of some previously decided agenda.</p>
+<p><strong>3.2</strong> I’ve known many impressive people. Almost none of them started with a comprehensive vision of the grand work they would produce. Instead, they simply got into escalating amounts of trouble, and kept riding the trouble wave as far as it would go.</p>
+<p><strong>3.3</strong> Excellence requires non-attachment to principles. All mediocre performers are the same: instead of improving on feedback from what happens, they react to what they think is supposed to be happening, or try to reinforce a theory they’ve internalized—perhaps an inaccurate approximation of someone they admire. This attempt at coherence is futile, since the mind of an expert makes no sense. It is filled with exceptions, contradictory principles butting up against each other. Perhaps the knowledge of how your life works is the same.</p>
+<p><strong>3.4</strong> When a project in my life is working, it’s typically marked by a sense of leverage. It’s as if I’ve fallen into an updraft and it’s propelling me. Meanwhile, when I’m privately excited about something, but there’s no cooperation from the world, nothing comes together. The sensible conclusion is that my enthusiasm, alone, is not a helpful measurement.</p>
+<p><strong>3.5</strong> It’s nice to enjoy what you’re doing. But there is a greater liberation available: accepting that the Work in front of you is your Work, and that has little to do with how you feel.</p>
+<p><strong>3.6</strong> Another property of things that work out for me: they don’t make sense to my rationalizing mind. There is the thought, “this isn’t what I’m supposed to be doing,” even as greater forces pull me forward. This is known as the refusal of the call to adventure. It’s a routine part of adventure.</p>
+<p><strong>3.7</strong> There is a criticism you could make of my advocacy of surrender. It is: “you’re just lucky and narrativizing it.” Yes. If you, too, have luck that seems unrelated to your conscious choices, consider letting that run the show.</p>
+<h3><strong>Happiness</strong></h3>
+<p><strong>4.1</strong> The norm for human life: gross injustice, corrupt rulers, disease and death, unequal fortunes, looming apocalypses. It’s possible that a large portion of our species will die off—it’s happened before, we’ve almost gone extinct previously, that’s allowed in the game. If your basic needs are met but you cannot be content with the way it is now, that is not the fault of the way things are now. It’s because you haven’t surrendered to the basic properties of incarnating in human form.</p>
+<p><strong>4.2</strong> Strangely, happiness isn’t produced by getting what you want. Unhappiness is the product of the number of times per minute that you believe circumstances should be otherwise. “Enough” and “not enough” are mental stances that, very often, are uncorrelated with exterior facts. Perhaps this is one reason Jesus says it is “easier for a camel to go through the eye of a needle than for a rich man to enter the kingdom of God”—the more you focus on expanding your pile, the more ravenousness becomes a habit. By contrast, you can, right now, try believing that what’s happening is what’s supposed to be happening, in exactly the right order.</p>
+<p><strong>4.3</strong> Satisfaction comes from giving yourself away. From realizing that you have been called to some occasion that requires everything from you, and saying, fine, fuck it, here I am, tear me apart, I will exhaust myself to set right this one irrelevant corner. It is possible to view your whole existence this way, as a process of giving away all, everything, of what was never yours.</p>
+<p><strong>4.4</strong> Another profound source of satisfaction is fit: when you fit like a slender hand in the glove of your circumstances. Consider the possibility that this satisfaction is already trying to happen, but you are resisting it, in a doomed attempt to be happy. Settling into this fit is another way of describing what I mean by “doing what God seems to want.”</p>
+<p><strong>4.5</strong> I can’t defend this intellectually, but it has been true in my experience: spontaneous compassion is the approach to ethics that feels best and works most often. If you want a plan for consistently being good, the dumbest one that will work, and therefore the most robust, is “notice that prosocial behavior is nourishing, and that peace is only available if you’re on good terms with your conscience, and allow behavior to flow from that.” I’m not deluded enough to think this is always sufficient, but it’s a good start.</p>
+<h3><strong>Love</strong></h3>
+<p><strong>5.1</strong> I am capable of privately spoiling my wonderful marriage at any time, by noticing that it’s not the relationship I would’ve imagined being in. Meanwhile, a few months before meeting my wife, I wrote down a list of characteristics that the perfect partner would have, and I subsequently met that person. She was completely lovely—I find much to criticize in my own behavior from that period and nothing bad to say about her. And yet the relationship did not stick. How odd.</p>
+<p><strong>5.2</strong> When I insist that a relationship must survive, I begin to resent it—I become burdened by all of the little moments of inauthenticity engaged in to shield the other person. The person becomes an obstacle, someone to navigate around. When I accept that any relationship could end, and surrender to the reality of people finding their own level, I become free to relate openly, and then actual closeness happens.</p>
+<p><strong>5.3</strong> Panic is a part of love. I’ve learned that as I enter into any relationship that will alter me for the better, the manager in my head will come up with convincing reasons why it’s all wrong. This, too, is the refusal of the call; it is the fear of personal transformation masquerading as reason.</p>
+<p><strong>5.4</strong> The older I get, the more that friendship is a discovered property. There are lots of wonderful people I meet who aren’t my friends. And then I meet someone and think: oh, that’s my friend, you’re coming with me. One of the best things you can do for yourself is to notice when you’re inexplicably bound to someone, and act on it without thinking.</p>
+<p><strong>5.5</strong> We are drawn towards people because they are different. We are given the opportunity to love more when we find ourselves resenting them for the very difference that drew us to them. The opportunity is to release resentment and instead surrender to separateness. Ironically, this is how you feel less alone.</p>
+<p><em>Thank you to Erin Shetron for editorial assistance. This essay was inspired a little bit by The Surrender Experiment, and a lot by <a href="https://luminousdharma.org/returning-to-nature-advanced-dharma-practice/">this totally wonderful meditation guide</a>. Photo credit goes to Daido Moriyama. </em></p>
+<p><a href="#footnote-anchor-1" id="footnote-1">1 [find in text]</a></p>
+<p>This format is shamelessly stolen from <a href="https://medium.com/@sumdepony/seeing-like-a-communist-f3049710fb6c">this fascinating essay</a> by “de Pony Sum.”</p>
+<p><a href="#footnote-anchor-2" id="footnote-2">2 [find in text]</a></p>
+<p>I first heard this point made by Adyashanti.</p>
+<h3>...</h3></div>
+      
+    </article>
+    
+    <article>
+      <h1>A statistical approach to model evaluations</h1>
+      <div class="article-meta">
+        anthropic.com
+        · 14 Sep 2025 · <a href="https://www.anthropic.com/research/statistical-approach-to-model-evals">Source</a>
+      </div>
+      <div class="article-body"><p>Suppose an AI model outperforms another model on a benchmark of interest—testing its general knowledge, for example, or its ability to solve computer-coding questions. Is the difference in capabilities real, or could one model simply have gotten lucky in the choice of questions on the benchmark?</p>
+<p>With the amount of public interest in AI model evaluations—informally called “evals”—this question remains surprisingly understudied among the AI research community. This month, we published a <a href="https://arxiv.org/abs/2411.00640">new research paper</a> that attempts to answer the question rigorously. Drawing on statistical theory and the experiment design literature, the paper makes a number of recommendations to the AI research community for reporting eval results in a scientifically informative way. In this post, we briefly go over the reporting recommendations, and the logic behind them.</p>
+<h3>Recommendation #1: Use the Central Limit Theorem</h3>
+<p>Evals often consist of hundreds or thousands of unrelated questions. <a href="https://arxiv.org/abs/2009.03300v3">MMLU</a>, for instance, contains questions as diverse as:</p>
+<ul><li>Who discovered the first virus?</li><li>What is the inverse of 𝑓(𝑥)=4−5𝑥?</li><li>Who said that “Jurisprudence is the eye of law”?</li></ul>
+<p>To compute an overall eval score, each question is separately scored, and then the overall score is (usually) a simple average of these question scores. Typically, researchers focus their attention on this observed average. But in our paper, we argue that the real object of interest should not be the <em>observed</em> average, but rather the <em>theoretical</em> average across all possible questions. So if we imagine that eval questions were drawn from an unseen “question universe,” we can learn about the average score in that universe—that is, we can measure the underlying <em>skill</em>, independent of the “luck of the draw”—using statistical theory.</p>
+<figure class="article-figure"><img data-nimg="1" src="https://www.anthropic.com/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fb34871a36ad66fa0330e3ad6488ee87eb96bddda-2401x1260.png&amp;w=3840&amp;q=75" srcset="/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fb34871a36ad66fa0330e3ad6488ee87eb96bddda-2401x1260.png&amp;w=3840&amp;q=75 1x" class="article-image"/><figcaption>If we imagine that eval questions were drawn from a “question universe,” then eval scores will tend to follow a normal distribution, centered around the average score of all possible questions.</figcaption></figure>
+<p>This formulation buys us analytic robustness: if a new eval were to be created with questions having the same difficulty distribution as the original eval, we should generally expect our original conclusions to hold.</p>
+<p>In technical terms: under the fairly mild conditions of the <a href="https://en.wikipedia.org/wiki/Central_limit_theorem">Central Limit Theorem</a>, the mean values of several random samples taken from the same underlying distribution will tend to follow a <a href="https://en.wikipedia.org/wiki/Normal_distribution">normal distribution</a>. The standard deviation (or width) of that normal distribution is commonly known as the <a href="https://en.wikipedia.org/wiki/Standard_error">standard error of the mean</a>, or SEM. In our paper, we encourage researchers to report the SEM, derived from the Central Limit Theorem, alongside each calculated eval score—and we show researchers how to use the SEM to quantify the difference in theoretical means between two models. A 95% <a href="https://en.wikipedia.org/wiki/Confidence_interval">confidence interval</a> can be calculated from the SEM by adding and subtracting 1.96 × SEM from the mean score.</p>
+<h3>Recommendation #2: Cluster standard errors</h3>
+<p>Many evals violate the above assumption of independently selected questions, and instead consist of groups of closely related questions. For example, several questions in a reading-comprehension eval may ask about the same passage of text. Popular evals that follow this pattern include <a href="https://aclanthology.org/N19-1246/">DROP</a>, <a href="https://arxiv.org/abs/1808.07036">QuAC</a>, <a href="https://aclanthology.org/D17-1082/">RACE</a>, and <a href="https://arxiv.org/abs/1806.03822">SQuAD</a>.</p>
+<p>For these evals, each question’s selection from the “question universe” is no longer independent. Because including several questions about the same passage of text will yield less information than selecting the same number of questions about different passages of text, a naive application of the Central Limit Theorem to the case of non-independent questions will lead us to underestimate the standard error—and potentially mislead analysts into drawing incorrect conclusions from the data.</p>
+<p>Fortunately, the problem of <a href="https://en.wikipedia.org/wiki/Clustered_standard_errors">clustered standard errors</a> has been extensively studied in the social sciences. When the inclusion of questions is non-independent, we recommend clustering standard errors on the unit of <a href="https://en.wikipedia.org/wiki/Randomization">randomization</a> (for example, passage of text), and we provide applicable formulas in our paper.</p>
+<figure class="article-figure"><img data-nimg="1" src="https://www.anthropic.com/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Ff6f90f93dc66380904709a3ef4d63b92332871fd-2401x1260.png&amp;w=3840&amp;q=75" srcset="/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Ff6f90f93dc66380904709a3ef4d63b92332871fd-2401x1260.png&amp;w=3840&amp;q=75 1x" class="article-image"/><figcaption>If questions arrive in related clusters—a common pattern in reading-comprehension evals—eval scores will be more spread-out compared to the non-clustered case.</figcaption></figure>
+<p>In practice, we have found that clustered standard errors on popular evals can be over three times as large as naive standard errors. Ignoring question clustering may lead researchers to inadvertently detect a difference in model capabilities when in fact none exists.</p>
+<h3>Recommendation #3: Reduce variance within questions</h3>
+<p>Variance is a measurement of how spread-out a random variable is. The variance of an eval score is the square of the standard error of the mean, discussed above; this quantity depends on the amount of variance in the score on each individual eval question.</p>
+<p>A key insight of our paper is to decompose a model’s score on a particular question into two terms that are added together:</p>
+<ul><li>The mean score (the average score that the model would achieve if asked the same question an infinite number of times—even if the model might produce a different answer each time); and</li><li>A random component (the difference between a realized question score and the mean score for that question).</li></ul>
+<p>Thanks to the <a href="https://en.wikipedia.org/wiki/Law_of_total_variance">law of total variance</a>, reducing the variance in the random component directly leads to a smaller standard error of the overall mean, and thus greater statistical precision. Our paper highlights two strategies for reducing variance in the random component depending on whether or not the model is asked to think step by step before answering (a prompting technique known as CoT, or chain-of-thought reasoning).</p>
+<p>If an eval uses chain-of-thought reasoning, we recommend resampling answers from the same model several times, and using the question-level averages as the question scores fed into the Central Limit Theorem. We note that the <a href="https://github.com/UKGovernmentBEIS/inspect_ai/">Inspect framework</a> correctly computes standard errors in this way via its <a href="https://inspect.ai-safety-institute.org.uk/scorers.html#sec-reducing-epochs"><em>epochs</em> parameter</a>.</p>
+<figure class="article-figure"><img data-nimg="1" src="https://www.anthropic.com/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fefef59a06ddeb530fa15f31dc0937f28f70f655b-2401x1260.png&amp;w=3840&amp;q=75" srcset="/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fefef59a06ddeb530fa15f31dc0937f28f70f655b-2401x1260.png&amp;w=3840&amp;q=75 1x" class="article-image"/><figcaption>If a model produces answers non-deterministically, then generating (and grading) several answers per question will result in less spread-out eval scores.</figcaption></figure>
+<p>If the eval does not use chain-of-thought reasoning (i.e., its answers are not “path dependent”), we note that the random component in the score may often be eliminated altogether using next-token probabilities from the language model. For example, if the correct answer to a multiple-choice question is “B”, we would simply use the probability of the model producing the token “B” as the question score. We are not aware of an open-source evals framework which implements this technique.</p>
+<h3>Recommendation #4: Analyze paired differences</h3>
+<p>Eval scores don’t have any meaning on their own; they only make sense in relation to one another (one model outperforms another model, or ties another model, or outperforms a person). But could a measured difference between two models be due to the specific choice of questions in the eval, and randomness in the models’ answers? We can find out with a <a href="https://en.wikipedia.org/wiki/Student%27s_t-test">two-sample <em>t</em>-test</a>, using only the standard errors of the mean calculated from both eval scores.</p>
+<p>However, a two-sample test ignores the hidden structure inside eval data. Since the question list is shared across models, conducting a <a href="https://en.wikipedia.org/wiki/Paired_difference_test">paired-differences test</a> lets us eliminate the variance in question difficulty and focus on the variance in responses. In our paper, we show how the result of a paired-differences test will be related to the <a href="https://en.wikipedia.org/wiki/Pearson_correlation_coefficient">Pearson correlation coefficient</a> between two models’ question scores. When the correlation coefficient is higher, the standard error of the mean difference will be smaller.</p>
+<p>In practice, we find the correlation of question scores on popular evals between frontier models to be substantial—between 0.3 and 0.7 on a scale of −1 to +1. Put another way, frontier models have an overall tendency to get the same questions right and wrong. Paired-difference analysis thus represents a “free” variance reduction technique that is very well suited for AI model evals. Therefore, in the interest of extracting the clearest signal from the data, our paper recommends reporting pairwise information—mean differences, standard errors, confidence intervals, and correlations—whenever two or more models are being compared.</p>
+<h3>Recommendation #5: Use power analysis</h3>
+<p>The flip side of the statistical significance coin is statistical power, which is the ability of a statistical test to detect a difference between two models, assuming such a difference exists. If an eval doesn’t have very many questions, confidence intervals associated with any statistical tests will tend to be wide. This means that models will need to have a large underlying difference in capabilities in order to register a statistically significant result—and that small differences will likely go undetected. Power analysis refers to the mathematical relationship between observation count, <a href="https://en.wikipedia.org/wiki/Power_(statistics)">statistical power</a>, the <a href="https://en.wikipedia.org/wiki/False_positive_rate">false positive rate</a>, and the <a href="https://en.wikipedia.org/wiki/Effect_size">effect size</a> of interest.</p>
+<p>In our paper, we show how to apply concepts from power analysis to evals. Specifically, we show researchers how to formulate a hypothesis (such as <em>Model A outperforms Model B by 3 percentage points</em>) and calculate the number of questions that an eval should have in order to test this hypothesis against the null hypothesis (such as <em>Model A and Model B are tied</em>).</p>
+<p>We believe that power analysis will prove helpful to researchers in a number of situations. Our power formula will inform evaluators of models about the number of times to re-sample answers from questions (see Recommendation #3 above), as well as the number of questions that may be included in a random subsample while retaining the desired power properties. Researchers might use the power formula to conclude that an eval with a limited number of available questions is not worth running on a particular pair of models. Developers of new evals may wish to use the formula to help decide how many questions to include.</p>
+<h3>Conclusion</h3>
+<p>Statistics is the science of measurement in the presence of noise. Evals present a number of practical <a href="https://www.anthropic.com/news/evaluating-ai-systems">challenges</a>, and a true <a href="https://www.apolloresearch.ai/blog/we-need-a-science-of-evals">science of evals</a> remains underdeveloped. Statistics can only form one aspect of a science of evals—but a critical one, as an empirical science is only as good as its measuring tools. We hope that the recommendations in our paper <a href="https://arxiv.org/abs/2411.00640"><strong>Adding Error Bars to Evals: A Statistical Approach to Language Model Evaluations</strong></a> will help AI researchers calculate, interpret, and communicate eval numbers with greater precision and clarity than before—and we encourage researchers in the AI community to explore other techniques from experiment design so that they may understand more exactly all the things that they want to measure.</p></div>
+      
+    </article>
+    
+    <article>
+      <h1>Deep Work Checklist</h1>
+      <div class="article-meta">
+        Recovering Overthinker
+        · 14 Jul 2026 · <a href="https://existentialespresso.substack.com/p/deep-work-checklist">Source</a>
+      </div>
+      <div class="article-body"><p>The following checklist can be used anytime, not just for the live Deep Work sessions I’m be hosting.</p>
+<p>Reminder, we’re live in 5 minutes. <a href="http://meet.google.com/jpk-pqdi-qrn">Join here.</a></p>
+<h4><strong>The night before or the morning of:</strong></h4>
+<ul><li><p><strong>Do I know what are my main tasks?</strong> I’m setting myself up for a confusing day or at least a suboptimal flow of attention and energy if I don’t.</p></li></ul>
+<h4><strong>Before a specific work block:</strong></h4>
+<ul><li><p><strong>Do I…</strong></p></li></ul></div>
+      
+    </article>
+    
+    <article>
+      <h1>Codex CLI Release: 0.144.4</h1>
+      <div class="article-meta">
+        Codex changelog
+        · 14 Jul 2026 · <a href="https://developers.openai.com/codex/changelog/#github-release-353578290">Source</a>
+      </div>
+      <div class="article-body"><div><h2>Chores</h2>
+<ul>
+<li>No user-facing changes in this patch release.</li>
+</ul>
+<h2>Changelog</h2>
+<p>Full Changelog: <a class="commit-link" href="https://github.com/openai/codex/compare/rust-v0.144.3...rust-v0.144.4"><tt>rust-v0.144.3...rust-v0.144.4</tt></a></p></div></div>
+      
+    </article>
+    
+  </body>
+</html>
