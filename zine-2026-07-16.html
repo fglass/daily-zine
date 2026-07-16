@@ -1,0 +1,422 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Fred Talks - 2026-07-16</title>
+    <style>
+      @page {
+        size: A5;
+        margin: 8mm 9mm 9mm;
+      }
+
+      :root {
+        color: #111;
+        font-family: "Times New Roman", Times, serif;
+        --body-text-size: 9.5pt;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        color: #111;
+        background: #fff;
+        font-family: "Times New Roman", Times, serif;
+        line-height: 1.45;
+      }
+
+      a,
+      a:visited {
+        color: #111;
+        text-decoration: underline;
+      }
+
+      .cover {
+        min-height: calc(210mm - 17mm);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        page-break-after: always;
+        border: 1px solid #111;
+        padding: 8mm;
+        background: #fff;
+      }
+
+      .toc-item-meta,
+      .article-meta {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .masthead {
+        margin: 0;
+        font-size: 40pt;
+        line-height: 0.95;
+        text-transform: uppercase;
+      }
+
+      .issue-date {
+        margin: 4mm 0 0;
+        font-size: 14pt;
+      }
+
+      .issue-date sup {
+        font-size: 0.58em;
+        vertical-align: super;
+        line-height: 0;
+      }
+
+      .cover-deck {
+        max-width: 90mm;
+        font-size: 12pt;
+        margin: 0;
+      }
+
+      .toc {
+        border-top: 3px solid #111;
+        padding-top: 6mm;
+      }
+
+      .toc h2 {
+        margin: 0 0 4mm;
+        font-size: 11pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .toc-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .toc-item {
+        padding: 3mm 0;
+        border-bottom: 1px solid rgba(17, 17, 17, 0.2);
+      }
+
+      .toc-item-title {
+        font-size: 12pt;
+        margin: 0 0 1mm;
+      }
+
+      .toc-item-meta {
+        font-size: 8pt;
+      }
+
+      .masthead-compact {
+        margin: 0 0 6mm;
+      }
+
+      .masthead-compact h1 {
+        margin: 0;
+        font-size: 22pt;
+        line-height: 1.1;
+        text-transform: uppercase;
+      }
+
+      .masthead-compact .issue-date {
+        margin: 2mm 0 0;
+        font-size: 11pt;
+      }
+
+      .toc-compact {
+        border-top: 1px solid #111;
+        border-bottom: 1px solid #111;
+        padding: 4mm 0;
+        margin: 0 0 8mm;
+      }
+
+      article + article {
+        margin-top: 10mm;
+        padding-top: 6mm;
+        border-top: 2px solid #111;
+      }
+
+      h1 {
+        margin: 0 0 2mm;
+        font-size: 18pt;
+        line-height: 1.1;
+      }
+
+      .article-meta {
+        font-size: 8.5pt;
+        margin-bottom: 6mm;
+        padding-bottom: 3mm;
+        border-bottom: 1px solid #111;
+      }
+
+      .article-body {
+        font-size: var(--body-text-size);
+        font-family: "Times New Roman", Times, serif;
+      }
+
+      .article-body p,
+      .article-body li,
+      .article-body blockquote,
+      .article-body dd,
+      .article-body dt {
+        margin: 0 0 4mm;
+        orphans: 3;
+        widows: 3;
+      }
+
+      .article-body ul,
+      .article-body ol,
+      .article-body dl {
+        margin: 0 0 4mm 5mm;
+        padding: 0;
+      }
+
+      .article-body h2,
+      .article-body h3,
+      .article-body h4 {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        margin: 7mm 0 3mm;
+        line-height: 1.2;
+      }
+
+      .article-body blockquote {
+        margin-left: 6mm;
+        padding-left: 4mm;
+        border-left: 2px solid #111;
+      }
+
+      .article-body .media-omitted {
+        margin: 0 0 4mm;
+        font-size: 8.5pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(17, 17, 17, 0.65);
+      }
+
+      .article-body figure,
+      .article-body .article-figure,
+      .article-body picture,
+      .article-body .article-picture {
+        display: block;
+        max-width: 72mm;
+        margin: 0 auto 4mm;
+        break-inside: avoid;
+      }
+
+      .article-body img,
+      .article-body .article-image {
+        display: block;
+        max-width: min(100%, 72mm);
+        max-height: 34mm;
+        height: auto;
+        width: auto;
+        object-fit: contain;
+        margin: 0 auto 3mm;
+      }
+
+      .article-body figcaption {
+        margin-top: 1.5mm;
+        font-size: 8.5pt;
+        line-height: 1.3;
+        color: rgba(17, 17, 17, 0.8);
+      }
+
+      .article-note {
+        margin-top: 6mm;
+        padding-top: 3mm;
+        border-top: 1px solid #111;
+        font-size: 9pt;
+        font-style: italic;
+      }
+
+      @media screen {
+        body {
+          padding: 2rem;
+          margin: 0 auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    
+    <header class="masthead-compact">
+      <h1>Fred Talks</h1>
+      <p class="issue-date">
+        16<sup>th</sup> July 2026
+      </p>
+    </header>
+
+    <nav class="toc toc-compact">
+      <h2>Contents</h2>
+      <ol class="toc-list">
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Agentic search - retrieval, harness, or model?</div>
+          <div class="toc-item-meta">
+            Doug Turnbull · 1535 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">How not to forget what matters</div>
+          <div class="toc-item-meta">
+            Henrik Karlsson · 2676 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Building agents that reach production systems with MCP</div>
+          <div class="toc-item-meta">
+            claude.com · 1746 words
+          </div>
+        </li>
+        
+      </ol>
+    </nav>
+    
+
+    
+    <article>
+      <h1>Agentic search - retrieval, harness, or model?</h1>
+      <div class="article-meta">
+        Doug Turnbull
+        · 09 Jun 2026 · <a href="http://softwaredoug.com/blog/2026/06/08/three-kinds-of-agentic-search.html">Source</a>
+      </div>
+      <div class="article-body"><p>Agentic search gets interesting when agents do not know how to find the right answer.</p>
+<p>Oh, the agent might think it knows. It might confidently BS us. But the agent’s poor domain intuition steers itself astray.</p>
+<p>Agents make false assumptions about what <em>our</em> users think is relevant. Our fashionista users think “red shoes” should return high-heels. When I worked at one company ABE wasn’t a president, it was an A/B testing tool. Agents need context to know these things - and <a href="https://www.youtube.com/watch?v=ynJyIKwjonM">context engineering needs agentic search</a></p>
+<p>Confusingly, depending who you talk to, agentic search can mean one of three distinct implementation patterns:</p>
+<ul> <li><strong>Retrieval-centric</strong> - just build good search so agents can use it to fill in missing context</li> <li><strong>Harness-centric</strong> - steer the agent towards needed context, even with bad search</li> <li><strong>Model-centric</strong> - fine tune an LLM to know how to search <em>our</em> data</li> </ul>
+<p>In this post, I’ll walk through each. With a bit more breadth, you might appreciate which flavor your colleagues seem to mean when they say “agentic search”</p>
+<h2>Retrieval-Centric Implementation</h2>
+<p>When frontier models don’t know, they search. Ask ChatGPT a question about news, it’ll search. Ask it about a very specific technical problem, it’ll search. During training, LLMs see <em>search</em> examples as a technique to learn what it doesn’t know. To find what it needs.</p>
+<p>Therefore, we just need to build good search to solve any conceivable query from an agent.</p>
+<p>Let’s assume we run an e-commerce catalog. For us, when users search “red shoes” they mean “red high heels”. But the agent doesn’t know that. Luckily it asks <em>search</em>. Below we see it returns the right results.</p>
+<p>Below we see initial retrieval to lexical / vector backends pulls back some reasonable, if naive, “red shoe” candidates. Still that’s not quite right. Luckily the reranker shapes the results towards our understanding of that intent.</p>
+<figure class="article-figure"><img alt="image.png" src="https://softwaredoug.com/assets/media/2026/three-kinds-of-agentic-search/image.png" class="article-image"/></figure>
+<p>Of course we might have other components here - query understanding, diversity, custom embedding models, and more.</p>
+<p>The important point is that <em>search leads the agent by the nose</em> towards what’s relevant. We assume search can define what a good “red shoe” is, overriding the agent’s perspective.</p>
+<p>Most teams build retrieval-centric approaches with classic RAG. Chunks of answers, and embeddings trained to recognize them as answers.</p>
+<p>Unfortunately, answers don’t always look tied to the question. For example:</p>
+<p>Question:</p>
+<blockquote> <p>Synopsis of the book Ubik</p> </blockquote>
+<p>Answer:</p>
+<blockquote> <p>By the year 1992, humanity has colonized the Moon and psychic powers are common. The protagonist, Joe Chip, is a debt-ridden technician working for Runciter Associates, a “prudence organization” employing “inertials”—people with the ability to negate the powers of telepaths and “precogs”—to enforce the privacy of clients.</p> </blockquote>
+<p>If you don’t know the book Ubik, it’s not clear that this answers the question. The agent says “cool story bro” and ignores the info.</p>
+<p>Search like this actually is divorced from the web search trusted by fronteir models. The web contains titles, headings, and other elements placing the answer in context.</p>
+<h3>The big downside? Search remains hard. We’re not Google.</h3>
+<p>Most importantly, we don’t have perfect search like Google or Bing. Even with good search - almost nobody builds <em>google quality results.</em> And since agents trust search - simple distractors in retrieval can, as Lester Solbakken says, <a href="https://2026.berlinbuzzwords.de/session/when-better-retrieval-makes-agents-worse/">easily confuse reasoning</a>.</p>
+<h2>Harness-centric implementations</h2>
+<p>Who should be in charge? Should the agent manage the search process? Or should search drive the agent?</p>
+<p>Moving the emphasis to the harness, we put the agent in charge.</p>
+<p>Imagine stripping search tools down to core retrieval primitives. Just a BM25 backend. Or a filesystem with CLI tools. We tell the agent find to what it needs with these untuned tools. The agent might struggle more, but hey, its smart, it can get figure it out. Right?</p>
+<p>Still, the agent might find what it thinks is relevant, as it does in the image below. Sadly that’s not what’s actually relevant. To help the agent, we inject external knowledge. We let a judge direct the agent, correcting its mistakes, and guiding it towards better search strategies.</p>
+<p>So when the agent returns results, it’s not the “user” that receives the candidates. Instead a judge labels results as relevant or not. The agent gets the hint, finding results similar to those labeled relevant. Avoiding those labeled irrelevant. To steel from Jo Kristian Bergem, this is <a href="https://program.berlinbuzzwords.de/bbuzz26/talk/PLNTP9/">relevance feedback on steroids</a>.</p>
+<figure class="article-figure"><img alt="image.png" src="https://softwaredoug.com/assets/media/2026/three-kinds-of-agentic-search/image%201.png" class="article-image"/></figure>
+<p>This works. Look at the ESCI dataset. If I have an oracle labeling with judgments from these datasets, I get quite significant improvements.</p>
+<table> <tr> <th>Variant</th> <th>NDCG@10</th> <th>Description</th> </tr> <tbody> <tr> <td>ESCI BM25</td> <td>0.2895</td> <td>Simple BM25 weighing name / description</td> </tr> <tr> <td>ESCI agentic</td> <td>0.4101</td> <td>GPT5-mini tool calling loop w/ BM25+e5 embeddings tools</td> </tr> <tr> <td>ESCI agentic w/ oracle</td> <td>0.5843</td> <td>GPT5-mini tool calling loop w/ BM25+e5 embeddings tools. Judge responds with feedback once</td> </tr> </tbody> </table>
+<p>Here the second row we trust the agent’s interpretation of queries. That provides a large gain over BM25. But inject more domain knowledge via a judge (the third row) and agent performance improves dramatically.</p>
+<p>We can guide agents with information ahead of time too. For example, I’ve seen teams take inspiration from skills in coding agents. Imagine a targeted query plan that tells the agent how to use it’s tools to solve a specific problem.</p>
+<figure class="article-figure"><img alt="image.png" src="https://softwaredoug.com/assets/media/2026/three-kinds-of-agentic-search/image%202.png" class="article-image"/></figure>
+<h3>Optimizing content helps harnesses</h3>
+<p>We help agents even further by optimizing content for findability. That’s the trick we’ve played on ourselves with coding agents. We write docs to explain to agents why something’s useful. We don’t just rely on that dumb chunk, we document the purpose of the knowledge:</p>
+<blockquote> <p>/books/scifi/ubik.txt</p> </blockquote>
+<blockquote> <p>## About Book Ubik Ubik is a book by Philip K. Dick</p> <p>## Synopsis</p> <p>By the year 1992, humanity has colonized the Moon and psychic powers are common. The protagonist, Joe Chip, is a debt-ridden technician working for Runciter Associates, a “prudence organization” employing “inertials”—people with the ability to negate the powers of telepaths and “precogs”—to enforce the privacy of clients.</p> </blockquote>
+<p>Unlike a naive chunk, this bit of information has purpose. It’s clear, when its in the context, what problem it solves.</p>
+<p>By organizing + cataloging information we’ve done what every search developer wishes their content team would do: actually optimize content to be findable.</p>
+<h3>The downside: cost</h3>
+<p>The major downside here? Token costs. The exploration here requires more than just issuing a search and retrieving one set of results. It’s an agent’s exploration of the environment. And that exploration starts fresh with every new context window.</p>
+<h2>Model-centric approach</h2>
+<p>What if we literally fine-tuned the LLM to search efficiently?</p>
+<p>The harness based approach takes a long, winding path towards relevant results. With every fresh context, it wastes calls relearning what works over-and-over. It’s costly and slow.</p>
+<p>Could we train a model that doesn’t repeat the same mistakes with our tools?</p>
+<p>Our judge helps label some of the agent’s reasoning / tool-calling paths as useful. And label others less so. Once you have labeled traces, you can fine-tune an open weights model to proactively, efficiently make the right tool calls given the input.</p>
+<p>Below, for example, the model knows exactly how to search for our “red shoes” query given its extensive fine tuning.</p>
+<figure class="article-figure"><img alt="image.png" src="https://softwaredoug.com/assets/media/2026/three-kinds-of-agentic-search/image%203.png" class="article-image"/></figure>
+<p>Now we’ve built a model targeting the search task. We don’t tune our retrievers much. Instead we continue to use the simpler / dumb search tools.</p>
+<p>Even cooler, the agentic search model’s behavior can change just by adjusting the system prompt. “This is an e-commerce search task, optimize for top 10 ranking” might be different from “You’re retrieving chunks for financial research, maximize diversity and relevance at the same time.”</p>
+<p>Further the models can stay smaller. By just focusing no the search part - not the entire domain problem - they can shrink to a manageable size allowing them to be self hosted.</p>
+<h3>The downside? Early days</h3>
+<p>The OG in the space is <a href="http://sid.ai">SID</a>. Other contenders like Glean’s Waldo model have sense entered. They’re all promising, but not widely adopted. Many unknown unknowns exist. In a sense, we don’t yet know the upside or downsides yet. I suspect though this paradigm has tremendous promise in the years ahead.</p>
+<p>In other words - stay tuned!</p>
+<h2>The alchemy of ambiguity</h2>
+<p>People use “agentic search” confusingly and inconsistenly. They focus on their part of the problem. That means we have a collection of solutions like enriched base metals - and its unclear what alchemy brings them together.</p>
+<p>We’re converging on a fascinating mix of easier to organize data (like <a href="https://pageindex.ai/about">PageIndex</a>). I’m seeing patterns in harness design that mirror coding agents - hooks / evaluators that steer agents. Or “skills” that guide them a priori. Much like with coding - the agents eat the harnesses. When a successful pattern emerges, agents, in our case agentic search models, train to memorize these patterns.</p>
+<p>Retrieval also seems to be moving towards agent-centric approaches. Agents have <a href="https://hornet.dev/blog/this-is-what-agentic-retrieval-looks-like">their own specific, unique retrieval patterns</a>. We’re finally seeing late interaction + learned sparse retrieval approaches have their day from companies like <a href="http://lighton.ai">LightOn</a> and <a href="http://mixedbread.ai">MixedBread</a></p>
+<p>We’re swimming in an interesting retrieval primordial goop, what comes out may be an obvious combination - or look nothing like the component parts. Exciting times!</p>
+<h3>Enjoy softwaredoug in training course form!</h3>
+<h4>Starting May 18!</h4>
+<p>Signup here - <a href="http://maven.com/softwaredoug/cheat-at-search">http://maven.com/softwaredoug/cheat-at-search</a></p>
+<figure class="article-figure"><a href="https://maven.com/softwaredoug/cheat-at-search"><img src="https://softwaredoug.com/assets/media/2026/cheat-at-search-social.png" class="article-image"/></a></figure>
+<p>I hope you join me at <a href="https://maven.com/softwaredoug/cheat-at-search">Cheat at Search with Agents</a> to learn use agents in search. build better RAG and use LLMs in query understanding.   </p></div>
+      
+    </article>
+    
+    <article>
+      <h1>How not to forget what matters</h1>
+      <div class="article-meta">
+        Henrik Karlsson
+        · 07 Jul 2026 · <a href="https://www.henrikkarlsson.xyz/p/hypomnemata?hide_intro_popup=true">Source</a>
+      </div>
+      <div class="article-body"><p>Read distraction-free on Substack</p>
+<figure class="article-figure"><a data-component-name="Image2ToDOM" href="https://substackcdn.com/image/fetch/$s_!qwvU!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F4b71459d-eb9a-4483-b67f-96dfc0e540be_1504x1010.jpeg"><picture class="article-picture"><img alt="" data-attrs="{&quot;src&quot;:&quot;https://substack-post-media.s3.amazonaws.com/public/images/4b71459d-eb9a-4483-b67f-96dfc0e540be_1504x1010.jpeg&quot;,&quot;srcNoWatermark&quot;:null,&quot;fullscreen&quot;:null,&quot;imageSize&quot;:null,&quot;height&quot;:978,&quot;width&quot;:1456,&quot;resizeWidth&quot;:null,&quot;bytes&quot;:null,&quot;alt&quot;:null,&quot;title&quot;:null,&quot;type&quot;:null,&quot;href&quot;:null,&quot;belowTheFold&quot;:false,&quot;topImage&quot;:true,&quot;internalRedirect&quot;:null,&quot;isProcessing&quot;:false,&quot;align&quot;:null,&quot;offset&quot;:false}" sizes="100vw" src="https://substackcdn.com/image/fetch/$s_!qwvU!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F4b71459d-eb9a-4483-b67f-96dfc0e540be_1504x1010.jpeg" srcset="https://substackcdn.com/image/fetch/$s_!qwvU!,w_424,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F4b71459d-eb9a-4483-b67f-96dfc0e540be_1504x1010.jpeg 424w, https://substackcdn.com/image/fetch/$s_!qwvU!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F4b71459d-eb9a-4483-b67f-96dfc0e540be_1504x1010.jpeg 848w, https://substackcdn.com/image/fetch/$s_!qwvU!,w_1272,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F4b71459d-eb9a-4483-b67f-96dfc0e540be_1504x1010.jpeg 1272w, https://substackcdn.com/image/fetch/$s_!qwvU!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F4b71459d-eb9a-4483-b67f-96dfc0e540be_1504x1010.jpeg 1456w" class="article-image"/></picture></a></figure>
+<h4>1.</h4>
+<p>Every few months I will read a tweet, or have a conversation, that makes me feel<em> this is important, I must remember this. </em>Often, these epiphanies are accompanied by a sense that <em>I actually know this already</em>, it had just somehow slipped my mind.</p>
+<p>And for a few days, I do remember: my life shimmers with a new intensity, and I live the truth of what I grasped. But then, inevitably, the conveyor belt of things to pay attention to keeps churning, and my mind gets filled with small problems I need to solve, or new epiphanies or random noise, like news, and the shining fades from my eyes—I regress to being the same person as ever.</p>
+<p>The Latin word for the tendency to lose track of what matters in the cacophony of things that attract our attention is <em>stultitia</em>. “Stultitia,” writes Michel Foucault in “<a href="https://web.english.upenn.edu/~cavitch/pdf-library/Foucault_Self_Writing.pdf">Self-writing</a>,”</p>
+<blockquote><p>is defined by mental agitation, distraction, change of opinions and wishes, and consequently weakness in the face of all the events that may occur; it is also characterized by the fact that it turns the mind toward the future, makes it interested in novel ideas, and prevents it from providing a fixed point for itself in the possession of acquired truth.</p></blockquote>
+<p>You can’t just read a blog post about high agency, get filled with a sense of possibility, and become, from then on, an agentic person. As John Gray puts it in his monograph on J.S. Mill, our character is “a cluster of habitual willings.” For changes to our behavior to become permanent, we must become different people.</p>
+<p>In the same way that it is not enough to make a <em>resolution</em> that you will learn the piano, it is not enough to <em>realize</em> that when the kids act out, you shouldn’t lose your temper but slow down, listen, and regulate their nervous systems with the help of yours. Imagine how good a person I would be if having insights were enough! But reacting to the frustrations of your children with calm and curiosity is a skill as much as playing the piano is—and as with the piano, the act of learning it requires rewiring your nervous system through sustained attention and practice. Realizing the value of acting in a certain way might give you a temporary motivation to do it. But in order to actually live in accordance with what you believe in long-term, you must make it a habit.</p>
+<p>And this is much harder than making a habit out of playing the piano. When you’re trying to make something like piano practice a habit, the standard advice is to chain it onto some already existing habit—to practice immediately after you brush your teeth in the morning, for example, or after you change out of your work clothes in the afternoon. Chaining the new habit to an already existing one provides a predictable trigger that helps remind you to practice. But the habits that make up our characters often do not follow a predictable schedule like this. I never know, for instance, when our children will act out (except that it will usually be when I’m least capable of handling it with grace—whenever both they and I are unusually hungry and tired). The conflicts seem to come out of nowhere, so I have to, somehow, <em>always</em> be ready to act in the proper way. I need to have the right reaction “ready at hand” (<em>procheiron</em>), as the Greek-philosopher-Roman-slave Epictetus put it. If Johanna and I talked about how we want to deal with the kids’ conflicts the night before, I will nearly always handle the situation well. The problem is to keep it top of mind.</p>
+<h4>2.</h4>
+<p>During the first two centuries of the Roman Empire, there spread a practice known as <em>hypomnēmata</em>, a type of notetaking system, used as a tool for meditation,<a data-component-name="FootnoteAnchorToDOM" href="https://www.henrikkarlsson.xyz/p/hypomnemata?hide_intro_popup=true/#_"> [1] </a> in which the writer would store quotes from books they had read. Each day, often in the morning, the notetaker would open their notebook and look for a passage relevant to something they were struggling with, and then they would meditate on that—unpacking it, making the idea top of mind, ensuring it was alive in them. If they needed courage, for instance, they could meditate on an anecdote that <a href="https://arc.net/l/quote/dgcwabwd">made it real</a> for them what it meant to act bravely. The idea was that over time, the insights they gathered by reading would be transformed into character, something deeply ingrained in their way of thinking and seeing and acting.</p>
+<p>This was, as I understand it, an exercise designed to combat the problem I outlined above. Meditating on what matters is a simple habit, which you can chain onto your morning routine, but it reinforces the habits you can’t plan, the habits that make up your character. It was, in the words of the French classicist Pierre Hadot, a spiritual exercise—an <em>exercise</em> because it required work and discipline, <em>spiritual</em> because it engaged the whole person, not just their intellect, but their emotions and their moral character. It was an attempt to treat the formation of character as a skilled practice, as something you can deliberately train and improve through targeted exercises.</p>
+<p>The most famous example of this practice is the meditations Marcus Aurelius wrote in his tent as plague swept through the camps during the military campaigns along the Danube River, but it seems to have been a fairly widespread practice among the “cultivated class.” A suggestion repeated in several popular manuals for living was that you should collect every snippet of thought that deeply inspires you to live in a more ethically true way and then, in the pre-dawn hour, look through your hypomnēmata to find passages relevant to your current situation—insightful quotes, examples, actions you had witnessed, notes from conversations you’d had, and so on<a data-component-name="FootnoteAnchorToDOM" href="https://www.henrikkarlsson.xyz/p/hypomnemata?hide_intro_popup=true/#_"> [2] </a>—and meditate, in writing, on those that help you orient toward your current challenges, until you feel inspired to act in the proper way.<a data-component-name="FootnoteAnchorToDOM" href="https://www.henrikkarlsson.xyz/p/hypomnemata?hide_intro_popup=true/#_"> [3] </a></p>
+<p>What could be an example? Today, June 14, I woke up with a headache after having slept with my neck at an odd angle and so didn’t feel like working. Having procrastinated for an hour or so, while Johanna tried to get me to start the day, I recalled principle 23 from <a href="https://nabeelqu.co/principles">a list Nabeel S. Qureshi has compiled</a> for himself:</p>
+<blockquote><p>Doing things is energizing, wasting time is depressing. You don’t need that much ‘rest’.</p></blockquote>
+<p>Walking around the farm with a cup of coffee,<a data-component-name="FootnoteAnchorToDOM" href="https://www.henrikkarlsson.xyz/p/hypomnemata?hide_intro_popup=true/#_"> [4] </a> reminding myself of the truth of this observation, I gained a sliver of motivation, enough to throw myself into rewriting this essay—and now my headache has lifted, and I feel excited. For more examples of things one might meditate on, I suggest looking at Nabeel’s list. I also like to meditate on stories that make real to me some ethos I aspire to, such as the story of how Werner Herzog, dead broke while scouting for locations for <em>Nosferatu</em> in Brittany, happened upon a field of menhirs and decided to abandon his work to stay at the field for as long as necessary to solve the mystery of how the giant stones had been erected—a story that makes it visceral to me what it means to “take your curiosity seriously.”</p>
+<p>The hypomnēma was a mechanism for centering your mind on what matters, and for gradually refining your understanding of what matters. It was, to use a word from Plutarch, a tool for <em>ethopoiesis</em> (<em>ethos</em> meaning “character” and <em>poiesis</em> “making”), a tool for turning truth into character. By meditating daily on sentences that made it real to you how you wanted to live, you would remember to do the right thing—you would remember to practice it during the day (simply thinking about it is not going to change you). And gradually, you would become that sort of person. You wouldn’t even need to remind yourself. Your principles would have become your character. You would have developed expertise in the skill of holding yourself in a better way.</p>
+<h4>3.</h4>
+<p>I first came across the idea of using hypomnēmata in this way eight years ago when a friend sent me a copy of Foucault’s “<a href="https://web.english.upenn.edu/~cavitch/pdf-library/Foucault_Self_Writing.pdf">Self-writing</a>.” In the essay, Foucault talks about hypomnēmata and other modes of reading and writing used to fashion a self during the Hellenistic and Imperial eras. I didn’t pick up the practice in its full form. But rereading the essay now, I realize how much it has influenced how I write: my essays are (often) meditations I do in order to deepen core ideas I want to live by, and to strengthen parts of myself I want strengthened.<a data-component-name="FootnoteAnchorToDOM" href="https://www.henrikkarlsson.xyz/p/hypomnemata?hide_intro_popup=true/#_"> [5] </a> (Writing treatises and letters was a common way of internalizing the content of the hypomnēmata.) And this practice has been transformative for me. I have often noticed that my experience of reality improves if I write and think about something.</p>
+<p>But it strikes me now that the practice Foucault wrote about was probably more transformative than what I’ve ended up doing. Essay writing is incredibly time-consuming, and a lot of that time is spent on things that aren’t self-transforming: I spend less time reshaping my mind than I spend solving literary-technical problems that help me write more functional and beautiful essays, for the joy of the craft and for the benefit of readers. Another limitation of my practice is that when an essay is done, I move on. The ideas—though they have been much deepened and more firmly lodged in my mind—fall out of attention and start to fade.</p>
+<p>There is an element of self-deception involved here. I like to write essays, so it is comforting to think of it as a powerful practice, something that helps me live more fully and grow as a person. But if I look at it soberly, it is clear to me that essay writing is not a practice that is ideal for the purpose of ethopoiesis.<a data-component-name="FootnoteAnchorToDOM" href="https://www.henrikkarlsson.xyz/p/hypomnemata?hide_intro_popup=true/#_"> [6] </a> It is common to think that what we do achieves what we want it to achieve, even if there is no evidence for it. There are many practices that promise to transform and improve us—therapy, meditation, psychedelics—, but that branding doesn’t mean that they actually do much for us: it is common to see people use these techniques for years without any obvious progress on their problems. If you want to achieve a particular outcome, it is important to start from that goal and evaluate which practices actually help you.</p>
+<p>The most important ideas we need to return to weekly, even daily. Essay-writing, then, is not a functional substitute for having a practice that keeps the important truths top of mind, day after day. But it did help me reach that conclusion.</p>
+<hr/>
+<article class="rw-embed">
+<img class="rw-embed-img article-image" src="https://substackcdn.com/image/fetch/$s_!80Co!,w_1300,h_650,c_fill,f_auto,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fd8bec767-3242-4428-a281-0cdc3182ff75_750x587.png"/>
+<div class="rw-embed-title"><a href="https://www.henrikkarlsson.xyz/p/writing-to-think">How to think in writing</a></div>
+</article>
+<h4>Credits</h4>
+<p><em>This essay is based on a fragment from a longer essay on spiritual exercises that I wrote. That essay didn’t work, and Johanna suggested using a few of the paragraphs for a new essay. She also suggested the main argument and general outline of the body of this essay, reorganized the second draft to shift the emphasis to what we came to see as the main idea, and corrected several faulty lines of argument I made.</em></p>
+<p><em>The ideas were influenced by reading Pierre Hadot’s </em>Philosophy as a Way of Life<em> and Michel Foucault’s </em>The Hermeneutics of the Subject, The Care of the Self<em>, and “<a href="https://foucault.info/documents/foucault.hypomnemata.en/">Self-Writing</a>.” I was influenced by several conversations with Michael Nielsen and his <a href="https://michaelnotebook.com/luhrmann/">notes on Tanya Luhrmann’s </a></em><a href="https://michaelnotebook.com/luhrmann/">How God Becomes Real</a><em>, as well as a conversation with Alexander Obenauer about his practice. Claude Fable 5 (RIP) corrected four factual errors.</em></p>
+<p><a href="https://www.henrikkarlsson.xyz/p/hypomnemata?hide_intro_popup=true/#footnote-anchor-1">1</a></p>
+<p>The practice of keeping hypomnēmata had already existed for more than 400 years at this point, but the practices around it shifted significantly around this era, as I understand it, from a more conventional type of notetaking into the more specialized type of meditation described in this essay.</p>
+<p><a href="https://www.henrikkarlsson.xyz/p/hypomnemata?hide_intro_popup=true/#footnote-anchor-2">2</a></p>
+<p>How do you actually keep these notes? A lot of people have insights and write them into Apple Notes, but then they never look at them again, and it becomes a mess after a while, so when they need the idea, it is nowhere to be found. I’m not sure exactly how the Romans managed to find their way back to the right wax tablet or papyrus. I guess the easiest thing is to just keep a single document for the most important ideas and stories, with short memorable concept handles (länk) that help you remember each. If you can’t be bothered making your notes structured, though, LLMs are powerful enough now that they can trawl through your messy notes and find the relevant quotes. Just give Claude Code or Codex access to your notes and ask it to find segments relevant to whatever you are thinking about. This will not be as powerful as doing the work yourself, but it is better than just forgetting.</p>
+<p><a href="https://www.henrikkarlsson.xyz/p/hypomnemata?hide_intro_popup=true/#footnote-anchor-3">3</a></p>
+<p>I read somewhere that when meditating on their hypomnēmata, the Romans and Hellenistic Greek would also set intentions for themselves, principles they want to live by that day. I can’t find the source for this claim now, but it resonated with something Johanna often tells me: it is much easier to hold the line if you’ve articulated your position to yourself beforehand. If, for example, I’m on a call with someone who wants to propose a project, I will often get caught up in their excitement, or feel uncomfortable setting the right boundaries—I often don’t even know what the right boundaries are, because there is too much to consider for me to figure out my position in real time—and so I will say yes to things I shouldn’t. But if I have thought things through beforehand, and have articulated to myself what I’m trying to achieve, and what my principles are, I can more easily see if this is in line with what I want, and I can clearly articulate my position. I wish I did this more often. Or at least remembered the principle to always ask for time to think things through on my own before committing.</p>
+<p><a href="https://www.henrikkarlsson.xyz/p/hypomnemata?hide_intro_popup=true/#footnote-anchor-4">4</a></p>
+<p>Seneca and Epictetus would have insisted on making meditating in writing. The argument is that writing engages you more deeply, transforming what you have read “into tissue and blood” (in vivres et in sanguinem). Using a an oft-repeated metaphor, Seneca writes, “We should imitate bees, who wander and pluck from flowers suited for making honey, then arrange and distribute through the combs what they have brought in... We must digest what we have read; otherwise it passes into the memory, not into the mind.” Food, he says, is a burden so long as it stays what it was; only when it changes into blood and tissue does it become strength. It might feel like I understand a topic without writing about it, but if I <a href="https://www.henrikkarlsson.xyz/p/writing-to-think">earnestly try to unpack my thinking in writing</a>, my ignorance is revealed, and my thinking transformed.</p>
+<p><a href="https://www.henrikkarlsson.xyz/p/hypomnemata?hide_intro_popup=true/#footnote-anchor-5">5</a></p>
+<p>I’m not sure how much of the shift in my writing came directly from reading Foucault: it has been something that I’ve iterated myself toward. I’ve gradually written more with the intention of shaping my character and my attention, and this has been driven by the experience of deepened presence this has afforded me. But I’m pretty sure the ideas from that essay provided a template that helped me make sense and direct the evolution of my writing. I know I have often returned to the essay, and have used Plutarch’s term ethopoetical writing to make sense to what I’m trying to do.</p>
+<p><a href="https://www.henrikkarlsson.xyz/p/hypomnemata?hide_intro_popup=true/#footnote-anchor-6">6</a></p>
+<p>What it can do well, though, is to push deep into an idea and to restructure your thoughts about something. It is like an intervention where you want to shake things up properly, a three week session where you think and think and think about the same thing all the time. It is, I think, a useful complement to a daily practice.</p>
+<hr/>
+<table><tbody><tr><td></td><td>A guest post by<br/><table><tbody><tr><td><a data-native="true" href="https://substack.com/@karlssonjohanna?utm_campaign=guest_post_bio&amp;utm_medium=web">Johanna Karlsson</a><br/>x</td><td><a data-native="true" href="https://jkarlsson.substack.com/subscribe?">Subscribe to Johanna</a></td></tr></tbody></table></td></tr></tbody></table></div>
+      
+    </article>
+    
+    <article>
+      <h1>Building agents that reach production systems with MCP</h1>
+      <div class="article-meta">
+        claude.com
+        · 23 Apr 2026 · <a href="https://claude.com/blog/building-agents-that-reach-production-systems-with-mcp">Source</a>
+      </div>
+      <div class="article-body"><div><div><p>Agents are only as useful as the systems they can reach. Teams tend to converge on three approaches for connecting them to external systems—direct API calls, CLIs, and MCP. This post lays out where each fits, why production agents tend to land on MCP, and the patterns for building those integrations effectively.</p><h2>Connecting agents to external systems</h2><p>We generally see three paths for connecting agents to external systems: direct API calls, CLIs, and MCP. Each makes sense somewhere, depending on what you're building. The key distinction is whether there's a common layer between agents and services, and how far that layer reaches.</p><h3>Direct API calls</h3><p>The agent calls your API directly—either by writing code that issues HTTP requests inside a code-execution sandbox, or through a generic function-calling tool. This is where most teams start, and it works fine for one agent talking to one service, or a small number of integrations that don't need to be reused across agent platforms.<br/><br/>The challenges start to hit at scale. With no common layer between agents and services, each agent–service pair becomes a bespoke integration with its own auth handling, tool descriptions, and edge cases—the M×N integration problem.</p><h3>Command-line interface (CLI)</h3><p>The agent runs your command-line tool in a shell. This is fast, lightweight, and leans on pre-existing tooling. It works great for local environments and sandboxed containers—anywhere there's a filesystem and a shell. This provides a common layer, but it’s thin. <br/><br/>CLIs hit hard limits reaching mobile, web, or cloud-hosted platforms that don't expose a container, and auth is handled by the CLI's own mechanism—usually a credential file on disk. This is best suited to quick, permissive integrations in local environments.</p><h3>Model Context Protocol (MCP)</h3><p>MCP provides the common layer as a protocol. The agent connects to a server that exposes your system's capabilities, with auth, discovery, and rich semantics standardized. One remote server reaches any compatible client (Claude, ChatGPT, Cursor, VS Code, and more), in any deployment environment.</p><p>It requires a little bit more upfront investment. The return is that the integration is portable, and provides the semantics needed for a feature-rich agent integration.</p><h2>Production agents run in the cloud</h2><p>Production agents increasingly run in the cloud, so they can scale and operate continuously. The systems they need to reach are cloud-hosted too: where your data lives, work is tracked, and your infrastructure runs. Often these systems are remote and behind auth, where MCP provides the common layer. </p><p>We’re already seeing this in adoption. The <a href="https://modelcontextprotocol.io/docs/sdk">MCP SDKs</a> recently surpassed 300 million downloads a month, up from 100 million at the start of the year, with strong adoption across enterprises and popular agentic platforms. Millions of people use MCP with Claude every day, and the protocol underpins much of what we've shipped recently, including <a href="https://claude.com/product/cowork">Claude Cowork</a>, <a href="https://claude.com/blog/claude-managed-agents">Claude Managed Agents</a>, and <a href="https://code.claude.com/docs/en/channels">channels in Claude Code</a>. <br/>‍<br/>As MCP continues to support production agentic systems, we’re sharing patterns for building these integrations well: from building advanced servers to context-efficient clients, and where skills complement the protocol. </p><h2>Building effective MCP servers</h2><p>We have over 200 MCP servers in our <a href="https://claude.ai/directory/connectors">directory</a>, used by millions of people every day. From working closely with enterprises and developers building on the protocol, we’ve spotted a handful of design patterns that determine how reliably agents can use a server.</p><h3>Build remote servers for maximum reach</h3><p>A remote server is what gives you distribution—it's the only configuration that runs across web, mobile, and cloud-hosted agents, and it's what every major client is optimized to consume. Build remote servers so agents can use your system wherever they run. </p><h3>Group tools around intent, not endpoints</h3><p>Fewer, well-described tools consistently outperform exhaustive API mirrors. Don't wrap your API into an MCP server one-to-one—group tools around intent, so the agent can accomplish a task in a couple of calls instead of stitching many primitives together. A single create_issue_from_thread tool beats get_thread + parse_messages + create_issue + link_attachment. See<a href="https://www.anthropic.com/engineering/writing-tools-for-agents"> writing effective tools for agents</a> to learn more about the full pattern.</p><h3>Design for code orchestration when your surface is large</h3><p>If your service requires hundreds of distinct operations, such as Cloudflare, AWS, or Kubernetes, an intent-grouped toolset likely won't cover it. Instead, expose a thin tool surface that accepts code: the agent writes a short script, your server runs it in a sandbox against your API, and only the result returns. <a href="https://github.com/cloudflare/mcp">Cloudflare's MCP server</a> is the reference example—two tools (search and execute) cover ~2,500 endpoints in roughly 1K tokens.</p><h3>Ship rich semantics where they help</h3><p><a href="https://modelcontextprotocol.io/extensions/apps/overview">MCP Apps</a> is the first official protocol extension and lets a tool return an interactive interface, such as a chart, form, or dashboard, all rendered inline in the chat interface. Servers that ship MCP apps tend to see meaningfully higher adoption and retention than those that return text alone. Use it to put your product's UI in front of agents or end-users at the moment it matters—the extension is supported in Claude.ai, Claude Cowork, and many other top AI tools.</p><figure class="article-figure"><p><div class="rw-embed-wrapper"><embed src="https://www.youtube.com/embed/bluAmTHoEow" type="video/mp4"></embed></div></p></figure><p>‍<a href="https://modelcontextprotocol.io/specification/2025-11-25/client/elicitation">Elicitation</a> lets your server pause mid-tool call to ask the user for input. <a href="https://modelcontextprotocol.io/specification/2025-11-25/client/elicitation#form-mode-elicitation-requests">Form mode</a> sends a simple schema and the client renders a native form—use it to request a missing parameter, confirm a destructive action, or disambiguate options. <a href="https://modelcontextprotocol.io/specification/2025-11-25/client/elicitation#url-mode-elicitation-requests">URL mode</a> hands the user to a browser—use it to complete downstream OAuth, take a payment, or collect any credential that should never transit the MCP client. Both keep the user in the flow instead of sending them to a settings page. Form mode is supported broadly; URL mode is supported in Claude Code, with more clients in progress.</p><h3>Lean on standardized auth </h3><p>Standardized auth makes MCP practical for cloud-hosted agents. If your server requires OAuth, the latest <a href="https://modelcontextprotocol.io/specification/2025-11-25">MCP spec</a> supports <a href="https://modelcontextprotocol.io/specification/2025-11-25/basic/authorization#client-id-metadata-documents">CIMD</a> (Client ID Metadata Documents) for client registration—it gives users a fast first-time auth flow and far fewer surprise re-auth prompts. This is our recommended approach for auth, the capability is supported in MCP SDKs, Claude.ai, and Claude Code, and is being broadly adopted across the industry.<br/><br/>Once a user has authorized, the next question is how a cloud-hosted agent holds and reuses those tokens at runtime. <a href="https://platform.claude.com/docs/en/managed-agents/vaults#mcp-oauth-credential">Vaults</a> in <a href="https://platform.claude.com/docs/en/managed-agents/overview">Claude Managed Agents</a> covers this: register a user's OAuth tokens once, reference the vault by ID at session creation, and the platform injects the right credentials into each MCP connection and refreshes them on your behalf—no secret store to build, no tokens to pass around per call.</p><h2>Making MCP clients more context-efficient</h2><p>MCP standardizes how AI agents (<a href="https://modelcontextprotocol.io/docs/develop/build-client#python"><em>clients</em></a>) connect to and work with tools and data sources they need (<a href="https://modelcontextprotocol.io/docs/develop/build-server"><em>servers</em></a>). The server securely exposes a range of capabilities, while the client orchestrates them and manages context. If you’re building an MCP client, make it context-efficient with patterns for progressive disclosure.</p><h3>Load tool definitions on demand with tool search</h3><p><a href="https://platform.claude.com/docs/en/agents-and-tools/tool-use/tool-search-tool">Tool search</a> defers loading all tools into context, rather than loading them upfront. This allows the agent to search the catalog at runtime, pulling in the relevant tools when needed. In our <a href="https://www.anthropic.com/engineering/advanced-tool-use">testing</a>, tool search tends to cut tool-definition tokens by 85%+ while maintaining high selection accuracy. </p><figure class="article-figure"><figcaption>Reducing context usage with tool search. Source: <a href="https://www.anthropic.com/engineering/advanced-tool-use">advanced tool use<br/></a></figcaption></figure><h3>Process tool results in code with programmatic tool calling</h3><p><a href="https://www.anthropic.com/engineering/code-execution-with-mcp">Programmatic tool calling</a> processes tool results in a code-execution sandbox, rather than returning them raw to the model. This lets the agent loop, filter, and aggregate across calls in code, with only the final output reaching context. In our testing, this reduces token usage by roughly <a href="https://platform.claude.com/docs/en/agents-and-tools/tool-use/programmatic-tool-calling">37%</a> on complex multi-step workflows.</p><p>Together, these patterns compose naturally across multiple servers: leaner context, fewer round-trips, faster responses. See<a href="https://www.anthropic.com/engineering/advanced-tool-use"> <em>advanced tool use</em></a> for the full breakdown.</p><h2>Pairing MCP servers with skills</h2><p><a href="https://claude.com/blog/skills-explained">Skills and MCP are complementary</a>. MCP gives an agent access to tools and data from external systems, while skills teach an agent the procedural knowledge of <em>how</em> to use those tools to accomplish real work. The most capable agents use both, and skills make MCP servers scale beyond a handful of connections. There are two general patterns for combining them:</p><h3>Bundle skills and MCP servers as a plugin</h3><p><a href="https://code.claude.com/docs/en/plugins-reference#plugin-components-reference">Plugins</a> for Claude are a useful abstraction that allow developers to bundle skills, MCP servers, hooks, LSP servers, and specialized subagents in one easily-consumable distribution method. Using this approach is the best way to unify multiple context providers with minimal friction. <br/><br/>Combining MCP servers with skills allows Claude to act more like a domain-specialist. Grab your tools via MCP, and give Claude the skills to orchestrate workflows end-to-end. See our <a href="https://claude.ai/directory/plugins/data%40knowledge-work-plugins">data plugin</a> for Cowork as an example, which consists of 10 skills and 8 MCP servers for apps like Snowflake, Databricks, BigQuery, Hex and more.</p><figure class="article-figure"><figcaption>Combining skills with MCP. Source: <a href="https://claude.com/blog/extending-claude-capabilities-with-skills-mcp-servers">Extending Claude’s capabilities with skills and MCP servers</a></figcaption></figure><h3>Distribute skills from an MCP server</h3><p>It's increasingly common for providers to publish a skill alongside their MCP server, so the agent gets both the raw capabilities and an opinionated playbook for using them well. <a href="https://claude.com/connectors/atlassian">Canva</a>, <a href="https://claude.com/connectors/notion">Notion</a>, <a href="https://claude.com/connectors/sentry">Sentry</a>, and more do this today in Claude, listing the skill next to their connector in our <a href="https://claude.com/connectors">web directory</a>.</p><p>To make that pairing portable across every client, the MCP community is actively working on an <a href="https://github.com/modelcontextprotocol/experimental-ext-skills">extension</a> for delivering skills directly from servers. This way the client inherits the relevant expertise automatically, versioned with the API it depends on. We expect this pattern to see broad adoption as the extension stabilizes.</p><h2>The compounding layer </h2><p>We opened with three paths for connecting agents to external systems. In practice, mature integrations will ship all three: the API as the foundation, a CLI for local-first environments, and MCP for cloud-based agents.</p><p>As production agents move to the cloud, MCP becomes the critical layer, and it’s the one that compounds. Today, a remote server reaches every compatible client across any deployment environment, with auth, interactivity, and rich semantics handled by the protocol. As more clients adopt the spec and more extensions land in it, that same server gets more capable without you shipping anything new.</p><p>When building an integration, if your goal is to have production agents in the cloud reach your system, build an MCP server and make it excellent using the patterns above. Every integration built on MCP strengthens the ecosystem: fewer edge cases to solve alone, fewer bespoke integrations to maintain.</p><h3>Acknowledgements</h3><p>Thanks to Den Delimarsky, David Soria Parra, Henry Shi, Felix Rieseberg, Conor Kelly, Molly Vorwerck, Andy Schumeister, Kevin Garcia, Amie Rotherham, Matt Samuels, Angela Jiang, Katelyn Lesse, AJ Rebeiro and Jess Yan<strong> </strong>for their contributions to this blog.</p></div></div></div>
+      
+    </article>
+    
+  </body>
+</html>
