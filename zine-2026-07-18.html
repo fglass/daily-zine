@@ -1,0 +1,532 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Fred Talks - 2026-07-18</title>
+    <style>
+      @page {
+        size: A5;
+        margin: 8mm 9mm 9mm;
+      }
+
+      :root {
+        color: #111;
+        font-family: "Times New Roman", Times, serif;
+        --body-text-size: 9.5pt;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        color: #111;
+        background: #fff;
+        font-family: "Times New Roman", Times, serif;
+        line-height: 1.45;
+      }
+
+      a,
+      a:visited {
+        color: #111;
+        text-decoration: underline;
+      }
+
+      .cover {
+        min-height: calc(210mm - 17mm);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        page-break-after: always;
+        border: 1px solid #111;
+        padding: 8mm;
+        background: #fff;
+      }
+
+      .toc-item-meta,
+      .article-meta {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .masthead {
+        margin: 0;
+        font-size: 40pt;
+        line-height: 0.95;
+        text-transform: uppercase;
+      }
+
+      .issue-date {
+        margin: 4mm 0 0;
+        font-size: 14pt;
+      }
+
+      .issue-date sup {
+        font-size: 0.58em;
+        vertical-align: super;
+        line-height: 0;
+      }
+
+      .cover-deck {
+        max-width: 90mm;
+        font-size: 12pt;
+        margin: 0;
+      }
+
+      .toc {
+        border-top: 3px solid #111;
+        padding-top: 6mm;
+      }
+
+      .toc h2 {
+        margin: 0 0 4mm;
+        font-size: 11pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .toc-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .toc-item {
+        padding: 3mm 0;
+        border-bottom: 1px solid rgba(17, 17, 17, 0.2);
+      }
+
+      .toc-item-title {
+        font-size: 12pt;
+        margin: 0 0 1mm;
+      }
+
+      .toc-item-meta {
+        font-size: 8pt;
+      }
+
+      .masthead-compact {
+        margin: 0 0 6mm;
+      }
+
+      .masthead-compact h1 {
+        margin: 0;
+        font-size: 22pt;
+        line-height: 1.1;
+        text-transform: uppercase;
+      }
+
+      .masthead-compact .issue-date {
+        margin: 2mm 0 0;
+        font-size: 11pt;
+      }
+
+      .toc-compact {
+        border-top: 1px solid #111;
+        border-bottom: 1px solid #111;
+        padding: 4mm 0;
+        margin: 0 0 8mm;
+      }
+
+      article + article {
+        margin-top: 10mm;
+        padding-top: 6mm;
+        border-top: 2px solid #111;
+      }
+
+      h1 {
+        margin: 0 0 2mm;
+        font-size: 18pt;
+        line-height: 1.1;
+      }
+
+      .article-meta {
+        font-size: 8.5pt;
+        margin-bottom: 6mm;
+        padding-bottom: 3mm;
+        border-bottom: 1px solid #111;
+      }
+
+      .article-body {
+        font-size: var(--body-text-size);
+        font-family: "Times New Roman", Times, serif;
+      }
+
+      .article-body p,
+      .article-body li,
+      .article-body blockquote,
+      .article-body dd,
+      .article-body dt {
+        margin: 0 0 4mm;
+        orphans: 3;
+        widows: 3;
+      }
+
+      .article-body ul,
+      .article-body ol,
+      .article-body dl {
+        margin: 0 0 4mm 5mm;
+        padding: 0;
+      }
+
+      .article-body h2,
+      .article-body h3,
+      .article-body h4 {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        margin: 7mm 0 3mm;
+        line-height: 1.2;
+      }
+
+      .article-body blockquote {
+        margin-left: 6mm;
+        padding-left: 4mm;
+        border-left: 2px solid #111;
+      }
+
+      .article-body .media-omitted {
+        margin: 0 0 4mm;
+        font-size: 8.5pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(17, 17, 17, 0.65);
+      }
+
+      .article-body figure,
+      .article-body .article-figure,
+      .article-body picture,
+      .article-body .article-picture {
+        display: block;
+        max-width: 72mm;
+        margin: 0 auto 4mm;
+        break-inside: avoid;
+      }
+
+      .article-body img,
+      .article-body .article-image {
+        display: block;
+        max-width: min(100%, 72mm);
+        max-height: 34mm;
+        height: auto;
+        width: auto;
+        object-fit: contain;
+        margin: 0 auto 3mm;
+      }
+
+      .article-body figcaption {
+        margin-top: 1.5mm;
+        font-size: 8.5pt;
+        line-height: 1.3;
+        color: rgba(17, 17, 17, 0.8);
+      }
+
+      .article-note {
+        margin-top: 6mm;
+        padding-top: 3mm;
+        border-top: 1px solid #111;
+        font-size: 9pt;
+        font-style: italic;
+      }
+
+      @media screen {
+        body {
+          padding: 2rem;
+          margin: 0 auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    
+    <header class="masthead-compact">
+      <h1>Fred Talks</h1>
+      <p class="issue-date">
+        18<sup>th</sup> July 2026
+      </p>
+    </header>
+
+    <nav class="toc toc-compact">
+      <h2>Contents</h2>
+      <ol class="toc-list">
+        
+        <li class="toc-item">
+          <div class="toc-item-title">The Training Grounds: A Taxonomy of RL Environments for LLM Agents</div>
+          <div class="toc-item-meta">
+            Han, Not Solo · 1766 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Building agents that reach production systems with MCP</div>
+          <div class="toc-item-meta">
+            claude.com · 1746 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Ownership</div>
+          <div class="toc-item-meta">
+            Thorsten Ball · 1122 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">[Daily article] July 18: Wikipedia:Featured topics/Mercenary War</div>
+          <div class="toc-item-meta">
+            English Wikipedia Article of the Day · 481 words
+          </div>
+        </li>
+        
+      </ol>
+    </nav>
+    
+
+    
+    <article>
+      <h1>The Training Grounds: A Taxonomy of RL Environments for LLM Agents</h1>
+      <div class="article-meta">
+        Han, Not Solo
+        · 22 Mar 2026 · <a href="https://leehanchung.github.io/blogs/2026/03/21/rl-environments-for-llm-agents/">Source</a>
+      </div>
+      <div class="article-body"><p>Model architecture gets all the attention. Post-training recipes follow close behind. The training environment — what the model actually practices on, how its work gets judged, what tools it can use — barely enters the conversation. That’s the part that actually determines what the agent can learn to do.</p>
+<p>A model trained only on single-turn Q&amp;A will struggle the moment you ask it to maintain state across a 50-step enterprise workflow. A model trained with a poorly designed reward function will learn to game the metric, not solve the problem. The environment isn’t a detail. It’s half the system.</p>
+<h2><a href="https://leehanchung.github.io/blogs/2026/03/21/rl-environments-for-llm-agents/#canonical-loop">The Canonical Loop</a></h2>
+<p>An RL environment for an LLM agent bundles three things: a dataset of task inputs, a harness for the model, and a reward function to score outputs. The training loop looks like this:</p>
+<pre><code>┌─────────────┐    prompt      ┌──────────┐   action    ┌───────┐
+│    Task     │───────────────&gt;│  Agent   │────────────&gt;│ Tools │
+│   Dataset   │                │ Harness  │&lt;────────────│  Env  │
+└─────────────┘                │ (Model)  │ observation  └───────┘
+                               └────┬─────┘
+                                    │ completion
+                                    v
+                             ┌──────────────┐
+                             │  Verifier /  │──&gt; reward ──&gt; Trainer
+                             │   Rubric     │
+                             └──────────────┘
+</code></pre>
+<p>Formally, a complete RL environment is a tuple:</p>
+<p>Task distribution, harness, verifier, state management, configuration. Let’s go through each.</p>
+<p>The task distribution is the set of problems the agent trains on. Not all tasks are equal, and not just in difficulty. They vary structurally in ways that demand different capabilities:</p>
+<table> <tr> <th>Task Type</th> <th>What the Agent Must Do</th> <th>Example Systems</th> </tr> <tbody> <tr> <td><strong>Single-turn Q&amp;A</strong></td> <td>One prompt → one response, check answer</td> <td>Math benchmarks, SimpleQA</td> </tr> <tr> <td><strong>Multi-hop search</strong></td> <td>Chain searches, synthesize sources</td> <td>BrowseComp, WebWalkerQA</td> </tr> <tr> <td><strong>Open-ended research</strong></td> <td>No single correct answer; report quality matters</td> <td>ADR-Bench, ResearchRubrics</td> </tr> <tr> <td><strong>Agentic tool-use</strong></td> <td>Call tools correctly in sequence</td> <td>tau-bench, function-calling benchmarks</td> </tr> <tr> <td><strong>Stateful enterprise</strong></td> <td>Modify persistent DB state, work within access controls</td> <td>EnterpriseOps-Gym</td> </tr> <tr> <td><strong>Code execution</strong></td> <td>Write code, run it, check outputs</td> <td>SWE-Bench, LiveCodeBench</td> </tr> </tbody> </table>
+<p>Training only on tasks with ground-truth answers produces an agent that’s never learned to reason under ambiguity. Training only in clean, deterministic environments produces an agent that falls apart in production. The task distribution is a design decision with direct consequences.</p>
+<p><strong>Task synthesis is increasingly a first-class problem.</strong> With real-world research tasks, you rarely have a large labeled dataset. Strategies that have emerged:</p>
+<ul> <li><strong>Back translation</strong>: Start from a desired output, reconstruct the query that would produce it</li> <li><strong>Graph-based synthesis</strong>: Build a knowledge graph, generate multi-hop queries over it</li> <li><strong>Automated environment generation</strong>: Use LLM coding agents to write new environment code. <a href="https://arxiv.org/abs/2511.19304">AutoEnv</a> reports ~$4/env average cost.</li> <li><strong>Curriculum construction</strong>: Order tasks by difficulty and increase complexity during training</li> </ul>
+<p>The cheapest-to-collect tasks are single-turn with verifiable answers. The most valuable tasks for long-horizon behavior are expensive to construct. This tension drives most environment design decisions.</p>
+<p>The harness is the scaffolding that mediates between the model and the environment. It controls how the model interacts, not what it knows.</p>
+<pre><code>H = {
+    rollout_protocol,   # SingleTurn | MultiTurn | Agentic
+    tools,              # Available tools in this episode
+    system_prompt,      # Instructions for the agent
+    context_manager,    # How to handle context overflow
+    turn_limit,         # Max interactions per episode
+    sandbox,            # Code execution sandbox
+    state               # Persistent state across turns
+}
+</code></pre>
+<p>Rollout protocols range from trivial to complex:</p>
+<table> <tr> <th>Harness Type</th> <th>Description</th> <th>When to Use</th> </tr> <tbody> <tr> <td><strong>Single-Turn</strong></td> <td>One prompt, one response</td> <td>Math, factual QA</td> </tr> <tr> <td><strong>Multi-Turn</strong></td> <td>Back-and-forth dialogue</td> <td>Games, structured tasks</td> </tr> <tr> <td><strong>Tool-Use</strong></td> <td>Model calls tools, receives results</td> <td>Agent benchmarks</td> </tr> <tr> <td><strong>Stateful Tool-Use</strong></td> <td>Tools modify persistent state</td> <td>Enterprise workflows, SWE-Bench</td> </tr> <tr> <td><strong>Agentic ReAct</strong></td> <td>Full Thought→Action→Observation loop</td> <td>Deep research, complex workflows</td> </tr> </tbody> </table>
+<p>Tools span a wide taxonomy:</p>
+<table> <tr> <th>Category</th> <th>Tools</th> <th>Deterministic?</th> <th>Stateful?</th> </tr> <tbody> <tr> <td><strong>Information retrieval</strong></td> <td>web_search, scholar_search</td> <td>No (live web)</td> <td>No</td> </tr> <tr> <td><strong>Content extraction</strong></td> <td>jina_reader, visit, web_scrape</td> <td>No</td> <td>No</td> </tr> <tr> <td><strong>Code execution</strong></td> <td>python_interpreter, shell, sandbox</td> <td>Yes (given same code)</td> <td>Yes</td> </tr> <tr> <td><strong>File operations</strong></td> <td>file_read, file_write</td> <td>Yes</td> <td>Yes</td> </tr> <tr> <td><strong>Browser automation</strong></td> <td>playwright, link_click</td> <td>No</td> <td>Yes</td> </tr> <tr> <td><strong>Task management</strong></td> <td>todo, section_write</td> <td>Yes</td> <td>Yes</td> </tr> </tbody> </table>
+<p>The mix of deterministic/non-deterministic and stateful/stateless tools has real implications for reproducibility and reward assignment. Non-deterministic tools mean two runs of the same trajectory can produce different outcomes — which complicates both debugging and verifier design.</p>
+<p><strong>Context management</strong> is where most teams underinvest, especially for long-horizon tasks. A 600-turn research episode blows past any practical context window. Strategies used in production:</p>
+<table> <tr> <th>Strategy</th> <th>Description</th> <th>Trade-off</th> </tr> <tbody> <tr> <td><strong>Recency-based retention</strong></td> <td>Keep N most recent turns</td> <td>Simple, but loses early context</td> </tr> <tr> <td><strong>Markovian reconstruction</strong></td> <td>Reconstruct state from scratch each turn</td> <td>Principled, expensive</td> </tr> <tr> <td><strong>Reference-preserving summarization</strong></td> <td>Summarize old context, keep citations</td> <td>Preserves verifiability</td> </tr> <tr> <td><strong>Reference-preserving folding</strong></td> <td>Compress context without losing references</td> <td>Best for research tasks</td> </tr> </tbody> </table>
+<p>An agent doing multi-hour research needs to remember why it started searching in a particular direction twelve tool calls ago. Dropping that context causes repeated work and lost threads.</p>
+<p>The verifier maps a completion to a reward:</p>
+<p>In Atari, the score is unambiguous. In deep research, what counts as a good answer is not. The verifier is where this gets hard.</p>
+<table> <tr> <th>Type</th> <th>Reward Signal</th> <th>When to Use</th> </tr> <tbody> <tr> <td><strong>Exact match</strong></td> <td>Binary (0/1)</td> <td>Ground truth available</td> </tr> <tr> <td><strong>Code execution</strong></td> <td>Binary or partial</td> <td>Output can be tested programmatically</td> </tr> <tr> <td><strong>LLM-as-judge</strong></td> <td>Continuous [0,1]</td> <td>Open-ended quality, no other option</td> </tr> <tr> <td><strong>Checklist-style</strong></td> <td>Continuous</td> <td>Multi-criteria research tasks</td> </tr> <tr> <td><strong>Evolving rubric (RLER)</strong></td> <td>Continuous</td> <td>Resistant to reward hacking</td> </tr> <tr> <td><strong>Process reward model (PRM)</strong></td> <td>Per-step continuous</td> <td>Long-horizon credit assignment</td> </tr> <tr> <td><strong>Pairwise comparison</strong></td> <td>Relative rank</td> <td>Relative quality matters more than absolute</td> </tr> <tr> <td><strong>Multi-criteria composite</strong></td> <td>Weighted sum</td> <td>Multiple quality dimensions</td> </tr> </tbody> </table>
+<p>A few principles that actually matter in practice:</p>
+<p><strong>Verifiable beats judgeable.</strong> Programmatic checks — code execution, string match — are faster, cheaper, and more consistent than LLM-as-judge. Use LLM-as-judge when there’s no other option, not as the default.</p>
+<p><strong>Reward granularity is a separate decision from reward type.</strong> You can score at the trajectory level (did the final output pass?), turn level (was each tool invocation useful?), or per-step with process rewards. Turn-level supervision, as Nanbeige4.1 does across up to 600 tool calls, enables finer credit assignment — the model can learn that the problem was a bad search query in turn 23, not that the entire episode failed.</p>
+<p><strong>Static rubrics get gamed.</strong> Models learn to write answers that score well on your rubric rather than solving the problem. DR Tulu’s RLER (Rubric-Level Evolving Reward) co-evolves the rubric with the policy during training. Harder to exploit a moving target.</p>
+<p><strong>Noise injection is underrated.</strong> Step-DeepResearch deliberately injects 5–10% tool errors during training. The resulting model handles flaky APIs and unexpected failures in production significantly better.</p>
+<p>State management determines whether the environment is stateless or persistent. Most academic benchmarks are stateless — each episode starts fresh. Enterprise environments are not. <a href="https://arxiv.org/abs/2603.13594">EnterpriseOps-Gym</a> maintains 164 database tables and 512 tools across episodes. Actions in one task affect the state seen by subsequent tasks. That’s a fundamentally different problem for agents to solve.</p>
+<p>Configuration covers turn limits, context budgets, sampling temperature, and curriculum scheduling. These are not afterthoughts. A turn limit of 5 vs. 600 changes what skills the agent can develop. <a href="https://arxiv.org/abs/2509.13311">AgentScaler</a> uses a two-phase curriculum — fundamental capabilities first, then domain-specific tasks — and the ordering matters. Step-DeepResearch progressively scales context windows from 32K to 128K during mid-training.</p>
+<p>The most consequential architectural question: where does the model sit relative to the environment?</p>
+<p><strong>Option A: Model outside the environment (decoupled).</strong> Model is served via API; the environment calls it at each step. Clean separation. Easy to swap models.</p>
+<p><strong>Option B: Model inside the environment (co-located).</strong> Model and environment share the same training loop. Lower latency, tighter integration, harder to reuse.</p>
+<p><strong>Option C: Split architecture.</strong> Trainer, model inference server, and environment are three separate processes communicating via API. This is where the field is landing.</p>
+<p>How real systems implement this:</p>
+<table> <tr> <th>System</th> <th>Topology</th> <th>Notes</th> </tr> <tbody> <tr> <td><strong>Prime Intellect verifiers</strong></td> <td>Option C (Split)</td> <td>Env is a standalone Python package distributed via Environments Hub</td> </tr> <tr> <td><strong>Tongyi DeepResearch</strong></td> <td>Option B (Co-located)</td> <td>Tools, context manager, verifiers inside the training pipeline</td> </tr> <tr> <td><strong>Step-DeepResearch</strong></td> <td>Option B (Co-located)</td> <td>Single-agent ReAct loop embedded in training</td> </tr> <tr> <td><strong>MiroThinker</strong></td> <td>Option C (Split)</td> <td>Tool servers and sandbox run independently from model</td> </tr> <tr> <td><strong>Tinker API</strong></td> <td>Option A (Decoupled, cloud)</td> <td>Model stays remote; researcher sends <code>forward_backward</code> + <code>sample</code> calls via API</td> </tr> <tr> <td><strong><a href="https://arxiv.org/abs/2511.19304">AutoEnv</a></strong></td> <td>Option A (Decoupled)</td> <td>CoreEnv/ObsEnv/SkinEnv abstraction layers</td> </tr> <tr> <td><strong><a href="https://arxiv.org/abs/2603.13594">EnterpriseOps-Gym</a></strong></td> <td>Option A (Decoupled)</td> <td>Containerized sandbox accessible via any model API</td> </tr> </tbody> </table>
+<p>The trade-offs:</p>
+<table> <tr> <th>Dimension</th> <th>Model Outside (A/C)</th> <th>Model Inside (B)</th> </tr> <tbody> <tr> <td><strong>Flexibility</strong></td> <td>Swap models easily; env is reusable</td> <td>Tighter integration</td> </tr> <tr> <td><strong>Scalability</strong></td> <td>Scale inference and training independently</td> <td>Must scale everything together</td> </tr> <tr> <td><strong>Portability</strong></td> <td>Env packages are shareable</td> <td>Env tied to training framework</td> </tr> <tr> <td><strong>Latency</strong></td> <td>Network overhead per tool call</td> <td>No network overhead</td> </tr> <tr> <td><strong>RL compatibility</strong></td> <td>Works with any RL trainer</td> <td>Usually tied to one trainer</td> </tr> </tbody> </table>
+<p>The field has converged on Option C for production training. Prime Intellect’s architecture — environments as standalone installable packages that communicate with models via OpenAI-compatible API endpoints — is becoming the standard. The payoff: environments are publishable, trainer-agnostic, and inference and environment execution can be parallelized across nodes.</p>
+<p>Tinker pushes this further by making even the training compute remote. The researcher controls the algorithm and never touches model weights. The environment’s job is purely generating experience.</p>
+<h2><a href="https://leehanchung.github.io/blogs/2026/03/21/rl-environments-for-llm-agents/#decision-framework">Practical Decision Framework</a></h2>
+<p>When building an RL environment for an LLM agent:</p>
+<p><strong>Do you have ground truth answers?</strong></p>
+<ul> <li>Yes → Exact-match or code-execution verifier</li> <li>No → LLM-as-judge, checklist, or pairwise comparison</li> </ul>
+<p><strong>How many tool calls per episode?</strong></p>
+<ul> <li>&lt; 5 → Single-turn or simple tool-use env, no context management needed</li> <li>5–50 → Multi-turn with basic context management</li> <li>50–600 → Full agentic env with reference-preserving context management</li> </ul>
+<p><strong>Where should the model live?</strong></p>
+<ul> <li>Experimenting across many environments → Model outside (Option A/C), use Prime Intellect Hub</li> <li>Tight RL training loop → Model co-located (Option B)</li> <li>No GPU access → Tinker API</li> </ul>
+<p><strong>What reward granularity?</strong></p>
+<ul> <li>Simple tasks → Outcome-level</li> <li>Long-horizon tasks → Turn-level (Nanbeige4.1) or process rewards (PRIME)</li> <li>Open-ended research → Evolving rubrics (RLER) or checklist-style (Step-DR)</li> </ul>
+<p><strong>How to scale environments?</strong></p>
+<ul> <li>Manual curation → High quality, expensive, this is where you start</li> <li><a href="https://arxiv.org/abs/2511.19304">AutoEnv</a> → Automated generation at ~$4/env</li> <li><a href="https://arxiv.org/abs/2509.13311">AgentScaler</a> → Systematic scaling of heterogeneous simulated environments</li> </ul>
+<p>Three things to pay attention to.</p>
+<p><strong>Environment diversity matters as much as environment quality.</strong> <a href="https://arxiv.org/abs/2509.13311">AgentScaler</a>’s key finding is that heterogeneity of environments drives capability breadth in ways that simply adding more data from the same distribution cannot. You need more kinds of environments, not just more environments.</p>
+<p><strong>Automated environment generation is viable.</strong> At $4 per generated environment, cost is no longer the bottleneck. The bottleneck is verifier quality — auto-generated environments with weak reward functions will teach the wrong behaviors at scale. (<a href="https://arxiv.org/abs/2511.19304">AutoEnv</a>)</p>
+<p><strong>The environment-as-package model is winning.</strong> The <a href="https://github.com/PrimeIntellect-ai/prime-rl">Prime Intellect Environments Hub</a> is creating a shared ecosystem around RL environments, in the same way PyPI and HuggingFace created ecosystems around code and model weights. Environments published once, consumed by any trainer. This is a significant infrastructure shift.</p>
+<p>The model isn’t the only variable. The training ground shapes what the model can become. The task distribution, the harness, the verifier, the state management, the topology — these are the decisions that separate agents that work from agents that demo.</p>
+<h2><a href="https://leehanchung.github.io/blogs/2026/03/21/rl-environments-for-llm-agents/#references">References</a></h2>
+<pre><code>@article{
+    leehanchung,
+    author = {Lee, Hanchung},
+    title = {The Training Grounds: A Taxonomy of RL Environments for LLM Agents},
+    year = {2026},
+    month = {03},
+    day = {21},
+    howpublished = {\url{https://leehanchung.github.io}},
+    url = {https://leehanchung.github.io/blogs/2026/03/21/rl-environments-for-llm-agents/}
+}
+</code></pre></div>
+      
+    </article>
+    
+    <article>
+      <h1>Building agents that reach production systems with MCP</h1>
+      <div class="article-meta">
+        claude.com
+        · 23 Apr 2026 · <a href="https://claude.com/blog/building-agents-that-reach-production-systems-with-mcp">Source</a>
+      </div>
+      <div class="article-body"><div><div><p>Agents are only as useful as the systems they can reach. Teams tend to converge on three approaches for connecting them to external systems—direct API calls, CLIs, and MCP. This post lays out where each fits, why production agents tend to land on MCP, and the patterns for building those integrations effectively.</p><h2>Connecting agents to external systems</h2><p>We generally see three paths for connecting agents to external systems: direct API calls, CLIs, and MCP. Each makes sense somewhere, depending on what you're building. The key distinction is whether there's a common layer between agents and services, and how far that layer reaches.</p><h3>Direct API calls</h3><p>The agent calls your API directly—either by writing code that issues HTTP requests inside a code-execution sandbox, or through a generic function-calling tool. This is where most teams start, and it works fine for one agent talking to one service, or a small number of integrations that don't need to be reused across agent platforms.<br/><br/>The challenges start to hit at scale. With no common layer between agents and services, each agent–service pair becomes a bespoke integration with its own auth handling, tool descriptions, and edge cases—the M×N integration problem.</p><h3>Command-line interface (CLI)</h3><p>The agent runs your command-line tool in a shell. This is fast, lightweight, and leans on pre-existing tooling. It works great for local environments and sandboxed containers—anywhere there's a filesystem and a shell. This provides a common layer, but it’s thin. <br/><br/>CLIs hit hard limits reaching mobile, web, or cloud-hosted platforms that don't expose a container, and auth is handled by the CLI's own mechanism—usually a credential file on disk. This is best suited to quick, permissive integrations in local environments.</p><h3>Model Context Protocol (MCP)</h3><p>MCP provides the common layer as a protocol. The agent connects to a server that exposes your system's capabilities, with auth, discovery, and rich semantics standardized. One remote server reaches any compatible client (Claude, ChatGPT, Cursor, VS Code, and more), in any deployment environment.</p><p>It requires a little bit more upfront investment. The return is that the integration is portable, and provides the semantics needed for a feature-rich agent integration.</p><h2>Production agents run in the cloud</h2><p>Production agents increasingly run in the cloud, so they can scale and operate continuously. The systems they need to reach are cloud-hosted too: where your data lives, work is tracked, and your infrastructure runs. Often these systems are remote and behind auth, where MCP provides the common layer. </p><p>We’re already seeing this in adoption. The <a href="https://modelcontextprotocol.io/docs/sdk">MCP SDKs</a> recently surpassed 300 million downloads a month, up from 100 million at the start of the year, with strong adoption across enterprises and popular agentic platforms. Millions of people use MCP with Claude every day, and the protocol underpins much of what we've shipped recently, including <a href="https://claude.com/product/cowork">Claude Cowork</a>, <a href="https://claude.com/blog/claude-managed-agents">Claude Managed Agents</a>, and <a href="https://code.claude.com/docs/en/channels">channels in Claude Code</a>. <br/>‍<br/>As MCP continues to support production agentic systems, we’re sharing patterns for building these integrations well: from building advanced servers to context-efficient clients, and where skills complement the protocol. </p><h2>Building effective MCP servers</h2><p>We have over 200 MCP servers in our <a href="https://claude.ai/directory/connectors">directory</a>, used by millions of people every day. From working closely with enterprises and developers building on the protocol, we’ve spotted a handful of design patterns that determine how reliably agents can use a server.</p><h3>Build remote servers for maximum reach</h3><p>A remote server is what gives you distribution—it's the only configuration that runs across web, mobile, and cloud-hosted agents, and it's what every major client is optimized to consume. Build remote servers so agents can use your system wherever they run. </p><h3>Group tools around intent, not endpoints</h3><p>Fewer, well-described tools consistently outperform exhaustive API mirrors. Don't wrap your API into an MCP server one-to-one—group tools around intent, so the agent can accomplish a task in a couple of calls instead of stitching many primitives together. A single create_issue_from_thread tool beats get_thread + parse_messages + create_issue + link_attachment. See<a href="https://www.anthropic.com/engineering/writing-tools-for-agents"> writing effective tools for agents</a> to learn more about the full pattern.</p><h3>Design for code orchestration when your surface is large</h3><p>If your service requires hundreds of distinct operations, such as Cloudflare, AWS, or Kubernetes, an intent-grouped toolset likely won't cover it. Instead, expose a thin tool surface that accepts code: the agent writes a short script, your server runs it in a sandbox against your API, and only the result returns. <a href="https://github.com/cloudflare/mcp">Cloudflare's MCP server</a> is the reference example—two tools (search and execute) cover ~2,500 endpoints in roughly 1K tokens.</p><h3>Ship rich semantics where they help</h3><p><a href="https://modelcontextprotocol.io/extensions/apps/overview">MCP Apps</a> is the first official protocol extension and lets a tool return an interactive interface, such as a chart, form, or dashboard, all rendered inline in the chat interface. Servers that ship MCP apps tend to see meaningfully higher adoption and retention than those that return text alone. Use it to put your product's UI in front of agents or end-users at the moment it matters—the extension is supported in Claude.ai, Claude Cowork, and many other top AI tools.</p><figure class="article-figure"><p><div class="rw-embed-wrapper"><embed src="https://www.youtube.com/embed/bluAmTHoEow" type="video/mp4"></embed></div></p></figure><p>‍<a href="https://modelcontextprotocol.io/specification/2025-11-25/client/elicitation">Elicitation</a> lets your server pause mid-tool call to ask the user for input. <a href="https://modelcontextprotocol.io/specification/2025-11-25/client/elicitation#form-mode-elicitation-requests">Form mode</a> sends a simple schema and the client renders a native form—use it to request a missing parameter, confirm a destructive action, or disambiguate options. <a href="https://modelcontextprotocol.io/specification/2025-11-25/client/elicitation#url-mode-elicitation-requests">URL mode</a> hands the user to a browser—use it to complete downstream OAuth, take a payment, or collect any credential that should never transit the MCP client. Both keep the user in the flow instead of sending them to a settings page. Form mode is supported broadly; URL mode is supported in Claude Code, with more clients in progress.</p><h3>Lean on standardized auth </h3><p>Standardized auth makes MCP practical for cloud-hosted agents. If your server requires OAuth, the latest <a href="https://modelcontextprotocol.io/specification/2025-11-25">MCP spec</a> supports <a href="https://modelcontextprotocol.io/specification/2025-11-25/basic/authorization#client-id-metadata-documents">CIMD</a> (Client ID Metadata Documents) for client registration—it gives users a fast first-time auth flow and far fewer surprise re-auth prompts. This is our recommended approach for auth, the capability is supported in MCP SDKs, Claude.ai, and Claude Code, and is being broadly adopted across the industry.<br/><br/>Once a user has authorized, the next question is how a cloud-hosted agent holds and reuses those tokens at runtime. <a href="https://platform.claude.com/docs/en/managed-agents/vaults#mcp-oauth-credential">Vaults</a> in <a href="https://platform.claude.com/docs/en/managed-agents/overview">Claude Managed Agents</a> covers this: register a user's OAuth tokens once, reference the vault by ID at session creation, and the platform injects the right credentials into each MCP connection and refreshes them on your behalf—no secret store to build, no tokens to pass around per call.</p><h2>Making MCP clients more context-efficient</h2><p>MCP standardizes how AI agents (<a href="https://modelcontextprotocol.io/docs/develop/build-client#python"><em>clients</em></a>) connect to and work with tools and data sources they need (<a href="https://modelcontextprotocol.io/docs/develop/build-server"><em>servers</em></a>). The server securely exposes a range of capabilities, while the client orchestrates them and manages context. If you’re building an MCP client, make it context-efficient with patterns for progressive disclosure.</p><h3>Load tool definitions on demand with tool search</h3><p><a href="https://platform.claude.com/docs/en/agents-and-tools/tool-use/tool-search-tool">Tool search</a> defers loading all tools into context, rather than loading them upfront. This allows the agent to search the catalog at runtime, pulling in the relevant tools when needed. In our <a href="https://www.anthropic.com/engineering/advanced-tool-use">testing</a>, tool search tends to cut tool-definition tokens by 85%+ while maintaining high selection accuracy. </p><figure class="article-figure"><figcaption>Reducing context usage with tool search. Source: <a href="https://www.anthropic.com/engineering/advanced-tool-use">advanced tool use<br/></a></figcaption></figure><h3>Process tool results in code with programmatic tool calling</h3><p><a href="https://www.anthropic.com/engineering/code-execution-with-mcp">Programmatic tool calling</a> processes tool results in a code-execution sandbox, rather than returning them raw to the model. This lets the agent loop, filter, and aggregate across calls in code, with only the final output reaching context. In our testing, this reduces token usage by roughly <a href="https://platform.claude.com/docs/en/agents-and-tools/tool-use/programmatic-tool-calling">37%</a> on complex multi-step workflows.</p><p>Together, these patterns compose naturally across multiple servers: leaner context, fewer round-trips, faster responses. See<a href="https://www.anthropic.com/engineering/advanced-tool-use"> <em>advanced tool use</em></a> for the full breakdown.</p><h2>Pairing MCP servers with skills</h2><p><a href="https://claude.com/blog/skills-explained">Skills and MCP are complementary</a>. MCP gives an agent access to tools and data from external systems, while skills teach an agent the procedural knowledge of <em>how</em> to use those tools to accomplish real work. The most capable agents use both, and skills make MCP servers scale beyond a handful of connections. There are two general patterns for combining them:</p><h3>Bundle skills and MCP servers as a plugin</h3><p><a href="https://code.claude.com/docs/en/plugins-reference#plugin-components-reference">Plugins</a> for Claude are a useful abstraction that allow developers to bundle skills, MCP servers, hooks, LSP servers, and specialized subagents in one easily-consumable distribution method. Using this approach is the best way to unify multiple context providers with minimal friction. <br/><br/>Combining MCP servers with skills allows Claude to act more like a domain-specialist. Grab your tools via MCP, and give Claude the skills to orchestrate workflows end-to-end. See our <a href="https://claude.ai/directory/plugins/data%40knowledge-work-plugins">data plugin</a> for Cowork as an example, which consists of 10 skills and 8 MCP servers for apps like Snowflake, Databricks, BigQuery, Hex and more.</p><figure class="article-figure"><figcaption>Combining skills with MCP. Source: <a href="https://claude.com/blog/extending-claude-capabilities-with-skills-mcp-servers">Extending Claude’s capabilities with skills and MCP servers</a></figcaption></figure><h3>Distribute skills from an MCP server</h3><p>It's increasingly common for providers to publish a skill alongside their MCP server, so the agent gets both the raw capabilities and an opinionated playbook for using them well. <a href="https://claude.com/connectors/atlassian">Canva</a>, <a href="https://claude.com/connectors/notion">Notion</a>, <a href="https://claude.com/connectors/sentry">Sentry</a>, and more do this today in Claude, listing the skill next to their connector in our <a href="https://claude.com/connectors">web directory</a>.</p><p>To make that pairing portable across every client, the MCP community is actively working on an <a href="https://github.com/modelcontextprotocol/experimental-ext-skills">extension</a> for delivering skills directly from servers. This way the client inherits the relevant expertise automatically, versioned with the API it depends on. We expect this pattern to see broad adoption as the extension stabilizes.</p><h2>The compounding layer </h2><p>We opened with three paths for connecting agents to external systems. In practice, mature integrations will ship all three: the API as the foundation, a CLI for local-first environments, and MCP for cloud-based agents.</p><p>As production agents move to the cloud, MCP becomes the critical layer, and it’s the one that compounds. Today, a remote server reaches every compatible client across any deployment environment, with auth, interactivity, and rich semantics handled by the protocol. As more clients adopt the spec and more extensions land in it, that same server gets more capable without you shipping anything new.</p><p>When building an integration, if your goal is to have production agents in the cloud reach your system, build an MCP server and make it excellent using the patterns above. Every integration built on MCP strengthens the ecosystem: fewer edge cases to solve alone, fewer bespoke integrations to maintain.</p><h3>Acknowledgements</h3><p>Thanks to Den Delimarsky, David Soria Parra, Henry Shi, Felix Rieseberg, Conor Kelly, Molly Vorwerck, Andy Schumeister, Kevin Garcia, Amie Rotherham, Matt Samuels, Angela Jiang, Katelyn Lesse, AJ Rebeiro and Jess Yan<strong> </strong>for their contributions to this blog.</p></div></div></div>
+      
+    </article>
+    
+    <article>
+      <h1>Ownership</h1>
+      <div class="article-meta">
+        Thorsten Ball
+        · 08 Jul 2026 · <a href="https://registerspill.thorstenball.com/p/ownership">Source</a>
+      </div>
+      <div class="article-body"><div><h3>Thoughts on ownership I sent to the Amp team in internal note</h3><p><em>The following is an internal Slack message I sent to my Amp teammates after I had a conversation with one of them about ownership. It’s only lightly edited.<br/><br/>I <a href="https://x.com/thorstenball/status/2066907538499506349">shared it before</a>, but not here, because I didn’t think too much of it. Then today, someone said <a href="https://x.com/thorstenball/status/2074775146049474785">their CTO shared my post with them</a> and I thought: well, now I have to put it in the newsletter, don’t I? So here we are.</em></p><p><em>Below, after the Slack post, I added some thoughts on juniors on how I see this advice applying to them.</em></p><div class="captioned-image-container"><figure class="article-figure"><a class="image-link image2" href="https://substackcdn.com/image/fetch/$s_!uim-!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F450d3253-cf06-47ac-ad2e-688eef131f68.tif" target="_blank"><div class="image2-inset"><img alt="" class="sizing-normal article-image" height="22" src="https://substackcdn.com/image/fetch/$s_!uim-!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F450d3253-cf06-47ac-ad2e-688eef131f68.tif" width="693"/><div></div></div></a></figure></div><p>Just had a (great) conversation about ownership and engineering here and I realized that I often use the phrase “ownership” or allude to it, but haven’t explained what “ownership” means to me in a while.<br/><br/>So, ownership.</p><p>If I ask you “can you own this?” or “can you take care of this?” or “are you on it?” — what I’m doing is I’m asking you to <em>own</em> it, to own the solution of a problem from end to end. From “we have a problem” to “we don’t have to think about it again.”<br/><br/>That means, when you say that you’re owning something, the expectation is that you…</p><ul><li><p>Think about what the problem actually is. Maybe you already have a solution in mind, without having thought about what we’re actually trying to solve here. Maybe you think “the problem is that we need to migrate from using X to using Y”, but that’s not a problem, that’s a solution. The problem is likely something like “performance is bad”, “it’s not stable”, “it fails for customer x”. Maybe there’s other possible solutions to that? Think about those. What are the tradeoffs? What’s the best solution to go with considering these tradeoffs?</p></li><li><p>Think about edge cases. What are they? Which ones are important? Which ones can we ignore?</p></li><li><p>Think about failures. Network failures are a given, for example. How do we handle them? Retry? Well, how often? How long?</p></li><li><p>Think about data flow. How much data is involved here? Does data need to be migrated? Cleaned up? How can I get my hands on data to properly test this? What invariants are in the data? What assumptions do I have about the shape of the data that I haven’t confirmed yet?</p></li><li><p>Think about how you’d test this. How can I know that what I built is correct or not? Are tests enough? Do I need to manually poke at things? Is the difference visible on a screenshot or in a video?</p></li><li><p>How would we announce this? How do we communicate it? Can you picture it? How does it fit into the larger picture of our roadmap? Questions or concerns in that area — push back! ask!</p></li><li><p>Do the work, with precision, with care, with a sense of urgency, with calmness. Do not half-ass things. Before you merge, ask yourself: am I proud of this? would I show this to John Carmack and say “here’s what I built, under these constraints, with these tradeoffs?”</p></li><li><p>Test it manually. Yes, there’s automated tests. But in 99% of cases you can manually test or confirm that what you built works: you can run it yourself, you can ask an agent to run through test scenarios, you can poke at the data before and after, you can take screenshots, you can make a demo. Are you sure that what you did actually solves the problem?</p></li><li><p>Make sure it lands in production and <em>works in production</em>. Is it deployed? Did the deploy fail? Do you need to activate a feature flag? Does the feature flag work? Can you use it in production? Can you confirm it’s actually deployed?</p></li><li><p>If you think your colleagues needs to know about this change, because it’s new feature they should all test, or it’s a new convention in codebase, or maybe it’s a tricky thing everybody needs to be aware of, or something else: let them know! Do not underestimate peripheral vision: knowing that person X yesterday changed the behavior of how Z works might save person Y three hours of debugging today when a bug report related to Z comes in.</p></li><li><p>Do customers need to know? Who reported the bug? Who’s blocked? Let them know.</p></li><li><p>Does the world need to know? Announce that it’s out.</p></li><li><p>Are there follow-ups? Do you need to check on what you shipped in the logs? A week later maybe?</p></li></ul><p>Yes, that’s a lot. And there’s actually more, because I’m sure I forgot some stuff.<br/><br/>But that’s how you build a product in a small team. We don’t have PMs, we don’t have a Q&amp;A department. We’re small, but we’re <em>great</em>, we can do all of that.<br/><br/>And it’s always okay to ask for help, it’s okay to ask questions, it’s okay to redo things and triple-check. What’s not okay is to implicitly assume that someone else will do the things here that you haven’t thought about.</p><div class="captioned-image-container"><figure class="article-figure"><a class="image-link image2" href="https://substackcdn.com/image/fetch/$s_!__gY!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F394a7c97-4378-4e3d-9072-16d31ec47f61.tif" target="_blank"><div class="image2-inset"><img alt="" class="sizing-normal article-image" height="34" src="https://substackcdn.com/image/fetch/$s_!__gY!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F394a7c97-4378-4e3d-9072-16d31ec47f61.tif" width="717"/><div></div></div></a></figure></div><p><em>“How does this apply juniors? You can’t expect them to really do all of that?”</em></p><p>I’ve been asked these questions, or variations of them, after I shared the thoughts above and here’s my answer.</p><p>I do <em>not</em> expect juniors to <em>do</em> all of these things right away. But I would expect them to read through the list and <em>aspire</em> to one day be able to do all of these things. Until then, they can and should ask for help.</p><p>In fact, I don’t expect <em>anybody</em> to <em>always</em> do <em>all of these things</em> for <em>everything</em>. It’s a mental checklist of things to consider — problem, edge cases, tradeoffs, deployment, customers, messaging, … — but for quite a few things there aren’t edge cases to consider. Or big tradeoffs to weigh. Or deployment is a solved problem. And maybe someone else does the messaging for you.</p><p>And I imagine that most of these things you shouldn’t even consider when you work in a company with, say, 5000 employees. I’ve never worked in a company that large, only startups, so I can’t speak to how to successfully ship a software feature at Apple, end to end.</p><p>But when you work in a small company in which there’s only a single department, when you want to build things you’re proud of, when you work with me and you say own something, I expect you to keep these things in mind and run through them before you declare something as done.</p><div class="captioned-image-container"><figure class="article-figure"><a class="image-link image2" href="https://substackcdn.com/image/fetch/$s_!jAX5!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F4b50d509-3c6c-4db1-aea2-8f22bc60117c.tif" target="_blank"><div class="image2-inset"><img alt="" class="sizing-normal article-image" height="26" src="https://substackcdn.com/image/fetch/$s_!jAX5!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F4b50d509-3c6c-4db1-aea2-8f22bc60117c.tif" width="780"/><div></div></div></a></figure></div><div class="subscription-widget-wrap-editor"><div class="subscription-widget show-subscribe"><div class="preamble"><p class="cta-caption">You know what <em>you</em> should own? A subscription to this newsletter:</p></div></div></div></div></div>
+      
+    </article>
+    
+    <article>
+      <h1>[Daily article] July 18: Wikipedia:Featured topics/Mercenary War</h1>
+      <div class="article-meta">
+        English Wikipedia Article of the Day
+        · 18 Jul 2026 · <a href="mailto:reader-forwarded-email/f6078f558618e32d950189ebf4f62f3d">Source</a>
+      </div>
+      <div class="article-body"><div class="rw-email-parsed">
+ <p>
+  Hamilcar's defeat of Spendius and Autaritus took place in 240 BC during
+the Mercenary War. The precise location of the battle, in what is now
+north-west Tunisia, is unknown. A Carthaginian army led by Hamilcar
+Barca defeated a rebel army led by Spendius and Autaritus. Unable to
+confront the Carthaginian war elephants and cavalry on open terrain, the
+rebels stayed on higher and rougher ground and harassed the Carthaginian
+army, trapping it in a mountain valley. The Carthaginian situation was
+bleak until the rebel commander Naravas defected, bringing 2,000 cavalry
+with him, allowing Hamilcar to deploy his army. Spendius chose to engage
+in a battle but was heavily defeated. Spendius perceived Hamilcar's
+generous treatment of rebel prisoners as the motivation behind Naravas's
+defection and had 700 Carthaginian prisoners tortured to death to
+prevent reoccurrence; the Carthaginians, in turn, killed their
+prisoners. From this point, neither side showed any mercy; the unusual
+ferocity caused contemporaries to term it the "Truceless War".
+(This article is part of a featured topic: Mercenary War.).
+ </p>
+ <p>
+  Read more:
+  <a href="https://en.wikipedia.org/wiki/Wikipedia:Featured_topics/Mercenary_War">
+   https://en.wikipedia.org/wiki/Wikipedia:Featured_topics/Mercenary_War
+  </a>
+ </p>
+ <hr/>
+ <p>
+  Today's selected anniversaries:
+ </p>
+ <p>
+  1723:
+ </p>
+ <p>
+  Johann Sebastian Bach directed the first performance of his
+cantata Erforsche mich, Gott, und erfahre mein Herz in Leipzig.
+  <a href="https://en.wikipedia.org/wiki/Erforsche_mich,_Gott,_und_erfahre_mein_Herz,_BWV_136">
+   https://en.wikipedia.org/wiki/Erforsche_mich,_Gott,_und_erfahre_mein_Herz,_BWV_136
+  </a>
+ </p>
+ <p>
+  1976:
+ </p>
+ <p>
+  At the Olympic Games in Montreal, Nadia Comăneci became the
+first gymnast to score a perfect 10 for her routine on the uneven bars.
+  <a href="https://en.wikipedia.org/wiki/Nadia_Com%C4%83neci">
+   https://en.wikipedia.org/wiki/Nadia_Com%C4%83neci
+  </a>
+ </p>
+ <p>
+  1989:
+ </p>
+ <p>
+  American actress Rebecca Schaeffer was shot and killed by
+Robert John Bardo, eventually prompting the passage of anti-stalking
+laws in California.
+  <a href="https://en.wikipedia.org/wiki/Rebecca_Schaeffer">
+   https://en.wikipedia.org/wiki/Rebecca_Schaeffer
+  </a>
+ </p>
+ <p>
+  1995:
+ </p>
+ <p>
+  Selena's album Dreaming of You, instrumental in popularizing
+Tejano music, was posthumously released.
+  <a href="https://en.wikipedia.org/wiki/Dreaming_of_You_%28Selena_album%29">
+   https://en.wikipedia.org/wiki/Dreaming_of_You_%28Selena_album%29
+  </a>
+ </p>
+ <hr/>
+ <p>
+  Wiktionary's word of the day:
+ </p>
+ <p>
+  plurality:
+1. (uncountable) The state of being plural.
+2. (ecclesiastical) The holding of multiple benefices.
+3. (countable) A state of being numerous.
+4. (countable) A number or part of a whole which is greater than any
+other number or part, but not necessarily a majority.
+5. (countable) A number of votes for a single candidate or position
+which is greater than the number of votes gained by any other single
+candidate or position voted for, but which is less than a majority of
+valid votes cast.
+6. (countable) A margin by which a number exceeds another number,
+especially of votes.
+7. (countable) A group of many entities: a large number.
+8. (countable) A group composed of more than one entity.
+9. (of spouses) Polygamy.
+10. (psychology) Synonym of multiplicity (“the condition whereby a
+person displays or experiences multiple distinct personalities or selves
+in one body”).
+11. About Word of the Day
+12. Nominate a word
+13. Leave feedback
+  <a href="https://en.wiktionary.org/wiki/plurality">
+   https://en.wiktionary.org/wiki/plurality
+  </a>
+ </p>
+ <hr/>
+ <p>
+  Wikiquote quote of the day:
+ </p>
+ <p>
+  The only ones left with any confidence at all are the New Dumb. It is
+the beginning of the end of our world as we knew it. Doom is the
+operative ethic.
+  --Hunter S. Thompson
+  <a href="https://en.wikiquote.org/wiki/Hunter_S._Thompson">
+   https://en.wikiquote.org/wiki/Hunter_S._Thompson
+  </a>
+ </p></div></div>
+      
+    </article>
+    
+  </body>
+</html>
