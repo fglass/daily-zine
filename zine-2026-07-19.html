@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Fred Talks - 2026-07-19</title>
+    <style>
+      @page {
+        size: A5;
+        margin: 8mm 9mm 9mm;
+      }
+
+      :root {
+        color: #111;
+        font-family: "Times New Roman", Times, serif;
+        --body-text-size: 9.5pt;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        color: #111;
+        background: #fff;
+        font-family: "Times New Roman", Times, serif;
+        line-height: 1.45;
+      }
+
+      a,
+      a:visited {
+        color: #111;
+        text-decoration: underline;
+      }
+
+      .cover {
+        min-height: calc(210mm - 17mm);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        page-break-after: always;
+        border: 1px solid #111;
+        padding: 8mm;
+        background: #fff;
+      }
+
+      .toc-item-meta,
+      .article-meta {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .masthead {
+        margin: 0;
+        font-size: 40pt;
+        line-height: 0.95;
+        text-transform: uppercase;
+      }
+
+      .issue-date {
+        margin: 4mm 0 0;
+        font-size: 14pt;
+      }
+
+      .issue-date sup {
+        font-size: 0.58em;
+        vertical-align: super;
+        line-height: 0;
+      }
+
+      .cover-deck {
+        max-width: 90mm;
+        font-size: 12pt;
+        margin: 0;
+      }
+
+      .toc {
+        border-top: 3px solid #111;
+        padding-top: 6mm;
+      }
+
+      .toc h2 {
+        margin: 0 0 4mm;
+        font-size: 11pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .toc-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .toc-item {
+        padding: 3mm 0;
+        border-bottom: 1px solid rgba(17, 17, 17, 0.2);
+      }
+
+      .toc-item-title {
+        font-size: 12pt;
+        margin: 0 0 1mm;
+      }
+
+      .toc-item-meta {
+        font-size: 8pt;
+      }
+
+      .masthead-compact {
+        margin: 0 0 6mm;
+      }
+
+      .masthead-compact h1 {
+        margin: 0;
+        font-size: 22pt;
+        line-height: 1.1;
+        text-transform: uppercase;
+      }
+
+      .masthead-compact .issue-date {
+        margin: 2mm 0 0;
+        font-size: 11pt;
+      }
+
+      .toc-compact {
+        border-top: 1px solid #111;
+        border-bottom: 1px solid #111;
+        padding: 4mm 0;
+        margin: 0 0 8mm;
+      }
+
+      article + article {
+        margin-top: 10mm;
+        padding-top: 6mm;
+        border-top: 2px solid #111;
+      }
+
+      h1 {
+        margin: 0 0 2mm;
+        font-size: 18pt;
+        line-height: 1.1;
+      }
+
+      .article-meta {
+        font-size: 8.5pt;
+        margin-bottom: 6mm;
+        padding-bottom: 3mm;
+        border-bottom: 1px solid #111;
+      }
+
+      .article-body {
+        font-size: var(--body-text-size);
+        font-family: "Times New Roman", Times, serif;
+      }
+
+      .article-body p,
+      .article-body li,
+      .article-body blockquote,
+      .article-body dd,
+      .article-body dt {
+        margin: 0 0 4mm;
+        orphans: 3;
+        widows: 3;
+      }
+
+      .article-body ul,
+      .article-body ol,
+      .article-body dl {
+        margin: 0 0 4mm 5mm;
+        padding: 0;
+      }
+
+      .article-body h2,
+      .article-body h3,
+      .article-body h4 {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        margin: 7mm 0 3mm;
+        line-height: 1.2;
+      }
+
+      .article-body blockquote {
+        margin-left: 6mm;
+        padding-left: 4mm;
+        border-left: 2px solid #111;
+      }
+
+      .article-body .media-omitted {
+        margin: 0 0 4mm;
+        font-size: 8.5pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(17, 17, 17, 0.65);
+      }
+
+      .article-body figure,
+      .article-body .article-figure,
+      .article-body picture,
+      .article-body .article-picture {
+        display: block;
+        max-width: 72mm;
+        margin: 0 auto 4mm;
+        break-inside: avoid;
+      }
+
+      .article-body img,
+      .article-body .article-image {
+        display: block;
+        max-width: min(100%, 72mm);
+        max-height: 34mm;
+        height: auto;
+        width: auto;
+        object-fit: contain;
+        margin: 0 auto 3mm;
+      }
+
+      .article-body figcaption {
+        margin-top: 1.5mm;
+        font-size: 8.5pt;
+        line-height: 1.3;
+        color: rgba(17, 17, 17, 0.8);
+      }
+
+      .article-note {
+        margin-top: 6mm;
+        padding-top: 3mm;
+        border-top: 1px solid #111;
+        font-size: 9pt;
+        font-style: italic;
+      }
+
+      @media screen {
+        body {
+          padding: 2rem;
+          margin: 0 auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    
+    <header class="masthead-compact">
+      <h1>Fred Talks</h1>
+      <p class="issue-date">
+        19<sup>th</sup> July 2026
+      </p>
+    </header>
+
+    <nav class="toc toc-compact">
+      <h2>Contents</h2>
+      <ol class="toc-list">
+        
+        <li class="toc-item">
+          <div class="toc-item-title">The Night Watch</div>
+          <div class="toc-item-meta">
+            James Mickens · 2675 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">A PM&#39;s Guide to AI Agent Architecture: Why Capability Doesn&#39;t Equal Adoption</div>
+          <div class="toc-item-meta">
+            Umang · 1871 words
+          </div>
+        </li>
+        
+      </ol>
+    </nav>
+    
+
+    
+    <article>
+      <h1>The Night Watch</h1>
+      <div class="article-meta">
+        James Mickens
+        · 11 Apr 2026 · <a href="https://www.usenix.org/system/files/1311_05-08_mickens.pdf">Source</a>
+      </div>
+      <div class="article-body"><div><p></p><p>The Night Watch</p><p><br/></p><p>J AM E S M I C K E N S</p><p><br/></p><p><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/Qh_zJJv8ZR0hQwDrpMtI4o0UpsKc2Lc5K3V_L4-iyNg-PhqvNH_Sl5vCey.png" class="article-image"/></p><p>James Mickens is a researcher in the Distributed Systems group at Microsoft’s Redmond lab. His current research focuses on web applications,</p><p>with an emphasis on the design of JavaScript frameworks that allow developers to diagnose and fix bugs in widely deployed web applications. James also works on fast, scalable storage systems for datacenters.</p><p><a href="mailto:mickens@microsoft.com" target="_blank">James received his PhD in computer science from the University of Michigan, and a bachelor’s degree in computer science from Georgia Tech. </a><a href="mailto:mickens@microsoft.com" target="_blank">mickens@microsoft.com</a></p><p><br/></p><p>s a highly trained academic researcher, I spend a lot of time trying to advance the frontiers of human knowledge. However, as someone who was born in the South, I secretly believe that true progress is</p><p>A</p><p></p><p>a fantasy, and that I need to prepare for the end times, and for the chickens coming home to roost, and fast zombies, and slow zombies, and the polite zombies who say “sir” and “ma’am” but then try to eat your brain to acquire your skills. When the revolution comes, I need to be prepared; thus, in the quiet moments, when I’m not producing incredible scientific breakthroughs, I think about what I’ll do when the weather forecast inevitably becomes</p><p>RIVERS OF BLOOD ALL DAY EVERY DAY. The main thing that I ponder is who will be in my gang, because the likelihood of post-apocalyptic survival is directly related to the size and quality of your rag-tag group of associates. There are some obvious people who I’ll need to recruit: a locksmith (to open doors); a demolitions expert (for when the locksmith has run out of ideas); and a person who can procure, train, and then throw snakes at my enemies</p><p>(because, in a world without hope, snake throwing is a reasonable way to resolve disputes). All of these people will play a role in my ultimate success as a dystopian warlord philosopher. However, the most important person in my gang will be a systems programmer. A person who can debug a device driver or a distributed system is a person who can be trusted in a Hobbesian nightmare of breathtaking scope; a systems programmer has seen the terrors of the world and understood the intrinsic horror of existence. The systems programmer has written drivers for buggy devices whose firmware was implemented by a drunken child or a sober goldfish. The systems program- mer has traced a network problem across eight machines, three time zones, and a brief diversion into Amish country, where the problem was transmitted in the front left hoof of a mule named Deliverance. The systems program- mer has read the kernel source, to better understand the deep ways of the universe, and the systems programmer has seen the comment in the sched- uler that says “DOES THIS WORK LOL,” and the systems programmer has wept instead of LOLed, and the systems programmer has submitted a kernel patch to restore balance to The Force and fix the priority inversion that was causing MySQL to hang. A systems programmer will know what to do when society breaks down, because the systems programmer already lives in a world without law.</p><p><br/></p><p>Listen: I’m not saying that other kinds of computer people</p><p>are useless. I believe (but cannot prove) that PHP developers have souls. I think it’s great that database people keep trying to improve select-from-where, even though the only queries that cannot be expressed using select-from-where are inap- propriate limericks from “The Canterbury Tales.” In some way that I don’t yet understand, I’m glad that theorists are investigating the equivalence between five-dimensional Tur- ing machines and Edward Scissorhands. In most situations, GUI designers should not be forced to fight each other with tridents and nets as I yell “THERE ARE NO MODAL DIA- LOGS IN SPARTA.” I am like the Statue of Liberty: I accept everyone, even the wretched and the huddled and people who enjoy Haskell. But when things get tough, I need mission-crit- ical people; I need a person who can wear night-vision goggles and descend from a helicopter on ropes and do classified things to protect my freedom while country music plays in the background. A systems person can do that. I can realistically give a kernel hacker a nickname like “Diamondback” or “Zeus Hammer.” In contrast, no one has ever said, “These semi-</p><p>transparent icons are really semi-transparent! IS THIS THE WORK OF ZEUS HAMMER?”</p><p>I picked that last example at random. You must believe me when I say that I have the utmost respect for HCI people.</p><p>However, when HCI people debug their code, it’s like an</p><p>art show or a meeting of the United Nations. There are tea breaks and witticisms exchanged in French; wearing a non- functional scarf is optional, but encouraged. When HCI code doesn’t work, the problem can be resolved using grand theo- ries that relate form and perception to your deeply personal feelings about ovals. There will be rich debates about the socioeconomic implications of Helvetica Light, and at some point, you will have to decide whether serifs are daring state- ments of modernity, or tools of hegemonic oppression that implicitly support feudalism and illiteracy. Is pinching-and- dragging less elegant than circling-and-lightly-caressing?</p><p>These urgent mysteries will not solve themselves. And yet, after a long day of debugging HCI code, there is always hope, and there is no true anger; even if you fear that your drop- down list should be a radio button, the drop-down list will suffice until tomorrow, when the sun will rise, glorious and</p><p>vibrant, and inspire you to combine scroll bars and left-click- ing in poignant ways that you will commemorate in a sonnet when you return from your local farmer’s market.</p><p>This is not the world of the systems hacker. When you debug a distributed system or an OS kernel, you do it Texas-style. You gather some mean, stoic people, people who have seen things die, and you get some primitive tools, like a compass and a rucksack and a stick that’s pointed on one end, and you walk into the wilderness and you look for trouble, possibly while</p><p>using chewing tobacco. As a systems hacker, you must be pre- pared to do savage things, unspeakable things, to kill runaway threads with your bare hands, to write directly to network ports using telnet and an old copy of an RFC that you found in the Vatican. When you debug systems code, there are no high- level debates about font choices and the best kind of turquoise, because this is the Old Testament, an angry and monochro- matic world, and it doesn’t matter whether your Arial is Bold or Condensed when people are covered in boils and pestilence and Egyptian pharaoh oppression. HCI people discover bugs by receiving a concerned email from their therapist. Systems people discover bugs by waking up and discovering that their first-born children are missing and “ETIMEDOUT ” has been written in blood on the wall.</p><p>What is despair? I have known it—hear my song. Despair is when you’re debugging a kernel driver and you look at a mem- ory dump and you see that a pointer has a value of 7. THERE IS NO HARDWARE ARCHITECTURE THAT IS ALIGNED ON</p><p>7. Furthermore, 7 IS TOO SMALL AND ONLY EVIL CODE WOULD TRY TO ACCESS SMALL NUMBER MEMORY.</p><p>Misaligned, small-number memory accesses have stolen decades from my life. The only things worse than misaligned, small-number memory accesses are accesses with aligned buf- fer pointers, but impossibly large buffer lengths. Nothing ruins a Friday at 5 P.M. faster than taking one last pass through the log file and discovering a word-aligned buffer address, but a buffer length of NUMBER OF ELECTRONS IN THE UNI-</p><p>VERSE. This is a sorrow that lingers, because a 2893 byte read is the only thing that both Republicans and Democrats agree is wrong. It’s like, maybe Medicare is a good idea, maybe not, but there’s no way to justify reading everything that ever existed a jillion times into a mega-jillion sized array. This constant war on happiness is what non-systems people do not understand about the systems world. I mean, when a machine learning</p><p>algorithm mistakenly identifies a cat as an elephant, this is</p><p>actually hilarious. You can print a picture of a cat wearing an elephant costume and add an ironic caption that will entertain people who have middling intellects, and you can hand out cop- ies of the photo at work and rejoice in the fact that everything is still fundamentally okay. There is nothing funny to print when you have a misaligned memory access, because your machine is dead and there are no printers in the spirit world.</p><p>An impossibly large buffer error is even worse, because these errors often linger in the background, quietly overwriting your state with evil; if a misaligned memory access is like a criminal burning down your house in a fail-stop manner, an impossibly large buffer error is like a criminal who breaks into your house, sprinkles sand atop random bedsheets and toothbrushes, and then waits for you to slowly discover that your world has been tainted by madness. Indeed, the common discovery mode for an impossibly large buffer error is that your program seems to</p><p><br/></p><p>be working fine, and then it tries to display a string that should say “Hello world,” but instead it prints “#a[5]:3!” or another syntactically correct Perl script, and you’re like WHAT THE HOW THE, and then you realize that your prodigal memory accesses have been stomping around the heap like the Incred- ible Hulk when asked to write an essay entitled “Smashing Considered Harmful.”</p><p>You might ask, “Why would someone write code in a grotesque language that exposes raw memory addresses? Why not use</p><p>a modern language with garbage collection and functional programming and free massages after lunch?” Here’s the answer: Pointers are real. They’re what the hardware under- stands. Somebody has to deal with them. You can’t just place a LISP book on top of an x86 chip and hope that the hardware learns about lambda calculus by osmosis. Denying the exis- tence of pointers is like living in ancient Greece and denying the existence of Krackens and then being confused about why none of your ships ever make it to Morocco, or Ur-Morocco,</p><p>or whatever Morocco was called back then. Pointers are like Krackens—real, living things that must be dealt with so that polite society can exist. Make no mistake, I don’t want to write systems software in a language like C++. Similar to the Necro- nomicon, a C++ source code file is a wicked, obscure document that’s filled with cryptic incantations and forbidden knowl- edge. When it’s 3 A.M., and you’ve been debugging for 12 hours, and you encounter a virtual static friend protected volatile</p><p>templated function pointer, you want to go into hibernation and awake as a werewolf and then find the people who wrote the C++ standard and bring ruin to the things that they love. The C++ STL, with its dyslexia-inducing syntax blizzard of colons and angle brackets, guarantees that if you try to declare any reasonable data structure, your first seven attempts will result in compiler errors of Wagnerian fierceness:</p><p>Syntax error: unmatched thing in thing from std::nonstd::<u> </u> map&lt;_Cyrillic, _$$$dollars&gt;const basic_string&lt; epic_ mystery,mongoose_traits &amp;lt; char&gt;, <u>  </u>default_alloc_&lt;casual_ Fridays = maybe&gt;&gt;</p><p>One time I tried to create a list&lt;map&lt;int&gt;&gt;, and my syntax errors caused the dead to walk among the living. Such things are clearly unfortunate. Thus, I fully support high-level lan- guages in which pointers are hidden and types are strong and the declaration of data structures does not require you to solve a syntactical puzzle generated by a malevolent extraterrestrial species. That being said, if you find yourself drinking a martini and writing programs in garbage-collected, object-oriented Esperanto, be aware that the only reason that the Esperanto runtime works is because there are systems people who have exchanged any hope of losing their virginity for the exciting opportunity to think about hex numbers and their relationships</p><p>with the operating system, the hardware, and ancient blood rituals that Bjarne Stroustrup performed at Stonehenge.</p><p>Perhaps the worst thing about being a systems person is that other, non-systems people think that they understand the daily tragedies that compose your life. For example, a few weeks ago, I was debugging a new network file system that my research group created. The bug was inside a kernel-mode component, so my machines were crashing in spectacular and vindic-</p><p>tive ways. After a few days of manually rebooting servers, I had transformed into a shambling, broken man, kind of like a computer scientist version of Saddam Hussein when he was pulled from his bunker, all scraggly beard and dead eyes and florid, nonsensical ramblings about semi-imagined enemies.</p><p>As I paced the hallways, muttering Nixonian rants about my code, one of my colleagues from the HCI group asked me what my problem was. I described the bug, which involved concur- rent threads and corrupted state and asynchronous message delivery across multiple machines, and my coworker said,</p><p>“Yeah, that sounds bad. Have you checked the log files for errors?” I said, “Indeed, I would do that if I hadn’t broken every component that a logging system needs to log data. I have a network file system, and I have broken the network, and I have broken the file system, and my machines crash when I make eye contact with them. I HAVE NO TOOLS BECAUSE I’VE DESTROYED MY TOOLS WITH MY TOOLS. My only logging</p><p>option is to hire monks to transcribe the subjective experience of watching my machines die as I weep tears of blood.” My co- worker, in an earnest attempt to sympathize, recounted one of his personal debugging stories, a story that essentially involved an addition operation that had been mistakenly replaced with</p><p>a multiplication operation. I listened to this story, and I said, “Look, I get it. Multiplication is not addition. This has been known for years. However, multiplication and addition are at least related. Multiplication is like addition, but with more addition. Multiplication is a grown-up pterodactyl, and addi- tion is a baby pterodactyl. Thus, in your debugging story, your code is wayward, but it basically has the right idea. In contrast, there is no family-friendly GRE analogy that relates what my code should do, and what it is actually doing. I had the mod-</p><p>est goal of translating a file read into a network operation, and now my machines have tuberculosis and orifice containment issues. Do you see the difference between our lives? When you asked a girl to the prom, you discovered that her father was a cop. When I asked a girl to the prom, I DISCOVERED THAT HER FATHER WAS STALIN.”</p><p>In conclusion, I’m not saying that everyone should be a systems hacker. GUIs are useful. Spell-checkers are useful. I’m glad that people are working on new kinds of bouncing icons because they believe that humanity has solved cancer and homelessness and now lives in a consequence-free world</p><p><br/></p><p>of immersive sprites. That’s exciting, and I wish that I could join those people in the 27th century. But I live here, and I live now, and in my neighborhood, people are dying in the streets. It’s like, French is a great idea, but nobody is going to invent French if they’re constantly being attacked by bears. Do you see? SYSTEMS HACKERS SOLVE THE BEAR MENACE.</p><p>Only through the constant vigilance of my people do you get</p><p>the freedom to think about croissants and subtle puns involv- ing the true father of Louis XIV. So, if you see me wandering the halls, trying to explain synchronization bugs to confused monks, rest assured that every day, in every way, it gets a little better. For you, not me. I’ll always be furious at the number 7, but such is the hero’s journey.</p><p><br/></p><p><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/3PjVhm7SHAnNCFsrp4vYcMmjj4SbJW6_Nw3I8kCRkHo-Ttoq4t_0PjAixm.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/zu6piHoR3bKYZi8-bhTBDVes4mGPSwexqfHxhL2XV7c-fnmEuB_ncwO73o.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/BKRuB5D8rBa8HdORYoDsAG6E90Wxw-g5jzU5jNVL0SA-JTKhjG_mbyyoPB.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/vHq8DNX8KgbuwOrW5x382wBldGETJ_QYyCfJ7YvliGg-jXfgAF_o9Kq1Td.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/_hhGPcB-wnqc7Hnf0vlR-s9YoIerGTz5j1nzLF9EZJk-S6jgeu_wRLQZhx.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/BKWddr7mDr1b6vKoiuzT9S8wMfYmeWkFDHeUWXsXm-U-yn92ap_882g4tc.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/Ljll433Q85CHGZ11YSI8iwrSVzMulhf_alYDpGGHoWk-GQOhDC_AVH7JxR.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/9GWpw0igxFQBm9ou8MytnTuLjZAhYXJaKDpH7BBnldE-GpM9TP_vSR4tBG.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/o2Fev3AVMUxSlY-2J_kGIvtq6ByKB0zIP4yn6kOCFyk-UBZuJf_arJQIcs.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/Xudf2kb-JiTw-bGQeeKnuj5AVyH6QLWtcquVcSM7MKA-KdAkcQ_XxDwLTZ.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/hjRl1nz9wufUszQToA5y5jkEV26Q1Joh-Wb5DyURj00-ftwTzI_bFqqJ9N.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/HQ9IrO9DjZpOKeo0SBpG0PQ7PqI0tnFYcdHm60Xmp-w-6WcDjD_3FQbRGB.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/6xPTbWKef5Tx-Vhxff76tPrfZYE0jP1ofMjQ1AeyoFo-kNEPiT_ehz6XQh.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/yMRGU8iN4_0-UiKWfZV4O8P4NI96Uo6bKGd0xFZUfGM-DCPm2E_r6h3DVu.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/DdXYx8C0PDURQ_9sC-YpVVYvQcf0H7WsGVvc7aNlfNs-JADKKu_L4dXsj1.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/g0QHbZNs1N6ILk9mvaiOcn469uJltkjOjJm2tAgIGms-lc0DFt_pzteoe5.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/-ZQiQHqvWk3k208XO-fFM_KQI7jYpa0U4PWRwFfZmi4-jBoftz_UyYAJhQ.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/je5pVOg4iC_CKMY3kkak7SpW1bJjZ9bYxbelxBxJkYw-I4g_1D_b9icttQ.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/_yG37F0Ne-FE1e3ye7alCuIciUaoPw3TM2zNGnrEjiQ-LV6QAz_zwrScIL.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/MFAFSOuOEOGqJ655FpAwV1iWq_vtVGFNVU8AzWvTLWE-__I7sj_VyZuSB2.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/1jvrpT5BbqcPvkdTJebUKwKuRnnoth6ZRKkvFu1zqFY-4kCoUf_FMuVHNJ.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/GqkC-r47Olk3MK9ZfKR5JUXtsYIn0k35OULb7-46lpY-ImSCi4_qL5c0Fl.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/Cfi4KP8QlMJoXO20drN_-Pmz1ymZQHrLzDAuA1m2iTY-9Kktc1_GrrDaQO.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/qU4C4LNTzvu5a5yyRN_jTk2Vo6ja5PLVAcPsjOcgruc--4duo2_iOYWYgk.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/6h5FaIF8n_ImMtl9-wUQL1pY4UCwe6ShoJ-emKcZJlw-HNgmis_7IE6s9r.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/U7UQ12j1nrwIeXEtChEgxyj1iUbqjnIL8azTEKZ8ERg-mGn-ux_meEMikJ.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/0dXzLDFT43xEsh9KSPiZBeUSE55cg4LXBCYTUBclXpc-n0B6Zy_jUCdIxw.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/v5cKOT1MyuR7Q0J46JCzj4tfPE2Kh0WV3A8dW4mj9PE-fJoKj0_7IzpAwT.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/NXA_a7aZqfzD9e7sp4LyeVK0bt_ypoVuvrYNOkl-N5s-WcbOa2_NFdYZfe.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/09Fg0DVT-G10gdWFwMK9KSePZ3hv94eFgAMUAus6Vpo-iXi4nr_GUZg5fN.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/7HCO_Yz47hxS01U0Dvw83-G3oCQi_XPigYGxPtYSQXQ-qHWcyR_Oc38EO9.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/ZyKwjfvFVWMYOErKBJnBlX5kHnkXG6iURgCUBRkG23c-g4SZ_f_BRDpDIH.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/g1JfUtkpM102XJIXL1-_DF4jlKVkN73XelpeN-rbASo-Z3Rxe6_eV3T37T.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/ZqfF49Oq4gdxEwJQOnNr6cfnuwsw6WxyfNld8zXNkHU-X8E80p_nDd3ymo.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/j_aDFBxxPMKW1N1mQUiJD4Jv6sLvpgfDiVR_KYF15Yo-f-7gW__1Lrq8AE.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/X-rieWMGjDA3xhrFurgaVaoxVmOxGR1Gh5yWTulc8qc-5VWrpr_52uT7Ex.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/J0xH79919-Y-223udc_HjCkMou04iC-nM0gubKiV1zA-Czi66a_JiE87DE.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/-RgteSd4yAk_j608MaIw17AiWyVbpfSXPV49vhMjPq8-hh2rn9_RhGKlDl.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/qeMbUEBS5ivfsD7glHzGBCIP6gZxQyqCmZMS8_uPxIA-bNVeOY_bHIqKR0.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/m7htRL5yJwMBtLmrL2Sn9_WF0j7cbAXWynMsLz9iIQg-biESR8_p2TU36x.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/68FgZ46Dr-qlarRaZFW3Y-TJ2t6BsaFvGj6wMbHUZqY-e4jqWJ_7EnCXWN.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/odl1eG3KcxKWrDg_4KZlCGsAWK-Q5c0QdD6UEuK_uGk-B_5-ap_59TRnEf.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/nSs-ZwKiOxvQVjnwXzopfMSpZg6WETqwUNWsiQiD7bg-kDqNyf_556hL1M.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/blsJ1zGV7cw7yqPeKopXcPyv0xm-ahhrzwosz38ZwgM-Mndfp9_xP5Xptf.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/N4y9pAPhOW18YXsmDv5Tg4j8rPO6poNWLD-iIMYwtXg-9xg0ap_Fhj4MUC.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/G0pJsD4r__jnJu6Xagukx3ARxLhZ8TQEOPsrcehWl-I-35jJz-_BjrTOa2.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/377DrrLyQVfpIRl7w1nhp8rCXEib0QFUHJX0iWbXwCE-TGw66Y_Y6zIMig.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/N5bwSeNlv3R01-p5MvqgBQCIPwKNuDqTZrzIQYOBE4c-Lt1OUR_eG2HS8J.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/Uj4jTnGVwUZBKWzpcG-fWeteFhynvvxnChThxd7y6GM-CpT3Zv_rzsZoXx.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/2Q8SzdZ0E-uoSkurUo71zMdPuFBY5jAucH1Hxr7tSe8-FXHV8-_o3py9iI.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/f-cJudd5ZIX0zH93wBWiPd76QWhZvkQROzphrw8q4Lk-0MJpI4_nXHHIRm.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/4hylgy8BJ6DbXeHsaQu4RJHkIJZSzcCsaUDmFqSVAyM-Ogr0o7_j0dTzDf.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/W6EYed5UyuB9s0lgdHYN7heF1p0WaKjDUGI5baET8tI-zatTlx_3WFx9YF.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/UEyFXXe1FQOuttF6PAa_KSYV8I1Ijuv_2rK1DokyGFA-GohX5F_yCuDOxQ.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/z8y6R5sxvlSgDbEDW7_6BT5uK37GLMmYMASYMBUR82w-AMWOcI_t4hroEw.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/RsCulUTlhMRpRH2mBb1zNtn4iiIS-t423DqqU8Uej2o-X7XpCp_RY0ijzQ.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/kHBrdcBHSazzsaNzKWKvbViAnuQB5l3ZhOuDbEDPKPk-o71Hfo_A0ZNZw9.png" class="article-image"/></p><h1>Do you know about the USENIX Open Access Policy?</h1><p><br/></p><p>USENIX is the first computing association to offer free and open access to all of our conferences proceedings and videos. We stand by our mission to foster excellence and innovation while supporting research with a practical bias. Your membership fees play a major role in making this endeavor successful.</p><p><br/></p><p>Please help us support open access.</p><p>Renew your USENIX membership</p><p>and ask your colleagues to join or renew today!</p><p><br/></p><p><a href="http://www.usenix.org/membership">www.usenix.org/membership</a></p></div></div>
+      
+    </article>
+    
+    <article>
+      <h1>A PM&#39;s Guide to AI Agent Architecture: Why Capability Doesn&#39;t Equal Adoption</h1>
+      <div class="article-meta">
+        Umang
+        · 05 Sep 2025 · <a href="https://www.productcurious.com/p/a-pms-guide-to-ai-agent-architecture">Source</a>
+      </div>
+      <div class="article-body"><p>Last week, I was talking to a PM who'd in the recent months shipped their AI agent. The metrics looked great: 89% accuracy, sub-second respond times, positive user feedback in surveys. But users were abandoning the agent after their first real problem, like a user with both a billing dispute and a locked account.</p>
+<blockquote><p>"Our agent could handle routine requests perfectly, but when faced with complex issues, users would try once, get frustrated, and immediately ask for a human."</p></blockquote>
+<p>This pattern is observed across every product team that focuses on making their agents "smarter" when the real challenge is making architectural decisions that shape how users experience and begin to trust the agent.</p>
+<p>In this post, I'm going to walk you through the different layers of AI agent architecture. How your product decisions determine whether users trust your agent or abandon it. By the end of this, you'll understand why some agents feel "magical" while others feel "frustrating" and more importantly, how PMs should architect for the magical experience.</p>
+<p>We'll use a concrete customer support agent example throughout, so you can see exactly how each architectural choice plays out in practice. We’ll also see why the counterintuitive approach to trust (hint: it's not about being right more often) actually works better for user adoption.</p>
+<h2>Let's say you're building a customer support agent</h2>
+<p>You're the PM building an agent that helps users with account issues - password resets, billing questions, plan changes. Seems straightforward, right?</p>
+<figure class="article-figure"><a data-component-name="Image2ToDOM" href="https://substackcdn.com/image/fetch/$s_!lsF4!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F4bee9fce-5586-4d0c-a98b-d54f816e1a85_1128x786.webp"><picture class="article-picture"><img alt="ConversationRelay | Twilio" data-attrs="{&quot;src&quot;:&quot;https://substack-post-media.s3.amazonaws.com/public/images/4bee9fce-5586-4d0c-a98b-d54f816e1a85_1128x786.webp&quot;,&quot;srcNoWatermark&quot;:null,&quot;fullscreen&quot;:null,&quot;imageSize&quot;:null,&quot;height&quot;:786,&quot;width&quot;:1128,&quot;resizeWidth&quot;:422,&quot;bytes&quot;:null,&quot;alt&quot;:&quot;ConversationRelay | Twilio&quot;,&quot;title&quot;:null,&quot;type&quot;:null,&quot;href&quot;:null,&quot;belowTheFold&quot;:false,&quot;topImage&quot;:true,&quot;internalRedirect&quot;:null,&quot;isProcessing&quot;:false,&quot;align&quot;:null,&quot;offset&quot;:false}" sizes="100vw" src="https://substackcdn.com/image/fetch/$s_!lsF4!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F4bee9fce-5586-4d0c-a98b-d54f816e1a85_1128x786.webp" srcset="https://substackcdn.com/image/fetch/$s_!lsF4!,w_424,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F4bee9fce-5586-4d0c-a98b-d54f816e1a85_1128x786.webp 424w, https://substackcdn.com/image/fetch/$s_!lsF4!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F4bee9fce-5586-4d0c-a98b-d54f816e1a85_1128x786.webp 848w, https://substackcdn.com/image/fetch/$s_!lsF4!,w_1272,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F4bee9fce-5586-4d0c-a98b-d54f816e1a85_1128x786.webp 1272w, https://substackcdn.com/image/fetch/$s_!lsF4!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F4bee9fce-5586-4d0c-a98b-d54f816e1a85_1128x786.webp 1456w" class="article-image"/></picture></a></figure>
+<p>But when a user says <em><strong>"I can't access my account and my subscription seems wrong"</strong></em> what should happen?</p>
+<p><strong>Scenario A:</strong> Your agent immediately starts checking systems. It looks up the account, identifies that the password was reset yesterday but the email never arrived, discovers a billing issue that downgraded the plan, explains exactly what happened, and offers to fix both issues with one click.</p>
+<p><strong>Scenario B: </strong>Your agent asks clarifying questions. "When did you last successfully log in? What error message do you see? Can you tell me more about the subscription issue?" After gathering info, it says "Let me escalate you to a human who can check your account and billing."</p>
+<p><strong>Same user request. Same underlying systems. Completely different products.</strong></p>
+<h2>The Four Layers Where Your Product Decisions Live</h2>
+<p>Think of agent architecture like a stack where each layer represents a product decision you have to make.</p>
+<figure class="article-figure"><a data-component-name="Image2ToDOM" href="https://substackcdn.com/image/fetch/$s_!JMHA!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F6d1c3e46-44f3-4986-b1b1-b50c7e9ffb4e_804x904.png"><picture class="article-picture"><img alt="" data-attrs="{&quot;src&quot;:&quot;https://substack-post-media.s3.amazonaws.com/public/images/6d1c3e46-44f3-4986-b1b1-b50c7e9ffb4e_804x904.png&quot;,&quot;srcNoWatermark&quot;:null,&quot;fullscreen&quot;:null,&quot;imageSize&quot;:null,&quot;height&quot;:904,&quot;width&quot;:804,&quot;resizeWidth&quot;:406,&quot;bytes&quot;:null,&quot;alt&quot;:&quot;&quot;,&quot;title&quot;:null,&quot;type&quot;:null,&quot;href&quot;:null,&quot;belowTheFold&quot;:true,&quot;topImage&quot;:false,&quot;internalRedirect&quot;:null,&quot;isProcessing&quot;:false,&quot;align&quot;:null,&quot;offset&quot;:false}" sizes="100vw" src="https://substackcdn.com/image/fetch/$s_!JMHA!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F6d1c3e46-44f3-4986-b1b1-b50c7e9ffb4e_804x904.png" srcset="https://substackcdn.com/image/fetch/$s_!JMHA!,w_424,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F6d1c3e46-44f3-4986-b1b1-b50c7e9ffb4e_804x904.png 424w, https://substackcdn.com/image/fetch/$s_!JMHA!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F6d1c3e46-44f3-4986-b1b1-b50c7e9ffb4e_804x904.png 848w, https://substackcdn.com/image/fetch/$s_!JMHA!,w_1272,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F6d1c3e46-44f3-4986-b1b1-b50c7e9ffb4e_804x904.png 1272w, https://substackcdn.com/image/fetch/$s_!JMHA!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F6d1c3e46-44f3-4986-b1b1-b50c7e9ffb4e_804x904.png 1456w" class="article-image"/></picture></a></figure>
+<h3>Layer 1: Context &amp; Memory (What does your agent remember?)</h3>
+<p><strong>The Decision: </strong>How much should your agent remember, and for how long?</p>
+<p><em>This isn't just technical storage - it's about creating the illusion of understanding. Your agent's memory determines whether it feels like talking to a robot or a knowledgeable colleague.</em></p>
+<p><strong>For our support agent:</strong> Do you store just the current conversation, or the customer's entire support history? Their product usage patterns? Previous complaints?</p>
+<p><strong>Types of memory to consider:</strong></p>
+<ul><li><p><strong>Session memory:</strong> Current conversation ("You mentioned billing issues earlier...")</p></li><li><p><strong>Customer memory: </strong>Past interactions across sessions ("Last month you had a similar issue with...")</p></li><li><p><strong>Behavioral memory:</strong> Usage patterns ("I notice you typically use our mobile app...")</p></li><li><p><strong>Contextual memory: </strong>Current account state, active subscriptions, recent activity</p></li></ul>
+<p>The more your agent remembers, the more it can anticipate needs rather than just react to questions. Each layer of memory makes responses more intelligent but increases complexity and cost.</p>
+<p><strong>The Decision:</strong> Which systems should your agent connect to, and what level of access should it have?</p>
+<p><em>The deeper your agent connects to user workflows and existing systems, the harder it becomes for users to switch. This layer determines whether you're a tool or a platform.</em></p>
+<p><strong>For our support agent:</strong> Should it integrate with just your Stripe’s billing system, or also your Salesforce CRM, ZenDesk ticketing system , user database, and audit logs? Each integration makes the agent more useful but also creates more potential failure points - <em>think API rate limits, authentication challenges, and system downtime</em>.</p>
+<h3>Layer 3: Skills &amp; Capabilities (What makes you different?)</h3>
+<p><strong>The Decision:</strong> Which specific capabilities should your agent have, and how deep should they go?</p>
+<p><em>Your skills layer is where you win or lose against competitors. It's not about having the most features - it's about having the right capabilities that create user dependency.</em></p>
+<p><strong>For our support agent:</strong> Should it only read account information, or should it also modify billing, reset passwords, and change plan settings? Each additional skill increases user value but also increases complexity and risk.</p>
+<figure class="article-figure"><a data-component-name="Image2ToDOM" href="https://substackcdn.com/image/fetch/$s_!AfC4!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F6ace5e82-816b-426e-abc7-b9c8733a14d5_1146x931.png"><picture class="article-picture"><img alt="How to Use Model Context Protocol for Scalable AI Integrations?" data-attrs="{&quot;src&quot;:&quot;https://substack-post-media.s3.amazonaws.com/public/images/6ace5e82-816b-426e-abc7-b9c8733a14d5_1146x931.png&quot;,&quot;srcNoWatermark&quot;:null,&quot;fullscreen&quot;:null,&quot;imageSize&quot;:null,&quot;height&quot;:931,&quot;width&quot;:1146,&quot;resizeWidth&quot;:442,&quot;bytes&quot;:147006,&quot;alt&quot;:&quot;How to Use Model Context Protocol for Scalable AI Integrations?&quot;,&quot;title&quot;:&quot;How to Use Model Context Protocol for Scalable AI Integrations?&quot;,&quot;type&quot;:&quot;image/png&quot;,&quot;href&quot;:null,&quot;belowTheFold&quot;:true,&quot;topImage&quot;:false,&quot;internalRedirect&quot;:null,&quot;isProcessing&quot;:false,&quot;align&quot;:null,&quot;offset&quot;:false}" sizes="100vw" src="https://substackcdn.com/image/fetch/$s_!AfC4!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F6ace5e82-816b-426e-abc7-b9c8733a14d5_1146x931.png" srcset="https://substackcdn.com/image/fetch/$s_!AfC4!,w_424,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F6ace5e82-816b-426e-abc7-b9c8733a14d5_1146x931.png 424w, https://substackcdn.com/image/fetch/$s_!AfC4!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F6ace5e82-816b-426e-abc7-b9c8733a14d5_1146x931.png 848w, https://substackcdn.com/image/fetch/$s_!AfC4!,w_1272,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F6ace5e82-816b-426e-abc7-b9c8733a14d5_1146x931.png 1272w, https://substackcdn.com/image/fetch/$s_!AfC4!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F6ace5e82-816b-426e-abc7-b9c8733a14d5_1146x931.png 1456w" class="article-image"/></picture></a></figure>
+<p><strong>Implementation note:</strong> <a href="https://www.productcurious.com/p/the-new-distribution-game-building">Tools like MCP</a> (Model Context Protocol) are making it much easier to build and share skills across different agents, rather than rebuilding capabilities from scratch.</p>
+<h3><br/>Layer 4: Evaluation &amp; Trust (How do users know what to expect?)</h3>
+<p><strong>The Decision:</strong> How do you measure success and communicate agent limitations to users?</p>
+<p><em>This layer determines whether users develop confidence in your agent or abandon it after the first mistake. It's not just about being accurate - it's about being trustworthy.</em></p>
+<p><strong>For our support agent:</strong> Do you show confidence scores ("I'm 85% confident this will fix your issue")? Do you explain your reasoning ("I checked three systems and found...")? Do you always confirm before taking actions ("Should I reset your password now?")? Each choice affects how users perceive reliability.</p>
+<p><strong>Trust strategies to consider:</strong></p>
+<ul><li><p><strong>Confidence indicators:</strong> "I'm confident about your account status, but let me double-check the billing details"</p></li><li><p><strong>Reasoning transparency:</strong> "I found two failed login attempts and an expired payment method"</p></li><li><p><strong>Graceful boundaries:</strong> "This looks like a complex billing issue - let me connect you with our billing specialist who has access to more tools"</p></li><li><p><strong>Confirmation patterns:</strong> When to ask permission vs. when to act and explain</p></li></ul>
+<blockquote><p>The counterintuitive insight: users trust agents more when they admit uncertainty than when they confidently make mistakes.</p></blockquote>
+<h2>So how do you actually architect an agent?</h2>
+<p>Okay, so you understand the layers. Now comes the practical question that every PM asks: "How do I actually implement this? How does the agent talk to the skills? How do skills access data? How does evaluation happen while users are waiting?"</p>
+<p><em>Your orchestration choice determines everything about your development experience, your debugging process, and your ability to iterate quickly.</em></p>
+<figure class="article-figure"><a data-component-name="Image2ToDOM" href="https://substackcdn.com/image/fetch/$s_!B42p!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F7ad3a5c4-6a5b-4553-9b3e-0567b150f3da_1610x766.png"><picture class="article-picture"><img alt="" data-attrs="{&quot;src&quot;:&quot;https://substack-post-media.s3.amazonaws.com/public/images/7ad3a5c4-6a5b-4553-9b3e-0567b150f3da_1610x766.png&quot;,&quot;srcNoWatermark&quot;:null,&quot;fullscreen&quot;:null,&quot;imageSize&quot;:null,&quot;height&quot;:693,&quot;width&quot;:1456,&quot;resizeWidth&quot;:null,&quot;bytes&quot;:246009,&quot;alt&quot;:null,&quot;title&quot;:null,&quot;type&quot;:&quot;image/png&quot;,&quot;href&quot;:null,&quot;belowTheFold&quot;:true,&quot;topImage&quot;:false,&quot;internalRedirect&quot;:&quot;https://www.productcurious.com/i/172725542?img=https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F7ad3a5c4-6a5b-4553-9b3e-0567b150f3da_1610x766.png&quot;,&quot;isProcessing&quot;:false,&quot;align&quot;:null,&quot;offset&quot;:false}" sizes="100vw" src="https://substackcdn.com/image/fetch/$s_!B42p!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F7ad3a5c4-6a5b-4553-9b3e-0567b150f3da_1610x766.png" srcset="https://substackcdn.com/image/fetch/$s_!B42p!,w_424,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F7ad3a5c4-6a5b-4553-9b3e-0567b150f3da_1610x766.png 424w, https://substackcdn.com/image/fetch/$s_!B42p!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F7ad3a5c4-6a5b-4553-9b3e-0567b150f3da_1610x766.png 848w, https://substackcdn.com/image/fetch/$s_!B42p!,w_1272,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F7ad3a5c4-6a5b-4553-9b3e-0567b150f3da_1610x766.png 1272w, https://substackcdn.com/image/fetch/$s_!B42p!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F7ad3a5c4-6a5b-4553-9b3e-0567b150f3da_1610x766.png 1456w" class="article-image"/></picture></a></figure>
+<p>Lets walk through the main approaches, and I'll be honest about when each one works and when it becomes a nightmare.</p>
+<h3>1. Single-Agent Architecture (Start Here)</h3>
+<p>Everything happens in one agent's context.</p>
+<p><strong>For our support agent:</strong> <em>When the user says "I can't access my account," one agent handles it all - checking account status, identifying billing issues, explaining what happened, offering solutions. </em></p>
+<p><strong>Why this works:</strong> Simple to build, easy to debug, predictable costs. You know exactly what your agent can and can't do.</p>
+<p><strong>Why it doesn't:</strong> Can get expensive with complex requests since you're loading full context every time. Hard to optimize specific parts.</p>
+<blockquote><p>Most teams start here, and honestly, many never need to move beyond it. If you're debating between this and something more complex, start here.</p></blockquote>
+<p>You have a router that figures out what the user needs, then hands off to specialized skills.</p>
+<p><strong>For our support agent:</strong> <em>Router realizes this is an account access issue and routes to the `LoginSkill`. If the LoginSkill discovers it's actually a billing problem, it hands off to `BillingSkill`.</em></p>
+<p><strong>Real example flow:</strong></p>
+<ol><li><p><em>User: "I can't log in"</em></p></li><li><p><em>Router → LoginSkill</em></p></li><li><p><em>LoginSkill checks: Account exists ✓, Password correct ✗, Billing status... wait, subscription expired</em></p></li><li><p><em>LoginSkill → BillingSkill: "Handle expired subscription for user123"</em></p></li><li><p><em>BillingSkill handles renewal process</em></p></li></ol>
+<p><strong>Why this works:</strong> More efficient - you can use cheaper models for simple skills, expensive models for complex reasoning. Each skill can be optimized independently.</p>
+<p><strong>Why it doesn't:</strong> Coordination between skills gets tricky fast. Who decides when to hand off? How do skills share context?</p>
+<blockquote><p>Here's where MCP really helps - it standardizes how skills expose their capabilities, so your router knows what each skill can do without manually maintaining that mapping.</p></blockquote>
+<p>You predefine step-by-step processes for common scenarios. Think LangGraph, CrewAI, AutoGen, N8N, etc.</p>
+<p><strong>For our support agent:</strong> <em>"Account access problem" triggers a workflow:</em></p>
+<ol><li><p><em>Check account status</em></p></li><li><p><em>If locked, check failed login attempts </em></p></li><li><p><em>If too many failures, check billing status</em></p></li><li><p><em>If billing issue, route to payment recovery</em></p></li><li><p><em>If not billing, route to password reset</em></p></li></ol>
+<p><strong>Why this works:</strong> Everything is predictable and auditable. Perfect for compliance-heavy industries. Easy to optimize each step.</p>
+<p><strong>Why it doesn't:</strong> When users have weird edge cases that don't fit your predefined workflows, you're stuck. Feels rigid to users.</p>
+<p>Multiple specialized agents work together using A2A (agent-to-agent) protocols.</p>
+<p><strong>The vision: </strong>Your agent discovers that another company's agent can help with issues, automatically establishes a secure connection, and collaborates to solve the customer's problem. <em>Think a booking.com agent interacting with an American Airlines agent!</em></p>
+<p><strong>For our support agent:</strong> <em>`AuthenticationAgent` handles login issues, `BillingAgent` handles payment problems, `CommunicationAgent` manages user interaction. They coordinate through standardized protocols to solve complex problems.</em></p>
+<p><strong>Reality check:</strong> This sounds amazing but introduces complexity around security, billing, trust, and reliability that most companies aren't ready for. We're still figuring out the standards.</p>
+<p>This can produce amazing results for sophisticated scenarios, but debugging multi-agent conversations is genuinely hard. When something goes wrong, figuring out which agent made the mistake and why is like detective work.</p>
+<figure class="article-figure"><a data-component-name="Image2ToDOM" href="https://substackcdn.com/image/fetch/$s_!KdJQ!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F9c4507e2-2478-4d44-aaee-82024692d318_1492x1226.png"><picture class="article-picture"><img alt="Overview" data-attrs="{&quot;src&quot;:&quot;https://substack-post-media.s3.amazonaws.com/public/images/9c4507e2-2478-4d44-aaee-82024692d318_1492x1226.png&quot;,&quot;srcNoWatermark&quot;:null,&quot;fullscreen&quot;:null,&quot;imageSize&quot;:null,&quot;height&quot;:1196,&quot;width&quot;:1456,&quot;resizeWidth&quot;:null,&quot;bytes&quot;:null,&quot;alt&quot;:&quot;Overview&quot;,&quot;title&quot;:null,&quot;type&quot;:null,&quot;href&quot;:null,&quot;belowTheFold&quot;:true,&quot;topImage&quot;:false,&quot;internalRedirect&quot;:null,&quot;isProcessing&quot;:false,&quot;align&quot;:null,&quot;offset&quot;:false}" sizes="100vw" src="https://substackcdn.com/image/fetch/$s_!KdJQ!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F9c4507e2-2478-4d44-aaee-82024692d318_1492x1226.png" srcset="https://substackcdn.com/image/fetch/$s_!KdJQ!,w_424,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F9c4507e2-2478-4d44-aaee-82024692d318_1492x1226.png 424w, https://substackcdn.com/image/fetch/$s_!KdJQ!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F9c4507e2-2478-4d44-aaee-82024692d318_1492x1226.png 848w, https://substackcdn.com/image/fetch/$s_!KdJQ!,w_1272,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F9c4507e2-2478-4d44-aaee-82024692d318_1492x1226.png 1272w, https://substackcdn.com/image/fetch/$s_!KdJQ!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F9c4507e2-2478-4d44-aaee-82024692d318_1492x1226.png 1456w" class="article-image"/></picture></a></figure>
+<p>But here's what's interesting - even with the perfect architecture, your agent can still fail if users don't trust it. That brings us to the most counterintuitive lesson about building agents.</p>
+<h2>The trust thing that everyone gets wrong</h2>
+<p>Here's something counterintuitive: Users don't trust agents that are right all the time. They trust agents that are honest about when they might be wrong.</p>
+<p>Think about it from the user's perspective. Your support agent confidently says "I've reset your password and updated your billing address." User thinks "great!" Then they try to log in and... it doesn't work. Now they don't just have a technical problem - they have a trust problem.</p>
+<p>Compare that to an agent that says "I think I found the issue with your account. I'm 80% confident this will fix it. I'm going to reset your password and update your billing address. If this doesn't work, I'll immediately escalate to a human who can dive deeper."</p>
+<p><strong>Same technical capability. Completely different user experience.</strong></p>
+<p>Building trusted agents requires focus on three things:</p>
+<ol><li><p><strong>Confidence calibration:</strong> When your agent says it's 60% confident, it should be right about 60% of the time. Not 90%, not 30%. Actual 60%.</p></li><li><p><strong>Reasoning transparency: </strong>Users want to see the agent's work. "I checked your account status (active), billing history (payment failed yesterday), and login attempts (locked after 3 failed attempts). The issue seems to be..."</p></li><li><p><strong>Graceful escalation: </strong>When your agent hits its limits, how does it hand off? A smooth transition to a human with full context is much better than "I can't help with that."</p></li></ol>
+<p>A lot of times we obsess over making agents more accurate, when what users actually want was more transparency about the agent's limitations.</p>
+<h2>What's Coming Next</h2>
+<p>In Part 2, I'll dive deeper into the autonomy decisions that keep most PMs up at night. How much independence should you give your agent? When should it ask for permission vs forgiveness? How do you balance automation with user control?</p>
+<p>We'll also walk through the governance concerns that actually matter in practice - not just theoretical security issues, but the real implementation challenges that can make or break your launch timeline.</p></div>
+      
+    </article>
+    
+  </body>
+</html>
