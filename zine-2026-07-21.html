@@ -1,0 +1,465 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Fred Talks - 2026-07-21</title>
+    <style>
+      @page {
+        size: A5;
+        margin: 8mm 9mm 9mm;
+      }
+
+      :root {
+        color: #111;
+        font-family: "Times New Roman", Times, serif;
+        --body-text-size: 9.5pt;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        color: #111;
+        background: #fff;
+        font-family: "Times New Roman", Times, serif;
+        line-height: 1.45;
+      }
+
+      a,
+      a:visited {
+        color: #111;
+        text-decoration: underline;
+      }
+
+      .cover {
+        min-height: calc(210mm - 17mm);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        page-break-after: always;
+        border: 1px solid #111;
+        padding: 8mm;
+        background: #fff;
+      }
+
+      .toc-item-meta,
+      .article-meta {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .masthead {
+        margin: 0;
+        font-size: 40pt;
+        line-height: 0.95;
+        text-transform: uppercase;
+      }
+
+      .issue-date {
+        margin: 4mm 0 0;
+        font-size: 14pt;
+      }
+
+      .issue-date sup {
+        font-size: 0.58em;
+        vertical-align: super;
+        line-height: 0;
+      }
+
+      .cover-deck {
+        max-width: 90mm;
+        font-size: 12pt;
+        margin: 0;
+      }
+
+      .toc {
+        border-top: 3px solid #111;
+        padding-top: 6mm;
+      }
+
+      .toc h2 {
+        margin: 0 0 4mm;
+        font-size: 11pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .toc-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .toc-item {
+        padding: 3mm 0;
+        border-bottom: 1px solid rgba(17, 17, 17, 0.2);
+      }
+
+      .toc-item-title {
+        font-size: 12pt;
+        margin: 0 0 1mm;
+      }
+
+      .toc-item-meta {
+        font-size: 8pt;
+      }
+
+      .masthead-compact {
+        margin: 0 0 6mm;
+      }
+
+      .masthead-compact h1 {
+        margin: 0;
+        font-size: 22pt;
+        line-height: 1.1;
+        text-transform: uppercase;
+      }
+
+      .masthead-compact .issue-date {
+        margin: 2mm 0 0;
+        font-size: 11pt;
+      }
+
+      .toc-compact {
+        border-top: 1px solid #111;
+        border-bottom: 1px solid #111;
+        padding: 4mm 0;
+        margin: 0 0 8mm;
+      }
+
+      article + article {
+        margin-top: 10mm;
+        padding-top: 6mm;
+        border-top: 2px solid #111;
+      }
+
+      h1 {
+        margin: 0 0 2mm;
+        font-size: 18pt;
+        line-height: 1.1;
+      }
+
+      .article-meta {
+        font-size: 8.5pt;
+        margin-bottom: 6mm;
+        padding-bottom: 3mm;
+        border-bottom: 1px solid #111;
+      }
+
+      .article-body {
+        font-size: var(--body-text-size);
+        font-family: "Times New Roman", Times, serif;
+      }
+
+      .article-body p,
+      .article-body li,
+      .article-body blockquote,
+      .article-body dd,
+      .article-body dt {
+        margin: 0 0 4mm;
+        orphans: 3;
+        widows: 3;
+      }
+
+      .article-body ul,
+      .article-body ol,
+      .article-body dl {
+        margin: 0 0 4mm 5mm;
+        padding: 0;
+      }
+
+      .article-body h2,
+      .article-body h3,
+      .article-body h4 {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        margin: 7mm 0 3mm;
+        line-height: 1.2;
+      }
+
+      .article-body blockquote {
+        margin-left: 6mm;
+        padding-left: 4mm;
+        border-left: 2px solid #111;
+      }
+
+      .article-body .media-omitted {
+        margin: 0 0 4mm;
+        font-size: 8.5pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(17, 17, 17, 0.65);
+      }
+
+      .article-body figure,
+      .article-body .article-figure,
+      .article-body picture,
+      .article-body .article-picture {
+        display: block;
+        max-width: 72mm;
+        margin: 0 auto 4mm;
+        break-inside: avoid;
+      }
+
+      .article-body img,
+      .article-body .article-image {
+        display: block;
+        max-width: min(100%, 72mm);
+        max-height: 34mm;
+        height: auto;
+        width: auto;
+        object-fit: contain;
+        margin: 0 auto 3mm;
+      }
+
+      .article-body figcaption {
+        margin-top: 1.5mm;
+        font-size: 8.5pt;
+        line-height: 1.3;
+        color: rgba(17, 17, 17, 0.8);
+      }
+
+      .article-note {
+        margin-top: 6mm;
+        padding-top: 3mm;
+        border-top: 1px solid #111;
+        font-size: 9pt;
+        font-style: italic;
+      }
+
+      @media screen {
+        body {
+          padding: 2rem;
+          margin: 0 auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    
+    <header class="masthead-compact">
+      <h1>Fred Talks</h1>
+      <p class="issue-date">
+        21<sup>st</sup> July 2026
+      </p>
+    </header>
+
+    <nav class="toc toc-compact">
+      <h2>Contents</h2>
+      <ol class="toc-list">
+        
+        <li class="toc-item">
+          <div class="toc-item-title">LLM Judges aren’t the shortcut you think</div>
+          <div class="toc-item-meta">
+            Doug Turnbull · 1869 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">The lies I used to tell myself</div>
+          <div class="toc-item-meta">
+            Cate Hall · 1900 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">A PM&#39;s Guide to AI Agent Architecture: Why Capability Doesn&#39;t Equal Adoption</div>
+          <div class="toc-item-meta">
+            Umang · 1871 words
+          </div>
+        </li>
+        
+      </ol>
+    </nav>
+    
+
+    
+    <article>
+      <h1>LLM Judges aren’t the shortcut you think</h1>
+      <div class="article-meta">
+        Doug Turnbull
+        · 03 Nov 2025 · <a href="http://softwaredoug.com/blog/2025/11/02/llm-judges-arent-the-shortcut-you-think.html">Source</a>
+      </div>
+      <div class="article-body"><p>Is “LLM as a judge” overhyped? After years of implementing LLM judges for clients, I find more of them recognize the limitations.</p>
+<p>LLM judges fail for the same reason any evaluation method fails: teams lack good data+evaluation to begin with. LLM judges aren’t the shortcut teams hope. Instead, they are themselves a thing that needs data and monitoring to get use out of.</p>
+<p>Let me walk through the pitfalls of LLM as a judge (for search) that you’ll encounter.</p>
+<h2>LLM as a judge</h2>
+<p>When I talk about LLM as a judge, my focus is search. I mean creating a <a href="https://softwaredoug.com/blog/2021/02/21/what-is-a-judgment-list">judgment list</a>. For search that means labeling how relevant a document is for a query. How relevant is the product “garden trowel” for a <code>q=shovels</code>? Maybe this “garden trowel” is less relevant than “iron spade”?</p>
+<p>In the ancient past, to improve the search, I would be limited to a tiny hand-labeled judgment list. Labeling by hand is expensive. Datasets drift out of date quickly. New use cases arise. So we constantly need humans to relabel.</p>
+<p>These costs inspire teams to use LLMs to build judgments, They:</p>
+<ol> <li>Start with a ground truth of human labels</li> <li>Build a prompt to approximate that ground truth</li> <li>Apply those prompts to go beyond the ground truth to new query / documents</li> </ol>
+<p>If done well, we can sit at our laptop, tinker with relevance algorithms, and continue to tune without bother humans for non-stop relabeling.</p>
+<p>Sounds promising. But teams often ignore many of the assumptions and nuance underlying the task of LLM labeling. Let’s go through them, and we’ll see at the end, maybe LLMs should play a different role in evaluation?</p>
+<h2>Problem one - LLM evals don’t know what’s engaging to users</h2>
+<p>Users’ ever-evolving lizard brains drive conversions. And while optimizing for just lizard brains would itself be a nightmare, so would only focusing on an LLM’s opinion.</p>
+<p>LLMs do a better job approximating <em>human evaluations</em>. In search, we call these evaluations <em>explicit</em> judgments. They use human labelers’ basic knowledge of the world to label a result as <em>topically relevant</em> to the query or not.</p>
+<p>Topical relevance is only one kind of relevance. As an example, for a search of “articles about harry potter”. The article is either factually about Harry Potter or its not. We might also consider other gradations:</p>
+<ul> <li>Is the article well written?</li> <li>Is it article from an authoritative source?</li> <li>Is the article about a tangential topic? Dumbledore vs Gandalf etc?</li> </ul>
+<p>All of which relate to topicality, authority, and knowledge. An LLM excels at this — LLMs live in a world of facts and knowledge.</p>
+<p>But LLMs don’t have limbic systems. So their evaluations come with limitations.</p>
+<p>In real search applications, “relevance” goes beyond topicality. I worked at Reddit on search. A search for “harry potter” might mean anything from a memes, to drama about JK Rowling, to every kind of juicy controversy, spicy post, or oddity. People search for “cybertruck” not for reviews but to see silly videos.</p>
+<p>Then there’s the more mundane. I found at Shopify, users preferred plain or black clothing over flashy items based on their clicks. Unless you tell an LLM this (because you’ve done the analysis) an LLM won’t intrinsically catch this.</p>
+<p>Often the “topical” part of search is relatively easy. But engaging search, that captures these human oddities, must go beyond world-knowledge to at least get <em>some</em> of a user’s lizard brain.</p>
+<h2>Problem two - the last 10% of disagreement is the important stuff</h2>
+<p>Many teams get excited when they immediately see 70-80% agreement with human labelers. With a bit of tuning, they can inch closer to 90%.</p>
+<p>In my experience, that last bit of human-LLM disagreement matters. Those are the non-obvious cases. Search deals with a big <a href="https://zilliz.com/ai-faq/what-is-hard-negative-mining-and-how-does-it-improve-embeddings">hard negatives</a> challenge. Those examples that deceptively seem relevant naive search algorithms (or labelers), but are, in fact irrelevant. That last 10-30% might be what more careful labelers would catch. Or represented in clickstream based labels.</p>
+<p>For example on this furniture dataset, a LLM doesn’t understand that a “bistro table” is meant for <strong><em>outdoor</em></strong> use in US furniture lingo. That’s not obvious to an LLM: The LLM imagines I’m opening a restaurant.</p>
+<p>Simple algorithms often capture that first 80-90%. It’s the 10-20% you need great labels for. So pay attention not just to coverage. But for which use cases.</p>
+<p>A 90% coverage might be good regression tests, it might not help you go beyond easier wins.</p>
+<h2>Problem three - sneaky overfitting</h2>
+<p>So far, I’ve mentioned a few strange cases the LLM judge might miss: a bistro table is meant for outdoor usage. Users preferring darker clothing items.</p>
+<p>The savvy prompt engineer will want to fill the prompt with examples to help the LLM perform better on these cases.</p>
+<p>But beware overfitting to these particular failure cases.</p>
+<p>With every new rule, you push the model’s meager attention away from the general problem, and towards your exceptions. Layer example after example, and you’ll find yourself with a brittle system focused excessively on specific use cases.</p>
+<p>Overfitting with prompts can be sneaky. Playing whack-a-mole with your eval data can degrade generality. You can get perfect results on the eval set, only to expand to unseen queries, and find the gains no longer hold.</p>
+<p>To do a good job, you need holdout data you’re not tuning against. A set of judgments you don’t peak at. Because peaking might cause you to sneak a change into the prompt, making the holdout less useful as an independent validation step.</p>
+<p>Add rules and exceptions carefully, you’ll be surprised how easy it is to pull an LLM away from its generality.</p>
+<h2>Problem four - LLMs only evaluate the document it sees</h2>
+<p>LLMs only evaluate the document it sees. IE:</p>
+<pre><code>Query: outdoor seating
+Product Name: Bistro Table
+Product Description: Enjoy this lovely bistro table on your porch...
+</code></pre>
+<p>Is this enough information for evaluating the product? Is it what a user sees?</p>
+<p>Suddenly, you decide to add new information about the product</p>
+<pre><code>Query: outdoor seating
+Product Name: Bistro Table
+Product Description: Enjoy this lovely bistro table on your porch...
+Category: Outdoors
+</code></pre>
+<p>What are we evaluating truly?</p>
+<ul> <li>The products relevance?</li> <li>The usefulness of a set of product properties for determining relevance?</li> <li>How comprehensively you’re describing products to an LLM?</li> </ul>
+<p>Really it gets down to a classic problem in search. There’s perceived relevance - the relevance of the product, as it appears in your product page. Then there’s actual relevance - the detailed, thoughtful understanding of your product by a user. A lot depends not just on true relevance, but how it’s presented to users.</p>
+<h2>Problem five - Your LLM judge can’t be trusted on novel use cases</h2>
+<p>I assume the goal of LLM as a judge in to align to human labelers. But rarely do those judgments comprehensively represent every use case.</p>
+<p>Search metrics with human evals don’t go up-and-to-the-right. They seesaw as teams reactively label, solve, label, solve ad infinitum. In my experience it’s rare to find a team build a true, comprehensive human labeled evals covering every use case. Even if we did, we’d need to account for evolving search use cases.</p>
+<p>The flow usually goes like this: we want to solve a problem (search by product name). So we capture some judgments for that use case. Relevance starts low. We work a bit to improve this use case and it goes up. Yay!</p>
+<p>But the boss comes to our desk and suggests we have a new problem to solve: search of furniture by the room (living room, etc). We gather more labels. We know we’re bad at this use case. So search metrics go back down. Sad 😟</p>
+<p>We solve that use case, it goes back up to where it was before. Repeat. Up and down. See-saw.</p>
+<p>This presents a problem for an LLM judge. If our human labels only focus on a subset of use cases, <strong>we’re also aligning our LLM judges on a subset of use cases.</strong></p>
+<p>Our LLM judge generalizes to just a piece of the problem. The LLM judge can’t be trusted on a new use case until we measure it’s abilities in that use case.</p>
+<p>So if you seesaw its human labeling, you must seesaw the alignment of the LLM judge to the use cases we capture in human eval. As we adopt a new use case, we need more human labels. We need to retest the LLM judge. And so on.</p>
+<p>The task of human labeling does not end with LLM Judges. In fact its even more crucial.</p>
+<h2>How to LLM as a judge</h2>
+<p>Here’s how I use LLM judges:</p>
+<ul> <li>To extend labels on use cases I already measure decently to new queries (because I can trust alignment of the LLM on this use case)</li> <li>As a safeguard against regressions</li> </ul>
+<p>I trust the LLM judge to flag a regression on the use cases my human labels cover. The LLM is aligned and measured against these. I don’t trust the LLM to discover new, unexpected ways users search. I look to the users for that, not LLMs.</p>
+<p>Still many teams don’t even do decent monitoring of topical relevance. There are plenty of obviously broken search engines. The ones that would benefit from an LLM judge, likely would benefit from rounds of human labeling first needed before blindly trusting an LLM judge.</p>
+<h2>We already have automated data labeling at home kids</h2>
+<p>If we have enough labels to evaluate LLM as a judge on a use case, we have enough to train an ML model to recover those labels. We can then see a better place LLM’s fit into evaluation:</p>
+<ul> <li>LLMs focus on factual, topical parts of the problem. But miss other parts of the problem</li> <li>LLMs might see a subset of the content features</li> <li>Other non-LLM features might help us better evaluate relevance (embedding similarity, text matches, etc)</li> <li>Other ground-truths (besides human) might be a better definition of relevance (ie engagement based labels)</li> </ul>
+<p>Instead of LLM as a Judge, <strong>why not Learning to Rank as a judge?</strong> We seem to have forgotten that ranking models provide value beyond directly deploying them to production. They can help guide more manual search tuning as well.</p>
+<p>I’m becoming more of a fan of LLM-for-feature-generation over LLM as a judge. LLMs can cover the topical part of relevance. You can ask them “Which of these product names is more relevant to the query?”. The downstream, traditional ML model is agnostic to where the features come from. They could be an embedding similarity, LLM decision, lexical similarity, or more.</p>
+<p>That’s much more my interest these days. When someone says “LLM as a judge” I nod and say yes let’s build that, but then go on and probably look into using LLM features heavily in a larger model. LLMs can be very useful for rapid feature development: they’re promptable and easy to play with.</p>
+<p>If you’re interested in this approach, check out this <a href="https://softwaredoug.com/blog/2025/01/21/llm-judge-decision-tree">blog post</a> and the corresponding <a href="https://www.youtube.com/watch?v=S7EXkGDcd7A">Haystack talk</a>. Also a talk from Shopify <a href="https://www.albertocastelo.com/blog/2024-06-12-mices-talk">choosing cross encoders for evaluation over LLMs</a></p>
+<p>Enjoy!</p>
+<h3>Enjoy softwaredoug in training course form!</h3>
+<figure class="article-figure"><a href="https://maven.com/softwaredoug/cheat-at-search"><img src="https://softwaredoug.com/assets/media/2025/cheat-at-search-social.png" class="article-image"/></a></figure>
+<p>I hope you join me at <a href="https://maven.com/softwaredoug/cheat-at-search">Cheat at Search with LLMs</a> to learn how to apply LLMs to search applications. Check out <a href="https://github.com/softwaredoug/softwaredoug.com/edit/master/_includes/post.html">this post</a> for a sneak preview.   </p></div>
+      
+    </article>
+    
+    <article>
+      <h1>The lies I used to tell myself</h1>
+      <div class="article-meta">
+        Cate Hall
+        · 23 Jan 2026 · <a href="https://usefulfictions.substack.com/p/the-lies-i-used-to-tell-myself">Source</a>
+      </div>
+      <div class="article-body"><div><div class="captioned-image-container"><figure class="article-figure"><a class="image-link image2 is-viewable-img" href="https://substackcdn.com/image/fetch/$s_!petw!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fe40bf234-f1ac-498a-9f69-18ae8ad7a70f_1024x1024.png" target="_blank"><div class="image2-inset"><img alt="" class="sizing-normal article-image" height="1024" src="https://substackcdn.com/image/fetch/$s_!petw!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fe40bf234-f1ac-498a-9f69-18ae8ad7a70f_1024x1024.png" width="1024"/><div class="image-link-expand"><div class="pencraft pc-display-flex pc-gap-8 pc-reset"><button class="pencraft pc-reset pencraft icon-container restack-image" tabindex="0" type="button"></button><button class="pencraft pc-reset pencraft icon-container view-image" tabindex="0" type="button"></button></div></div></div></a></figure></div><h4>1. What doesn’t kill you makes you stronger.</h4><p>When I was 31, my husband of four years, who I loved more than my own life, left me completely out of the blue. We’d had an incredible, epic romance — drawn together like magnets, we married on our third date and spent the years that followed burrowing ever closer together. Maybe that was the problem — I can’t say for sure, because I never got a satisfying explanation out of him. One day I was the protagonist of a Princess Bride-worthy love story; 48 hours later, he moved out.</p><p>From the time we met, I had never contemplated the possibility of living without him, and I didn’t want to. I wanted to die for a long time — at least a couple of years. But as I slowly learned to sequester away thoughts of him and the emotions they brought up, I became convinced of a silver lining: The experience would make me impenetrable. If I survived it, I would know I could survive anything, and nothing would be able to hurt me again.</p><p>It took the better part of a decade and another deeply identity-shifting relationship, with the man who became my second husband, for me to see that I had it all wrong: Impenetrability means avoiding the parts of life that are most life-like. There’s a reason the visual metaphor for love is an arrow.</p><p>The near-fatal catastrophes of our lives don’t always make us stronger. Surviving one hard thing does provide evidence that you can survive other hard things, which is easy to <em>mistake</em> for getting stronger. But in reality they often just make us brittle, make us dissociate and flee from the situations that remind us we can be broken.</p><p></p><h4>2. When you know, you know.</h4><p>Mario Gabriele of the Generalist had a great <a href="https://www.generalist.com/p/observations-on-people-the-world?utm_source=post-email-title&amp;publication_id=15764&amp;post_id=177558144&amp;utm_campaign=email-post-title&amp;isFreemail=true&amp;r=hjebh&amp;triedRedirect=true">“50 Things” style post</a> a few months ago that I found myself nodding along to almost the whole way through. The glaring exception was Number 33: “Love is easy. The difference between bad relationships and meeting your spouse is not a matter of degree, but category. Compatibility is unignorable and effortless.”</p><p>I believed this completely, once. I’ve since come to believe that what’s unignorable and effortless is chemistry. Chemistry can be powerful enough to turn your life sideways, but it’s not the same thing as compatibility. Compatibility is litigated on the timescale of years and decades; it’s not a momentary feeling but a description of what happens during an extended course of change. Do you grow toward one another, or do you grow apart? Does the relationship help you move closer to the person you aspire to be?</p><p>I “just knew” with my first husband. I wasn’t sure with my second. Four years in, the signs have flipped.</p><p></p><h4>3. If it were a good idea, someone would be doing it already.</h4><p>There’s a belief, especially common among wonky types, that you don’t find $20 bills on the sidewalk — if an opportunity were real, someone would have seized it already. This sounds worldly and wise, but it’s actually a form of defensive thinking. It assumes the current way is best, that everything worth doing is being done.</p><p>In my experience, this is just false. When I started playing poker, I discovered that physical tells were basically a wide-open field — despite the fact that most pros believed the topic was played out. If you think you see an opportunity others have missed, you should have a story for why they’re missing it, and you should ask around to stress-test that story. But if no one can give you a satisfying reason, don’t assume one exists. Sometimes the answer really is just inertia or fear.</p><p></p><h4>4. If it’s worth doing, it’s worth doing well.</h4><p>Almost nothing is worth doing “well.” Many things can and should be done to a minimal standard of quality, because anything more is a <a href="https://usefulfictions.substack.com/p/fuck-willpower">waste of effort</a> that can be better allocated. The exceptions aren’t things that should be done “well,” but things that should be done to an exceptionally high standard, probably a much higher one than you see modeled by the people around you.</p><p>This is not semantics; most people really “do everything the way they do anything” — whether that’s in a low-effort or high-effort way. But the point of phoning it in on a lot of stuff is to save your energy to expend on the 1 in 1000 things that really matter … and then to actually spend it.</p><p>A recent example: I decided that I want to narrate my own audiobook for <em>You Can Just Do Things</em>. When I told a friend in the industry this and asked whether they knew any good coaches to work with, they said that hiring a coach wasn’t normal or necessary, because my publisher would decide based on a sample whether I was good enough at reading to do it, and if so give me a producer to work with day-of. But it “1 in 1000” matters to me whether the audiobook is so good no one would ever think of returning it on account of the narration, so I’m not interested in the normal-shaped solution that constitutes doing it “well,” I’m interested in the one that causes me to come to mind when someone asks <a href="https://substack.com/@usefulfictions/note/c-203076054?r=hjebh&amp;utm_source=notes-share-action&amp;utm_medium=web">this question</a>. In this case, that means hiring multiple coaches and practicing for months.</p><p></p><h4>5. If you like your job, you’re doing something wrong.</h4><p>Back when I was more alienated from my emotions, I thought about work like this: You have a budget of energy to spend, and the goal is to efficiently convert that energy into impact. You identify the activity that generates the highest impact per unit of energy, and then you spam that button for as many waking hours as you can stomach. Is it any wonder I was always <a href="https://usefulfictions.substack.com/p/burnout-is-breaking-a-sacred-pact">burning out</a>?</p><p>What I failed to understand is that energy is not fixed. It’s dramatically affected by what you choose to do — some activities increase your energy over time, others deplete it. This feels so obvious to me now that I feel kind of stupid including it here, but I know many people (they are endemic to the Bay Area) who still labor under the false belief. Whether you enjoy what you’re doing affects your ability to do it year in and year out, and dismissing this as “selfish” doesn’t make it untrue. As my husband puts it, the best use of effortful motivation is to engineer your life to require less of it.</p><p></p><h4>6. “All people are insane. They will do anything at any time, and God help anybody who looks for reasons.”</h4><p>This line, from Kurt Vonnegut, used to neatly encapsulate the way I understood other people — which is to say, not at all. Trying to figure out why people did what they did, or imagine what they’d do next, seemed like a fool’s errand. I was judgmental about it, too: I assumed this was a problem, not with me, but with everyone else.</p><p>I didn’t fundamentally move beyond this belief until recent years, when I came into contact with the Enneagram. I imagine there are other personality typing systems that can do something similar, but <a href="https://usefulfictions.substack.com/p/there-are-nine-wolves-inside-of-you">the Enneagram was magical for me</a> because it clued me into the fact that people can have very different motivational systems from my own that are still internally coherent and produce good things in the world.</p><p>People’s behavior was previously incomprehensible to me because I was imputing my own motivational system to them, trying to figure out what would cause me to act the way they did — essentially, concluding that <em>their </em>actions made no sense in light of <em>my </em>goals. But people have wildly diverse emotional hardware, which determines what’s rational for them. And my particular personality — independent, moralistic, systematic, challenge-seeking, competitive — is unusual, so I was especially poorly placed to measure others by the yardstick of myself.</p><p>This shift in perspective was dramatically good for me and for my relationships with other people. It let me see the ecosystem of psychologies as a kind of miracle — wow, it really does take all kinds — rather than a prompt for cosmic horror. And it gave me confidence that, if I invested in understanding people more deeply, they would eventually cease to be total mysteries, prone to bizarre and unreasonable behavior. As far as I can tell, this is the better part of emotional intelligence.</p><p></p><h4>7. Money can’t buy happiness.</h4><p>The good version of this advice is: You’ll still have to work at being happy, even if you’re rich. Money in your bank account won’t do it for you, and wealth comes with its own pathologies, like endless status-chasing. But the common gloss — that money stops mattering past some modest threshold — is basically false.</p><p>You may have heard there’s research showing money doesn’t buy happiness. That research was explosively popular precisely because it was counterintuitive — it betrayed the commonsense intuition that more money means more freedom, more options, more ability to help people you care about. Turns out it was also riddled with methodological problems. More recent work by Matthew Killingsworth (nominative determinism FTW), using large-scale studies that pinged participants about their happiness at random moments, found steady returns to well-being with rising income, no plateau in sight. The myth persists because it serves a psychological function: It helps people without money feel better about their situation, and helps the wealthy downplay their advantages. But it’s not true.</p><p></p><h4>8. Intuition is fake and rationality solves everything.</h4><p>I used to be horribly judgmental of people who made decisions based on intuition, as in, “I just do what feels right.” And then I noticed that whenever I overrode my intuitions, I made <em>terrible </em>decisions. I hired the wrong people, started projects with the wrong people, dated the wrong people, ate food that made me feel bad, did forms of exercise I found unfun and injurious. I don’t have a satisfying theory for why this is, but I know what happens: When I shift from emotional intuition to a logical story about a decision, it’s much easier for my reasoning to get hijacked by plausible-sounding directives that turn out to be nonsense.</p><p>It took me a long time to learn this, and that might have something to do with my training in law and poker. Overriding intuition in favor of explicit reasoning makes sense in contexts that reward systematic rationality, where you will get separated from your money if you count on gut feelings. But most of life isn’t a closed system with enumerated rules and clear outcomes. If you try to explicitly name all the factors that make someone a good friend or co-founder, you might come up with some good indicators, but your crude map will also mislead you about the territory.</p><p>This is why “wisdom is knowledge that can’t be transmitted.” Wise people have navigational skill, not a long list of rules.</p><p></p><p><em><strong><a href="https://mailchi.mp/44578760e686/book-preorder-signup">Sign up to be notified</a> when my book, You Can Just Do Things, is available for purchase.</strong></em></p></div></div>
+      
+    </article>
+    
+    <article>
+      <h1>A PM&#39;s Guide to AI Agent Architecture: Why Capability Doesn&#39;t Equal Adoption</h1>
+      <div class="article-meta">
+        Umang
+        · 05 Sep 2025 · <a href="https://www.productcurious.com/p/a-pms-guide-to-ai-agent-architecture">Source</a>
+      </div>
+      <div class="article-body"><p>Last week, I was talking to a PM who'd in the recent months shipped their AI agent. The metrics looked great: 89% accuracy, sub-second respond times, positive user feedback in surveys. But users were abandoning the agent after their first real problem, like a user with both a billing dispute and a locked account.</p>
+<blockquote><p>"Our agent could handle routine requests perfectly, but when faced with complex issues, users would try once, get frustrated, and immediately ask for a human."</p></blockquote>
+<p>This pattern is observed across every product team that focuses on making their agents "smarter" when the real challenge is making architectural decisions that shape how users experience and begin to trust the agent.</p>
+<p>In this post, I'm going to walk you through the different layers of AI agent architecture. How your product decisions determine whether users trust your agent or abandon it. By the end of this, you'll understand why some agents feel "magical" while others feel "frustrating" and more importantly, how PMs should architect for the magical experience.</p>
+<p>We'll use a concrete customer support agent example throughout, so you can see exactly how each architectural choice plays out in practice. We’ll also see why the counterintuitive approach to trust (hint: it's not about being right more often) actually works better for user adoption.</p>
+<h2>Let's say you're building a customer support agent</h2>
+<p>You're the PM building an agent that helps users with account issues - password resets, billing questions, plan changes. Seems straightforward, right?</p>
+<figure class="article-figure"><a data-component-name="Image2ToDOM" href="https://substackcdn.com/image/fetch/$s_!lsF4!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F4bee9fce-5586-4d0c-a98b-d54f816e1a85_1128x786.webp"><picture class="article-picture"><img alt="ConversationRelay | Twilio" data-attrs="{&quot;src&quot;:&quot;https://substack-post-media.s3.amazonaws.com/public/images/4bee9fce-5586-4d0c-a98b-d54f816e1a85_1128x786.webp&quot;,&quot;srcNoWatermark&quot;:null,&quot;fullscreen&quot;:null,&quot;imageSize&quot;:null,&quot;height&quot;:786,&quot;width&quot;:1128,&quot;resizeWidth&quot;:422,&quot;bytes&quot;:null,&quot;alt&quot;:&quot;ConversationRelay | Twilio&quot;,&quot;title&quot;:null,&quot;type&quot;:null,&quot;href&quot;:null,&quot;belowTheFold&quot;:false,&quot;topImage&quot;:true,&quot;internalRedirect&quot;:null,&quot;isProcessing&quot;:false,&quot;align&quot;:null,&quot;offset&quot;:false}" sizes="100vw" src="https://substackcdn.com/image/fetch/$s_!lsF4!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F4bee9fce-5586-4d0c-a98b-d54f816e1a85_1128x786.webp" srcset="https://substackcdn.com/image/fetch/$s_!lsF4!,w_424,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F4bee9fce-5586-4d0c-a98b-d54f816e1a85_1128x786.webp 424w, https://substackcdn.com/image/fetch/$s_!lsF4!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F4bee9fce-5586-4d0c-a98b-d54f816e1a85_1128x786.webp 848w, https://substackcdn.com/image/fetch/$s_!lsF4!,w_1272,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F4bee9fce-5586-4d0c-a98b-d54f816e1a85_1128x786.webp 1272w, https://substackcdn.com/image/fetch/$s_!lsF4!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F4bee9fce-5586-4d0c-a98b-d54f816e1a85_1128x786.webp 1456w" class="article-image"/></picture></a></figure>
+<p>But when a user says <em><strong>"I can't access my account and my subscription seems wrong"</strong></em> what should happen?</p>
+<p><strong>Scenario A:</strong> Your agent immediately starts checking systems. It looks up the account, identifies that the password was reset yesterday but the email never arrived, discovers a billing issue that downgraded the plan, explains exactly what happened, and offers to fix both issues with one click.</p>
+<p><strong>Scenario B: </strong>Your agent asks clarifying questions. "When did you last successfully log in? What error message do you see? Can you tell me more about the subscription issue?" After gathering info, it says "Let me escalate you to a human who can check your account and billing."</p>
+<p><strong>Same user request. Same underlying systems. Completely different products.</strong></p>
+<h2>The Four Layers Where Your Product Decisions Live</h2>
+<p>Think of agent architecture like a stack where each layer represents a product decision you have to make.</p>
+<figure class="article-figure"><a data-component-name="Image2ToDOM" href="https://substackcdn.com/image/fetch/$s_!JMHA!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F6d1c3e46-44f3-4986-b1b1-b50c7e9ffb4e_804x904.png"><picture class="article-picture"><img alt="" data-attrs="{&quot;src&quot;:&quot;https://substack-post-media.s3.amazonaws.com/public/images/6d1c3e46-44f3-4986-b1b1-b50c7e9ffb4e_804x904.png&quot;,&quot;srcNoWatermark&quot;:null,&quot;fullscreen&quot;:null,&quot;imageSize&quot;:null,&quot;height&quot;:904,&quot;width&quot;:804,&quot;resizeWidth&quot;:406,&quot;bytes&quot;:null,&quot;alt&quot;:&quot;&quot;,&quot;title&quot;:null,&quot;type&quot;:null,&quot;href&quot;:null,&quot;belowTheFold&quot;:true,&quot;topImage&quot;:false,&quot;internalRedirect&quot;:null,&quot;isProcessing&quot;:false,&quot;align&quot;:null,&quot;offset&quot;:false}" sizes="100vw" src="https://substackcdn.com/image/fetch/$s_!JMHA!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F6d1c3e46-44f3-4986-b1b1-b50c7e9ffb4e_804x904.png" srcset="https://substackcdn.com/image/fetch/$s_!JMHA!,w_424,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F6d1c3e46-44f3-4986-b1b1-b50c7e9ffb4e_804x904.png 424w, https://substackcdn.com/image/fetch/$s_!JMHA!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F6d1c3e46-44f3-4986-b1b1-b50c7e9ffb4e_804x904.png 848w, https://substackcdn.com/image/fetch/$s_!JMHA!,w_1272,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F6d1c3e46-44f3-4986-b1b1-b50c7e9ffb4e_804x904.png 1272w, https://substackcdn.com/image/fetch/$s_!JMHA!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F6d1c3e46-44f3-4986-b1b1-b50c7e9ffb4e_804x904.png 1456w" class="article-image"/></picture></a></figure>
+<h3>Layer 1: Context &amp; Memory (What does your agent remember?)</h3>
+<p><strong>The Decision: </strong>How much should your agent remember, and for how long?</p>
+<p><em>This isn't just technical storage - it's about creating the illusion of understanding. Your agent's memory determines whether it feels like talking to a robot or a knowledgeable colleague.</em></p>
+<p><strong>For our support agent:</strong> Do you store just the current conversation, or the customer's entire support history? Their product usage patterns? Previous complaints?</p>
+<p><strong>Types of memory to consider:</strong></p>
+<ul><li><p><strong>Session memory:</strong> Current conversation ("You mentioned billing issues earlier...")</p></li><li><p><strong>Customer memory: </strong>Past interactions across sessions ("Last month you had a similar issue with...")</p></li><li><p><strong>Behavioral memory:</strong> Usage patterns ("I notice you typically use our mobile app...")</p></li><li><p><strong>Contextual memory: </strong>Current account state, active subscriptions, recent activity</p></li></ul>
+<p>The more your agent remembers, the more it can anticipate needs rather than just react to questions. Each layer of memory makes responses more intelligent but increases complexity and cost.</p>
+<p><strong>The Decision:</strong> Which systems should your agent connect to, and what level of access should it have?</p>
+<p><em>The deeper your agent connects to user workflows and existing systems, the harder it becomes for users to switch. This layer determines whether you're a tool or a platform.</em></p>
+<p><strong>For our support agent:</strong> Should it integrate with just your Stripe’s billing system, or also your Salesforce CRM, ZenDesk ticketing system , user database, and audit logs? Each integration makes the agent more useful but also creates more potential failure points - <em>think API rate limits, authentication challenges, and system downtime</em>.</p>
+<h3>Layer 3: Skills &amp; Capabilities (What makes you different?)</h3>
+<p><strong>The Decision:</strong> Which specific capabilities should your agent have, and how deep should they go?</p>
+<p><em>Your skills layer is where you win or lose against competitors. It's not about having the most features - it's about having the right capabilities that create user dependency.</em></p>
+<p><strong>For our support agent:</strong> Should it only read account information, or should it also modify billing, reset passwords, and change plan settings? Each additional skill increases user value but also increases complexity and risk.</p>
+<figure class="article-figure"><a data-component-name="Image2ToDOM" href="https://substackcdn.com/image/fetch/$s_!AfC4!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F6ace5e82-816b-426e-abc7-b9c8733a14d5_1146x931.png"><picture class="article-picture"><img alt="How to Use Model Context Protocol for Scalable AI Integrations?" data-attrs="{&quot;src&quot;:&quot;https://substack-post-media.s3.amazonaws.com/public/images/6ace5e82-816b-426e-abc7-b9c8733a14d5_1146x931.png&quot;,&quot;srcNoWatermark&quot;:null,&quot;fullscreen&quot;:null,&quot;imageSize&quot;:null,&quot;height&quot;:931,&quot;width&quot;:1146,&quot;resizeWidth&quot;:442,&quot;bytes&quot;:147006,&quot;alt&quot;:&quot;How to Use Model Context Protocol for Scalable AI Integrations?&quot;,&quot;title&quot;:&quot;How to Use Model Context Protocol for Scalable AI Integrations?&quot;,&quot;type&quot;:&quot;image/png&quot;,&quot;href&quot;:null,&quot;belowTheFold&quot;:true,&quot;topImage&quot;:false,&quot;internalRedirect&quot;:null,&quot;isProcessing&quot;:false,&quot;align&quot;:null,&quot;offset&quot;:false}" sizes="100vw" src="https://substackcdn.com/image/fetch/$s_!AfC4!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F6ace5e82-816b-426e-abc7-b9c8733a14d5_1146x931.png" srcset="https://substackcdn.com/image/fetch/$s_!AfC4!,w_424,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F6ace5e82-816b-426e-abc7-b9c8733a14d5_1146x931.png 424w, https://substackcdn.com/image/fetch/$s_!AfC4!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F6ace5e82-816b-426e-abc7-b9c8733a14d5_1146x931.png 848w, https://substackcdn.com/image/fetch/$s_!AfC4!,w_1272,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F6ace5e82-816b-426e-abc7-b9c8733a14d5_1146x931.png 1272w, https://substackcdn.com/image/fetch/$s_!AfC4!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F6ace5e82-816b-426e-abc7-b9c8733a14d5_1146x931.png 1456w" class="article-image"/></picture></a></figure>
+<p><strong>Implementation note:</strong> <a href="https://www.productcurious.com/p/the-new-distribution-game-building">Tools like MCP</a> (Model Context Protocol) are making it much easier to build and share skills across different agents, rather than rebuilding capabilities from scratch.</p>
+<h3><br/>Layer 4: Evaluation &amp; Trust (How do users know what to expect?)</h3>
+<p><strong>The Decision:</strong> How do you measure success and communicate agent limitations to users?</p>
+<p><em>This layer determines whether users develop confidence in your agent or abandon it after the first mistake. It's not just about being accurate - it's about being trustworthy.</em></p>
+<p><strong>For our support agent:</strong> Do you show confidence scores ("I'm 85% confident this will fix your issue")? Do you explain your reasoning ("I checked three systems and found...")? Do you always confirm before taking actions ("Should I reset your password now?")? Each choice affects how users perceive reliability.</p>
+<p><strong>Trust strategies to consider:</strong></p>
+<ul><li><p><strong>Confidence indicators:</strong> "I'm confident about your account status, but let me double-check the billing details"</p></li><li><p><strong>Reasoning transparency:</strong> "I found two failed login attempts and an expired payment method"</p></li><li><p><strong>Graceful boundaries:</strong> "This looks like a complex billing issue - let me connect you with our billing specialist who has access to more tools"</p></li><li><p><strong>Confirmation patterns:</strong> When to ask permission vs. when to act and explain</p></li></ul>
+<blockquote><p>The counterintuitive insight: users trust agents more when they admit uncertainty than when they confidently make mistakes.</p></blockquote>
+<h2>So how do you actually architect an agent?</h2>
+<p>Okay, so you understand the layers. Now comes the practical question that every PM asks: "How do I actually implement this? How does the agent talk to the skills? How do skills access data? How does evaluation happen while users are waiting?"</p>
+<p><em>Your orchestration choice determines everything about your development experience, your debugging process, and your ability to iterate quickly.</em></p>
+<figure class="article-figure"><a data-component-name="Image2ToDOM" href="https://substackcdn.com/image/fetch/$s_!B42p!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F7ad3a5c4-6a5b-4553-9b3e-0567b150f3da_1610x766.png"><picture class="article-picture"><img alt="" data-attrs="{&quot;src&quot;:&quot;https://substack-post-media.s3.amazonaws.com/public/images/7ad3a5c4-6a5b-4553-9b3e-0567b150f3da_1610x766.png&quot;,&quot;srcNoWatermark&quot;:null,&quot;fullscreen&quot;:null,&quot;imageSize&quot;:null,&quot;height&quot;:693,&quot;width&quot;:1456,&quot;resizeWidth&quot;:null,&quot;bytes&quot;:246009,&quot;alt&quot;:null,&quot;title&quot;:null,&quot;type&quot;:&quot;image/png&quot;,&quot;href&quot;:null,&quot;belowTheFold&quot;:true,&quot;topImage&quot;:false,&quot;internalRedirect&quot;:&quot;https://www.productcurious.com/i/172725542?img=https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F7ad3a5c4-6a5b-4553-9b3e-0567b150f3da_1610x766.png&quot;,&quot;isProcessing&quot;:false,&quot;align&quot;:null,&quot;offset&quot;:false}" sizes="100vw" src="https://substackcdn.com/image/fetch/$s_!B42p!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F7ad3a5c4-6a5b-4553-9b3e-0567b150f3da_1610x766.png" srcset="https://substackcdn.com/image/fetch/$s_!B42p!,w_424,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F7ad3a5c4-6a5b-4553-9b3e-0567b150f3da_1610x766.png 424w, https://substackcdn.com/image/fetch/$s_!B42p!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F7ad3a5c4-6a5b-4553-9b3e-0567b150f3da_1610x766.png 848w, https://substackcdn.com/image/fetch/$s_!B42p!,w_1272,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F7ad3a5c4-6a5b-4553-9b3e-0567b150f3da_1610x766.png 1272w, https://substackcdn.com/image/fetch/$s_!B42p!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F7ad3a5c4-6a5b-4553-9b3e-0567b150f3da_1610x766.png 1456w" class="article-image"/></picture></a></figure>
+<p>Lets walk through the main approaches, and I'll be honest about when each one works and when it becomes a nightmare.</p>
+<h3>1. Single-Agent Architecture (Start Here)</h3>
+<p>Everything happens in one agent's context.</p>
+<p><strong>For our support agent:</strong> <em>When the user says "I can't access my account," one agent handles it all - checking account status, identifying billing issues, explaining what happened, offering solutions. </em></p>
+<p><strong>Why this works:</strong> Simple to build, easy to debug, predictable costs. You know exactly what your agent can and can't do.</p>
+<p><strong>Why it doesn't:</strong> Can get expensive with complex requests since you're loading full context every time. Hard to optimize specific parts.</p>
+<blockquote><p>Most teams start here, and honestly, many never need to move beyond it. If you're debating between this and something more complex, start here.</p></blockquote>
+<p>You have a router that figures out what the user needs, then hands off to specialized skills.</p>
+<p><strong>For our support agent:</strong> <em>Router realizes this is an account access issue and routes to the `LoginSkill`. If the LoginSkill discovers it's actually a billing problem, it hands off to `BillingSkill`.</em></p>
+<p><strong>Real example flow:</strong></p>
+<ol><li><p><em>User: "I can't log in"</em></p></li><li><p><em>Router → LoginSkill</em></p></li><li><p><em>LoginSkill checks: Account exists ✓, Password correct ✗, Billing status... wait, subscription expired</em></p></li><li><p><em>LoginSkill → BillingSkill: "Handle expired subscription for user123"</em></p></li><li><p><em>BillingSkill handles renewal process</em></p></li></ol>
+<p><strong>Why this works:</strong> More efficient - you can use cheaper models for simple skills, expensive models for complex reasoning. Each skill can be optimized independently.</p>
+<p><strong>Why it doesn't:</strong> Coordination between skills gets tricky fast. Who decides when to hand off? How do skills share context?</p>
+<blockquote><p>Here's where MCP really helps - it standardizes how skills expose their capabilities, so your router knows what each skill can do without manually maintaining that mapping.</p></blockquote>
+<p>You predefine step-by-step processes for common scenarios. Think LangGraph, CrewAI, AutoGen, N8N, etc.</p>
+<p><strong>For our support agent:</strong> <em>"Account access problem" triggers a workflow:</em></p>
+<ol><li><p><em>Check account status</em></p></li><li><p><em>If locked, check failed login attempts </em></p></li><li><p><em>If too many failures, check billing status</em></p></li><li><p><em>If billing issue, route to payment recovery</em></p></li><li><p><em>If not billing, route to password reset</em></p></li></ol>
+<p><strong>Why this works:</strong> Everything is predictable and auditable. Perfect for compliance-heavy industries. Easy to optimize each step.</p>
+<p><strong>Why it doesn't:</strong> When users have weird edge cases that don't fit your predefined workflows, you're stuck. Feels rigid to users.</p>
+<p>Multiple specialized agents work together using A2A (agent-to-agent) protocols.</p>
+<p><strong>The vision: </strong>Your agent discovers that another company's agent can help with issues, automatically establishes a secure connection, and collaborates to solve the customer's problem. <em>Think a booking.com agent interacting with an American Airlines agent!</em></p>
+<p><strong>For our support agent:</strong> <em>`AuthenticationAgent` handles login issues, `BillingAgent` handles payment problems, `CommunicationAgent` manages user interaction. They coordinate through standardized protocols to solve complex problems.</em></p>
+<p><strong>Reality check:</strong> This sounds amazing but introduces complexity around security, billing, trust, and reliability that most companies aren't ready for. We're still figuring out the standards.</p>
+<p>This can produce amazing results for sophisticated scenarios, but debugging multi-agent conversations is genuinely hard. When something goes wrong, figuring out which agent made the mistake and why is like detective work.</p>
+<figure class="article-figure"><a data-component-name="Image2ToDOM" href="https://substackcdn.com/image/fetch/$s_!KdJQ!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F9c4507e2-2478-4d44-aaee-82024692d318_1492x1226.png"><picture class="article-picture"><img alt="Overview" data-attrs="{&quot;src&quot;:&quot;https://substack-post-media.s3.amazonaws.com/public/images/9c4507e2-2478-4d44-aaee-82024692d318_1492x1226.png&quot;,&quot;srcNoWatermark&quot;:null,&quot;fullscreen&quot;:null,&quot;imageSize&quot;:null,&quot;height&quot;:1196,&quot;width&quot;:1456,&quot;resizeWidth&quot;:null,&quot;bytes&quot;:null,&quot;alt&quot;:&quot;Overview&quot;,&quot;title&quot;:null,&quot;type&quot;:null,&quot;href&quot;:null,&quot;belowTheFold&quot;:true,&quot;topImage&quot;:false,&quot;internalRedirect&quot;:null,&quot;isProcessing&quot;:false,&quot;align&quot;:null,&quot;offset&quot;:false}" sizes="100vw" src="https://substackcdn.com/image/fetch/$s_!KdJQ!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F9c4507e2-2478-4d44-aaee-82024692d318_1492x1226.png" srcset="https://substackcdn.com/image/fetch/$s_!KdJQ!,w_424,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F9c4507e2-2478-4d44-aaee-82024692d318_1492x1226.png 424w, https://substackcdn.com/image/fetch/$s_!KdJQ!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F9c4507e2-2478-4d44-aaee-82024692d318_1492x1226.png 848w, https://substackcdn.com/image/fetch/$s_!KdJQ!,w_1272,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F9c4507e2-2478-4d44-aaee-82024692d318_1492x1226.png 1272w, https://substackcdn.com/image/fetch/$s_!KdJQ!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F9c4507e2-2478-4d44-aaee-82024692d318_1492x1226.png 1456w" class="article-image"/></picture></a></figure>
+<p>But here's what's interesting - even with the perfect architecture, your agent can still fail if users don't trust it. That brings us to the most counterintuitive lesson about building agents.</p>
+<h2>The trust thing that everyone gets wrong</h2>
+<p>Here's something counterintuitive: Users don't trust agents that are right all the time. They trust agents that are honest about when they might be wrong.</p>
+<p>Think about it from the user's perspective. Your support agent confidently says "I've reset your password and updated your billing address." User thinks "great!" Then they try to log in and... it doesn't work. Now they don't just have a technical problem - they have a trust problem.</p>
+<p>Compare that to an agent that says "I think I found the issue with your account. I'm 80% confident this will fix it. I'm going to reset your password and update your billing address. If this doesn't work, I'll immediately escalate to a human who can dive deeper."</p>
+<p><strong>Same technical capability. Completely different user experience.</strong></p>
+<p>Building trusted agents requires focus on three things:</p>
+<ol><li><p><strong>Confidence calibration:</strong> When your agent says it's 60% confident, it should be right about 60% of the time. Not 90%, not 30%. Actual 60%.</p></li><li><p><strong>Reasoning transparency: </strong>Users want to see the agent's work. "I checked your account status (active), billing history (payment failed yesterday), and login attempts (locked after 3 failed attempts). The issue seems to be..."</p></li><li><p><strong>Graceful escalation: </strong>When your agent hits its limits, how does it hand off? A smooth transition to a human with full context is much better than "I can't help with that."</p></li></ol>
+<p>A lot of times we obsess over making agents more accurate, when what users actually want was more transparency about the agent's limitations.</p>
+<h2>What's Coming Next</h2>
+<p>In Part 2, I'll dive deeper into the autonomy decisions that keep most PMs up at night. How much independence should you give your agent? When should it ask for permission vs forgiveness? How do you balance automation with user control?</p>
+<p>We'll also walk through the governance concerns that actually matter in practice - not just theoretical security issues, but the real implementation challenges that can make or break your launch timeline.</p></div>
+      
+    </article>
+    
+  </body>
+</html>
