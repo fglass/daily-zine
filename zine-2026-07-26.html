@@ -1,0 +1,553 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Fred Talks - 2026-07-26</title>
+    <style>
+      @page {
+        size: A5;
+        margin: 8mm 9mm 9mm;
+      }
+
+      :root {
+        color: #111;
+        font-family: "Times New Roman", Times, serif;
+        --body-text-size: 9.5pt;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        color: #111;
+        background: #fff;
+        font-family: "Times New Roman", Times, serif;
+        line-height: 1.45;
+      }
+
+      a,
+      a:visited {
+        color: #111;
+        text-decoration: underline;
+      }
+
+      .cover {
+        min-height: calc(210mm - 17mm);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        page-break-after: always;
+        border: 1px solid #111;
+        padding: 8mm;
+        background: #fff;
+      }
+
+      .toc-item-meta,
+      .article-meta {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .masthead {
+        margin: 0;
+        font-size: 40pt;
+        line-height: 0.95;
+        text-transform: uppercase;
+      }
+
+      .issue-date {
+        margin: 4mm 0 0;
+        font-size: 14pt;
+      }
+
+      .issue-date sup {
+        font-size: 0.58em;
+        vertical-align: super;
+        line-height: 0;
+      }
+
+      .cover-deck {
+        max-width: 90mm;
+        font-size: 12pt;
+        margin: 0;
+      }
+
+      .toc {
+        border-top: 3px solid #111;
+        padding-top: 6mm;
+      }
+
+      .toc h2 {
+        margin: 0 0 4mm;
+        font-size: 11pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .toc-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .toc-item {
+        padding: 3mm 0;
+        border-bottom: 1px solid rgba(17, 17, 17, 0.2);
+      }
+
+      .toc-item-title {
+        font-size: 12pt;
+        margin: 0 0 1mm;
+      }
+
+      .toc-item-meta {
+        font-size: 8pt;
+      }
+
+      .masthead-compact {
+        margin: 0 0 6mm;
+      }
+
+      .masthead-compact h1 {
+        margin: 0;
+        font-size: 22pt;
+        line-height: 1.1;
+        text-transform: uppercase;
+      }
+
+      .masthead-compact .issue-date {
+        margin: 2mm 0 0;
+        font-size: 11pt;
+      }
+
+      .toc-compact {
+        border-top: 1px solid #111;
+        border-bottom: 1px solid #111;
+        padding: 4mm 0;
+        margin: 0 0 8mm;
+      }
+
+      article + article {
+        margin-top: 10mm;
+        padding-top: 6mm;
+        border-top: 2px solid #111;
+      }
+
+      h1 {
+        margin: 0 0 2mm;
+        font-size: 18pt;
+        line-height: 1.1;
+      }
+
+      .article-meta {
+        font-size: 8.5pt;
+        margin-bottom: 6mm;
+        padding-bottom: 3mm;
+        border-bottom: 1px solid #111;
+      }
+
+      .article-body {
+        font-size: var(--body-text-size);
+        font-family: "Times New Roman", Times, serif;
+      }
+
+      .article-body p,
+      .article-body li,
+      .article-body blockquote,
+      .article-body dd,
+      .article-body dt {
+        margin: 0 0 4mm;
+        orphans: 3;
+        widows: 3;
+      }
+
+      .article-body ul,
+      .article-body ol,
+      .article-body dl {
+        margin: 0 0 4mm 5mm;
+        padding: 0;
+      }
+
+      .article-body h2,
+      .article-body h3,
+      .article-body h4 {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        margin: 7mm 0 3mm;
+        line-height: 1.2;
+      }
+
+      .article-body blockquote {
+        margin-left: 6mm;
+        padding-left: 4mm;
+        border-left: 2px solid #111;
+      }
+
+      .article-body .media-omitted {
+        margin: 0 0 4mm;
+        font-size: 8.5pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(17, 17, 17, 0.65);
+      }
+
+      .article-body figure,
+      .article-body .article-figure,
+      .article-body picture,
+      .article-body .article-picture {
+        display: block;
+        max-width: 72mm;
+        margin: 0 auto 4mm;
+        break-inside: avoid;
+      }
+
+      .article-body img,
+      .article-body .article-image {
+        display: block;
+        max-width: min(100%, 72mm);
+        max-height: 34mm;
+        height: auto;
+        width: auto;
+        object-fit: contain;
+        margin: 0 auto 3mm;
+      }
+
+      .article-body figcaption {
+        margin-top: 1.5mm;
+        font-size: 8.5pt;
+        line-height: 1.3;
+        color: rgba(17, 17, 17, 0.8);
+      }
+
+      .article-note {
+        margin-top: 6mm;
+        padding-top: 3mm;
+        border-top: 1px solid #111;
+        font-size: 9pt;
+        font-style: italic;
+      }
+
+      @media screen {
+        body {
+          padding: 2rem;
+          margin: 0 auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    
+    <header class="masthead-compact">
+      <h1>Fred Talks</h1>
+      <p class="issue-date">
+        26<sup>th</sup> July 2026
+      </p>
+    </header>
+
+    <nav class="toc toc-compact">
+      <h2>Contents</h2>
+      <ol class="toc-list">
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Zen of AI Coding</div>
+          <div class="toc-item-meta">
+            Yoav Aviram · 1912 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">How Claude Code navigates large codebases</div>
+          <div class="toc-item-meta">
+            Claude · 2694 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">[Daily article] July 26: Nile</div>
+          <div class="toc-item-meta">
+            English Wikipedia Article of the Day · 422 words
+          </div>
+        </li>
+        
+      </ol>
+    </nav>
+    
+
+    
+    <article>
+      <h1>Zen of AI Coding</h1>
+      <div class="article-meta">
+        Yoav Aviram
+        · 08 Mar 2026 · <a href="https://nonstructured.com/zen-of-ai-coding/">Source</a>
+      </div>
+      <div class="article-body"><p>Dedicated to all those who are sceptical about the significance of agentic coding, and to those who are not, and are wondering what it means for the future of their profession. The title is an homage to <a href="https://en.wikipedia.org/wiki/Zen_of_Python">Zen of Python</a> by Tim Peters. Unlike Tim, I am not a zen master. My only aim is to take stock of where we are and where we might be heading. I have been building with coding agents daily for the past year, and I also help teams adopt them without losing reliability or security.</p>
+<ol> <li>Software development is dead</li> <li>Code is cheap</li> <li>Refactoring easy</li> <li>So is repaying technical debt</li> <li>All bugs are shallow</li> <li>Create tight feedback loops</li> <li>Any stack is <em>your</em> stack</li> <li>Agents are not just for coding</li> <li>The context bottleneck is in your head</li> <li>Build for a changing world</li> <li>When considering Buy vs. Build, the answer, more often, is build</li> <li>Fast rubbish is still rubbish</li> <li>Software is a liability, a product is an asset</li> <li>Moats are more expensive</li> <li>Build for agents</li> <li>Anticipate modes of failure</li> </ol>
+<h4><strong>Software development is dead </strong></h4>
+<p>You do not need to write another line of code if you do not want to. Coding agents can accomplish most coding tasks with the right direction.</p>
+<p>Software development, as the act of manually producing code, is dying. A new discipline is being born. Your role in it is vital, but it is no longer centered on typing code. It is centered on framing problems, shaping context, defining constraints, and judging outcomes.</p>
+<p>The marginal cost of code is collapsing. That single fact changes everything that follows.</p>
+<h4><strong>Code is cheap</strong></h4>
+<p>The economics of software have changed.</p>
+<p>When coding is cheap, implementation stops being the constraint. You can build ten things in parallel. You cannot decide, validate, and ship ten things in parallel, at least not without changing the rest of the pipeline.</p>
+<p>Cost of delay shifts. It is no longer about developer days. It is about time stuck in other bottlenecks: product decisions, unclear requirements, security review, user testing, release processes, and operational risk. Agents can flood these queues. Inventory grows. Lead time grows. Delay becomes more expensive, not less.</p>
+<p>This changes prioritization. The highest leverage work is what unblocks shipping: tight feedback loops, tests, evals, guardrails, observability, and clear acceptance criteria. Anything that turns “we can build it” into “we can trust it”.</p>
+<p>Agents can help alleviate some of these bottlenecks. The challenge is applying them outside of coding (see Agents are not just for coding)</p>
+<h4><strong>Refactoring is easy</strong></h4>
+<p>The cost of changing your mind is lower than it has ever been. Architectural decisions that once felt permanent are now provisional.</p>
+<p>You chose React. Two months later, you regret it. Ask an agent to rewrite the project.</p>
+<p>Making imperfect decisions is no longer fatal. In fact, it can be productive. A flawed reference implementation provides better context than a pristine specification. Agents reason more effectively from concrete artifacts than from abstract intent.</p>
+<p>Rapid iteration is now the default mode. Over the last three months, we rebuilt our CMS four times from scratch, each with a different architecture. Each time we learned more about what we actually needed and what works.</p>
+<p>When code is cheap, you can run more small bets.</p>
+<h4><strong>So is repaying technical debt</strong></h4>
+<p>There is little excuse for stale dependencies or ignored security patches. Updating libraries, migrating APIs, modernizing patterns. These are prompts away.</p>
+<p>Prune your code regularly. Upgrade aggressively. Keep the surface clean.</p>
+<p>Technical debt has not disappeared. But the cost of servicing it has dropped. That changes the incentive structure. Neglect becomes less defensible.</p>
+<h4><strong>All bugs are shallow</strong></h4>
+<p><a href="https://en.wikipedia.org/wiki/Linus%27s_law">Linus’s law</a> states that “given enough eyeballs, all bugs are shallow.” Those eyeballs are now abundant.</p>
+<p>Ask one model to review your code. Ask another. They may find different issues. Ask them to fix what they find. Often they will succeed.</p>
+<p>How “dense” are bugs given a piece of code is a philosophical question. Bugs are not magically gone. Agents do not achieve perfection. From a practical perspective, however, the limiting factor is no longer the number of reviewers. It is the tightness of your feedback loops.</p>
+<p>The claim here is profound: comprehension of the codebase at the function level is no longer necessary. At the same time, relying entirely on the models is a recipe for disaster. You still have a job! (see: create tight feedback loops, anticipate modes of failure)</p>
+<p>Agents can sometimes one-shot a task.</p>
+<p>We’ve built agents that create a complete custom-made marketing website in one shot, but this is by far the exception. In most cases, agents operate best when iterating towards a well-defined goal, guided by feedback.</p>
+<p>Good tests are the first feedback loop. The agent will iterate until the tests pass. It is your responsibility to make sure the tests are adequate (by instructing the agent to create good ones) and to make sure the agent does not cheat (by weakening the tests or simply skipping them).</p>
+<p>Give your agent access to your CI to create a second feedback loop. Give it access to your server logs to create a third. Giving the agent away to visually inspect a UI is yet another example.</p>
+<p>Your job is to design environments where iteration converges toward correctness instead of drifting toward plausible nonsense.</p>
+<p>Velocity without feedback is chaos.</p>
+<h4><strong>Any stack is your stack</strong></h4>
+<p>Agents are competent across most major stacks where training data exists. Since you are not writing the code, your attachment to a specific stack becomes less relevant.</p>
+<p>Do not limit yourself to what you personally know. Your conceptual understanding transfers more than you think.</p>
+<p>When you lack terminology or domain knowledge, ask the agent to brief you. The barrier to entry into unfamiliar ecosystems is lower than it has ever been.</p>
+<h4><strong>Agents are not just for coding</strong></h4>
+<p>Coding is only the beginning.</p>
+<p>Agents can assist with business analysis, UX, infrastructure, operations, ad campaigns, analytics configuration, even accounting workflows.</p>
+<p>I migrated four WordPress blogs from an overpriced host to Hetzner in minutes after postponing the task for years. The blocker was never a technical difficulty. It was attention. Claude completed the task in 15 minutes.</p>
+<p>Agents reduce the activation energy required to execute tedious but valuable work.</p>
+<p>Grant access carefully. Limit scope. Audit results. Direction without oversight is reckless.</p>
+<h4><strong>The context bottleneck is in your head</strong></h4>
+<p>Context engineering has improved. Tooling has improved.</p>
+<p>Yet when running multiple agents in parallel, the real bottleneck is human coordination.</p>
+<p>You must track what each agent is doing. You must remember which assumptions were made. You know what questions to ask next.</p>
+<p>As agents become better at managing their own context, your ability to supervise them becomes the limiting factor.</p>
+<p>The constraint is no longer tokens. It is cognition.</p>
+<h4><strong>Build for a changing world</strong></h4>
+<p>New models. New capabilities. New frameworks. New skills.</p>
+<p>The ground shifts daily. Some models are better at reasoning. Some at coding. Some at translation.</p>
+<p>Flexibility is not optional. It must be built into your workflow and products. Both must be engineered for experimentation and adaptability.</p>
+<h4><strong>When considering Buy vs. Build, the answer, more often, is build</strong></h4>
+<p>When code was expensive, buying made sense. When code approaches zero marginal cost, the calculus changes.</p>
+<p>Every paid API is now a question. Could we replicate this internally? Should we?</p>
+<p>For our QA agent, we needed full-page screenshots of live sites. Many APIs offered this. Instead, we deployed Playwright to AWS Lambda, tailored to our needs, and hardened.</p>
+<p>This is not a blanket argument against SaaS. Maintenance, security, and scale still matter. But many small and medium services that once required vendors are now within reach.</p>
+<p>Some call this the <a href="https://www.forbes.com/sites/donmuir/2026/02/04/300-billion-evaporated-the-saaspocalypse-has-begun/">end of SaaS</a>.</p>
+<h4><strong>Fast rubbish is still rubbish</strong></h4>
+<p>Speed is intoxicating. It is also dangerous.</p>
+<p>You can generate enormous amounts of code quickly. But velocity and lines of code written were always terrible indicators of progress.</p>
+<p>Refactoring is cheap, but it is cheaper to detect flawed direction early.</p>
+<p>Discipline matters more, not less, when execution is frictionless.</p>
+<h4><strong>Software is a liability, a product is an asset</strong></h4>
+<p>Software costs money to maintain. It only becomes an asset when it produces value for someone.</p>
+<p>This was always true. It is harder to remember now because building is so easy.</p>
+<p>It is tricker then ever to resist the temptation to add features. Resist it. Build what is used. Kill what is not.</p>
+<p>Feature gaps close quickly. What once took years to replicate can now take months. What took months can now take days.</p>
+<p>A feature set is no longer a durable moat.</p>
+<p>Moats shift toward distribution, data, brand, network effects, regulation, and ecosystem integration.</p>
+<p>The barrier to entry falls. The barrier to defensibility rises.</p>
+<p>There is a new hierarchy.</p>
+<p>At the base are models (Opus 4.6, GPT-5.3-codex). On top of them sit agents (Claude Code, OpenClaw). On top of agents sit services.</p>
+<p>Today, agents use services designed for humans. It works, but it is inefficient. The next step is services designed for agents (<a href="https://www.moltbook.com/">Moltbook</a> being the harbinger).</p>
+<p>Make your services accessible to agents. Expose structured context. Provide machine-readable surfaces.</p>
+<p>Agentic commerce is emerging. In some cases, a markdown endpoint is enough. In others, the service itself must be designed agent-first.</p>
+<p>Agent-first is not a tooling choice. It is a product decision. It changes your interfaces, your reliability model, your metrics, and what you build next.</p>
+<p>We are building an agent-first CMS. If we succeed, humans will not need to use it, though they can.</p>
+<p>AX is the new UX</p>
+<p>Do not assume competence implies perfection.</p>
+<p>Like an engineer overseeing the construction of a bridge, your job is not to lay bricks. It is to ensure the structure does not collapse.</p>
+<p>Agents will make mistakes. They will drift off course. They will introduce subtle flaws. They will create security vulnerabilities. One of mine attempted to commit a .env file to git. They can be inventive in how they self-sabotage.</p>
+<p>Be one step ahead. Ask yourself how this could break. Where could it leak. What could it expose. What assumptions is the agent quietly making.</p>
+<p>Play the what-if game relentlessly. Then build guardrails.</p>
+<p>Automate checks. Lock down permissions. Isolate environments. Add monitoring. Create recovery paths. Make rollback trivial.</p>
+<p>Remember, code is cheap, and you have new superpowers. Build tools to allow you to probe deep, discover vulnerabilities, and test for anticipated failure modes. Design systems that expect failure and degrade gracefully.</p>
+<p>This is the distinction between software development and software engineering.</p>
+<p>I work with engineering and product teams adopting agents. The goal is simple: ship faster without lowering standards.</p>
+<p>I usually help in two ways:</p>
+<p><strong>Agent-first software engineering</strong><br/>
+We turn agents into part of the system, not a novelty. We design workflows, guardrails, and supporting tools so the team can delegate confidently.</p>
+<p>If you want to operationalize coding agents without turning your codebase into a casino, get in touch.</p>
+<p><strong>Agent-first product strategy</strong><br/>
+I help companies shift products from human-centric interfaces to agent-accessible, and where it makes sense, agents-first. That means clarifying what agents should be able to do, what constraints they must operate under, and what needs to change in your APIs, permissions, reliability model, and product surface area to support them.</p>
+<p>This typically results in an agent-access roadmap, an operating model, and a prioritized set of product changes that make agents a first-class user.</p>
+<p>I’m the co-founder of <a href="https://www.whiteboar.it/">WhiteBoar</a>, where AI agents build your brand and launch visually striking marketing websites, complete with professional multi-lingual content, in minutes, not months. Contact me at <a href="mailto:yoav@whiteboar.it">yoav@whiteboar.it</a>.</p></div>
+      
+    </article>
+    
+    <article>
+      <h1>How Claude Code navigates large codebases</h1>
+      <div class="article-meta">
+        Claude
+        · 18 May 2026 · <a href="https://claude.com/blog/how-claude-code-works-in-large-codebases-best-practices-and-where-to-start">Source</a>
+      </div>
+      <div class="article-body"><p>Claude Code is running in production across multi-million-line monorepos, decades-old legacy systems, distributed architectures spanning dozens of repositories, and at organizations with thousands of developers. These environments present challenges that smaller, simpler codebases don’t, whether that’s build commands that differ across every subdirectory or legacy code spread across folders with no shared root.</p>
+<p>This article covers the patterns we've observed that have led to successful adoption of Claude Code at scale. We use “large codebase” to refer to a wide range of deployments: monorepos with millions of lines, legacy systems built over decades, dozens of microservices across separate repositories, or any combination of the above. That also includes codebases running on languages that teams don't always associate with AI coding tools, such as C, C++, C#, Java, PHP. (Claude Code performs better than most teams expect it to in those cases, particularly as of recent model releases.) While every large codebase deployment is shaped by its specific version control, team structure, and accumulated conventions, the patterns here generalize across them and are a good starting point for teams considering adopting Claude Code.</p>
+<p>Claude Code navigates a codebase the way a software engineer would: it traverses the file system, reads files, uses grep to find exactly what it needs, and follows references across the codebase. It operates locally on the developer’s machine and doesn’t require a codebase index to be built, maintained, or uploaded to a server.</p>
+<p>RAG-powered AI coding tools work by embedding the entire codebase and retrieving relevant chunks at query time. At large scale, those systems can fail because embedding pipelines can’t keep up with active engineering teams. By the time a developer queries the index, it reflects the codebase as it previously existed weeks, days, or even hours before. Retrieval then returns a function the team renamed two weeks ago, or references a module that was deleted in the last sprint, with no indication that either is out of date.</p>
+<p>Agentic search avoids those failure modes. There's no embedding pipeline or centralized index to maintain as thousands of engineers commit new code. Each developer's instance works from the live codebase.</p>
+<p>But the approach has a tradeoff: it works best when Claude has enough starting context to know where to look. This means the quality of Claude's navigation is shaped by how well the codebase is set up, layering context with CLAUDE.md files and skills. If you ask it to find all instances of a vague pattern across a billion-line codebase, you’ll hit context-window limits before the work begins. Teams that invest in codebase setup see better results.</p>
+<h2>The harness matters as much as the model</h2>
+<p>One of the most common misconceptions about Claude Code is that its capabilities are solely defined by the model used. Teams focus on a model’s benchmarks and how it performs on test tasks. In practice, the ecosystem built around the model—the harness—determines how Claude Code performs more than the model alone.</p>
+<p>The harness is built from five extension points—CLAUDE.md files, hooks, skills, plugins, and MCP servers—each serving a different function. The order in which teams build them matters, as each layer builds on what came before. Two additional capabilities, LSP integrations and subagents, round out the setup. Below, we explain what each of these components and capabilities do:</p>
+<p><a href="https://code.claude.com/docs/en/memory"><strong>CLAUDE.md</strong></a><strong> files come first</strong>. These are context files that Claude reads automatically at the start of every session: root file for the big picture, subdirectory files for local conventions. They give Claude the codebase knowledge it needs to do anything well. Because they load in every session regardless of the task, keeping them focused on what applies broadly will prevent them from becoming a drag on performance.</p>
+<p><a href="https://code.claude.com/docs/en/hooks-guide"><strong>Hooks</strong></a><strong> make the setup self-improving</strong>. Most teams think of hooks as scripts that prevent Claude from doing something wrong, but their more valuable use is continuous improvement. A stop hook can reflect on what happened during a session and propose CLAUDE.md updates while the context is fresh. A start hook can load team-specific context dynamically so every developer gets the right setup for their module without manual configuration. For automated checks like linting and formatting, hooks enforce the rules deterministically and produce more consistent results than relying on Claude to remember an instruction.</p>
+<p><a href="https://code.claude.com/docs/en/skills"><strong>Skills</strong></a><strong> keep the right expertise available on-demand without bloating every session. </strong>In a large codebase with dozens of task types, not all expertise needs to be present in every session. Skills solve this through <a href="https://platform.claude.com/docs/en/agents-and-tools/agent-skills/best-practices">progressive disclosure</a>, offloading specialized workflows and domain knowledge that would otherwise compete for context space and loading them only when the task calls for it. For example, a security review skill loads when Claude is assessing code for vulnerabilities, while a document processing skill loads when a code change is made and documentation needs to be updated.</p>
+<p>Skills can also be scoped to specific paths so they only activate in the relevant part of the codebase. A team that owns a payments service can bind their deployment skill to that directory, so it never auto-loads when someone is working elsewhere in the monorepo.</p>
+<p><a href="https://code.claude.com/docs/en/plugins"><strong>Plugins</strong></a><strong> distribute what works.</strong> One challenge with large codebases is that <em>good</em> setups can stay tribal. A plugin bundles skills, hooks, and MCP configurations into a single installable package, so when a new engineer installs that plugin on day one, they will immediately have the same context and capabilities as those who have been using Claude already. Plugin updates can be distributed across the organization through <a href="https://support.claude.com/en/articles/13837433-manage-claude-cowork-plugins-for-your-organization">managed marketplaces</a>.</p>
+<p>For example, a large retail organization we work with built a skill connecting Claude to their internal analytics platform so that business analysts could pull performance data without leaving their workflow. They distributed it as a plugin before the broad rollout to the business.</p>
+<p><strong>Language server protocol (LSP) integrations give Claude the same navigation a developer has in their IDE.</strong> Most large-codebase IDEs already have an LSP running, powering "go to definition" and "find all references." Surfacing this to Claude gives it symbol-level precision: it can follow a function call to its definition, trace references across files, and distinguish between identically named functions in different languages. Without it, Claude pattern-matches on text and can land on the wrong symbol. One enterprise software company we worked with deployed LSP integrations org-wide before their Claude Code rollout, specifically to make C and C++ navigation reliable at scale. For multi-language codebases, this is one of the highest-value investments.</p>
+<p><strong>MCP servers extend everything.</strong> MCP servers are how Claude connects to internal tools, data sources, and APIs that it can't otherwise reach. The most sophisticated teams built MCP servers exposing structured search as a tool Claude can call directly. Others connect Claude to internal documentation, ticketing systems, or analytics platforms.</p>
+<p><a href="https://code.claude.com/docs/en/sub-agents"><strong>Subagents</strong></a><strong> split exploration from editing.</strong> A subagent is an isolated Claude instance with its own context window that takes a task, does the work, and returns only the final result to the parent. Once the harness is in place, some teams spin up a read-only subagent to map a subsystem and write findings to a file, then have the main agent edit with the full picture.</p>
+<figure class="article-figure"><img alt="" src="https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a04aaf1c37c6196e5ee19bb_fig1-the-claude-code-harness-v1%402x.png" class="article-image"/><figcaption>Claude Code’s extension layer at a glance. </figcaption></figure>
+<p>The table below summarizes what each component does, when it loads, and the most common mistakes we see with each:</p>
+<figure class="article-figure"><table> <tr> <th>Component</th> <th>What it is</th> <th>When it loads</th> <th>Best for</th> <th>Common confusion</th> </tr> <tbody> <tr> <td>CLAUDE.md</td> <td>Context file Claude reads automatically</td> <td>Every session</td> <td>Project-specific conventions, codebase knowledge</td> <td>Using it for reusable expertise that belongs in a skill</td> </tr> <tr> <td>Hooks</td> <td>Scripts that run at key moments</td> <td>Triggered by events</td> <td>Automating consistent behavior, capturing session learnings</td> <td>Using prompts for things that should run automatically</td> </tr> <tr> <td>Skills</td> <td>Packaged instructions for specific task types</td> <td>On demand, when relevant</td> <td>Reusable expertise across sessions and projects</td> <td>Loading everything into CLAUDE.md instead</td> </tr> <tr> <td>Plugins</td> <td>Bundled skills, hooks, MCP configs</td> <td>Always available once configured</td> <td>Distributing a working setup across the org</td> <td>Letting good setups stay tribal</td> </tr> <tr> <td>Language server protocol (LSP)*</td> <td>Real-time code intelligence via language specific servers</td> <td>Always available once configured</td> <td>Symbol-level navigation and automatic error detection in typed languages</td> <td>Assuming that it's automatic</td> </tr> <tr> <td>MCP servers</td> <td>Connections to external tools and data</td> <td>Always available once configured</td> <td>Giving Claude access to internal tools it can't otherwise reach</td> <td>Building MCP connections before the basics are working</td> </tr> <tr> <td>Subagents*</td> <td>Separate Claude instances for specific tasks</td> <td>When invoked</td> <td>Splitting exploration from editing, parallel work</td> <td>Running exploration and editing in the same session</td> </tr> <tr> <td colspan="5">*LSP is accessed through the plugin layer. Subagents are a delegation capability rather than a configured extension point.</td> </tr> </tbody> </table></figure>
+<h2>Three configuration patterns from successful deployments</h2>
+<p>How you configure Claude Code for a large codebase depends heavily on how that codebase is structured. Still, three patterns appeared consistently across the deployments we observed.</p>
+<h3>Making the codebase navigable at scale</h3>
+<p>Claude’s ability to help in a large codebase is bounded by its ability to find the right context. Too much context loaded into every session degrades performance, while too little context leaves Claude to navigate blind. The most effective deployments invest upfront in making the codebase legible to Claude. A few patterns appear consistently:</p>
+<ul><li><strong>Keeping CLAUDE.md files lean and layered.</strong> Claude loads them additively as it moves through the codebase: root file for the big picture, subdirectory files for local conventions. The root file should be pointers and critical gotchas only; everything else drifts into noise.</li><li><strong>Initializing in subdirectories, not at the repo root.</strong> Claude works best when it's scoped to the part of the codebase that's actually relevant to the task. In monorepos, this can feel counterintuitive because tooling often assumes root access, but Claude automatically walks up the directory tree and loads every CLAUDE.md file it finds along the way, so root-level context is never lost.</li><li><strong>Scoping test and lint commands per subdirectory.</strong> Running the full suite when Claude changed one service causes timeouts and wastes context on irrelevant output. CLAUDE.md files at the subdirectory level should specify the commands that apply to that part of the codebase. This works well for service-oriented codebases where each directory has its own test and build commands. In compiled-language monorepos with deep cross-directory dependencies, per-subdirectory scoping is harder to achieve and may require project-specific build configurations.</li><li><strong>Using <code>.</code></strong><code>ignore</code><strong> files to exclude generated files, build artifacts, and third-party code.</strong> Committing <code>permissions.deny</code> rules in <code>.claude/settings.json</code> means the exclusions are version-controlled, so every developer on the team gets the same noise reduction without configuring it themselves. In some codebases, generated files are themselves the subject of development work. Developers who work on code generators can override project-level exclusions in their local settings without affecting the rest of the team.</li><li><strong>Building codebase maps when the directory structure doesn’t do the work. </strong>For organizations where code isn’t consolidated in a conventional directory structure, a lightweight markdown file at the repo root listing each top-level folder with a one-line description of what lives there gives Claude a table of contents it can scan before opening files. For codebases with hundreds of top-level folders, this works best as a layered approach: the root file describes only the highest-level structure, and subdirectory CLAUDE.md files provide the next level of detail, loading on demand as Claude moves through the tree. For simpler cases, @-mentioning the specific files or directories Claude should reference can do the same job.</li><li><strong>Running LSP servers so Claude searches by symbol, not by string. </strong>Grep for a common function name in a large codebase returns thousands of matches and Claude burns context opening files to figure out which matters. LSP returns only the references that point to the same symbol, so the filtering happens before Claude reads anything. Setting this up requires installing a <a href="https://code.claude.com/docs/en/discover-plugins#code-intelligence">code intelligence plugin</a> for your language and the corresponding language server binary; the Claude Code documentation covers the available plugins and troubleshooting.</li></ul>
+<p><strong>One caveat</strong>: there are edge cases where even the hierarchical CLAUDE.md approach breaks down, for example codebases with hundreds of thousands of folders and millions of files, or legacy systems on non-git version control. We will address their challenges in future installments of this series.</p>
+<h3>Actively maintaining CLAUDE.md files as model intelligence evolves </h3>
+<p>As models evolve, instructions written for your current model can work against a future one. CLAUDE.md files that guided Claude through patterns it used to struggle with may either become unnecessary or actively constraining when the next model ships. For example, a CLAUDE.md rule that tells Claude to break every refactor into single-file changes may have helped an earlier model stay on track but would prevent a newer one from making coordinated cross-file edits it handles well.</p>
+<p>Skills and hooks built to compensate for specific model limitations, whether in the model’s reasoning or in Claude Code’s own tooling, become overhead once those limitations no longer exist. A hook that intercepted file writes to enforce p4 edit in a Perforce codebase, for example, became redundant once Claude Code added native Perforce mode.</p>
+<p>Teams should expect to do a meaningful configuration review every three to six months, but it's also worth doing one whenever performance feels like it's plateaued after major model releases.</p>
+<h3>Assigning ownership for Claude Code management and adoption</h3>
+<p>Technical configuration alone doesn't drive adoption. The organizations that got it right invested in the organizational layer, too.</p>
+<p>The rollouts that spread fastest had a dedicated infrastructure investment before broad access. A small team, sometimes even just one person, wired up the tooling so Claude already fit developer workflows when they first touched it. At one company, a couple of engineers built a suite of plugins and MCPs that were available on day one. At another, an entire team focused on managing AI coding tools had the infrastructure in place before the rollout began. In both cases, developers' first experience was productive rather than frustrating, and adoption spread from there.</p>
+<figure class="article-figure"><img alt="" src="https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a04e25f1984beb50dc5525b_fig2-phases-of-claude-code-rollout-v1%402x.png" class="article-image"/></figure>
+<p>The teams doing this work today tend to sit under developer experience or developer productivity, which is typically the function responsible for onboarding new engineers and building developer tooling. An emerging role in several organizations is an agent manager: a hybrid PM/engineer function dedicated to managing the Claude Code ecosystem. For organizations without a dedicated team, the minimum viable version is a DRI: one person with ownership over the Claude Code configuration, the authority to make calls on settings, permissions policy, the plugin marketplace, and CLAUDE.md conventions, and the responsibility to keep them current.</p>
+<p>Bottoms-up adoption generates enthusiasm but can fragment without someone to centralize what works. You need to have an individual or a team assemble and evangelize the right Claude Code conventions (such as a standardized CLAUDE.md hierarchy or a curated set of skills and plugins). Without that work, knowledge will stay tribal and adoption will plateau.</p>
+<p>In large organizations, especially those in regulated industries, governance questions come up early, such as: who controls which skills and plugins are available, how do you prevent thousands of engineers from independently rebuilding the same thing, how do you make sure AI-generated code goes through the same review process as human-generated code? To address these early on, we suggest starting with a defined set of approved skills, required code review processes, and limited initial access, and expand as confidence builds.</p>
+<p>We’ve observed the smoothest deployments at organizations that establish cross-functional working groups early by bringing together engineering, information security, and governance representatives to define requirements together and build a rollout roadmap.</p>
+<h2>Applying these patterns to your organization</h2>
+<p>Claude Code is designed around conventional software engineering environments where engineers are the primary codebase contributors, the repo uses Git, and code follows standard directory structures. Most large codebases fit this mold, but non-traditional setups such as game engines with large binary assets, environments with unconventional version control, or non-engineers contributing to the codebase require additional configuration work. Our guidance assumes a conventional setup and the patterns we’ve described have worked across many of our customers. Any remaining complexity requires judgment specific to your codebase, tooling, and organization. That's where Anthropic's Applied AI team works directly with engineering teams to translate these patterns into your organization’s specific requirements.</p>
+<figure class="article-figure"><img alt="" src="https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a04e2860abbe67418ca0f8b_fig3-getting-started-checklist-v2%402x.png" class="article-image"/></figure>
+<p><strong><em>Acknowledgements:</em></strong><em> Special thanks to Alon Krifcher, Charmaine Lee, Chris Concannon, Harsh Patel, Henrique Savelli, Jason Schwartz, Jonah Dueck and Kirby Kohlmorgen from Anthropic’s Applied AI team for sharing their experience deploying Claude Code at scale, and to Amit Navindgi at Zoox for providing feedback on this article.</em></p></div>
+      
+    </article>
+    
+    <article>
+      <h1>[Daily article] July 26: Nile</h1>
+      <div class="article-meta">
+        English Wikipedia Article of the Day
+        · 26 Jul 2026 · <a href="mailto:reader-forwarded-email/4be860f48bb37f99874dd56630394260">Source</a>
+      </div>
+      <div class="article-body"><div class="rw-email-parsed">
+ <p>
+  The Nile is a major river in northeast Africa that empties into the
+Mediterranean Sea. At 7,088 kilometers (4,404 mi) in length, it is the
+longest river in the world, although the volume of water it carries is
+much smaller than other major rivers. The Nile has two major
+tributaries: the White Nile and the Blue Nile. Geologically, the Nile is
+a young river and has followed its present course for only 15,000 years.
+The Nile was the foundation of the ancient Egyptian civilization, which
+relied on the river for nearly every aspect of life. Many Europeans were
+fascinated by the Nile, and their explorations around Lake Victoria in
+the late 19th century located the source of the river. The Nile plays a
+critical role in the economies of Egypt and Sudan, which rely on it for
+irrigation. More than a dozen dams have been built in the Nile Basin,
+altering the river's annual flood cycle and restricting the transport of
+silt downstream to the Nile Delta. (Full article...).
+ </p>
+ <p>
+  Read more:
+  <a href="https://en.wikipedia.org/wiki/Nile">
+   https://en.wikipedia.org/wiki/Nile
+  </a>
+ </p>
+ <hr/>
+ <p>
+  Today's selected anniversaries:
+ </p>
+ <p>
+  1882:
+ </p>
+ <p>
+  Boer mercenaries established the Republic of Stellaland (later
+flag pictured) in land claimed by the United Kingdom as part of British
+Bechuanaland.
+  <a href="https://en.wikipedia.org/wiki/Stellaland">
+   https://en.wikipedia.org/wiki/Stellaland
+  </a>
+ </p>
+ <p>
+  1953:
+ </p>
+ <p>
+  The Battle of the Samichon River, the last engagement of the
+Korean War, ended a few hours before the signing of the Korean Armistice
+Agreement.
+  <a href="https://en.wikipedia.org/wiki/Battle_of_the_Samichon_River">
+   https://en.wikipedia.org/wiki/Battle_of_the_Samichon_River
+  </a>
+ </p>
+ <p>
+  1968:
+ </p>
+ <p>
+  After coming second to Nguyễn Văn Thiệu in a rigged
+presidential election, Trương Đình Dzu was jailed by a South
+Vietnamese military court for illicit currency transactions.
+  <a href="https://en.wikipedia.org/wiki/Tr%C6%B0%C6%A1ng_%C4%90%C3%ACnh_Dzu">
+   https://en.wikipedia.org/wiki/Tr%C6%B0%C6%A1ng_%C4%90%C3%ACnh_Dzu
+  </a>
+ </p>
+ <p>
+  2012:
+ </p>
+ <p>
+  The New Irish Republican Army was formed from a merger of a
+number of dissident republican militant groups.
+  <a href="https://en.wikipedia.org/wiki/New_Irish_Republican_Army">
+   https://en.wikipedia.org/wiki/New_Irish_Republican_Army
+  </a>
+ </p>
+ <hr/>
+ <p>
+  Wiktionary's word of the day:
+ </p>
+ <p>
+  first strike:
+1. (military) An attack (typically nuclear) launched without warning in
+the absence of a prior attack by one's opponent, with the intention of
+destroying one's opponent's ability to retaliate.
+2. (criminal law) A first offense by a lawbreaker, as counted by a
+three-strikes law.
+3. (numismatics) One of the first few coins struck from a new set of
+dies.
+4. About Word of the Day
+5. Nominate a word
+6. Leave feedback
+  <a href="https://en.wiktionary.org/wiki/first_strike">
+   https://en.wiktionary.org/wiki/first_strike
+  </a>
+ </p>
+ <hr/>
+ <p>
+  Wikiquote quote of the day:
+ </p>
+ <p>
+  The pendulum of the mind oscillates between sense and nonsense, not
+between right and wrong. The numinosum is dangerous because it lures men
+to extremes, so that a modest truth is regarded as the truth and a minor
+mistake is equated with fatal error.
+  --Carl Jung
+  <a href="https://en.wikiquote.org/wiki/Carl_Jung">
+   https://en.wikiquote.org/wiki/Carl_Jung
+  </a>
+ </p></div></div>
+      
+    </article>
+    
+  </body>
+</html>
