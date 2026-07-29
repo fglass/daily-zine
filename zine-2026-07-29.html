@@ -1,0 +1,542 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Fred Talks - 2026-07-29</title>
+    <style>
+      @page {
+        size: A5;
+        margin: 8mm 9mm 9mm;
+      }
+
+      :root {
+        color: #111;
+        font-family: "Times New Roman", Times, serif;
+        --body-text-size: 9.5pt;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        color: #111;
+        background: #fff;
+        font-family: "Times New Roman", Times, serif;
+        line-height: 1.45;
+      }
+
+      a,
+      a:visited {
+        color: #111;
+        text-decoration: underline;
+      }
+
+      .cover {
+        min-height: calc(210mm - 17mm);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        page-break-after: always;
+        border: 1px solid #111;
+        padding: 8mm;
+        background: #fff;
+      }
+
+      .toc-item-meta,
+      .article-meta {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .masthead {
+        margin: 0;
+        font-size: 40pt;
+        line-height: 0.95;
+        text-transform: uppercase;
+      }
+
+      .issue-date {
+        margin: 4mm 0 0;
+        font-size: 14pt;
+      }
+
+      .issue-date sup {
+        font-size: 0.58em;
+        vertical-align: super;
+        line-height: 0;
+      }
+
+      .cover-deck {
+        max-width: 90mm;
+        font-size: 12pt;
+        margin: 0;
+      }
+
+      .toc {
+        border-top: 3px solid #111;
+        padding-top: 6mm;
+      }
+
+      .toc h2 {
+        margin: 0 0 4mm;
+        font-size: 11pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .toc-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .toc-item {
+        padding: 3mm 0;
+        border-bottom: 1px solid rgba(17, 17, 17, 0.2);
+      }
+
+      .toc-item-title {
+        font-size: 12pt;
+        margin: 0 0 1mm;
+      }
+
+      .toc-item-meta {
+        font-size: 8pt;
+      }
+
+      .masthead-compact {
+        margin: 0 0 6mm;
+      }
+
+      .masthead-compact h1 {
+        margin: 0;
+        font-size: 22pt;
+        line-height: 1.1;
+        text-transform: uppercase;
+      }
+
+      .masthead-compact .issue-date {
+        margin: 2mm 0 0;
+        font-size: 11pt;
+      }
+
+      .toc-compact {
+        border-top: 1px solid #111;
+        border-bottom: 1px solid #111;
+        padding: 4mm 0;
+        margin: 0 0 8mm;
+      }
+
+      article + article {
+        margin-top: 10mm;
+        padding-top: 6mm;
+        border-top: 2px solid #111;
+      }
+
+      h1 {
+        margin: 0 0 2mm;
+        font-size: 18pt;
+        line-height: 1.1;
+      }
+
+      .article-meta {
+        font-size: 8.5pt;
+        margin-bottom: 6mm;
+        padding-bottom: 3mm;
+        border-bottom: 1px solid #111;
+      }
+
+      .article-body {
+        font-size: var(--body-text-size);
+        font-family: "Times New Roman", Times, serif;
+      }
+
+      .article-body p,
+      .article-body li,
+      .article-body blockquote,
+      .article-body dd,
+      .article-body dt {
+        margin: 0 0 4mm;
+        orphans: 3;
+        widows: 3;
+      }
+
+      .article-body ul,
+      .article-body ol,
+      .article-body dl {
+        margin: 0 0 4mm 5mm;
+        padding: 0;
+      }
+
+      .article-body h2,
+      .article-body h3,
+      .article-body h4 {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        margin: 7mm 0 3mm;
+        line-height: 1.2;
+      }
+
+      .article-body blockquote {
+        margin-left: 6mm;
+        padding-left: 4mm;
+        border-left: 2px solid #111;
+      }
+
+      .article-body .media-omitted {
+        margin: 0 0 4mm;
+        font-size: 8.5pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(17, 17, 17, 0.65);
+      }
+
+      .article-body figure,
+      .article-body .article-figure,
+      .article-body picture,
+      .article-body .article-picture {
+        display: block;
+        max-width: 72mm;
+        margin: 0 auto 4mm;
+        break-inside: avoid;
+      }
+
+      .article-body img,
+      .article-body .article-image {
+        display: block;
+        max-width: min(100%, 72mm);
+        max-height: 34mm;
+        height: auto;
+        width: auto;
+        object-fit: contain;
+        margin: 0 auto 3mm;
+      }
+
+      .article-body figcaption {
+        margin-top: 1.5mm;
+        font-size: 8.5pt;
+        line-height: 1.3;
+        color: rgba(17, 17, 17, 0.8);
+      }
+
+      .article-note {
+        margin-top: 6mm;
+        padding-top: 3mm;
+        border-top: 1px solid #111;
+        font-size: 9pt;
+        font-style: italic;
+      }
+
+      @media screen {
+        body {
+          padding: 2rem;
+          margin: 0 auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    
+    <header class="masthead-compact">
+      <h1>Fred Talks</h1>
+      <p class="issue-date">
+        29<sup>th</sup> July 2026
+      </p>
+    </header>
+
+    <nav class="toc toc-compact">
+      <h2>Contents</h2>
+      <ol class="toc-list">
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Porting 100k lines from TypeScript to Rust using Claude Code in a month</div>
+          <div class="toc-item-meta">
+            vjeux · 3302 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Getting Real About Distributed System Reliability</div>
+          <div class="toc-item-meta">
+            boredandroid · 2792 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">[Daily article] July 29: Tiger</div>
+          <div class="toc-item-meta">
+            English Wikipedia Article of the Day · 376 words
+          </div>
+        </li>
+        
+      </ol>
+    </nav>
+    
+
+    
+    <article>
+      <h1>Porting 100k lines from TypeScript to Rust using Claude Code in a month</h1>
+      <div class="article-meta">
+        vjeux
+        · 26 Jan 2026 · <a href="https://blog.vjeux.com/2026/analysis/porting-100k-lines-from-typescript-to-rust-using-claude-code-in-a-month.html">Source</a>
+      </div>
+      <div class="article-body"><div><p>I read <a href="https://www.linkedin.com/posts/galenh_principal-software-engineer-coreai-microsoft-activity-7407863239289729024-WTzf/">this post</a> “Our strategy is to combine AI <em>and</em> Algorithms to rewrite Microsoft’s largest codebases [from C++ to Rust]. Our North Star is ‘1 engineer, 1 month, 1 million lines of code.” and it got me curious, how difficult is it really?</p>
+<p>I've long wanted to build a competitive Pokemon battle AI after watching a lot of <a href="https://www.youtube.com/watch?v=qR9nMPr7o5Q">WolfeyVGC</a> and following the <a href="https://pokeagent.github.io/">PokéAgent challenge</a> at NeurIPS. Thankfully there's an open source project called "<a href="https://github.com/smogon/pokemon-showdown">Pokemon Showdown</a>" that implements all the rules but it's written in JavaScript which is quite slow to run in a training loop. So my holiday project came to life: let's convert it to Rust using Claude!</p>
+<h2>Escaping the sandbox</h2>
+<p>Having the AI able to run arbitrary code on your machine is dangerous, so there's a lot of safeguards put in place. But... at the same time, this is what I want to do in this case. So let me walk through the ways I escaped the various sandboxes.</p>
+<h3>git push</h3>
+<p>Claude runs in a sandbox that limits some operations like ssh access. You need ssh access in order to publish to GitHub. This is very important as I want to be able to check how the AI is doing from my phone while I do some other activities <img alt="😉" class="wp-smiley article-image" src="https://s.w.org/images/core/emoji/11.2.0/72x72/1f609.png" style="height: 1em;"/></p>
+<figure class="wp-block-image article-figure"><img alt="" class="wp-image-5578 article-image" src="https://blog.vjeux.com/wp-content/uploads/2026/01/image-1.png"/></figure>
+<p>What I realized is that I can run the code on my terminal but Claude cannot do it from its own terminal. So what I did was to ask Claude to write a nodejs script that opens an http server on a local port that executes the git commands from the url. Now I just need to keep a tab open on my terminal with this server active and ask Claude to write instructions in Claude.md for it to interact with it.</p>
+<h3>rustc</h3>
+<p>There's an antivirus on my computer that requires a human interaction when an unknown binary is being ran. Since every time we compile it's a new unknown binary, this wasn't going to work.</p>
+<p>What I found is that I can setup a local docker instance and compile + run the code inside of docker which doesn't trigger the antivirus. Again, I asked Claude to generate the right instructions in Claude.md and problem solved.</p>
+<p>The next hurdle was to figure out how to let Claude Code for hours without any human intervention.</p>
+<h3>--yes</h3>
+<p>Claude keeps asking for permission to do things. I tried adding a bunch of things to the allowed commands file and <code>--allow-dangerously-skip-permissions --dangerously-skip-permissions</code>was disabled in my environment (it has now been resolved).</p>
+<p>I realized that I could run an AppleScript that presses enter every few seconds in another tab. This way it's going to say Yes to everything Claude asks to do. So far it hasn't decided to hack my computer...</p>
+<pre class="wp-block-code"><code>#!/bin/bash
+
+osascript -e \
+'tell application "System Events"
+    repeat
+        delay 5
+        key code 36
+    end repeat
+end tell'</code></pre>
+<h3>Never give up</h3>
+<p>Claude after working for some time seem to always stop to recap things. I tried prompting it to never do, even threatening it to no avail.</p>
+<figure class="wp-block-image article-figure"><img alt="" class="wp-image-5579 article-image" src="https://blog.vjeux.com/wp-content/uploads/2026/01/image-2.png"/></figure>
+<p>I tried using the Ralph Wiggum loop but it <a href="https://x.com/Vjeux/status/2007545697193890024">couldn't get it to work</a> and apparently I'm not alone.</p>
+<p>What ended up working is to copy in my clipboard the task I wanted it to do and to tweak the script above to hit the keys "cmd-v" after pressing enter. This way in case it asks a question the "enter" is being used and in case it's not it's queuing the prompt for when Claude is giving back control.</p>
+<h3>Auto-updates</h3>
+<p>There are programs on the computer like software updater that can steal the focus from the terminal window, for example showing a modal. Once that happens, then the cmd-v / enter are no longer sent to the terminal and the execution stops.</p>
+<figure class="wp-block-image article-figure"><img alt="" class="wp-image-5575 article-image" src="https://blog.vjeux.com/wp-content/uploads/2025/12/image.png"/><figcaption><br/></figcaption></figure>
+<p>I used my trusty Auto Clicker by MurGaa from Minecraft days to simulate a left click every few seconds. I place my terminal on the edge of the screen and same for my mouse so that when a modal appears in the middle, it refocuses the terminal correctly.</p>
+<p>It also prevents the computer from going to sleep so that it can run even when I'm not using the laptop or at night.</p>
+<h3>Bugs <img alt="🐜" class="wp-smiley article-image" src="https://s.w.org/images/core/emoji/11.2.0/72x72/1f41c.png" style="height: 1em;"/></h3>
+<p>Reliability when running things for a long period of time is paramount. Overall it's been a pretty smooth ride but I ran into this specific error during a handful of nights which stopped the process. I hope they get to the bottom of it and solve it as I'm not the only one to <a href="https://github.com/anthropics/claude-code/issues/16368">report it</a>!</p>
+<figure class="wp-block-image article-figure"><img alt="" class="wp-image-5580 article-image" src="https://blog.vjeux.com/wp-content/uploads/2026/01/image-3.png"/></figure>
+<p>This setup is far from optimal but has worked so far. Hopefully this gets streamlined in the future!</p>
+<h2>Porting Pokemon</h2>
+<h3>One Shot</h3>
+<p>At the very beginning, I started with a simple prompt asking Claude to port the codebase and make sure that things are done line by line. At first it felt extremely impressive, it generated thousands of lines of Rust that was compiling.</p>
+<p>Sadly it was only an appearance as it took a lot of shortcuts. For example, it created two different structures for what a move is in two different files so that they would both compile independently but didn't work when integrated together. It ported all the functions very loosely where anything that was remotely complicated would not be ported but instead "simplified".</p>
+<p>I didn't realize it yet, I got the loop working to have it port more and more code. The issue is that it created wrong abstractions all over the place and kept adding hardcoded code to make whatever it was supposed to fix work. This wasn't going to go anywhere.</p>
+<h3>Giving it structure</h3>
+<p>At this point I knew that I needed to be a lot more prescriptive for what I wanted out of it. Taking a step back, the end result should have every JavaScript file and every method inside to have a Rust equivalent.</p>
+<p>So I asked Claude to write a script that takes all the files and methods in the JavaScript codebase and put comments in the rust codebase with the JavaScript source, next to the Rust methods.</p>
+<p>It was really important for it to be a script as even when instructed to copy code over, it would mistranslate JavaScript code. Being deterministic here greatly increased the odds of getting the right results.</p>
+<figure class="wp-block-image article-figure"><img alt="" class="wp-image-5581 article-image" src="https://blog.vjeux.com/wp-content/uploads/2026/01/image-4.png"/></figure>
+<h3>Litte Islands</h3>
+<p>The next challenge is that the original files were thousands of lines long, double it with source comments we got to files more than 10k lines long. This causes a ton of issues with the context window where Claude straight up refuses to open the file. So it started reading the file in chunks but without a ton of precision. Also the context grew a lot quicker and compaction became way more frequent.</p>
+<p>So I went ahead and split every method into its own file for the Rust version. This dramatically improved the results. For maximal efficiency I would need to do the same for the JavaScript codebase as well but I was too afraid to do it and accidentally change the behavior so decided not to.</p>
+<div class="wp-block-image"><figure class="aligncenter is-resized article-figure"><img alt="" class="wp-image-5582 article-image" height="305" src="https://blog.vjeux.com/wp-content/uploads/2026/01/image-5.png" width="143"/></figure></div>
+<h3>Cleanup</h3>
+<p>The process of porting went through two repeating phases. I would give a large task to Claude to do in a loop that would churn on it for a day, and then I would need to spend time cleaning up the places where it went into the wrong direction.</p>
+<p>For the cleanup, I still used Claude but gave a lot more specific recommendations. For example, I noticed that it would hardcode moves/abilities/items/... behaviors everywhere in the code when left unchecked, even after explicitly telling it not to. So I would manually look for all these and tell it to move them into the right places.</p>
+<p>This is where engineering skills come into play, all my experience building software let me figure out what went wrong and how to fix it. The good part is that I didn't have to do the cleanup myself, Claude was able to do it just fine when directed to.</p>
+<h2>Integration</h2>
+<h3>Build everything before testing</h3>
+<p>So far, I just made sure that the code compiled, but have never actually put all the pieces together to ensure it actually worked. What Claude really wanted was to do a traditional software building strategy where you make "simple" implementations of all of the pieces and then build them up as time goes.</p>
+<p>But in our case, all this iteration has already happened for 10 years on the pokemon-showdown codebase. It's counter productive to try and re-learn all these lessons and will unlikely converge the same way. What works better is to port everything at once, and then do the integration at the end once.</p>
+<p>I've learned this strategy from working on Skip, a compiler. For years all the building blocks were built independently and then it all came together with nothing to show for but within a month at the end it all worked. I was so shocked.</p>
+<h3>End-to-end test</h3>
+<p>Once most of the codebase was ported one to one, I started putting it all together. The good thing is that we can run and edit the code in JavaScript and in Rust, and the input/output is very simple and standardized: list of pokemons with their options (moves, items, nature, iv/ev spread...) and then the list of actions at each step (moves and switches). Given the same random sequence, it'll advance the state the same way.</p>
+<p>Now I can let Claude generate this testing harness and go through all the issues one by one. Impressively, it was able to figure out all issues and fix them.</p>
+<figure class="wp-block-image article-figure"><img alt="" class="wp-image-5576 article-image" src="https://blog.vjeux.com/wp-content/uploads/2026/01/image.png"/></figure>
+<p>Over the course of 3 weeks it averaged fixing one issue every 20 minutes or so. It fixed hundreds of issues on its own. I never intervened, it was only a matter of time before it fixed every issue that it encountered.</p>
+<div class="wp-block-image"><figure class="aligncenter is-resized article-figure"><img alt="Image" height="529" src="https://pbs.twimg.com/media/G-rvZkbXYAAoWbm?format=jpg&amp;name=large" width="259" class="article-image"/></figure></div>
+<h3>Giving it structure</h3>
+<p>At the beginning, this process was extremely slow. Every time a compaction happened, Claude became "dumb" again and reinvented the wheel, writing down tons of markdown files and test scripts along the way. Or Claude decided to take the easy way out and just generate tons of tests but never actually making them match with JavaScript.</p>
+<p>So, I started looking at what it did well and encoding it. For example, it added a lot of debugging around the PRNG steps and what actions happened at every turn with all the debugging metadata. So I asked it to create a single test script to print down this information for a single step and to print stack traces. Then add instruction to the Claude.md file. This way every investigation started right away.</p>
+<h3>The long slog</h3>
+<p>I built used the existing random number generator to generate battles and could put in a number as a seed. This let me generate consistent battles at an increasing size.</p>
+<p>I started fixing the first 100 battles, then 1000, 10k, 100k and I'm almost done solving all the issues for the first 2.4 million battles! I'm not sure how many more issues there are but the good thing is that they are getting smaller and smaller as the batch size increases.</p>
+<figure class="wp-block-image article-figure"><img alt="" class="wp-image-5583 article-image" src="https://blog.vjeux.com/wp-content/uploads/2026/01/image-6.png"/></figure>
+<h3>Types of issues</h3>
+<p>There are two broad classes of issues that were fixed. The first one that I expected is that Rust has different constraints than JavaScript which need to be taken into account and lead to bugs:</p>
+<ul><li>Rust has the "borrow checker" where a mutable variable cannot be passed in two different contexts at once. The problem is that "Pokemon" and "Battle" have references to each others. So there's a lot of workarounds like doing copies, passing indices instead of the object, providing functions with mutable object as callback...</li><li>The JavaScript codebase uses dynamism heavily where some function return '', undefined, null, 0, 1, 5.2, Pokemon... which all are handled with different behaviors. At first the rust port started using Option&lt;&gt; to handle many of them but then moved to structs with all these variants.</li><li>Rust doesn't support optional arguments so every argument has to be spelled out literally.</li></ul>
+<p>But the second one are due to itself... Claude Code is like a smart student that is trying to find every opportunity to avoid doing the hard work and take the easy way out if it thinks it can get away with it.</p>
+<ul><li>If a fix requires changing more than one or two files, this is a "significant infrastructure" and Claude Code will refuse to do it unless explicitly prompted and will put in whatever hacks it can to make the specific test work.</li><li>Along the same lines, it is going to implement "simplified" versions of things. For some methods, it was better to delete everything and asking it to port it over from scratch than trying to fix all the existing code it created.</li><li>The JavaScript comments are supposed to be the source of truth. But Claude is not above changing the original code if it feels like this is the way to solve the problem...</li><li>If given a list of tasks, it's going to avoid doing the ones that seem difficult until it is absolutely forced to. This is inefficient if not careful as it's going to keep spending time investigating and then skipping all the "hard" ones. Compaction is basically wiping all its memory.</li></ul>
+<h2>Prompts</h2>
+<p>I didn't write a single line of code myself in this project. I alternated between "co-op" where I work with Claude interactively during the day and creating a job for it to run overnight. I'll focus on the night ones for this section.</p>
+<h3>Conversion</h3>
+<p>For the first phase of the project, I mostly used variations of this one. Asking it to go through all the big files one by one and implement them faithfully (it didn't really follow instructions as we've seen later...)</p>
+<blockquote class="wp-block-quote"><p>Open BATTLE_TODO.md to get the list of all the methods in both battle*.rs.<br/>Inspect every single one of them and make sure that they are a direct translation the JavaScript file. If there's a method with the same name, the JavaScript definition will be in the comment.<br/>If there's no JavaScript definition, question whether this method should be there in the rust version. Our goal is to follow as closely as possible the JavaScript version to avoid any bugs in translation. If you notice that the implementation doesn't match, do all the refactoring needed to match 1 to 1.<br/>This will be a complex project. You need to go through all the methods one by one, IN ORDER. YOU CANNOT skip a method because it is too hard or would requiring building new infrastructure. We will call this in a loop so spend as much time as you need building the proper infrastructure to make it 1 to 1 with the JavaScript equivalent. Do not give up.<br/>Update BATTLE_TODO.md and do a git commit after each unit of work.<br/></p></blockquote>
+<h3>Todos</h3>
+<p>Claude Code while porting the methods one by one often decided to write a "simplified" version or add a "TODO" for later. I also found it to be useful when generating work to add the instructions in the codebase itself via a TODO comment, so I don't need to wish that it's going to be read from the context.</p>
+<p>The master md file in practice didn't really work, it quickly became too big to be useful and Claude started creating a bunch more littering the repo with them. Instead I gave it a deterministic way to go through then by calling grep on the codebase, so it knew when to find them.</p>
+<blockquote class="wp-block-quote"><p>We want to fix every TODO in the codebase. <code>TODO</code> or <code>simplif</code> in pokemon-showdown-rs/.<br/>There are hundreds of them, so go diligently one by one. Do not skip them even if they are difficult. I will call this prompt again and again so you don't need to worry about taking too long on any single one.<br/>The port must be exactly one to one. If the infrastructure doesn't exist, please implement it. Do not invent anything.<br/>Make sure it still compiles after each addition and commit and push to git.</p></blockquote>
+<p>At some point the context was poisoned where a TODO was inside of the original js codebase so it changed it to something else which made sense. But then it did the same for all the subsequent TODOs which didn't... Thankfully I could just revert all these commits.</p>
+<h3>Fixing</h3>
+<p>I put in all the instructions to debug in Claude.md and a script to run all the tests which outputs a txt file with progress report. This way Claude was able to just keep going fixing issues after issues.</p>
+<blockquote class="wp-block-quote"><p>We want to fix all the divergences in battles. Please look at 500-seeds-results.txt and fix them one by one. The only way you can fix is by making sure that the differences between javascript and rust are explained by language differences and not logic. Every line between the two must match one by one. If you fixed something specific, it's probably a larger issue, spend the time to figure out if other similar things are broken and do the work to do the larger infrastructure fixes. Make sure it still compiles after each addition and commit and push to git. Check if there are other parts of the codebase that make this mistake.</p></blockquote>
+<p>This is really useful to have this txt file diff committed to GitHub to get a sense of progress on the go!</p>
+<div class="wp-block-image"><figure class="aligncenter is-resized article-figure"><img alt="Image" height="499" src="https://pbs.twimg.com/media/G-cKrxvaoAAGAYA?format=jpg&amp;name=large" width="231" class="article-image"/></figure></div>
+<h2>Epilogue</h2>
+<h3>It works <img alt="🤯" class="wp-smiley article-image" src="https://s.w.org/images/core/emoji/11.2.0/72x72/1f92f.png" style="height: 1em;"/></h3>
+<p>I didn't quite know what to expect coming into this project. They usually tend to die due to the sheer amount of work needed to get anywhere close to something complete. But not this time!</p>
+<p>We have a complete implementation of Pokemon battle system that produces the same results as the existing JavaScript codebase*. This was done through 5000 commits in 4 weeks and the Rust codebase is around 100k lines of code.</p>
+<p>*I wish we had 0 divergences but right now there are 80 out of the first 2.4 million seeds or 0.003%. I need to run it for longer to solve these.</p>
+<h3>Is it fast?</h3>
+<p>The whole point of the project was for it to be faster than the initial JavaScript implementation. Only towards the end of the project where we had a sizable amount of battles running perfectly I felt like it would be a fair time to do a performance comparison.</p>
+<p>I asked Claude Code to parallelize both implementations and was relieved by the results, the Rust port is actually significantly faster, I didn't spend all this time for nothing!</p>
+<figure class="wp-block-image article-figure"><img alt="Image" src="https://pbs.twimg.com/media/G-zV6MgWAAAQMt4?format=jpg&amp;name=large" class="article-image"/></figure>
+<p>I've tried asking Claude to optimize it further, it created <a href="https://github.com/vjeux/pokemon-showdown-rs/blob/master/PERFORMANCE.md">a plan that looks reasonable</a> (I've never interacted with Rust in my life) and it spent a day building many of these optimizations but at the end of the day, none of them actually improved the runtime and some even made it way worse.</p>
+<p>This is a good example of how experience and expertise is still very required in order to get the best out of LLMs.</p>
+<h2>Conclusion</h2>
+<p>This is pretty wild that I was able to port a ~100k lines codebase from JavaScript to Rust in two weeks on my own with Claude Code running 24 hours a day for a month <a href="https://github.com/vjeux/pokemon-showdown-rs/commits/master/">creating 5k commits</a>! I have never written any line of Rust before in my life.</p>
+<p>LLM-based coding agents are such a great new tool for engineers, there's no way I would have been able to do that without Claude Code. That said, it still feels like a tool that requires my engineering expertise and constant babysitting to produce these results.</p>
+<p>Sadly I didn't get to build the Pokemon Battle AI and the winter break is over, so if anybody wants to do it, please <a href="https://github.com/vjeux/pokemon-showdown-rs/commits/master/">have fun with the codebase</a>!</p></div></div>
+      
+    </article>
+    
+    <article>
+      <h1>Getting Real About Distributed System Reliability</h1>
+      <div class="article-meta">
+        boredandroid
+        · 01 Mar 2026 · <a href="https://blog.empathybox.com/post/19574936361/getting-real-about-distributed-system-reliability">Source</a>
+      </div>
+      <div class="article-body"><p>There is a lot of hype around distributed data systems, some of it justified. It&rsquo;s true that the internet has centralized a lot of computation onto services like Google, Facebook, Twitter, LinkedIn (my own employer), and other large web sites. It&rsquo;s true that this centralization puts a lot of pressure on system scalability for these companies. Its true that incremental and horizontal scalability is a <i>deep</i> feature that requires redesign from the ground up and can&rsquo;t be added incrementally to existing products. It&rsquo;s true that, if properly designed, these systems can be run with no <i>planned</i> downtime or maintenance intervals in a way that traditional storage systems make harder. It&rsquo;s also true that software that is explicitly designed to deal with machine failures is a very different thing from traditional infrastructure. All of these properties are critical to large web companies, and are what drove the adoption of horizontally scalable systems like <a href="https://href.li/?http://hadoop.apache.org/">Hadoop</a>, <a href="https://href.li/?http://cassandra.apache.org/">Cassandra</a>, <a href="https://href.li/?http://project-voldemort.com/">Voldemort</a>, etc. I was the original author of Voldemort and have worked on distributed infrastructure for the last four years or so. So in-so-far as there is a &ldquo;big data&rdquo; debate, I am firmly in the &ldquo;pro-&rdquo; camp. But one thing you often hear is that this kind of software is more reliable than the traditional alternatives it replaces, and this just isn&rsquo;t true. It is time people talked honestly about this.</p>
+<p>You hear this assumption of reliability everywhere. Now that scalable data infrastructure has a marketing presence, it has really gotten bad. Hadoop or Cassandra or what-have-you can tolerate machine failures then they must be unbreakable right? Wrong.</p>
+<p>Where does this come from? Distributed systems need to partition data or state up over lots of machines to scale. Adding machines increases the probability that some machine will fail, and to address this these systems typically have some kind of replicas or other redundancy to tolerate failures. The core argument that gets used for these systems is that if a single machine has probability <i>P</i> of failure, and if the software can replicate data <i>N</i> times to survive <i>N</i>-1 failures, and if the machines fail <i>independently</i>, then the probability of losing a particular piece of data must be <i>P<sup>N</sup></i>. So for any desired reliability <i>R</i> and any single-node failure probability <i>P</i> you can pick some replication <i>N</i> so that <i>P<sup>N</sup> &lt; R</i>. This argument is the core motivation behind most variations on replication and fault tolerance in distributed systems. It is true that without this property the system would be hopelessly unreliable as it grew. But this leads people to believe that distributed software is somehow innately reliable, which unfortunately is utter hogwash.</p>
+<p>Where is the flaw in the reasoning? Is it the <a href="https://href.li/?http://hadoop.apache.org/common/docs/current/hdfs_design.html#Metadata+Disk+Failure">dreaded Hadoop single points of failure</a>? No, it is far more fundamental than that: the problem is the assumption that failures are <a href="https://href.li/?http://en.wikipedia.org/wiki/Independence_%28probability_theory%29">independent</a>. Surely no belief could possibly be more counter to our own experience or just common sense than believing that there is no correlation between failures of machines in a cluster. You take a bunch of pieces of identical hardware, run them on the same network gear and power systems, have the same people run and manage and configure them, and run the same (buggy) software on all of them. It would be incredibly unlikely that the failures on these machines would be independent of one another in the probabilistic sense that motivates a lot of distributed infrastructure. If you see a bug on one machine, the same bug is on all the machines. When you push bad config, it is usually game over no matter how many machines you push it to.</p>
+<p><i>P<sup>N</sup></i> is an upper bound on reliability but one that you could never, never approach in practice. For example Google has <a href="https://href.li/?http://research.google.com/pubs/archive/36737.pdf">a fantastic paper</a> that gives empirical numbers on system failures in Bigtable and GFS and reports empirical data on groups of failures that show rates several orders of magnitude higher than the independence assumption would predict. This is what one of the best system and operations teams in the world can get: your numbers may be far worse.</p>
+<p>The actual reliability of your system depends largely on how bug free it is, how good you are at monitoring it, and how well you have protected against the myriad issues and problems it has. This isn&rsquo;t any different from traditional systems, except that the new software is far less mature. I don&rsquo;t mean this disparagingly, I work in this area, it is just a fact. Maturity comes with time and usage and effort. This software hasn&rsquo;t been around for as long as MySQL or Oracle, and worse, the expertise to run it reliably is much less common. MySQL and Oracle administrators are plentiful, but folks experience with, say, serious production Zookeeper operations knowledge are much more rare.</p>
+<p>Kernel filesystem engineers say it takes about a decade for a new filesystem to go from concept to maturity. I am not sure these systems will be mature much faster&mdash;they are not easier systems to build and the fundamental design space is much less well explored. This doesn&rsquo;t mean they won&rsquo;t be <i>useful</i> sooner, especially in domains where they solve a pressing need and are approached with an appropriate amount of caution, but they are not yet by any means a mature technology.</p>
+<p>Part of the difficulty is that distributed system software is actually quite complicated in comparison to single-server code. Code that deals with failure cases and is &ldquo;cluster aware&rdquo; is extremely tricky to get right. The root of the problem is that dealing with failures effectively explodes the possible state space that needs testing and validation. For example it doesn&rsquo;t even make sense to expect a single-node database to be fast if its disk system suddenly gets really slow (how could it), but a distributed system does need to carry on in the presence of single degraded machine because it has some many machines, one is sure to be degraded. These kind of &ldquo;semi-failures&rdquo; are common and very hard to deal with. Correctly testing these kinds of issues in a realistic setting is brutally hard and the newer generation of software doesn&rsquo;t have anything like the QA processes its more mature predecessors had. (If you get a chance get someone who has worked at Oracle to describe to you what kind of testing they do to a line of code that goes into their database before it gets shipped to customers). As a result there are a lot of bugs. And of course these bugs are on all the machines, so they absolutely happen together.</p>
+<p>Likewise distributed systems typically require more configuration and more complex configuration because they need to be cluster aware, deal with timeouts, etc. This configuration is, of course, shared; and this creates yet another opportunity to bring everything to its knees.</p>
+<p>And finally these systems usually want lots of machines. And no matter how good you are, some part of operational difficulty always scales with the number of machines.</p>
+<p>Let&rsquo;s discuss some real issues. We had a bug in <a href="https://href.li/?http://incubator.apache.org/kafka">Kafka</a> recently that lead to the server incorrectly interpreting a corrupt request as a corrupt log, and shutting itself down to avoid appending to a corrupt log. Single machine log corruption is the kind of thing that should happen due to a disk error, and bringing down the corrupt node is the right behavior&mdash;it shouldn&rsquo;t happen on all the machines at the same time unless all the disks fail at once. But since this was due to corrupt <i>requests</i>, and since we had one client that sent corrupt requests, it was able to sequentially bring down all the servers. Oops. Another example is <a href="https://href.li/?https://rhn.redhat.com/errata/RHBA-2012-0124.html">this Linux bug</a> which causes the system to crash after ~200 days of uptime. Since machines are commonly restarted sequentially this lead to a situation where a large percentage of machines went hard down one after another. Likewise any memory management problems&mdash;either leaks or GC problems&mdash;tend to happen everywhere at once or not at all. Some companies do public post-mortums for major failures and these are a real wealth of failures in systems that aren&rsquo;t supposed to fail. <a href="https://href.li/?http://static.usenix.org/publications/login/2012-02/pdfs/Chansler.pdf">This paper</a> has an excellent summary of HDFS availability at Yahoo&mdash;they note how few of the problems are of the kind that high availability for the namenode would solve. This list could go on, but you get the idea.</p>
+<p>I have come around to the view that the real core difficulty of these systems is operations, not architecture or design. Both are important but good operations can often work around the limitations of bad (or incomplete) software, but good software cannot run reliably with bad operations. This is quite different from the view of unbreakable, self-healing, self-operating systems that I see being pitched by the more enthusiastic NoSQL hypesters. Worse yet, you can&rsquo;t easily buy good operations in the same way you can buy good software&mdash;you might be able to hire good people (if you can find them) but this is more than just people; it is practices, monitoring systems, configuration management, etc.</p>
+<p>These difficulties are one of the core barriers to adoption for distributed data infrastructure. LinkedIn and other companies that have a deep interest in doing creative things with data have taken on the burden of building this kind of expertise in-house&mdash;we employ committers on Hadoop and other open source projects on both our engineering and operations team, and have done a lot of <a href="https://href.li/?http://sna-projects.com">from-scratch development</a> in this space where there was gaps. This makes it feasible to take full advantage of an admittedly valuable but immature set of technologies, and let&rsquo;s us build products we couldn&rsquo;t otherwise&mdash;but this kind of investment only makes sense at a certain size and scale. It may be too high a cost for small startups or companies outside the web space trying to bootstrap this kind of knowledge inside a more traditional IT organization.</p>
+<p>This is why people should be excited about things like Amazon&rsquo;s <a href="https://t.umblr.com/redirect?z=http%3A%2F%2Faws.amazon.com%2Fdynamodb%2F&amp;t=N2JhMjQ3NzNkZWE5NWI5NmNhOGM3ZTIxYWZlNzQ1ZjhlYjQ2M2RmMCw1c3RubnpOUw%3D%3D&amp;b=t%3AcGHjsYEIBU8OoED070vcaw&amp;p=https%3A%2F%2Fblog.empathybox.com%2Fpost%2F19574936361%2Fgetting-real-about-distributed-system-reliability&amp;m=1&amp;ts=1632268146">DynamoDB</a>. When DynamoDB was released, the company DataStax that supports and leads development on Cassandra released <a href="https://href.li/?http://nosql.mypopescu.com/post/16065241917/cassandra-and-amazon-dynamodb-comparison">a feature comparison checklist</a>. The checklist was unfair in many ways (as these kinds of vendor comparisons usually are), but the biggest thing missing in the comparison is that <i>you</i> don&rsquo;t run DynamoDB, Amazon does. That is a huge, huge difference. Amazon is good at this stuff, and has shown that they can (usually) support massively multi-tenant operations with reasonable SLAs, <i>in practice</i>.</p>
+<p>I really think there is really only one thing to talk about with respect to reliability: continuous hours of successful production operations. That&rsquo;s it. In some ways the most obvious thing, but not typically what you hear when people talk about these systems. I will believe the system can tolerate (some) failures when I see it tolerate those failures; I believe it can run for a year without downtime when i see it run for a year without downtime. I call this empirical reliability (as opposed to theoretical reliability). And getting good empirical reliability is really, really hard. These systems end up being large hunks of monitoring, tests, and operational procedures with a teeny little distributed system strapped to the back.</p>
+<p>You see this showing up in discussions of the <a href="https://href.li/?http://en.wikipedia.org/wiki/CAP_theorem">CAP theorem</a> all the time. The CAP theorem is a useful thing, but it applies more to system design than system implementations. A design is simple enough that you can maybe prove it provides consistency or tolerates partition failures under some assumptions. This is a useful lens to look at system designs. You can&rsquo;t hope to do this kind of proof with an actual system implementation, the thing you run. The difficulty of building these things means it is really unthinkable that these systems are, in actual reality, either consistent, available, <i>or</i> partition tolerant&mdash;they certainly all have numerous bugs that will break each of these guarantees. I really like <a href="https://href.li/?http://www.cs.berkeley.edu/~pbailis/projects/pbs">this paper</a> that takes the approach of actually trying to calculate the observed consistency of eventually consistent systems&mdash;they seem to do it via simulation rather than measurement, which is unfortunate, but the idea is great.</p>
+<p>It isn&rsquo;t that system design is meaningless, it is worth discussing the system design as it does act as a kind of limiting factor on certain aspects of reliability and performance as the implementation matures and improves, but don&rsquo;t take it too seriously as guaranteeing <i>anything</i>.</p>
+<p>So why isn&rsquo;t this kind of empirical measurement more talked about? I don&rsquo;t know. My pet theory is it has to do with the somewhat rigid and deductive mindset of classical computer science. This is inherited from pure math, and conflicts with the attitude in scientific disciplines. It leads to a preference for starting with axioms, and then proving various properties that follow from these axioms. This world view doesn&rsquo;t embrace the kind of empirical measurements you would expect to justify claims about reality (for another example see <a href="https://href.li/?http://tagide.com/blog/2012/03/research-in-programming-languages">this great blog post</a> on programming language productivity claims in programming language research). But that is getting off topic. Suffice it to say, when making predictions about how a system will work in the real world I believe in measurements of reality a lot more than arguments from first-principles.</p>
+<p>I think we should insist on a little more rigor and empiricism in this area.</p>
+<p>I would love to see claims in academic publication around practicality or reliability justified in the same way we justify performance claims&ndash;by doing it. I would be a lot more likely to believe an academic distributed system was practically feasible if it was run continuously under load for a year successfully and if information was reported on failures and outages. Maybe that isn&rsquo;t feasible for an academic project, but few other allegedly scientific academic disciplines can get away with making claims about reality without evidence.</p>
+<p>More broadly I would like to see more systems whose <i>operation</i> is verifiable. Many systems have the ability to log out information about their state in a way that makes programmatic checking of various invariants and guarantees possible (such as consistency or availability). An example of such an invariant for a messaging system is that all the messages sent to it are received by all the subscribers. We actually measure the truth of this statement in real-time in production for our Kafka data pipeline for all 450 topics and all their subscribers. The number of corner-cases one uncovers with this kind of check, run through a few hundred use cases and a few billion messages per day is truly astounding. I think this is a special case of a broad class of verification that can be done on the running system that goes far far deeper than what is traditionally considered either monitoring or testing. Call it unit testing in production, or self-proving systems, or next generation monitoring, or whatever, but I think this kind of deep verification is something that makes turning the theoretical claims a design makes into measured properties of the real running system.</p>
+<p>Likewise if you have a &ldquo;NoSQL vendor&rdquo; I think it is reasonable to ask them to provide hard information on customer outages. They don&rsquo;t need to tell you who the customer is, but they should let you know the observed real-life distribution of <a href="https://href.li/?http://en.wikipedia.org/wiki/MTTF">MTTF</a> and <a href="https://href.li/?http://en.wikipedia.org/wiki/Mean_time_to_recovery">MTTR</a> they are able to achieve, not just highlight one or two happy cases. Make sure you understand how they measure this, do they have automated test load that runs or just wait for people to complain? This is a reasonable thing for people paying for a service to ask for. To a certain extent if they provide this kind of empirical data it isn&rsquo;t clear why you should even <i>care</i> what their architecture is beyond intellectual curiosity.</p>
+<p>Distributed systems solve a number of key problems at the heart of scaling large websites. I absolutely think this is going to become the default approach to handling state in internet application development. But no one benefits from the kind of irrational exuberance that currently surrounds the &ldquo;big data&rdquo; or nosql systems communities. This area is experiencing a boom&mdash;but nothing takes us from boom to bust like unrealistic hype and broken promises. We should be a little more honest about where these systems already shine and where they are still maturing.</p>
+<p><i>Postscript: This blog seems to have resurfaced 7 years later. I actually still agree with much of it, though the dilemma is much less important. Distributed systems operations is hard, but you can now avoid it by just getting your distributed systems as a service. For example, <a href="https://href.li/?https://www.confluent.io/confluent-cloud/">Confluent offers Kafka as a service with a contractural uptime SLA</a>. Ops remains hard, but for distributed data systems you can make the people who wrote the software deal with the problem, and focus your time on your special sauce.</i></p></div>
+      
+    </article>
+    
+    <article>
+      <h1>[Daily article] July 29: Tiger</h1>
+      <div class="article-meta">
+        English Wikipedia Article of the Day
+        · 29 Jul 2026 · <a href="mailto:reader-forwarded-email/54650457a0ba738ec2d4ac66877058c4">Source</a>
+      </div>
+      <div class="article-body"><div class="rw-email-parsed">
+ <p>
+  The tiger (Panthera tigris) is a large cat and a member of the genus
+Panthera native to Asia. It is recognisable by its black, vertical
+stripes on orange fur. It is traditionally classified into nine
+subspecies, though some recognise only two subspecies. Tigers currently
+inhabit the Indian subcontinent, Southeast Asia, and the Russian Far
+East and Northeast China. They mainly live in forested habitats, where
+they lead a mostly solitary life. They are apex predators and prey
+mainly on hooved mammals. A male tiger mates with the multiple females
+within his home range. Females give birth to usually two or three cubs
+that stay with their mother for about two years. Tigers are considered
+to be endangered with their main threats being habitat destruction and
+poaching for fur and body parts. They are legally protected in all range
+countries. The tiger is among the most popular of the world's
+charismatic megafauna and is featured in the ancient cultures of Asia
+and modern culture worldwide. (Full article...).
+ </p>
+ <p>
+  Read more:
+  <a href="https://en.wikipedia.org/wiki/Tiger">
+   https://en.wikipedia.org/wiki/Tiger
+  </a>
+ </p>
+ <hr/>
+ <p>
+  Today's selected anniversaries:
+ </p>
+ <p>
+  1818:
+ </p>
+ <p>
+  French physicist Augustin-Jean Fresnel submitted a memoir on
+the diffraction of light to the Royal Academy of Sciences, providing
+strong support for the wave theory of light.
+  <a href="https://en.wikipedia.org/wiki/Augustin-Jean_Fresnel">
+   https://en.wikipedia.org/wiki/Augustin-Jean_Fresnel
+  </a>
+ </p>
+ <p>
+  1900:
+ </p>
+ <p>
+  Italian-American anarchist Gaetano Bresci assassinated King
+Umberto I of Italy in Monza.
+  <a href="https://en.wikipedia.org/wiki/Gaetano_Bresci">
+   https://en.wikipedia.org/wiki/Gaetano_Bresci
+  </a>
+ </p>
+ <p>
+  1911:
+ </p>
+ <p>
+  In a case later termed a "legal lynching", Will P. Brady
+obtained a guilty verdict and death sentence against 15-year-old León
+Martínez Jr., five days after his arrest for killing a white woman.
+  <a href="https://en.wikipedia.org/wiki/Will_P._Brady">
+   https://en.wikipedia.org/wiki/Will_P._Brady
+  </a>
+ </p>
+ <p>
+  1950:
+ </p>
+ <p>
+  Korean War: Over fears that North Korean soldiers were
+infiltrating refugee columns, U.S. forces concluded a four-day massacre
+of hundreds of civilians through shootings and air attacks near the
+village of Nogeun-ri.
+  <a href="https://en.wikipedia.org/wiki/No_Gun_Ri_massacre">
+   https://en.wikipedia.org/wiki/No_Gun_Ri_massacre
+  </a>
+ </p>
+ <hr/>
+ <p>
+  Wiktionary's word of the day:
+ </p>
+ <p>
+  vanguard:
+1. (military) The leading units at the front of an army or fleet.
+2. (by extension) The person or people at the forefront of a group or
+movement.
+3. About Word of the Day
+4. Nominate a word
+5. Leave feedback
+  <a href="https://en.wiktionary.org/wiki/vanguard">
+   https://en.wiktionary.org/wiki/vanguard
+  </a>
+ </p>
+ <hr/>
+ <p>
+  Wikiquote quote of the day:
+ </p>
+ <p>
+  I think physicists are the Peter Pans of the human race. They never grow
+up, and they keep their curiosity.
+  --Isidor Isaac Rabi
+  <a href="https://en.wikiquote.org/wiki/Isidor_Isaac_Rabi">
+   https://en.wikiquote.org/wiki/Isidor_Isaac_Rabi
+  </a>
+ </p></div></div>
+      
+    </article>
+    
+  </body>
+</html>
