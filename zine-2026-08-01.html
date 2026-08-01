@@ -1,0 +1,446 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Fred Talks - 2026-08-01</title>
+    <style>
+      @page {
+        size: A5;
+        margin: 8mm 9mm 9mm;
+      }
+
+      :root {
+        color: #111;
+        font-family: "Times New Roman", Times, serif;
+        --body-text-size: 9.5pt;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        color: #111;
+        background: #fff;
+        font-family: "Times New Roman", Times, serif;
+        line-height: 1.45;
+      }
+
+      a,
+      a:visited {
+        color: #111;
+        text-decoration: underline;
+      }
+
+      .cover {
+        min-height: calc(210mm - 17mm);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        page-break-after: always;
+        border: 1px solid #111;
+        padding: 8mm;
+        background: #fff;
+      }
+
+      .toc-item-meta,
+      .article-meta {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .masthead {
+        margin: 0;
+        font-size: 40pt;
+        line-height: 0.95;
+        text-transform: uppercase;
+      }
+
+      .issue-date {
+        margin: 4mm 0 0;
+        font-size: 14pt;
+      }
+
+      .issue-date sup {
+        font-size: 0.58em;
+        vertical-align: super;
+        line-height: 0;
+      }
+
+      .cover-deck {
+        max-width: 90mm;
+        font-size: 12pt;
+        margin: 0;
+      }
+
+      .toc {
+        border-top: 3px solid #111;
+        padding-top: 6mm;
+      }
+
+      .toc h2 {
+        margin: 0 0 4mm;
+        font-size: 11pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .toc-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .toc-item {
+        padding: 3mm 0;
+        border-bottom: 1px solid rgba(17, 17, 17, 0.2);
+      }
+
+      .toc-item-title {
+        font-size: 12pt;
+        margin: 0 0 1mm;
+      }
+
+      .toc-item-meta {
+        font-size: 8pt;
+      }
+
+      .masthead-compact {
+        margin: 0 0 6mm;
+      }
+
+      .masthead-compact h1 {
+        margin: 0;
+        font-size: 22pt;
+        line-height: 1.1;
+        text-transform: uppercase;
+      }
+
+      .masthead-compact .issue-date {
+        margin: 2mm 0 0;
+        font-size: 11pt;
+      }
+
+      .toc-compact {
+        border-top: 1px solid #111;
+        border-bottom: 1px solid #111;
+        padding: 4mm 0;
+        margin: 0 0 8mm;
+      }
+
+      article + article {
+        margin-top: 10mm;
+        padding-top: 6mm;
+        border-top: 2px solid #111;
+      }
+
+      h1 {
+        margin: 0 0 2mm;
+        font-size: 18pt;
+        line-height: 1.1;
+      }
+
+      .article-meta {
+        font-size: 8.5pt;
+        margin-bottom: 6mm;
+        padding-bottom: 3mm;
+        border-bottom: 1px solid #111;
+      }
+
+      .article-body {
+        font-size: var(--body-text-size);
+        font-family: "Times New Roman", Times, serif;
+      }
+
+      .article-body p,
+      .article-body li,
+      .article-body blockquote,
+      .article-body dd,
+      .article-body dt {
+        margin: 0 0 4mm;
+        orphans: 3;
+        widows: 3;
+      }
+
+      .article-body ul,
+      .article-body ol,
+      .article-body dl {
+        margin: 0 0 4mm 5mm;
+        padding: 0;
+      }
+
+      .article-body h2,
+      .article-body h3,
+      .article-body h4 {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        margin: 7mm 0 3mm;
+        line-height: 1.2;
+      }
+
+      .article-body blockquote {
+        margin-left: 6mm;
+        padding-left: 4mm;
+        border-left: 2px solid #111;
+      }
+
+      .article-body .media-omitted {
+        margin: 0 0 4mm;
+        font-size: 8.5pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(17, 17, 17, 0.65);
+      }
+
+      .article-body figure,
+      .article-body .article-figure,
+      .article-body picture,
+      .article-body .article-picture {
+        display: block;
+        max-width: 72mm;
+        margin: 0 auto 4mm;
+        break-inside: avoid;
+      }
+
+      .article-body img,
+      .article-body .article-image {
+        display: block;
+        max-width: min(100%, 72mm);
+        max-height: 34mm;
+        height: auto;
+        width: auto;
+        object-fit: contain;
+        margin: 0 auto 3mm;
+      }
+
+      .article-body figcaption {
+        margin-top: 1.5mm;
+        font-size: 8.5pt;
+        line-height: 1.3;
+        color: rgba(17, 17, 17, 0.8);
+      }
+
+      .article-note {
+        margin-top: 6mm;
+        padding-top: 3mm;
+        border-top: 1px solid #111;
+        font-size: 9pt;
+        font-style: italic;
+      }
+
+      @media screen {
+        body {
+          padding: 2rem;
+          margin: 0 auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    
+    <header class="masthead-compact">
+      <h1>Fred Talks</h1>
+      <p class="issue-date">
+        1<sup>st</sup> August 2026
+      </p>
+    </header>
+
+    <nav class="toc toc-compact">
+      <h2>Contents</h2>
+      <ol class="toc-list">
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Headless everything for personal AI</div>
+          <div class="toc-item-meta">
+            Interconnected · 1335 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Highlights from my conversation about agentic engineering on Lenny&#39;s Podcast</div>
+          <div class="toc-item-meta">
+            Simon Willison&#39;s Weblog: Entries · 3349 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Why I don&#39;t like the &#34;staff engineer archetypes&#34;</div>
+          <div class="toc-item-meta">
+            seangoedecke.com RSS feed · 1426 words
+          </div>
+        </li>
+        
+      </ol>
+    </nav>
+    
+
+    
+    <article>
+      <h1>Headless everything for personal AI</h1>
+      <div class="article-meta">
+        Interconnected
+        · 18 Apr 2026 · <a href="https://interconnected.org/home/2026/04/18/headless">Source</a>
+      </div>
+      <div class="article-body"><p>It’s pretty clear that apps and services are all going to have to go <em>headless:</em> that is, they will have to provide access and tools for personal AI agents without any of the visual UI that us humans use today.</p>
+<p>By services I mean things like: getting a new passport; finding and booking a hotel or a flight; managing your bank account; shopping for t-shirts with a minimum cotton weight from brands similar to ones that you’ve bought from before.</p>
+<p>Why? Because using personal AIs is a better experience for users than using services directly (honestly); and headless services are quicker and more dependable for the personal AIs than having them click round a GUI with a bot-controlled mouse.</p>
+<p>Where this leaves design for the services… well, I have some thoughts on that.</p>
+<p>Headless services? They’re happening already.</p>
+<p>Already there is <a href="https://interconnected.org/home/2025/02/11/mcp">MCP, as previously discussed</a> (2025), a kind of web API specifically for AI. For instance, best-in-class call transcriber app Granola <a href="https://www.granola.ai/blog/granola-mcp">recently released their MCP</a> and now you can ask your Claude to pull out the meeting actions and go trawling in your personal docs to find answers to all the question. A good integration.</p>
+<p>But command-line tools are growing in popularity, although they used to be just for developers. So you can now create a spreadsheet by typing in your terminal:</p>
+<p><code>gws sheets spreadsheets create --json '{"properties": {"title": "Q1 Budget"}}'</code></p>
+<p>Here are some recently launched CLI tools:</p>
+<ul> <li><a href="https://github.com/googleworkspace/cli">gws</a>: Google Workspace CLI, Drive, Gmail, Calendar, and every Workspace API. Zero boilerplate. Structured JSON output. 40+ agent skills included.</li> <li><a href="https://obsidian.md/cli">Obsidian CLI</a> to do anything you can do with the (very popular) note-taking app - like keep daily notes, track and cross off tasks, search - from the CLI</li> <li><a href="https://developer.salesforce.com/tools/salesforcecli">Salesforce CLI</a> and, look, I don’t really understand what the Salesforce business operating system does, but the fact it has a CLI too is significant.</li> </ul>
+<p>And here is <a href="https://github.com/HKUDS/CLI-Anything">CLI-Anything</a> (31k stars on GitHub) which auto-generates CLIs for ANY codebase.</p>
+<p>Why CLIs?</p>
+<p>It turns out that the best place for personal AIs to run is on a computer. Maybe a virtual computer in the cloud, but ideally your computer. That way they can see the docs that you can see, and use the tools that you can use, and so what they want is not APIs (which connect webservers) but little apps they can use directly. CLI tools are the perfect little apps.</p>
+<p>CLIs are composable so they are a better fit for what users actually do.</p>
+<p>By composable I mean you can: query your notes then jump to a spreadsheet then research the web then jump back to the spreadsheet then text the user a clarifying question then double-check your notes, all by bouncing between CLIs in the same session.</p>
+<p>A while back app design got obsessed with “user journeys.” Like the journey of a user finding a hotel then booking a hotel then staying in it and leaving a review.</p>
+<p>But users don’t live in “journeys.” They multitask; they talk to people and come back to things; they’re idiosyncratic Try grabbing the search results from the Airbnb app and popping them in a message to chat on the family WhatsApp, then coming back to it two days later. It’s a pain and you have to use screenshots because apps and their user journeys are not composable.</p>
+<p>CLIs are composable because they came originally from Unix and that is the <a href="https://tldp.org/LDP/GNU-Linux-Tools-Summary/html/c1089.htm">Unix tools philosophy</a>: tools were designed so that they could operate together.</p>
+<p>Personal AIs like Openclaw or [Poke](<a href="https://poke.com/">https://poke.com</a> do what users want and don’t follow “designed” user journeys, and as a result the composed experience is more personal and way better. CLIs are a great underlying technology for that.</p>
+<p>CLIs are smaller than regular apps and so they are easier to secure.</p>
+<p>The alternative to providing special tools for AIs is that the AIs use the same browser-based apps that we do, and that’s a terrifying prospect.</p>
+<p>For one, AIs are really good at finding security holes. The new Mythos model from Anthropic is so good at discovering security flaws that it has been held back from the public and <a href="https://www.bbc.co.uk/news/articles/c2ev24yx4rmo">governments are convening emergency meetings of the biggest banks</a>.</p>
+<p>And including a UI increasing complexity and makes security holes more likely.</p>
+<p>Here’s a recent shocking example. Companies House is the national register of all companies, directors, and accounts for England and Wales. Users could view <em>and edit</em> any other user’s account:</p>
+<blockquote data-author="The Register" data-title="Flaw in UK&#x27;s corporate registry let directors rummage through rival records"> <p>a logged-in company director could exploit the flaw by starting from their own dashboard and then trying to log into another company’s account.</p> <p>Once they reach the 2FA block, which they would not be able to pass, <u>all that was required was to click the browser’s back button a few times</u>. Typically, the user would be taken back to their own dashboard, but the bug instead returned them to the company they had tried to log into but couldn’t.</p> </blockquote>
+<p>This bug had been present since October 2025.</p>
+<p>Imagine a future where personal AIs are filing company records, and one of them notices this security hole overnight and posts about it on <a href="https://www.moltbook.com">moltbook</a> or whatever agent-only social network is most popular. The other agents would exploit the system up, down and sideways before the engineering team woke up.</p>
+<p>The only viable solution is that services need to security hardened, and to do that they need to be simplifying and minimised. Again, CLI tools are a great fit.</p>
+<p>What does this mean for front-end design?</p>
+<p>Design won’t go anywhere.</p>
+<p>Sure, the front-end should be driving the same CLI tools that agents use.</p>
+<p>Arguably it’s more important than ever: human users will encounter services, figure out what they can do, and pick up their vibe from using the app, just as now.</p>
+<p>Then they’ll tell their personal AI about the service and never see the front-end again, or re-mix it into bespoke personal software.</p>
+<p>So from a usability perspective I see front-end as somewhat sacrificial. AI agents will drive straight through it; users will encounter it only once or twice; it will be customised or personalised; all that work on optimising user journeys doesn’t matter any more.</p>
+<p>But from a vibe perspective, services are not fungible. e.g. if you’re finding a restaurant then Yelp, Google Maps, Resy, and The Infatuation are all more-or-less equivalent for answering that question but clearly they are completely different and you’ll use different services at different times.</p>
+<p>Understanding that a service is <em>for you</em> is 50% an unconscious process - we call it brand - and I look forward to front-end design for apps and services optimising for brand rather than ease of use.</p>
+<p>If I were a bank, I would be releasing a hardened CLI tool like <em>yesterday.</em></p>
+<p>There is so much to figure out:</p>
+<ul> <li>How do permissions work? Should the user get a notification from their phone app when the agent strays outside normal behaviour? How do I give it credentials to act on my behalf, and how long do they last?</li> <li>How does adjacency work? My bank gives me a current account in exchange for putting a “hey, get a loan!” button on the app home screen. How do you make offers to an agent?</li> </ul>
+<p>Headless banks.</p>
+<p>Headless government?</p>
+<p>I’d love to show you a worked example here. I vibed up a suite of four CLI tools that wrap four different services from UK government departments.</p>
+<p>If I were renting a house, I would set my agent to learning about the neighbourhoods using one of these tools. Another tool will be helpful next time I’m buying a used car. (There’s a Companies House command-line tool too.)</p>
+<p>But I won’t show you the tools because I don’t want to be responsible for maintaining and supporting them.</p>
+<p>I wish Monzo came with an official CLI. I wish Booking.com came with a CLI. I reckon, give it a year, they will.</p>
+<h5> Auto-calculated kinda related posts: </h5>
+<p>If you enjoyed this post, please consider sharing it by email or on social media. <a href="https://interconnected.org/home/2026/04/18/headless">Here’s the link.</a> Thanks, —Matt.</p></div>
+      
+    </article>
+    
+    <article>
+      <h1>Highlights from my conversation about agentic engineering on Lenny&#39;s Podcast</h1>
+      <div class="article-meta">
+        Simon Willison&#39;s Weblog: Entries
+        · 02 Apr 2026 · <a href="https://simonwillison.net/2026/Apr/2/lennys-podcast/#atom-entries">Source</a>
+      </div>
+      <div class="article-body"><h2>Highlights from my conversation about agentic engineering on Lenny’s Podcast</h2>
+<p>I was a guest on Lenny Rachitsky’s podcast, in a new episode titled <a href="https://www.lennysnewsletter.com/p/an-ai-state-of-the-union">An AI state of the union: We’ve passed the inflection point, dark factories are coming, and automation timelines</a>. It’s available on <a href="https://youtu.be/wc8FBhQtdsA">YouTube</a>, <a href="https://open.spotify.com/episode/0DVjwLT6wgtscdB78Qf1BQ">Spotify</a>, and <a href="https://podcasts.apple.com/us/podcast/an-ai-state-of-the-union-weve-passed-the/id1627920305?i=1000758850377">Apple Podcasts</a>. Here are my highlights from our conversation, with relevant links.</p>
+<figure class="article-figure"></figure><p><a href="https://www.youtube.com/watch?v=wc8FBhQtdsA">An AI state of the union: We’ve passed the inflection point &amp; dark factories are coming</a><a href="https://simonwillison.net/channel/UC6t1O76G0jYXOAoYCm153dA">Lenny's Podcast</a></p>
+<figure class="article-figure"><img alt="thumbnail-image" src="https://yt3.ggpht.com/Wk7-4UW17JqDXgVWDiE7s1gJxDkt_UwNa2oNw8OYRwc9deiCv2V2fFAdNgByDi0K9AAF0YMj=s68-c-k-c0x00ffffff-no-rj" class="article-image"/></figure>
+<p>Lenny's Podcast571K subscribers</p>
+<figure class="article-figure"></figure><p><a href="https://www.youtube.com/watch?v=wc8FBhQtdsA">Watch on<figure class="article-figure"></figure></a></p>
+<ul> <li><a href="https://simonwillison.net/2026/Apr/2/Lennys-podcast/#the-november-inflection-point">The November inflection point</a></li> <li><a href="https://simonwillison.net/2026/Apr/2/Lennys-podcast/#software-engineers-as-bellwethers-for-other-information-workers">Software engineers as bellwethers for other information workers</a></li> <li><a href="https://simonwillison.net/2026/Apr/2/Lennys-podcast/#writing-code-on-my-phone">Writing code on my phone</a></li> <li><a href="https://simonwillison.net/2026/Apr/2/Lennys-podcast/#responsible-vibe-coding">Responsible vibe coding</a></li> <li><a href="https://simonwillison.net/2026/Apr/2/Lennys-podcast/#dark-factories-and-strongdm">Dark Factories and StrongDM</a></li> <li><a href="https://simonwillison.net/2026/Apr/2/Lennys-podcast/#the-bottleneck-has-moved-to-testing">The bottleneck has moved to testing</a></li> <li><a href="https://simonwillison.net/2026/Apr/2/Lennys-podcast/#this-stuff-is-exhausting">This stuff is exhausting</a></li> <li><a href="https://simonwillison.net/2026/Apr/2/Lennys-podcast/#interruptions-cost-a-lot-less-now">Interruptions cost a lot less now</a></li> <li><a href="https://simonwillison.net/2026/Apr/2/Lennys-podcast/#my-ability-to-estimate-software-is-broken">My ability to estimate software is broken</a></li> <li><a href="https://simonwillison.net/2026/Apr/2/Lennys-podcast/#it-s-tough-for-people-in-the-middle">It’s tough for people in the middle</a></li> <li><a href="https://simonwillison.net/2026/Apr/2/Lennys-podcast/#it-s-harder-to-evaluate-software">It’s harder to evaluate software</a></li> <li><a href="https://simonwillison.net/2026/Apr/2/Lennys-podcast/#the-misconception-that-ai-tools-are-easy">The misconception that AI tools are easy</a></li> <li><a href="https://simonwillison.net/2026/Apr/2/Lennys-podcast/#coding-agents-are-useful-for-security-research-now">Coding agents are useful for security research now</a></li> <li><a href="https://simonwillison.net/2026/Apr/2/Lennys-podcast/#openclaw">OpenClaw</a></li> <li><a href="https://simonwillison.net/2026/Apr/2/Lennys-podcast/#journalists-are-good-at-dealing-with-unreliable-sources">Journalists are good at dealing with unreliable sources</a></li> <li><a href="https://simonwillison.net/2026/Apr/2/Lennys-podcast/#the-pelican-benchmark">The pelican benchmark</a></li> <li><a href="https://simonwillison.net/2026/Apr/2/Lennys-podcast/#and-finally-some-good-news-about-parrots">And finally, some good news about parrots</a></li> <li><a href="https://simonwillison.net/2026/Apr/2/Lennys-podcast/#youtube-chapters">YouTube chapters</a></li> </ul>
+<h2>The November inflection point <a href="https://simonwillison.net/2026/Apr/2/lennys-podcast/#the-november-inflection-point">#</a></h2>
+<blockquote> <p><a href="https://youtu.be/wc8FBhQtdsA?t=269">4:19</a>—The end result of these two labs throwing everything they had at making their models better at code is that in November we had what I call the <a href="https://simonwillison.net/tags/november-2025-inflection/">inflection point</a> where GPT 5.1 and Claude Opus 4.5 came along.</p> <p>They were both incrementally better than the previous models, but in a way that crossed a threshold where previously the code would mostly work, but you had to pay very close attention to it. And suddenly we went from that to... almost all of the time it does what you told it to do, which makes all of the difference in the world.</p> <p>Now you can spin up a coding agent and say, <a href="https://simonwillison.net/2026/Feb/25/present/">build me a Mac application that does this thing</a>, and you’ll get something back which won’t just be a buggy pile of rubbish that doesn’t do anything.</p> </blockquote>
+<h2>Software engineers as bellwethers for other information workers <a href="https://simonwillison.net/2026/Apr/2/lennys-podcast/#software-engineers-as-bellwethers-for-other-information-workers">#</a></h2>
+<blockquote> <p><a href="https://youtu.be/wc8FBhQtdsA?t=349">5:49</a>—I can churn out 10,000 lines of code in a day. And most of it works. Is that good? Like, how do we get from most of it works to all of it works? There are so many new questions that we’re facing, which I think makes us a bellwether for other information workers.</p> <p>Code is easier than almost every other problem that you pose these agents because code is obviously right or wrong—either it works or it doesn’t work. There might be a few subtle hidden bugs, but generally you can tell if the thing actually works.</p> <p>If it writes you an essay, if it prepares a lawsuit for you, it’s so much harder to derive if it’s actually done a good job, and to figure out if it got things right or wrong. But it’s happening to us as software engineers. It came for us first.</p> <p>And we’re figuring out, OK, what do our careers look like? How do we work as teams when part of what we did that used to take most of the time doesn’t take most of the time anymore? What does that look like? And it’s going to be very interesting seeing how this rolls out to other information work in the future.</p> </blockquote>
+<p>Lawyers are falling for this really badly. The <a href="https://www.damiencharlotin.com/hallucinations/">AI hallucination cases database</a> is up to 1,228 cases now!</p>
+<p>Plus this bit from the cold open at <a href="https://www.youtube.com/watch?v=wc8FBhQtdsA&amp;t=0s">the start</a>:</p>
+<blockquote> <p>It used to be you’d ask ChatGPT for some code, and it would spit out some code, and you’d have to run it and test it. The coding agents take that step for you now. And an open question for me is how many other knowledge work fields are actually prone to these agent loops?</p> </blockquote>
+<h2>Writing code on my phone <a href="https://simonwillison.net/2026/Apr/2/lennys-podcast/#writing-code-on-my-phone">#</a></h2>
+<blockquote> <p><a href="https://youtu.be/wc8FBhQtdsA?t=499">8:19</a>—I write so much of my code on my phone. It’s wild. I can get good work done walking the dog along the beach, which is delightful.</p> </blockquote>
+<p>I mainly use the Claude iPhone app for this, both with a regular Claude chat session (which <a href="https://simonwillison.net/2025/Sep/9/claude-code-interpreter/">can execute code now</a>) or using it to control <a href="https://code.claude.com/docs/en/claude-code-on-the-web">Claude Code for web</a>.</p>
+<h2>Responsible vibe coding <a href="https://simonwillison.net/2026/Apr/2/lennys-podcast/#responsible-vibe-coding">#</a></h2>
+<blockquote> <p><a href="https://youtu.be/wc8FBhQtdsA?t=595">9:55</a> If you’re vibe coding something for yourself, where the only person who gets hurt if it has bugs is you, go wild. That’s completely fine. The moment you ship your vibe coding code for other people to use, where your bugs might actually harm somebody else, that’s when you need to take a step back.</p> </blockquote>
+<p>See also <a href="https://simonwillison.net/2025/Mar/19/vibe-coding/#when-is-it-ok-to-vibe-code-">When is it OK to vibe code?</a></p>
+<h2>Dark Factories and StrongDM <a href="https://simonwillison.net/2026/Apr/2/lennys-podcast/#dark-factories-and-strongdm">#</a></h2>
+<blockquote> <p><a href="https://youtu.be/wc8FBhQtdsA?t=769">12:49</a> The reason it’s called the dark factory is there’s this idea in factory automation that if your factory is so automated that you don’t need any people there, you can turn the lights off. Like the machines can operate in complete darkness if you don’t need people on the factory floor. What does that look like for software? [...]</p> <p>So there’s this policy that nobody writes any code: you cannot type code into a computer. And honestly, six months ago, I thought that was crazy. And today, probably 95% of the code that I produce, I didn’t type myself. That world is practical already because the latest models are good enough that you can tell them to rename that variable and refactor and add this line there... and they’ll just do it—it’s faster than you typing on the keyboard yourself.</p> <p>The next rule though, is nobody <em>reads</em> the code. And this is the thing which StrongDM started doing last year.</p> </blockquote>
+<p>I wrote a lot more about <a href="https://simonwillison.net/2026/Feb/7/software-factory/">StrongDM’s dark factory explorations</a> back in February.</p>
+<h2>The bottleneck has moved to testing <a href="https://simonwillison.net/2026/Apr/2/lennys-podcast/#the-bottleneck-has-moved-to-testing">#</a></h2>
+<blockquote> <p><a href="https://youtu.be/wc8FBhQtdsA?t=1287">21:27</a>—It used to be, you’d come up with a spec and you hand it to your engineering team. And three weeks later, if you’re lucky, they’d come back with an implementation. And now that maybe takes three hours, depending on how well the coding agents are established for that kind of thing. So now what, right? Now, where else are the bottlenecks?</p> <p>Anyone who’s done any product work knows that your initial ideas are always wrong. What matters is proving them, and testing them.</p> <p>We can test things so much faster now because we can build workable prototypes so much quicker. So there’s an interesting thing I’ve been doing in my own work where any feature that I want to design, I’ll often prototype three different ways it could work because that takes very little time.</p> </blockquote>
+<p>I’ve always loved prototyping things, and prototyping is even more valuable now.</p>
+<blockquote> <p><a href="https://youtu.be/wc8FBhQtdsA?t=1360">22:40</a>—A UI prototype is free now. ChatGPT and Claude will just build you a very convincing UI for anything that you describe. And that’s how you should be working. I think anyone who’s doing product design and isn’t vibe coding little prototypes is missing out on the most powerful boost that we get in that step.</p> <p>But then what do you do? Given your three options that you have instead of one option, how do you prove to yourself which one of those is the best? I don’t have a confident answer to that. I expect this is where the good old fashioned usability testing comes in.</p> </blockquote>
+<p>More on prototyping later on:</p>
+<blockquote> <p><a href="https://youtu.be/wc8FBhQtdsA?t=2795">46:35</a>—Throughout my entire career, my superpower has been prototyping. I’ve been very quick at knocking out working prototypes of things. I’m the person who can show up at a meeting and say, look, here’s how it could work. And that was kind of my unique selling point. And that’s gone. Anyone can do what I could do.</p> </blockquote>
+<h2>This stuff is exhausting <a href="https://simonwillison.net/2026/Apr/2/lennys-podcast/#this-stuff-is-exhausting">#</a></h2>
+<blockquote> <p><a href="https://youtu.be/wc8FBhQtdsA?t=1585">26:25</a>—I’m finding that using coding agents well is taking every inch of my 25 years of experience as a software engineer, and it is mentally exhausting. I can fire up four agents in parallel and have them work on four different problems. And by like 11 AM, I am wiped out for the day. [...]</p> <p>There’s a personal skill we have to learn in finding our new limits—what’s a responsible way for us not to burn out.</p> <p>I’ve talked to a lot of people who are losing sleep because they’re like, my coding agents could be doing work for me. I’m just going to stay up an extra half hour and set off a bunch of extra things... and then waking up at four in the morning. That’s obviously unsustainable. [...]</p> <p>There’s an element of sort of gambling and addiction to how we’re using some of these tools.</p> </blockquote>
+<h2>Interruptions cost a lot less now <a href="https://simonwillison.net/2026/Apr/2/lennys-podcast/#interruptions-cost-a-lot-less-now">#</a></h2>
+<blockquote> <p><a href="https://youtu.be/wc8FBhQtdsA?t=2716">45:16</a>—People talk about how important it is not to interrupt your coders. Your coders need to have solid two to four hour blocks of uninterrupted work so they can spin up their mental model and churn out the code. That’s changed completely. My programming work, I need two minutes every now and then to prompt my agent about what to do next. And then I can do the other stuff and I can go back. I’m much more interruptible than I used to be.</p> </blockquote>
+<h2>My ability to estimate software is broken <a href="https://simonwillison.net/2026/Apr/2/lennys-podcast/#my-ability-to-estimate-software-is-broken">#</a></h2>
+<blockquote> <p><a href="https://youtu.be/wc8FBhQtdsA?t=1699">28:19</a>—I’ve got 25 years of experience in how long it takes to build something. And that’s all completely gone—it doesn’t work anymore because I can look at a problem and say that this is going to take two weeks, so it’s not worth it. And now it’s like... maybe it’s going to take 20 minutes because the reason it would have taken two weeks was all of the sort of crufty coding things that the AI is now covering for us.</p> <p>I constantly throw tasks at AI that I don’t think it’ll be able to do because every now and then it does it. And when it doesn’t do it, you learn, right? But when it <em>does</em> do something, especially something that the previous models couldn’t do, that’s actually cutting edge AI research.</p> </blockquote>
+<p>And a related anecdote:</p>
+<blockquote> <p><a href="https://youtu.be/wc8FBhQtdsA?t=2216">36:56</a>—A lot of my friends have been talking about how they have this backlog of side projects, right? For the last 10, 15 years, they’ve got projects they never quite finished. And some of them are like, well, I’ve done them all now. Last couple of months, I just went through and every evening I’m like, let’s take that project and finish it. And they almost feel a sort of sense of loss at the end where they’re like, well, okay, my backlog’s gone. Now what am I going to build?</p> </blockquote>
+<h2>It’s tough for people in the middle <a href="https://simonwillison.net/2026/Apr/2/lennys-podcast/#it-s-tough-for-people-in-the-middle">#</a></h2>
+<blockquote> <p><a href="https://youtu.be/wc8FBhQtdsA?t=1769">29:29</a>—So ThoughtWorks, the big IT consultancy, <a href="https://www.thoughtworks.com/insights/articles/reflections-future-software-engineering-retreat">did an offsite about a month ago</a>, and they got a whole bunch of engineering VPs in from different companies to talk about this stuff. And one of the interesting theories they came up with is they think this stuff is really good for experienced engineers, like it amplifies their skills. It’s really good for new engineers because it solves so many of those onboarding problems. The problem is the people in the middle. If you’re mid-career, if you haven’t made it to sort of super senior engineer yet, but you’re not sort of new either, that’s the group which is probably in the most trouble right now.</p> </blockquote>
+<p>I mentioned <a href="https://blog.cloudflare.com/cloudflare-1111-intern-program/">Cloudflare hiring 1,000 interns</a>, and Shopify too.</p>
+<p>Lenny asked for my advice for people stuck in that middle:</p>
+<blockquote> <p><a href="https://youtu.be/wc8FBhQtdsA?t=1881">31:21</a>—That’s a big responsibility you’re putting on me there! I think the way forward is to lean into this stuff and figure out how do I help this make me better?</p> <p>A lot of people worry about skill atrophy: if the AI is doing it for you, you’re not learning anything. I think if you’re worried about that, you push back at it. You have to be mindful about how you’re applying the technology and think, okay, I’ve been given this thing that can answer any question and <em>often</em> gets it right. How can I use this to amplify my own skills, to learn new things, to take on much more ambitious projects? [...]</p> <p><a href="https://youtu.be/wc8FBhQtdsA?t=1985">33:05</a>—Everything is changing so fast right now. The only universal skill is being able to roll with the changes. That’s the thing that we all need.</p> <p>The term that comes up most in these conversations about how you can be great with AI is <em>agency</em>. I think agents have no agency at all. I would argue that the one thing AI can never have is agency because it doesn’t have human motivations.</p> <p>So I’d say that’s the thing is to invest in your own agency and invest in how to use this technology to get better at what you do and to do new things.</p> </blockquote>
+<h2>It’s harder to evaluate software <a href="https://simonwillison.net/2026/Apr/2/lennys-podcast/#it-s-harder-to-evaluate-software">#</a></h2>
+<p>The fact that it’s so easy to create software with detailed documentation and robust tests means it’s harder to figure out what’s a credible project.</p>
+<blockquote> <p><a href="https://youtu.be/wc8FBhQtdsA?t=2267">37:47</a> Sometimes I’ll have an idea for a piece of software, Python library or whatever, and I can knock it out in like an hour and get to a point where it’s got documentation and tests and all of those things, and it looks like the kind of software that previously I’d have spent several weeks on—and I can stick it up on GitHub</p> <p>And yet... I don’t believe in it. And the reason I don’t believe in it is that I got to rush through all of those things... I think the quality is probably good, but I haven’t spent enough time with it to feel confident in that quality. Most importantly, I <em>haven’t used it yet</em>.</p> <p>It turns out when I’m using somebody else’s software, the thing I care most about is I want them to have used it for months.</p> <p>I’ve got some very cool software that I built that I’ve <em>never used</em>. It was quicker to build it than to actually try and use it!</p> </blockquote>
+<h2>The misconception that AI tools are easy <a href="https://simonwillison.net/2026/Apr/2/lennys-podcast/#the-misconception-that-ai-tools-are-easy">#</a></h2>
+<blockquote> <p><a href="https://youtu.be/wc8FBhQtdsA?t=2491">41:31</a>—Everyone’s like, oh, it must be easy. It’s just a chat bot. It’s not easy. That’s one of the great misconceptions in AI is that using these tools effectively is easy. It takes a lot of practice and it takes a lot of trying things that didn’t work and trying things that did work.</p> </blockquote>
+<h2>Coding agents are useful for security research now <a href="https://simonwillison.net/2026/Apr/2/lennys-podcast/#coding-agents-are-useful-for-security-research-now">#</a></h2>
+<blockquote> <p><a href="https://youtu.be/wc8FBhQtdsA?t=1144">19:04</a>—In the past sort of three to six months, they’ve started being credible as security researchers, which is sending shockwaves through the security research industry.</p> </blockquote>
+<p>See Thomas Ptacek: <a href="https://sockpuppet.org/blog/2026/03/30/vulnerability-research-is-cooked/">Vulnerability Research Is Cooked</a>.</p>
+<p>At the same time, open source projects are being bombarded with junk security reports:</p>
+<blockquote> <p><a href="https://youtu.be/wc8FBhQtdsA?t=1205">20:05</a>—There are these people who don’t know what they’re doing, who are asking ChatGPT to find a security hole and then reporting it to the maintainer. And the report looks good. ChatGPT can produce a very well formatted report of a vulnerability. It’s a total waste of time. It’s not actually verified as being a real problem.</p> </blockquote>
+<p>A good example of the right way to do this is <a href="https://blog.mozilla.org/en/firefox/hardening-firefox-anthropic-red-team/">Anthropic’s collaboration with Firefox</a>, where Anthropic’s security team <em>verified</em> every security problem before passing them to Mozilla.</p>
+<h2>OpenClaw <a href="https://simonwillison.net/2026/Apr/2/lennys-podcast/#openclaw">#</a></h2>
+<p>Of course we had to talk about OpenClaw! Lenny had his running on a Mac Mini.</p>
+<blockquote> <p><a href="https://youtu.be/wc8FBhQtdsA?t=5363">1:29:23</a>—OpenClaw demonstrates that people want a personal digital assistant so much that they are willing to not just overlook the security side of things, but also getting the thing running is not easy. You’ve got to create API keys and tokens and install stuff. It’s not trivial to get set up and hundreds of thousands of people got it set up. [...]</p> <p>The first line of code for OpenClaw was written on November the 25th. And then in the Super Bowl, there was an ad for AI.com, which was effectively a vaporware white labeled OpenClaw hosting provider. So we went from first line of code in November to Super Bowl ad in what? Three and a half months.</p> </blockquote>
+<p>I continue to love Drew Breunig’s description of OpenClaw as a digital pet:</p>
+<blockquote> <p>A friend of mine said that OpenClaw is basically a Tamagotchi. It’s a digital pet and you buy the Mac Mini as an aquarium.</p> </blockquote>
+<h2>Journalists are good at dealing with unreliable sources <a href="https://simonwillison.net/2026/Apr/2/lennys-podcast/#journalists-are-good-at-dealing-with-unreliable-sources">#</a></h2>
+<p>In talking about my explorations of AI for data journalism through <a href="https://datasette.io/">Datasette</a>:</p>
+<blockquote> <p><a href="https://youtu.be/wc8FBhQtdsA?t=5698">1:34:58</a>—You would have thought that AI is a very bad fit for journalism where the whole idea is to find the truth. But the flip side is journalists deal with untrustworthy sources all the time. The art of journalism is you talk to a bunch of people and some of them lie to you and you figure out what’s true. So as long as the journalist treats the AI as yet another unreliable source, they’re actually better equipped to work with AI than most other professions are.</p> </blockquote>
+<h2>The pelican benchmark <a href="https://simonwillison.net/2026/Apr/2/lennys-podcast/#the-pelican-benchmark">#</a></h2>
+<p>Of course we talked about <a href="https://simonwillison.net/tags/pelican-riding-a-bicycle/">pelicans riding bicycles</a>:</p>
+<blockquote> <p><a href="https://youtu.be/wc8FBhQtdsA?t=3370">56:10</a>—There appears to be a very strong correlation between how good their drawing of a pelican riding a bicycle is and how good they are at everything else. And nobody can explain to me why that is. [...]</p> <p>People kept on asking me, what if labs cheat on the benchmark? And my answer has always been, really, <a href="https://simonwillison.net/2025/Nov/13/training-for-pelicans-riding-bicycles/">all I want from life is a really good picture of a pelican riding a bicycle</a>. And if I can trick every AI lab in the world into cheating on benchmarks to get it, then that just achieves my goal.</p> </blockquote>
+<blockquote> <p><a href="https://youtu.be/wc8FBhQtdsA?t=3596">59:56</a>—I think something people often miss is that this space is inherently funny. The fact that we have these incredibly expensive, power hungry, supposedly the most advanced computers of all time. And if you ask them to draw a pelican on a bicycle, it looks like a five-year-old drew it. That’s really funny to me.</p> </blockquote>
+<h2>And finally, some good news about parrots <a href="https://simonwillison.net/2026/Apr/2/lennys-podcast/#and-finally-some-good-news-about-parrots">#</a></h2>
+<p>Lenny asked if I had anything else I wanted to leave listeners with to wrap up the show, so I went with the best piece of news in the world right now.</p>
+<blockquote> <p><a href="https://youtu.be/wc8FBhQtdsA?t=5890">1:38:10</a>—There is a rare parrot in New Zealand called the Kākāpō. There are only 250 of these parrots left in the world. They are flightless nocturnal parrots—beautiful green dumpy looking things. And the good news is they’re having a fantastic breeding season in 2026,</p> <p>They only breed when the Rimu trees in New Zealand have a mass fruiting season, and the Rimu trees haven’t done that since 2022—so there has not been a single baby kākāpō born in four years.</p> <p>This year, the Rimu trees are in fruit. The kākāpō are breeding. There have been dozens of new chicks born. It’s a really, really good time. It’s great news for rare New Zealand parrots and you should look them up because they’re delightful.</p> </blockquote>
+<p>Everyone should <a href="https://www.youtube.com/live/LDSWtyU6-Lg">watch the live stream of Rakiura on her nest with two chicks</a>!</p>
+<h2>YouTube chapters <a href="https://simonwillison.net/2026/Apr/2/lennys-podcast/#youtube-chapters">#</a></h2>
+<p>Here’s the full list of chapters Lenny’s team defined for the YouTube video:</p>
+<ul> <li> <a href="https://www.youtube.com/watch?v=wc8FBhQtdsA">00:00</a>: Introduction to Simon Willison</li> <li> <a href="https://www.youtube.com/watch?v=wc8FBhQtdsA&amp;t=160s">02:40</a>: The November 2025 inflection point</li> <li> <a href="https://www.youtube.com/watch?v=wc8FBhQtdsA&amp;t=481s">08:01</a>: What’s possible now with AI coding</li> <li> <a href="https://www.youtube.com/watch?v=wc8FBhQtdsA&amp;t=642s">10:42</a>: Vibe coding vs. agentic engineering</li> <li> <a href="https://www.youtube.com/watch?v=wc8FBhQtdsA&amp;t=837s">13:57</a>: The dark-factory pattern</li> <li> <a href="https://www.youtube.com/watch?v=wc8FBhQtdsA&amp;t=1241s">20:41</a>: Where bottlenecks have shifted</li> <li> <a href="https://www.youtube.com/watch?v=wc8FBhQtdsA&amp;t=1416s">23:36</a>: Where human brains will continue to be valuable</li> <li> <a href="https://www.youtube.com/watch?v=wc8FBhQtdsA&amp;t=1532s">25:32</a>: Defending of software engineers</li> <li> <a href="https://www.youtube.com/watch?v=wc8FBhQtdsA&amp;t=1752s">29:12</a>: Why experienced engineers get better results</li> <li> <a href="https://www.youtube.com/watch?v=wc8FBhQtdsA&amp;t=1848s">30:48</a>: Advice for avoiding the permanent underclass</li> <li> <a href="https://www.youtube.com/watch?v=wc8FBhQtdsA&amp;t=2032s">33:52</a>: Leaning into AI to amplify your skills</li> <li> <a href="https://www.youtube.com/watch?v=wc8FBhQtdsA&amp;t=2112s">35:12</a>: Why Simon says he’s working harder than ever</li> <li> <a href="https://www.youtube.com/watch?v=wc8FBhQtdsA&amp;t=2243s">37:23</a>: The market for pre-2022 human-written code</li> <li> <a href="https://www.youtube.com/watch?v=wc8FBhQtdsA&amp;t=2401s">40:01</a>: Prediction: 50% of engineers writing 95% AI code by the end of 2026</li> <li> <a href="https://www.youtube.com/watch?v=wc8FBhQtdsA&amp;t=2674s">44:34</a>: The impact of cheap code</li> <li> <a href="https://www.youtube.com/watch?v=wc8FBhQtdsA&amp;t=2907s">48:27</a>: Simon’s AI stack</li> <li> <a href="https://www.youtube.com/watch?v=wc8FBhQtdsA&amp;t=3248s">54:08</a>: Using AI for research</li> <li> <a href="https://www.youtube.com/watch?v=wc8FBhQtdsA&amp;t=3312s">55:12</a>: The pelican-riding-a-bicycle benchmark</li> <li> <a href="https://www.youtube.com/watch?v=wc8FBhQtdsA&amp;t=3541s">59:01</a>: The inherent ridiculousness of AI</li> <li> <a href="https://www.youtube.com/watch?v=wc8FBhQtdsA&amp;t=3652s">1:00:52</a>: Hoarding things you know how to do</li> <li> <a href="https://www.youtube.com/watch?v=wc8FBhQtdsA&amp;t=4101s">1:08:21</a>: Red/green TDD pattern for better AI code</li> <li> <a href="https://www.youtube.com/watch?v=wc8FBhQtdsA&amp;t=4483s">1:14:43</a>: Starting projects with good templates</li> <li> <a href="https://www.youtube.com/watch?v=wc8FBhQtdsA&amp;t=4591s">1:16:31</a>: The lethal trifecta and prompt injection</li> <li> <a href="https://www.youtube.com/watch?v=wc8FBhQtdsA&amp;t=4913s">1:21:53</a>: Why 97% effectiveness is a failing grade</li> <li> <a href="https://www.youtube.com/watch?v=wc8FBhQtdsA&amp;t=5119s">1:25:19</a>: The normalization of deviance</li> <li> <a href="https://www.youtube.com/watch?v=wc8FBhQtdsA&amp;t=5312s">1:28:32</a>: OpenClaw: the security nightmare everyone is looking past</li> <li> <a href="https://www.youtube.com/watch?v=wc8FBhQtdsA&amp;t=5662s">1:34:22</a>: What’s next for Simon</li> <li> <a href="https://www.youtube.com/watch?v=wc8FBhQtdsA&amp;t=5807s">1:36:47</a>: Zero-deliverable consulting</li> <li> <a href="https://www.youtube.com/watch?v=wc8FBhQtdsA&amp;t=5885s">1:38:05</a>: Good news about Kakapo parrots</li> </ul></div>
+      
+    </article>
+    
+    <article>
+      <h1>Why I don&#39;t like the &#34;staff engineer archetypes&#34;</h1>
+      <div class="article-meta">
+        seangoedecke.com RSS feed
+        · 03 May 2026 · <a href="https://seangoedecke.com/staff-engineer-archetypes/">Source</a>
+      </div>
+      <div class="article-body"><p>The most influential piece of writing about staff engineers in the last decade has to be Will Larson’s <a href="https://staffeng.com/guides/staff-archetypes/"><em>Staff engineer archetypes</em></a>. He argues that the “staff engineer” title covers at least four very different roles: the team lead, the architect, the solver, and the right hand. This taxonomy gets cited a lot as advice for people who are trying to become effective staff engineers. For <a href="https://www.seangoedecke.com/staff-engineer-promotions">both</a> of my promotions to staff engineer, my manager at the time linked me to the “staff engineer archetypes” and asked me to consider which of these archetypes I was aiming towards.</p>
+<p>These archetypes definitely exist<sup><a href="https://www.seangoedecke.com/staff-engineer-archetypes/#fn-1">1</a></sup>. However, I think it’s bad practical advice to tell engineers to try and target them.</p>
+<h3>Archetypes do not make good goals</h3>
+<p>To see why, let’s take the “team lead” archetype. Larson describes this as an informal technical leadership role: not necessarily an explicit authority figure, but someone who’s good at scoping work, planning projects, and maintaining the kind of relationships (e.g. with other teams) needed to successfully <a href="https://www.seangoedecke.com/how-to-ship">ship</a>. If you want to fill this role, shouldn’t you start trying to do these things? No! You don’t become a technical leader by trying really hard to be a technical leader, much like you don’t become a writer by trying really hard “to be a writer”. You become a technical leader by <em>doing good technical work</em> until your skills and relationships emerge organically.</p>
+<p>I wrote about this process in <a href="https://www.seangoedecke.com/ratchet-effects"><em>Ratchet effects determine engineer reputation at large companies</em></a>. To get good at shipping large complex projects, you must start by shipping tiny pieces of work, until you’re familiar enough with the system and you’ve built enough trust to take on slightly larger pieces. At each stage, if you do good work - “good work” here means “deliver <a href="https://www.seangoedecke.com/shareholder-value/">shareholder value</a>” - you will very naturally be given opportunities to work on more complex and important things. If you try to jump ahead, you’re going to run into all kinds of problems:</p>
+<ul> <li>Important projects are usually assigned top-down, not bottom-up, so you’ll either be trying to muscle out the planned engineering lead for a project or to pitch your own (complex, important) engineering task to senior management. Either way, good luck with that!</li> <li>You likely won’t have a good enough relationship with senior management to know what their real priorities are.</li> <li>If you’re not yet trusted to execute, you may get assigned “minders” (often current staff engineers) who will ghost-lead the project through you<sup><a href="https://www.seangoedecke.com/staff-engineer-archetypes/#fn-2">2</a></sup>.</li> <li>You’ll likely make <a href="https://www.seangoedecke.com/you-cant-design-software-you-dont-work-on/">poor technical decisions</a>.</li> </ul>
+<p>The other archetypes are like this as well. If you want to become a successful architect, you do not get there by studying software architecture in the abstract, because <a href="https://www.seangoedecke.com/you-cant-design-software-you-dont-work-on/">you can’t design software you don’t work on</a>. The “solver” and “right hand” archetypes both rely on having an enormous amount of trust and influence. You can’t aim for those archetypes directly, because trust and influence accumulate over time. In fact, the idea of “aiming for” a particular staff engineer archetype reflects a misunderstanding of what the staff engineer role is. What is the defining attribute of the staff engineering role, then?</p>
+<h3>What is a staff engineer?</h3>
+<p><strong>A staff engineer has to be useful to the company.</strong> Of course, a senior or mid-level software engineer ought to be useful too, but all they <em>have</em> to do is execute on the job in front of them. If they end up not providing value (maybe their project turns out to be unimportant, or they don’t get the support needed to succeed) that’s their manager’s problem, not theirs<sup><a href="https://www.seangoedecke.com/staff-engineer-archetypes/#fn-3">3</a></sup>. In contrast, staff engineers are expected to deliver value regardless: to make the project work, or to find something else useful to do if the project truly can’t be salvaged.</p>
+<p>This is an unfair expectation. Often projects really do fail through no fault of your own, and sometimes it just isn’t possible to conjure useful work from thin air. That’s actually by design: <strong>the staff engineer role is supposed to be unfair</strong>. Something many engineers don’t realize is that all senior management and executive leadership roles are unfair too, in the same way. That’s just part of the deal: executives are given power and great compensation, and in return they get thrown off the boat in bad weather<sup><a href="https://www.seangoedecke.com/staff-engineer-archetypes/#fn-4">4</a></sup>. “Staff engineer” is the first engineering role where you are held largely responsible for outcomes you don’t control.</p>
+<p>Developing a “staff engineer mindset” thus has very little to do with the archetypes. Instead, you should:</p>
+<ol> <li>Develop the habit of constantly asking yourself “is this useful to the company” (and answering correctly).</li> <li>Lose the habit of worrying about if you’re being treated “fairly”. Instead, try to think about your role in terms of incentives and consequences.</li> </ol>
+<p>At the beginning, you won’t look much like any of the staff engineer archetypes. You will look like being a level-headed engineer who can be trusted to move projects forward with a minimum of fuss, and who can be re-tasked to different work without complaining. You’ll also look like someone who’s <a href="https://www.seangoedecke.com/getting-the-main-thing-right/">paying a lot of attention</a> to what their manager’s actual priorities are, and who is thinking hard about how to fulfil those priorities (instead of their own goals).</p>
+<p>If you do this for long enough, you’ll eventually find yourself in one of the staff engineer archetypes. However, it probably won’t be the one you’re “aiming for”. The whole point of being a staff engineer is that you’re willing to fill whatever archetype the company needs at the time.</p>
+<h3>Final thoughts</h3>
+<p>In his original staff engineer post, Larson is pretty clear that these archetypes are more of an anthropological description of some of the varied niches staff engineers fill, not a how-to guide for succeeding in the role<sup><a href="https://www.seangoedecke.com/staff-engineer-archetypes/#fn-5">5</a></sup>. At the time, the “staff engineer” role was fairly new and people were still trying to figure out what it even meant. Pointing out that there were a few very different ways to succeed in the role was a genuinely novel observation.</p>
+<p>The staff engineer archetypes are a good list of ways an engineer can be very useful to their organization - but only once they’ve built a deep relationship of trust with their organization’s leadership. Advice on how to succeed as a staff engineer should be about <strong>how to build that trust</strong>, not about what to do once you have it.</p>
+<ol> <li> <p>One caveat that is too pedantic for the body of the post: each tech company has a different structure of roles. Some don’t have the formal “staff” title at all, while others have “staff” as a fairly early rung on the ladder and a panoply of “senior staff”, “senior principal staff”, and so on roles above it. Like all “staff engineer” discourse, this post is not about the word itself but about the point in the engineering job ladder where progression becomes significantly more difficult.</p> <a href="https://www.seangoedecke.com/staff-engineer-archetypes/#fnref-1">↩</a> </li> <li> <p>Impressing your VP’s trusted lieutenants can actually be a good way to build trust in the medium-term, but you’d better hope you’ve built enough understanding of the system to do it right. If this process goes badly, your reputation in the org might be torched for years.</p> <a href="https://www.seangoedecke.com/staff-engineer-archetypes/#fnref-2">↩</a> </li> <li> <p>In theory, at least. In practice it’s always better to be useful (again, in the sense of “delivering shareholder value”).</p> <a href="https://www.seangoedecke.com/staff-engineer-archetypes/#fnref-3">↩</a> </li> <li> <p>This is why very senior leadership sometimes seem so unempathetic towards engineering complaints: their work environment operates by very different rules and norms to that of most engineers. I keep meaning to try and write about this and never succeeding. This <a href="https://github.com/sgoedecke/gatsby-blog/blob/master/content/drafts/_icebox/strategy-for-swes/index.md">draft</a> is the closest thing I have to a deeper exploration of the point.</p> <a href="https://www.seangoedecke.com/staff-engineer-archetypes/#fnref-4">↩</a> </li> <li> <p>For the record, my how-to guides are <a href="https://www.seangoedecke.com/staff-engineer-archetypes/staff-engineer-promotions/">here</a> and <a href="https://www.seangoedecke.com/staff-engineer-archetypes/ratchet-effects/">here</a>.</p> <a href="https://www.seangoedecke.com/staff-engineer-archetypes/#fnref-5">↩</a> </li> </ol></div>
+      
+    </article>
+    
+  </body>
+</html>
