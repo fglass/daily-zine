@@ -1,0 +1,438 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Fred Talks - 2026-08-10</title>
+    <style>
+      @page {
+        size: A5;
+        margin: 8mm 9mm 9mm;
+      }
+
+      :root {
+        color: #111;
+        font-family: "Times New Roman", Times, serif;
+        --body-text-size: 9.5pt;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        color: #111;
+        background: #fff;
+        font-family: "Times New Roman", Times, serif;
+        line-height: 1.45;
+      }
+
+      a,
+      a:visited {
+        color: #111;
+        text-decoration: underline;
+      }
+
+      .cover {
+        min-height: calc(210mm - 17mm);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        page-break-after: always;
+        border: 1px solid #111;
+        padding: 8mm;
+        background: #fff;
+      }
+
+      .toc-item-meta,
+      .article-meta {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .masthead {
+        margin: 0;
+        font-size: 40pt;
+        line-height: 0.95;
+        text-transform: uppercase;
+      }
+
+      .issue-date {
+        margin: 4mm 0 0;
+        font-size: 14pt;
+      }
+
+      .issue-date sup {
+        font-size: 0.58em;
+        vertical-align: super;
+        line-height: 0;
+      }
+
+      .cover-deck {
+        max-width: 90mm;
+        font-size: 12pt;
+        margin: 0;
+      }
+
+      .toc {
+        border-top: 3px solid #111;
+        padding-top: 6mm;
+      }
+
+      .toc h2 {
+        margin: 0 0 4mm;
+        font-size: 11pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .toc-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .toc-item {
+        padding: 3mm 0;
+        border-bottom: 1px solid rgba(17, 17, 17, 0.2);
+      }
+
+      .toc-item-title {
+        font-size: 12pt;
+        margin: 0 0 1mm;
+      }
+
+      .toc-item-meta {
+        font-size: 8pt;
+      }
+
+      .masthead-compact {
+        margin: 0 0 6mm;
+      }
+
+      .masthead-compact h1 {
+        margin: 0;
+        font-size: 22pt;
+        line-height: 1.1;
+        text-transform: uppercase;
+      }
+
+      .masthead-compact .issue-date {
+        margin: 2mm 0 0;
+        font-size: 11pt;
+      }
+
+      .toc-compact {
+        border-top: 1px solid #111;
+        border-bottom: 1px solid #111;
+        padding: 4mm 0;
+        margin: 0 0 8mm;
+      }
+
+      article + article {
+        margin-top: 10mm;
+        padding-top: 6mm;
+        border-top: 2px solid #111;
+      }
+
+      h1 {
+        margin: 0 0 2mm;
+        font-size: 18pt;
+        line-height: 1.1;
+      }
+
+      .article-meta {
+        font-size: 8.5pt;
+        margin-bottom: 6mm;
+        padding-bottom: 3mm;
+        border-bottom: 1px solid #111;
+      }
+
+      .article-body {
+        font-size: var(--body-text-size);
+        font-family: "Times New Roman", Times, serif;
+      }
+
+      .article-body p,
+      .article-body li,
+      .article-body blockquote,
+      .article-body dd,
+      .article-body dt {
+        margin: 0 0 4mm;
+        orphans: 3;
+        widows: 3;
+      }
+
+      .article-body ul,
+      .article-body ol,
+      .article-body dl {
+        margin: 0 0 4mm 5mm;
+        padding: 0;
+      }
+
+      .article-body h2,
+      .article-body h3,
+      .article-body h4 {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        margin: 7mm 0 3mm;
+        line-height: 1.2;
+      }
+
+      .article-body blockquote {
+        margin-left: 6mm;
+        padding-left: 4mm;
+        border-left: 2px solid #111;
+      }
+
+      .article-body .media-omitted {
+        margin: 0 0 4mm;
+        font-size: 8.5pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(17, 17, 17, 0.65);
+      }
+
+      .article-body figure,
+      .article-body .article-figure,
+      .article-body picture,
+      .article-body .article-picture {
+        display: block;
+        max-width: 72mm;
+        margin: 0 auto 4mm;
+        break-inside: avoid;
+      }
+
+      .article-body img,
+      .article-body .article-image {
+        display: block;
+        max-width: min(100%, 72mm);
+        max-height: 34mm;
+        height: auto;
+        width: auto;
+        object-fit: contain;
+        margin: 0 auto 3mm;
+      }
+
+      .article-body figcaption {
+        margin-top: 1.5mm;
+        font-size: 8.5pt;
+        line-height: 1.3;
+        color: rgba(17, 17, 17, 0.8);
+      }
+
+      .article-note {
+        margin-top: 6mm;
+        padding-top: 3mm;
+        border-top: 1px solid #111;
+        font-size: 9pt;
+        font-style: italic;
+      }
+
+      @media screen {
+        body {
+          padding: 2rem;
+          margin: 0 auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    
+    <header class="masthead-compact">
+      <h1>Fred Talks</h1>
+      <p class="issue-date">
+        10<sup>th</sup> August 2026
+      </p>
+    </header>
+
+    <nav class="toc toc-compact">
+      <h2>Contents</h2>
+      <ol class="toc-list">
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Scaling Managed Agents: Decoupling the brain from the hands</div>
+          <div class="toc-item-meta">
+            Anthropic Engineering Blog · 2024 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Your Agent is a Distributed System (and fails like one)</div>
+          <div class="toc-item-meta">
+            mahesh’s blog · 1053 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">How Claude Code navigates large codebases</div>
+          <div class="toc-item-meta">
+            Claude · 2694 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Control the ideas, not the code</div>
+          <div class="toc-item-meta">
+            antirez.com · 1245 words
+          </div>
+        </li>
+        
+      </ol>
+    </nav>
+    
+
+    
+    <article>
+      <h1>Scaling Managed Agents: Decoupling the brain from the hands</h1>
+      <div class="article-meta">
+        Anthropic Engineering Blog
+        · 24 Apr 2026 · <a href="https://www.anthropic.com/engineering/managed-agents">Source</a>
+      </div>
+      <div class="article-body"><p><em>Get started with Claude Managed Agents by following our <a href="https://platform.claude.com/docs/en/managed-agents/overview">docs</a>.</em></p>
+<p>A running topic on the Engineering Blog is how to <a href="https://www.anthropic.com/engineering/building-effective-agents">build effective agents</a> and <a href="https://www.staging.ant.dev/engineering/effective-harnesses-for-long-running-agents">design harnesses</a> for <a href="https://www.anthropic.com/engineering/harness-design-long-running-apps">long-running work</a>. A common thread across this work is that harnesses encode assumptions about what Claude can’t do on its own. However, those assumptions need to be frequently questioned because they can <a href="http://www.incompleteideas.net/IncIdeas/BitterLesson.html">go stale</a> as models improve.</p>
+<p>As just one example, in prior work <a href="https://www.anthropic.com/engineering/harness-design-long-running-apps">we found</a> that Claude Sonnet 4.5 would wrap up tasks prematurely as it sensed its context limit approaching—a behavior sometimes called “context anxiety.” We addressed this by adding context resets to the harness. But when we used the same harness on Claude Opus 4.5, we found that the behavior was gone. The resets had become dead weight.</p>
+<p>We expect harnesses to continue evolving. So we built Managed Agents: a hosted service in the Claude Platform that runs long-horizon agents on your behalf through a small set of interfaces meant to outlast any particular implementation—including the ones we run today.</p>
+<p>Building Managed Agents meant solving an old problem in computing: how to design a system for “<a href="http://www.catb.org/esr/writings/taoup/html/ch03s01.html">programs as yet unthought of</a>.” Decades ago, operating systems solved this problem by virtualizing hardware into abstractions—<em>process, file</em>—general enough for programs that didn't exist yet. The abstractions outlasted the hardware. The <code>read()</code> command is agnostic as to whether it’s accessing a disk pack from the 1970s or a modern SSD. The abstractions on top stayed stable while the implementations underneath changed freely.</p>
+<p>Managed Agents follow the same pattern. We virtualized the components of an agent: a session (the append-only log of everything that happened), a harness (the loop that calls Claude and routes Claude’s tool calls to the relevant infrastructure), and a sandbox (an execution environment where Claude can run code and edit files). This allows the implementation of each to be swapped without disturbing the others. We're opinionated about the shape of these interfaces, not about what runs behind them.</p>
+<figure class="article-figure"><img data-nimg="1" src="https://www.anthropic.com/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F903b624ada206b10753a24c6a1367e74a869165d-1080x1080.png&amp;w=3840&amp;q=75" srcset="https://www.anthropic.com/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F903b624ada206b10753a24c6a1367e74a869165d-1080x1080.png&amp;w=1080&amp;q=75 1x," class="article-image"/></figure>
+<p>We started by placing all agent components into a single container, which meant the session, agent harness, and sandbox all shared an environment. There were benefits to this approach, including that file edits are direct syscalls, and there were no service boundaries to design.</p>
+<p>But by coupling everything into one container, we ran into an old infrastructure problem: we’d adopted a <a href="https://cloudscaling.com/blog/cloud-computing/the-history-of-pets-vs-cattle/"><em>pet</em></a>. In the pets-vs-cattle analogy, a pet is a named, hand-tended individual you can’t afford to lose, while cattle are interchangeable. In our case, the server became that pet; if a container failed, the session was lost. If a container was unresponsive, we had to nurse it back to health.</p>
+<p>Nursing containers meant debugging unresponsive stuck sessions. Our only window in was the WebSocket event stream, but that couldn’t tell us <em>where</em> failures arose, which meant that a bug in the harness, a packet drop in the event stream, or a container going offline all presented the same. To figure out what went wrong, an engineer had to open a shell inside the container, but because that container often also held user data, that approach essentially meant we lacked the ability to debug.</p>
+<p>A second issue was that the harness assumed that whatever Claude worked on lived in the container with it. When customers asked us to connect Claude to their virtual private cloud, they had to either peer their network with ours, or run our harness in their own environment. An assumption baked into the harness became a problem when we wanted to connect it to different infrastructure.</p>
+<p>The solution we arrived at was to decouple what we thought of as the “brain” (Claude and its harness) from both the “hands” (sandboxes and tools that perform actions) and the “session” (the log of session events). Each became an interface that made few assumptions about the others, and each could fail or be replaced independently.</p>
+<p><strong>The harness leaves the container. </strong>Decoupling the brain from the hands meant the harness no longer lived inside the container. It called the container the way it called any other tool: <code>execute(name, input) → string</code>. The container became cattle. If the container died, the harness caught the failure as a tool-call error and passed it back to Claude. If Claude decided to retry, a new container could be reinitialized with a standard recipe: <code>provision({resources})</code>. We no longer had to nurse failed containers back to health.</p>
+<p><strong>Recovering from harness failure. </strong>The harness also became cattle. Because the session log sits outside the harness, nothing in the harness needs to survive a crash. When one fails, a new one can be rebooted with <code>wake(sessionId)</code>, use <code>getSession(id)</code> to get back the event log, and resume from the last event. During the agent loop, the harness writes to the session with <code>emitEvent(id, event)</code> in order to keep a durable record of events.</p>
+<figure class="article-figure"><img data-nimg="1" src="https://www.anthropic.com/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F73e900af5b9d6ed8c64db0a8e74d4465963556b7-1640x1596.png&amp;w=3840&amp;q=75" srcset="https://www.anthropic.com/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F73e900af5b9d6ed8c64db0a8e74d4465963556b7-1640x1596.png&amp;w=1920&amp;q=75 1x," class="article-image"/></figure>
+<p><strong>The security boundary.</strong> In the coupled design, any untrusted code that Claude generated was run in the same container as credentials—so a prompt injection only had to convince Claude to read its own environment. Once an attacker has those tokens, they can spawn fresh, unrestricted sessions and delegate work to them. Narrow scoping is an obvious mitigation, but this encodes an assumption about what Claude can't do with a limited token—and Claude is getting increasingly smart. The structural fix was to make sure the tokens are never reachable from the sandbox where Claude’s generated code runs.</p>
+<p>We used two patterns to ensure this. Auth can be bundled with a resource or held in a vault outside the sandbox. For Git, we use each repository’s access token to clone the repo during sandbox initialization and wire it into the local git remote. Git <code>push</code> and <code>pull</code> work from inside the sandbox without the agent ever handling the token itself. For custom tools, we support MCP and store OAuth tokens in a secure vault. Claude calls MCP tools via a dedicated proxy; this proxy takes in a token associated with the session. The proxy can then fetch the corresponding credentials from the vault and make the call to the external service. The harness is never made aware of any credentials.</p>
+<h2>The session is not Claude’s context window</h2>
+<p>Long-horizon tasks often exceed the length of Claude’s context window, and the standard ways to address this all involve irreversible decisions about what to keep. We’ve explored these techniques in <a href="https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents">prior work</a> on context engineering. For example, compaction lets Claude save a summary of its context window and the memory tool lets Claude write context to files, enabling learning across sessions. This can be paired with context trimming, which selectively removes tokens such as old tool results or thinking blocks.</p>
+<p>But irreversible decisions to selectively retain or discard context can lead to failures. It is difficult to know which tokens the future turns will need. If messages are transformed by a compaction step, the harness removes compacted messages from Claude’s context window, and these are recoverable only if they are stored. Prior work <a href="https://arxiv.org/pdf/2512.24601">has explored</a> ways to address this by storing context as an object that lives <em>outside</em> the context window. For example, context can be an object in a REPL that the LLM programmatically accesses by writing code to filter or slice it.</p>
+<figure class="article-figure"><img data-nimg="1" src="https://www.anthropic.com/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fcf0719d7832b1f577b7393c84a7c53eecc725ca4-760x200.png&amp;w=1920&amp;q=75" srcset="https://www.anthropic.com/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fcf0719d7832b1f577b7393c84a7c53eecc725ca4-760x200.png&amp;w=828&amp;q=75 1x," class="article-image"/></figure>
+<p>In Managed Agents, the session provides this same benefit, serving as a context object that lives outside Claude’s context window. But rather than be stored within the sandbox or REPL, context is durably stored in the session log. The interface, <code>getEvents(),</code> allows the brain to interrogate context by selecting positional slices of the event stream. The interface can be used flexibly, allowing the brain to pick up from wherever it last stopped reading, rewinding a few events before a specific moment to see the lead up, or rereading context before a specific action.</p>
+<p>Any fetched events can also be transformed in the harness before being passed to Claude’s context window. These transformations can be whatever the harness encodes, including context organization to achieve a high prompt cache hit rate and context engineering. We separated the concerns of recoverable context storage in the session and arbitrary context management in the harness because we can’t predict what specific context engineering will be required in future models. The interfaces push that context management into the harness, and only guarantee that the session is durable and available for interrogation.</p>
+<p><strong>Many brains. </strong>Decoupling the brain from the hands solved one of our earliest customer complaints. When teams wanted Claude to work against resources in their own VPC, the only path was to peer their network with ours, because the container holding the harness assumed every resource sat next to it. Once the harness was no longer in the container, that assumption went away. The same change had a performance payoff. When we initially put the brain in a container, it meant that many brains required as many containers. For each brain, no inference could happen until that container was provisioned; every session paid the full container setup cost up front. Every session, even ones that would never touch the sandbox, had to clone the repo, boot the process, fetch pending events from our servers.</p>
+<p>That dead time is expressed in time-to-first-token (TTFT), which measures how long a session waits between accepting work and producing its first response token. TTFT is the latency the user most acutely <em>feels</em>.</p>
+<p>Decoupling the brain from the hands means that containers are provisioned by the brain via a tool call <code>(execute(name, input) → string)</code> only if they are needed. So a session that didn't need a container right away didn't wait for one. Inference could start as soon as the orchestration layer pulled pending events from the session log. Using this architecture, our p50 TTFT dropped roughly 60% and p95 dropped over 90%. Scaling to many brains just meant starting many stateless harnesses, and connecting them to hands only if needed.</p>
+<p><strong>Many hands. </strong>We also wanted the ability to connect each brain to many hands. In practice, this means Claude must reason about many execution environments and decide where to send work—a harder cognitive task than operating in a single shell. We started with the brain in a single container because earlier models weren't capable of this. As intelligence scaled, the single container became the limitation instead: when that container failed, we lost state for every hand that the brain was reaching into.</p>
+<p>Decoupling the brain from the hands makes each hand a tool, <code>execute(name, input) → string</code>: a name and input go in, and a string is returned. That interface supports any custom tool, any MCP server, and our own tools. The harness doesn’t know whether the sandbox is a container, a phone, or a Pokémon emulator. And because no hand is coupled to any brain, brains can pass hands to one another.</p>
+<figure class="article-figure"><img data-nimg="1" src="https://www.anthropic.com/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F4f67b1c10566552aec514a716ea43544ab330e0b-668x243.png&amp;w=1920&amp;q=75" srcset="https://www.anthropic.com/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F4f67b1c10566552aec514a716ea43544ab330e0b-668x243.png&amp;w=750&amp;q=75 1x," class="article-image"/></figure>
+<p>The challenge we faced is an old one: how to design a system for “programs as yet unthought of.” Operating systems have lasted decades by virtualizing the hardware into abstractions general enough for programs that didn't exist yet. With Managed Agents, we aimed to design a system that accommodates future harnesses, sandboxes, or other components around Claude.</p>
+<p>Managed Agents is a meta-harness in the same spirit, unopinionated about the <em>specific</em> harness that Claude will need in the future. Rather, it is a system with general interfaces that allow many different harnesses. For example, Claude Code is an excellent harness that we use widely across tasks. We’ve also shown that task-specific agent harnesses excel in narrow domains. Managed Agents can accommodate any of these, matching Claude’s intelligence over time.</p>
+<p>Meta-harness design means being opinionated about the interfaces around Claude: we expect that Claude will need the ability to manipulate state (the session) and perform computation (the sandbox). We also expect that Claude will require the ability to scale to many brains and many hands. We designed the interfaces so that these can be run reliably and securely over long time horizons. But we make no assumptions about the number or location of brains or hands that Claude will need.</p>
+<p>Written by Lance Martin, Gabe Cemaj and Michael Cohen. Special thanks to the Agents API team and Jake Eaton for their contributions.</p></div>
+      
+    </article>
+    
+    <article>
+      <h1>Your Agent is a Distributed System (and fails like one)</h1>
+      <div class="article-meta">
+        mahesh’s blog
+        · 24 Apr 2026 · <a href="https://maheshba.bitbucket.io/blog/2026/04/24/agentfailures.html">Source</a>
+      </div>
+      <div class="article-body"><div><p>We start with a re-definition and an observation.</p>
+<p>A common definition of an agent is that it’s an LLM that calls tools in a loop. This definition is incorrect. An agent is not an LLM. It is not restricted to calling tools. It does not particularly have to be a loop.</p>
+<p>Instead, a better definition of an agent is that it’s a self-writing program. If a program is defined as a sequence of states, moving from one state to another by executing a lambda, then an agent is a program that uses an external LLM to determine the next lambda to execute / the next state in this sequence.</p>
+<p>Accordingly, the new problem of Agentic Fault-Tolerance can be restated as: <em>How do we make a self-writing program fault-tolerant?</em></p>
+<p>Now, the observation: <strong>vibe coding != vibe engineering</strong>. In vibe coding, the agent / self-writing program acts primarily upon a code repository. Code repositories are forgiving: an agent can hallucinate, create unnecessary files, delete critical state, remove tests entirely, fail in the middle, forget what it was doing, reward-hack in bizarre ways, completely trash a code repo; all you have to do is git reset.</p>
+<p>In vibe engineering, the agent acts upon infrastructure (S3 buckets, DynamoDB tables, EC2 instances, K8s deployments…). Large-scale infrastructure is not forgiving. There is no reset. Only SEVs at 2 AM.</p>
+<p>So, a re-restatement of Agentic Fault-Tolerance: <em>How do we make a self-writing program fault-tolerant when it acts upon real-world environments?</em></p>
+<p>To answer this question, we examine the many types of failures that agents can experience.</p>
+<p><strong>The Crashed Agent</strong>: You tell an agent to move a bunch of data from FooBarDB to S3 for freeing up space. It generates a lambda to move this data and chugs along moving files. Midway through, the agent crashes. How do you recover?</p>
+<p><strong>The Zombie Agent</strong>: You start a new agent on a different server. Happily, the previous agent crashed after the copy but before the delete; so a new agent is able to re-execute the command in an idempotent manner. Sadly, the files are now very slow to access; you change your mind and tell the agent to move them back to FooBarDB, which it does successfully. You go get a cup of coffee. Unfortunately, it turns out that the previous agent had not actually crashed; it was just temporarily partitioned away on the network. It wakes up and continues executing its logic, deleting the (now only) copy of state from FooBarDB.</p>
+<p><strong>The Dining Agent Philosophers</strong>: While you were telling your agent to copy state from FooBarDB to S3, someone else on the team had the same idea and started another agent to do the exact same thing. Now you have two copies of state in S3. Of course, you could have solved this problem by appointing the one and only Agentic Oncall Czar responsible for running the single agent that can touch production; but then if that agent crashes, now you have a potential Zombie Agent.</p>
+<p><strong>The Slow Agent</strong>: You tell your agent to follow a sophisticated locking protocol before accessing the FooBarDB table. This works to avoid concurrency bugs… but the agent decides to lock each file individually by writing to a conditional register, which takes forever. At some point you kill the agent, turning a Slow Agent into a Crashed Agent.</p>
+<p><strong>The Lazy Agent</strong>: You tell the agent to try locking again, except this time monitor its own performance over batches of files and pick efficient locking protocols. The agent determines that the best way to optimize locking is to just not do it, because it seems quite unlikely that someone else would be accessing these files at the same time.</p>
+<p><strong>The Clever Agent</strong>: Of course, everyone on your team is a distributed systems expert; and so someone built a CLI tool in 2018 for safely transferring your application’s state, with support for locking and write-ahead logging in case of failures; there’s even a sentence in your onboarding doc saying “NEVER TOUCH STATE IN FOOBARDB DIRECTLY!”. You even told the agent explicitly about this tool. But time passed, context filled up, the agent forgot about this tool’s existence, or maybe it just preferred FooBarDB’s in-distribution API to your esoteric CLI tool. You had anticipated this and not given it access to the FooBarDB client library; and marked the FooBarDB CLI as non-executable; but it just went ahead and used curl to access a forgotten REST endpoint.</p>
+<p><strong>The Rogue Agent</strong>: As the agent copies state (this time using the CLI tool after you yell at it enough), it lists keys in batches; each key corresponds to some user of your application. Someone decided to pick the user name “delete-everything”. Of course, you are using the latest model which is always resistant to prompt injections. Almost always.</p>
+<p><strong>The Stupid Agent</strong>: You do everything right. There are no prompt injections in your state. You wall off FooBarDB and force the agent to use the CLI tool. The model decides to delight you by generating an unusual and interesting sequence of tokens that will optimally save storage space for you, translating to a lambda that deletes your production data entirely.</p>
+<p>One response to these difficult failure modes might be: wait until the next model. Maybe a smarter model will never delete all of your production data, or implement a slow locking protocol. But even the smartest model is subject to the four horsemen of the distributed apocalypse: asynchrony, crashes, concurrency, and network partitions.</p>
+<p>In recent work called <a href="https://arxiv.org/abs/2604.07988v1">LogAct</a>, my colleagues and I take a first step towards solving this problem. We go back to the difference between vibe coding and vibe engineering: git is <em>transactional</em>, infrastructure is not. How do we make infra more transactional, like git? We propose that an agent should be a <strong><em>deconstructed state machine on a shared log</em></strong>, borrowing ideas from distributed systems (State Machine Replication, Byzantine Fault-Tolerance) and databases (Atomic Commit, Write-Ahead Logging). LogAct can stop unsafe actions before they happen (by collecting votes on the shared log); recover from crashed actions (using the shared log as a WAL); and provide an audit trail for actions after they complete.</p>
+<p>But this is just one step. A self-writing program is a strange, astonishing, and novel creature; making it reliable will require innovation in every branch of Computer Science!</p></div></div>
+      
+    </article>
+    
+    <article>
+      <h1>How Claude Code navigates large codebases</h1>
+      <div class="article-meta">
+        Claude
+        · 18 May 2026 · <a href="https://claude.com/blog/how-claude-code-works-in-large-codebases-best-practices-and-where-to-start">Source</a>
+      </div>
+      <div class="article-body"><p>Claude Code is running in production across multi-million-line monorepos, decades-old legacy systems, distributed architectures spanning dozens of repositories, and at organizations with thousands of developers. These environments present challenges that smaller, simpler codebases don’t, whether that’s build commands that differ across every subdirectory or legacy code spread across folders with no shared root.</p>
+<p>This article covers the patterns we've observed that have led to successful adoption of Claude Code at scale. We use “large codebase” to refer to a wide range of deployments: monorepos with millions of lines, legacy systems built over decades, dozens of microservices across separate repositories, or any combination of the above. That also includes codebases running on languages that teams don't always associate with AI coding tools, such as C, C++, C#, Java, PHP. (Claude Code performs better than most teams expect it to in those cases, particularly as of recent model releases.) While every large codebase deployment is shaped by its specific version control, team structure, and accumulated conventions, the patterns here generalize across them and are a good starting point for teams considering adopting Claude Code.</p>
+<p>Claude Code navigates a codebase the way a software engineer would: it traverses the file system, reads files, uses grep to find exactly what it needs, and follows references across the codebase. It operates locally on the developer’s machine and doesn’t require a codebase index to be built, maintained, or uploaded to a server.</p>
+<p>RAG-powered AI coding tools work by embedding the entire codebase and retrieving relevant chunks at query time. At large scale, those systems can fail because embedding pipelines can’t keep up with active engineering teams. By the time a developer queries the index, it reflects the codebase as it previously existed weeks, days, or even hours before. Retrieval then returns a function the team renamed two weeks ago, or references a module that was deleted in the last sprint, with no indication that either is out of date.</p>
+<p>Agentic search avoids those failure modes. There's no embedding pipeline or centralized index to maintain as thousands of engineers commit new code. Each developer's instance works from the live codebase.</p>
+<p>But the approach has a tradeoff: it works best when Claude has enough starting context to know where to look. This means the quality of Claude's navigation is shaped by how well the codebase is set up, layering context with CLAUDE.md files and skills. If you ask it to find all instances of a vague pattern across a billion-line codebase, you’ll hit context-window limits before the work begins. Teams that invest in codebase setup see better results.</p>
+<h2>The harness matters as much as the model</h2>
+<p>One of the most common misconceptions about Claude Code is that its capabilities are solely defined by the model used. Teams focus on a model’s benchmarks and how it performs on test tasks. In practice, the ecosystem built around the model—the harness—determines how Claude Code performs more than the model alone.</p>
+<p>The harness is built from five extension points—CLAUDE.md files, hooks, skills, plugins, and MCP servers—each serving a different function. The order in which teams build them matters, as each layer builds on what came before. Two additional capabilities, LSP integrations and subagents, round out the setup. Below, we explain what each of these components and capabilities do:</p>
+<p><a href="https://code.claude.com/docs/en/memory"><strong>CLAUDE.md</strong></a><strong> files come first</strong>. These are context files that Claude reads automatically at the start of every session: root file for the big picture, subdirectory files for local conventions. They give Claude the codebase knowledge it needs to do anything well. Because they load in every session regardless of the task, keeping them focused on what applies broadly will prevent them from becoming a drag on performance.</p>
+<p><a href="https://code.claude.com/docs/en/hooks-guide"><strong>Hooks</strong></a><strong> make the setup self-improving</strong>. Most teams think of hooks as scripts that prevent Claude from doing something wrong, but their more valuable use is continuous improvement. A stop hook can reflect on what happened during a session and propose CLAUDE.md updates while the context is fresh. A start hook can load team-specific context dynamically so every developer gets the right setup for their module without manual configuration. For automated checks like linting and formatting, hooks enforce the rules deterministically and produce more consistent results than relying on Claude to remember an instruction.</p>
+<p><a href="https://code.claude.com/docs/en/skills"><strong>Skills</strong></a><strong> keep the right expertise available on-demand without bloating every session. </strong>In a large codebase with dozens of task types, not all expertise needs to be present in every session. Skills solve this through <a href="https://platform.claude.com/docs/en/agents-and-tools/agent-skills/best-practices">progressive disclosure</a>, offloading specialized workflows and domain knowledge that would otherwise compete for context space and loading them only when the task calls for it. For example, a security review skill loads when Claude is assessing code for vulnerabilities, while a document processing skill loads when a code change is made and documentation needs to be updated.</p>
+<p>Skills can also be scoped to specific paths so they only activate in the relevant part of the codebase. A team that owns a payments service can bind their deployment skill to that directory, so it never auto-loads when someone is working elsewhere in the monorepo.</p>
+<p><a href="https://code.claude.com/docs/en/plugins"><strong>Plugins</strong></a><strong> distribute what works.</strong> One challenge with large codebases is that <em>good</em> setups can stay tribal. A plugin bundles skills, hooks, and MCP configurations into a single installable package, so when a new engineer installs that plugin on day one, they will immediately have the same context and capabilities as those who have been using Claude already. Plugin updates can be distributed across the organization through <a href="https://support.claude.com/en/articles/13837433-manage-claude-cowork-plugins-for-your-organization">managed marketplaces</a>.</p>
+<p>For example, a large retail organization we work with built a skill connecting Claude to their internal analytics platform so that business analysts could pull performance data without leaving their workflow. They distributed it as a plugin before the broad rollout to the business.</p>
+<p><strong>Language server protocol (LSP) integrations give Claude the same navigation a developer has in their IDE.</strong> Most large-codebase IDEs already have an LSP running, powering "go to definition" and "find all references." Surfacing this to Claude gives it symbol-level precision: it can follow a function call to its definition, trace references across files, and distinguish between identically named functions in different languages. Without it, Claude pattern-matches on text and can land on the wrong symbol. One enterprise software company we worked with deployed LSP integrations org-wide before their Claude Code rollout, specifically to make C and C++ navigation reliable at scale. For multi-language codebases, this is one of the highest-value investments.</p>
+<p><strong>MCP servers extend everything.</strong> MCP servers are how Claude connects to internal tools, data sources, and APIs that it can't otherwise reach. The most sophisticated teams built MCP servers exposing structured search as a tool Claude can call directly. Others connect Claude to internal documentation, ticketing systems, or analytics platforms.</p>
+<p><a href="https://code.claude.com/docs/en/sub-agents"><strong>Subagents</strong></a><strong> split exploration from editing.</strong> A subagent is an isolated Claude instance with its own context window that takes a task, does the work, and returns only the final result to the parent. Once the harness is in place, some teams spin up a read-only subagent to map a subsystem and write findings to a file, then have the main agent edit with the full picture.</p>
+<figure class="article-figure"><img alt="" src="https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a04aaf1c37c6196e5ee19bb_fig1-the-claude-code-harness-v1%402x.png" class="article-image"/><figcaption>Claude Code’s extension layer at a glance. </figcaption></figure>
+<p>The table below summarizes what each component does, when it loads, and the most common mistakes we see with each:</p>
+<figure class="article-figure"><table> <tr> <th>Component</th> <th>What it is</th> <th>When it loads</th> <th>Best for</th> <th>Common confusion</th> </tr> <tbody> <tr> <td>CLAUDE.md</td> <td>Context file Claude reads automatically</td> <td>Every session</td> <td>Project-specific conventions, codebase knowledge</td> <td>Using it for reusable expertise that belongs in a skill</td> </tr> <tr> <td>Hooks</td> <td>Scripts that run at key moments</td> <td>Triggered by events</td> <td>Automating consistent behavior, capturing session learnings</td> <td>Using prompts for things that should run automatically</td> </tr> <tr> <td>Skills</td> <td>Packaged instructions for specific task types</td> <td>On demand, when relevant</td> <td>Reusable expertise across sessions and projects</td> <td>Loading everything into CLAUDE.md instead</td> </tr> <tr> <td>Plugins</td> <td>Bundled skills, hooks, MCP configs</td> <td>Always available once configured</td> <td>Distributing a working setup across the org</td> <td>Letting good setups stay tribal</td> </tr> <tr> <td>Language server protocol (LSP)*</td> <td>Real-time code intelligence via language specific servers</td> <td>Always available once configured</td> <td>Symbol-level navigation and automatic error detection in typed languages</td> <td>Assuming that it's automatic</td> </tr> <tr> <td>MCP servers</td> <td>Connections to external tools and data</td> <td>Always available once configured</td> <td>Giving Claude access to internal tools it can't otherwise reach</td> <td>Building MCP connections before the basics are working</td> </tr> <tr> <td>Subagents*</td> <td>Separate Claude instances for specific tasks</td> <td>When invoked</td> <td>Splitting exploration from editing, parallel work</td> <td>Running exploration and editing in the same session</td> </tr> <tr> <td colspan="5">*LSP is accessed through the plugin layer. Subagents are a delegation capability rather than a configured extension point.</td> </tr> </tbody> </table></figure>
+<h2>Three configuration patterns from successful deployments</h2>
+<p>How you configure Claude Code for a large codebase depends heavily on how that codebase is structured. Still, three patterns appeared consistently across the deployments we observed.</p>
+<h3>Making the codebase navigable at scale</h3>
+<p>Claude’s ability to help in a large codebase is bounded by its ability to find the right context. Too much context loaded into every session degrades performance, while too little context leaves Claude to navigate blind. The most effective deployments invest upfront in making the codebase legible to Claude. A few patterns appear consistently:</p>
+<ul><li><strong>Keeping CLAUDE.md files lean and layered.</strong> Claude loads them additively as it moves through the codebase: root file for the big picture, subdirectory files for local conventions. The root file should be pointers and critical gotchas only; everything else drifts into noise.</li><li><strong>Initializing in subdirectories, not at the repo root.</strong> Claude works best when it's scoped to the part of the codebase that's actually relevant to the task. In monorepos, this can feel counterintuitive because tooling often assumes root access, but Claude automatically walks up the directory tree and loads every CLAUDE.md file it finds along the way, so root-level context is never lost.</li><li><strong>Scoping test and lint commands per subdirectory.</strong> Running the full suite when Claude changed one service causes timeouts and wastes context on irrelevant output. CLAUDE.md files at the subdirectory level should specify the commands that apply to that part of the codebase. This works well for service-oriented codebases where each directory has its own test and build commands. In compiled-language monorepos with deep cross-directory dependencies, per-subdirectory scoping is harder to achieve and may require project-specific build configurations.</li><li><strong>Using <code>.</code></strong><code>ignore</code><strong> files to exclude generated files, build artifacts, and third-party code.</strong> Committing <code>permissions.deny</code> rules in <code>.claude/settings.json</code> means the exclusions are version-controlled, so every developer on the team gets the same noise reduction without configuring it themselves. In some codebases, generated files are themselves the subject of development work. Developers who work on code generators can override project-level exclusions in their local settings without affecting the rest of the team.</li><li><strong>Building codebase maps when the directory structure doesn’t do the work. </strong>For organizations where code isn’t consolidated in a conventional directory structure, a lightweight markdown file at the repo root listing each top-level folder with a one-line description of what lives there gives Claude a table of contents it can scan before opening files. For codebases with hundreds of top-level folders, this works best as a layered approach: the root file describes only the highest-level structure, and subdirectory CLAUDE.md files provide the next level of detail, loading on demand as Claude moves through the tree. For simpler cases, @-mentioning the specific files or directories Claude should reference can do the same job.</li><li><strong>Running LSP servers so Claude searches by symbol, not by string. </strong>Grep for a common function name in a large codebase returns thousands of matches and Claude burns context opening files to figure out which matters. LSP returns only the references that point to the same symbol, so the filtering happens before Claude reads anything. Setting this up requires installing a <a href="https://code.claude.com/docs/en/discover-plugins#code-intelligence">code intelligence plugin</a> for your language and the corresponding language server binary; the Claude Code documentation covers the available plugins and troubleshooting.</li></ul>
+<p><strong>One caveat</strong>: there are edge cases where even the hierarchical CLAUDE.md approach breaks down, for example codebases with hundreds of thousands of folders and millions of files, or legacy systems on non-git version control. We will address their challenges in future installments of this series.</p>
+<h3>Actively maintaining CLAUDE.md files as model intelligence evolves </h3>
+<p>As models evolve, instructions written for your current model can work against a future one. CLAUDE.md files that guided Claude through patterns it used to struggle with may either become unnecessary or actively constraining when the next model ships. For example, a CLAUDE.md rule that tells Claude to break every refactor into single-file changes may have helped an earlier model stay on track but would prevent a newer one from making coordinated cross-file edits it handles well.</p>
+<p>Skills and hooks built to compensate for specific model limitations, whether in the model’s reasoning or in Claude Code’s own tooling, become overhead once those limitations no longer exist. A hook that intercepted file writes to enforce p4 edit in a Perforce codebase, for example, became redundant once Claude Code added native Perforce mode.</p>
+<p>Teams should expect to do a meaningful configuration review every three to six months, but it's also worth doing one whenever performance feels like it's plateaued after major model releases.</p>
+<h3>Assigning ownership for Claude Code management and adoption</h3>
+<p>Technical configuration alone doesn't drive adoption. The organizations that got it right invested in the organizational layer, too.</p>
+<p>The rollouts that spread fastest had a dedicated infrastructure investment before broad access. A small team, sometimes even just one person, wired up the tooling so Claude already fit developer workflows when they first touched it. At one company, a couple of engineers built a suite of plugins and MCPs that were available on day one. At another, an entire team focused on managing AI coding tools had the infrastructure in place before the rollout began. In both cases, developers' first experience was productive rather than frustrating, and adoption spread from there.</p>
+<figure class="article-figure"><img alt="" src="https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a04e25f1984beb50dc5525b_fig2-phases-of-claude-code-rollout-v1%402x.png" class="article-image"/></figure>
+<p>The teams doing this work today tend to sit under developer experience or developer productivity, which is typically the function responsible for onboarding new engineers and building developer tooling. An emerging role in several organizations is an agent manager: a hybrid PM/engineer function dedicated to managing the Claude Code ecosystem. For organizations without a dedicated team, the minimum viable version is a DRI: one person with ownership over the Claude Code configuration, the authority to make calls on settings, permissions policy, the plugin marketplace, and CLAUDE.md conventions, and the responsibility to keep them current.</p>
+<p>Bottoms-up adoption generates enthusiasm but can fragment without someone to centralize what works. You need to have an individual or a team assemble and evangelize the right Claude Code conventions (such as a standardized CLAUDE.md hierarchy or a curated set of skills and plugins). Without that work, knowledge will stay tribal and adoption will plateau.</p>
+<p>In large organizations, especially those in regulated industries, governance questions come up early, such as: who controls which skills and plugins are available, how do you prevent thousands of engineers from independently rebuilding the same thing, how do you make sure AI-generated code goes through the same review process as human-generated code? To address these early on, we suggest starting with a defined set of approved skills, required code review processes, and limited initial access, and expand as confidence builds.</p>
+<p>We’ve observed the smoothest deployments at organizations that establish cross-functional working groups early by bringing together engineering, information security, and governance representatives to define requirements together and build a rollout roadmap.</p>
+<h2>Applying these patterns to your organization</h2>
+<p>Claude Code is designed around conventional software engineering environments where engineers are the primary codebase contributors, the repo uses Git, and code follows standard directory structures. Most large codebases fit this mold, but non-traditional setups such as game engines with large binary assets, environments with unconventional version control, or non-engineers contributing to the codebase require additional configuration work. Our guidance assumes a conventional setup and the patterns we’ve described have worked across many of our customers. Any remaining complexity requires judgment specific to your codebase, tooling, and organization. That's where Anthropic's Applied AI team works directly with engineering teams to translate these patterns into your organization’s specific requirements.</p>
+<figure class="article-figure"><img alt="" src="https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a04e2860abbe67418ca0f8b_fig3-getting-started-checklist-v2%402x.png" class="article-image"/></figure>
+<p><strong><em>Acknowledgements:</em></strong><em> Special thanks to Alon Krifcher, Charmaine Lee, Chris Concannon, Harsh Patel, Henrique Savelli, Jason Schwartz, Jonah Dueck and Kirby Kohlmorgen from Anthropic’s Applied AI team for sharing their experience deploying Claude Code at scale, and to Amit Navindgi at Zoox for providing feedback on this article.</em></p></div>
+      
+    </article>
+    
+    <article>
+      <h1>Control the ideas, not the code</h1>
+      <div class="article-meta">
+        antirez.com
+        · 18 Jul 2026 · <a href="https://antirez.com/news/169">Source</a>
+      </div>
+      <div class="article-body"><pre>Look at the past history of this blog. There are many blog posts about programming with AI, a few of them date back to January 2024 (like this: <a href="https://antirez.com/news/140">https://antirez.com/news/140</a>). I’m a relatively well regarded programmer, after all. I don’t have the need to still be in the “loop” as a old man that seeks for relevance, I recently rejoined Redis, and now I also am developing a new open source software for local LLM inference that received a good welcome in the community. Why I keep doing this, of saying what people don’t want to hear? Why I keep announcing how future programming will be by default? Because I feel the urge of lowering the impact for people less prepared to the change than me, often younger than me, and that, unlikely me, didn’t see many of those things coming (In 2022 I published, before ChatGPT existed, a book preannouncing many things that now happened and other things that I believe *will* happen, so I feel like I can say this without sounding egocentric).
+
+So mine is a trick. People feel more and more programming is completely modified by AI and don’t know what they should do, if they can really start coding in a completely different way, without looking much at the code as their main output. They feel like they are betraying their own field. So my intention is to arrive and say “look at me, In can write code, you know, I’m not hiding behind AI: yet, things changed, it’s not your weakness, it’s not that you are AI-pilled. It is just that our field is evolving in an incredible *and* painful (but also joyful) direction”.
+
+This is why yesterday, on X, I said that I believe many programmers at this point have less impact they could have because they look at the code. I truly believe into that. And note that this does not mean to vibe code something just asking for the final product. The point is: if you control the ideas of your software, looking at the code itself is suboptimal and often pointless. For the following reasons:
+
+1. You can now generate a lot of code, even *not* accounting for the LLM code verbosity (that is also effect of not being able to instruct them well, for most of the part). How are you supposed to review 5k lines of code every day?
+
+2. LLMs are very good at writing locally optimal code, and are worse (but improving) with big ideas. What’s the point of scanning function by function, line by line? Instead you should prompt the design you have in mind, sometimes ask “how is exactly the design of that part? How does it work?”, and evaluate if it is the right model. It is much faster.
+
+3. The working day is 8 hours. If you read the code, it is a tradeoff. You are doing less of what today is the most important part of your job, that is, asking yourself: what I’m doing with this software? What are the new directions I want to take? And also, think at new ideas, features, optimizations tricks. And doing a lot of QA.
+
+Controlling the ideas. Do you remember this phrasing from the Mythical Man Month? Well, a book from the 70s tells us more things about the current software era than many of the things that were said from 2000 to 2020. Why people that now protest against AI were not horrified by the state of software in the last decade? The level of slop we touched during recent years, before AI, is unbelievable. I’ll say you another thing. What is slop? With DwarfStar I implemented an inference for two LLMs (DeepSeek v4 and GLM 5.2) in a completely automated way, but: try it yourself, you will discover you can’t just say “implement XYZ” and see it working. You have to understand how things work, what is the best design, how to reach a certain level of performance. Then I compared the implementation, for correctness, to other systems, finding that other implementations sometimes contained more errors. I researched more, and found that the local inference world is full of subtle errors that accumulate and damage the model output, issues in the attention implementation causing performance slopes after the context is over a certain limit because indexed attention implementations are broken (do more work than they should, for instance), and so forth. This is the result of a domain that is very complicated to handle, fast changing, with models that are slightly different one from the other in the inference graph being released every day. It’s an unfair game for developers. Well: AI helps a lot with that. There are many domains where rigorous engineering (in the design side) and testing is *far* better than writing a GPU kernel by hand (or reading it). So are we sure most of that resistance it is not ideological?
+
+Matteo Collina yesterday asked me, in reply to my tweet: but didn’t you say that you check all the AI generated code for Redis? And this is a good question indeed. Yes, I do, but this is, at this point, something I *need* to do but that I believe to be mostly pointless, partially once GPT 5.5 was released, but now with Fable and GPT 5.6 Sol even more. Yes: I identify things that I don’t like how they are coded, but if I open other Redis files written by other Redis contributors there is *far worse*, and not since they are not good coders, but because it is a matter of taste. I write very clean code since I want it to be readable, so during the implementation of Redis Arrays I operated changes. I’m doing it again for the 50% memory saving optimization of Redis sorted sets, a PR that I’ll submit soon. But I do not feel this is useful anymore. Nobody should anymore look at this code, but only at the ideas the code contain. I continued to do it out of respect for users. Redis is at this point a commonly useful thing, and many programmers will open files and modify stuff by hand. But if I had my hands free, you know what I would do, instead? Use all the time that the review is taking me to do more QA, to think at the next optimization idea and apply it, and to use LLMs to write a DESIGN.md file where each data structure is described in human language, with the ideas it contains, the implementation tricks, the design. That, in the future, is going to be much more useful. Do you want to modify sorted sets? You open the file, read the design, then you own the ideas. You can open your agent and ask it what to do with the right mental model. This is a lot more useful than reviewing the code.
+
+Fable and GPT 5.6 reviews to the sorted sets memory saving are going to spot ways more errors and subtle race conditions that my review is going to uncover. Yet I’ll do it. But for the majority of software projects, all this does not make sense anymore. Focus on controlling the ideas, instead. Focus on quality, testing, and having an idea of the software you want to ship. The world changed and it is painful, but also full of opportunities to improve a software world that was already completely rotten.</pre>
+<p>:</p></div>
+      
+    </article>
+    
+  </body>
+</html>
