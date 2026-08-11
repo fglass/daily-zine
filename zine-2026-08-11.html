@@ -1,0 +1,429 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Fred Talks - 2026-08-11</title>
+    <style>
+      @page {
+        size: A5;
+        margin: 8mm 9mm 9mm;
+      }
+
+      :root {
+        color: #111;
+        font-family: "Times New Roman", Times, serif;
+        --body-text-size: 9.5pt;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        color: #111;
+        background: #fff;
+        font-family: "Times New Roman", Times, serif;
+        line-height: 1.45;
+      }
+
+      a,
+      a:visited {
+        color: #111;
+        text-decoration: underline;
+      }
+
+      .cover {
+        min-height: calc(210mm - 17mm);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        page-break-after: always;
+        border: 1px solid #111;
+        padding: 8mm;
+        background: #fff;
+      }
+
+      .toc-item-meta,
+      .article-meta {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .masthead {
+        margin: 0;
+        font-size: 40pt;
+        line-height: 0.95;
+        text-transform: uppercase;
+      }
+
+      .issue-date {
+        margin: 4mm 0 0;
+        font-size: 14pt;
+      }
+
+      .issue-date sup {
+        font-size: 0.58em;
+        vertical-align: super;
+        line-height: 0;
+      }
+
+      .cover-deck {
+        max-width: 90mm;
+        font-size: 12pt;
+        margin: 0;
+      }
+
+      .toc {
+        border-top: 3px solid #111;
+        padding-top: 6mm;
+      }
+
+      .toc h2 {
+        margin: 0 0 4mm;
+        font-size: 11pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .toc-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .toc-item {
+        padding: 3mm 0;
+        border-bottom: 1px solid rgba(17, 17, 17, 0.2);
+      }
+
+      .toc-item-title {
+        font-size: 12pt;
+        margin: 0 0 1mm;
+      }
+
+      .toc-item-meta {
+        font-size: 8pt;
+      }
+
+      .masthead-compact {
+        margin: 0 0 6mm;
+      }
+
+      .masthead-compact h1 {
+        margin: 0;
+        font-size: 22pt;
+        line-height: 1.1;
+        text-transform: uppercase;
+      }
+
+      .masthead-compact .issue-date {
+        margin: 2mm 0 0;
+        font-size: 11pt;
+      }
+
+      .toc-compact {
+        border-top: 1px solid #111;
+        border-bottom: 1px solid #111;
+        padding: 4mm 0;
+        margin: 0 0 8mm;
+      }
+
+      article + article {
+        margin-top: 10mm;
+        padding-top: 6mm;
+        border-top: 2px solid #111;
+      }
+
+      h1 {
+        margin: 0 0 2mm;
+        font-size: 18pt;
+        line-height: 1.1;
+      }
+
+      .article-meta {
+        font-size: 8.5pt;
+        margin-bottom: 6mm;
+        padding-bottom: 3mm;
+        border-bottom: 1px solid #111;
+      }
+
+      .article-body {
+        font-size: var(--body-text-size);
+        font-family: "Times New Roman", Times, serif;
+      }
+
+      .article-body p,
+      .article-body li,
+      .article-body blockquote,
+      .article-body dd,
+      .article-body dt {
+        margin: 0 0 4mm;
+        orphans: 3;
+        widows: 3;
+      }
+
+      .article-body ul,
+      .article-body ol,
+      .article-body dl {
+        margin: 0 0 4mm 5mm;
+        padding: 0;
+      }
+
+      .article-body h2,
+      .article-body h3,
+      .article-body h4 {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        margin: 7mm 0 3mm;
+        line-height: 1.2;
+      }
+
+      .article-body blockquote {
+        margin-left: 6mm;
+        padding-left: 4mm;
+        border-left: 2px solid #111;
+      }
+
+      .article-body .media-omitted {
+        margin: 0 0 4mm;
+        font-size: 8.5pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(17, 17, 17, 0.65);
+      }
+
+      .article-body figure,
+      .article-body .article-figure,
+      .article-body picture,
+      .article-body .article-picture {
+        display: block;
+        max-width: 72mm;
+        margin: 0 auto 4mm;
+        break-inside: avoid;
+      }
+
+      .article-body img,
+      .article-body .article-image {
+        display: block;
+        max-width: min(100%, 72mm);
+        max-height: 34mm;
+        height: auto;
+        width: auto;
+        object-fit: contain;
+        margin: 0 auto 3mm;
+      }
+
+      .article-body figcaption {
+        margin-top: 1.5mm;
+        font-size: 8.5pt;
+        line-height: 1.3;
+        color: rgba(17, 17, 17, 0.8);
+      }
+
+      .article-note {
+        margin-top: 6mm;
+        padding-top: 3mm;
+        border-top: 1px solid #111;
+        font-size: 9pt;
+        font-style: italic;
+      }
+
+      @media screen {
+        body {
+          padding: 2rem;
+          margin: 0 auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    
+    <header class="masthead-compact">
+      <h1>Fred Talks</h1>
+      <p class="issue-date">
+        11<sup>th</sup> August 2026
+      </p>
+    </header>
+
+    <nav class="toc toc-compact">
+      <h2>Contents</h2>
+      <ol class="toc-list">
+        
+        <li class="toc-item">
+          <div class="toc-item-title">LLM Judges aren’t the shortcut you think</div>
+          <div class="toc-item-meta">
+            Doug Turnbull · 1869 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">The Night Watch</div>
+          <div class="toc-item-meta">
+            James Mickens · 2675 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">The Reverse Information Paradox</div>
+          <div class="toc-item-meta">
+            sn scratchpad · 819 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">2.1.227</div>
+          <div class="toc-item-meta">
+            Changelog · 96 words
+          </div>
+        </li>
+        
+      </ol>
+    </nav>
+    
+
+    
+    <article>
+      <h1>LLM Judges aren’t the shortcut you think</h1>
+      <div class="article-meta">
+        Doug Turnbull
+        · 03 Nov 2025 · <a href="http://softwaredoug.com/blog/2025/11/02/llm-judges-arent-the-shortcut-you-think.html">Source</a>
+      </div>
+      <div class="article-body"><p>Is “LLM as a judge” overhyped? After years of implementing LLM judges for clients, I find more of them recognize the limitations.</p>
+<p>LLM judges fail for the same reason any evaluation method fails: teams lack good data+evaluation to begin with. LLM judges aren’t the shortcut teams hope. Instead, they are themselves a thing that needs data and monitoring to get use out of.</p>
+<p>Let me walk through the pitfalls of LLM as a judge (for search) that you’ll encounter.</p>
+<h2>LLM as a judge</h2>
+<p>When I talk about LLM as a judge, my focus is search. I mean creating a <a href="https://softwaredoug.com/blog/2021/02/21/what-is-a-judgment-list">judgment list</a>. For search that means labeling how relevant a document is for a query. How relevant is the product “garden trowel” for a <code>q=shovels</code>? Maybe this “garden trowel” is less relevant than “iron spade”?</p>
+<p>In the ancient past, to improve the search, I would be limited to a tiny hand-labeled judgment list. Labeling by hand is expensive. Datasets drift out of date quickly. New use cases arise. So we constantly need humans to relabel.</p>
+<p>These costs inspire teams to use LLMs to build judgments, They:</p>
+<ol> <li>Start with a ground truth of human labels</li> <li>Build a prompt to approximate that ground truth</li> <li>Apply those prompts to go beyond the ground truth to new query / documents</li> </ol>
+<p>If done well, we can sit at our laptop, tinker with relevance algorithms, and continue to tune without bother humans for non-stop relabeling.</p>
+<p>Sounds promising. But teams often ignore many of the assumptions and nuance underlying the task of LLM labeling. Let’s go through them, and we’ll see at the end, maybe LLMs should play a different role in evaluation?</p>
+<h2>Problem one - LLM evals don’t know what’s engaging to users</h2>
+<p>Users’ ever-evolving lizard brains drive conversions. And while optimizing for just lizard brains would itself be a nightmare, so would only focusing on an LLM’s opinion.</p>
+<p>LLMs do a better job approximating <em>human evaluations</em>. In search, we call these evaluations <em>explicit</em> judgments. They use human labelers’ basic knowledge of the world to label a result as <em>topically relevant</em> to the query or not.</p>
+<p>Topical relevance is only one kind of relevance. As an example, for a search of “articles about harry potter”. The article is either factually about Harry Potter or its not. We might also consider other gradations:</p>
+<ul> <li>Is the article well written?</li> <li>Is it article from an authoritative source?</li> <li>Is the article about a tangential topic? Dumbledore vs Gandalf etc?</li> </ul>
+<p>All of which relate to topicality, authority, and knowledge. An LLM excels at this — LLMs live in a world of facts and knowledge.</p>
+<p>But LLMs don’t have limbic systems. So their evaluations come with limitations.</p>
+<p>In real search applications, “relevance” goes beyond topicality. I worked at Reddit on search. A search for “harry potter” might mean anything from a memes, to drama about JK Rowling, to every kind of juicy controversy, spicy post, or oddity. People search for “cybertruck” not for reviews but to see silly videos.</p>
+<p>Then there’s the more mundane. I found at Shopify, users preferred plain or black clothing over flashy items based on their clicks. Unless you tell an LLM this (because you’ve done the analysis) an LLM won’t intrinsically catch this.</p>
+<p>Often the “topical” part of search is relatively easy. But engaging search, that captures these human oddities, must go beyond world-knowledge to at least get <em>some</em> of a user’s lizard brain.</p>
+<h2>Problem two - the last 10% of disagreement is the important stuff</h2>
+<p>Many teams get excited when they immediately see 70-80% agreement with human labelers. With a bit of tuning, they can inch closer to 90%.</p>
+<p>In my experience, that last bit of human-LLM disagreement matters. Those are the non-obvious cases. Search deals with a big <a href="https://zilliz.com/ai-faq/what-is-hard-negative-mining-and-how-does-it-improve-embeddings">hard negatives</a> challenge. Those examples that deceptively seem relevant naive search algorithms (or labelers), but are, in fact irrelevant. That last 10-30% might be what more careful labelers would catch. Or represented in clickstream based labels.</p>
+<p>For example on this furniture dataset, a LLM doesn’t understand that a “bistro table” is meant for <strong><em>outdoor</em></strong> use in US furniture lingo. That’s not obvious to an LLM: The LLM imagines I’m opening a restaurant.</p>
+<p>Simple algorithms often capture that first 80-90%. It’s the 10-20% you need great labels for. So pay attention not just to coverage. But for which use cases.</p>
+<p>A 90% coverage might be good regression tests, it might not help you go beyond easier wins.</p>
+<h2>Problem three - sneaky overfitting</h2>
+<p>So far, I’ve mentioned a few strange cases the LLM judge might miss: a bistro table is meant for outdoor usage. Users preferring darker clothing items.</p>
+<p>The savvy prompt engineer will want to fill the prompt with examples to help the LLM perform better on these cases.</p>
+<p>But beware overfitting to these particular failure cases.</p>
+<p>With every new rule, you push the model’s meager attention away from the general problem, and towards your exceptions. Layer example after example, and you’ll find yourself with a brittle system focused excessively on specific use cases.</p>
+<p>Overfitting with prompts can be sneaky. Playing whack-a-mole with your eval data can degrade generality. You can get perfect results on the eval set, only to expand to unseen queries, and find the gains no longer hold.</p>
+<p>To do a good job, you need holdout data you’re not tuning against. A set of judgments you don’t peak at. Because peaking might cause you to sneak a change into the prompt, making the holdout less useful as an independent validation step.</p>
+<p>Add rules and exceptions carefully, you’ll be surprised how easy it is to pull an LLM away from its generality.</p>
+<h2>Problem four - LLMs only evaluate the document it sees</h2>
+<p>LLMs only evaluate the document it sees. IE:</p>
+<pre><code>Query: outdoor seating
+Product Name: Bistro Table
+Product Description: Enjoy this lovely bistro table on your porch...
+</code></pre>
+<p>Is this enough information for evaluating the product? Is it what a user sees?</p>
+<p>Suddenly, you decide to add new information about the product</p>
+<pre><code>Query: outdoor seating
+Product Name: Bistro Table
+Product Description: Enjoy this lovely bistro table on your porch...
+Category: Outdoors
+</code></pre>
+<p>What are we evaluating truly?</p>
+<ul> <li>The products relevance?</li> <li>The usefulness of a set of product properties for determining relevance?</li> <li>How comprehensively you’re describing products to an LLM?</li> </ul>
+<p>Really it gets down to a classic problem in search. There’s perceived relevance - the relevance of the product, as it appears in your product page. Then there’s actual relevance - the detailed, thoughtful understanding of your product by a user. A lot depends not just on true relevance, but how it’s presented to users.</p>
+<h2>Problem five - Your LLM judge can’t be trusted on novel use cases</h2>
+<p>I assume the goal of LLM as a judge in to align to human labelers. But rarely do those judgments comprehensively represent every use case.</p>
+<p>Search metrics with human evals don’t go up-and-to-the-right. They seesaw as teams reactively label, solve, label, solve ad infinitum. In my experience it’s rare to find a team build a true, comprehensive human labeled evals covering every use case. Even if we did, we’d need to account for evolving search use cases.</p>
+<p>The flow usually goes like this: we want to solve a problem (search by product name). So we capture some judgments for that use case. Relevance starts low. We work a bit to improve this use case and it goes up. Yay!</p>
+<p>But the boss comes to our desk and suggests we have a new problem to solve: search of furniture by the room (living room, etc). We gather more labels. We know we’re bad at this use case. So search metrics go back down. Sad 😟</p>
+<p>We solve that use case, it goes back up to where it was before. Repeat. Up and down. See-saw.</p>
+<p>This presents a problem for an LLM judge. If our human labels only focus on a subset of use cases, <strong>we’re also aligning our LLM judges on a subset of use cases.</strong></p>
+<p>Our LLM judge generalizes to just a piece of the problem. The LLM judge can’t be trusted on a new use case until we measure it’s abilities in that use case.</p>
+<p>So if you seesaw its human labeling, you must seesaw the alignment of the LLM judge to the use cases we capture in human eval. As we adopt a new use case, we need more human labels. We need to retest the LLM judge. And so on.</p>
+<p>The task of human labeling does not end with LLM Judges. In fact its even more crucial.</p>
+<h2>How to LLM as a judge</h2>
+<p>Here’s how I use LLM judges:</p>
+<ul> <li>To extend labels on use cases I already measure decently to new queries (because I can trust alignment of the LLM on this use case)</li> <li>As a safeguard against regressions</li> </ul>
+<p>I trust the LLM judge to flag a regression on the use cases my human labels cover. The LLM is aligned and measured against these. I don’t trust the LLM to discover new, unexpected ways users search. I look to the users for that, not LLMs.</p>
+<p>Still many teams don’t even do decent monitoring of topical relevance. There are plenty of obviously broken search engines. The ones that would benefit from an LLM judge, likely would benefit from rounds of human labeling first needed before blindly trusting an LLM judge.</p>
+<h2>We already have automated data labeling at home kids</h2>
+<p>If we have enough labels to evaluate LLM as a judge on a use case, we have enough to train an ML model to recover those labels. We can then see a better place LLM’s fit into evaluation:</p>
+<ul> <li>LLMs focus on factual, topical parts of the problem. But miss other parts of the problem</li> <li>LLMs might see a subset of the content features</li> <li>Other non-LLM features might help us better evaluate relevance (embedding similarity, text matches, etc)</li> <li>Other ground-truths (besides human) might be a better definition of relevance (ie engagement based labels)</li> </ul>
+<p>Instead of LLM as a Judge, <strong>why not Learning to Rank as a judge?</strong> We seem to have forgotten that ranking models provide value beyond directly deploying them to production. They can help guide more manual search tuning as well.</p>
+<p>I’m becoming more of a fan of LLM-for-feature-generation over LLM as a judge. LLMs can cover the topical part of relevance. You can ask them “Which of these product names is more relevant to the query?”. The downstream, traditional ML model is agnostic to where the features come from. They could be an embedding similarity, LLM decision, lexical similarity, or more.</p>
+<p>That’s much more my interest these days. When someone says “LLM as a judge” I nod and say yes let’s build that, but then go on and probably look into using LLM features heavily in a larger model. LLMs can be very useful for rapid feature development: they’re promptable and easy to play with.</p>
+<p>If you’re interested in this approach, check out this <a href="https://softwaredoug.com/blog/2025/01/21/llm-judge-decision-tree">blog post</a> and the corresponding <a href="https://www.youtube.com/watch?v=S7EXkGDcd7A">Haystack talk</a>. Also a talk from Shopify <a href="https://www.albertocastelo.com/blog/2024-06-12-mices-talk">choosing cross encoders for evaluation over LLMs</a></p>
+<p>Enjoy!</p>
+<h3>Enjoy softwaredoug in training course form!</h3>
+<figure class="article-figure"><a href="https://maven.com/softwaredoug/cheat-at-search"><img src="https://softwaredoug.com/assets/media/2025/cheat-at-search-social.png" class="article-image"/></a></figure>
+<p>I hope you join me at <a href="https://maven.com/softwaredoug/cheat-at-search">Cheat at Search with LLMs</a> to learn how to apply LLMs to search applications. Check out <a href="https://github.com/softwaredoug/softwaredoug.com/edit/master/_includes/post.html">this post</a> for a sneak preview.   </p></div>
+      
+    </article>
+    
+    <article>
+      <h1>The Night Watch</h1>
+      <div class="article-meta">
+        James Mickens
+        · 11 Apr 2026 · <a href="https://www.usenix.org/system/files/1311_05-08_mickens.pdf">Source</a>
+      </div>
+      <div class="article-body"><div><p></p><p>The Night Watch</p><p><br/></p><p>J AM E S M I C K E N S</p><p><br/></p><p><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/Qh_zJJv8ZR0hQwDrpMtI4o0UpsKc2Lc5K3V_L4-iyNg-PhqvNH_Sl5vCey.png" class="article-image"/></p><p>James Mickens is a researcher in the Distributed Systems group at Microsoft’s Redmond lab. His current research focuses on web applications,</p><p>with an emphasis on the design of JavaScript frameworks that allow developers to diagnose and fix bugs in widely deployed web applications. James also works on fast, scalable storage systems for datacenters.</p><p><a href="mailto:mickens@microsoft.com" target="_blank">James received his PhD in computer science from the University of Michigan, and a bachelor’s degree in computer science from Georgia Tech. </a><a href="mailto:mickens@microsoft.com" target="_blank">mickens@microsoft.com</a></p><p><br/></p><p>s a highly trained academic researcher, I spend a lot of time trying to advance the frontiers of human knowledge. However, as someone who was born in the South, I secretly believe that true progress is</p><p>A</p><p></p><p>a fantasy, and that I need to prepare for the end times, and for the chickens coming home to roost, and fast zombies, and slow zombies, and the polite zombies who say “sir” and “ma’am” but then try to eat your brain to acquire your skills. When the revolution comes, I need to be prepared; thus, in the quiet moments, when I’m not producing incredible scientific breakthroughs, I think about what I’ll do when the weather forecast inevitably becomes</p><p>RIVERS OF BLOOD ALL DAY EVERY DAY. The main thing that I ponder is who will be in my gang, because the likelihood of post-apocalyptic survival is directly related to the size and quality of your rag-tag group of associates. There are some obvious people who I’ll need to recruit: a locksmith (to open doors); a demolitions expert (for when the locksmith has run out of ideas); and a person who can procure, train, and then throw snakes at my enemies</p><p>(because, in a world without hope, snake throwing is a reasonable way to resolve disputes). All of these people will play a role in my ultimate success as a dystopian warlord philosopher. However, the most important person in my gang will be a systems programmer. A person who can debug a device driver or a distributed system is a person who can be trusted in a Hobbesian nightmare of breathtaking scope; a systems programmer has seen the terrors of the world and understood the intrinsic horror of existence. The systems programmer has written drivers for buggy devices whose firmware was implemented by a drunken child or a sober goldfish. The systems program- mer has traced a network problem across eight machines, three time zones, and a brief diversion into Amish country, where the problem was transmitted in the front left hoof of a mule named Deliverance. The systems program- mer has read the kernel source, to better understand the deep ways of the universe, and the systems programmer has seen the comment in the sched- uler that says “DOES THIS WORK LOL,” and the systems programmer has wept instead of LOLed, and the systems programmer has submitted a kernel patch to restore balance to The Force and fix the priority inversion that was causing MySQL to hang. A systems programmer will know what to do when society breaks down, because the systems programmer already lives in a world without law.</p><p><br/></p><p>Listen: I’m not saying that other kinds of computer people</p><p>are useless. I believe (but cannot prove) that PHP developers have souls. I think it’s great that database people keep trying to improve select-from-where, even though the only queries that cannot be expressed using select-from-where are inap- propriate limericks from “The Canterbury Tales.” In some way that I don’t yet understand, I’m glad that theorists are investigating the equivalence between five-dimensional Tur- ing machines and Edward Scissorhands. In most situations, GUI designers should not be forced to fight each other with tridents and nets as I yell “THERE ARE NO MODAL DIA- LOGS IN SPARTA.” I am like the Statue of Liberty: I accept everyone, even the wretched and the huddled and people who enjoy Haskell. But when things get tough, I need mission-crit- ical people; I need a person who can wear night-vision goggles and descend from a helicopter on ropes and do classified things to protect my freedom while country music plays in the background. A systems person can do that. I can realistically give a kernel hacker a nickname like “Diamondback” or “Zeus Hammer.” In contrast, no one has ever said, “These semi-</p><p>transparent icons are really semi-transparent! IS THIS THE WORK OF ZEUS HAMMER?”</p><p>I picked that last example at random. You must believe me when I say that I have the utmost respect for HCI people.</p><p>However, when HCI people debug their code, it’s like an</p><p>art show or a meeting of the United Nations. There are tea breaks and witticisms exchanged in French; wearing a non- functional scarf is optional, but encouraged. When HCI code doesn’t work, the problem can be resolved using grand theo- ries that relate form and perception to your deeply personal feelings about ovals. There will be rich debates about the socioeconomic implications of Helvetica Light, and at some point, you will have to decide whether serifs are daring state- ments of modernity, or tools of hegemonic oppression that implicitly support feudalism and illiteracy. Is pinching-and- dragging less elegant than circling-and-lightly-caressing?</p><p>These urgent mysteries will not solve themselves. And yet, after a long day of debugging HCI code, there is always hope, and there is no true anger; even if you fear that your drop- down list should be a radio button, the drop-down list will suffice until tomorrow, when the sun will rise, glorious and</p><p>vibrant, and inspire you to combine scroll bars and left-click- ing in poignant ways that you will commemorate in a sonnet when you return from your local farmer’s market.</p><p>This is not the world of the systems hacker. When you debug a distributed system or an OS kernel, you do it Texas-style. You gather some mean, stoic people, people who have seen things die, and you get some primitive tools, like a compass and a rucksack and a stick that’s pointed on one end, and you walk into the wilderness and you look for trouble, possibly while</p><p>using chewing tobacco. As a systems hacker, you must be pre- pared to do savage things, unspeakable things, to kill runaway threads with your bare hands, to write directly to network ports using telnet and an old copy of an RFC that you found in the Vatican. When you debug systems code, there are no high- level debates about font choices and the best kind of turquoise, because this is the Old Testament, an angry and monochro- matic world, and it doesn’t matter whether your Arial is Bold or Condensed when people are covered in boils and pestilence and Egyptian pharaoh oppression. HCI people discover bugs by receiving a concerned email from their therapist. Systems people discover bugs by waking up and discovering that their first-born children are missing and “ETIMEDOUT ” has been written in blood on the wall.</p><p>What is despair? I have known it—hear my song. Despair is when you’re debugging a kernel driver and you look at a mem- ory dump and you see that a pointer has a value of 7. THERE IS NO HARDWARE ARCHITECTURE THAT IS ALIGNED ON</p><p>7. Furthermore, 7 IS TOO SMALL AND ONLY EVIL CODE WOULD TRY TO ACCESS SMALL NUMBER MEMORY.</p><p>Misaligned, small-number memory accesses have stolen decades from my life. The only things worse than misaligned, small-number memory accesses are accesses with aligned buf- fer pointers, but impossibly large buffer lengths. Nothing ruins a Friday at 5 P.M. faster than taking one last pass through the log file and discovering a word-aligned buffer address, but a buffer length of NUMBER OF ELECTRONS IN THE UNI-</p><p>VERSE. This is a sorrow that lingers, because a 2893 byte read is the only thing that both Republicans and Democrats agree is wrong. It’s like, maybe Medicare is a good idea, maybe not, but there’s no way to justify reading everything that ever existed a jillion times into a mega-jillion sized array. This constant war on happiness is what non-systems people do not understand about the systems world. I mean, when a machine learning</p><p>algorithm mistakenly identifies a cat as an elephant, this is</p><p>actually hilarious. You can print a picture of a cat wearing an elephant costume and add an ironic caption that will entertain people who have middling intellects, and you can hand out cop- ies of the photo at work and rejoice in the fact that everything is still fundamentally okay. There is nothing funny to print when you have a misaligned memory access, because your machine is dead and there are no printers in the spirit world.</p><p>An impossibly large buffer error is even worse, because these errors often linger in the background, quietly overwriting your state with evil; if a misaligned memory access is like a criminal burning down your house in a fail-stop manner, an impossibly large buffer error is like a criminal who breaks into your house, sprinkles sand atop random bedsheets and toothbrushes, and then waits for you to slowly discover that your world has been tainted by madness. Indeed, the common discovery mode for an impossibly large buffer error is that your program seems to</p><p><br/></p><p>be working fine, and then it tries to display a string that should say “Hello world,” but instead it prints “#a[5]:3!” or another syntactically correct Perl script, and you’re like WHAT THE HOW THE, and then you realize that your prodigal memory accesses have been stomping around the heap like the Incred- ible Hulk when asked to write an essay entitled “Smashing Considered Harmful.”</p><p>You might ask, “Why would someone write code in a grotesque language that exposes raw memory addresses? Why not use</p><p>a modern language with garbage collection and functional programming and free massages after lunch?” Here’s the answer: Pointers are real. They’re what the hardware under- stands. Somebody has to deal with them. You can’t just place a LISP book on top of an x86 chip and hope that the hardware learns about lambda calculus by osmosis. Denying the exis- tence of pointers is like living in ancient Greece and denying the existence of Krackens and then being confused about why none of your ships ever make it to Morocco, or Ur-Morocco,</p><p>or whatever Morocco was called back then. Pointers are like Krackens—real, living things that must be dealt with so that polite society can exist. Make no mistake, I don’t want to write systems software in a language like C++. Similar to the Necro- nomicon, a C++ source code file is a wicked, obscure document that’s filled with cryptic incantations and forbidden knowl- edge. When it’s 3 A.M., and you’ve been debugging for 12 hours, and you encounter a virtual static friend protected volatile</p><p>templated function pointer, you want to go into hibernation and awake as a werewolf and then find the people who wrote the C++ standard and bring ruin to the things that they love. The C++ STL, with its dyslexia-inducing syntax blizzard of colons and angle brackets, guarantees that if you try to declare any reasonable data structure, your first seven attempts will result in compiler errors of Wagnerian fierceness:</p><p>Syntax error: unmatched thing in thing from std::nonstd::<u> </u> map&lt;_Cyrillic, _$$$dollars&gt;const basic_string&lt; epic_ mystery,mongoose_traits &amp;lt; char&gt;, <u>  </u>default_alloc_&lt;casual_ Fridays = maybe&gt;&gt;</p><p>One time I tried to create a list&lt;map&lt;int&gt;&gt;, and my syntax errors caused the dead to walk among the living. Such things are clearly unfortunate. Thus, I fully support high-level lan- guages in which pointers are hidden and types are strong and the declaration of data structures does not require you to solve a syntactical puzzle generated by a malevolent extraterrestrial species. That being said, if you find yourself drinking a martini and writing programs in garbage-collected, object-oriented Esperanto, be aware that the only reason that the Esperanto runtime works is because there are systems people who have exchanged any hope of losing their virginity for the exciting opportunity to think about hex numbers and their relationships</p><p>with the operating system, the hardware, and ancient blood rituals that Bjarne Stroustrup performed at Stonehenge.</p><p>Perhaps the worst thing about being a systems person is that other, non-systems people think that they understand the daily tragedies that compose your life. For example, a few weeks ago, I was debugging a new network file system that my research group created. The bug was inside a kernel-mode component, so my machines were crashing in spectacular and vindic-</p><p>tive ways. After a few days of manually rebooting servers, I had transformed into a shambling, broken man, kind of like a computer scientist version of Saddam Hussein when he was pulled from his bunker, all scraggly beard and dead eyes and florid, nonsensical ramblings about semi-imagined enemies.</p><p>As I paced the hallways, muttering Nixonian rants about my code, one of my colleagues from the HCI group asked me what my problem was. I described the bug, which involved concur- rent threads and corrupted state and asynchronous message delivery across multiple machines, and my coworker said,</p><p>“Yeah, that sounds bad. Have you checked the log files for errors?” I said, “Indeed, I would do that if I hadn’t broken every component that a logging system needs to log data. I have a network file system, and I have broken the network, and I have broken the file system, and my machines crash when I make eye contact with them. I HAVE NO TOOLS BECAUSE I’VE DESTROYED MY TOOLS WITH MY TOOLS. My only logging</p><p>option is to hire monks to transcribe the subjective experience of watching my machines die as I weep tears of blood.” My co- worker, in an earnest attempt to sympathize, recounted one of his personal debugging stories, a story that essentially involved an addition operation that had been mistakenly replaced with</p><p>a multiplication operation. I listened to this story, and I said, “Look, I get it. Multiplication is not addition. This has been known for years. However, multiplication and addition are at least related. Multiplication is like addition, but with more addition. Multiplication is a grown-up pterodactyl, and addi- tion is a baby pterodactyl. Thus, in your debugging story, your code is wayward, but it basically has the right idea. In contrast, there is no family-friendly GRE analogy that relates what my code should do, and what it is actually doing. I had the mod-</p><p>est goal of translating a file read into a network operation, and now my machines have tuberculosis and orifice containment issues. Do you see the difference between our lives? When you asked a girl to the prom, you discovered that her father was a cop. When I asked a girl to the prom, I DISCOVERED THAT HER FATHER WAS STALIN.”</p><p>In conclusion, I’m not saying that everyone should be a systems hacker. GUIs are useful. Spell-checkers are useful. I’m glad that people are working on new kinds of bouncing icons because they believe that humanity has solved cancer and homelessness and now lives in a consequence-free world</p><p><br/></p><p>of immersive sprites. That’s exciting, and I wish that I could join those people in the 27th century. But I live here, and I live now, and in my neighborhood, people are dying in the streets. It’s like, French is a great idea, but nobody is going to invent French if they’re constantly being attacked by bears. Do you see? SYSTEMS HACKERS SOLVE THE BEAR MENACE.</p><p>Only through the constant vigilance of my people do you get</p><p>the freedom to think about croissants and subtle puns involv- ing the true father of Louis XIV. So, if you see me wandering the halls, trying to explain synchronization bugs to confused monks, rest assured that every day, in every way, it gets a little better. For you, not me. I’ll always be furious at the number 7, but such is the hero’s journey.</p><p><br/></p><p><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/3PjVhm7SHAnNCFsrp4vYcMmjj4SbJW6_Nw3I8kCRkHo-Ttoq4t_0PjAixm.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/zu6piHoR3bKYZi8-bhTBDVes4mGPSwexqfHxhL2XV7c-fnmEuB_ncwO73o.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/BKRuB5D8rBa8HdORYoDsAG6E90Wxw-g5jzU5jNVL0SA-JTKhjG_mbyyoPB.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/vHq8DNX8KgbuwOrW5x382wBldGETJ_QYyCfJ7YvliGg-jXfgAF_o9Kq1Td.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/_hhGPcB-wnqc7Hnf0vlR-s9YoIerGTz5j1nzLF9EZJk-S6jgeu_wRLQZhx.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/BKWddr7mDr1b6vKoiuzT9S8wMfYmeWkFDHeUWXsXm-U-yn92ap_882g4tc.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/Ljll433Q85CHGZ11YSI8iwrSVzMulhf_alYDpGGHoWk-GQOhDC_AVH7JxR.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/9GWpw0igxFQBm9ou8MytnTuLjZAhYXJaKDpH7BBnldE-GpM9TP_vSR4tBG.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/o2Fev3AVMUxSlY-2J_kGIvtq6ByKB0zIP4yn6kOCFyk-UBZuJf_arJQIcs.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/Xudf2kb-JiTw-bGQeeKnuj5AVyH6QLWtcquVcSM7MKA-KdAkcQ_XxDwLTZ.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/hjRl1nz9wufUszQToA5y5jkEV26Q1Joh-Wb5DyURj00-ftwTzI_bFqqJ9N.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/HQ9IrO9DjZpOKeo0SBpG0PQ7PqI0tnFYcdHm60Xmp-w-6WcDjD_3FQbRGB.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/6xPTbWKef5Tx-Vhxff76tPrfZYE0jP1ofMjQ1AeyoFo-kNEPiT_ehz6XQh.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/yMRGU8iN4_0-UiKWfZV4O8P4NI96Uo6bKGd0xFZUfGM-DCPm2E_r6h3DVu.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/DdXYx8C0PDURQ_9sC-YpVVYvQcf0H7WsGVvc7aNlfNs-JADKKu_L4dXsj1.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/g0QHbZNs1N6ILk9mvaiOcn469uJltkjOjJm2tAgIGms-lc0DFt_pzteoe5.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/-ZQiQHqvWk3k208XO-fFM_KQI7jYpa0U4PWRwFfZmi4-jBoftz_UyYAJhQ.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/je5pVOg4iC_CKMY3kkak7SpW1bJjZ9bYxbelxBxJkYw-I4g_1D_b9icttQ.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/_yG37F0Ne-FE1e3ye7alCuIciUaoPw3TM2zNGnrEjiQ-LV6QAz_zwrScIL.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/MFAFSOuOEOGqJ655FpAwV1iWq_vtVGFNVU8AzWvTLWE-__I7sj_VyZuSB2.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/1jvrpT5BbqcPvkdTJebUKwKuRnnoth6ZRKkvFu1zqFY-4kCoUf_FMuVHNJ.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/GqkC-r47Olk3MK9ZfKR5JUXtsYIn0k35OULb7-46lpY-ImSCi4_qL5c0Fl.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/Cfi4KP8QlMJoXO20drN_-Pmz1ymZQHrLzDAuA1m2iTY-9Kktc1_GrrDaQO.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/qU4C4LNTzvu5a5yyRN_jTk2Vo6ja5PLVAcPsjOcgruc--4duo2_iOYWYgk.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/6h5FaIF8n_ImMtl9-wUQL1pY4UCwe6ShoJ-emKcZJlw-HNgmis_7IE6s9r.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/U7UQ12j1nrwIeXEtChEgxyj1iUbqjnIL8azTEKZ8ERg-mGn-ux_meEMikJ.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/0dXzLDFT43xEsh9KSPiZBeUSE55cg4LXBCYTUBclXpc-n0B6Zy_jUCdIxw.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/v5cKOT1MyuR7Q0J46JCzj4tfPE2Kh0WV3A8dW4mj9PE-fJoKj0_7IzpAwT.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/NXA_a7aZqfzD9e7sp4LyeVK0bt_ypoVuvrYNOkl-N5s-WcbOa2_NFdYZfe.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/09Fg0DVT-G10gdWFwMK9KSePZ3hv94eFgAMUAus6Vpo-iXi4nr_GUZg5fN.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/7HCO_Yz47hxS01U0Dvw83-G3oCQi_XPigYGxPtYSQXQ-qHWcyR_Oc38EO9.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/ZyKwjfvFVWMYOErKBJnBlX5kHnkXG6iURgCUBRkG23c-g4SZ_f_BRDpDIH.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/g1JfUtkpM102XJIXL1-_DF4jlKVkN73XelpeN-rbASo-Z3Rxe6_eV3T37T.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/ZqfF49Oq4gdxEwJQOnNr6cfnuwsw6WxyfNld8zXNkHU-X8E80p_nDd3ymo.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/j_aDFBxxPMKW1N1mQUiJD4Jv6sLvpgfDiVR_KYF15Yo-f-7gW__1Lrq8AE.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/X-rieWMGjDA3xhrFurgaVaoxVmOxGR1Gh5yWTulc8qc-5VWrpr_52uT7Ex.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/J0xH79919-Y-223udc_HjCkMou04iC-nM0gubKiV1zA-Czi66a_JiE87DE.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/-RgteSd4yAk_j608MaIw17AiWyVbpfSXPV49vhMjPq8-hh2rn9_RhGKlDl.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/qeMbUEBS5ivfsD7glHzGBCIP6gZxQyqCmZMS8_uPxIA-bNVeOY_bHIqKR0.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/m7htRL5yJwMBtLmrL2Sn9_WF0j7cbAXWynMsLz9iIQg-biESR8_p2TU36x.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/68FgZ46Dr-qlarRaZFW3Y-TJ2t6BsaFvGj6wMbHUZqY-e4jqWJ_7EnCXWN.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/odl1eG3KcxKWrDg_4KZlCGsAWK-Q5c0QdD6UEuK_uGk-B_5-ap_59TRnEf.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/nSs-ZwKiOxvQVjnwXzopfMSpZg6WETqwUNWsiQiD7bg-kDqNyf_556hL1M.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/blsJ1zGV7cw7yqPeKopXcPyv0xm-ahhrzwosz38ZwgM-Mndfp9_xP5Xptf.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/N4y9pAPhOW18YXsmDv5Tg4j8rPO6poNWLD-iIMYwtXg-9xg0ap_Fhj4MUC.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/G0pJsD4r__jnJu6Xagukx3ARxLhZ8TQEOPsrcehWl-I-35jJz-_BjrTOa2.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/377DrrLyQVfpIRl7w1nhp8rCXEib0QFUHJX0iWbXwCE-TGw66Y_Y6zIMig.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/N5bwSeNlv3R01-p5MvqgBQCIPwKNuDqTZrzIQYOBE4c-Lt1OUR_eG2HS8J.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/Uj4jTnGVwUZBKWzpcG-fWeteFhynvvxnChThxd7y6GM-CpT3Zv_rzsZoXx.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/2Q8SzdZ0E-uoSkurUo71zMdPuFBY5jAucH1Hxr7tSe8-FXHV8-_o3py9iI.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/f-cJudd5ZIX0zH93wBWiPd76QWhZvkQROzphrw8q4Lk-0MJpI4_nXHHIRm.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/4hylgy8BJ6DbXeHsaQu4RJHkIJZSzcCsaUDmFqSVAyM-Ogr0o7_j0dTzDf.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/W6EYed5UyuB9s0lgdHYN7heF1p0WaKjDUGI5baET8tI-zatTlx_3WFx9YF.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/UEyFXXe1FQOuttF6PAa_KSYV8I1Ijuv_2rK1DokyGFA-GohX5F_yCuDOxQ.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/z8y6R5sxvlSgDbEDW7_6BT5uK37GLMmYMASYMBUR82w-AMWOcI_t4hroEw.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/RsCulUTlhMRpRH2mBb1zNtn4iiIS-t423DqqU8Uej2o-X7XpCp_RY0ijzQ.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/kHBrdcBHSazzsaNzKWKvbViAnuQB5l3ZhOuDbEDPKPk-o71Hfo_A0ZNZw9.png" class="article-image"/></p><h1>Do you know about the USENIX Open Access Policy?</h1><p><br/></p><p>USENIX is the first computing association to offer free and open access to all of our conferences proceedings and videos. We stand by our mission to foster excellence and innovation while supporting research with a practical bias. Your membership fees play a major role in making this endeavor successful.</p><p><br/></p><p>Please help us support open access.</p><p>Renew your USENIX membership</p><p>and ask your colleagues to join or renew today!</p><p><br/></p><p><a href="http://www.usenix.org/membership">www.usenix.org/membership</a></p></div></div>
+      
+    </article>
+    
+    <article>
+      <h1>The Reverse Information Paradox</h1>
+      <div class="article-meta">
+        sn scratchpad
+        · 05 Aug 2026 · <a href="https://snscratchpad.com/posts/reverse-information-paradox/">Source</a>
+      </div>
+      <div class="article-body"><p>Notes on advances in technology and real-world impact</p>
+<p>In the age of intelligence, how should firms protect their core IP?</p>
+<p>Nobel Prize winning economist Kenneth Arrow <a href="https://www.nber.org/system/files/chapters/c2144/c2144.pdf">famously described</a> a paradox in the market for information. “Its value for the purchaser is not known until he has the information, but then he has in effect acquired it without cost.” In Arrow’s “Information Paradox,” the seller risks giving away knowledge in order to sell it.</p>
+<p>AI creates the reverse problem. In the AI age, the buyer risks giving away knowledge, just in order to use what they bought.</p>
+<p>You essentially pay for intelligence twice, once with money, and again with something even more valuable: the proprietary knowledge you must reveal to make that intelligence useful. The better you want the model to perform, the more of that knowledge you have to feed it!</p>
+<p>Over time, the information asymmetry becomes increasingly skewed. The seller learns more and more about you as you use what you purchased, while you learn very little about what the seller is learning in return.</p>
+<p>That is what I think of as the Reverse Information Paradox.</p>
+<p>Patents solve one aspect of Arrow’s paradox. They let an inventor disclose an idea without simply giving it away. The Reverse Information Paradox needs its own equivalent.</p>
+<p>This requires more than data protection. Models learn from “exhaust,” the prompts people write, the tools agents use, and especially the corrections people make when the model is wrong. Every correction is distilled into institutional know-how. It’s the kind of knowledge a competitor could never buy, and the kind that leaks almost imperceptibly: trace by trace, correction by correction, eval by eval.</p>
+<p>In consuming intelligence, you are creating intelligence. And what you create should belong to you. This is your particular intelligence, in Hayek’s sense: the knowledge of time, place, and circumstance that no one else can hold. It knows what you think, what you value, and how you measure success.</p>
+<p>While the great innovation that comes from model providers having fair use rights to train models on public data is needed, I find it ironic that the status quo is to then turn around and impose restrictive terms on distillation, and to reserve the right to learn from customer usage and interaction data. If learning flows in only one direction, economic value converges toward the owners of the learning infrastructure rather than the creators of the knowledge itself. Therefore, it’s imperative that we distribute the learning infrastructure to every firm so that they can control their own learning loop.</p>
+<p>As Alex Karp <a href="https://x.com/PalantirTech/status/2072326189079757277">put it</a>: “What the technical customers want is control over their compute, their models, their data stack, and their alpha. They want to know they own the means of production, and it’s not being transferred to someone else.” The current regime does precisely the transfer Karp and companies fear.</p>
+<p>That is why enterprises need a real trust boundary for their <a href="https://snscratchpad.com/posts/frontier-ecosystem/">human capital and token capital to compound</a>. It is where an organization’s data, traces, evals, adapted weights, and memory accumulate and improve together. And it is a hard boundary across which nothing crosses, not even the intelligence exhaust, without consent. Enterprises will demand the rights to use model outputs to fine tune and/or train their own models. I think of this as every firm’s right to align models to their enterprise accountability obligations.</p>
+<p>In the cloud era, enterprises accumulated data. In the AI era, they accumulate learning. The trust boundary must evolve accordingly, from protecting information to protecting the mechanisms through which organizations learn, adapt, and compound intelligence. There are a few things every enterprise must do to ensure this:</p>
+<p>Control: Create your private evals, because evals define what “good” looks like inside the organization. Also, retain ownership of your organization’s memory, traces, feedbacks, decisions, and institutional context, and ability to use outputs of models from your own tasks and queries.</p>
+<p>Capability: Build your own proprietary learning environments within the tenant boundary to train or tune models, where models learn against real workflows without exposing the company’s knowledge.</p>
+<p>Choice: Ensure the orchestration layer is decoupled from any single model. Ask yourself: If any one model you are using is taken away, do you still have the ability to operate and optimize for your evals using other models? Does your company “veteran” capability remain with you even if a given “generalist” model is taken away?</p>
+<p>Cost: By decoupling the orchestration layer, you are also able to bring together context, models, and tasks in the most efficient and cost-effective way without sacrificing quality.</p>
+<p>Compound: Bring these four together and you create your own continuous learning loop (i.e. hill climbing machine) that will allow your AI investments to compound the value of your firm.</p>
+<p>In other words, a company should be able to use a model without giving up the knowledge that makes it unique. That is the reverse information paradox we need to confront.</p></div>
+      
+    </article>
+    
+    <article>
+      <h1>2.1.227</h1>
+      <div class="article-meta">
+        Changelog
+        · 11 Aug 2026 · <a href="https://code.claude.com/docs/en/changelog#2-1-227">Source</a>
+      </div>
+      <div class="article-body"><div><ul>
+<li>Fixed feature flags being evaluated without the user's subscription tier when a session started with an expired login token, which could wrongly prompt Max plan users to enable usage credits for Fable</li>
+<li>Fixed every Bash command failing under <code>claude-code-action</code> with <code>allowed_non_write_users</code> on GitHub-hosted runners</li>
+<li>Fixed <code>/tui</code> bringing back a conversation that had been rewound to before its first message</li>
+<li>Improved slash-command menu: blue now marks only the selected row, matched characters are bolded instead of recolored, and emoji or accented names keep their glyphs</li>
+<li>Improved performance: fewer event-loop stalls on file-not-found suggestions and at-mention size checks</li>
+</ul></div></div>
+      
+    </article>
+    
+  </body>
+</html>
