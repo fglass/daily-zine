@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Fred Talks - 2026-08-14</title>
+    <style>
+      @page {
+        size: A5;
+        margin: 8mm 9mm 9mm;
+      }
+
+      :root {
+        color: #111;
+        font-family: "Times New Roman", Times, serif;
+        --body-text-size: 9.5pt;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        color: #111;
+        background: #fff;
+        font-family: "Times New Roman", Times, serif;
+        line-height: 1.45;
+      }
+
+      a,
+      a:visited {
+        color: #111;
+        text-decoration: underline;
+      }
+
+      .cover {
+        min-height: calc(210mm - 17mm);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        page-break-after: always;
+        border: 1px solid #111;
+        padding: 8mm;
+        background: #fff;
+      }
+
+      .toc-item-meta,
+      .article-meta {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .masthead {
+        margin: 0;
+        font-size: 40pt;
+        line-height: 0.95;
+        text-transform: uppercase;
+      }
+
+      .issue-date {
+        margin: 4mm 0 0;
+        font-size: 14pt;
+      }
+
+      .issue-date sup {
+        font-size: 0.58em;
+        vertical-align: super;
+        line-height: 0;
+      }
+
+      .cover-deck {
+        max-width: 90mm;
+        font-size: 12pt;
+        margin: 0;
+      }
+
+      .toc {
+        border-top: 3px solid #111;
+        padding-top: 6mm;
+      }
+
+      .toc h2 {
+        margin: 0 0 4mm;
+        font-size: 11pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .toc-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .toc-item {
+        padding: 3mm 0;
+        border-bottom: 1px solid rgba(17, 17, 17, 0.2);
+      }
+
+      .toc-item-title {
+        font-size: 12pt;
+        margin: 0 0 1mm;
+      }
+
+      .toc-item-meta {
+        font-size: 8pt;
+      }
+
+      .masthead-compact {
+        margin: 0 0 6mm;
+      }
+
+      .masthead-compact h1 {
+        margin: 0;
+        font-size: 22pt;
+        line-height: 1.1;
+        text-transform: uppercase;
+      }
+
+      .masthead-compact .issue-date {
+        margin: 2mm 0 0;
+        font-size: 11pt;
+      }
+
+      .toc-compact {
+        border-top: 1px solid #111;
+        border-bottom: 1px solid #111;
+        padding: 4mm 0;
+        margin: 0 0 8mm;
+      }
+
+      article + article {
+        margin-top: 10mm;
+        padding-top: 6mm;
+        border-top: 2px solid #111;
+      }
+
+      h1 {
+        margin: 0 0 2mm;
+        font-size: 18pt;
+        line-height: 1.1;
+      }
+
+      .article-meta {
+        font-size: 8.5pt;
+        margin-bottom: 6mm;
+        padding-bottom: 3mm;
+        border-bottom: 1px solid #111;
+      }
+
+      .article-body {
+        font-size: var(--body-text-size);
+        font-family: "Times New Roman", Times, serif;
+      }
+
+      .article-body p,
+      .article-body li,
+      .article-body blockquote,
+      .article-body dd,
+      .article-body dt {
+        margin: 0 0 4mm;
+        orphans: 3;
+        widows: 3;
+      }
+
+      .article-body ul,
+      .article-body ol,
+      .article-body dl {
+        margin: 0 0 4mm 5mm;
+        padding: 0;
+      }
+
+      .article-body h2,
+      .article-body h3,
+      .article-body h4 {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        margin: 7mm 0 3mm;
+        line-height: 1.2;
+      }
+
+      .article-body blockquote {
+        margin-left: 6mm;
+        padding-left: 4mm;
+        border-left: 2px solid #111;
+      }
+
+      .article-body .media-omitted {
+        margin: 0 0 4mm;
+        font-size: 8.5pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(17, 17, 17, 0.65);
+      }
+
+      .article-body figure,
+      .article-body .article-figure,
+      .article-body picture,
+      .article-body .article-picture {
+        display: block;
+        max-width: 72mm;
+        margin: 0 auto 4mm;
+        break-inside: avoid;
+      }
+
+      .article-body img,
+      .article-body .article-image {
+        display: block;
+        max-width: min(100%, 72mm);
+        max-height: 34mm;
+        height: auto;
+        width: auto;
+        object-fit: contain;
+        margin: 0 auto 3mm;
+      }
+
+      .article-body figcaption {
+        margin-top: 1.5mm;
+        font-size: 8.5pt;
+        line-height: 1.3;
+        color: rgba(17, 17, 17, 0.8);
+      }
+
+      .article-note {
+        margin-top: 6mm;
+        padding-top: 3mm;
+        border-top: 1px solid #111;
+        font-size: 9pt;
+        font-style: italic;
+      }
+
+      @media screen {
+        body {
+          padding: 2rem;
+          margin: 0 auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    
+    <header class="masthead-compact">
+      <h1>Fred Talks</h1>
+      <p class="issue-date">
+        14<sup>th</sup> August 2026
+      </p>
+    </header>
+
+    <nav class="toc toc-compact">
+      <h2>Contents</h2>
+      <ol class="toc-list">
+        
+        <li class="toc-item">
+          <div class="toc-item-title">The Night Watch</div>
+          <div class="toc-item-meta">
+            James Mickens · 2675 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">How Claude Code navigates large codebases</div>
+          <div class="toc-item-meta">
+            Claude · 2694 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Control the ideas, not the code</div>
+          <div class="toc-item-meta">
+            antirez.com · 1245 words
+          </div>
+        </li>
+        
+      </ol>
+    </nav>
+    
+
+    
+    <article>
+      <h1>The Night Watch</h1>
+      <div class="article-meta">
+        James Mickens
+        · 11 Apr 2026 · <a href="https://www.usenix.org/system/files/1311_05-08_mickens.pdf">Source</a>
+      </div>
+      <div class="article-body"><div><p></p><p>The Night Watch</p><p><br/></p><p>J AM E S M I C K E N S</p><p><br/></p><p><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/Qh_zJJv8ZR0hQwDrpMtI4o0UpsKc2Lc5K3V_L4-iyNg-PhqvNH_Sl5vCey.png" class="article-image"/></p><p>James Mickens is a researcher in the Distributed Systems group at Microsoft’s Redmond lab. His current research focuses on web applications,</p><p>with an emphasis on the design of JavaScript frameworks that allow developers to diagnose and fix bugs in widely deployed web applications. James also works on fast, scalable storage systems for datacenters.</p><p><a href="mailto:mickens@microsoft.com" target="_blank">James received his PhD in computer science from the University of Michigan, and a bachelor’s degree in computer science from Georgia Tech. </a><a href="mailto:mickens@microsoft.com" target="_blank">mickens@microsoft.com</a></p><p><br/></p><p>s a highly trained academic researcher, I spend a lot of time trying to advance the frontiers of human knowledge. However, as someone who was born in the South, I secretly believe that true progress is</p><p>A</p><p></p><p>a fantasy, and that I need to prepare for the end times, and for the chickens coming home to roost, and fast zombies, and slow zombies, and the polite zombies who say “sir” and “ma’am” but then try to eat your brain to acquire your skills. When the revolution comes, I need to be prepared; thus, in the quiet moments, when I’m not producing incredible scientific breakthroughs, I think about what I’ll do when the weather forecast inevitably becomes</p><p>RIVERS OF BLOOD ALL DAY EVERY DAY. The main thing that I ponder is who will be in my gang, because the likelihood of post-apocalyptic survival is directly related to the size and quality of your rag-tag group of associates. There are some obvious people who I’ll need to recruit: a locksmith (to open doors); a demolitions expert (for when the locksmith has run out of ideas); and a person who can procure, train, and then throw snakes at my enemies</p><p>(because, in a world without hope, snake throwing is a reasonable way to resolve disputes). All of these people will play a role in my ultimate success as a dystopian warlord philosopher. However, the most important person in my gang will be a systems programmer. A person who can debug a device driver or a distributed system is a person who can be trusted in a Hobbesian nightmare of breathtaking scope; a systems programmer has seen the terrors of the world and understood the intrinsic horror of existence. The systems programmer has written drivers for buggy devices whose firmware was implemented by a drunken child or a sober goldfish. The systems program- mer has traced a network problem across eight machines, three time zones, and a brief diversion into Amish country, where the problem was transmitted in the front left hoof of a mule named Deliverance. The systems program- mer has read the kernel source, to better understand the deep ways of the universe, and the systems programmer has seen the comment in the sched- uler that says “DOES THIS WORK LOL,” and the systems programmer has wept instead of LOLed, and the systems programmer has submitted a kernel patch to restore balance to The Force and fix the priority inversion that was causing MySQL to hang. A systems programmer will know what to do when society breaks down, because the systems programmer already lives in a world without law.</p><p><br/></p><p>Listen: I’m not saying that other kinds of computer people</p><p>are useless. I believe (but cannot prove) that PHP developers have souls. I think it’s great that database people keep trying to improve select-from-where, even though the only queries that cannot be expressed using select-from-where are inap- propriate limericks from “The Canterbury Tales.” In some way that I don’t yet understand, I’m glad that theorists are investigating the equivalence between five-dimensional Tur- ing machines and Edward Scissorhands. In most situations, GUI designers should not be forced to fight each other with tridents and nets as I yell “THERE ARE NO MODAL DIA- LOGS IN SPARTA.” I am like the Statue of Liberty: I accept everyone, even the wretched and the huddled and people who enjoy Haskell. But when things get tough, I need mission-crit- ical people; I need a person who can wear night-vision goggles and descend from a helicopter on ropes and do classified things to protect my freedom while country music plays in the background. A systems person can do that. I can realistically give a kernel hacker a nickname like “Diamondback” or “Zeus Hammer.” In contrast, no one has ever said, “These semi-</p><p>transparent icons are really semi-transparent! IS THIS THE WORK OF ZEUS HAMMER?”</p><p>I picked that last example at random. You must believe me when I say that I have the utmost respect for HCI people.</p><p>However, when HCI people debug their code, it’s like an</p><p>art show or a meeting of the United Nations. There are tea breaks and witticisms exchanged in French; wearing a non- functional scarf is optional, but encouraged. When HCI code doesn’t work, the problem can be resolved using grand theo- ries that relate form and perception to your deeply personal feelings about ovals. There will be rich debates about the socioeconomic implications of Helvetica Light, and at some point, you will have to decide whether serifs are daring state- ments of modernity, or tools of hegemonic oppression that implicitly support feudalism and illiteracy. Is pinching-and- dragging less elegant than circling-and-lightly-caressing?</p><p>These urgent mysteries will not solve themselves. And yet, after a long day of debugging HCI code, there is always hope, and there is no true anger; even if you fear that your drop- down list should be a radio button, the drop-down list will suffice until tomorrow, when the sun will rise, glorious and</p><p>vibrant, and inspire you to combine scroll bars and left-click- ing in poignant ways that you will commemorate in a sonnet when you return from your local farmer’s market.</p><p>This is not the world of the systems hacker. When you debug a distributed system or an OS kernel, you do it Texas-style. You gather some mean, stoic people, people who have seen things die, and you get some primitive tools, like a compass and a rucksack and a stick that’s pointed on one end, and you walk into the wilderness and you look for trouble, possibly while</p><p>using chewing tobacco. As a systems hacker, you must be pre- pared to do savage things, unspeakable things, to kill runaway threads with your bare hands, to write directly to network ports using telnet and an old copy of an RFC that you found in the Vatican. When you debug systems code, there are no high- level debates about font choices and the best kind of turquoise, because this is the Old Testament, an angry and monochro- matic world, and it doesn’t matter whether your Arial is Bold or Condensed when people are covered in boils and pestilence and Egyptian pharaoh oppression. HCI people discover bugs by receiving a concerned email from their therapist. Systems people discover bugs by waking up and discovering that their first-born children are missing and “ETIMEDOUT ” has been written in blood on the wall.</p><p>What is despair? I have known it—hear my song. Despair is when you’re debugging a kernel driver and you look at a mem- ory dump and you see that a pointer has a value of 7. THERE IS NO HARDWARE ARCHITECTURE THAT IS ALIGNED ON</p><p>7. Furthermore, 7 IS TOO SMALL AND ONLY EVIL CODE WOULD TRY TO ACCESS SMALL NUMBER MEMORY.</p><p>Misaligned, small-number memory accesses have stolen decades from my life. The only things worse than misaligned, small-number memory accesses are accesses with aligned buf- fer pointers, but impossibly large buffer lengths. Nothing ruins a Friday at 5 P.M. faster than taking one last pass through the log file and discovering a word-aligned buffer address, but a buffer length of NUMBER OF ELECTRONS IN THE UNI-</p><p>VERSE. This is a sorrow that lingers, because a 2893 byte read is the only thing that both Republicans and Democrats agree is wrong. It’s like, maybe Medicare is a good idea, maybe not, but there’s no way to justify reading everything that ever existed a jillion times into a mega-jillion sized array. This constant war on happiness is what non-systems people do not understand about the systems world. I mean, when a machine learning</p><p>algorithm mistakenly identifies a cat as an elephant, this is</p><p>actually hilarious. You can print a picture of a cat wearing an elephant costume and add an ironic caption that will entertain people who have middling intellects, and you can hand out cop- ies of the photo at work and rejoice in the fact that everything is still fundamentally okay. There is nothing funny to print when you have a misaligned memory access, because your machine is dead and there are no printers in the spirit world.</p><p>An impossibly large buffer error is even worse, because these errors often linger in the background, quietly overwriting your state with evil; if a misaligned memory access is like a criminal burning down your house in a fail-stop manner, an impossibly large buffer error is like a criminal who breaks into your house, sprinkles sand atop random bedsheets and toothbrushes, and then waits for you to slowly discover that your world has been tainted by madness. Indeed, the common discovery mode for an impossibly large buffer error is that your program seems to</p><p><br/></p><p>be working fine, and then it tries to display a string that should say “Hello world,” but instead it prints “#a[5]:3!” or another syntactically correct Perl script, and you’re like WHAT THE HOW THE, and then you realize that your prodigal memory accesses have been stomping around the heap like the Incred- ible Hulk when asked to write an essay entitled “Smashing Considered Harmful.”</p><p>You might ask, “Why would someone write code in a grotesque language that exposes raw memory addresses? Why not use</p><p>a modern language with garbage collection and functional programming and free massages after lunch?” Here’s the answer: Pointers are real. They’re what the hardware under- stands. Somebody has to deal with them. You can’t just place a LISP book on top of an x86 chip and hope that the hardware learns about lambda calculus by osmosis. Denying the exis- tence of pointers is like living in ancient Greece and denying the existence of Krackens and then being confused about why none of your ships ever make it to Morocco, or Ur-Morocco,</p><p>or whatever Morocco was called back then. Pointers are like Krackens—real, living things that must be dealt with so that polite society can exist. Make no mistake, I don’t want to write systems software in a language like C++. Similar to the Necro- nomicon, a C++ source code file is a wicked, obscure document that’s filled with cryptic incantations and forbidden knowl- edge. When it’s 3 A.M., and you’ve been debugging for 12 hours, and you encounter a virtual static friend protected volatile</p><p>templated function pointer, you want to go into hibernation and awake as a werewolf and then find the people who wrote the C++ standard and bring ruin to the things that they love. The C++ STL, with its dyslexia-inducing syntax blizzard of colons and angle brackets, guarantees that if you try to declare any reasonable data structure, your first seven attempts will result in compiler errors of Wagnerian fierceness:</p><p>Syntax error: unmatched thing in thing from std::nonstd::<u> </u> map&lt;_Cyrillic, _$$$dollars&gt;const basic_string&lt; epic_ mystery,mongoose_traits &amp;lt; char&gt;, <u>  </u>default_alloc_&lt;casual_ Fridays = maybe&gt;&gt;</p><p>One time I tried to create a list&lt;map&lt;int&gt;&gt;, and my syntax errors caused the dead to walk among the living. Such things are clearly unfortunate. Thus, I fully support high-level lan- guages in which pointers are hidden and types are strong and the declaration of data structures does not require you to solve a syntactical puzzle generated by a malevolent extraterrestrial species. That being said, if you find yourself drinking a martini and writing programs in garbage-collected, object-oriented Esperanto, be aware that the only reason that the Esperanto runtime works is because there are systems people who have exchanged any hope of losing their virginity for the exciting opportunity to think about hex numbers and their relationships</p><p>with the operating system, the hardware, and ancient blood rituals that Bjarne Stroustrup performed at Stonehenge.</p><p>Perhaps the worst thing about being a systems person is that other, non-systems people think that they understand the daily tragedies that compose your life. For example, a few weeks ago, I was debugging a new network file system that my research group created. The bug was inside a kernel-mode component, so my machines were crashing in spectacular and vindic-</p><p>tive ways. After a few days of manually rebooting servers, I had transformed into a shambling, broken man, kind of like a computer scientist version of Saddam Hussein when he was pulled from his bunker, all scraggly beard and dead eyes and florid, nonsensical ramblings about semi-imagined enemies.</p><p>As I paced the hallways, muttering Nixonian rants about my code, one of my colleagues from the HCI group asked me what my problem was. I described the bug, which involved concur- rent threads and corrupted state and asynchronous message delivery across multiple machines, and my coworker said,</p><p>“Yeah, that sounds bad. Have you checked the log files for errors?” I said, “Indeed, I would do that if I hadn’t broken every component that a logging system needs to log data. I have a network file system, and I have broken the network, and I have broken the file system, and my machines crash when I make eye contact with them. I HAVE NO TOOLS BECAUSE I’VE DESTROYED MY TOOLS WITH MY TOOLS. My only logging</p><p>option is to hire monks to transcribe the subjective experience of watching my machines die as I weep tears of blood.” My co- worker, in an earnest attempt to sympathize, recounted one of his personal debugging stories, a story that essentially involved an addition operation that had been mistakenly replaced with</p><p>a multiplication operation. I listened to this story, and I said, “Look, I get it. Multiplication is not addition. This has been known for years. However, multiplication and addition are at least related. Multiplication is like addition, but with more addition. Multiplication is a grown-up pterodactyl, and addi- tion is a baby pterodactyl. Thus, in your debugging story, your code is wayward, but it basically has the right idea. In contrast, there is no family-friendly GRE analogy that relates what my code should do, and what it is actually doing. I had the mod-</p><p>est goal of translating a file read into a network operation, and now my machines have tuberculosis and orifice containment issues. Do you see the difference between our lives? When you asked a girl to the prom, you discovered that her father was a cop. When I asked a girl to the prom, I DISCOVERED THAT HER FATHER WAS STALIN.”</p><p>In conclusion, I’m not saying that everyone should be a systems hacker. GUIs are useful. Spell-checkers are useful. I’m glad that people are working on new kinds of bouncing icons because they believe that humanity has solved cancer and homelessness and now lives in a consequence-free world</p><p><br/></p><p>of immersive sprites. That’s exciting, and I wish that I could join those people in the 27th century. But I live here, and I live now, and in my neighborhood, people are dying in the streets. It’s like, French is a great idea, but nobody is going to invent French if they’re constantly being attacked by bears. Do you see? SYSTEMS HACKERS SOLVE THE BEAR MENACE.</p><p>Only through the constant vigilance of my people do you get</p><p>the freedom to think about croissants and subtle puns involv- ing the true father of Louis XIV. So, if you see me wandering the halls, trying to explain synchronization bugs to confused monks, rest assured that every day, in every way, it gets a little better. For you, not me. I’ll always be furious at the number 7, but such is the hero’s journey.</p><p><br/></p><p><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/3PjVhm7SHAnNCFsrp4vYcMmjj4SbJW6_Nw3I8kCRkHo-Ttoq4t_0PjAixm.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/zu6piHoR3bKYZi8-bhTBDVes4mGPSwexqfHxhL2XV7c-fnmEuB_ncwO73o.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/BKRuB5D8rBa8HdORYoDsAG6E90Wxw-g5jzU5jNVL0SA-JTKhjG_mbyyoPB.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/vHq8DNX8KgbuwOrW5x382wBldGETJ_QYyCfJ7YvliGg-jXfgAF_o9Kq1Td.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/_hhGPcB-wnqc7Hnf0vlR-s9YoIerGTz5j1nzLF9EZJk-S6jgeu_wRLQZhx.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/BKWddr7mDr1b6vKoiuzT9S8wMfYmeWkFDHeUWXsXm-U-yn92ap_882g4tc.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/Ljll433Q85CHGZ11YSI8iwrSVzMulhf_alYDpGGHoWk-GQOhDC_AVH7JxR.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/9GWpw0igxFQBm9ou8MytnTuLjZAhYXJaKDpH7BBnldE-GpM9TP_vSR4tBG.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/o2Fev3AVMUxSlY-2J_kGIvtq6ByKB0zIP4yn6kOCFyk-UBZuJf_arJQIcs.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/Xudf2kb-JiTw-bGQeeKnuj5AVyH6QLWtcquVcSM7MKA-KdAkcQ_XxDwLTZ.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/hjRl1nz9wufUszQToA5y5jkEV26Q1Joh-Wb5DyURj00-ftwTzI_bFqqJ9N.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/HQ9IrO9DjZpOKeo0SBpG0PQ7PqI0tnFYcdHm60Xmp-w-6WcDjD_3FQbRGB.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/6xPTbWKef5Tx-Vhxff76tPrfZYE0jP1ofMjQ1AeyoFo-kNEPiT_ehz6XQh.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/yMRGU8iN4_0-UiKWfZV4O8P4NI96Uo6bKGd0xFZUfGM-DCPm2E_r6h3DVu.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/DdXYx8C0PDURQ_9sC-YpVVYvQcf0H7WsGVvc7aNlfNs-JADKKu_L4dXsj1.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/g0QHbZNs1N6ILk9mvaiOcn469uJltkjOjJm2tAgIGms-lc0DFt_pzteoe5.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/-ZQiQHqvWk3k208XO-fFM_KQI7jYpa0U4PWRwFfZmi4-jBoftz_UyYAJhQ.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/je5pVOg4iC_CKMY3kkak7SpW1bJjZ9bYxbelxBxJkYw-I4g_1D_b9icttQ.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/_yG37F0Ne-FE1e3ye7alCuIciUaoPw3TM2zNGnrEjiQ-LV6QAz_zwrScIL.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/MFAFSOuOEOGqJ655FpAwV1iWq_vtVGFNVU8AzWvTLWE-__I7sj_VyZuSB2.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/1jvrpT5BbqcPvkdTJebUKwKuRnnoth6ZRKkvFu1zqFY-4kCoUf_FMuVHNJ.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/GqkC-r47Olk3MK9ZfKR5JUXtsYIn0k35OULb7-46lpY-ImSCi4_qL5c0Fl.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/Cfi4KP8QlMJoXO20drN_-Pmz1ymZQHrLzDAuA1m2iTY-9Kktc1_GrrDaQO.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/qU4C4LNTzvu5a5yyRN_jTk2Vo6ja5PLVAcPsjOcgruc--4duo2_iOYWYgk.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/6h5FaIF8n_ImMtl9-wUQL1pY4UCwe6ShoJ-emKcZJlw-HNgmis_7IE6s9r.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/U7UQ12j1nrwIeXEtChEgxyj1iUbqjnIL8azTEKZ8ERg-mGn-ux_meEMikJ.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/0dXzLDFT43xEsh9KSPiZBeUSE55cg4LXBCYTUBclXpc-n0B6Zy_jUCdIxw.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/v5cKOT1MyuR7Q0J46JCzj4tfPE2Kh0WV3A8dW4mj9PE-fJoKj0_7IzpAwT.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/NXA_a7aZqfzD9e7sp4LyeVK0bt_ypoVuvrYNOkl-N5s-WcbOa2_NFdYZfe.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/09Fg0DVT-G10gdWFwMK9KSePZ3hv94eFgAMUAus6Vpo-iXi4nr_GUZg5fN.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/7HCO_Yz47hxS01U0Dvw83-G3oCQi_XPigYGxPtYSQXQ-qHWcyR_Oc38EO9.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/ZyKwjfvFVWMYOErKBJnBlX5kHnkXG6iURgCUBRkG23c-g4SZ_f_BRDpDIH.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/g1JfUtkpM102XJIXL1-_DF4jlKVkN73XelpeN-rbASo-Z3Rxe6_eV3T37T.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/ZqfF49Oq4gdxEwJQOnNr6cfnuwsw6WxyfNld8zXNkHU-X8E80p_nDd3ymo.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/j_aDFBxxPMKW1N1mQUiJD4Jv6sLvpgfDiVR_KYF15Yo-f-7gW__1Lrq8AE.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/X-rieWMGjDA3xhrFurgaVaoxVmOxGR1Gh5yWTulc8qc-5VWrpr_52uT7Ex.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/J0xH79919-Y-223udc_HjCkMou04iC-nM0gubKiV1zA-Czi66a_JiE87DE.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/-RgteSd4yAk_j608MaIw17AiWyVbpfSXPV49vhMjPq8-hh2rn9_RhGKlDl.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/qeMbUEBS5ivfsD7glHzGBCIP6gZxQyqCmZMS8_uPxIA-bNVeOY_bHIqKR0.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/m7htRL5yJwMBtLmrL2Sn9_WF0j7cbAXWynMsLz9iIQg-biESR8_p2TU36x.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/68FgZ46Dr-qlarRaZFW3Y-TJ2t6BsaFvGj6wMbHUZqY-e4jqWJ_7EnCXWN.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/odl1eG3KcxKWrDg_4KZlCGsAWK-Q5c0QdD6UEuK_uGk-B_5-ap_59TRnEf.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/nSs-ZwKiOxvQVjnwXzopfMSpZg6WETqwUNWsiQiD7bg-kDqNyf_556hL1M.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/blsJ1zGV7cw7yqPeKopXcPyv0xm-ahhrzwosz38ZwgM-Mndfp9_xP5Xptf.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/N4y9pAPhOW18YXsmDv5Tg4j8rPO6poNWLD-iIMYwtXg-9xg0ap_Fhj4MUC.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/G0pJsD4r__jnJu6Xagukx3ARxLhZ8TQEOPsrcehWl-I-35jJz-_BjrTOa2.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/377DrrLyQVfpIRl7w1nhp8rCXEib0QFUHJX0iWbXwCE-TGw66Y_Y6zIMig.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/N5bwSeNlv3R01-p5MvqgBQCIPwKNuDqTZrzIQYOBE4c-Lt1OUR_eG2HS8J.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/Uj4jTnGVwUZBKWzpcG-fWeteFhynvvxnChThxd7y6GM-CpT3Zv_rzsZoXx.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/2Q8SzdZ0E-uoSkurUo71zMdPuFBY5jAucH1Hxr7tSe8-FXHV8-_o3py9iI.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/f-cJudd5ZIX0zH93wBWiPd76QWhZvkQROzphrw8q4Lk-0MJpI4_nXHHIRm.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/4hylgy8BJ6DbXeHsaQu4RJHkIJZSzcCsaUDmFqSVAyM-Ogr0o7_j0dTzDf.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/W6EYed5UyuB9s0lgdHYN7heF1p0WaKjDUGI5baET8tI-zatTlx_3WFx9YF.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/UEyFXXe1FQOuttF6PAa_KSYV8I1Ijuv_2rK1DokyGFA-GohX5F_yCuDOxQ.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/z8y6R5sxvlSgDbEDW7_6BT5uK37GLMmYMASYMBUR82w-AMWOcI_t4hroEw.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/RsCulUTlhMRpRH2mBb1zNtn4iiIS-t423DqqU8Uej2o-X7XpCp_RY0ijzQ.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/kHBrdcBHSazzsaNzKWKvbViAnuQB5l3ZhOuDbEDPKPk-o71Hfo_A0ZNZw9.png" class="article-image"/></p><h1>Do you know about the USENIX Open Access Policy?</h1><p><br/></p><p>USENIX is the first computing association to offer free and open access to all of our conferences proceedings and videos. We stand by our mission to foster excellence and innovation while supporting research with a practical bias. Your membership fees play a major role in making this endeavor successful.</p><p><br/></p><p>Please help us support open access.</p><p>Renew your USENIX membership</p><p>and ask your colleagues to join or renew today!</p><p><br/></p><p><a href="http://www.usenix.org/membership">www.usenix.org/membership</a></p></div></div>
+      
+    </article>
+    
+    <article>
+      <h1>How Claude Code navigates large codebases</h1>
+      <div class="article-meta">
+        Claude
+        · 18 May 2026 · <a href="https://claude.com/blog/how-claude-code-works-in-large-codebases-best-practices-and-where-to-start">Source</a>
+      </div>
+      <div class="article-body"><p>Claude Code is running in production across multi-million-line monorepos, decades-old legacy systems, distributed architectures spanning dozens of repositories, and at organizations with thousands of developers. These environments present challenges that smaller, simpler codebases don’t, whether that’s build commands that differ across every subdirectory or legacy code spread across folders with no shared root.</p>
+<p>This article covers the patterns we've observed that have led to successful adoption of Claude Code at scale. We use “large codebase” to refer to a wide range of deployments: monorepos with millions of lines, legacy systems built over decades, dozens of microservices across separate repositories, or any combination of the above. That also includes codebases running on languages that teams don't always associate with AI coding tools, such as C, C++, C#, Java, PHP. (Claude Code performs better than most teams expect it to in those cases, particularly as of recent model releases.) While every large codebase deployment is shaped by its specific version control, team structure, and accumulated conventions, the patterns here generalize across them and are a good starting point for teams considering adopting Claude Code.</p>
+<p>Claude Code navigates a codebase the way a software engineer would: it traverses the file system, reads files, uses grep to find exactly what it needs, and follows references across the codebase. It operates locally on the developer’s machine and doesn’t require a codebase index to be built, maintained, or uploaded to a server.</p>
+<p>RAG-powered AI coding tools work by embedding the entire codebase and retrieving relevant chunks at query time. At large scale, those systems can fail because embedding pipelines can’t keep up with active engineering teams. By the time a developer queries the index, it reflects the codebase as it previously existed weeks, days, or even hours before. Retrieval then returns a function the team renamed two weeks ago, or references a module that was deleted in the last sprint, with no indication that either is out of date.</p>
+<p>Agentic search avoids those failure modes. There's no embedding pipeline or centralized index to maintain as thousands of engineers commit new code. Each developer's instance works from the live codebase.</p>
+<p>But the approach has a tradeoff: it works best when Claude has enough starting context to know where to look. This means the quality of Claude's navigation is shaped by how well the codebase is set up, layering context with CLAUDE.md files and skills. If you ask it to find all instances of a vague pattern across a billion-line codebase, you’ll hit context-window limits before the work begins. Teams that invest in codebase setup see better results.</p>
+<h2>The harness matters as much as the model</h2>
+<p>One of the most common misconceptions about Claude Code is that its capabilities are solely defined by the model used. Teams focus on a model’s benchmarks and how it performs on test tasks. In practice, the ecosystem built around the model—the harness—determines how Claude Code performs more than the model alone.</p>
+<p>The harness is built from five extension points—CLAUDE.md files, hooks, skills, plugins, and MCP servers—each serving a different function. The order in which teams build them matters, as each layer builds on what came before. Two additional capabilities, LSP integrations and subagents, round out the setup. Below, we explain what each of these components and capabilities do:</p>
+<p><a href="https://code.claude.com/docs/en/memory"><strong>CLAUDE.md</strong></a><strong> files come first</strong>. These are context files that Claude reads automatically at the start of every session: root file for the big picture, subdirectory files for local conventions. They give Claude the codebase knowledge it needs to do anything well. Because they load in every session regardless of the task, keeping them focused on what applies broadly will prevent them from becoming a drag on performance.</p>
+<p><a href="https://code.claude.com/docs/en/hooks-guide"><strong>Hooks</strong></a><strong> make the setup self-improving</strong>. Most teams think of hooks as scripts that prevent Claude from doing something wrong, but their more valuable use is continuous improvement. A stop hook can reflect on what happened during a session and propose CLAUDE.md updates while the context is fresh. A start hook can load team-specific context dynamically so every developer gets the right setup for their module without manual configuration. For automated checks like linting and formatting, hooks enforce the rules deterministically and produce more consistent results than relying on Claude to remember an instruction.</p>
+<p><a href="https://code.claude.com/docs/en/skills"><strong>Skills</strong></a><strong> keep the right expertise available on-demand without bloating every session. </strong>In a large codebase with dozens of task types, not all expertise needs to be present in every session. Skills solve this through <a href="https://platform.claude.com/docs/en/agents-and-tools/agent-skills/best-practices">progressive disclosure</a>, offloading specialized workflows and domain knowledge that would otherwise compete for context space and loading them only when the task calls for it. For example, a security review skill loads when Claude is assessing code for vulnerabilities, while a document processing skill loads when a code change is made and documentation needs to be updated.</p>
+<p>Skills can also be scoped to specific paths so they only activate in the relevant part of the codebase. A team that owns a payments service can bind their deployment skill to that directory, so it never auto-loads when someone is working elsewhere in the monorepo.</p>
+<p><a href="https://code.claude.com/docs/en/plugins"><strong>Plugins</strong></a><strong> distribute what works.</strong> One challenge with large codebases is that <em>good</em> setups can stay tribal. A plugin bundles skills, hooks, and MCP configurations into a single installable package, so when a new engineer installs that plugin on day one, they will immediately have the same context and capabilities as those who have been using Claude already. Plugin updates can be distributed across the organization through <a href="https://support.claude.com/en/articles/13837433-manage-claude-cowork-plugins-for-your-organization">managed marketplaces</a>.</p>
+<p>For example, a large retail organization we work with built a skill connecting Claude to their internal analytics platform so that business analysts could pull performance data without leaving their workflow. They distributed it as a plugin before the broad rollout to the business.</p>
+<p><strong>Language server protocol (LSP) integrations give Claude the same navigation a developer has in their IDE.</strong> Most large-codebase IDEs already have an LSP running, powering "go to definition" and "find all references." Surfacing this to Claude gives it symbol-level precision: it can follow a function call to its definition, trace references across files, and distinguish between identically named functions in different languages. Without it, Claude pattern-matches on text and can land on the wrong symbol. One enterprise software company we worked with deployed LSP integrations org-wide before their Claude Code rollout, specifically to make C and C++ navigation reliable at scale. For multi-language codebases, this is one of the highest-value investments.</p>
+<p><strong>MCP servers extend everything.</strong> MCP servers are how Claude connects to internal tools, data sources, and APIs that it can't otherwise reach. The most sophisticated teams built MCP servers exposing structured search as a tool Claude can call directly. Others connect Claude to internal documentation, ticketing systems, or analytics platforms.</p>
+<p><a href="https://code.claude.com/docs/en/sub-agents"><strong>Subagents</strong></a><strong> split exploration from editing.</strong> A subagent is an isolated Claude instance with its own context window that takes a task, does the work, and returns only the final result to the parent. Once the harness is in place, some teams spin up a read-only subagent to map a subsystem and write findings to a file, then have the main agent edit with the full picture.</p>
+<figure class="article-figure"><img alt="" src="https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a04aaf1c37c6196e5ee19bb_fig1-the-claude-code-harness-v1%402x.png" class="article-image"/><figcaption>Claude Code’s extension layer at a glance. </figcaption></figure>
+<p>The table below summarizes what each component does, when it loads, and the most common mistakes we see with each:</p>
+<figure class="article-figure"><table> <tr> <th>Component</th> <th>What it is</th> <th>When it loads</th> <th>Best for</th> <th>Common confusion</th> </tr> <tbody> <tr> <td>CLAUDE.md</td> <td>Context file Claude reads automatically</td> <td>Every session</td> <td>Project-specific conventions, codebase knowledge</td> <td>Using it for reusable expertise that belongs in a skill</td> </tr> <tr> <td>Hooks</td> <td>Scripts that run at key moments</td> <td>Triggered by events</td> <td>Automating consistent behavior, capturing session learnings</td> <td>Using prompts for things that should run automatically</td> </tr> <tr> <td>Skills</td> <td>Packaged instructions for specific task types</td> <td>On demand, when relevant</td> <td>Reusable expertise across sessions and projects</td> <td>Loading everything into CLAUDE.md instead</td> </tr> <tr> <td>Plugins</td> <td>Bundled skills, hooks, MCP configs</td> <td>Always available once configured</td> <td>Distributing a working setup across the org</td> <td>Letting good setups stay tribal</td> </tr> <tr> <td>Language server protocol (LSP)*</td> <td>Real-time code intelligence via language specific servers</td> <td>Always available once configured</td> <td>Symbol-level navigation and automatic error detection in typed languages</td> <td>Assuming that it's automatic</td> </tr> <tr> <td>MCP servers</td> <td>Connections to external tools and data</td> <td>Always available once configured</td> <td>Giving Claude access to internal tools it can't otherwise reach</td> <td>Building MCP connections before the basics are working</td> </tr> <tr> <td>Subagents*</td> <td>Separate Claude instances for specific tasks</td> <td>When invoked</td> <td>Splitting exploration from editing, parallel work</td> <td>Running exploration and editing in the same session</td> </tr> <tr> <td colspan="5">*LSP is accessed through the plugin layer. Subagents are a delegation capability rather than a configured extension point.</td> </tr> </tbody> </table></figure>
+<h2>Three configuration patterns from successful deployments</h2>
+<p>How you configure Claude Code for a large codebase depends heavily on how that codebase is structured. Still, three patterns appeared consistently across the deployments we observed.</p>
+<h3>Making the codebase navigable at scale</h3>
+<p>Claude’s ability to help in a large codebase is bounded by its ability to find the right context. Too much context loaded into every session degrades performance, while too little context leaves Claude to navigate blind. The most effective deployments invest upfront in making the codebase legible to Claude. A few patterns appear consistently:</p>
+<ul><li><strong>Keeping CLAUDE.md files lean and layered.</strong> Claude loads them additively as it moves through the codebase: root file for the big picture, subdirectory files for local conventions. The root file should be pointers and critical gotchas only; everything else drifts into noise.</li><li><strong>Initializing in subdirectories, not at the repo root.</strong> Claude works best when it's scoped to the part of the codebase that's actually relevant to the task. In monorepos, this can feel counterintuitive because tooling often assumes root access, but Claude automatically walks up the directory tree and loads every CLAUDE.md file it finds along the way, so root-level context is never lost.</li><li><strong>Scoping test and lint commands per subdirectory.</strong> Running the full suite when Claude changed one service causes timeouts and wastes context on irrelevant output. CLAUDE.md files at the subdirectory level should specify the commands that apply to that part of the codebase. This works well for service-oriented codebases where each directory has its own test and build commands. In compiled-language monorepos with deep cross-directory dependencies, per-subdirectory scoping is harder to achieve and may require project-specific build configurations.</li><li><strong>Using <code>.</code></strong><code>ignore</code><strong> files to exclude generated files, build artifacts, and third-party code.</strong> Committing <code>permissions.deny</code> rules in <code>.claude/settings.json</code> means the exclusions are version-controlled, so every developer on the team gets the same noise reduction without configuring it themselves. In some codebases, generated files are themselves the subject of development work. Developers who work on code generators can override project-level exclusions in their local settings without affecting the rest of the team.</li><li><strong>Building codebase maps when the directory structure doesn’t do the work. </strong>For organizations where code isn’t consolidated in a conventional directory structure, a lightweight markdown file at the repo root listing each top-level folder with a one-line description of what lives there gives Claude a table of contents it can scan before opening files. For codebases with hundreds of top-level folders, this works best as a layered approach: the root file describes only the highest-level structure, and subdirectory CLAUDE.md files provide the next level of detail, loading on demand as Claude moves through the tree. For simpler cases, @-mentioning the specific files or directories Claude should reference can do the same job.</li><li><strong>Running LSP servers so Claude searches by symbol, not by string. </strong>Grep for a common function name in a large codebase returns thousands of matches and Claude burns context opening files to figure out which matters. LSP returns only the references that point to the same symbol, so the filtering happens before Claude reads anything. Setting this up requires installing a <a href="https://code.claude.com/docs/en/discover-plugins#code-intelligence">code intelligence plugin</a> for your language and the corresponding language server binary; the Claude Code documentation covers the available plugins and troubleshooting.</li></ul>
+<p><strong>One caveat</strong>: there are edge cases where even the hierarchical CLAUDE.md approach breaks down, for example codebases with hundreds of thousands of folders and millions of files, or legacy systems on non-git version control. We will address their challenges in future installments of this series.</p>
+<h3>Actively maintaining CLAUDE.md files as model intelligence evolves </h3>
+<p>As models evolve, instructions written for your current model can work against a future one. CLAUDE.md files that guided Claude through patterns it used to struggle with may either become unnecessary or actively constraining when the next model ships. For example, a CLAUDE.md rule that tells Claude to break every refactor into single-file changes may have helped an earlier model stay on track but would prevent a newer one from making coordinated cross-file edits it handles well.</p>
+<p>Skills and hooks built to compensate for specific model limitations, whether in the model’s reasoning or in Claude Code’s own tooling, become overhead once those limitations no longer exist. A hook that intercepted file writes to enforce p4 edit in a Perforce codebase, for example, became redundant once Claude Code added native Perforce mode.</p>
+<p>Teams should expect to do a meaningful configuration review every three to six months, but it's also worth doing one whenever performance feels like it's plateaued after major model releases.</p>
+<h3>Assigning ownership for Claude Code management and adoption</h3>
+<p>Technical configuration alone doesn't drive adoption. The organizations that got it right invested in the organizational layer, too.</p>
+<p>The rollouts that spread fastest had a dedicated infrastructure investment before broad access. A small team, sometimes even just one person, wired up the tooling so Claude already fit developer workflows when they first touched it. At one company, a couple of engineers built a suite of plugins and MCPs that were available on day one. At another, an entire team focused on managing AI coding tools had the infrastructure in place before the rollout began. In both cases, developers' first experience was productive rather than frustrating, and adoption spread from there.</p>
+<figure class="article-figure"><img alt="" src="https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a04e25f1984beb50dc5525b_fig2-phases-of-claude-code-rollout-v1%402x.png" class="article-image"/></figure>
+<p>The teams doing this work today tend to sit under developer experience or developer productivity, which is typically the function responsible for onboarding new engineers and building developer tooling. An emerging role in several organizations is an agent manager: a hybrid PM/engineer function dedicated to managing the Claude Code ecosystem. For organizations without a dedicated team, the minimum viable version is a DRI: one person with ownership over the Claude Code configuration, the authority to make calls on settings, permissions policy, the plugin marketplace, and CLAUDE.md conventions, and the responsibility to keep them current.</p>
+<p>Bottoms-up adoption generates enthusiasm but can fragment without someone to centralize what works. You need to have an individual or a team assemble and evangelize the right Claude Code conventions (such as a standardized CLAUDE.md hierarchy or a curated set of skills and plugins). Without that work, knowledge will stay tribal and adoption will plateau.</p>
+<p>In large organizations, especially those in regulated industries, governance questions come up early, such as: who controls which skills and plugins are available, how do you prevent thousands of engineers from independently rebuilding the same thing, how do you make sure AI-generated code goes through the same review process as human-generated code? To address these early on, we suggest starting with a defined set of approved skills, required code review processes, and limited initial access, and expand as confidence builds.</p>
+<p>We’ve observed the smoothest deployments at organizations that establish cross-functional working groups early by bringing together engineering, information security, and governance representatives to define requirements together and build a rollout roadmap.</p>
+<h2>Applying these patterns to your organization</h2>
+<p>Claude Code is designed around conventional software engineering environments where engineers are the primary codebase contributors, the repo uses Git, and code follows standard directory structures. Most large codebases fit this mold, but non-traditional setups such as game engines with large binary assets, environments with unconventional version control, or non-engineers contributing to the codebase require additional configuration work. Our guidance assumes a conventional setup and the patterns we’ve described have worked across many of our customers. Any remaining complexity requires judgment specific to your codebase, tooling, and organization. That's where Anthropic's Applied AI team works directly with engineering teams to translate these patterns into your organization’s specific requirements.</p>
+<figure class="article-figure"><img alt="" src="https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a04e2860abbe67418ca0f8b_fig3-getting-started-checklist-v2%402x.png" class="article-image"/></figure>
+<p><strong><em>Acknowledgements:</em></strong><em> Special thanks to Alon Krifcher, Charmaine Lee, Chris Concannon, Harsh Patel, Henrique Savelli, Jason Schwartz, Jonah Dueck and Kirby Kohlmorgen from Anthropic’s Applied AI team for sharing their experience deploying Claude Code at scale, and to Amit Navindgi at Zoox for providing feedback on this article.</em></p></div>
+      
+    </article>
+    
+    <article>
+      <h1>Control the ideas, not the code</h1>
+      <div class="article-meta">
+        antirez.com
+        · 18 Jul 2026 · <a href="https://antirez.com/news/169">Source</a>
+      </div>
+      <div class="article-body"><pre>Look at the past history of this blog. There are many blog posts about programming with AI, a few of them date back to January 2024 (like this: <a href="https://antirez.com/news/140">https://antirez.com/news/140</a>). I’m a relatively well regarded programmer, after all. I don’t have the need to still be in the “loop” as a old man that seeks for relevance, I recently rejoined Redis, and now I also am developing a new open source software for local LLM inference that received a good welcome in the community. Why I keep doing this, of saying what people don’t want to hear? Why I keep announcing how future programming will be by default? Because I feel the urge of lowering the impact for people less prepared to the change than me, often younger than me, and that, unlikely me, didn’t see many of those things coming (In 2022 I published, before ChatGPT existed, a book preannouncing many things that now happened and other things that I believe *will* happen, so I feel like I can say this without sounding egocentric).
+
+So mine is a trick. People feel more and more programming is completely modified by AI and don’t know what they should do, if they can really start coding in a completely different way, without looking much at the code as their main output. They feel like they are betraying their own field. So my intention is to arrive and say “look at me, In can write code, you know, I’m not hiding behind AI: yet, things changed, it’s not your weakness, it’s not that you are AI-pilled. It is just that our field is evolving in an incredible *and* painful (but also joyful) direction”.
+
+This is why yesterday, on X, I said that I believe many programmers at this point have less impact they could have because they look at the code. I truly believe into that. And note that this does not mean to vibe code something just asking for the final product. The point is: if you control the ideas of your software, looking at the code itself is suboptimal and often pointless. For the following reasons:
+
+1. You can now generate a lot of code, even *not* accounting for the LLM code verbosity (that is also effect of not being able to instruct them well, for most of the part). How are you supposed to review 5k lines of code every day?
+
+2. LLMs are very good at writing locally optimal code, and are worse (but improving) with big ideas. What’s the point of scanning function by function, line by line? Instead you should prompt the design you have in mind, sometimes ask “how is exactly the design of that part? How does it work?”, and evaluate if it is the right model. It is much faster.
+
+3. The working day is 8 hours. If you read the code, it is a tradeoff. You are doing less of what today is the most important part of your job, that is, asking yourself: what I’m doing with this software? What are the new directions I want to take? And also, think at new ideas, features, optimizations tricks. And doing a lot of QA.
+
+Controlling the ideas. Do you remember this phrasing from the Mythical Man Month? Well, a book from the 70s tells us more things about the current software era than many of the things that were said from 2000 to 2020. Why people that now protest against AI were not horrified by the state of software in the last decade? The level of slop we touched during recent years, before AI, is unbelievable. I’ll say you another thing. What is slop? With DwarfStar I implemented an inference for two LLMs (DeepSeek v4 and GLM 5.2) in a completely automated way, but: try it yourself, you will discover you can’t just say “implement XYZ” and see it working. You have to understand how things work, what is the best design, how to reach a certain level of performance. Then I compared the implementation, for correctness, to other systems, finding that other implementations sometimes contained more errors. I researched more, and found that the local inference world is full of subtle errors that accumulate and damage the model output, issues in the attention implementation causing performance slopes after the context is over a certain limit because indexed attention implementations are broken (do more work than they should, for instance), and so forth. This is the result of a domain that is very complicated to handle, fast changing, with models that are slightly different one from the other in the inference graph being released every day. It’s an unfair game for developers. Well: AI helps a lot with that. There are many domains where rigorous engineering (in the design side) and testing is *far* better than writing a GPU kernel by hand (or reading it). So are we sure most of that resistance it is not ideological?
+
+Matteo Collina yesterday asked me, in reply to my tweet: but didn’t you say that you check all the AI generated code for Redis? And this is a good question indeed. Yes, I do, but this is, at this point, something I *need* to do but that I believe to be mostly pointless, partially once GPT 5.5 was released, but now with Fable and GPT 5.6 Sol even more. Yes: I identify things that I don’t like how they are coded, but if I open other Redis files written by other Redis contributors there is *far worse*, and not since they are not good coders, but because it is a matter of taste. I write very clean code since I want it to be readable, so during the implementation of Redis Arrays I operated changes. I’m doing it again for the 50% memory saving optimization of Redis sorted sets, a PR that I’ll submit soon. But I do not feel this is useful anymore. Nobody should anymore look at this code, but only at the ideas the code contain. I continued to do it out of respect for users. Redis is at this point a commonly useful thing, and many programmers will open files and modify stuff by hand. But if I had my hands free, you know what I would do, instead? Use all the time that the review is taking me to do more QA, to think at the next optimization idea and apply it, and to use LLMs to write a DESIGN.md file where each data structure is described in human language, with the ideas it contains, the implementation tricks, the design. That, in the future, is going to be much more useful. Do you want to modify sorted sets? You open the file, read the design, then you own the ideas. You can open your agent and ask it what to do with the right mental model. This is a lot more useful than reviewing the code.
+
+Fable and GPT 5.6 reviews to the sorted sets memory saving are going to spot ways more errors and subtle race conditions that my review is going to uncover. Yet I’ll do it. But for the majority of software projects, all this does not make sense anymore. Focus on controlling the ideas, instead. Focus on quality, testing, and having an idea of the software you want to ship. The world changed and it is painful, but also full of opportunities to improve a software world that was already completely rotten.</pre>
+<p>:</p></div>
+      
+    </article>
+    
+  </body>
+</html>
