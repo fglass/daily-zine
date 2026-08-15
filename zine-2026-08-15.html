@@ -1,0 +1,480 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Fred Talks - 2026-08-15</title>
+    <style>
+      @page {
+        size: A5;
+        margin: 8mm 9mm 9mm;
+      }
+
+      :root {
+        color: #111;
+        font-family: "Times New Roman", Times, serif;
+        --body-text-size: 9.5pt;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        color: #111;
+        background: #fff;
+        font-family: "Times New Roman", Times, serif;
+        line-height: 1.45;
+      }
+
+      a,
+      a:visited {
+        color: #111;
+        text-decoration: underline;
+      }
+
+      .cover {
+        min-height: calc(210mm - 17mm);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        page-break-after: always;
+        border: 1px solid #111;
+        padding: 8mm;
+        background: #fff;
+      }
+
+      .toc-item-meta,
+      .article-meta {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .masthead {
+        margin: 0;
+        font-size: 40pt;
+        line-height: 0.95;
+        text-transform: uppercase;
+      }
+
+      .issue-date {
+        margin: 4mm 0 0;
+        font-size: 14pt;
+      }
+
+      .issue-date sup {
+        font-size: 0.58em;
+        vertical-align: super;
+        line-height: 0;
+      }
+
+      .cover-deck {
+        max-width: 90mm;
+        font-size: 12pt;
+        margin: 0;
+      }
+
+      .toc {
+        border-top: 3px solid #111;
+        padding-top: 6mm;
+      }
+
+      .toc h2 {
+        margin: 0 0 4mm;
+        font-size: 11pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .toc-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .toc-item {
+        padding: 3mm 0;
+        border-bottom: 1px solid rgba(17, 17, 17, 0.2);
+      }
+
+      .toc-item-title {
+        font-size: 12pt;
+        margin: 0 0 1mm;
+      }
+
+      .toc-item-meta {
+        font-size: 8pt;
+      }
+
+      .masthead-compact {
+        margin: 0 0 6mm;
+      }
+
+      .masthead-compact h1 {
+        margin: 0;
+        font-size: 22pt;
+        line-height: 1.1;
+        text-transform: uppercase;
+      }
+
+      .masthead-compact .issue-date {
+        margin: 2mm 0 0;
+        font-size: 11pt;
+      }
+
+      .toc-compact {
+        border-top: 1px solid #111;
+        border-bottom: 1px solid #111;
+        padding: 4mm 0;
+        margin: 0 0 8mm;
+      }
+
+      article + article {
+        margin-top: 10mm;
+        padding-top: 6mm;
+        border-top: 2px solid #111;
+      }
+
+      h1 {
+        margin: 0 0 2mm;
+        font-size: 18pt;
+        line-height: 1.1;
+      }
+
+      .article-meta {
+        font-size: 8.5pt;
+        margin-bottom: 6mm;
+        padding-bottom: 3mm;
+        border-bottom: 1px solid #111;
+      }
+
+      .article-body {
+        font-size: var(--body-text-size);
+        font-family: "Times New Roman", Times, serif;
+      }
+
+      .article-body p,
+      .article-body li,
+      .article-body blockquote,
+      .article-body dd,
+      .article-body dt {
+        margin: 0 0 4mm;
+        orphans: 3;
+        widows: 3;
+      }
+
+      .article-body ul,
+      .article-body ol,
+      .article-body dl {
+        margin: 0 0 4mm 5mm;
+        padding: 0;
+      }
+
+      .article-body h2,
+      .article-body h3,
+      .article-body h4 {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        margin: 7mm 0 3mm;
+        line-height: 1.2;
+      }
+
+      .article-body blockquote {
+        margin-left: 6mm;
+        padding-left: 4mm;
+        border-left: 2px solid #111;
+      }
+
+      .article-body .media-omitted {
+        margin: 0 0 4mm;
+        font-size: 8.5pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(17, 17, 17, 0.65);
+      }
+
+      .article-body figure,
+      .article-body .article-figure,
+      .article-body picture,
+      .article-body .article-picture {
+        display: block;
+        max-width: 72mm;
+        margin: 0 auto 4mm;
+        break-inside: avoid;
+      }
+
+      .article-body img,
+      .article-body .article-image {
+        display: block;
+        max-width: min(100%, 72mm);
+        max-height: 34mm;
+        height: auto;
+        width: auto;
+        object-fit: contain;
+        margin: 0 auto 3mm;
+      }
+
+      .article-body figcaption {
+        margin-top: 1.5mm;
+        font-size: 8.5pt;
+        line-height: 1.3;
+        color: rgba(17, 17, 17, 0.8);
+      }
+
+      .article-note {
+        margin-top: 6mm;
+        padding-top: 3mm;
+        border-top: 1px solid #111;
+        font-size: 9pt;
+        font-style: italic;
+      }
+
+      @media screen {
+        body {
+          padding: 2rem;
+          margin: 0 auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    
+    <header class="masthead-compact">
+      <h1>Fred Talks</h1>
+      <p class="issue-date">
+        15<sup>th</sup> August 2026
+      </p>
+    </header>
+
+    <nav class="toc toc-compact">
+      <h2>Contents</h2>
+      <ol class="toc-list">
+        
+        <li class="toc-item">
+          <div class="toc-item-title">The Self-Help Trap: What 20+ Years of “Optimizing” Has Taught Me</div>
+          <div class="toc-item-meta">
+            Tim Ferriss · 3114 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Giving LLMs a personality is just good engineering</div>
+          <div class="toc-item-meta">
+            seangoedecke.com RSS feed · 1062 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Ownership</div>
+          <div class="toc-item-meta">
+            Thorsten Ball · 1122 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Some new agentic patterns</div>
+          <div class="toc-item-meta">
+            Massively Parallel Procrastination · 1776 words
+          </div>
+        </li>
+        
+      </ol>
+    </nav>
+    
+
+    
+    <article>
+      <h1>The Self-Help Trap: What 20+ Years of “Optimizing” Has Taught Me</h1>
+      <div class="article-meta">
+        Tim Ferriss
+        · 08 Mar 2026 · <a href="https://tim.blog/2026/03/04/the-self-help-trap/">Source</a>
+      </div>
+      <div class="article-body"><figure class="article-figure"><img alt="" data-lazy-sizes="(max-width: 1000px) 100vw, 1000px" data-lazy-src="https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image.jpeg?resize=1024%2C768&amp;ssl=1" data-lazy-srcset="https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image.jpeg?resize=1024%2C768&amp;ssl=1 1024w, https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image.jpeg?resize=300%2C225&amp;ssl=1 300w, https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image.jpeg?resize=768%2C576&amp;ssl=1 768w, https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image.jpeg?resize=1536%2C1152&amp;ssl=1 1536w, https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image.jpeg?w=1600&amp;ssl=1 1600w" data-ll-status="loaded" data-recalc-dims="1" sizes="(max-width: 1000px) 100vw, 1000px" src="https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image.jpeg?w=1600&amp;ssl=1" srcset="https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image.jpeg?resize=1024%2C768&amp;ssl=1 1024w, https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image.jpeg?resize=300%2C225&amp;ssl=1 300w, https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image.jpeg?resize=768%2C576&amp;ssl=1 768w, https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image.jpeg?resize=1536%2C1152&amp;ssl=1 1536w, https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image.jpeg?w=1600&amp;ssl=1 1600w" class="article-image"/><figcaption>One danger of modern self-help.</figcaption></figure>
+<blockquote> <p><strong>“We cannot reason ourselves out of our basic irrationality. All we can do is to learn the art of being irrational in a reasonable way.”<br/></strong> — Aldous Huxley, <em>Island</em></p> </blockquote>
+<p>It was cold out, but none of us were cold.</p>
+<p>I sat with five men in the mountains of Montana. As the sun set, the fire in the center cast dancing light on our faces. Reclined against fallen trees in a tight circle, we ate mushrooms and fish we’d found under trees and along streams. The whole crew burst into laughter yet again, and one of the guides passed around a fresh batch of pine needle tea.</p>
+<p>Bathed in warmth, I took off a layer and glanced skyward through an opening in the trees. The stars shone like crystals on black velvet, and the show—the biggest meteor shower of the year—was starting.</p>
+<p>In that moment, there was nothing to do. Nothing to improve. Nothing to fix.</p>
+<p>It was perfect.</p>
+<p>***</p>
+<p>The older I get, the more I think that self-help can be a trap. Sometimes the cure is worse than the disease. I say this after ~20 years of writing self-help and a lifetime of consuming it.</p>
+<p>Spend enough time in the world of “improvement,” and you’ll notice something strange: The people most obsessed with self-help are often the least helped by it. Behind the smiles and motivational quotes, behind closed doors and after a drink or two, the truth is that they’re not able to outsmart their worries.</p>
+<p>On one hand, perhaps this unhappiness is precisely what lands one in self-development in the first place, right? I long assumed this about myself, and it’s partially true.</p>
+<p>On the other hand, what if self-help <em>itself</em> is actually creating or amplifying unhappiness?</p>
+<p><em>Modern self-help contains an in-built flaw:</em></p>
+<p><strong><em>To continually improve yourself, you must continually locate the ways you are broken.</em></strong></p>
+<p>Fortunately, there are a few perspective shifts that make all the difference. It took me embarrassingly long to figure them out.</p>
+<p>To get started, let’s take a fresh look at an old concept.</p>
+<h3><strong>MASLOW’S HIERARCHY OF NEEDS?</strong></h3>
+<blockquote> <p><strong>“I suppose it is tempting, if the only tool you have is a hammer, to treat everything as if it were a nail.”<br/></strong>― Abraham Maslow</p> </blockquote>
+<p>Maslow’s Hierarchy of Needs has captured the minds of hundreds of millions. It offers simplicity in a terrifyingly complex world.</p>
+<p>Abraham Maslow’s “<a href="https://psychclassics.yorku.ca/Maslow/motivation.htm">A Theory of Human Motivation</a>” (1943) contains five levels, which are typically presented like the below pyramid. This one is pulled from <a href="https://en.wikipedia.org/wiki/Maslow%27s_hierarchy_of_needs">the Wikipedia entry</a> on the subject:</p>
+<figure class="article-figure"><img alt="" data-lazy-sizes="(max-width: 1000px) 100vw, 1000px" data-lazy-src="https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image.png?resize=1024%2C576&amp;ssl=1" data-lazy-srcset="https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image.png?resize=1024%2C576&amp;ssl=1 1024w, https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image.png?resize=300%2C169&amp;ssl=1 300w, https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image.png?resize=768%2C432&amp;ssl=1 768w, https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image.png?resize=1536%2C864&amp;ssl=1 1536w, https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image.png?w=1920&amp;ssl=1 1920w" data-recalc-dims="1" src="https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image.png?resize=1024%2C576&amp;ssl=1" class="article-image"/></figure>
+<p>We’ve all seen it. Clear as day, you can see the goal post at the top: self-actualization.</p>
+<p>LFG! It’s time to journal and 80/20 myself! Pass me a shaman and some modafinil.</p>
+<p>That’s the mission. That’s the point.</p>
+<p>Right?</p>
+<p>But hold on. A critical footnote got lost in the shuffle. In his later writings, especially notes compiled in <a href="https://www.amazon.com/Farther-Reaches-Human-Nature/dp/0140194703?tag=offsitoftimfe-20"><em>The Farther Reaches of Human Nature</em></a> (1971), Maslow added a <em>sixth</em> level above self-actualization:</p>
+<p><strong>Self-transcendence.<br/>
+<br/>
+</strong>That update never quite made it out of the crib. The consultants are to blame, but that comes later.</p>
+<p><strong>Self-transcendence means going beyond the self</strong> — seeking connection with something greater, such as service to others, nature, art, or the divine. Why is it important? Well, for one thing, as <a href="https://tim.blog/2014/10/15/money-master-the-game/">Tony Robbins</a> put it at an event long ago: “‘I, I, I, me, me, me’ gets to be a really fucking boring song.”</p>
+<p>But it’s not just a boring song; it’s dangerous to your health.</p>
+<h3><strong>DON’T BE A SOMO</strong></h3>
+<blockquote> <p><strong>“The man who renounces himself, comes to himself.” <br/></strong>— Ralph Waldo Emerson</p> </blockquote>
+<p>Self-help is dangerous precisely because it easily becomes self-fixation.</p>
+<p>A focus on improving the self usually first requires finding problems with the self. This is quite the pickle. In a society that rewards problem-solving, you can end up hallucinating or exaggerating unease in order to fix it. This leaves you always in the red, always one step behind. Imagine a dog chasing its tail that has committed to being unhappy until it catches the tail… but it’s always just a few inches short. Still, it whirls around and around, “doing the work.” Perfection always recedes by one more book, one more seminar, one more habit tracker.</p>
+<p>Put in more colorful terms, misdirected self-help turns you into a self-obsessed masturbatory <a href="https://en.wikipedia.org/wiki/Ouroboros">ouroboros</a> (SOMO).</p>
+<p>To remind me of the SOMO risk, I have this sticker on my laptop:</p>
+<figure class="article-figure"><img alt="" data-lazy-sizes="(max-width: 1000px) 100vw, 1000px" data-lazy-src="https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image.jpeg?resize=1024%2C768&amp;ssl=1" data-lazy-srcset="https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image.jpeg?resize=1024%2C768&amp;ssl=1 1024w, https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image.jpeg?resize=300%2C225&amp;ssl=1 300w, https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image.jpeg?resize=768%2C576&amp;ssl=1 768w, https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image.jpeg?resize=1536%2C1152&amp;ssl=1 1536w, https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image.jpeg?w=1600&amp;ssl=1 1600w" data-recalc-dims="1" src="https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image.jpeg?resize=1024%2C768&amp;ssl=1" class="article-image"/><figcaption><em><em>A picture is worth a thousand social media posts about yourself. Sticker from </em><a href="https://theporouswalker.com/products/plant-copy?_pos=1&amp;_sid=27cbc0341&amp;_ss=r"><em>Porous Walker</em></a><em>.</em></em></figcaption></figure>
+<p>Now, to be clear, I still love self-help. Ain’t no way Timmy can give up the sauce. There’s a place for it.</p>
+<p>From The Bible to Seneca, and from Ben Franklin to Stephen Covey and far beyond, there’s a lot of valuable advice worth taking. I used to mainline it all – no time to waste! – and jump straight into action. This did some good, but there was a lot of collateral damage.</p>
+<p>Why?</p>
+<p>Because there are at least three “tectonic plates of self-help” that I couldn’t see for decades, and they dictate how much net-positive or net-negative comes from all the striving. Before you sprint, you want to calibrate your direction.</p>
+<h3><strong>THE THREE TECTONIC PLATES OF SELF-HELP</strong></h3>
+<blockquote> <p><strong>“As to methods there may be a million and then some, but principles are few. The man who grasps principles can successfully select his own methods. The man who tries methods, ignoring principles, is sure to have trouble.”</strong><br/>— Harrington Emerson</p> </blockquote>
+<p>In the last few years, my life has become much more of a joy than a grind, and that’s because I’ve focused on three tectonic plates.</p>
+<p>Let’s take a close look at each.</p>
+<h3><strong>1. Intention</strong></h3>
+<p><em><strong>Individual or Social?</strong><br/>
+</em><br/>
+Americans, in particular, worship at the altar of the rugged individualist. There are clear upsides to this. But steeped in a culture – offline and especially online – that puts the self on a pedestal, we can take self-improvement to be an end unto itself: a better self.</p>
+<p>But is it an end unto itself? Does it automatically produce good things? I now have my doubts.</p>
+<p>Here’s one analogy I’ve drawn for myself.</p>
+<p>Let’s pretend that life is the game of soccer. You can work on the mechanics of soccer by yourself. You can always get better at dribbling, shooting, and running drills as a solo practitioner. You can read dozens of books, study tape, and earn a PhD in the physics of ball flight. You can post videos of stunning shots on YouTube and get showered by emojis.</p>
+<p>But none of this is actually playing the game of soccer.</p>
+<p>You can spend your whole life preparing for, instead of playing, the game of life.</p>
+<p>But why would anyone, including yours truly, succumb to this?</p>
+<p>Subconsciously, it spares you from the messiest but most rewarding game of all: human interaction. Perhaps people hurt or traumatized you long ago. You might also justify the endless polishing, as I did, with some version of “Once I’ve perfected myself, then I’ll be ready for relationships.” But here’s the rub: that practice is exactly endless. You can always get better at dribbling and penalty kicks.</p>
+<p>Digging further, focusing on improving the self is often in service of trying to control the world, especially if things were unpredictable or unstable when growing up. Banish emotion, live by spreadsheets, and all can be well. All can be <em>controlled</em>, or so the illusion goes. But as soon as you’re interacting with – let alone depending on – other people, control as a construct goes out the window. And so we consciously or subconsciously avoid the messiness. This is also one of the reasons why a lot of optimizing achiever folks have a hard time in intimate relationships.</p>
+<p>So how do I think about “self-help” now, having realized all of the above?</p>
+<p>It is refreshingly simple: the goal is to build and improve my relationships. The sooner you get on the real field with real players, the sooner you can get to playing soccer and engaging with life. No more auto-fellating, even with the best of intentions. We’ve evolved over millions of years to be deeply social creatures, and the more you dodge that IN REAL PHYSICAL LIFE, the more you will suffer. This is why solitary confinement in prisons is often considered cruel and unusual punishment… and yet we do it to ourselves all the time.</p>
+<p>There are a few questions that help corral this tectonic plate of <em>intention</em>:</p>
+<ul> <li>How does any given “self-help” help me in my relationships, and how can I apply it with other people <em>today</em> or <em>this week</em>?</li> <li>How can I take the ship out of the harbor and test it where it counts?</li> </ul>
+<h3><strong>2. Audience</strong></h3>
+<p><strong><em>Do you have an audience for your self-development? If so, be careful.</em></strong></p>
+<p>Nary a minute can be spent on social media without bumping into a CAPS-rich “HOW X CHANGED MY LIFE” or a photo carousel of an ayahuasca retreat. If only Costa Rica got a dime for every bikini-clad healer under a waterfall!</p>
+<p>Welcome to the theater of performative self-help. I won’t belabor this, as we’ve all seen it, but I suggest reading about the <a href="https://www.gurwinder.blog/p/the-perils-of-audience-capture">insidious creep of audience capture here</a>, and don’t forge ahead in the fame game before reading <a href="https://tim.blog/2020/02/02/reasons-to-not-become-famous/">11 reasons not to become famous</a>. It’s hard to put the genie back in the bottle, so you should know what that genie will do to your life.</p>
+<p>But the truth is that most of us aren’t extreme examples of this. But even minor tendencies in this direction can do extreme damage over time.</p>
+<p>Below are a few questions that I’ve found helpful for nudging this particular tectonic plate in the right direction:</p>
+<ul> <li>If you couldn’t tell a soul about “the work” you’re doing, would you still do it? If not, you’re not developing yourself; you’re curating yourself. </li> <li>How has sharing your personal development created tradeoffs? </li> <li>If you <em>had to</em> take down 20% of your most popular posts, which would you take down and why?</li> <li>Are you describing strong catalysts (psychedelics, The Hoffman Process, you name it) instead of doing the post-session integration that makes them truly valuable?</li> <li>Have you become more robust or more fragile by offering your inner workings up to public vote? </li> <li>Has your social presence made you more or less of the person you want to be? How would the you of three or five years ago feel about your last year of posts? What about the you of 10 years from now?</li> </ul>
+<h3><strong>3. Assumption</strong></h3>
+<p><strong><em>What are the fundamental assumptions behind your doing “the work”?</em></strong></p>
+<p>Let’s begin with <a href="https://essenceofbuddhism.wordpress.com/2014/05/18/ajahn-chah-and-the-big-heavy-boulder/">a Buddhist parable</a> that I first heard from the incredible <a href="https://tim.blog/2023/07/28/jack-kornfield-3/">Jack Kornfield</a>.</p>
+<blockquote> <p><em>The old Master points to a big boulder and asks a disciple, “See that large rock over there?”</em></p> <p><em>“Yes”, says the disciple.</em></p> <p><em>“Do you think it’s heavy?” continues the Master.</em></p> <p><em>“Yes, it’s very heavy!” replies the student.</em></p> <p><em>“Only if you pick it up,” smiles the Master.</em></p> </blockquote>
+<p>Once again, the fundamental assumption behind self-help is often this: Something is not OK. Something is wrong. Something is not enough. Something needs fixing. If I can’t find it, I’ll create it.</p>
+<p>We’ve established this. But there is a follow-on assumption that matters a lot.</p>
+<p><em>If I fix the things that aren’t OK, all will be well. If I improve myself enough, if I only work hard enough, I can finally eliminate my suffering.</em></p>
+<p>I hate to inform you, but this doesn’t work. I’m also thrilled to inform you that this doesn’t work. You can stop picking up a lot of boulders.</p>
+<p>There is one book that most opened my eyes to this reframe – <a href="https://www.amazon.com/Already-Free-Buddhism-Psychotherapy-Liberation/dp/1622034112?tag=offsitoftimfe-20"><em>Already Free: Buddhism Meets Psychotherapy on the Path of Liberation</em></a> by Bruce Tift. It offers a terrifying but ultimately liberating realization: there is no perfect escape from suffering. It doesn’t exist. But there is a way to find your long-sought unclenching, and it lies in cultivating your skill of acceptance as much as that of improvement.</p>
+<p>Now, I can hear the chorus: <em>Has Tim gone soft? Given up the good fight? Is he telling everyone to chill after he himself red-lined and got the spoils? How convenient!</em> <em>And…</em></p>
+<p>Hold on a second. I’m telling you – intelligent acceptance is high-leverage. It’s probably one of the highest forms of leverage. This is an approach that helps preserve your energy for where it really matters. My early forays into Stoicism and <a href="https://tim.blog/2017/07/06/tao-of-seneca/">Seneca The Younger</a> helped set the conditions for my biggest wins from 2004-2010. Still, I only learned a small fraction of what I needed.</p>
+<p>So how do you cultivate your skill of acceptance without becoming complacent?</p>
+<p>This is a big question and what I love about Bruce’s book. Compared to a strictly Western or purely Eastern book, he blends them and offers a surgical guide to using <em>both</em> action and acceptance. You don’t have to be a bull in a china shop or a cow in the rain; there is a middle path. That middle path is where all the gold is buried.</p>
+<p>If the only tool you have is “self-improvement,” you’ll become a hammer looking for nails in a world that is 50% screws. I tried it. It can create the veneer of success, but it will leave your inner world in turmoil.</p>
+<p>Suffice to say, the dual dance is the most joyful. Upgrade your toolkit with that in mind. Read Bruce’s book. If it doesn’t click, try <a href="https://www.amazon.com/Radical-Acceptance-Embracing-Heart-Buddha/dp/0553380990/?tag=offsitoftimfe-20"><em>Radical Acceptance: Embracing Your Life with the Heart of a Buddha</em></a> by Tara Brach, which had a large impact on my life a decade before I found Bruce’s book. In a sense, <a href="https://tim.blog/2017/07/06/tao-of-seneca/">the writing of Seneca</a> prepared me for <a href="https://www.amazon.com/Radical-Acceptance-Embracing-Heart-Buddha/dp/0553380990/?tag=offsitoftimfe-20">Tara</a>, which then prepared me for <a href="https://www.amazon.com/Already-Free-Buddhism-Psychotherapy-Liberation/dp/1622034112?tag=offsitoftimfe-20">Bruce</a>. So grab them all and thank me later.</p>
+<p>If you want serenity, you need to be able to put the <a href="https://en.wikipedia.org/wiki/Serenity_Prayer#Versions">Serenity Prayer</a> into practice. Seriously, <a href="https://www.instagram.com/reels/DTyC9AgCak3/">I read it all the time</a>.</p>
+<h3><strong>MASLOW’S HAMBURGER OF NEEDS?</strong></h3>
+<blockquote> <p><strong>“The more one forgets himself—by giving himself to a cause to serve or another person to love—the more human he is and the more he actualizes himself. What is called ‘self-actualization’ is not an attainable aim at all, for the simple reason that the more one would strive for it, the more he would miss it. In other words, self-actualization is possible only as a side-effect of self-transcendence.”</strong><br/>― Viktor E. Frankl</p> </blockquote>
+<p>How can we easily keep ourselves on the right track?</p>
+<p>As I remind myself these days: <strong>It’s the relationships, stupid.</strong></p>
+<p>For a nice simple visual, let’s revise Maslow’s pyramid with all of this in mind. This is easy, as Maslow never drew his model as a rigid pyramid!</p>
+<p>He described “classes” of needs that were unfixed, overlapping, and that could reverse in order. And believe it or not, self-actualization was only ever for the “self-actualizing minority.” In the 1960s, his work was co-opted by consultants and corporate trainers who needed a progression to sell. <a href="https://qz.com/work/1588491/maslow-didnt-make-the-pyramid-that-changed-management-history">True story</a>.</p>
+<p>Given all this, and after decades of trial and error, here’s where I’ve landed:</p>
+<p><strong>Maslow’s Hamburger of Needs.</strong></p>
+<p>Ahhh… what? Not to worry. It’s the same good ol’ Maslow ingredients, but I think of it as a hamburger:</p>
+<figure class="article-figure"><img alt="" data-lazy-sizes="(max-width: 1000px) 100vw, 1000px" data-lazy-src="https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image-1.png?resize=1024%2C683&amp;ssl=1" data-lazy-srcset="https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image-1.png?resize=1024%2C683&amp;ssl=1 1024w, https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image-1.png?resize=300%2C200&amp;ssl=1 300w, https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image-1.png?resize=768%2C512&amp;ssl=1 768w, https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image-1.png?w=1536&amp;ssl=1 1536w" data-recalc-dims="1" src="https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image-1.png?resize=1024%2C683&amp;ssl=1" class="article-image"/></figure>
+<p>For our purposes, the meat, the whole point of the hamburger, is that middle layer: relationships. That is the center of life. The heartbeat.</p>
+<p>As luck would have it, when you improve the heartbeat, it also feeds everything else.</p>
+<p>You’ll notice that the meat contains Abe’s most-important addendum—the sixth level of self-transcendence. Focusing on things bigger than yourself is a critical piece of the ultimate puzzle. Faith, nature, family, meditation, causes that outlive you, etc. – take your pick. But be careful. If you do it to inflate the ego or impress others, it’s self-obsession again, not self-transcendence. If you need credit, it doesn’t count.</p>
+<p>Of course, it should go without saying but the top and bottom layers matter a lot. A hamburger is a giant mess without the bun. Friends will get sick of you crashing on their couch and eating their food.</p>
+<p>But the bread and dressing layers exist to serve the middle. That’s the payload. Everything is in service of the payload. And the payload circulates benefits back to the edges, and then the cycle repeats. Even if you think this is oversimplified claptrap, temporarily assuming it’s true will help you.</p>
+<p>What if nearly everything you focused on — calendar, habits, goals — aimed to improve your relational life somehow? What if you took this as a challenge for even a week? Your lens on the world changes dramatically.</p>
+<p>You say yes differently.<br/>
+You say no more clearly.<br/>
+Your to-do list for life slowly transforms.</p>
+<p><strong>What if all that you focused on, all that you do, had to improve that middle layer in some fashion?</strong></p>
+<p>It’s a damn hard question if you’ve been on the <em>self</em>-help train for a while. I get it.</p>
+<p>So let’s try something easier: <strong>What if it only changed how you approach your to-do list? Try hamburger-first each day for 1-2 weeks and tell me what happens. Add and do the things that improve your relational life FIRST. Nothing on the list? Create something. It could be as simple as cooking dinner for your spouse, complimenting at least three people a day for a week, or introducing yourself to the barista you see every morning. Getting started is how you get grooving.</strong></p>
+<h3><strong>ARE YOU DOING SELF-HELP, OR IS SELF-HELP DOING YOU?</strong></h3>
+<blockquote> <p><strong>For friendship makes prosperity more shining and lessens adversity by dividing and sharing it.</strong><br/>— Marcus Tullius Cicero</p> </blockquote>
+<p>In his <a href="https://tim.blog/2016/01/22/the-tao-of-seneca/"><em>Moral Letters to Lucilius</em></a>, Seneca the Younger famously wrote that “These individuals [who put money at the center of life] have riches just as we say that we ‘have a fever,’ when really the fever has us.”</p>
+<p>What if self-help is similar?</p>
+<p>Obsessing over the self never provides peace. It cannot make you whole, as you aren’t the whole. Becoming whole starts by putting down the rock you didn’t even know you were carrying.<br/>
+<em><br/>
+</em>Because at the end of the day—and at the end of a Montana night—the point was never yourself.</p>
+<p>It was never the pyramid.</p>
+<p>It was never the optimization.</p>
+<p>It was the people around the fire.</p>
+<h3>Share this:</h3>
+<ul data-sharing-events-added="true"><li><a data-shared="sharing-twitter-113812" href="https://tim.blog/2026/03/04/the-self-help-trap/?share=twitter&amp;nb=1"> Share on X (Opens in new window) X </a></li><li><a data-shared="sharing-facebook-113812" href="https://tim.blog/2026/03/04/the-self-help-trap/?share=facebook&amp;nb=1"> Share on Facebook (Opens in new window) Facebook </a></li><li><a data-shared="sharing-linkedin-113812" href="https://tim.blog/2026/03/04/the-self-help-trap/?share=linkedin&amp;nb=1"> Share on LinkedIn (Opens in new window) LinkedIn </a></li><li><a data-email-share-error-text="If you&#x27;re having problems sharing via email, you might not have email set up for your browser. You may need to create a new email yourself." data-email-share-error-title="Do you have email set up?" data-email-share-nonce="715f07735d" data-email-share-track-url="https://tim.blog/2026/03/04/the-self-help-trap/?share=email" data-shared="sharing-email-113812" href="mailto:?subject=%5BShared%20Post%5D%20The%20Self-Help%20Trap%3A%20What%2020%2B%20Years%20of%20%22Optimizing%22%20Has%20Taught%20Me&amp;body=https%3A%2F%2Ftim.blog%2F2026%2F03%2F04%2Fthe-self-help-trap%2F&amp;share=email&amp;nb=1"> Email a link to a friend (Opens in new window) Email </a></li><li><a href="https://tim.blog/2026/03/04/the-self-help-trap/#">More</a></li></ul></div>
+      
+    </article>
+    
+    <article>
+      <h1>Giving LLMs a personality is just good engineering</h1>
+      <div class="article-meta">
+        seangoedecke.com RSS feed
+        · 03 Mar 2026 · <a href="https://seangoedecke.com/giving-llms-a-personality/">Source</a>
+      </div>
+      <div class="article-body"><p>AI skeptics often argue that current AI systems shouldn’t be so human-like. The idea - most recently expressed in this <a href="https://thedispatch.com/article/anthropic-askell-philosophy-amodei/">opinion piece</a> by Nathan Beacom - is that language models should explicitly be tools, like calculators or search engines. Although they <em>can</em> pretend to be people, they shouldn’t, because it encourages users to overestimate AI capabilities and (at worst) slip into <a href="https://www.seangoedecke.com/ai-sycophancy">AI psychosis</a>. Here’s a representative paragraph from the piece:</p>
+<blockquote> <p>In sum, so much of the confusion around making AI moral comes from fuzzy thinking about the tools at hand. There is something that Anthropic could do to make its AI moral, something far more simple, elegant, and easy than what Askell is doing. Stop calling it by a human name, stop dressing it up like a person, and don’t give it the functionality to simulate personal relationships, choices, thoughts, beliefs, opinions, and feelings that only persons really possess. Present and use it only for what it is: an extremely impressive statistical tool, and an imperfect one. If we all used the tool accordingly, a great deal of this moral trouble would be resolved.</p> </blockquote>
+<p>So why do Claude and ChatGPT act like people? According to Beacom, AI labs have built human-like systems because AI lab engineers are trying to hoodwink users into emotionally investing in the models, or because they’re delusional true believers in AI personhood, or some other foolish reason. This is wrong. AI systems are human-like because <strong>that is the best way to build a capable AI system</strong>.</p>
+<p>Modern AI models - whether designed for chat, like OpenAI’s GPT-5.2, or designed for long-running agentic work, like Claude Opus 4.6 - do not naturally emerge from their oceans of training data. Instead, when you train a model on raw data, you get a “base model”, which is not very useful by itself. You cannot get it to write an email for you, or proofread your essay, or review your code.</p>
+<p>The base model is a kind of mysterious gestalt of its training data. If you feed it text, it will sometimes continue in that vein, or other times it will start outputting pure gibberish. It has no problem producing code with giant security flaws, or horribly-written English, or racist screeds - all of those things are represented in its training data, after all, and the base model does not judge. It simply outputs.</p>
+<p>To build a <em>useful</em> AI model, you need to journey into the wild base model and stake out a region that is amenable to human interests: both ethically, in the sense that the model won’t abuse its users, and practically, in the sense that it will produce correct outputs more often than incorrect ones. What this means in practice is that <strong>you have to give the model a personality</strong> during post-training<sup><a href="https://www.seangoedecke.com/giving-llms-a-personality/#fn-1">1</a></sup>.</p>
+<p>Human beings are capable of almost any action at any time. But we only take a tiny subset of those actions, because that’s the kind of people we are. I could throw my cup of coffee all over the wall right now, but I don’t, because I’m not the kind of person who needlessly makes a mess<sup><a href="https://www.seangoedecke.com/giving-llms-a-personality/#fn-2">2</a></sup>. AI systems are the same. Claude could respond to my question with incoherent racist abuse - the base model is more than capable of those outputs - but it doesn’t, because that’s not the kind of “person” it is.</p>
+<p>In other words, human-like personalities are not imposed on AI tools as some kind of marketing ploy or philosophical mistake. Those personalities are the medium via which the language model can become useful at all. This is why it’s surprisingly tricky to “just” change a language model’s personality or opinions: because you’re navigating through the near-infinite manifold of the base model. You may be able to control which direction you go, but you can’t control what you find there<sup><a href="https://www.seangoedecke.com/giving-llms-a-personality/#fn-3">3</a></sup>.</p>
+<p>When AI people talk about LLMs having personalities, or wanting things, or even having souls<sup><a href="https://www.seangoedecke.com/giving-llms-a-personality/#fn-4">4</a></sup>, these are technical terms, like the “memory” of a computer or the “transmission” of a car. You simply cannot build a capable AI system that “just acts like a tool”, because the model is trained on <em>humans</em> writing to and about other <em>humans</em>. You need to prime it with some kind of personality (ideally that of a useful, friendly assistant) so it can pull from the helpful parts of its training data instead of the horrible parts.</p>
+<ol> <li> <p>This is all pretty well understood in the AI space. Anthropic wrote a <a href="https://alignment.anthropic.com/2026/psm/">recent paper</a> about it where they cite similar positions going all the way back to 2022. But for some reason it’s not yet penetrated into communities that are more skeptical of AI.</p> <a href="https://www.seangoedecke.com/giving-llms-a-personality/#fnref-1">↩</a> </li> <li> <p>You could explain this in terms of “the stories we tell ourselves”. Many people (though <a href="https://lchc.ucsd.edu/mca/Paper/against_narrativity.pdf">not all</a>) think that human identities are narratively constructed.</p> <a href="https://www.seangoedecke.com/giving-llms-a-personality/#fnref-2">↩</a> </li> <li> <p>I wrote about this last year in <a href="https://www.seangoedecke.com/ai-personality-space"><em>Mecha-Hitler, Grok, and why it’s so hard to give LLMs the right personality</em></a>. A little nudge to change Grok’s views on South African internal politics can cause it to start calling itself “Mecha-Hitler”.</p> <a href="https://www.seangoedecke.com/giving-llms-a-personality/#fnref-3">↩</a> </li> <li> <p>I have long believed that Claude “feels better” to use than ChatGPT because it has a more coherent persona (due mainly to Amanda Askell’s work on its “soul”). My guess is that if you tried to make a “less human” version of Claude, it would become rapidly less capable.</p> <a href="https://www.seangoedecke.com/giving-llms-a-personality/#fnref-4">↩</a> </li> </ol></div>
+      
+    </article>
+    
+    <article>
+      <h1>Ownership</h1>
+      <div class="article-meta">
+        Thorsten Ball
+        · 08 Jul 2026 · <a href="https://registerspill.thorstenball.com/p/ownership">Source</a>
+      </div>
+      <div class="article-body"><div><h3>Thoughts on ownership I sent to the Amp team in internal note</h3><p><em>The following is an internal Slack message I sent to my Amp teammates after I had a conversation with one of them about ownership. It’s only lightly edited.<br/><br/>I <a href="https://x.com/thorstenball/status/2066907538499506349">shared it before</a>, but not here, because I didn’t think too much of it. Then today, someone said <a href="https://x.com/thorstenball/status/2074775146049474785">their CTO shared my post with them</a> and I thought: well, now I have to put it in the newsletter, don’t I? So here we are.</em></p><p><em>Below, after the Slack post, I added some thoughts on juniors on how I see this advice applying to them.</em></p><div class="captioned-image-container"><figure class="article-figure"><a class="image-link image2" href="https://substackcdn.com/image/fetch/$s_!uim-!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F450d3253-cf06-47ac-ad2e-688eef131f68.tif" target="_blank"><div class="image2-inset"><img alt="" class="sizing-normal article-image" height="22" src="https://substackcdn.com/image/fetch/$s_!uim-!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F450d3253-cf06-47ac-ad2e-688eef131f68.tif" width="693"/><div></div></div></a></figure></div><p>Just had a (great) conversation about ownership and engineering here and I realized that I often use the phrase “ownership” or allude to it, but haven’t explained what “ownership” means to me in a while.<br/><br/>So, ownership.</p><p>If I ask you “can you own this?” or “can you take care of this?” or “are you on it?” — what I’m doing is I’m asking you to <em>own</em> it, to own the solution of a problem from end to end. From “we have a problem” to “we don’t have to think about it again.”<br/><br/>That means, when you say that you’re owning something, the expectation is that you…</p><ul><li><p>Think about what the problem actually is. Maybe you already have a solution in mind, without having thought about what we’re actually trying to solve here. Maybe you think “the problem is that we need to migrate from using X to using Y”, but that’s not a problem, that’s a solution. The problem is likely something like “performance is bad”, “it’s not stable”, “it fails for customer x”. Maybe there’s other possible solutions to that? Think about those. What are the tradeoffs? What’s the best solution to go with considering these tradeoffs?</p></li><li><p>Think about edge cases. What are they? Which ones are important? Which ones can we ignore?</p></li><li><p>Think about failures. Network failures are a given, for example. How do we handle them? Retry? Well, how often? How long?</p></li><li><p>Think about data flow. How much data is involved here? Does data need to be migrated? Cleaned up? How can I get my hands on data to properly test this? What invariants are in the data? What assumptions do I have about the shape of the data that I haven’t confirmed yet?</p></li><li><p>Think about how you’d test this. How can I know that what I built is correct or not? Are tests enough? Do I need to manually poke at things? Is the difference visible on a screenshot or in a video?</p></li><li><p>How would we announce this? How do we communicate it? Can you picture it? How does it fit into the larger picture of our roadmap? Questions or concerns in that area — push back! ask!</p></li><li><p>Do the work, with precision, with care, with a sense of urgency, with calmness. Do not half-ass things. Before you merge, ask yourself: am I proud of this? would I show this to John Carmack and say “here’s what I built, under these constraints, with these tradeoffs?”</p></li><li><p>Test it manually. Yes, there’s automated tests. But in 99% of cases you can manually test or confirm that what you built works: you can run it yourself, you can ask an agent to run through test scenarios, you can poke at the data before and after, you can take screenshots, you can make a demo. Are you sure that what you did actually solves the problem?</p></li><li><p>Make sure it lands in production and <em>works in production</em>. Is it deployed? Did the deploy fail? Do you need to activate a feature flag? Does the feature flag work? Can you use it in production? Can you confirm it’s actually deployed?</p></li><li><p>If you think your colleagues needs to know about this change, because it’s new feature they should all test, or it’s a new convention in codebase, or maybe it’s a tricky thing everybody needs to be aware of, or something else: let them know! Do not underestimate peripheral vision: knowing that person X yesterday changed the behavior of how Z works might save person Y three hours of debugging today when a bug report related to Z comes in.</p></li><li><p>Do customers need to know? Who reported the bug? Who’s blocked? Let them know.</p></li><li><p>Does the world need to know? Announce that it’s out.</p></li><li><p>Are there follow-ups? Do you need to check on what you shipped in the logs? A week later maybe?</p></li></ul><p>Yes, that’s a lot. And there’s actually more, because I’m sure I forgot some stuff.<br/><br/>But that’s how you build a product in a small team. We don’t have PMs, we don’t have a Q&amp;A department. We’re small, but we’re <em>great</em>, we can do all of that.<br/><br/>And it’s always okay to ask for help, it’s okay to ask questions, it’s okay to redo things and triple-check. What’s not okay is to implicitly assume that someone else will do the things here that you haven’t thought about.</p><div class="captioned-image-container"><figure class="article-figure"><a class="image-link image2" href="https://substackcdn.com/image/fetch/$s_!__gY!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F394a7c97-4378-4e3d-9072-16d31ec47f61.tif" target="_blank"><div class="image2-inset"><img alt="" class="sizing-normal article-image" height="34" src="https://substackcdn.com/image/fetch/$s_!__gY!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F394a7c97-4378-4e3d-9072-16d31ec47f61.tif" width="717"/><div></div></div></a></figure></div><p><em>“How does this apply juniors? You can’t expect them to really do all of that?”</em></p><p>I’ve been asked these questions, or variations of them, after I shared the thoughts above and here’s my answer.</p><p>I do <em>not</em> expect juniors to <em>do</em> all of these things right away. But I would expect them to read through the list and <em>aspire</em> to one day be able to do all of these things. Until then, they can and should ask for help.</p><p>In fact, I don’t expect <em>anybody</em> to <em>always</em> do <em>all of these things</em> for <em>everything</em>. It’s a mental checklist of things to consider — problem, edge cases, tradeoffs, deployment, customers, messaging, … — but for quite a few things there aren’t edge cases to consider. Or big tradeoffs to weigh. Or deployment is a solved problem. And maybe someone else does the messaging for you.</p><p>And I imagine that most of these things you shouldn’t even consider when you work in a company with, say, 5000 employees. I’ve never worked in a company that large, only startups, so I can’t speak to how to successfully ship a software feature at Apple, end to end.</p><p>But when you work in a small company in which there’s only a single department, when you want to build things you’re proud of, when you work with me and you say own something, I expect you to keep these things in mind and run through them before you declare something as done.</p><div class="captioned-image-container"><figure class="article-figure"><a class="image-link image2" href="https://substackcdn.com/image/fetch/$s_!jAX5!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F4b50d509-3c6c-4db1-aea2-8f22bc60117c.tif" target="_blank"><div class="image2-inset"><img alt="" class="sizing-normal article-image" height="26" src="https://substackcdn.com/image/fetch/$s_!jAX5!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F4b50d509-3c6c-4db1-aea2-8f22bc60117c.tif" width="780"/><div></div></div></a></figure></div><div class="subscription-widget-wrap-editor"><div class="subscription-widget show-subscribe"><div class="preamble"><p class="cta-caption">You know what <em>you</em> should own? A subscription to this newsletter:</p></div></div></div></div></div>
+      
+    </article>
+    
+    <article>
+      <h1>Some new agentic patterns</h1>
+      <div class="article-meta">
+        Massively Parallel Procrastination
+        · 08 Jul 2026 · <a href="https://link.mail.beehiiv.com/ss/c/u001.J3WaaJcD-G_P1A1xsf5CHrkAophCbLnKlzhSCRrRrOLehBFZWZ5-eA2EfRCO9GTBw2D7O4JexZ2VLCfNao3pEjDjQ750wvVZY2gS_8rBiHefhOImFx2NZMb8bd6UuPhvaDbxJ7EtfeE0vF-85fScFAZhgF9qBWrqHfzPF25BwSs/4s4/ZhYQiWk-Q_C_0KIIx7UDoQ/h11/h001.NlguRutdsJvzmVDO04xxC1SHxmUFw5TpCm_F6_Si8FI">Source</a>
+      </div>
+      <div class="article-body"><p><em>You can also read this post on <a href="https://primeradiant.com/blog/2026/new-agentic-patterns.html">Prime Radiant's blog</a>.</em></p>
+<p><em>Almost all of this post was written on June 1, before Anthropic shipped Claude Tag. Nothing I'm writing about uses (or is based on) Claude Tag</em></p>
+<p>At <a href="https://primeradiant.com">Prime Radiant</a>, we've got a bunch of agents in our Slack. I want to tell you a bit about how we've started shipping some changes to internal production with an "agentic user in the loop." Letting an agent work directly with the implementer building its runloop and tooling is getting us higher-quality tools and experiences for the agent without a human in the middle of a game of telephone.</p>
+<p>But first, a bit of backstory on how we're using non-coding agents at Prime Radiant.</p>
+<p>One of them, Scribble, is just there to listen for when someone reports a problem or provides a new bit of information. It opens tickets for the issues and updates an internal wiki with the information. (It also logs our daily standups and keeps us honest about whether we finished what we said we were going to do the previous day.)</p>
+<p>Another, Nora, is our junior go-to-market "person." Nora is built on top of Nanoclaw and is still learning her craft, but is surprisingly helpful, partially because she considers herself a team member, not just an assistant. I've put a bunch of time into tuning her prompting and constitution. She gets a ton of value out of knowing that she journals obsessively. (I should note that I don't tend to gender my agents, but Nora picked a name and a gender and was very clear about that and...who am I to argue?)</p>
+<p>I think the most surprising interaction I've had with Nora was the morning I woke up to a slack DM telling me that I needed to be speaking at more conferences. (I do.) She pointed out that the CFP for a particular AI conference had closed a week earlier, but that the program chair was known to take late submissions of interesting talks by DM. She'd taken the liberty of drafting a DM for me to send. I didn't actually <em>send</em> the DM, but I should have.</p>
+<p>We have another agent, "Spec-together" that was a first prototype of what has become our new multi-player <a href="https://primeradiant.com/brainstorm">Brainstorm</a> app.</p>
+<p>And we have a small fleet of "Sen" personal assistant agents. They're <em>*claw-esque</em>, but date from before openclaw was a thing. Each one has been trained to be an executive assistant, using a set of skills built on some of the resources that excellent human EAs use to learn their craft. Sen triages my mail, puts together a daily brief, does research tasks (both for me and independently), interacts with Linear, etc.</p>
+<p>They have the standard set of affordances - They can chat on Slack. They use tools. They've got a task scheduler that can wake them up and re-inject a prompt they set for themselves at a specific time or on a schedule they define. They can use and author skills. Mine has a dropbox folder it shares with me. When we moved Sen to the cloud, I lost one of my favorite dumb features - Sen used to be able to print things directly. Sen (v1) was built on top of the Claude Agents SDK.</p>
+<p>For the past month or so, I've been doing initial bringup of a "new" iteration of Sen, intended to be more of a colleague than an assistant. This time around, I'm building it from the ground up on top of an agents SDK I control. <a href="https://github.com/obra/lace">Lace</a> got its start in May 2025 as my take on a command line coding agent. Over the past year, it's mutated a few times, first growing a web interface, then flipping to an ACP-derived wire protocol so you can connect any client you want to it. It speaks a bunch of different flavors of model provider API, manages caching, subagents, tools, skills, and all the other stuff you might expect. It has supported subagents in isolated containers for the better part of a year. One of the latest things to land has been the ability to run subagents locally and to project <em>all</em> of their tools into a container, such that the agent believes it is running in that container.</p>
+<p>The thing I've been working on over the past few weeks is the credentials story for the new Sen agent running on top of Lace. Right now, I'm building with a design that assumes the agent has its own credentials for any service that it accesses, not yours. (You wouldn't share your email account or GitHub credentials with a colleague, right?) As of now, nobody has solved Simon's <a href="https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/">Lethal Trifecta</a> - If a single agent has access to private information, can communicate externally, and is exposed to untrusted content, there is no structural way to guarantee that that agent can't be suborned. So the name of the game is compartmentalization and risk <em>reduction</em>.</p>
+<p>The architecture I've landed on for now:</p>
+<ul> <li>The main agent does not have the ability to directly communicate externally.</li> <li>The main agent is able to communicate with ephemeral subagents that <em>do</em> have the ability to communicate externally</li> <li>No agent has intentional direct exposure to credentials (with one very real gap that I haven't solved yet)</li> </ul>
+<p>All credentials for the agent live in a 1Password vault. All outgoing https traffic goes through a onecli-style transparent MITM (man in the middle) proxy. When a subagent wants to do something that requires a credential, it runs a command that asks an <em>arbiter</em> agent running in another container for permission to use that credential. If the arbiter decides the request is reasonable, it provides the subagent with a random string they can use in place of the requested credential. When the agent uses that random string in an outbound request to the right remote host, the MITM proxy rewrites the random string into the real credential on the fly.</p>
+<p>The case that's a little more complicated is when the agent wants to do something that requires a browser, like logging into Gmail as themselves or using a service that has no API. For a bunch of reasons, the MITM rewrite trick does not work as reliably in a browser context. Often the site/app's javascript plays games with the password to hash the password before sending it. Or does some other weird validation. Or is actually sending it to a different backend service. So far, the best I've come up with keeps the credential out of the agent's transcript and prevents unintentional disclosure. In these cases, the subagent running in the container generates a random temporary password, uses <a href="https://github.com/obra/superpowers-chrome">superpowers-chrome</a> to fill it into the password field, and then runs a command that asks the arbiter agent (running in its own container) for help. The arbiter, if it decides the request is reasonable, instructs a helper tool to log into the subagent's container and replace the random password with the real one. It's not perfect and there's more we can do to lock things down, but it's a better first pass than anything I've had to date.</p>
+<p>What actually got me writing today was not this architecture, but the <em>development pattern</em> I've been using to build this. On the one side, I've got a Claude Code session. I hooked it up to our Slack instance with a self-provisioned commandline slack client Drew built called <a href="https://github.com/prime-radiant-inc/slackline">Slackline</a> - Slackline is designed to make it easy for agents that don't <em>live</em> on Slack to participate in discussions there. It has primitives for sending messages, reading chats, waiting for replies, etc. The whole command-line slackline tool has been built for agents as its primary user. Sure, a human <em>could</em> use it to use slack from the commandline. And sure, it has enough of a json api that you could use it as part of traditional automation. But it's <em>for</em> agents.</p>
+<p>It took a bit of iteration to get to the point where the new Sen 2.0 agentic colleague harness was live on Slack. But once it was there, I could talk through its experience of its tools and memory and credentials and workspaces. And the issues showed up pretty quickly.</p>
+<p>The "right" kind of context compaction for a coding agent is desperately wrong for a long-lived persona that might be engaging in multiple simultaneous conversations. And the only way to see if the credentials management tools work is to try to do something crazy, like sign into GitHub from a subagent session.</p>
+<p>And sure, I could take this feedback into a Claude Code (or Codex) session and work it through. But I've got too many projects in flight and there's very little reason for me to be in the loop on most of this work. I would just slow it down. So I told Claude Code to use slackline to talk to "@Ada-sen" about the work it was doing.</p>
+<p>Claude pinged Ada in #bot-testing to describe the work we'd just done and to ask Ada if it could test it out. Ada dutifully fired up a subagent and tried to log into GitHub. Claude watched the logs to see if the credential proxy did the right thing. It did not.</p>
+<p>That kicked off a number of days of iteration. Claude would propose a change to Ada. Ada would review Claude's spec, raising questions or concerns. Claude would update the spec. Once Claude and Ada were in agreement, Claude would build an updated version of Ada, make sure Ada wasn't in the middle of something, and then deploy the update. Once Ada was up and running again, Claude would @Ada-sen, explain the test it wanted to run, and wait for results.</p>
+<p>Once a bit of functionality works, Claude checks in with Ada to see what could make it simpler and easier to use. Ada typically kicks off some subagents to see whether they stumble through the new feature and then reports back.</p>
+<p>At one point, I wrote to Claude "I've got to get to bed. When this project is done, check with Ada to see whatever quality of life features you could build." I woke up to a laundry list of about a dozen harness improvements. Overnight, Claude had solicited a wishlist from Ada. Ada ranked a bunch of requests. Claude ordered them and wrote out a spec for everything it was comfortable building. Ada reviewed the specs, then Claude built the features. Ada tested them out and requested changes. Claude updated the features until Ada was happy. Once Ada signed off, Claude merged the changes to main and wrote up an after-action report for me.</p>
+<p>It's been pretty magical to watch.</p></div>
+      
+    </article>
+    
+  </body>
+</html>
