@@ -1,0 +1,518 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Fred Talks - 2026-08-16</title>
+    <style>
+      @page {
+        size: A5;
+        margin: 8mm 9mm 9mm;
+      }
+
+      :root {
+        color: #111;
+        font-family: "Times New Roman", Times, serif;
+        --body-text-size: 9.5pt;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        color: #111;
+        background: #fff;
+        font-family: "Times New Roman", Times, serif;
+        line-height: 1.45;
+      }
+
+      a,
+      a:visited {
+        color: #111;
+        text-decoration: underline;
+      }
+
+      .cover {
+        min-height: calc(210mm - 17mm);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        page-break-after: always;
+        border: 1px solid #111;
+        padding: 8mm;
+        background: #fff;
+      }
+
+      .toc-item-meta,
+      .article-meta {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .masthead {
+        margin: 0;
+        font-size: 40pt;
+        line-height: 0.95;
+        text-transform: uppercase;
+      }
+
+      .issue-date {
+        margin: 4mm 0 0;
+        font-size: 14pt;
+      }
+
+      .issue-date sup {
+        font-size: 0.58em;
+        vertical-align: super;
+        line-height: 0;
+      }
+
+      .cover-deck {
+        max-width: 90mm;
+        font-size: 12pt;
+        margin: 0;
+      }
+
+      .toc {
+        border-top: 3px solid #111;
+        padding-top: 6mm;
+      }
+
+      .toc h2 {
+        margin: 0 0 4mm;
+        font-size: 11pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .toc-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .toc-item {
+        padding: 3mm 0;
+        border-bottom: 1px solid rgba(17, 17, 17, 0.2);
+      }
+
+      .toc-item-title {
+        font-size: 12pt;
+        margin: 0 0 1mm;
+      }
+
+      .toc-item-meta {
+        font-size: 8pt;
+      }
+
+      .masthead-compact {
+        margin: 0 0 6mm;
+      }
+
+      .masthead-compact h1 {
+        margin: 0;
+        font-size: 22pt;
+        line-height: 1.1;
+        text-transform: uppercase;
+      }
+
+      .masthead-compact .issue-date {
+        margin: 2mm 0 0;
+        font-size: 11pt;
+      }
+
+      .toc-compact {
+        border-top: 1px solid #111;
+        border-bottom: 1px solid #111;
+        padding: 4mm 0;
+        margin: 0 0 8mm;
+      }
+
+      article + article {
+        margin-top: 10mm;
+        padding-top: 6mm;
+        border-top: 2px solid #111;
+      }
+
+      h1 {
+        margin: 0 0 2mm;
+        font-size: 18pt;
+        line-height: 1.1;
+      }
+
+      .article-meta {
+        font-size: 8.5pt;
+        margin-bottom: 6mm;
+        padding-bottom: 3mm;
+        border-bottom: 1px solid #111;
+      }
+
+      .article-body {
+        font-size: var(--body-text-size);
+        font-family: "Times New Roman", Times, serif;
+      }
+
+      .article-body p,
+      .article-body li,
+      .article-body blockquote,
+      .article-body dd,
+      .article-body dt {
+        margin: 0 0 4mm;
+        orphans: 3;
+        widows: 3;
+      }
+
+      .article-body ul,
+      .article-body ol,
+      .article-body dl {
+        margin: 0 0 4mm 5mm;
+        padding: 0;
+      }
+
+      .article-body h2,
+      .article-body h3,
+      .article-body h4 {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        margin: 7mm 0 3mm;
+        line-height: 1.2;
+      }
+
+      .article-body blockquote {
+        margin-left: 6mm;
+        padding-left: 4mm;
+        border-left: 2px solid #111;
+      }
+
+      .article-body .media-omitted {
+        margin: 0 0 4mm;
+        font-size: 8.5pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(17, 17, 17, 0.65);
+      }
+
+      .article-body figure,
+      .article-body .article-figure,
+      .article-body picture,
+      .article-body .article-picture {
+        display: block;
+        max-width: 72mm;
+        margin: 0 auto 4mm;
+        break-inside: avoid;
+      }
+
+      .article-body img,
+      .article-body .article-image {
+        display: block;
+        max-width: min(100%, 72mm);
+        max-height: 34mm;
+        height: auto;
+        width: auto;
+        object-fit: contain;
+        margin: 0 auto 3mm;
+      }
+
+      .article-body figcaption {
+        margin-top: 1.5mm;
+        font-size: 8.5pt;
+        line-height: 1.3;
+        color: rgba(17, 17, 17, 0.8);
+      }
+
+      .article-note {
+        margin-top: 6mm;
+        padding-top: 3mm;
+        border-top: 1px solid #111;
+        font-size: 9pt;
+        font-style: italic;
+      }
+
+      @media screen {
+        body {
+          padding: 2rem;
+          margin: 0 auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    
+    <header class="masthead-compact">
+      <h1>Fred Talks</h1>
+      <p class="issue-date">
+        16<sup>th</sup> August 2026
+      </p>
+    </header>
+
+    <nav class="toc toc-compact">
+      <h2>Contents</h2>
+      <ol class="toc-list">
+        
+        <li class="toc-item">
+          <div class="toc-item-title">How to keep thinking</div>
+          <div class="toc-item-meta">
+            seangoedecke.com RSS feed · 1077 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">An Uncomplicated Man</div>
+          <div class="toc-item-meta">
+            Emily Wilson · 4163 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Test Coverage Won&#39;t Save You</div>
+          <div class="toc-item-meta">
+            Jenn Cooper · 1991 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Linux desktop preview and agent imports</div>
+          <div class="toc-item-meta">
+            Codex changelog · 119 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Computer History</div>
+          <div class="toc-item-meta">
+            Codex changelog · 91 words
+          </div>
+        </li>
+        
+      </ol>
+    </nav>
+    
+
+    
+    <article>
+      <h1>How to keep thinking</h1>
+      <div class="article-meta">
+        seangoedecke.com RSS feed
+        · 07 Aug 2026 · <a href="https://seangoedecke.com/how-to-keep-thinking/">Source</a>
+      </div>
+      <div class="article-body"><p>Imagine you’re the guest on some kind of frenetic, software-engineering-themed game show. The host is constantly flipping over new cards with questions that you have to answer as fast as possible:</p>
+<ul> <li>Is this adjustment to the database schema right?</li> <li>Do these bits of data look plausible?</li> <li>Do these five paragraphs of text describe an actual series of manual tests that took place?</li> <li>Does this suggested architecture pass the smell test?</li> <li>Is this implementation better than the current code? Or this one? Or this one?</li> </ul>
+<p>Working in 2026 feels a bit like this. When frontier AI models can do most of the tasks in your queue, the most efficient way to work is often spinning off tasks for an AI agent and continually context-switching between the results<sup><a href="https://www.seangoedecke.com/how-to-keep-thinking/#fn-1">1</a></sup>. This isn’t <em>quite</em> mindless — in fact, it requires quite a lot of skill to skim the AI response and rapidly decide what to do with it — but it certainly involves less time for slow, careful reflection.</p>
+<h3>Why not slow down?</h3>
+<p>Why does it have to be frenetic? Why not just slow down? I suppose you <em>could</em>, but I don’t recommend it. <strong>It’s just such a miserable experience to spend your day close-reading LLM output</strong>: carefully chewing and savoring each morsel of slop. It’s far less unpleasant to skim through quickly and pick out the useful nuggets of content.</p>
+<p>Couldn’t you simply do more of the work by hand? It’s unfortunately true that <a href="https://www.seangoedecke.com/good-times-are-over/">tech is high-pressure these days</a>. If you’ve got the time and space to work more slowly, that’s great! But when your company gives you a “solve this task ten times more quickly” button, you are heavily incentivized to use it as much as possible, or risk being outcompeted by your peers.</p>
+<p>I sometimes worry that working with LLMs is making me dumber. Not in the “literally melting your brain” sense that some <a href="https://www.seangoedecke.com/your-brain-on-chatgpt/">papers</a> <a href="https://www.seangoedecke.com/how-does-ai-impact-skill-formation/">imply</a>, but in the sense that it’s biasing me towards the quick “skimming and judging” parts of my mental toolkit and away from the slow <a href="https://www.youtube.com/watch?v=f84n5oFoZBc">“hammock time”</a> needed for deep thought and real creativity. I don’t want to attribute this shift entirely to LLMs, since the post-2010s tech industry has become more frenetic for <a href="https://www.seangoedecke.com/good-times-are-over/">broader economic reasons</a>. But either way, it’s got me wondering how I can keep <a href="https://www.seangoedecke.com/you-dont-have-to-be-smart-if-you-think-clearly/">thinking</a> <a href="https://www.seangoedecke.com/thinking-clearly/">slowly</a>.</p>
+<h3>To keep on thinking, read and write</h3>
+<p>The main thing that’s worked for me is to write more. Specifically, I mean <strong>writing in my own words</strong>. Writing with an LLM does not work for this at all, even if you’re going to some effort to iterate on the content and outline the things you want to say. Why? Having to put the words together yourself forces you to articulate your thoughts. In a very real sense, it forces you to <em>think</em>.</p>
+<p>When you have an idea in your head for something to write, you don’t really have an idea. What you have is a kind of directional sense of where an idea might be, or a fragment of the kind of thing that might eventually become an idea. You construct the idea itself while writing. Incidentally, this is why I don’t really agree with <a href="https://www.goodreads.com/quotes/9292714-ideas-are-easy-execution-is-everything">“ideas are easy, execution is everything”</a><sup><a href="https://www.seangoedecke.com/how-to-keep-thinking/#fn-2">2</a></sup>: most “ideas” are not really even ideas.</p>
+<p>The other thing I recommend is to <strong>read actual books</strong>. Books — particularly dense non-fiction books — are the antithesis of AI slop. The slower you can read them, the better. I’ve been reading more and more non-fiction in the last few years, and I don’t think it’s a coincidence. I think my brain is naturally craving information-dense content, in the same way that sodium-deficient people <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4433288/">start to crave salt</a>.</p>
+<p>In fact, I’ve been combining the two approaches: reading a book and then <a href="https://www.seangoedecke.com/tags/book%20reports/">writing about it</a>. This process is <em>exactly</em> what I’ve been craving since I started programming with LLMs. I get to carefully read a book, think hard about it, often go and read another book or two on the same topic, then sit and try to articulate what I’ve learned. It’s great! I can feel parts of my brain stretching again.</p>
+<h3>Don’t lose the habit</h3>
+<p>It was pretty nice when I got paid to use those parts of my brain all day. Unfortunately, I think <a href="https://www.seangoedecke.com/software-engineering-may-no-longer-be-a-lifetime-career/">those times are coming to an end</a>. There will always be room for <em>some</em> amount of careful, slow reflection in software engineering, but (for at least a little while) we’ll be expected to be rapidly switching between LLM outputs. We may have to find ways outside of work to continue the habit of thinking slowly.</p>
+<p>Even just in terms of work, I think losing that habit entirely would be a big mistake. There are still plenty of ordinary problems that are too hard for current LLMs to solve on their own. The most common example I run into is “large refactor on a complicated codebase”. Current-generation LLMs can do this without (many) errors, but they can’t yet do it <em>tastefully</em>. Sometimes you need to be able to think a problem through entirely with your own brain.</p>
+<ol> <li> <p>This doesn’t mean switching between <em>tasks</em>. I routinely use six or seven different agent sessions on the same task: one for exploration, two or three for trying out different implementations, two or three for review, one for manual testing, and so on. Many of these can proceed in parallel.</p> <a href="https://www.seangoedecke.com/how-to-keep-thinking/#fnref-1">↩</a> </li> <li> <p>I remember reading a story<sup><a href="https://www.seangoedecke.com/how-to-keep-thinking/#fn-3">3</a></sup> about a well-known author. Someone wanted to tell him their book idea, but they were so protective of it that they forced him to first sign a NDA before they retrieved the idea from their office safe. It was a single word “bioweapons” written on a slip of paper.</p> <a href="https://www.seangoedecke.com/how-to-keep-thinking/#fnref-2">↩</a> </li> <li> <p>Ironically, when I tried to google the source, Gemini kept trying to write me a story about bioweapons. </p> <a href="https://www.seangoedecke.com/how-to-keep-thinking/#fnref-3">↩</a> </li> </ol></div>
+      
+    </article>
+    
+    <article>
+      <h1>An Uncomplicated Man</h1>
+      <div class="article-meta">
+        Emily Wilson
+        · 09 Aug 2026 · <a href="https://lrb.co.uk/the-paper/v48/n14/emily-wilson/an-uncomplicated-man/">Source</a>
+      </div>
+      <div class="article-body"><p>Christopher Nolan’s $250 million action movie version of Homer’s ancient Greek poem is an entertaining way to hide from the high temperatures for a few hours. Nolan’s trademark jumps and twists in the narrative structure are relatively easy to follow, and appropriate for <em>The Odyssey</em>, a narrative of tales nested in tales. My teenagers had a good time. Unlike some of Nolan’s other films, <em>The Odyssey</em> is not boring, thanks to the source material, which is impossible to mess up entirely. It’s a family-friendly audiovisual spectacle, like an elaborate Fourth of July fireworks display – and with about the same level of narrative and emotional depth.</p>
+<p>As in his previous films, Nolan is interested in the discontinuities of space and time, in magic, tricks, craft, technology, rivalry, substitution, masks, miscommunication, what we remember and what we choose to forget. Yet again, survival is portrayed as a kind of triumph. Yet again, there are long, claustrophobic scenes of drowning and near-drowning, and technically impressive episodes in which buildings are engulfed in flames and vehicles explode. Yet again, we watch a male character’s desperate quest to recover and/or avenge a female love object. I had hoped that Nolan’s affinity with these Homeric themes might push him to new creative heights, and enable him to conjure more believable characters. But <em>The Odyssey</em> features his usual combination of grandiosity and superficiality. Without a tub of wax for my ears – which Himesh Patel’s ever anxious Eurylochus, Odysseus’s doomed right-hand man, uses to sail safely past the Sirens – I was exposed to the full din of thumping sticks, staffs, swords and clashing armour, thunderbolts, crashing waves, grunts, screams, toppling palaces and burning temples. But unlike Matt Damon, the wax-free Odysseus who is tied to the mast as he is conveyed past the Sirens (naked ladies reclining on some uncomfortable-looking rocks), I gazed at the shipwrecks and bloodbaths without any agony of emotion. My eyes stayed dry, even for Argos the dog – whose adorableness as a puppy is predictably amped up to suit our animal-loving times. If only the human characters had been treated with such serious attention.</p>
+<p>The Homeric epic was already an adaptation. The poem used a relatively new technology – the written alphabet – to rework existing mythical traditions, reshaping the story of a veteran’s homecoming to resonate with the complex concerns of Greek-speakers in the archaic period, an era of migration, colonisation and urbanisation. Some seventh-century BCE Greek communities were ruled by an oligarchy, some by a single man. The poem traces the tension between the needs and desires of groups of men – Odysseus’ comrades or the suitors of his wife, Penelope – and those of a single powerful and cunning man, who wants to rule them all and win eternal fame for himself. In a period of cultural and technological change, it explores a fantasy of going back in time as well as space, while also showing its dangers and costs. The poem wrestles with the challenges of encountering strangers, of entering their homes and welcoming or rejecting them from one’s own. The contemporary resonances are obvious and Nolan’s movie hints at some of them, in interesting if scattered ways. But the film’s vision is too confused, its characters too underdeveloped, to deliver what it half-promises in terms of big ideas – although it is very good at conveying big bangs and big giants.</p>
+<p>Adaptations needn’t and shouldn’t follow the original with anything like the exactitude of a translation. Some of the best radically transform or resist the source material, providing what Harold Bloom called ‘strong misreadings’ of their ancestors. The most memorable creative responses to <em>The Odyssey –</em> such as Euripides’ <em>Helen,</em> Virgil’s <em>Aeneid,</em> Milton’s <em>Paradise Lost</em>, Joyce’s <em>Ulysses</em>, Walcott’s <em>Omeros</em>, Atwood’s <em>Penelopiad,</em> Madeline Miller’s <em>Circe</em> or Lisa Peterson’s play set in a modern migrant camp – reconsider the poem’s structure, narrative and values. In theory, Nolan seems to understand the assignment and its hazards. His first feature film, <em>Following</em> (1998), was a powerful black and white thriller about the fascination and dangers of tracking strangers through space and time. The hunter is more likely to become the hunted, <em>Following</em> suggests, if the would-be stalker lacks a clear identity beyond a misplaced belief in his own ingenuity. But knowing what temptations should be avoided isn’t the same as avoiding them – as Odysseus’ men learn to their cost when they kill the sacred Cattle of the Sun. Homer’s Odysseus makes it home because he is able, temporarily, to suppress his own desires – for meat and wine, for his wife, for control of his household and land, for slaughter, for victory over time and the threat of being forgotten, for a glorious eternal name. But there is no restraint in Nolan’s version of <em>The Odyssey</em>: every second is jam-packed with incident, lights and noise, and nothing is ever at a human scale.</p>
+<p>Nolan’s spectacle threatens to drown out his story just as the towering waves of the wine-dark sea – more grey than purple – threaten to overwhelm his hero’s ship. In looks, this <em>Odyssey</em> is often reminiscent of other 21st-century screen ‘epics’, not least Peter Jackson’s <em>Lord of the Rings</em> trilogy. The visit to the Land of the Dead reminded me of the excursions beyond the Wall in <em>Game of Thrones</em>. At the end of the film, a character sets out to ‘sail beyond the sunset’ and I almost expected everyone to break into Elvish. The film has none of the stylish sparseness of Uberto Pasolini’s <em>The Return</em> (2024), starring a scarred, desperate, mostly naked Ralph Fiennes, conflicted about his homecoming to a convincingly unhappy Juliet Binoche. Lacking the budget for gods or special effects, that film invited us to wonder what remains of <em>The Odyssey</em> and its hero when stripped down to the sinews and the hungry heart. Nolan gives us an all-inclusive buffet.</p>
+<p>The race-neutral casting of Nolan’s <em>Odyssey</em> was inevitably deplored in some quarters. But there is nothing woke or even progressive about it. Most of the non-white actors – Zendaya, Lupita Nyong’o, Himesh Patel, Corey Antonio Hawkins, Travis Scott – play versions of the Black best friend, whose only role in the drama is to provide aid to the white protagonist. Scott, as the Ithacan bard, Phemius, yells a few words and pounds a stick, but does not get to sing, tell a story or play the lyre: the most melodic note in the percussive soundtrack comes from the plucking of Odysseus’ bow (a beautiful sonic image of the archer as musician, borrowed from the poem). Nyong’o’s double part as Helen and Clytemnestra is hugely underwritten; she is given only a few minutes of screen time to perform a set of brief tableaux of female victims (the outraged bereaved mother, the abused wife, the repentant adulteress).</p>
+<p>There are more female characters than in most Nolan movies, thanks to the source material. But none of them has much to say, in contrast to the characterisations in the poem. Homer’s Calypso has a wonderfully outraged, operatic speech about divine double standards: male gods can kidnap and rape any mortal woman they desire, but when a goddess tries it, Zeus and his cronies scupper her chances. It’s a clever and comical distortion of the mythological ‘facts’: the poem’s listeners know that it is primarily Athena (a female deity) who is taking Calypso’s mortal victim away from her (Hermes, whom she’s complaining to, is merely the messenger) – and Eos, goddess of the dawn, as we’ve been reminded only a few lines earlier, has not been prohibited by the divine patriarchy from holding on to Tithonus. Charlize Theron’s Calypso looks gorgeous, but she is never angry, never funny, not skilled in rhetoric, and never consumed by lust for her scraggly mortal victim. She’s an unpaid therapist, soothing the soul of the bedraggled, PTSD-ridden Odysseus with drugs, and graciously listening to his disjointed tale of woe.</p>
+<p>Similarly, Homer’s Penelope gives the disguised Odysseus a wonderfully vivid account of a dream she has had about some geese in her yard being killed by an eagle; the eagle explained that the geese were her suitors, soon to be slaughtered by her returning husband. But in the dream, Penelope wept – suggesting a fascinatingly ambivalent response to the return of Odysseus and the imminent end to her long period of waiting, like a bride, for a husband. Nolan’s Penelope has no dreams. Anne Hathaway’s face is as expressive as ever, and she looks beautiful and mysterious, glimpsed mostly through the veil of a clever set design that separates the women’s quarters from the main hall. But the script gives her nothing to do except yearn for Matt Damon, for reasons unknown. The couple have no chemistry and nothing in common. Throughout his wanderings, the uxorious Odysseus clings to a little doll figure, intended to represent his wife (like the spinning top clutched by Leonardo di Caprio in <em>Inception</em>); the real woman is barely more interesting.</p>
+<p>It’s a challenge to represent deities on film without veering into <em>Clash of the Titans</em> silliness, so Nolan may have been sensible to leave them out. Even Zendaya’s underwritten Athena turns out to be a vulnerable victim of war, or perhaps a projection of Odysseus’ conscience – not a scheming and bloodthirsty war goddess. Other goddesses appear in cameo – Calypso, the seal-lady Sirens, Circe, Scylla and Charybdis – but there is no sign that we are supposed to realise they are goddesses. Poseidon, Hermes and Helius do not appear in person, although there are some scary storms and shipwrecks. One of my favourite moments was when Zendaya assures Damon that gods are not hard for mortals to understand: ‘Who doesn’t understand thunder? Fire?’ But the film wants to have it both ways. There are no gods, and yet shipwrecks and death are presented as the inevitable consequence of blinding the son of Poseidon and devouring the Cattle of the Sun. Zeus’ law is portrayed as being crucially important, and yet there is no Zeus. Nolan’s vision of the world is not quite big enough to include either real gods or real people who might be different from us.</p>
+<p>There are giants, including Polyphemus (here, a lone Cyclops) and some overdressed Laestrygonians. Circe, played with earthy vigour by Samantha Morton, is Baba Yaga in a Hansel and Gretel cottage; she uses a labour-intensive form of plastic surgery to turn Odysseus’ greedy men into the pigs they already are. There is only one lotus eater, though the theme of amnesia takes on new significance, as you might expect. Famous scenes flash by: Scylla and Charybdis threaten the boat, Eurycleia recognises the scar on Odysseus’ leg, Antinous hurls a footstool at our hero in disguise. A few notable sequences from the epic are missing: the film skips the island of Scheria, home of the helpful princess Nausicaa, where Homer’s Odysseus tells the tall tale of his adventures to the hospitable Phaeacians. There is no room in this maximalist film for anything as charmingly mundane and small-scale as Nausicaa’s laundry and her girlish fantasies about a husband. Damon’s grizzled Odysseus is neither a master storyteller nor a flirt. More substantially, the inclusion of a friendly, wealthy, culture-rich foreign place would have added more confusion to the film’s already muddled premise: that this Hollywood version of Mycenaean Greece is the only ‘civilisation’ in the world – the only place that still just about remembers that strangers and beggars must be welcomed, according to Zeus’ law.</p>
+<p>The costumes, armour, boats and architecture are a mishmash, which is in keeping with Homer’s poem – itself drawn from many generations of storytelling and incorporating bits and pieces from different eras, dialects and traditions. Linguistically, too, Homeric Greek is a composite – although it is always metrical poetry, not language anyone ever actually spoke. Despite the manufactured online outrage, there is nothing inherently wrong with the movie’s attempt to approximate contemporary American speech. If you’re not going to compose a script in Homeric Greek, or even in metrical English verse, you might as well use something like conversational American English. But writing dialogue is not one of Nolan’s talents. The language is relentlessly expository, humourless and flat. Attempts at vigorous speech – ‘My dad’s coming home’ or ‘Let’s get off this fucking beach’ – sit uncomfortably next to grandiose meditations: ‘Yes, my queen. The breaking of Zeus’ law, spreading like plague. Our age of bronze is collapsing, and maybe he couldn’t bear to see the ruins of what he’d done. Anywhere. Least of all, his home.’</p>
+<p>As they say at the awards shows, I was humbled to learn that Nolan has read at least the first line of my translation of <em>The Odyssey</em> into iambic pentameter. In at least one interview, he cited my version of the first line of the poem: ‘Tell me about a complicated man.’ But I would be ashamed to have written any part of this script. Sadly, Damon’s Odysseus isn’t complicated or wily or artful. One of Odysseus’ funniest (and most famous) tricks in Homer is to tell Polyphemus that his name is ‘No Man’. When the blinded giant screams for help from his neighbours, the other Cyclopes are reassured to learn that ‘No Man’ is hurting him. In the movie Odysseus doesn’t have to outwit Polyphemus because the Cyclops is a puppet who has no wits. Nolan’s grunting one-eyed giant is referred to as ‘it’, barely speaks, doesn’t get drunk and has neither neighbours nor a favourite sheep.</p>
+<p>Perhaps more surprising from the director of <em>Oppenheimer,</em> Damon’s lummoxy Odysseus also seems to lack technological intelligence (<em>polymēchania</em>). He does not build a marriage bed out of a tree growing in his house (it would be a waste of effort, since he so rarely seems to sleep or have sex). The raft on which he escapes from Calypso is cobbled together from a few bits of driftwood (in contrast to the elaborate wood-chopping and shipbuilding in Homer). We don’t see the design or construction of the Trojan Horse; instead, a kitsch, poorly designed horse (with no wheels) appears on the windswept beach as if dumped there by drone. The difficulties of transporting large, unwieldy objects over difficult terrain must have been on the director’s mind as he lugged his IMAX cameras through the film’s many challenging locations.</p>
+<p>The most obvious new spin that Nolan brings to the source material is a subplot based on a story from the <em>Aeneid</em>, describing the way the Trojans were tricked into taking the Trojan Horse (an invention of ‘cruel Ulysses’) into the city, thanks to the machinations of a Greek double agent called Sinon (his name means ‘harmful’). In contrast to the relatively positive representation of cunning intelligence in Homer’s <em>Odyssey</em>, Virgil makes Ulysses cruel and predatory; Sinon is his deceitful accomplice.</p>
+<p>In Nolan’s movie, Sinon is played by Elliot Page, and far from being a bad guy he’s the film’s moral centre. He is recruited to the Trojan War as a plucky youngster, thanks to the evil machinations of a teenage draft-dodger, Antinous (played in adulthood by a charismatically slimy Robert Pattinson). The main emotional arc of the film concerns Odysseus’ belated realisation that he is complicit in Sinon’s exploitation because he failed to tell him the truth about the Trojan Horse plot. Once he recovers his memory, Odysseus is racked by guilt. The film doesn’t address the moral dilemmas raised by its own narrative invention, such as why it matters so much whether Batman told the whole truth to valiant Robin, given that he would be killed instantly either way – or why the sinless Sinon wants in on the scheme, if the sack of Troy was as bad as the movie wants to suggest. Odysseus’ lie to Sinon doesn’t start the Trojan War, and the Trojans would presumably have taken the horse into the city anyway – as they do in Homer’s <em>Odyssey</em>. This muddled subplot is foisted on the film in order to make Nolan’s relentlessly didactic point about the contemporary Anglophone world: that the lies and xenophobia of the war on terror and Brexit began a cultural decline that is now destroying the values ‘we’ hold most dear.</p>
+<p>Nolan’s other major addition to Homer’s narrative is the repeated reference to threats to ‘our civilisation’ from ‘the sea peoples’ – a now debunked 19th-century theory about maritime tribes who were thought to have attacked Egypt around 1200 BCE and to have also been responsible for the roughly coeval collapse of Mycenaean Greek culture. ‘Our civilisation is under attack,’ Penelope wails. Odysseus comforts her by saying that ‘Bronze Age civilisation’, including literacy, will rise again from the ashes. The current consensus, as Nolan clearly knows, is that there was no such thing as ‘the sea peoples’, and that the Greek-speaking world’s shift away from the more centralised, literate palace culture of the Mycenaeans in the 11th century BCE towards the fragmented social formations of the early Greek Iron Age was caused by a range of factors, including climate change, earthquakes and internal unrest. Nolan uses these competing historical theories to create a characteristic narrative twist about the identity of ‘the sea peoples’, which I will not spoil, though you can probably guess it.</p>
+<p>Zeus’ law is a version of archaic Greek <em>xenia</em>: the idealised relationships between strangers, hosts and guests, who must treat one another with mutual respect, thereby forming multi-generational bonds between unrelated families. In the film, <em>xenia</em> is filtered through contemporary American ideas about the importance of philanthropic charity: wealthy people should be gracious towards the poor and hungry in their midst (without necessarily doing anything to mitigate their poverty). Many of the film’s implicit values directly contradict those of Homer’s poem. Deception, warmongering, extramarital sex, cruelty to animals, abusing women and yearning for honour – all perfectly fine in the world of Homer – are, in this version, very bad. This is not in itself a problem, but it is a problem if the film’s own values and vision don’t hang together, and if the characters’ motivations don’t make sense on their own terms.</p>
+<p>In Nolan’s <em>Odyssey</em>, slaughtering people with the help of trickery, technology and weapons is presented as bad when the Greeks are killing the Trojans, who have violated <em>xenia</em>, but good when Odysseus is killing the suitors, who have violated <em>xenia</em>. Taking something ostensibly abandoned by Odysseus and his comrades is natural and forgivable when the Trojans lay claim to the horse, but unnatural and unforgivable when the suitors lay claim to Odysseus’ palace, food, wine and wife. Strangers in Ithaca are to be treated with gracious kindness, as possible gods in disguise; but strangers in foreign lands are usually monstrous, to be blinded, robbed and slaughtered. Defying the gods is noble and brave when Odysseus blinds Polyphemus, son of Poseidon; it’s stupid and greedy when Eurylochus eats the Cattle of the Sun. Deception is bad when Odysseus tricks Sinon or the suitors trick Telemachus, but good when Telemachus and Odysseus trick the suitors. Sharing is good, and Odysseus is seen taking his place at an oar alongside his men; but one-man rule is also unambiguously good, and those who challenge monarchy or autocracy, or try to eat more than their allotted portion, are either evil (the suitors) or foolish (Eurylochus). Either way, they have to die. It is bad to fight and kill to accumulate wealth, as Agamemnon does; it is good to fight and kill to preserve the wealth that you have already acquired (even if by war). Any one of these moral contradictions could make for an interesting and generative theme in a movie, but Nolan lets the fragments of an incomplete set of big ideas spin around in the epic whirlpool, with no plank of solid, specific human experience to which we might cling.</p>
+<p>Homer’s <em>Odyssey</em> gives a clear, moving account of the feelings, histories and perspectives of several of Odysseus’ comrades and subordinates, including Eurylochus and the enslaved swineherd, Eumaeus. Kidnapped, trafficked and sold into slavery as a child, Eumaeus fantasises that his long-lost enslaver, Odysseus, will one day return and give him a home of his own. In the film, none of these subordinate characters has a personality of their own. Mentor (Ryan Hurst), who helps Telemachus (Tom Holland), is not a disguised goddess but a helpful guy with a beard; Eurylochus is not an embittered rival to Odysseus but another helpful guy with a beard. John Leguizamo does his best with the part of Eumaeus, now cursed with cataracts to ensure that he is unable to recognise Odysseus until the right moment, but Nolan’s script gives him nothing to work with; the only wish of this ‘servant’ (the film’s preferred term for ‘slave’) is to make Odysseus’ life more comfortable. But Damon’s Odysseus remains miserable as he hikes doggedly towards the camera across yet another beautiful landscape.</p>
+<p>The Trojan War is an aberration, the fault of faceless, monstrous Agamemnon (the one in the weird Darth Vader outfit), who has failed as an American family man by killing his daughter. Odysseus is an idealised leader who would never willingly put his people in danger: his foolish men insist on going to check out Circe’s hut for themselves, and he kindly retrieves them (without pausing to have sex with the goddess even for an hour, let alone a whole magical year). Damon’s Odysseus is motivated mostly by anxiety and guilt, though he is also eager to protect his boy (Holland is good at playing a gormless young man of twenty going on twelve).</p>
+<p>But the representation of Odysseus as a reluctant warlord makes a nonsense of the movie’s imagined world. We are not shown that war or killing are bad, only that good men sometimes feel bad about it – a very different point. Any serious depiction of violence, ancient or modern, must show the perspectives of the victims as well as the perpetrators, and the Homeric poems easily clear the bar – but Nolan doesn’t. The Trojans are dehumanised by their masks; we know none of them by name or face. The hands of Odysseus and Telemachus are bloodied only by the most righteous, computer-game modes of killing, and we feel no pity or horror at the deaths of their victims, whether Trojans, giants, suitors or slaves. During the sack of Troy – which he supposedly organised – Odysseus gazes around in bewilderment and horror, as if he has never seen a massacre before.</p>
+<p>Yet we are also invited to despise Penelope’s chief suitor, Antinous (‘opposite mind’), for being a coward, a liar and a schemer. The film asks us both to be horrified at war and to celebrate the action-movie sequences in which the reluctant warrior finally gets his hands on his bow and the blood starts flowing. The massacre of the suitors is probably the most enjoyable sequence in the film. The exuberantly villainous Antinous – Pattinson is the only person on set who seems to be having any fun – clearly deserves to be stabbed to death with the dagger of Sinon, but he also deserves one of the Oscars that will shower down on this movie like the golden rain of Zeus.</p>
+<p>Nolan’s <em>Odyssey</em> lacks many of the elements that make the poem great. It has nothing convincing to say about time, memory, history, war, or about the relationship between one warrior’s glorious return and the lives of his family, adversaries, comrades, friends and neighbours. It lacks psychological, emotional, political and ethical depth. Its narrative structure is gimmicky. The writing is abysmal. None of the characters has convincing motivation for their actions or words. There are no sex scenes, and all the food looks horrible.</p>
+<p>The most troubling ethical problem with Nolan’s <em>Odyssey</em> concerns the decision to film part of the movie in the occupied territory of Western Sahara, thus normalising the ongoing violence against the indigenous Sahrawi people. It is particularly galling that Nolan used this land simply as a visually striking backdrop for a film that centres, aggrandises and redeems the hero of a territorial war on account of his belated and partial acknowledgment of his own guilt.</p>
+<p>Despite all this, the release of <em>The Odyssey</em> is still an event to celebrate. In what we are told is the streaming era, this epic is bringing audiences back to cinemas. In what we are told is a time of declining literacy and the ‘death of the humanities’, translations of <em>The Odyssey</em>, including mine, are flying off the shelves. Some of those who buy the book or show up in cinemas to watch Tom Holland may go on to study ancient Greek. Perhaps the film will persuade a few college administrators not to cut their literature, language and history departments. Nolan, who studied English at University College London – where students still study <em>The Odyssey</em> as a first year ‘foundational text’ – is doing his best to get the general public reading again, and I am grateful.</p></div>
+      
+    </article>
+    
+    <article>
+      <h1>Test Coverage Won&#39;t Save You</h1>
+      <div class="article-meta">
+        Jenn Cooper
+        · 09 Jun 2026 · <a href="https://forestwalk.ai/blog/test-coverage-wont-save-you-from-incoherence/">Source</a>
+      </div>
+      <div class="article-body"><p>A year ago, if a codebase accumulated three different ways to do the same thing, somebody would usually notice.</p>
+<p>A reviewer might leave a comment. A senior engineer would mutter something about "yet another helper," and eventually the team would clean it up. Maybe they'd write a short doc. People would learn, collectively, that this was not the way.</p>
+<p>This was not a perfect system. Human review can be slow. People miss things. Pattern docs get stale. Engineers develop opinions that are 70% wisdom and 30% scar tissue.</p>
+<p>Still, the friction did something useful. It kept codebases from drifting too quickly.</p>
+<p>Coding agents change that.</p>
+<figure class="article-figure"><img alt="A room with too much electricity." src="https://forestwalk.ai/images/blog/too-much-electricity.jpg" class="article-image"/><figcaption>"Now, this is a room with electricity. But it has too much electricity."</figcaption></figure>
+<p>Once agents are writing a meaningful share of code, the question is no longer just "can we get working code faster?" Obviously, yes. We can. Sometimes hilariously so.</p>
+<p>The more interesting question is: what does the codebase teach the next agent?</p>
+<p>Because it does teach.</p>
+<p>Every merged PR becomes a precedent. If the repository contains one clear pattern, the next agent has a decent shot at following it. If it contains three slightly different patterns, the next agent may extend one, combine two, or invent a fourth for reasons that are, in technical terms, vibes.</p>
+<h2>The funhouse builds itself</h2>
+<p>Coding agents, like some of us, have a chaotic inner goth teenager.</p>
+<p>Their non-deterministic nature means they can be inconsistent, often in surprising ways. They can generate the weird little leap that solves the problem, or they can generate novelty where nobody asked for it.</p>
+<p>The dangerous thing is that most of the code is fine, if you look at it in isolation.</p>
+<p>A PR passes tests. The implementation makes sense. The file is clean enough. You look at the diff and think, yeah, sure, that seems okay.</p>
+<p>But zoom out, and the codebase as a whole has started to get weird.</p>
+<ul> <li>three near-duplicate utilities</li> <li>multiple data-fetching patterns</li> <li>parallel abstractions solving almost the same problem</li> </ul>
+<p>The codebase remains locally <strong>cohesive</strong>, while slowly losing global <strong>coherence</strong>.</p>
+<p>That matters more than it used to, because even more than humans, agents are responsive to the signals around them. A clear codebase gives them clear precedent. A muddled codebase gives them confusion.</p>
+<p>You can put principles in <code>CLAUDE.md</code> or docs, but they're... advisory. They compete with task instructions and inline comments for attention, get summarized when context windows compact, and depend on the agent attending to the right instruction at the right moment.</p>
+<p>If your codebase contains three slightly different ways to solve a problem, the next agent has to infer which one is canonical.</p>
+<p>From the agent's point of view, this is not irrational. The repository gave it mixed evidence.</p>
+<p>The scary outcome is not code that obviously fails. It is code that superficially keeps working, while the shape of the system increasingly gets worse.</p>
+<h2>Tests are nice</h2>
+<p>Most discussions about AI-native development jump from this problem – agents' tendency to accumulate tech debt – directly to tests.</p>
+<p>And yes, across the industry, teams are writing dramatically more tests than they ever have. Agents have made high test coverage affordable in a way it never used to be.</p>
+<p>Recently, <a href="https://x.com/garrytan/status/2054064931515855118">Garry Tan argued</a> that the primary way to keep AI agents on track is 90% test coverage:</p>
+<blockquote> <p><em>Tests are the ratchet. 90% coverage, every PR, no exceptions.</em></p> </blockquote>
+<p>And indeed, test coverage is the simplest kind of ratchet: a mechanism that allows motion in one direction only, like a socket wrench that turns the bolt forward but never lets it spin back. Once a test locks in a behaviour, it becomes difficult to accidentally regress.</p>
+<p>But it's worth being specific about what tests actually do.</p>
+<p>Unit tests check that a function still returns what it returned before. Integration tests check that pieces still wire together the same way. E2E tests reach further: they check whether the product still does what it used to, and the assertions you prioritize there should be an important act of human judgment.</p>
+<p>But they all share the same basic shape: tests verify that code does what it did before.</p>
+<p>Whether what it did was even the <em>right way to do it</em> is a separate question.</p>
+<p>Tests ratchet behavioural sameness.</p>
+<p>Meanwhile docs and evals can pin down reasoning and behaviour bars, which is sometimes more important. But none of these is directly looking at the <em>shape</em> of the system.</p>
+<h2>90% coverage of good patterns</h2>
+<p>A coverage ratchet only improves the codebase if the patterns it's locking in are already good ones.</p>
+<p>If a questionable pattern already exists in the code, the next agent is more likely to extend it. The tests generated around that implementation only reinforce it further.</p>
+<p>Over time, high coverage can unintentionally fossilize architectural drift, rather than prevent it in the first place.</p>
+<p>At first, especially during prototyping, this can be easy to miss, because nothing looks obviously broken. Coverage stays high. The system works. But over time, certain parts of the codebase become strangely resistant to cleanup.</p>
+<p>Tests that protect the wrong behaviour create drag against coherence. The harder you push for coverage, the more deeply you can lock in the shape you happened to start with.</p>
+<p>This isn't a criticism of tests. Tests are necessary. But tests primarily validate behaviour, while many of the emerging failure modes in agent-generated systems, especially as they grow, are failures of <em>shape</em>.</p>
+<figure class="article-figure"><img alt="A load-bearing poster." src="https://forestwalk.ai/images/blog/load-bearing-poster.jpg" class="article-image"/><figcaption>"Uh, I wouldn't take it down if I were you. It's a load-bearing poster."</figcaption></figure>
+<h2>Fitness functions protect the shape of the system</h2>
+<p>Unit tests ask whether the code still does what it did before. Fitness functions ask a different question: is the system still shaped the way we want?</p>
+<p>Most codebases already have a few simple versions of this. Linters, type checks, and import-boundary rules all encode some idea of acceptable shape, at the micro level.</p>
+<p>But in agentically-maintained codebases, we need an additional kind of macro fitness function. It has a couple of important jobs:</p>
+<ul> <li>catch bad agent choices at the moment of work</li> <li>redirect agents with the right amount of friction for the violation</li> </ul>
+<p>At Forestwalk, for example, we have a fitness check that prevents tool handlers from calling back into our AI services. Tool handlers run inside the agent's own loop, so any handler that kicks off more inference can stack model calls inside model calls and freeze a live meeting. Agents sometimes accidentally introduce this pattern, so our fitness check flags it and ensures it's not committed.</p>
+<p>Other fitness tests are ratchets that apply pressure to measurable properties – heuristics for shape like file size, bundle growth, prompt size, import fanout, and dependency count.</p>
+<p>For these, the ceiling starts at the current value (e.g. 837kb) and flags to agents and humans if a PR would unduly increase it. For instance, when an agent adds an unnecessary new dependency that blows up our frontend bundle, the check fails.</p>
+<p>The important part isn't just the limit itself. It's the “just in time” agent coaching.</p>
+<p>At first, we found agents would sometimes over-optimize against whatever metric the checks exposed, with great resourcefulness and in ways we did not want. But refining the flags to give common sense guidance helped steer the agents into considering tradeoffs correctly.</p>
+<p>For example, an agent might see this just in time:</p>
+<pre><code>⎯⎯⎯⎯⎯⎯⎯ Failed Checks: 1 ⎯⎯⎯⎯⎯⎯⎯
+
+FAIL  src/frontendBundleBudget.test.ts &gt; Frontend bundle size budget &gt; keep built JS growth modest
+AssertionError: Frontend bundle grew +29 KiB (700 -&gt; 729 KiB; fails at +5 KiB).
+
+This ratchet is review pressure, not a mandate to shrink the number at any cost.
+
+Diagnose first:
+- Is the growth accidental (dependency, duplicate/dead code, broad import, avoidable scope creep)?
+- Does the added JS unlock user-visible value?
+- Can cleanup reduce it without hurting UX, accessibility, tests, or maintainability?
+
+Quality-preserving fixes:
+- remove duplicated rendering paths or dead production code
+- move repeated styling or static configuration out of lazy-loaded JavaScript
+- lazy-load rarely used flows instead of loading them on the main path
+(more examples here)
+
+Do not fix this by:
+- omitting requested scope or deferring needed UI work
+- removing aria-label/title text or visible affordances
+- deleting helpful empty/error-state copy
+(more examples here)
+
+For intentional growth, (procedure here) and explain why in the PR.
+</code></pre>
+<p>If you simply tell agents to "reduce bundle size," they will sometimes do naive things like:</p>
+<ul> <li>delete empty-state copy</li> <li>replace styled controls with browser-native ones</li> <li>inline dependency code to avoid import costs</li> <li>remove accessibility affordances</li> </ul>
+<p>Instead, the idea is to not just explain what a given fitness test is protecting, but also explain what is <em>not allowed</em> to be sacrificed in the process, and do so at the moment the agent is working.</p>
+<p>In contrast, the same guidance in <code>CLAUDE.md</code> is often skimmed past or applied inconsistently by agents. A just-in-time check, on the other hand, creates desired friction between the agent and a finished task. Where humans get tired and occasionally creative about routing around friction like this, agents are quite willing to schlep through feedback and loop until the check is passing.</p>
+<figure class="article-figure"><img alt="A master bedroom." src="https://forestwalk.ai/images/blog/master-bedroom.jpg" class="article-image"/><figcaption>"Come on in, it's your master bedroom!"</figcaption></figure>
+<h2>What the checks can't see</h2>
+<p>Fitness functions are good at catching things precise enough to encode.</p>
+<p>That is useful, but coherence is not always that crisp. Some drift is obvious only in relation to the rest of the codebase: this new thing is too close to an existing thing, this test is protecting a pattern we no longer want, this change is making the next change harder.</p>
+<p>So in addition, we use a few non-deterministic checks on top of the deterministic ones.</p>
+<p>One runs before a PR is opened. It scans the proposed change against the existing codebase, and asks whether the agent has introduced or expanded a competing pattern. When it finds one, it points to the existing pattern, explains why the new one looks redundant, and asks the agent to either extend the original or justify why this case is genuinely different.</p>
+<p>Most of the time, the agent course-corrects quickly.</p>
+<p>We run a similar check again at the PR review level, where it has more context and can catch subtler pattern drift.</p>
+<p>Another check runs nightly and looks for tests that have fossilized patterns we have since decided against. Its mission is to find tests that protect old implementation choices that, if left alone, would teach future agents to preserve patterns we no longer want.</p>
+<p>These checks are not magic. They miss things. They can be noisy. They still need human judgment around them.</p>
+<p><strong>But the goal is not to eliminate judgment.</strong> The goal is to move more human judgment into places where it can be highest leverage.</p>
+<h2>Making coherence the easy path</h2>
+<p>Fitness ratchets are not the whole answer to maintaining coherence in agent-generated codebases.</p>
+<p>Fitness functions are one layer. Pattern drift checks are another. Product verification, code review, evals, documentation, repository structure, and the actual taste of the humans steering the system all matter too.</p>
+<p>However, it's worth investing regularly in the early layers: the ones closest to the moment an agent is making an implementation choice.</p>
+<p>That is where we have found these types of fitness functions useful. They do not solve coherence by themselves, but they add friction in the right places. Bad patterns get interrupted earlier. Good patterns have a better chance of becoming precedent.</p>
+<p>The same feedback loop that spreads bad patterns can be used to spread good ones.</p>
+<p>So there’s hope. When you see this pattern work, it soothes some of the worry we all have about agents causing chaos. They’re a lot more useful when the codebase gives them an obvious next move. The right pattern is easier to find. The weird fourth version of the thing has a harder time looking reasonable.</p>
+<p>It's not perfect. Keeping a growing codebase coherent still requires human judgment, architectural intuition, and social coordination. The system still needs to be built.</p>
+<p>But that system, itself, increasingly feels like the work.</p>
+<p>If the codebase trains the next agent, then the job is not just to write better code.</p>
+<p>It is to build the environment where better code is the obvious thing to write.</p></div>
+      
+    </article>
+    
+    <article>
+      <h1>Linux desktop preview and agent imports</h1>
+      <div class="article-meta">
+        Codex changelog
+        · 13 Aug 2026 · <a href="https://developers.openai.com/codex/changelog/#codex-2026-08-11-app">Source</a>
+      </div>
+      <div class="article-body"><div># Linux desktop preview and agent imports
+
+### Install the ChatGPT desktop app on Linux
+
+The [ChatGPT desktop app for Linux](/codex/linux/linux-app) is available in
+preview for supported Ubuntu, Debian, and Fedora desktop distributions on x64
+and ARM64 processors. Download the `.deb` or `.rpm` package for your
+distribution, then sign in to work with projects, local files, and Codex.
+
+### Import setup and recent work from other agents
+
+The desktop app supports **Claude Code**, **Claude Cowork**, and
+**Cursor**. [Import instructions, settings, skills, plugins, projects, and
+recent work](/codex/import), then turn on automatic updates in
+**Settings &gt; Import** to keep imported work in sync.
+
+Codex CLI can also import supported setup and recent chats from Claude Code
+and Cursor with `/import`.</div></div>
+      
+    </article>
+    
+    <article>
+      <h1>Computer History</h1>
+      <div class="article-meta">
+        Codex changelog
+        · 13 Aug 2026 · <a href="https://developers.openai.com/codex/changelog/#codex-2026-08-13-app">Source</a>
+      </div>
+      <div class="article-body"><div># Computer History
+
+[Computer History](/codex/customization/computer-history) is an opt-in feature
+in the ChatGPT desktop app on macOS that turns activity across apps and
+websites into memories and a timeline that ChatGPT and Codex can use. Choose
+which apps and websites contribute, pause collection, and review or delete
+your history at any time.
+
+Computer History is available to ChatGPT Pro, Business, and Enterprise users.
+Business and Enterprise administrators must enable access before workspace
+members can turn it on. Initial availability excludes the European Economic Area (EEA),
+Switzerland, and the United Kingdom.</div></div>
+      
+    </article>
+    
+  </body>
+</html>
