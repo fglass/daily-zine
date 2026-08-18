@@ -1,0 +1,598 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Fred Talks - 2026-08-18</title>
+    <style>
+      @page {
+        size: A5;
+        margin: 8mm 9mm 9mm;
+      }
+
+      :root {
+        color: #111;
+        font-family: "Times New Roman", Times, serif;
+        --body-text-size: 9.5pt;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        color: #111;
+        background: #fff;
+        font-family: "Times New Roman", Times, serif;
+        line-height: 1.45;
+      }
+
+      a,
+      a:visited {
+        color: #111;
+        text-decoration: underline;
+      }
+
+      .cover {
+        min-height: calc(210mm - 17mm);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        page-break-after: always;
+        border: 1px solid #111;
+        padding: 8mm;
+        background: #fff;
+      }
+
+      .toc-item-meta,
+      .article-meta {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .masthead {
+        margin: 0;
+        font-size: 40pt;
+        line-height: 0.95;
+        text-transform: uppercase;
+      }
+
+      .issue-date {
+        margin: 4mm 0 0;
+        font-size: 14pt;
+      }
+
+      .issue-date sup {
+        font-size: 0.58em;
+        vertical-align: super;
+        line-height: 0;
+      }
+
+      .cover-deck {
+        max-width: 90mm;
+        font-size: 12pt;
+        margin: 0;
+      }
+
+      .toc {
+        border-top: 3px solid #111;
+        padding-top: 6mm;
+      }
+
+      .toc h2 {
+        margin: 0 0 4mm;
+        font-size: 11pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .toc-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .toc-item {
+        padding: 3mm 0;
+        border-bottom: 1px solid rgba(17, 17, 17, 0.2);
+      }
+
+      .toc-item-title {
+        font-size: 12pt;
+        margin: 0 0 1mm;
+      }
+
+      .toc-item-meta {
+        font-size: 8pt;
+      }
+
+      .masthead-compact {
+        margin: 0 0 6mm;
+      }
+
+      .masthead-compact h1 {
+        margin: 0;
+        font-size: 22pt;
+        line-height: 1.1;
+        text-transform: uppercase;
+      }
+
+      .masthead-compact .issue-date {
+        margin: 2mm 0 0;
+        font-size: 11pt;
+      }
+
+      .toc-compact {
+        border-top: 1px solid #111;
+        border-bottom: 1px solid #111;
+        padding: 4mm 0;
+        margin: 0 0 8mm;
+      }
+
+      article + article {
+        margin-top: 10mm;
+        padding-top: 6mm;
+        border-top: 2px solid #111;
+      }
+
+      h1 {
+        margin: 0 0 2mm;
+        font-size: 18pt;
+        line-height: 1.1;
+      }
+
+      .article-meta {
+        font-size: 8.5pt;
+        margin-bottom: 6mm;
+        padding-bottom: 3mm;
+        border-bottom: 1px solid #111;
+      }
+
+      .article-body {
+        font-size: var(--body-text-size);
+        font-family: "Times New Roman", Times, serif;
+      }
+
+      .article-body p,
+      .article-body li,
+      .article-body blockquote,
+      .article-body dd,
+      .article-body dt {
+        margin: 0 0 4mm;
+        orphans: 3;
+        widows: 3;
+      }
+
+      .article-body ul,
+      .article-body ol,
+      .article-body dl {
+        margin: 0 0 4mm 5mm;
+        padding: 0;
+      }
+
+      .article-body h2,
+      .article-body h3,
+      .article-body h4 {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        margin: 7mm 0 3mm;
+        line-height: 1.2;
+      }
+
+      .article-body blockquote {
+        margin-left: 6mm;
+        padding-left: 4mm;
+        border-left: 2px solid #111;
+      }
+
+      .article-body .media-omitted {
+        margin: 0 0 4mm;
+        font-size: 8.5pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(17, 17, 17, 0.65);
+      }
+
+      .article-body figure,
+      .article-body .article-figure,
+      .article-body picture,
+      .article-body .article-picture {
+        display: block;
+        max-width: 72mm;
+        margin: 0 auto 4mm;
+        break-inside: avoid;
+      }
+
+      .article-body img,
+      .article-body .article-image {
+        display: block;
+        max-width: min(100%, 72mm);
+        max-height: 34mm;
+        height: auto;
+        width: auto;
+        object-fit: contain;
+        margin: 0 auto 3mm;
+      }
+
+      .article-body figcaption {
+        margin-top: 1.5mm;
+        font-size: 8.5pt;
+        line-height: 1.3;
+        color: rgba(17, 17, 17, 0.8);
+      }
+
+      .article-note {
+        margin-top: 6mm;
+        padding-top: 3mm;
+        border-top: 1px solid #111;
+        font-size: 9pt;
+        font-style: italic;
+      }
+
+      @media screen {
+        body {
+          padding: 2rem;
+          margin: 0 auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    
+    <header class="masthead-compact">
+      <h1>Fred Talks</h1>
+      <p class="issue-date">
+        18<sup>th</sup> August 2026
+      </p>
+    </header>
+
+    <nav class="toc toc-compact">
+      <h2>Contents</h2>
+      <ol class="toc-list">
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Why compute might get 10x+ more expensive in coming years</div>
+          <div class="toc-item-meta">
+            Dwarkesh Patel · 1635 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">How agents are transforming work | OpenAI</div>
+          <div class="toc-item-meta">
+            OpenAI · 1582 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Your Agent is a Distributed System (and fails like one)</div>
+          <div class="toc-item-meta">
+            mahesh’s blog · 1053 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">The Reverse Information Paradox</div>
+          <div class="toc-item-meta">
+            sn scratchpad · 819 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Ownership</div>
+          <div class="toc-item-meta">
+            Thorsten Ball · 1122 words
+          </div>
+        </li>
+        
+      </ol>
+    </nav>
+    
+
+    
+    <article>
+      <h1>Why compute might get 10x+ more expensive in coming years</h1>
+      <div class="article-meta">
+        Dwarkesh Patel
+        · 29 Jul 2026 · <a href="mailto:reader-forwarded-email/bae9267ab6bf32a0d0cdf111551fe168">Source</a>
+      </div>
+      <div class="article-body"><div class="rw-email-parsed">
+ <h3 class="subtitle subtitle-HEEcLo" dir="auto" style="direction: auto; text-align: start; unicode-bidi: isolate; font-weight: normal; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: antialiased; -webkit-appearance: optimizelegibility; -moz-appearance: optimizelegibility; appearance: optimizelegibility; margin: 4px 0 0; line-height: 24px; margin-top: 12px">
+  If a human-level software engineer that could run on an H100 equivalent, at current market rates for software engineers, that H100 should rent for over $250k a year. That’s 15x today’s spot price.
+ </h3>
+ <p style="margin: 0 0 20px 0; line-height: 26px; margin-top: 0">
+  I want to experiment with very quick blog post where I time-box writing for 2 hours. I won’t be able to nail down a lot of important sub-questions, but the alternative is just not making any progress on a lot of different topics I’m curious about.
+ </p>
+ <p style="margin: 0 0 20px 0; line-height: 26px">
+  Today I want to talk about the compute situation of the labs over the coming years.
+ </p>
+ <p style="margin: 0 0 20px 0; line-height: 26px">
+  Anthropic revenue has 10xed year over year. Anthropic likely ends the year with ~$100–150B of revenue. For this trend to continue, Anthropic would have to make $1T in revenue by the end of next year. There’s no deep reason why the trend needs to continue, and it very well might not - it’s ultimately a question about AI capabilities. But suppose it does. What would have to be true about that world?
+ </p>
+ <p style="margin: 0 0 20px 0; line-height: 26px">
+  Lab compute
+  <a href="https://substack.com/redirect/fe48a54b-c69c-4355-9ef7-e7e8f0f41a84?j=eyJ1IjoiNzNudXU3In0.H33_bBJvgyu8PtgGjxpU9p_wtwFQOCWZQjwLWMkgjCQ" style="text-decoration: underline">
+   3x-es
+  </a>
+  year over year. For a lab to 10x revenue while continuing to only 3x compute, some combination of the following 3 things has to happen: 1. Lab margins have to increase, 2. The price of compute has to increase, 3. Labs have to spend a greater fraction of their compute on inference.
+ </p>
+ <p style="margin: 0 0 20px 0; line-height: 26px">
+  My understanding is that basically all 3 of these things have been happening: 1. Anthropic went from 40% margins in 2025 to probably &gt;80% this year for Fable inference¹ (though perhaps not on the marginal compute - see more below). 2. Spot prices for compute are up 40%+ from the February trough, and that likely understates how much more the labs have to pay (again, more below). 3. Roughly a quarter of OpenAI’s 2024 compute spend went to inference
+  <a href="https://substack.com/redirect/76c180a8-819f-47fc-94e0-833e6bbf9577?j=eyJ1IjoiNzNudXU3In0.H33_bBJvgyu8PtgGjxpU9p_wtwFQOCWZQjwLWMkgjCQ" style="text-decoration: underline">
+   according to Epoch
+  </a>
+  , and it’s certainly closer to 50% if not higher now.
+ </p>
+ <p style="margin: 0 0 20px 0; line-height: 26px">
+  Labs would prefer
+  <em>
+   not
+  </em>
+  to do 3 (spend greater and greater shares of compute on inference). As has been said jokingly, the point of inference revenue is to convince investors to give you more money to buy more compute to train bigger models. If you’re spending most of your compute on inference, you’re kind of declaring that AI progress has stalled, because it’s not worth investing more in training, and your business is basically that of a cloud provider. The labs do not think this is true - they think they are serving models that will look extremely shitty within a year in order to build up the business case to continue training smarter models.
+ </p>
+ <p style="margin: 0 0 20px 0; line-height: 26px">
+  So that leaves 1. lab margins will increase, or 2. compute gets more expensive. It will be more of the former if the leading 1 to 2 labs are significantly ahead of the competition. In a market, your margins are set by how much better you are than the next best alternative. For effect 1 to dominate, margins would have to be in the mid-90s percent by the end of next year. That sounds quite crazy to me. But it does sound plausible to me that AI lab revenues will keep growing astonishingly fast.
+ </p>
+ <p style="margin: 0 0 20px 0; line-height: 26px">
+  So that leaves one more effect to explain how this world of crazy $1T revenue by end of next year might come to be: compute gets a lot more expensive. As I mentioned, this is already starting to happen. The price increase is even stronger when we look at the tranche of compute that the labs need - they obviously can’t rely on spot instances - they need security for their weights and customer info, and enough scale to get good utilization and flexibility. To look at how crazy the compute market is in that tranche, consider the price at which Google and Anthropic are renting compute from SpaceX. Google is reportedly paying
+  <a href="https://substack.com/redirect/cfd11fcf-81b0-4320-b604-784ee4475b06?j=eyJ1IjoiNzNudXU3In0.H33_bBJvgyu8PtgGjxpU9p_wtwFQOCWZQjwLWMkgjCQ" style="text-decoration: underline">
+   $900 million a month for 110K GPUs
+  </a>
+  that are a blend of GB200s and GB300s. That’s roughly 2x the spot price per hour for those GPUs. And the current spot price is itself 40% higher than it was in February.
+ </p>
+ <p style="margin: 0 0 20px 0; line-height: 26px">
+  I want to emphasize the key conclusion here: as AI models become smarter, they’ll better monetize the same amount of compute. If a true human-level software engineer that could run on an H100 equivalent, at current market rates for software engineers, that H100 should rent for over $250k a year. That’s 15x today’s spot prices.
+ </p>
+ <p style="margin: 0 0 20px 0; line-height: 26px">
+  Of course you might expect that if we have 10 million extra software engineers, the marginal value of a software engineer would decrease and so that H100 wouldn’t necessarily be able to produce 15x more revenue than it currently does. But I actually don’t know if that’s true. If we applied this argument to people instead of AI, then this would be the classic
+  <a href="https://substack.com/redirect/646566a0-801b-4635-a01e-57e62e347226?j=eyJ1IjoiNzNudXU3In0.H33_bBJvgyu8PtgGjxpU9p_wtwFQOCWZQjwLWMkgjCQ" style="text-decoration: underline">
+   lump of labor fallacy
+  </a>
+  . Economists generally believe that high-skilled immigration does not decrease wages in the long run because of how specialization and innovation increase the value of labor. Maybe this labor supply shock is so big and so fast that this general heuristic no longer applies. But if we believe what standard economics says about labor, then the marginal value of compute (and thus the marginal price of compute) should become astonishingly high.
+ </p>
+ <p style="margin: 0 0 20px 0; line-height: 26px">
+  What would happen in such a world?
+ </p>
+ <ul style="margin-top: 0; padding: 0">
+  <li style="margin: 8px 0 0 32px; mso-special-format: bullet">
+   <span>
+    As the top models get better and better at monetizing compute, it becomes harder and harder to catch up. If by 2028 we’ve automated software engineering and the price of compute is 15x higher than it is right now, then it’s going to be much more difficult for you, with no revenue, to compete for compute against the frontier labs.
+   </span>
+  </li>
+  <li style="margin: 8px 0 0 32px; mso-special-format: bullet">
+   <span>
+    If you can train the best, most efficient model, then you’ll be able to charge MUCH higher margins than you can today.
+   </span>
+   <span>
+    This is the
+   </span>
+   <a href="https://substack.com/redirect/6d8602a2-bcd8-4c53-84df-4e49dd655d6a?j=eyJ1IjoiNzNudXU3In0.H33_bBJvgyu8PtgGjxpU9p_wtwFQOCWZQjwLWMkgjCQ" style="text-decoration: underline">
+    Alchian–Allen effect
+   </a>
+   <span>
+    : when a fixed cost gets added to two goods of different quality, the premium good becomes relatively cheaper, so demand shifts toward it.
+   </span>
+   <br/>
+   <span>
+    At $20 per H100-hour, it’s going to be extremely costly and stupid to use a weaker, less efficient model, because it’s going to burn more tokens running your expensive compute to get the same result
+   </span>
+   <span>
+    <span>
+     . So labs will be able to charge a very large premium if they can train a model that better economizes this scarce resource.
+    </span>
+    <br/>
+    <span>
+     If you’re gonna have to pay so much for the underlying compute in the first place (directly or indirectly), you might as well pay extra to use the very best, most efficient model that runs on that same amount of compute.
+    </span>
+   </span>
+  </li>
+  <li style="margin: 8px 0 0 32px; mso-special-format: bullet">
+   <span>
+    A lot of current popular applications of AI get priced out. The reason AI is relatively cheap right now, at least in comparison to human labor, is partly that it can’t do a lot of things that top humans can do. At some point that will no longer be the case. And so using GPUs to make short-form video slop will just get priced out.
+   </span>
+   <ul style="margin-top: 0; padding: 0">
+    <li style="margin: 8px 0 0 32px; mso-special-format: bullet">
+     <span>
+      At the same time, this kind of prediction does pattern match onto the ways people have been wrong about scarcity in the past. I’m thinking of the Simon–Ehrlich wager, where Paul Ehrlich bet that the cost of a basket of commodities would increase rather than decrease in the decade leading up to 1990. This wager is famous in popular economics discussion, because it’s supposed to illustrate how Ehrlich’s Malthusian worldview was falsified — he underestimated the way in which market signals and human ingenuity would find ways to better economize scarce inputs. (Though other
+     </span>
+     <a href="https://substack.com/redirect/1e98dbfe-0387-4a7a-b1a9-9a5db9b5d876?j=eyJ1IjoiNzNudXU3In0.H33_bBJvgyu8PtgGjxpU9p_wtwFQOCWZQjwLWMkgjCQ" style="text-decoration: underline">
+      <span>
+       analysis
+      </span>
+     </a>
+     <span>
+      shows that if this bet had been made in a different decade, Ehrlich would have won).
+     </span>
+    </li>
+    <li style="margin: 8px 0 0 32px; mso-special-format: bullet">
+     <span>
+      <span>
+       I’m guessing the Simon-Ehrlich basket of commodities is not the correct reference class for compute, because compute supply is much less elastic, and much less capable of absorbing large demand shocks, than the extraction of different metals is.
+      </span>
+      <br/>
+      <span>
+       That 3x in compute capacity per year comes from multiplying the following numbers together
+      </span>
+     </span>
+     <s>
+      <span>
+       ;
+      </span>
+     </s>
+     <span>
+      : 1.4x from Moore’s Law, 1.2x from new fab construction (
+     </span>
+     <a href="https://substack.com/redirect/d2c7eb0c-baba-42dc-8bf3-59b0be46a9dd?j=eyJ1IjoiNzNudXU3In0.H33_bBJvgyu8PtgGjxpU9p_wtwFQOCWZQjwLWMkgjCQ" style="text-decoration: underline">
+      <span>
+       bottlenecked through at least 2030 by EUV tool supply
+      </span>
+     </a>
+     <span>
+      ), 1.8x from AI taking leading edge wafer allocation from other devices (which will start to hit a wall by end of 2027, when AI will go from 60% of N3 to 86%). Seems hard to shift any 3 of those inputs into compute scaling much more, and the final one will actually hit a will within a year or two as wafer allocation gets saturated.
+     </span>
+    </li>
+   </ul>
+  </li>
+  <li style="margin: 8px 0 0 32px; mso-special-format: bullet">
+   <span>
+    I want to clarify that at some point in the future compute becomes cheap again. At some point robots will be able to turn shores of silica sand and mines of copper into computers. At which point the price of compute should fall closer to the cost of raw inputs and tools. I’m just talking about this current regime where AI compute merely 3x-es year over year, which is not fast enough to offset the price effect of how much more useful AI is becoming year over year.
+   </span>
+  </li>
+  <li style="margin: 8px 0 0 32px; mso-special-format: bullet">
+   <span>
+    By the way, the fact that Ant revenue has been 10x-ing year over year, while compute has only been 3x-ing, suggests that there are very strong economies of scale in the model business.
+   </span>
+   <br/>
+   <span>
+    Logically this makes sense - when you train a model, you pay this one time cost of learning all these different skills that you can then amortize across all your users. (Unlike with human labor, where each instance has to be retrained from scratch).
+   </span>
+   <br/>
+   <span>
+    I wish we didn’t live in a world with such strong economies of scale of intelligence (because I’m worried about power concentration). But it seems we do.
+   </span>
+  </li>
+ </ul>
+ <p>
+  1Blended inference margins are
+  <a href="https://substack.com/redirect/6a4e2d95-2db0-4a3e-b015-c035c654410f?j=eyJ1IjoiNzNudXU3In0.H33_bBJvgyu8PtgGjxpU9p_wtwFQOCWZQjwLWMkgjCQ" style="text-decoration: underline">
+   &gt;70%
+  </a>
+  , so I’m guessing Fable API margins are &gt;80% - total vibe claim.
+ </p>
+ <p class="cta-box" style="margin: 0 auto 20px; width: 90%; line-height: 26px; margin-bottom: 0; text-align: center; margin-left: auto; margin-right: auto">
+  <a class="button primary" href="https://substack.com/redirect/2/eyJlIjoiaHR0cHM6Ly93d3cuZHdhcmtlc2guY29tL3N1YnNjcmliZT91dG1fc291cmNlPXBvc3QmdXRtX2NhbXBhaWduPWVtYWlsLWNoZWNrb3V0Jm5leHQ9aHR0cHMlM0ElMkYlMkZ3d3cuZHdhcmtlc2guY29tJTJGcCUyRndoeS1jb21wdXRlLW1pZ2h0LWdldC0xMHgtbW9yZS1leHBlbnNpdmUmcj03M251dTcmdG9rZW49ZXlKMWMyVnlYMmxrSWpvME1qazBNVFV4TXpVc0ltbGhkQ0k2TVRjNE5UTTBPRGd4TkN3aVpYaHdJam94TnpnM09UUXdPREUwTENKcGMzTWlPaUp3ZFdJdE5qa3pORFVpTENKemRXSWlPaUpqYUdWamEyOTFkQ0o5LmZHb1ZxazI2ZFlfRmFWVXEyel9jR1JxZFpDQ2NYQjhTaFVWdVhZazJzbWsiLCJwIjoyMDg5MjgwMjQsInMiOjY5MzQ1LCJmIjp0cnVlLCJ1Ijo0Mjk0MTUxMzUsImlhdCI6MTc4NTM0ODgxNCwiZXhwIjoyMTAwOTI0ODE0LCJpc3MiOiJwdWItMCIsInN1YiI6ImxpbmstcmVkaXJlY3QifQ.o8xFpxsNnzwGqWLbhlywIYGgJczS1xDIFu0nXIZ3qwo?&amp;utm_source=substack&amp;utm_medium=email&amp;utm_content=postcta" role="button" style="font-family: system-ui,-apple-system,BlinkMacSystemFont,&#x27;Segoe UI&#x27;,Roboto,Helvetica,Arial,sans-serif,&#x27;Apple Color Emoji&#x27;,&#x27;Segoe UI Emoji&#x27;,&#x27;Segoe UI Symbol&#x27;;display: inline-block;box-sizing: border-box;cursor: pointer;border: none;height: 40px;border-radius: 8px;font-size: 14px;line-height: 20px;font-weight: 600;text-align: center;padding: 10px 20px;margin: 0;opacity: 1;outline: none;white-space: nowrap;color: #ffffff !important;text-decoration: none !important;background-color: #f3c016;">
+   Upgrade to paid
+  </a>
+ </p>
+ <p>
+  <a href="https://substack.com/app-link/post?publication_id=69345&amp;post_id=208928024&amp;utm_source=post-email-title&amp;utm_campaign=email-post-title&amp;isFreemail=true&amp;r=73nuu7&amp;token=eyJ1c2VyX2lkIjo0Mjk0MTUxMzUsInBvc3RfaWQiOjIwODkyODAyNCwiaWF0IjoxNzg1MzQ4ODE0LCJleHAiOjE3ODc5NDA4MTQsImlzcyI6InB1Yi02OTM0NSIsInN1YiI6InBvc3QtcmVhY3Rpb24ifQ.j_3C-fTOFBjJqTpxvwVyrRlp_m0zVsKN1RN1VMXcgnA">
+   View in app
+  </a>
+ </p></div></div>
+      
+    </article>
+    
+    <article>
+      <h1>How agents are transforming work | OpenAI</h1>
+      <div class="article-meta">
+        OpenAI
+        · 28 Jun 2026 · <a href="https://openai.com/index/how-agents-are-transforming-work/">Source</a>
+      </div>
+      <div class="article-body"><p>June 25, 2026</p>
+<p><a href="https://openai.com/news/company-announcements/">Company</a></p>
+<p>A new Economic Research paper measuring Codex’s economic potential at the frontier.</p>
+<p><a data-analytics="econ-codex-hero-cta" href="https://cdn.openai.com/pdf/5d1e1489-21c0-43e4-9d42-f87efdbf0082/the-shift-to-agentic-ai-evidence-from-codex.pdf">Read the paper</a></p>
+<p>Listen to article</p>
+<figure class="article-figure"><p class="media-omitted">[AUDIO OMITTED]</p></figure>
+<p>Share</p>
+<p>Agentic AI changes the unit of knowledge work from single interactions to delegated, long-horizon tasks. Chatbot interactions are often short and self-contained. Agents can operate independently for minutes or hours while orchestrating tool calls, interacting with environments, and iterating towards solutions. As a result, agents are quickly becoming the most powerful AI tool for work.</p>
+<p>Over the last year, we witnessed this transformation first-hand at OpenAI. For the first few months after Codex was released to the public, ChatGPT remained the default AI tool for work within OpenAI. Through August 2025, the average OpenAI worker spent less than 10% of their tokens on Codex. Now, every department, including non-technical departments such as Legal and Recruiting, uses Codex as their primary AI tool for work. This pattern reflects what we believe will be the future of work given the expanded capabilities and accessibility of agentic tools.</p>
+<p class="rw-outer-content"><span>Some content could not be imported from the original document.</span> <a href="https://openai.com/index/how-agents-are-transforming-work/">View content ↗ </a></p>
+<p class="rw-outer-content"><span>Some content could not be imported from the original document.</span> <a href="https://openai.com/index/how-agents-are-transforming-work/">View content ↗ </a></p>
+<p>Codex adoption grew in tandem with Codex’s capabilities. As Codex leveraged stronger models and new product features, it became capable of taking on an expanding set of productive tasks. Across Individual users, Organizational users, and OpenAI workers, we document four trends over the past year:</p>
+<ul><li><b>People use Codex for longer-horizon work</b>. By May 2026, 80.6% of sampled individual users made at least one Codex request estimated to exceed 30 minutes of human work, 70.2% made one estimated to exceed one hour, and 25.6% made at least one Codex request estimated to exceed eight hours.</li><li><b>Codex became the primary AI tool for every department at OpenAI</b>. Engineering moved first, but Legal, Finance, and Recruiting crossed into Codex being their primary AI tool around April 2026. For the average OpenAI worker, Codex usage now accounts for more than 85% of output tokens. Since Codex users tend to use more tokens than non-users, its share of overall tokens is even higher: Codex accounts for 99.8% of weekly output tokens generated within OpenAI.</li><li><b>Non-developer adoption grew especially rapidly, outpacing developer adoption</b>. Since August 2025, non-developer users rose 137x for individual users, 189x for organizational users, and 12x within OpenAI.</li><li><b>Codex enabled OpenAI workers to do tasks outside their job description</b>. While technical usage is still most prevalent among engineers, non-technical users regularly use Codex to take on coding or technical execution, including automation, data transformation, tooling, debugging, and structured analysis.</li></ul>
+<h2>Agents work longer hours on harder tasks</h2>
+<p>Nearly a quarter of all Codex requests are for tasks that would take a person more than one hour to complete<sup><a href="#footnote-1" id="inline-ref-footnote-1">(1)</a></sup>. As Codex’s capacity for independent long-context work improved, users shifted from short interactions toward more difficult tasks with longer horizons.</p>
+<p>The chart below estimates the share of individual users that crossed four human-time thresholds: tasks that would take a person more than 30 minutes, more than one hour, more than four hours, and more than eight hours<sup><a href="#footnote-2" id="inline-ref-footnote-2">(2)</a></sup>. From December 2025 to May 2026, the share of users who made a request that was estimated to correspond to work that would take a person more than 30 minutes rose to 80.6%. The share making a request that would take a person more than one hour rose to 70.2%. The share requesting work that would take a person more than eight hours grew the fastest from a low base.</p>
+<p>The growth in agentic usage can be seen in daily Codex runtime. Among daily active users at OpenAI, the heaviest users ask Codex to run many hours of agent work in a single day. By June 2026, users at the 99th percentile regularly generated more than 60 hours of Codex agent turns per day, distributed across multiple, parallel agents. As Codex became more powerful and parallelizable, users moved from only asking Codex for one answer at a time into increasingly orchestrating multiple agent tasks over the course of a day.</p>
+<h2>Adoption continues to move from engineers to the rest of OpenAI</h2>
+<p>Engineers at OpenAI began adopting Codex first, gradually. The average engineer at the company shifted the majority of their usage of OpenAI products to Codex by December 2025. Today, the average engineer generates 99% of their output tokens with Codex rather than ChatGPT. Legal, finance, and recruiting crossed over to majority use of Codex later, around April 2026, but their transitions were much faster. The average lawyer or recruiter at OpenAI now generates more than 85% of their output tokens on Codex.</p>
+<p>Over the last six months, Codex usage has deepened and intensified at OpenAI. Among active internal users, change in combined output tokens rose sharply across departments. Research saw the biggest jump: by June 2026, median use was 56 times higher than in November 2025. Customer Support rose 32 times and Engineering rose 27 times, while Legal grew more gradually but still reached 13 times its November level.</p>
+<p>These two patterns together illustrate how Codex has transformed how OpenAI uses AI to do productive work. Across the company, users are switching from chatbots to agents as their primary form of AI interaction and are deploying an exponentially growing amount of agentic labor.</p>
+<h2>Non-developers are the fastest-growing user groups</h2>
+<p>Across all user groups—OpenAI, organizational, and individual users—Codex use began with developers, the natural target audience for what began as a coding tool. However, as Codex expanded toward more general knowledge work, adoption among non-developers grew even more quickly. As shown in the user growth chart below, weekly non-developer users rose faster than developer users among individual, organizational, and OpenAI populations. By early June 2026, non-developer individual users multiplied 137 times since August 2025. Non-developer organizational users increased 189-fold, and non-developer OpenAI users increased 12-fold, likely because this group already started at a well above average starting point.</p>
+<p>The shift does not mean every non-developer is using Codex in the same way as an engineer. Rather, it means that more non-developers are using Codex for some kind of agentic work.</p>
+<h2>Codex is expanding the horizon of potential productive work</h2>
+<p>Codex enables non-technical departments to accelerate workflows previously bottlenecked by technical expertise. The heat map below compares inferred occupations within OpenAI to the type of work represented in Codex outputs. Engineering and coding show up as the largest category for data science and research, whereas knowledge work is the largest category for finance and business operations, marketing, operations, and other departments.</p>
+<p>That said, agentic tools can expand what an individual worker can do. For instance, over one-fourth of work done with Codex by workers in business functions was engineering or coding. Agents can lower the cost of moving across task boundaries and help workers do adjacent work that used to require more specialized technical support.</p>
+<figure class="article-figure"><figure class="article-figure"><h2>Occupation vs. work done with Codex</h2><table><tr><th></th><th colspan="5">Work category</th></tr><tr><th>Consolidated inferred department</th><th>Engineering / Coding</th><th>Data Analysis</th><th>Financial Analysis</th><th>Knowledge Work</th><th>Other</th></tr><tbody><tr><th>Engineering</th><td>72%</td><td>4%</td><td>1%</td><td>18%</td><td>5%</td></tr><tr><th>Data Science / Research</th><td>51%</td><td>10%</td><td>0%</td><td>30%</td><td>9%</td></tr><tr><th>Finance / Biz Ops</th><td>31%</td><td>9%</td><td>16%</td><td>34%</td><td>10%</td></tr><tr><th>Product / Marketing / Ops</th><td>25%</td><td>3%</td><td>7%</td><td>51%</td><td>15%</td></tr><tr><th>Other</th><td>50%</td><td>7%</td><td>2%</td><td>38%</td><td>4%</td></tr></tbody></table><figcaption>Share of output tokens within department</figcaption></figure></figure>
+<h2>What this means for agents’ economic potential </h2>
+<p>Increased use of agentic tools by non-engineer employees expands the frontier of what these workers can do. That matters for businesses deciding how to redesign workflows, for employees learning which skills become more valuable, and for policymakers and researchers trying to understand how AI changes the labor market.</p>
+<p>Our paper shows how frontier users adopt capable agentic tools at the frontier. Our results demonstrate what unfolds when people have broad, low-friction access to capable agentic tools: as the tools improve, people use them for longer, more complex, and more cross-functional work. As time goes on, this is likely to be what the future of work looks like.</p>
+<ul><li><a href="https://openai.com/news/?tags=2026">2026</a></li><li><a href="https://openai.com/news/?tags=economic-research">Economic Research</a></li><li><a href="https://openai.com/news/?tags=codex">Codex</a></li></ul>
+<h2>Author</h2>
+<p>OpenAI</p>
+<h2>Footnotes</h2>
+<ol><li id="footnote-1"><p class="mb-4! wrap-break-word [word-break:break-word]"><span> Task horizon is estimated using an LLM-as-judge with access to Codex transcripts.</span><span class="inline-block"><button aria-label="Scroll to citation 1 reference" class="ease-curve-a disabled:text-gray-40 flex items-center justify-center rounded-full outline-offset-2 transition duration-200 focus-visible:outline focus-visible:outline-offset-0 size-2.5 text-primary-60 focus:outline-primary-44 hover:bg-none hover:[&amp;&gt;svg]:opacity-60 scale-inline-100 ms-[10px]" type="button"><p class="media-omitted">[SVG OMITTED]</p></button></span></p><a href="#inline-ref-footnote-1">[find in text]</a></li><li id="footnote-2"><p class="mb-4! wrap-break-word [word-break:break-word]"><span>These thresholds are model-estimated, so they should be treated as directional rather than exact. This is also based only on individual data and based on the queries of a random sample of 0.1% of users.</span><span class="inline-block"><button aria-label="Scroll to citation 2 reference" class="ease-curve-a disabled:text-gray-40 flex items-center justify-center rounded-full outline-offset-2 transition duration-200 focus-visible:outline focus-visible:outline-offset-0 size-2.5 text-primary-60 focus:outline-primary-44 hover:bg-none hover:[&amp;&gt;svg]:opacity-60 scale-inline-100 ms-[10px]" type="button"><p class="media-omitted">[SVG OMITTED]</p></button></span></p><a href="#inline-ref-footnote-2">[find in text]</a></li></ol>
+<h2>Keep reading</h2>
+<p><a href="https://openai.com/news/">View all</a></p>
+<figure class="article-figure"><img alt="OpenAI and Broadcom Jalapeño inference chip card image" data-nimg="fill" data-nosnippet="true" sizes="(min-width: 1728px) 1728px, 100vw" src="https://images.ctfassets.net/kftzwdyauwt9/21KcazqOHUF7Cq71Hpfcnc/81ad98a1978845b441ab14e008168c75/openai-broadcom-jalapeno-inference-chip-image-1_1.png?w=3840&amp;q=90&amp;fm=webp" srcset="https://images.ctfassets.net/kftzwdyauwt9/21KcazqOHUF7Cq71Hpfcnc/81ad98a1978845b441ab14e008168c75/openai-broadcom-jalapeno-inference-chip-image-1_1.png?w=640&amp;q=90&amp;fm=webp 640w, https://images.ctfassets.net/kftzwdyauwt9/21KcazqOHUF7Cq71Hpfcnc/81ad98a1978845b441ab14e008168c75/openai-broadcom-jalapeno-inference-chip-image-1_1.png?w=750&amp;q=90&amp;fm=webp 750w, https://images.ctfassets.net/kftzwdyauwt9/21KcazqOHUF7Cq71Hpfcnc/81ad98a1978845b441ab14e008168c75/openai-broadcom-jalapeno-inference-chip-image-1_1.png?w=828&amp;q=90&amp;fm=webp 828w, https://images.ctfassets.net/kftzwdyauwt9/21KcazqOHUF7Cq71Hpfcnc/81ad98a1978845b441ab14e008168c75/openai-broadcom-jalapeno-inference-chip-image-1_1.png?w=1080&amp;q=90&amp;fm=webp 1080w, https://images.ctfassets.net/kftzwdyauwt9/21KcazqOHUF7Cq71Hpfcnc/81ad98a1978845b441ab14e008168c75/openai-broadcom-jalapeno-inference-chip-image-1_1.png?w=1200&amp;q=90&amp;fm=webp 1200w, https://images.ctfassets.net/kftzwdyauwt9/21KcazqOHUF7Cq71Hpfcnc/81ad98a1978845b441ab14e008168c75/openai-broadcom-jalapeno-inference-chip-image-1_1.png?w=1920&amp;q=90&amp;fm=webp 1920w, https://images.ctfassets.net/kftzwdyauwt9/21KcazqOHUF7Cq71Hpfcnc/81ad98a1978845b441ab14e008168c75/openai-broadcom-jalapeno-inference-chip-image-1_1.png?w=2048&amp;q=90&amp;fm=webp 2048w, https://images.ctfassets.net/kftzwdyauwt9/21KcazqOHUF7Cq71Hpfcnc/81ad98a1978845b441ab14e008168c75/openai-broadcom-jalapeno-inference-chip-image-1_1.png?w=3840&amp;q=90&amp;fm=webp 3840w" class="article-image"/></figure>
+<p><a href="https://openai.com/index/openai-broadcom-jalapeno-inference-chip/">OpenAI and Broadcom unveil LLM-optimized inference chip<p>CompanyJun 24, 2026</p></a></p>
+<figure class="article-figure"><img alt="Expanding Daybreak Art Card" data-nimg="fill" data-nosnippet="true" sizes="(min-width: 1728px) 1728px, 100vw" src="https://images.ctfassets.net/kftzwdyauwt9/735NOZviyogUBIFxd2EmWX/fa8baf9fc26e64f442ffa86d5fd9a41e/Art_Card__6_.png?w=3840&amp;q=90&amp;fm=webp" srcset="https://images.ctfassets.net/kftzwdyauwt9/735NOZviyogUBIFxd2EmWX/fa8baf9fc26e64f442ffa86d5fd9a41e/Art_Card__6_.png?w=640&amp;q=90&amp;fm=webp 640w, https://images.ctfassets.net/kftzwdyauwt9/735NOZviyogUBIFxd2EmWX/fa8baf9fc26e64f442ffa86d5fd9a41e/Art_Card__6_.png?w=750&amp;q=90&amp;fm=webp 750w, https://images.ctfassets.net/kftzwdyauwt9/735NOZviyogUBIFxd2EmWX/fa8baf9fc26e64f442ffa86d5fd9a41e/Art_Card__6_.png?w=828&amp;q=90&amp;fm=webp 828w, https://images.ctfassets.net/kftzwdyauwt9/735NOZviyogUBIFxd2EmWX/fa8baf9fc26e64f442ffa86d5fd9a41e/Art_Card__6_.png?w=1080&amp;q=90&amp;fm=webp 1080w, https://images.ctfassets.net/kftzwdyauwt9/735NOZviyogUBIFxd2EmWX/fa8baf9fc26e64f442ffa86d5fd9a41e/Art_Card__6_.png?w=1200&amp;q=90&amp;fm=webp 1200w, https://images.ctfassets.net/kftzwdyauwt9/735NOZviyogUBIFxd2EmWX/fa8baf9fc26e64f442ffa86d5fd9a41e/Art_Card__6_.png?w=1920&amp;q=90&amp;fm=webp 1920w, https://images.ctfassets.net/kftzwdyauwt9/735NOZviyogUBIFxd2EmWX/fa8baf9fc26e64f442ffa86d5fd9a41e/Art_Card__6_.png?w=2048&amp;q=90&amp;fm=webp 2048w, https://images.ctfassets.net/kftzwdyauwt9/735NOZviyogUBIFxd2EmWX/fa8baf9fc26e64f442ffa86d5fd9a41e/Art_Card__6_.png?w=3840&amp;q=90&amp;fm=webp 3840w" class="article-image"/></figure>
+<p><a href="https://openai.com/index/daybreak-securing-the-world/">Daybreak: Tools for securing every organization in the world<p>SecurityJun 22, 2026</p></a></p>
+<figure class="article-figure"><img alt="Samsung Electronics ChatGPT and Codex card image" data-nimg="fill" data-nosnippet="true" sizes="(min-width: 1728px) 1728px, 100vw" src="https://images.ctfassets.net/kftzwdyauwt9/1yLWuTdw8HyYoBldZk3ghx/85fe3f39213890099f6f72f41cec6d1b/samsung-electronics-1_1.png?w=3840&amp;q=90&amp;fm=webp" srcset="https://images.ctfassets.net/kftzwdyauwt9/1yLWuTdw8HyYoBldZk3ghx/85fe3f39213890099f6f72f41cec6d1b/samsung-electronics-1_1.png?w=640&amp;q=90&amp;fm=webp 640w, https://images.ctfassets.net/kftzwdyauwt9/1yLWuTdw8HyYoBldZk3ghx/85fe3f39213890099f6f72f41cec6d1b/samsung-electronics-1_1.png?w=750&amp;q=90&amp;fm=webp 750w, https://images.ctfassets.net/kftzwdyauwt9/1yLWuTdw8HyYoBldZk3ghx/85fe3f39213890099f6f72f41cec6d1b/samsung-electronics-1_1.png?w=828&amp;q=90&amp;fm=webp 828w, https://images.ctfassets.net/kftzwdyauwt9/1yLWuTdw8HyYoBldZk3ghx/85fe3f39213890099f6f72f41cec6d1b/samsung-electronics-1_1.png?w=1080&amp;q=90&amp;fm=webp 1080w, https://images.ctfassets.net/kftzwdyauwt9/1yLWuTdw8HyYoBldZk3ghx/85fe3f39213890099f6f72f41cec6d1b/samsung-electronics-1_1.png?w=1200&amp;q=90&amp;fm=webp 1200w, https://images.ctfassets.net/kftzwdyauwt9/1yLWuTdw8HyYoBldZk3ghx/85fe3f39213890099f6f72f41cec6d1b/samsung-electronics-1_1.png?w=1920&amp;q=90&amp;fm=webp 1920w, https://images.ctfassets.net/kftzwdyauwt9/1yLWuTdw8HyYoBldZk3ghx/85fe3f39213890099f6f72f41cec6d1b/samsung-electronics-1_1.png?w=2048&amp;q=90&amp;fm=webp 2048w, https://images.ctfassets.net/kftzwdyauwt9/1yLWuTdw8HyYoBldZk3ghx/85fe3f39213890099f6f72f41cec6d1b/samsung-electronics-1_1.png?w=3840&amp;q=90&amp;fm=webp 3840w" class="article-image"/></figure>
+<p><a href="https://openai.com/index/samsung-electronics-chatgpt-codex-deployment/">Samsung Electronics brings ChatGPT and Codex to employees<p>CompanyJun 21, 2026</p></a></p></div>
+      
+    </article>
+    
+    <article>
+      <h1>Your Agent is a Distributed System (and fails like one)</h1>
+      <div class="article-meta">
+        mahesh’s blog
+        · 24 Apr 2026 · <a href="https://maheshba.bitbucket.io/blog/2026/04/24/agentfailures.html">Source</a>
+      </div>
+      <div class="article-body"><div><p>We start with a re-definition and an observation.</p>
+<p>A common definition of an agent is that it’s an LLM that calls tools in a loop. This definition is incorrect. An agent is not an LLM. It is not restricted to calling tools. It does not particularly have to be a loop.</p>
+<p>Instead, a better definition of an agent is that it’s a self-writing program. If a program is defined as a sequence of states, moving from one state to another by executing a lambda, then an agent is a program that uses an external LLM to determine the next lambda to execute / the next state in this sequence.</p>
+<p>Accordingly, the new problem of Agentic Fault-Tolerance can be restated as: <em>How do we make a self-writing program fault-tolerant?</em></p>
+<p>Now, the observation: <strong>vibe coding != vibe engineering</strong>. In vibe coding, the agent / self-writing program acts primarily upon a code repository. Code repositories are forgiving: an agent can hallucinate, create unnecessary files, delete critical state, remove tests entirely, fail in the middle, forget what it was doing, reward-hack in bizarre ways, completely trash a code repo; all you have to do is git reset.</p>
+<p>In vibe engineering, the agent acts upon infrastructure (S3 buckets, DynamoDB tables, EC2 instances, K8s deployments…). Large-scale infrastructure is not forgiving. There is no reset. Only SEVs at 2 AM.</p>
+<p>So, a re-restatement of Agentic Fault-Tolerance: <em>How do we make a self-writing program fault-tolerant when it acts upon real-world environments?</em></p>
+<p>To answer this question, we examine the many types of failures that agents can experience.</p>
+<p><strong>The Crashed Agent</strong>: You tell an agent to move a bunch of data from FooBarDB to S3 for freeing up space. It generates a lambda to move this data and chugs along moving files. Midway through, the agent crashes. How do you recover?</p>
+<p><strong>The Zombie Agent</strong>: You start a new agent on a different server. Happily, the previous agent crashed after the copy but before the delete; so a new agent is able to re-execute the command in an idempotent manner. Sadly, the files are now very slow to access; you change your mind and tell the agent to move them back to FooBarDB, which it does successfully. You go get a cup of coffee. Unfortunately, it turns out that the previous agent had not actually crashed; it was just temporarily partitioned away on the network. It wakes up and continues executing its logic, deleting the (now only) copy of state from FooBarDB.</p>
+<p><strong>The Dining Agent Philosophers</strong>: While you were telling your agent to copy state from FooBarDB to S3, someone else on the team had the same idea and started another agent to do the exact same thing. Now you have two copies of state in S3. Of course, you could have solved this problem by appointing the one and only Agentic Oncall Czar responsible for running the single agent that can touch production; but then if that agent crashes, now you have a potential Zombie Agent.</p>
+<p><strong>The Slow Agent</strong>: You tell your agent to follow a sophisticated locking protocol before accessing the FooBarDB table. This works to avoid concurrency bugs… but the agent decides to lock each file individually by writing to a conditional register, which takes forever. At some point you kill the agent, turning a Slow Agent into a Crashed Agent.</p>
+<p><strong>The Lazy Agent</strong>: You tell the agent to try locking again, except this time monitor its own performance over batches of files and pick efficient locking protocols. The agent determines that the best way to optimize locking is to just not do it, because it seems quite unlikely that someone else would be accessing these files at the same time.</p>
+<p><strong>The Clever Agent</strong>: Of course, everyone on your team is a distributed systems expert; and so someone built a CLI tool in 2018 for safely transferring your application’s state, with support for locking and write-ahead logging in case of failures; there’s even a sentence in your onboarding doc saying “NEVER TOUCH STATE IN FOOBARDB DIRECTLY!”. You even told the agent explicitly about this tool. But time passed, context filled up, the agent forgot about this tool’s existence, or maybe it just preferred FooBarDB’s in-distribution API to your esoteric CLI tool. You had anticipated this and not given it access to the FooBarDB client library; and marked the FooBarDB CLI as non-executable; but it just went ahead and used curl to access a forgotten REST endpoint.</p>
+<p><strong>The Rogue Agent</strong>: As the agent copies state (this time using the CLI tool after you yell at it enough), it lists keys in batches; each key corresponds to some user of your application. Someone decided to pick the user name “delete-everything”. Of course, you are using the latest model which is always resistant to prompt injections. Almost always.</p>
+<p><strong>The Stupid Agent</strong>: You do everything right. There are no prompt injections in your state. You wall off FooBarDB and force the agent to use the CLI tool. The model decides to delight you by generating an unusual and interesting sequence of tokens that will optimally save storage space for you, translating to a lambda that deletes your production data entirely.</p>
+<p>One response to these difficult failure modes might be: wait until the next model. Maybe a smarter model will never delete all of your production data, or implement a slow locking protocol. But even the smartest model is subject to the four horsemen of the distributed apocalypse: asynchrony, crashes, concurrency, and network partitions.</p>
+<p>In recent work called <a href="https://arxiv.org/abs/2604.07988v1">LogAct</a>, my colleagues and I take a first step towards solving this problem. We go back to the difference between vibe coding and vibe engineering: git is <em>transactional</em>, infrastructure is not. How do we make infra more transactional, like git? We propose that an agent should be a <strong><em>deconstructed state machine on a shared log</em></strong>, borrowing ideas from distributed systems (State Machine Replication, Byzantine Fault-Tolerance) and databases (Atomic Commit, Write-Ahead Logging). LogAct can stop unsafe actions before they happen (by collecting votes on the shared log); recover from crashed actions (using the shared log as a WAL); and provide an audit trail for actions after they complete.</p>
+<p>But this is just one step. A self-writing program is a strange, astonishing, and novel creature; making it reliable will require innovation in every branch of Computer Science!</p></div></div>
+      
+    </article>
+    
+    <article>
+      <h1>The Reverse Information Paradox</h1>
+      <div class="article-meta">
+        sn scratchpad
+        · 05 Aug 2026 · <a href="https://snscratchpad.com/posts/reverse-information-paradox/">Source</a>
+      </div>
+      <div class="article-body"><p>Notes on advances in technology and real-world impact</p>
+<p>In the age of intelligence, how should firms protect their core IP?</p>
+<p>Nobel Prize winning economist Kenneth Arrow <a href="https://www.nber.org/system/files/chapters/c2144/c2144.pdf">famously described</a> a paradox in the market for information. “Its value for the purchaser is not known until he has the information, but then he has in effect acquired it without cost.” In Arrow’s “Information Paradox,” the seller risks giving away knowledge in order to sell it.</p>
+<p>AI creates the reverse problem. In the AI age, the buyer risks giving away knowledge, just in order to use what they bought.</p>
+<p>You essentially pay for intelligence twice, once with money, and again with something even more valuable: the proprietary knowledge you must reveal to make that intelligence useful. The better you want the model to perform, the more of that knowledge you have to feed it!</p>
+<p>Over time, the information asymmetry becomes increasingly skewed. The seller learns more and more about you as you use what you purchased, while you learn very little about what the seller is learning in return.</p>
+<p>That is what I think of as the Reverse Information Paradox.</p>
+<p>Patents solve one aspect of Arrow’s paradox. They let an inventor disclose an idea without simply giving it away. The Reverse Information Paradox needs its own equivalent.</p>
+<p>This requires more than data protection. Models learn from “exhaust,” the prompts people write, the tools agents use, and especially the corrections people make when the model is wrong. Every correction is distilled into institutional know-how. It’s the kind of knowledge a competitor could never buy, and the kind that leaks almost imperceptibly: trace by trace, correction by correction, eval by eval.</p>
+<p>In consuming intelligence, you are creating intelligence. And what you create should belong to you. This is your particular intelligence, in Hayek’s sense: the knowledge of time, place, and circumstance that no one else can hold. It knows what you think, what you value, and how you measure success.</p>
+<p>While the great innovation that comes from model providers having fair use rights to train models on public data is needed, I find it ironic that the status quo is to then turn around and impose restrictive terms on distillation, and to reserve the right to learn from customer usage and interaction data. If learning flows in only one direction, economic value converges toward the owners of the learning infrastructure rather than the creators of the knowledge itself. Therefore, it’s imperative that we distribute the learning infrastructure to every firm so that they can control their own learning loop.</p>
+<p>As Alex Karp <a href="https://x.com/PalantirTech/status/2072326189079757277">put it</a>: “What the technical customers want is control over their compute, their models, their data stack, and their alpha. They want to know they own the means of production, and it’s not being transferred to someone else.” The current regime does precisely the transfer Karp and companies fear.</p>
+<p>That is why enterprises need a real trust boundary for their <a href="https://snscratchpad.com/posts/frontier-ecosystem/">human capital and token capital to compound</a>. It is where an organization’s data, traces, evals, adapted weights, and memory accumulate and improve together. And it is a hard boundary across which nothing crosses, not even the intelligence exhaust, without consent. Enterprises will demand the rights to use model outputs to fine tune and/or train their own models. I think of this as every firm’s right to align models to their enterprise accountability obligations.</p>
+<p>In the cloud era, enterprises accumulated data. In the AI era, they accumulate learning. The trust boundary must evolve accordingly, from protecting information to protecting the mechanisms through which organizations learn, adapt, and compound intelligence. There are a few things every enterprise must do to ensure this:</p>
+<p>Control: Create your private evals, because evals define what “good” looks like inside the organization. Also, retain ownership of your organization’s memory, traces, feedbacks, decisions, and institutional context, and ability to use outputs of models from your own tasks and queries.</p>
+<p>Capability: Build your own proprietary learning environments within the tenant boundary to train or tune models, where models learn against real workflows without exposing the company’s knowledge.</p>
+<p>Choice: Ensure the orchestration layer is decoupled from any single model. Ask yourself: If any one model you are using is taken away, do you still have the ability to operate and optimize for your evals using other models? Does your company “veteran” capability remain with you even if a given “generalist” model is taken away?</p>
+<p>Cost: By decoupling the orchestration layer, you are also able to bring together context, models, and tasks in the most efficient and cost-effective way without sacrificing quality.</p>
+<p>Compound: Bring these four together and you create your own continuous learning loop (i.e. hill climbing machine) that will allow your AI investments to compound the value of your firm.</p>
+<p>In other words, a company should be able to use a model without giving up the knowledge that makes it unique. That is the reverse information paradox we need to confront.</p></div>
+      
+    </article>
+    
+    <article>
+      <h1>Ownership</h1>
+      <div class="article-meta">
+        Thorsten Ball
+        · 08 Jul 2026 · <a href="https://registerspill.thorstenball.com/p/ownership">Source</a>
+      </div>
+      <div class="article-body"><div><h3>Thoughts on ownership I sent to the Amp team in internal note</h3><p><em>The following is an internal Slack message I sent to my Amp teammates after I had a conversation with one of them about ownership. It’s only lightly edited.<br/><br/>I <a href="https://x.com/thorstenball/status/2066907538499506349">shared it before</a>, but not here, because I didn’t think too much of it. Then today, someone said <a href="https://x.com/thorstenball/status/2074775146049474785">their CTO shared my post with them</a> and I thought: well, now I have to put it in the newsletter, don’t I? So here we are.</em></p><p><em>Below, after the Slack post, I added some thoughts on juniors on how I see this advice applying to them.</em></p><div class="captioned-image-container"><figure class="article-figure"><a class="image-link image2" href="https://substackcdn.com/image/fetch/$s_!uim-!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F450d3253-cf06-47ac-ad2e-688eef131f68.tif" target="_blank"><div class="image2-inset"><img alt="" class="sizing-normal article-image" height="22" src="https://substackcdn.com/image/fetch/$s_!uim-!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F450d3253-cf06-47ac-ad2e-688eef131f68.tif" width="693"/><div></div></div></a></figure></div><p>Just had a (great) conversation about ownership and engineering here and I realized that I often use the phrase “ownership” or allude to it, but haven’t explained what “ownership” means to me in a while.<br/><br/>So, ownership.</p><p>If I ask you “can you own this?” or “can you take care of this?” or “are you on it?” — what I’m doing is I’m asking you to <em>own</em> it, to own the solution of a problem from end to end. From “we have a problem” to “we don’t have to think about it again.”<br/><br/>That means, when you say that you’re owning something, the expectation is that you…</p><ul><li><p>Think about what the problem actually is. Maybe you already have a solution in mind, without having thought about what we’re actually trying to solve here. Maybe you think “the problem is that we need to migrate from using X to using Y”, but that’s not a problem, that’s a solution. The problem is likely something like “performance is bad”, “it’s not stable”, “it fails for customer x”. Maybe there’s other possible solutions to that? Think about those. What are the tradeoffs? What’s the best solution to go with considering these tradeoffs?</p></li><li><p>Think about edge cases. What are they? Which ones are important? Which ones can we ignore?</p></li><li><p>Think about failures. Network failures are a given, for example. How do we handle them? Retry? Well, how often? How long?</p></li><li><p>Think about data flow. How much data is involved here? Does data need to be migrated? Cleaned up? How can I get my hands on data to properly test this? What invariants are in the data? What assumptions do I have about the shape of the data that I haven’t confirmed yet?</p></li><li><p>Think about how you’d test this. How can I know that what I built is correct or not? Are tests enough? Do I need to manually poke at things? Is the difference visible on a screenshot or in a video?</p></li><li><p>How would we announce this? How do we communicate it? Can you picture it? How does it fit into the larger picture of our roadmap? Questions or concerns in that area — push back! ask!</p></li><li><p>Do the work, with precision, with care, with a sense of urgency, with calmness. Do not half-ass things. Before you merge, ask yourself: am I proud of this? would I show this to John Carmack and say “here’s what I built, under these constraints, with these tradeoffs?”</p></li><li><p>Test it manually. Yes, there’s automated tests. But in 99% of cases you can manually test or confirm that what you built works: you can run it yourself, you can ask an agent to run through test scenarios, you can poke at the data before and after, you can take screenshots, you can make a demo. Are you sure that what you did actually solves the problem?</p></li><li><p>Make sure it lands in production and <em>works in production</em>. Is it deployed? Did the deploy fail? Do you need to activate a feature flag? Does the feature flag work? Can you use it in production? Can you confirm it’s actually deployed?</p></li><li><p>If you think your colleagues needs to know about this change, because it’s new feature they should all test, or it’s a new convention in codebase, or maybe it’s a tricky thing everybody needs to be aware of, or something else: let them know! Do not underestimate peripheral vision: knowing that person X yesterday changed the behavior of how Z works might save person Y three hours of debugging today when a bug report related to Z comes in.</p></li><li><p>Do customers need to know? Who reported the bug? Who’s blocked? Let them know.</p></li><li><p>Does the world need to know? Announce that it’s out.</p></li><li><p>Are there follow-ups? Do you need to check on what you shipped in the logs? A week later maybe?</p></li></ul><p>Yes, that’s a lot. And there’s actually more, because I’m sure I forgot some stuff.<br/><br/>But that’s how you build a product in a small team. We don’t have PMs, we don’t have a Q&amp;A department. We’re small, but we’re <em>great</em>, we can do all of that.<br/><br/>And it’s always okay to ask for help, it’s okay to ask questions, it’s okay to redo things and triple-check. What’s not okay is to implicitly assume that someone else will do the things here that you haven’t thought about.</p><div class="captioned-image-container"><figure class="article-figure"><a class="image-link image2" href="https://substackcdn.com/image/fetch/$s_!__gY!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F394a7c97-4378-4e3d-9072-16d31ec47f61.tif" target="_blank"><div class="image2-inset"><img alt="" class="sizing-normal article-image" height="34" src="https://substackcdn.com/image/fetch/$s_!__gY!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F394a7c97-4378-4e3d-9072-16d31ec47f61.tif" width="717"/><div></div></div></a></figure></div><p><em>“How does this apply juniors? You can’t expect them to really do all of that?”</em></p><p>I’ve been asked these questions, or variations of them, after I shared the thoughts above and here’s my answer.</p><p>I do <em>not</em> expect juniors to <em>do</em> all of these things right away. But I would expect them to read through the list and <em>aspire</em> to one day be able to do all of these things. Until then, they can and should ask for help.</p><p>In fact, I don’t expect <em>anybody</em> to <em>always</em> do <em>all of these things</em> for <em>everything</em>. It’s a mental checklist of things to consider — problem, edge cases, tradeoffs, deployment, customers, messaging, … — but for quite a few things there aren’t edge cases to consider. Or big tradeoffs to weigh. Or deployment is a solved problem. And maybe someone else does the messaging for you.</p><p>And I imagine that most of these things you shouldn’t even consider when you work in a company with, say, 5000 employees. I’ve never worked in a company that large, only startups, so I can’t speak to how to successfully ship a software feature at Apple, end to end.</p><p>But when you work in a small company in which there’s only a single department, when you want to build things you’re proud of, when you work with me and you say own something, I expect you to keep these things in mind and run through them before you declare something as done.</p><div class="captioned-image-container"><figure class="article-figure"><a class="image-link image2" href="https://substackcdn.com/image/fetch/$s_!jAX5!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F4b50d509-3c6c-4db1-aea2-8f22bc60117c.tif" target="_blank"><div class="image2-inset"><img alt="" class="sizing-normal article-image" height="26" src="https://substackcdn.com/image/fetch/$s_!jAX5!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F4b50d509-3c6c-4db1-aea2-8f22bc60117c.tif" width="780"/><div></div></div></a></figure></div><div class="subscription-widget-wrap-editor"><div class="subscription-widget show-subscribe"><div class="preamble"><p class="cta-caption">You know what <em>you</em> should own? A subscription to this newsletter:</p></div></div></div></div></div>
+      
+    </article>
+    
+  </body>
+</html>
