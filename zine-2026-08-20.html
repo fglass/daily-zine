@@ -1,0 +1,548 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Fred Talks - 2026-08-20</title>
+    <style>
+      @page {
+        size: A5;
+        margin: 8mm 9mm 9mm;
+      }
+
+      :root {
+        color: #111;
+        font-family: "Times New Roman", Times, serif;
+        --body-text-size: 9.5pt;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        color: #111;
+        background: #fff;
+        font-family: "Times New Roman", Times, serif;
+        line-height: 1.45;
+      }
+
+      a,
+      a:visited {
+        color: #111;
+        text-decoration: underline;
+      }
+
+      .cover {
+        min-height: calc(210mm - 17mm);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        page-break-after: always;
+        border: 1px solid #111;
+        padding: 8mm;
+        background: #fff;
+      }
+
+      .toc-item-meta,
+      .article-meta {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .masthead {
+        margin: 0;
+        font-size: 40pt;
+        line-height: 0.95;
+        text-transform: uppercase;
+      }
+
+      .issue-date {
+        margin: 4mm 0 0;
+        font-size: 14pt;
+      }
+
+      .issue-date sup {
+        font-size: 0.58em;
+        vertical-align: super;
+        line-height: 0;
+      }
+
+      .cover-deck {
+        max-width: 90mm;
+        font-size: 12pt;
+        margin: 0;
+      }
+
+      .toc {
+        border-top: 3px solid #111;
+        padding-top: 6mm;
+      }
+
+      .toc h2 {
+        margin: 0 0 4mm;
+        font-size: 11pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .toc-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .toc-item {
+        padding: 3mm 0;
+        border-bottom: 1px solid rgba(17, 17, 17, 0.2);
+      }
+
+      .toc-item-title {
+        font-size: 12pt;
+        margin: 0 0 1mm;
+      }
+
+      .toc-item-meta {
+        font-size: 8pt;
+      }
+
+      .masthead-compact {
+        margin: 0 0 6mm;
+      }
+
+      .masthead-compact h1 {
+        margin: 0;
+        font-size: 22pt;
+        line-height: 1.1;
+        text-transform: uppercase;
+      }
+
+      .masthead-compact .issue-date {
+        margin: 2mm 0 0;
+        font-size: 11pt;
+      }
+
+      .toc-compact {
+        border-top: 1px solid #111;
+        border-bottom: 1px solid #111;
+        padding: 4mm 0;
+        margin: 0 0 8mm;
+      }
+
+      article + article {
+        margin-top: 10mm;
+        padding-top: 6mm;
+        border-top: 2px solid #111;
+      }
+
+      h1 {
+        margin: 0 0 2mm;
+        font-size: 18pt;
+        line-height: 1.1;
+      }
+
+      .article-meta {
+        font-size: 8.5pt;
+        margin-bottom: 6mm;
+        padding-bottom: 3mm;
+        border-bottom: 1px solid #111;
+      }
+
+      .article-body {
+        font-size: var(--body-text-size);
+        font-family: "Times New Roman", Times, serif;
+      }
+
+      .article-body p,
+      .article-body li,
+      .article-body blockquote,
+      .article-body dd,
+      .article-body dt {
+        margin: 0 0 4mm;
+        orphans: 3;
+        widows: 3;
+      }
+
+      .article-body ul,
+      .article-body ol,
+      .article-body dl {
+        margin: 0 0 4mm 5mm;
+        padding: 0;
+      }
+
+      .article-body h2,
+      .article-body h3,
+      .article-body h4 {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        margin: 7mm 0 3mm;
+        line-height: 1.2;
+      }
+
+      .article-body blockquote {
+        margin-left: 6mm;
+        padding-left: 4mm;
+        border-left: 2px solid #111;
+      }
+
+      .article-body .media-omitted {
+        margin: 0 0 4mm;
+        font-size: 8.5pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(17, 17, 17, 0.65);
+      }
+
+      .article-body figure,
+      .article-body .article-figure,
+      .article-body picture,
+      .article-body .article-picture {
+        display: block;
+        max-width: 72mm;
+        margin: 0 auto 4mm;
+        break-inside: avoid;
+      }
+
+      .article-body img,
+      .article-body .article-image {
+        display: block;
+        max-width: min(100%, 72mm);
+        max-height: 34mm;
+        height: auto;
+        width: auto;
+        object-fit: contain;
+        margin: 0 auto 3mm;
+      }
+
+      .article-body figcaption {
+        margin-top: 1.5mm;
+        font-size: 8.5pt;
+        line-height: 1.3;
+        color: rgba(17, 17, 17, 0.8);
+      }
+
+      .article-note {
+        margin-top: 6mm;
+        padding-top: 3mm;
+        border-top: 1px solid #111;
+        font-size: 9pt;
+        font-style: italic;
+      }
+
+      @media screen {
+        body {
+          padding: 2rem;
+          margin: 0 auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    
+    <header class="masthead-compact">
+      <h1>Fred Talks</h1>
+      <p class="issue-date">
+        20<sup>th</sup> August 2026
+      </p>
+    </header>
+
+    <nav class="toc toc-compact">
+      <h2>Contents</h2>
+      <ol class="toc-list">
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Mastering Codex Remote for engineering</div>
+          <div class="toc-item-meta">
+            developers.openai.com · 2207 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">How agents are transforming work | OpenAI</div>
+          <div class="toc-item-meta">
+            OpenAI · 1582 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Search has its own bitter lesson</div>
+          <div class="toc-item-meta">
+            Doug Turnbull · 1012 words
+          </div>
+        </li>
+        
+      </ol>
+    </nav>
+    
+
+    
+    <article>
+      <h1>Mastering Codex Remote for engineering</h1>
+      <div class="article-meta">
+        developers.openai.com
+        · 25 Jun 2026 · <a href="https://developers.openai.com/blog/mastering-codex-remote-for-engineering">Source</a>
+      </div>
+      <div class="article-body"><div><article> <p>Codex Remote is easy to underestimate.</p>
+<p>At first glance, it looks like a way to check on a coding task from your phone. That is useful, but it misses the bigger idea. The real power of Codex Remote is that it lets you start, direct, review, and organize work running on your development machines without pretending that an iPhone should be a tiny terminal.</p>
+<p>Over the last two months, we have added a surprising amount of depth to that loop: remote host connections, worktrees, goals, side chats, inline code review, queued and steering prompts, attachments, skills and plugins, archived threads, security controls, and a long tail of small details that make the app useful for serious work.</p>
+<p>This is the field guide I wish every new power user had.</p>
+<p><img alt="Codex Remote project picker on an iPhone" src="https://developers.openai.com/images/blog/mastering-codex-remote-for-engineering.jpg" class="article-image"/></p>
+<h2>The right mental model: Your phone is the control plane</h2>
+<p>The code still runs where it belongs: on your Mac, Windows machine, devbox, or other connected host. Codex Remote gives you a native interface for controlling that work.</p>
+<p>That distinction matters. The goal is not to reproduce every terminal affordance on a small screen. The goal is to make the decisions that unblock an agent easy from anywhere:</p>
+<ul>
+<li>What repository and workspace should it use?</li>
+<li>Should this run in the current branch or a fresh worktree?</li>
+<li>Should my next message wait, or should it redirect the active turn?</li>
+<li>Is this command safe to approve?</li>
+<li>What changed, and do I agree with it?</li>
+<li>Should this become a durable goal, a separate thread, or a quick side question?</li>
+</ul>
+<p>Once you use the app this way, it stops feeling like remote desktop software and starts feeling like an engineering control plane.</p>
+<h2>1. Start the task with the right boundaries</h2>
+<p>Good agent work starts with a correctly scoped environment. Codex Remote lets you choose the connected host and workspace before the first prompt. For a new thread, you can also choose a branch, create a separate worktree, and run the environment setup associated with it.</p>
+<p>That makes a few useful patterns possible:</p>
+<ul>
+<li>Use the current checkout for a quick investigation.</li>
+<li>Create a new worktree for a change that should stay isolated.</li>
+<li>Start from the intended base branch instead of fixing Git state later.</li>
+<li>Let the environment setup run before asking Codex to build or test.</li>
+</ul>
+<p>This is one of the most important power-user habits: Spend 10 seconds choosing the right execution context and save 10 minutes of cleanup later.</p>
+<p>The composer can also carry more context than plain text. You can attach files, photos, or a fresh camera capture. Skills and plugins appear inline, which makes it much easier to confirm that your prompt is invoking the capability you intended.</p>
+<p>My rule is simple: If a screenshot, file, or named skill can remove ambiguity, attach or mention it before the first turn.</p>
+<h2>2. Learn the difference between Queue and Steer</h2>
+<p>This is probably the least obvious high-leverage setting in Codex Remote.</p>
+<p>When Codex is already working, a follow-up can do one of two things:</p>
+<ul>
+<li><strong>Queue</strong> waits until the current response finishes, then sends your prompt as the next turn.</li>
+<li><strong>Steer</strong> injects guidance into the work already in progress.</li>
+</ul>
+<p>Queue is the safe default. Use it for a second task, an extra test request, or anything that should happen after the current work.</p>
+<p>Steer is for correcting direction while the cost of continuing down the wrong path is still growing:</p>
+<blockquote>
+<p>Keep the fix inside the mobile package. Do not refactor the shared renderer.</p>
+</blockquote>
+<blockquote>
+<p>The reproduction only happens after reconnect. Test the resumed path, not the live path.</p>
+</blockquote>
+<blockquote>
+<p>Stop investigating the UI. Check whether the server removed the item during resume.</p>
+</blockquote>
+<p>That turns the phone into something more useful than a status screen. You can intervene at the exact moment a run needs judgment.</p>
+<p>You can choose the default follow-up behavior in Codex settings. I keep Queue as the default and use Steer deliberately; accidental mid-turn redirection is usually more expensive than waiting.</p>
+<h2>3. Use side chats as a branch of thought</h2>
+<p>Long-running coding threads accumulate valuable context. Interrupting one with every side question makes the main transcript noisy and can pull the agent away from the objective.</p>
+<p>That is what side chats solve.</p>
+<p>Use <code>/side</code> to open a lightweight conversation connected to the current thread. Use <code>/side &lt;prompt&gt;</code> to open it with a question already prepared. Even better, select text in the transcript and choose <strong>Ask in side chat</strong>. The selected passage becomes the starting context for the new conversation.</p>
+<p>I use side chats for questions such as:</p>
+<ul>
+<li>Why did Codex choose this architecture?</li>
+<li>What does this error actually mean?</li>
+<li>Is this behavior consistent with the desktop app?</li>
+<li>Give me a release-note version of this implementation detail.</li>
+<li>What should I verify before I approve this command?</li>
+</ul>
+<p>The distinction is useful: The main thread owns the work; the side chat helps me understand the work.</p>
+<h2>4. Use Plan for the path and Goal for the outcome</h2>
+<p>Plan mode and goals solve different problems.</p>
+<p>Plan mode asks Codex to propose the implementation path before changing code. It is useful when the task is underspecified, risky, or likely to touch several systems.</p>
+<p>A goal is durable. It tells Codex what outcome to keep pursuing across turns. On mobile, <code>/goal</code> can create and manage that objective, while progress remains visible as the work continues.</p>
+<p>A practical pattern is:</p>
+<ol>
+<li>Start with Plan mode for a risky change.</li>
+<li>Inspect the proposed boundaries.</li>
+<li>Turn the accepted outcome into a goal when the work will require multiple iterations.</li>
+<li>Let Codex continue through implementation, tests, review feedback, and cleanup without restating the objective every time.</li>
+</ol>
+<p>Plans answer “How should we approach this?” Goals answer “What must be true before we are done?”</p>
+<h2>5. Review code without leaving the conversation</h2>
+<p>The review loop is where Codex Remote becomes genuinely useful for engineering rather than merely convenient.</p>
+<p>Completed turns can show a summary of changed files. From there, you can open the diff, inspect individual files, expand or collapse sections, wrap long lines, and open a source file with syntax highlighting. You can attach inline comments to the relevant lines and send that review context back to Codex.</p>
+<p>There are several levels to the workflow:</p>
+<ul>
+<li>Open the changed-file summary for a quick sanity check.</li>
+<li>Tap through to the full source when a diff lacks surrounding context.</li>
+<li>Add inline comments for precise corrections.</li>
+<li>Use the review command to review local changes or compare against a branch.</li>
+<li>Link a file back into the chat when you want Codex to reason about that file specifically.</li>
+</ul>
+<p>This makes a tight mobile review loop possible:</p>
+<ol>
+<li>Codex completes the implementation.</li>
+<li>I inspect the diff from my phone.</li>
+<li>I leave two inline comments.</li>
+<li>Codex addresses them in the same thread.</li>
+<li>I review the smaller follow-up diff.</li>
+</ol>
+<p>The important point is not that a phone replaces a large monitor for deep code reading. It does not. The point is that many reviews are blocked on one or two decisions, and those decisions no longer need to wait until I am back at my desk.</p>
+<h2>6. Treat permissions as part of the workflow</h2>
+<p>Remote work is only useful if control stays explicit.</p>
+<p>Codex Remote surfaces approval requests for commands, file changes, network access, and connected tools. Depending on the request and host configuration, an approval may apply once, for the current chat, or more broadly.</p>
+<p>The power-user move is not to approve everything. It is to choose the narrowest permission that keeps the work moving.</p>
+<p>For a well-understood command in a trusted thread, a chat-scoped approval can remove repetitive interruptions. For an unfamiliar command, a sensitive repository, or a request whose effect is unclear, approve once—or deny it and ask Codex to explain or use a safer approach.</p>
+<p>You can also choose the thread’s broader approval behavior when starting work. Think of this as part of task setup, alongside the host, workspace, branch, and model.</p>
+<h2>7. Manage context before it becomes a problem</h2>
+<p>Agent threads are stateful, and long threads eventually accumulate enough context to become slower or less focused.</p>
+<p>Codex Remote has a small set of tools for managing that lifecycle:</p>
+<ul>
+<li><code>/status</code> shows session details, workspace, context usage, and available rate-limit information.</li>
+<li>The optional context indicator keeps remaining context visible in the composer.</li>
+<li><code>/compact</code> compresses an overgrown thread while preserving the useful working state.</li>
+<li><code>/fork</code> creates a new thread from the current one when you want shared history but a different direction.</li>
+</ul>
+<p>The practical sequence is: Check status, compact when the objective is still the same, and fork when the objective has diverged.</p>
+<p>Do not use a side chat and a fork interchangeably. A side chat is a lightweight question around the current work. A fork is a new primary line of work that inherits the thread’s history.</p>
+<h2>8. Keep a clean Thread Desk</h2>
+<p>My own Codex workflow increasingly looks like a small operations desk.</p>
+<p>I pin the few threads that are actively moving, rename them around outcomes, and archive them aggressively once the work is done. Archived-thread browsing makes this safe: Archive is organization, not deletion.</p>
+<p>Notifications are part of that system. A completion notification can open the relevant Codex task directly, so the handoff from “agent finished” to “human reviews” is one tap.</p>
+<p>Spotlight and Shortcuts can open Codex Remote directly. On iPad, keyboard shortcuts make the app surprisingly efficient: Create a new thread, move between threads, open changed files, pin, rename, and archive without reaching for every control.</p>
+<p>This is the “chief of staff” use case for Codex Remote. The app is not only where I issue prompts. It is where I keep track of which pieces of engineering work are active, blocked, waiting for review, or finished.</p>
+<h2>9. The hidden command palette</h2>
+<p>Typing <code>/</code> reveals the fastest route to many of the app’s advanced behaviors. Availability can depend on the connected host, app version, and account configuration.</p>
+<div><table><thead><tr><th>Command</th><th>What it is for</th></tr></thead><tbody><tr><td><code>/plan</code></td><td>Toggle Plan mode before implementation.</td></tr><tr><td><code>/goal &lt;objective&gt;</code></td><td>Create or update a durable objective.</td></tr><tr><td><code>/side [question]</code></td><td>Ask a side question without disrupting the main thread.</td></tr><tr><td><code>/review</code></td><td>Review local changes or compare them with a branch.</td></tr><tr><td><code>/status</code></td><td>Inspect the session, workspace, context, and rate limits.</td></tr><tr><td><code>/compact</code></td><td>Compress a long thread’s context.</td></tr><tr><td><code>/fork</code></td><td>Create a new primary thread from the current history.</td></tr><tr><td><code>/fast</code></td><td>Switch between standard and faster execution when available.</td></tr><tr><td><code>/feedback</code></td><td>Send product feedback tied to the current session.</td></tr></tbody></table></div>
+<p>The command palette is worth learning because it exposes the product’s real conceptual model: Plan, pursue, branch, review, inspect, and recover.</p>
+<h2>10. Five workflows that work especially well on mobile</h2>
+<h3>The release captain</h3>
+<p>Start a focused thread for a release or pull request. Ask Codex to check the current branch, CI state, open review feedback, and release inclusion. Pin the thread. When new information arrives, steer only when it invalidates the active investigation; otherwise, queue it. Review the final diff or release note from the phone and archive the thread when the release lands.</p>
+<h3>The interrupt-driven bug fix</h3>
+<p>Attach a screenshot, log, or captured file. Ask Codex to diagnose before editing. Use a side chat to interrogate one suspicious error without derailing the main investigation. Once the cause is clear, return to the main thread and authorize the narrow fix.</p>
+<h3>The mobile reviewer</h3>
+<p>Run a review against the intended branch, inspect the changed-file summary, open the files that matter, and attach inline comments. Ask Codex to address only those comments, then review the follow-up diff.</p>
+<h3>The long-running objective</h3>
+<p>Create a goal with a concrete completion condition: Tests green, review feedback resolved, or a reproducible performance threshold met. Check progress from notifications and status rather than repeatedly asking “Are you done?” Use queued prompts for additional work and reserve steering for corrections.</p>
+<h3>The multi-machine operator</h3>
+<p>Keep hosts named clearly and organize work by machine and workspace. Use the phone to start a task on the machine that has the right checkout, credentials, simulator, or operating system. This is especially useful when one task requires a Mac and another needs a Windows host.</p>
+<h2>Small features with outsized impact</h2>
+<p>Some of my favorite additions are not headline features:</p>
+<ul>
+<li>Edit the latest sent prompt instead of adding a correction turn.</li>
+<li>Save or copy rendered images from a task.</li>
+<li>See queued prompts while Codex is still running.</li>
+<li>Open completed tasks directly from notifications.</li>
+<li>Browse archived threads instead of keeping the active list crowded.</li>
+<li>Wrap long diff lines when reading on a narrow screen.</li>
+<li>Use Face ID or the device passcode to protect Codex separately.</li>
+<li>See skills and plugins inline in the composer before sending.</li>
+<li>Capture a photo directly into a prompt when the real-world object is the context.</li>
+<li>Start a side chat from selected transcript text rather than re-explaining the question.</li>
+</ul>
+<p>None of these changes the fundamental agent model. Together, they remove the friction that makes a remote workflow feel fragile.</p>
+<h2>The larger lesson</h2>
+<p>The best mobile software does not shrink a desktop interface. It identifies the decisions that matter when you are away from the desk and makes those decisions fast, legible, and safe.</p>
+<p>That is how I think about Codex Remote now. It is where I can choose the right environment, set the objective, redirect a run, answer an approval, inspect the result, and keep the whole queue of engineering work coherent.</p>
+<p>The computer still does the work. The phone keeps me in control.</p></article></div></div>
+      
+    </article>
+    
+    <article>
+      <h1>How agents are transforming work | OpenAI</h1>
+      <div class="article-meta">
+        OpenAI
+        · 28 Jun 2026 · <a href="https://openai.com/index/how-agents-are-transforming-work/">Source</a>
+      </div>
+      <div class="article-body"><p>June 25, 2026</p>
+<p><a href="https://openai.com/news/company-announcements/">Company</a></p>
+<p>A new Economic Research paper measuring Codex’s economic potential at the frontier.</p>
+<p><a data-analytics="econ-codex-hero-cta" href="https://cdn.openai.com/pdf/5d1e1489-21c0-43e4-9d42-f87efdbf0082/the-shift-to-agentic-ai-evidence-from-codex.pdf">Read the paper</a></p>
+<p>Listen to article</p>
+<figure class="article-figure"><p class="media-omitted">[AUDIO OMITTED]</p></figure>
+<p>Share</p>
+<p>Agentic AI changes the unit of knowledge work from single interactions to delegated, long-horizon tasks. Chatbot interactions are often short and self-contained. Agents can operate independently for minutes or hours while orchestrating tool calls, interacting with environments, and iterating towards solutions. As a result, agents are quickly becoming the most powerful AI tool for work.</p>
+<p>Over the last year, we witnessed this transformation first-hand at OpenAI. For the first few months after Codex was released to the public, ChatGPT remained the default AI tool for work within OpenAI. Through August 2025, the average OpenAI worker spent less than 10% of their tokens on Codex. Now, every department, including non-technical departments such as Legal and Recruiting, uses Codex as their primary AI tool for work. This pattern reflects what we believe will be the future of work given the expanded capabilities and accessibility of agentic tools.</p>
+<p class="rw-outer-content"><span>Some content could not be imported from the original document.</span> <a href="https://openai.com/index/how-agents-are-transforming-work/">View content ↗ </a></p>
+<p class="rw-outer-content"><span>Some content could not be imported from the original document.</span> <a href="https://openai.com/index/how-agents-are-transforming-work/">View content ↗ </a></p>
+<p>Codex adoption grew in tandem with Codex’s capabilities. As Codex leveraged stronger models and new product features, it became capable of taking on an expanding set of productive tasks. Across Individual users, Organizational users, and OpenAI workers, we document four trends over the past year:</p>
+<ul><li><b>People use Codex for longer-horizon work</b>. By May 2026, 80.6% of sampled individual users made at least one Codex request estimated to exceed 30 minutes of human work, 70.2% made one estimated to exceed one hour, and 25.6% made at least one Codex request estimated to exceed eight hours.</li><li><b>Codex became the primary AI tool for every department at OpenAI</b>. Engineering moved first, but Legal, Finance, and Recruiting crossed into Codex being their primary AI tool around April 2026. For the average OpenAI worker, Codex usage now accounts for more than 85% of output tokens. Since Codex users tend to use more tokens than non-users, its share of overall tokens is even higher: Codex accounts for 99.8% of weekly output tokens generated within OpenAI.</li><li><b>Non-developer adoption grew especially rapidly, outpacing developer adoption</b>. Since August 2025, non-developer users rose 137x for individual users, 189x for organizational users, and 12x within OpenAI.</li><li><b>Codex enabled OpenAI workers to do tasks outside their job description</b>. While technical usage is still most prevalent among engineers, non-technical users regularly use Codex to take on coding or technical execution, including automation, data transformation, tooling, debugging, and structured analysis.</li></ul>
+<h2>Agents work longer hours on harder tasks</h2>
+<p>Nearly a quarter of all Codex requests are for tasks that would take a person more than one hour to complete<sup><a href="#footnote-1" id="inline-ref-footnote-1">(1)</a></sup>. As Codex’s capacity for independent long-context work improved, users shifted from short interactions toward more difficult tasks with longer horizons.</p>
+<p>The chart below estimates the share of individual users that crossed four human-time thresholds: tasks that would take a person more than 30 minutes, more than one hour, more than four hours, and more than eight hours<sup><a href="#footnote-2" id="inline-ref-footnote-2">(2)</a></sup>. From December 2025 to May 2026, the share of users who made a request that was estimated to correspond to work that would take a person more than 30 minutes rose to 80.6%. The share making a request that would take a person more than one hour rose to 70.2%. The share requesting work that would take a person more than eight hours grew the fastest from a low base.</p>
+<p>The growth in agentic usage can be seen in daily Codex runtime. Among daily active users at OpenAI, the heaviest users ask Codex to run many hours of agent work in a single day. By June 2026, users at the 99th percentile regularly generated more than 60 hours of Codex agent turns per day, distributed across multiple, parallel agents. As Codex became more powerful and parallelizable, users moved from only asking Codex for one answer at a time into increasingly orchestrating multiple agent tasks over the course of a day.</p>
+<h2>Adoption continues to move from engineers to the rest of OpenAI</h2>
+<p>Engineers at OpenAI began adopting Codex first, gradually. The average engineer at the company shifted the majority of their usage of OpenAI products to Codex by December 2025. Today, the average engineer generates 99% of their output tokens with Codex rather than ChatGPT. Legal, finance, and recruiting crossed over to majority use of Codex later, around April 2026, but their transitions were much faster. The average lawyer or recruiter at OpenAI now generates more than 85% of their output tokens on Codex.</p>
+<p>Over the last six months, Codex usage has deepened and intensified at OpenAI. Among active internal users, change in combined output tokens rose sharply across departments. Research saw the biggest jump: by June 2026, median use was 56 times higher than in November 2025. Customer Support rose 32 times and Engineering rose 27 times, while Legal grew more gradually but still reached 13 times its November level.</p>
+<p>These two patterns together illustrate how Codex has transformed how OpenAI uses AI to do productive work. Across the company, users are switching from chatbots to agents as their primary form of AI interaction and are deploying an exponentially growing amount of agentic labor.</p>
+<h2>Non-developers are the fastest-growing user groups</h2>
+<p>Across all user groups—OpenAI, organizational, and individual users—Codex use began with developers, the natural target audience for what began as a coding tool. However, as Codex expanded toward more general knowledge work, adoption among non-developers grew even more quickly. As shown in the user growth chart below, weekly non-developer users rose faster than developer users among individual, organizational, and OpenAI populations. By early June 2026, non-developer individual users multiplied 137 times since August 2025. Non-developer organizational users increased 189-fold, and non-developer OpenAI users increased 12-fold, likely because this group already started at a well above average starting point.</p>
+<p>The shift does not mean every non-developer is using Codex in the same way as an engineer. Rather, it means that more non-developers are using Codex for some kind of agentic work.</p>
+<h2>Codex is expanding the horizon of potential productive work</h2>
+<p>Codex enables non-technical departments to accelerate workflows previously bottlenecked by technical expertise. The heat map below compares inferred occupations within OpenAI to the type of work represented in Codex outputs. Engineering and coding show up as the largest category for data science and research, whereas knowledge work is the largest category for finance and business operations, marketing, operations, and other departments.</p>
+<p>That said, agentic tools can expand what an individual worker can do. For instance, over one-fourth of work done with Codex by workers in business functions was engineering or coding. Agents can lower the cost of moving across task boundaries and help workers do adjacent work that used to require more specialized technical support.</p>
+<figure class="article-figure"><figure class="article-figure"><h2>Occupation vs. work done with Codex</h2><table><tr><th></th><th colspan="5">Work category</th></tr><tr><th>Consolidated inferred department</th><th>Engineering / Coding</th><th>Data Analysis</th><th>Financial Analysis</th><th>Knowledge Work</th><th>Other</th></tr><tbody><tr><th>Engineering</th><td>72%</td><td>4%</td><td>1%</td><td>18%</td><td>5%</td></tr><tr><th>Data Science / Research</th><td>51%</td><td>10%</td><td>0%</td><td>30%</td><td>9%</td></tr><tr><th>Finance / Biz Ops</th><td>31%</td><td>9%</td><td>16%</td><td>34%</td><td>10%</td></tr><tr><th>Product / Marketing / Ops</th><td>25%</td><td>3%</td><td>7%</td><td>51%</td><td>15%</td></tr><tr><th>Other</th><td>50%</td><td>7%</td><td>2%</td><td>38%</td><td>4%</td></tr></tbody></table><figcaption>Share of output tokens within department</figcaption></figure></figure>
+<h2>What this means for agents’ economic potential </h2>
+<p>Increased use of agentic tools by non-engineer employees expands the frontier of what these workers can do. That matters for businesses deciding how to redesign workflows, for employees learning which skills become more valuable, and for policymakers and researchers trying to understand how AI changes the labor market.</p>
+<p>Our paper shows how frontier users adopt capable agentic tools at the frontier. Our results demonstrate what unfolds when people have broad, low-friction access to capable agentic tools: as the tools improve, people use them for longer, more complex, and more cross-functional work. As time goes on, this is likely to be what the future of work looks like.</p>
+<ul><li><a href="https://openai.com/news/?tags=2026">2026</a></li><li><a href="https://openai.com/news/?tags=economic-research">Economic Research</a></li><li><a href="https://openai.com/news/?tags=codex">Codex</a></li></ul>
+<h2>Author</h2>
+<p>OpenAI</p>
+<h2>Footnotes</h2>
+<ol><li id="footnote-1"><p class="mb-4! wrap-break-word [word-break:break-word]"><span> Task horizon is estimated using an LLM-as-judge with access to Codex transcripts.</span><span class="inline-block"><button aria-label="Scroll to citation 1 reference" class="ease-curve-a disabled:text-gray-40 flex items-center justify-center rounded-full outline-offset-2 transition duration-200 focus-visible:outline focus-visible:outline-offset-0 size-2.5 text-primary-60 focus:outline-primary-44 hover:bg-none hover:[&amp;&gt;svg]:opacity-60 scale-inline-100 ms-[10px]" type="button"><p class="media-omitted">[SVG OMITTED]</p></button></span></p><a href="#inline-ref-footnote-1">[find in text]</a></li><li id="footnote-2"><p class="mb-4! wrap-break-word [word-break:break-word]"><span>These thresholds are model-estimated, so they should be treated as directional rather than exact. This is also based only on individual data and based on the queries of a random sample of 0.1% of users.</span><span class="inline-block"><button aria-label="Scroll to citation 2 reference" class="ease-curve-a disabled:text-gray-40 flex items-center justify-center rounded-full outline-offset-2 transition duration-200 focus-visible:outline focus-visible:outline-offset-0 size-2.5 text-primary-60 focus:outline-primary-44 hover:bg-none hover:[&amp;&gt;svg]:opacity-60 scale-inline-100 ms-[10px]" type="button"><p class="media-omitted">[SVG OMITTED]</p></button></span></p><a href="#inline-ref-footnote-2">[find in text]</a></li></ol>
+<h2>Keep reading</h2>
+<p><a href="https://openai.com/news/">View all</a></p>
+<figure class="article-figure"><img alt="OpenAI and Broadcom Jalapeño inference chip card image" data-nimg="fill" data-nosnippet="true" sizes="(min-width: 1728px) 1728px, 100vw" src="https://images.ctfassets.net/kftzwdyauwt9/21KcazqOHUF7Cq71Hpfcnc/81ad98a1978845b441ab14e008168c75/openai-broadcom-jalapeno-inference-chip-image-1_1.png?w=3840&amp;q=90&amp;fm=webp" srcset="https://images.ctfassets.net/kftzwdyauwt9/21KcazqOHUF7Cq71Hpfcnc/81ad98a1978845b441ab14e008168c75/openai-broadcom-jalapeno-inference-chip-image-1_1.png?w=640&amp;q=90&amp;fm=webp 640w, https://images.ctfassets.net/kftzwdyauwt9/21KcazqOHUF7Cq71Hpfcnc/81ad98a1978845b441ab14e008168c75/openai-broadcom-jalapeno-inference-chip-image-1_1.png?w=750&amp;q=90&amp;fm=webp 750w, https://images.ctfassets.net/kftzwdyauwt9/21KcazqOHUF7Cq71Hpfcnc/81ad98a1978845b441ab14e008168c75/openai-broadcom-jalapeno-inference-chip-image-1_1.png?w=828&amp;q=90&amp;fm=webp 828w, https://images.ctfassets.net/kftzwdyauwt9/21KcazqOHUF7Cq71Hpfcnc/81ad98a1978845b441ab14e008168c75/openai-broadcom-jalapeno-inference-chip-image-1_1.png?w=1080&amp;q=90&amp;fm=webp 1080w, https://images.ctfassets.net/kftzwdyauwt9/21KcazqOHUF7Cq71Hpfcnc/81ad98a1978845b441ab14e008168c75/openai-broadcom-jalapeno-inference-chip-image-1_1.png?w=1200&amp;q=90&amp;fm=webp 1200w, https://images.ctfassets.net/kftzwdyauwt9/21KcazqOHUF7Cq71Hpfcnc/81ad98a1978845b441ab14e008168c75/openai-broadcom-jalapeno-inference-chip-image-1_1.png?w=1920&amp;q=90&amp;fm=webp 1920w, https://images.ctfassets.net/kftzwdyauwt9/21KcazqOHUF7Cq71Hpfcnc/81ad98a1978845b441ab14e008168c75/openai-broadcom-jalapeno-inference-chip-image-1_1.png?w=2048&amp;q=90&amp;fm=webp 2048w, https://images.ctfassets.net/kftzwdyauwt9/21KcazqOHUF7Cq71Hpfcnc/81ad98a1978845b441ab14e008168c75/openai-broadcom-jalapeno-inference-chip-image-1_1.png?w=3840&amp;q=90&amp;fm=webp 3840w" class="article-image"/></figure>
+<p><a href="https://openai.com/index/openai-broadcom-jalapeno-inference-chip/">OpenAI and Broadcom unveil LLM-optimized inference chip<p>CompanyJun 24, 2026</p></a></p>
+<figure class="article-figure"><img alt="Expanding Daybreak Art Card" data-nimg="fill" data-nosnippet="true" sizes="(min-width: 1728px) 1728px, 100vw" src="https://images.ctfassets.net/kftzwdyauwt9/735NOZviyogUBIFxd2EmWX/fa8baf9fc26e64f442ffa86d5fd9a41e/Art_Card__6_.png?w=3840&amp;q=90&amp;fm=webp" srcset="https://images.ctfassets.net/kftzwdyauwt9/735NOZviyogUBIFxd2EmWX/fa8baf9fc26e64f442ffa86d5fd9a41e/Art_Card__6_.png?w=640&amp;q=90&amp;fm=webp 640w, https://images.ctfassets.net/kftzwdyauwt9/735NOZviyogUBIFxd2EmWX/fa8baf9fc26e64f442ffa86d5fd9a41e/Art_Card__6_.png?w=750&amp;q=90&amp;fm=webp 750w, https://images.ctfassets.net/kftzwdyauwt9/735NOZviyogUBIFxd2EmWX/fa8baf9fc26e64f442ffa86d5fd9a41e/Art_Card__6_.png?w=828&amp;q=90&amp;fm=webp 828w, https://images.ctfassets.net/kftzwdyauwt9/735NOZviyogUBIFxd2EmWX/fa8baf9fc26e64f442ffa86d5fd9a41e/Art_Card__6_.png?w=1080&amp;q=90&amp;fm=webp 1080w, https://images.ctfassets.net/kftzwdyauwt9/735NOZviyogUBIFxd2EmWX/fa8baf9fc26e64f442ffa86d5fd9a41e/Art_Card__6_.png?w=1200&amp;q=90&amp;fm=webp 1200w, https://images.ctfassets.net/kftzwdyauwt9/735NOZviyogUBIFxd2EmWX/fa8baf9fc26e64f442ffa86d5fd9a41e/Art_Card__6_.png?w=1920&amp;q=90&amp;fm=webp 1920w, https://images.ctfassets.net/kftzwdyauwt9/735NOZviyogUBIFxd2EmWX/fa8baf9fc26e64f442ffa86d5fd9a41e/Art_Card__6_.png?w=2048&amp;q=90&amp;fm=webp 2048w, https://images.ctfassets.net/kftzwdyauwt9/735NOZviyogUBIFxd2EmWX/fa8baf9fc26e64f442ffa86d5fd9a41e/Art_Card__6_.png?w=3840&amp;q=90&amp;fm=webp 3840w" class="article-image"/></figure>
+<p><a href="https://openai.com/index/daybreak-securing-the-world/">Daybreak: Tools for securing every organization in the world<p>SecurityJun 22, 2026</p></a></p>
+<figure class="article-figure"><img alt="Samsung Electronics ChatGPT and Codex card image" data-nimg="fill" data-nosnippet="true" sizes="(min-width: 1728px) 1728px, 100vw" src="https://images.ctfassets.net/kftzwdyauwt9/1yLWuTdw8HyYoBldZk3ghx/85fe3f39213890099f6f72f41cec6d1b/samsung-electronics-1_1.png?w=3840&amp;q=90&amp;fm=webp" srcset="https://images.ctfassets.net/kftzwdyauwt9/1yLWuTdw8HyYoBldZk3ghx/85fe3f39213890099f6f72f41cec6d1b/samsung-electronics-1_1.png?w=640&amp;q=90&amp;fm=webp 640w, https://images.ctfassets.net/kftzwdyauwt9/1yLWuTdw8HyYoBldZk3ghx/85fe3f39213890099f6f72f41cec6d1b/samsung-electronics-1_1.png?w=750&amp;q=90&amp;fm=webp 750w, https://images.ctfassets.net/kftzwdyauwt9/1yLWuTdw8HyYoBldZk3ghx/85fe3f39213890099f6f72f41cec6d1b/samsung-electronics-1_1.png?w=828&amp;q=90&amp;fm=webp 828w, https://images.ctfassets.net/kftzwdyauwt9/1yLWuTdw8HyYoBldZk3ghx/85fe3f39213890099f6f72f41cec6d1b/samsung-electronics-1_1.png?w=1080&amp;q=90&amp;fm=webp 1080w, https://images.ctfassets.net/kftzwdyauwt9/1yLWuTdw8HyYoBldZk3ghx/85fe3f39213890099f6f72f41cec6d1b/samsung-electronics-1_1.png?w=1200&amp;q=90&amp;fm=webp 1200w, https://images.ctfassets.net/kftzwdyauwt9/1yLWuTdw8HyYoBldZk3ghx/85fe3f39213890099f6f72f41cec6d1b/samsung-electronics-1_1.png?w=1920&amp;q=90&amp;fm=webp 1920w, https://images.ctfassets.net/kftzwdyauwt9/1yLWuTdw8HyYoBldZk3ghx/85fe3f39213890099f6f72f41cec6d1b/samsung-electronics-1_1.png?w=2048&amp;q=90&amp;fm=webp 2048w, https://images.ctfassets.net/kftzwdyauwt9/1yLWuTdw8HyYoBldZk3ghx/85fe3f39213890099f6f72f41cec6d1b/samsung-electronics-1_1.png?w=3840&amp;q=90&amp;fm=webp 3840w" class="article-image"/></figure>
+<p><a href="https://openai.com/index/samsung-electronics-chatgpt-codex-deployment/">Samsung Electronics brings ChatGPT and Codex to employees<p>CompanyJun 21, 2026</p></a></p></div>
+      
+    </article>
+    
+    <article>
+      <h1>Search has its own bitter lesson</h1>
+      <div class="article-meta">
+        Doug Turnbull
+        · 22 Jun 2026 · <a href="http://softwaredoug.com/blog/2026/06/12/incentives-in-search.html">Source</a>
+      </div>
+      <div class="article-body"><p>An agent with grep does quite well at search.</p>
+<p>It’s shocking to search technologists. We want to cocoon the problem in technology. We care about algorithms, knowledge graphs, ranking: ever-and-ever smarter retrieval.</p>
+<p>It turns out, though, you can play a bit of a trick. If you convince everyone to optimize content for your search engine, you’ll have built the best search engine.</p>
+<p>There’s Sutton’s <a href="http://www.incompleteideas.net/IncIdeas/BitterLesson.html">bitter lesson</a> about unleashing raw compute on a problem. But there’s a different bitter lesson in search: algorithms matter less than convincing the world to optimize for your search engine.</p>
+<p>Sure, technology acts as the trigger. In Web Search, Google shifted away from text relevance to prioritize authoritativeness (PageRank). Their success told the market: create content others want to link to. They reshaped the Web for good (or ill) around that incentive.</p>
+<p>Google crowdsourced search quality to the Web. Claude Code outsources it to every developer.</p>
+<p>Developers depend on agents to find documentation on the file system. We like that dopamine hit. That thrill of Claude Code knowing exactly how to reason about our code.</p>
+<p>When agents make boneheaded mistakes, we stress. We frantically update documentation, we link to it from AGENTS.md, we add a new document, we place it in a useful location. We do anything - absolutely anything - to ensure agents know how to find and understand documentation.</p>
+<p>Just as the SEO expert reads the tea leaves of Google’s algorithm. The software developer writes to the LLM to make documentation findable + useful.</p>
+<p>A search system with these incentives overcomes technologically sophisticated systems. For example, classic RAG rests on a foundation of technically sophisticated question answering. Answers often look like conversationally valid responses, but with little linkage back to questions it might anser:</p>
+<p>Question:</p>
+<blockquote> <p>What is a runner test?</p> </blockquote>
+<p>Answer:</p>
+<blockquote> <p>Verifies that small-dollar deposits and withdrawals can be executed against real test bank accounts during account reconciliation.</p> </blockquote>
+<p>Yes that’s literally an answer to the question.</p>
+<p>But I wouldn’t consider this “good documentation”. It’s not anchored to any concepts from the question. It’s just an out of context bit of text.</p>
+<p>If you wrote this for a coding agent, you’d probably organize the chunk to give hints about why it’s useful.</p>
+<blockquote> <p>docs/tests/runner.md</p> <p># Runner Tests</p> <p>## Purpose</p> <p>We need to ensure the system runs end to end</p> <p>## Usage</p> <p>Use this style of test sparingly. Unit and standard e2e tests should usually be preferred.</p> <p>## What is it</p> <p>A runner test actually interacts with real-life test bank accounts to ensure we can correctly deposit / withdraw money and that the full banking system works.</p> </blockquote>
+<p>That’s a far more descriptive piece of content to an LLM. Being encouraged to write <em>for the LLM itself</em> makes all the difference.</p>
+<p>(As an aside, LLMs see candidate <em>answers</em> in their context before the user’s question - so just treating RAG as question answering doesn’t work).</p>
+<p>What often matters isn’t algorithms. It’s programming the content author to create useful LLM context. That moves content discovery from random, disconnected factoids to documentation connecting information to problems to solve.</p>
+<p>You learn that the trick to RAG isn’t creating good question answering systems. Its writing better answers.</p>
+<h2>The enterprise search morass… is over?</h2>
+<p>Compare how coding agents program us to the eternal nightmare of your company’s wiki.</p>
+<p>When people write in the wiki, they do it for themselves. Nobody is incentivized to make information findable by anyone. No author sits obsessing how to ‘SEO’ the content for Confluence search.</p>
+<p>If someone is ‘lucky’ enough to find your article, they can barely understand it. It’s written in your team’s jargon. And it’s probably out of date anyways.</p>
+<p>For these reasons, I always tell people they’d do better to write a public blog article. Blogs assume zero context. They’re clearly timestamped as an artifact of a moment in time. To avoid shame or promote your career, you’re incentivized to create something useful, interesting, and findable.</p>
+<p>Writing for a coding agent has the same property. You’re writing documentation for a targeted reader. You care to SEO your content for Claude Code + grep.</p>
+<p>Enterprise search fails because there’s no feedback loop between authorship and findability. Coding agents solve that, finally giving some hope to organizing company information into findable knowledge.</p>
+<p>The real outcome of coding agents isn’t just code generation. It’s closing the feedback loop between company context and the next piece of work being done. That old fable of Enterprise Search - improving workforce productivity by leveraging existing insight - can finally become true.</p>
+<h2>Feedback to content authors drives user relevance</h2>
+<p>Look around your system. Who creates the content? What’s in it for them to make content findable?</p>
+<p>A recurring theme in my consulting looks something like this - a job search company notices spammy behavior from job posters. They keyword stuff every programming language in some hidden text element. The usual reaction: that’s spammy and we should ban them.</p>
+<p>That’s too black and white. You have content creators willing to put in work. Shift their black-hat SEO over to an acceptable white-hat SEO. Document what’s acceptable. What’s considered malicious.</p>
+<p>Focus on feedback. Make the content-optimization path rewarding. Give creators feedback+guidance during creation. LLMs help detect spam in real-time. They push content creators to author what’s useful not malicious.</p>
+<p>Give content creators feedback. Once you’ve identified what ‘good’ is, give those content authors dopamine hits. Tell content creators what queries perform well for the content. Make it real-time, sticky, fun. Incentivize and reward behaviors you want - and punish those you don’t.</p>
+<p>Steer content creators towards the content you want. Don’t hope algorithms can overcome drivel and slop.</p>
+<p>Your search engine isn’t a bundle of algorithms ranking for users. It’s a relationship between authors and users. That bitter lesson puts grep above the smartest reranker and embedding model. Forget it at your peril.</p>
+<h3>Enjoy softwaredoug in training course form!</h3>
+<h4>Starting May 18!</h4>
+<p>Signup here - <a href="http://maven.com/softwaredoug/cheat-at-search">http://maven.com/softwaredoug/cheat-at-search</a></p>
+<figure class="article-figure"><a href="https://maven.com/softwaredoug/cheat-at-search"><img src="https://softwaredoug.com/assets/media/2026/cheat-at-search-social.png" class="article-image"/></a></figure>
+<p>I hope you join me at <a href="https://maven.com/softwaredoug/cheat-at-search">Cheat at Search with Agents</a> to learn use agents in search. build better RAG and use LLMs in query understanding.   </p>
+<p>© 2026 SoftwareDoug LLC</p></div>
+      
+    </article>
+    
+  </body>
+</html>
