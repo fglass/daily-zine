@@ -1,0 +1,449 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Fred Talks - 2026-08-21</title>
+    <style>
+      @page {
+        size: A5;
+        margin: 8mm 9mm 9mm;
+      }
+
+      :root {
+        color: #111;
+        font-family: "Times New Roman", Times, serif;
+        --body-text-size: 9.5pt;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        color: #111;
+        background: #fff;
+        font-family: "Times New Roman", Times, serif;
+        line-height: 1.45;
+      }
+
+      a,
+      a:visited {
+        color: #111;
+        text-decoration: underline;
+      }
+
+      .cover {
+        min-height: calc(210mm - 17mm);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        page-break-after: always;
+        border: 1px solid #111;
+        padding: 8mm;
+        background: #fff;
+      }
+
+      .toc-item-meta,
+      .article-meta {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .masthead {
+        margin: 0;
+        font-size: 40pt;
+        line-height: 0.95;
+        text-transform: uppercase;
+      }
+
+      .issue-date {
+        margin: 4mm 0 0;
+        font-size: 14pt;
+      }
+
+      .issue-date sup {
+        font-size: 0.58em;
+        vertical-align: super;
+        line-height: 0;
+      }
+
+      .cover-deck {
+        max-width: 90mm;
+        font-size: 12pt;
+        margin: 0;
+      }
+
+      .toc {
+        border-top: 3px solid #111;
+        padding-top: 6mm;
+      }
+
+      .toc h2 {
+        margin: 0 0 4mm;
+        font-size: 11pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .toc-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .toc-item {
+        padding: 3mm 0;
+        border-bottom: 1px solid rgba(17, 17, 17, 0.2);
+      }
+
+      .toc-item-title {
+        font-size: 12pt;
+        margin: 0 0 1mm;
+      }
+
+      .toc-item-meta {
+        font-size: 8pt;
+      }
+
+      .masthead-compact {
+        margin: 0 0 6mm;
+      }
+
+      .masthead-compact h1 {
+        margin: 0;
+        font-size: 22pt;
+        line-height: 1.1;
+        text-transform: uppercase;
+      }
+
+      .masthead-compact .issue-date {
+        margin: 2mm 0 0;
+        font-size: 11pt;
+      }
+
+      .toc-compact {
+        border-top: 1px solid #111;
+        border-bottom: 1px solid #111;
+        padding: 4mm 0;
+        margin: 0 0 8mm;
+      }
+
+      article + article {
+        margin-top: 10mm;
+        padding-top: 6mm;
+        border-top: 2px solid #111;
+      }
+
+      h1 {
+        margin: 0 0 2mm;
+        font-size: 18pt;
+        line-height: 1.1;
+      }
+
+      .article-meta {
+        font-size: 8.5pt;
+        margin-bottom: 6mm;
+        padding-bottom: 3mm;
+        border-bottom: 1px solid #111;
+      }
+
+      .article-body {
+        font-size: var(--body-text-size);
+        font-family: "Times New Roman", Times, serif;
+      }
+
+      .article-body p,
+      .article-body li,
+      .article-body blockquote,
+      .article-body dd,
+      .article-body dt {
+        margin: 0 0 4mm;
+        orphans: 3;
+        widows: 3;
+      }
+
+      .article-body ul,
+      .article-body ol,
+      .article-body dl {
+        margin: 0 0 4mm 5mm;
+        padding: 0;
+      }
+
+      .article-body h2,
+      .article-body h3,
+      .article-body h4 {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        margin: 7mm 0 3mm;
+        line-height: 1.2;
+      }
+
+      .article-body blockquote {
+        margin-left: 6mm;
+        padding-left: 4mm;
+        border-left: 2px solid #111;
+      }
+
+      .article-body .media-omitted {
+        margin: 0 0 4mm;
+        font-size: 8.5pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(17, 17, 17, 0.65);
+      }
+
+      .article-body figure,
+      .article-body .article-figure,
+      .article-body picture,
+      .article-body .article-picture {
+        display: block;
+        max-width: 72mm;
+        margin: 0 auto 4mm;
+        break-inside: avoid;
+      }
+
+      .article-body img,
+      .article-body .article-image {
+        display: block;
+        max-width: min(100%, 72mm);
+        max-height: 34mm;
+        height: auto;
+        width: auto;
+        object-fit: contain;
+        margin: 0 auto 3mm;
+      }
+
+      .article-body figcaption {
+        margin-top: 1.5mm;
+        font-size: 8.5pt;
+        line-height: 1.3;
+        color: rgba(17, 17, 17, 0.8);
+      }
+
+      .article-note {
+        margin-top: 6mm;
+        padding-top: 3mm;
+        border-top: 1px solid #111;
+        font-size: 9pt;
+        font-style: italic;
+      }
+
+      @media screen {
+        body {
+          padding: 2rem;
+          margin: 0 auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    
+    <header class="masthead-compact">
+      <h1>Fred Talks</h1>
+      <p class="issue-date">
+        21<sup>st</sup> August 2026
+      </p>
+    </header>
+
+    <nav class="toc toc-compact">
+      <h2>Contents</h2>
+      <ol class="toc-list">
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Why I don&#39;t like the &#34;staff engineer archetypes&#34;</div>
+          <div class="toc-item-meta">
+            seangoedecke.com RSS feed · 1426 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">10 Years Building Vertical Software: My Perspective on the Selloff</div>
+          <div class="toc-item-meta">
+            Nicolas Bustamante · 4775 words
+          </div>
+        </li>
+        
+      </ol>
+    </nav>
+    
+
+    
+    <article>
+      <h1>Why I don&#39;t like the &#34;staff engineer archetypes&#34;</h1>
+      <div class="article-meta">
+        seangoedecke.com RSS feed
+        · 03 May 2026 · <a href="https://seangoedecke.com/staff-engineer-archetypes/">Source</a>
+      </div>
+      <div class="article-body"><p>The most influential piece of writing about staff engineers in the last decade has to be Will Larson’s <a href="https://staffeng.com/guides/staff-archetypes/"><em>Staff engineer archetypes</em></a>. He argues that the “staff engineer” title covers at least four very different roles: the team lead, the architect, the solver, and the right hand. This taxonomy gets cited a lot as advice for people who are trying to become effective staff engineers. For <a href="https://www.seangoedecke.com/staff-engineer-promotions">both</a> of my promotions to staff engineer, my manager at the time linked me to the “staff engineer archetypes” and asked me to consider which of these archetypes I was aiming towards.</p>
+<p>These archetypes definitely exist<sup><a href="https://www.seangoedecke.com/staff-engineer-archetypes/#fn-1">1</a></sup>. However, I think it’s bad practical advice to tell engineers to try and target them.</p>
+<h3>Archetypes do not make good goals</h3>
+<p>To see why, let’s take the “team lead” archetype. Larson describes this as an informal technical leadership role: not necessarily an explicit authority figure, but someone who’s good at scoping work, planning projects, and maintaining the kind of relationships (e.g. with other teams) needed to successfully <a href="https://www.seangoedecke.com/how-to-ship">ship</a>. If you want to fill this role, shouldn’t you start trying to do these things? No! You don’t become a technical leader by trying really hard to be a technical leader, much like you don’t become a writer by trying really hard “to be a writer”. You become a technical leader by <em>doing good technical work</em> until your skills and relationships emerge organically.</p>
+<p>I wrote about this process in <a href="https://www.seangoedecke.com/ratchet-effects"><em>Ratchet effects determine engineer reputation at large companies</em></a>. To get good at shipping large complex projects, you must start by shipping tiny pieces of work, until you’re familiar enough with the system and you’ve built enough trust to take on slightly larger pieces. At each stage, if you do good work - “good work” here means “deliver <a href="https://www.seangoedecke.com/shareholder-value/">shareholder value</a>” - you will very naturally be given opportunities to work on more complex and important things. If you try to jump ahead, you’re going to run into all kinds of problems:</p>
+<ul> <li>Important projects are usually assigned top-down, not bottom-up, so you’ll either be trying to muscle out the planned engineering lead for a project or to pitch your own (complex, important) engineering task to senior management. Either way, good luck with that!</li> <li>You likely won’t have a good enough relationship with senior management to know what their real priorities are.</li> <li>If you’re not yet trusted to execute, you may get assigned “minders” (often current staff engineers) who will ghost-lead the project through you<sup><a href="https://www.seangoedecke.com/staff-engineer-archetypes/#fn-2">2</a></sup>.</li> <li>You’ll likely make <a href="https://www.seangoedecke.com/you-cant-design-software-you-dont-work-on/">poor technical decisions</a>.</li> </ul>
+<p>The other archetypes are like this as well. If you want to become a successful architect, you do not get there by studying software architecture in the abstract, because <a href="https://www.seangoedecke.com/you-cant-design-software-you-dont-work-on/">you can’t design software you don’t work on</a>. The “solver” and “right hand” archetypes both rely on having an enormous amount of trust and influence. You can’t aim for those archetypes directly, because trust and influence accumulate over time. In fact, the idea of “aiming for” a particular staff engineer archetype reflects a misunderstanding of what the staff engineer role is. What is the defining attribute of the staff engineering role, then?</p>
+<h3>What is a staff engineer?</h3>
+<p><strong>A staff engineer has to be useful to the company.</strong> Of course, a senior or mid-level software engineer ought to be useful too, but all they <em>have</em> to do is execute on the job in front of them. If they end up not providing value (maybe their project turns out to be unimportant, or they don’t get the support needed to succeed) that’s their manager’s problem, not theirs<sup><a href="https://www.seangoedecke.com/staff-engineer-archetypes/#fn-3">3</a></sup>. In contrast, staff engineers are expected to deliver value regardless: to make the project work, or to find something else useful to do if the project truly can’t be salvaged.</p>
+<p>This is an unfair expectation. Often projects really do fail through no fault of your own, and sometimes it just isn’t possible to conjure useful work from thin air. That’s actually by design: <strong>the staff engineer role is supposed to be unfair</strong>. Something many engineers don’t realize is that all senior management and executive leadership roles are unfair too, in the same way. That’s just part of the deal: executives are given power and great compensation, and in return they get thrown off the boat in bad weather<sup><a href="https://www.seangoedecke.com/staff-engineer-archetypes/#fn-4">4</a></sup>. “Staff engineer” is the first engineering role where you are held largely responsible for outcomes you don’t control.</p>
+<p>Developing a “staff engineer mindset” thus has very little to do with the archetypes. Instead, you should:</p>
+<ol> <li>Develop the habit of constantly asking yourself “is this useful to the company” (and answering correctly).</li> <li>Lose the habit of worrying about if you’re being treated “fairly”. Instead, try to think about your role in terms of incentives and consequences.</li> </ol>
+<p>At the beginning, you won’t look much like any of the staff engineer archetypes. You will look like being a level-headed engineer who can be trusted to move projects forward with a minimum of fuss, and who can be re-tasked to different work without complaining. You’ll also look like someone who’s <a href="https://www.seangoedecke.com/getting-the-main-thing-right/">paying a lot of attention</a> to what their manager’s actual priorities are, and who is thinking hard about how to fulfil those priorities (instead of their own goals).</p>
+<p>If you do this for long enough, you’ll eventually find yourself in one of the staff engineer archetypes. However, it probably won’t be the one you’re “aiming for”. The whole point of being a staff engineer is that you’re willing to fill whatever archetype the company needs at the time.</p>
+<h3>Final thoughts</h3>
+<p>In his original staff engineer post, Larson is pretty clear that these archetypes are more of an anthropological description of some of the varied niches staff engineers fill, not a how-to guide for succeeding in the role<sup><a href="https://www.seangoedecke.com/staff-engineer-archetypes/#fn-5">5</a></sup>. At the time, the “staff engineer” role was fairly new and people were still trying to figure out what it even meant. Pointing out that there were a few very different ways to succeed in the role was a genuinely novel observation.</p>
+<p>The staff engineer archetypes are a good list of ways an engineer can be very useful to their organization - but only once they’ve built a deep relationship of trust with their organization’s leadership. Advice on how to succeed as a staff engineer should be about <strong>how to build that trust</strong>, not about what to do once you have it.</p>
+<ol> <li> <p>One caveat that is too pedantic for the body of the post: each tech company has a different structure of roles. Some don’t have the formal “staff” title at all, while others have “staff” as a fairly early rung on the ladder and a panoply of “senior staff”, “senior principal staff”, and so on roles above it. Like all “staff engineer” discourse, this post is not about the word itself but about the point in the engineering job ladder where progression becomes significantly more difficult.</p> <a href="https://www.seangoedecke.com/staff-engineer-archetypes/#fnref-1">↩</a> </li> <li> <p>Impressing your VP’s trusted lieutenants can actually be a good way to build trust in the medium-term, but you’d better hope you’ve built enough understanding of the system to do it right. If this process goes badly, your reputation in the org might be torched for years.</p> <a href="https://www.seangoedecke.com/staff-engineer-archetypes/#fnref-2">↩</a> </li> <li> <p>In theory, at least. In practice it’s always better to be useful (again, in the sense of “delivering shareholder value”).</p> <a href="https://www.seangoedecke.com/staff-engineer-archetypes/#fnref-3">↩</a> </li> <li> <p>This is why very senior leadership sometimes seem so unempathetic towards engineering complaints: their work environment operates by very different rules and norms to that of most engineers. I keep meaning to try and write about this and never succeeding. This <a href="https://github.com/sgoedecke/gatsby-blog/blob/master/content/drafts/_icebox/strategy-for-swes/index.md">draft</a> is the closest thing I have to a deeper exploration of the point.</p> <a href="https://www.seangoedecke.com/staff-engineer-archetypes/#fnref-4">↩</a> </li> <li> <p>For the record, my how-to guides are <a href="https://www.seangoedecke.com/staff-engineer-archetypes/staff-engineer-promotions/">here</a> and <a href="https://www.seangoedecke.com/staff-engineer-archetypes/ratchet-effects/">here</a>.</p> <a href="https://www.seangoedecke.com/staff-engineer-archetypes/#fnref-5">↩</a> </li> </ol></div>
+      
+    </article>
+    
+    <article>
+      <h1>10 Years Building Vertical Software: My Perspective on the Selloff</h1>
+      <div class="article-meta">
+        Nicolas Bustamante
+        · 22 Feb 2026 · <a href="https://www.linkedin.com/pulse/10-years-building-vertical-software-my-perspective-nicolas-bustamante-foczc/?trackingId=kZClRKIuheIgtyaPjmPRbA%3D%3D">Source</a>
+      </div>
+      <div class="article-body"><figure class="article-figure"><p> </p><p> </p><img alt="10 Years Building Vertical Software: My Perspective on the Selloff" data-embed-id="cover-image" src="https://media.licdn.com/dms/image/v2/D5612AQGKBL4ODheO-g/article-cover_image-shrink_720_1280/B56ZxocLnBGsAI-/0/1771278751550?e=2147483647&amp;v=beta&amp;t=pSQfDjdKpHSdOOO2uKorgF316uYD928emKoMC2UEwFA" class="article-image"/><p> </p><p> </p></figure>
+<h3> Nicolas Bustamante </h3>
+<p>In the past few weeks, nearly $1 trillion was wiped from software and services stocks. FactSet dropped from a $20B peak to under $8B. S&amp;P Global lost 30% in weeks. Thomson Reuters shed almost half its market cap in a year. The S&amp;P 500 Software &amp; Services Index, 140 companies, fell 20% year to date.</p>
+<p>Last week, Anthropic released industry-specific plugins for Claude's Cowork which is an AI agent designed specifically for knowledge workers that can autonomously handle complex research, analysis, and document workflows. </p>
+<p>Wall Street called it a panic. I've spent the last decade building vertical SaaS. First Doctrine, now the largest legal information platform in Europe (competing with LexisNexis, Westlaw etc) and then Fintool, an AI-powered equity research platform in the US that competes with Bloomberg, FactSet, and S&amp;P Global today.</p>
+<p>I built the kind of software that LLMs are now threatening. And I'm now building the kind of software that's doing the threatening. I've been on both sides of this disruption.</p>
+<p>Here's what I see: LLMs are systematically dismantling the moats that made vertical software defensible. But not all of them. The result is a redrawing of what makes vertical software valuable and the multiple it deserves.</p>
+<p>In this article:</p>
+<p>- The ten moats that made vertical software defensible, and what LLMs do to each</p>
+<p>- Why the market selloff is structurally justified but temporally exaggerated</p>
+<p>- What the real threat actually is (it's not what you think)</p>
+<p>- What replaces vertical software</p>
+<p>- What comes next for the $500B+ vertical software industry</p>
+<h2 data-test-id="pulse-publishing-h1"> The Ten Moats of Vertical Software (and What LLMs Do to Each) </h2>
+<p>Vertical software is software built for a specific industry. Bloomberg for finance. LexisNexis for legal. Epic for healthcare. Procore for construction. Veeva for life sciences, etc.</p>
+<p>These companies share a defining characteristic: they charge a lot and customers rarely leave. FactSet charges $15,000+ per user per year. Bloomberg Terminal costs $25,000 per seat. LexisNexis charges law firms thousands per month. And retention rates hover around 95%.</p>
+<p>I would say that there are ten distinct moats. LLMs are attacking some of them while leaving others intact. Understanding which is which is the entire game.</p>
+<figure class="article-figure"><img alt="Article content" src="https://media.licdn.com/dms/image/v2/D5612AQG4IGgW6HP5Zw/article-inline_image-shrink_1500_2232/B56ZxocUkOHUAU-/0/1771278781030?e=2147483647&amp;v=beta&amp;t=EV9XwmJk8m-z3kKMFsMnSp2_Eg_6wNQD_VNjOHSOKPw" class="article-image"/></figure>
+<h2 data-test-id="pulse-publishing-h1"> Learned Interfaces → Destroyed </h2>
+<p>A Bloomberg Terminal user has spent years learning keyboard shortcuts, function codes, and navigation patterns. GP, FLDS, GIP, FA, BQ. These aren't intuitive. They're a language. And once you speak it fluently, switching to another platform means becoming illiterate again.</p>
+<p>I've heard it countless times. "We're a FactSet shop." "We're a Lexis firm." "We're a Bloomberg house." These aren't statements about data quality or feature sets. They're statements about software muscle memory. People have spent a decade learning the tool. That investment isn't transferable.</p>
+<p>This was the most underappreciated moat. Knowledge workers pay to not relearn a workflow they've spent a decade mastering. The interface IS a big part of the value prop.</p>
+<p>I lived this at Doctrine. We had a team of designers and a small army of customer success managers whose entire job was onboarding lawyers onto our interface. Every UI change was a project: user research, design sprints, careful rollouts, handholding. We'd spend weeks on a faceted search filter redesign because lawyers had built muscle memory around the old one. The interface wasn't a feature. It was the product. And maintaining it was one of our biggest cost centers.</p>
+<p>At Fintool, we have no onboarding. No CSMs teaching people how to navigate the product. Our users type what they want in plain English and get an answer. There is no interface to learn. That entire cost center, the designers, the CSMs, the UI change management, it just doesn't exist. The chat interface absorbed all those scaffoldings.</p>
+<p>LLMs collapse all proprietary interfaces into one Chat.</p>
+<figure class="article-figure"><img alt="Article content" src="https://media.licdn.com/dms/image/v2/D5612AQHdkfCvNrIpeQ/article-inline_image-shrink_1000_1488/B56ZxocdjTKAAQ-/0/1771278817849?e=2147483647&amp;v=beta&amp;t=GuWiTGr9QP1rQO0NjP2t-np9JPqpKv789fdk_h8aFJM" class="article-image"/></figure>
+<p>Consider what a financial analyst does today on a Bloomberg Terminal. They navigate to the equity screening function. Set parameters using specialized syntax. Export results. Switch to the DCF model builder. Input assumptions. Run sensitivity analysis. Export to Excel. Build a presentation.</p>
+<p>Each step requires learned interface knowledge. Each step reinforces switching costs.</p>
+<p>Now consider what the same analyst does with an LLM agent:</p>
+<p>"Show me all software companies with over $1B market cap, P/E under 30, and revenue growing over 20% year over year. Build a DCF model for the top 5. Run sensitivity analysis on discount rate and terminal growth."</p>
+<p>Three sentences. No keyboard shortcuts. No function codes. No navigation. The user doesn't even know which data provider the LLM queried. They don't care.</p>
+<p>When the interface is a natural language conversation, years of muscle memory become worthless. The switching cost that justified $25K per seat per year dissolves. For many vertical software companies, the interface was most of the value. The underlying data was licensed, public, or semi-commoditized. What justified premium pricing was the workflow built on top of that data. That's over.</p>
+<h3>2. Custom Workflows and Business Logic → Vaporized</h3>
+<p>Vertical software encodes how an industry actually works. A legal research platform doesn't just store case law. It encodes citational networks, Shepardize signals, headnote taxonomies, and the specific way a litigation associate builds a brief.</p>
+<p>This business logic took years to build. It reflects thousands of conversations with domain experts. When I built Doctrine, the hardest part wasn't the technology. It was understanding how lawyers actually work: how they research case law, how they draft documents, how they build a litigation strategy from intake to trial. Encoding that understanding into working software was a huge part of what made vertical software valuable—and defensible.</p>
+<p>LLMs turn all of this into a markdown file.</p>
+<p>This is the most under appreciated shift and I think the most devastating long-term.</p>
+<p>Traditional vertical software encodes business logic in code. Thousands of if/then branches, validation rules, compliance checks, approval workflows. Hardcoded by engineers over years... and not just any engineers. You need software engineers who actually understand the domain, which is rare. Finding someone who can write production code AND understands how a litigation workflow actually functions, or how a DCF model should be structured, is incredibly hard. Modifying this business logic required development cycles, QA, deployment.</p>
+<p>Let me give you a concrete example from my own experience.</p>
+<p>At Doctrine, we built a legal research workflow that helped lawyers find relevant case law for a given legal question. The system needed to understand the legal domain (civil vs. criminal vs. administrative), parse the question into searchable concepts, query across multiple court databases, rank results by relevance and authority, and present them with proper citational context. Building this took a team of engineers and legal experts over several years. The business logic was spread across thousands of lines of Python, custom ranking algorithms, and hand-tuned relevance models. Every modification required engineering sprints, code review, testing, and deployment.</p>
+<p>At Fintool, we have a DCF valuation skill. It tells an LLM agent how to do a discounted cash flow analysis: which data to gather, how to calculate WACC by industry, what assumptions to validate, how to run sensitivity analysis, when to add back stock-based compensation. It's a markdown file. Writing it took a week. Updating it takes minutes. A portfolio manager who's done 500 DCF valuations can encode their entire methodology without writing a single line of code.</p>
+<figure class="article-figure"><img alt="Article content" src="https://media.licdn.com/dms/image/v2/D5612AQFCBd0SDNPyiQ/article-inline_image-shrink_1000_1488/B56Zxock1nIQAQ-/0/1771278847779?e=2147483647&amp;v=beta&amp;t=g9fnTbD2kDTVjsEESkfaHel_k68jFoOQQZZD2bx8A8U" class="article-image"/></figure>
+<blockquote>Years of engineering versus one week of writing. That's the shift.</blockquote>
+<p>And it's not just speed. The markdown skill is better in important ways. It's readable by anyone. It's auditable. It can be customized per user (our customers write their own skills). And it gets better automatically as the underlying model improves, without us touching a line of code.</p>
+<p>Business logic is migrating from code written by specialized engineers to markdown files that anyone with domain expertise can write. The accumulated business logic that took vertical software companies a decade to build can now be replicated in weeks. The workflow moat is eroding very fast.</p>
+<h3>3. Public Data Access → Commoditized</h3>
+<p>A massive portion of vertical software's value proposition was making hard-to-access data easy to query. FactSet makes SEC filings searchable. LexisNexis makes case law searchable. These are genuine services. SEC filings are technically public, but try reading a 200-page 10-K in raw HTML. The structure is inconsistent across companies. The accounting terminology is dense. Extracting the actual numbers you need requires parsing nested tables, following footnote references, reconciling restated figures.</p>
+<p>Before LLMs, accessing this public data required specialized software and significant engineering scaffolding. Companies like FactSet built thousands of parsers, one for each filing type, each company's idiosyncratic formatting. Armies of engineers maintained these parsers as formats changed. The code to turn a raw SEC filing into queryable data was a genuine competitive advantage.</p>
+<p>At Doctrine, this was also a lot of work. We built NLP pipelines for different case laws: named entity recognition to extract judges, courts, legal concepts. Dedicated ML models to classify decisions by legal domain. Custom parsers for every court, each with its own formatting quirks. We had engineers who spent years building and maintaining this scaffolding. It was genuinely impressive technology, and it was a real moat because replicating it meant years of work.</p>
+<p>At Fintool, we built none of that. Zero NER. Zero custom parsers. Zero industry-specific classifiers. Why? Because frontier models already know how to navigate a 10-K. They know that Home Depot's ticker is HD. They understand the difference between GAAP and non-GAAP revenue. They can parse a nested table of segment disclosures without being taught the schema. The parsing infrastructure that took Doctrine years to build is now a commodity capability that comes free with the model.</p>
+<p>LLMs make this trivial. Frontier models already know how to parse SEC filings from their training data. They understand the structure of a 10-K, where to find revenue recognition policies, how to reconcile GAAP and non-GAAP figures. You don't need to build a parser. The model IS the parser. Feed it a 10-K and it can answer any question about it. Feed it the entire corpus of federal case law and it can find relevant precedent.</p>
+<p>The parsing, structuring, and querying that vertical software spent decades building is now a commodity capability baked into the foundation models themselves. The data isn't worthless. But the "making it searchable" layer, which is where a lot of the value and pricing power lived, is collapsing.</p>
+<h3>4. Talent Scarcity → Inverted</h3>
+<p>Building vertical software requires people who understand both the domain and the technology. Finding an engineer who can write production code AND understands how credit derivatives are structured is extremely rare. This scarcity created a natural barrier to entry that historically limited the number of serious competitors in any vertical.</p>
+<p>LLMs flip this moat entirely.</p>
+<p>At Doctrine, hiring was brutal. We didn't just need good engineers. We needed engineers who could understand legal reasoning: how precedent works, how jurisdictions interact, what grounds for appeal to the supreme court look like. These people barely existed. So we built our own. Every week, we held internal lectures where lawyers taught engineers how the legal system actually worked. It took months before a new engineer was productive. The talent scarcity was a genuine barrier, not just for us, but for anyone trying to compete with us.</p>
+<p>At Fintool, we don't do any of that. Our domain experts (portfolio managers, analysts) write their methodology directly into markdown skill files. They don't need to learn Python. They don't need to understand APIs. They write in plain English what a good DCF analysis looks like, and the LLM executes it. The engineering is handled by the model. The domain expertise, which was always the abundant resource, can now become software directly without the engineering bottleneck.</p>
+<p>LLMs make the engineering trivially accessible, which means the scarce resource (domain expertise) is suddenly abundant in its ability to become software. This is why the barrier to entry collapses so dramatically.</p>
+<h3>5. Bundling → Weakened</h3>
+<p>Vertical software companies expand by bundling adjacent capabilities. Bloomberg started with market data, then added messaging, news, analytics, trading, and compliance. Each new module increases switching costs because customers now depend on the entire ecosystem, not just one product. S&amp;P Global's acquisition of IHS Markit for $44B was exactly this strategy. The bundle becomes the moat.</p>
+<p>At Doctrine, bundling was the growth strategy. We started with case law search, then added legislation, then legal news, then alerts, then document analysis. Each module had its own UI, its own onboarding, its own customer workflows. We built elaborate dashboards where lawyers could configure watchlists, set up automated alerts on specific legal topics, manage their research folders. Every feature meant more design work, more engineering, more UI surface area. The bundle kept customers locked in because they'd built their entire workflow around our ecosystem.</p>
+<p>LLM agents break the bundling moat because the agent IS the bundle. At Fintool, alerts are a prompt. Watchlists are a prompt. Portfolio screening is a prompt. There's no separate module for each. There's no UI to maintain. A customer says "alert me when any company in my portfolio mentions tariff risk in an earnings call" and it just works. The agent orchestrates across ten different specialized tools in a single workflow. It can pull market data from one source, news from another, run analytics through a third, and compile the results. The user never knows or cares that five different services were queried.</p>
+<figure class="article-figure"><img alt="Article content" src="https://media.licdn.com/dms/image/v2/D5612AQEtAhIu7LrddA/article-inline_image-shrink_1000_1488/B56ZxocsPqKUAQ-/0/1771278878053?e=2147483647&amp;v=beta&amp;t=tpIYmURtaY8c2sw23V7dhbkqM1Vp0LAmvT-Sy6wcBqE" class="article-image"/></figure>
+<p>When the integration layer moves from the software vendor to the AI agent, the incentive to buy a bundle evaporates. Why pay Bloomberg's premium for the entire suite when an agent can cherry-pick the best (or cheapest) provider for each capability?</p>
+<p>This doesn't mean bundling is dead overnight. The operational complexity of managing ten vendor relationships versus one is real. But the directional pressure is clear: agents make unbundling viable in ways that weren't possible before.</p>
+<h3>6. Private and Proprietary Data → Stronger</h3>
+<p>Some vertical software companies own or license data that doesn't exist anywhere else. Bloomberg collects real-time pricing data from trading desks worldwide. S&amp;P Global owns credit ratings and proprietary analytics. Dun &amp; Bradstreet maintains business credit files on 500M+ entities. This data was collected over decades, often through exclusive relationships. You can't just scrape it. You can't recreate it.</p>
+<p>If your data genuinely cannot be replicated, LLMs make it MORE valuable, not less.</p>
+<p>Bloomberg's real-time pricing data from trading desks? Can't be scraped. Can't be synthesized. Can't be licensed from a third party. In an LLM world, this data becomes the scarce input that every agent needs. Bloomberg's pricing power on proprietary data may actually increase.</p>
+<p>S&amp;P Global's credit ratings are similar. A credit rating isn't just data. It's an opinion backed by a regulated methodology and decades of default data. An LLM can't issue a credit rating. S&amp;P can.</p>
+<p>The test is simple: Can this data be obtained, licensed, or synthesized by someone else? If no, the moat holds. If yes, you're in trouble.</p>
+<p>I've seen this play out across both companies. When we started Doctrine, the core value was organizing public French case law with layers of industry-specific scaffolding: taxonomies, citational networks, relevance rankings. But the team recognized early that public data alone wasn't enough. About five years ago, we started building an exclusive content library: proprietary legal annotations, editorial analysis, curated commentaries that don't exist anywhere else. Today, that library is genuinely hard to replicate and it's become the real moat. The companies that survive this transition are the ones that moved from "we organize public data better" to "we own data you can't get anywhere else." </p>
+<p>Here's what's changed: that intelligence layer used to require years of engineering. Now it's a capability that comes with the model. And even the data access itself is being commoditized. MCP (Model Context Protocol) is turning every data provider into a plug-in. Dozens of companies are already offering financial data as MCP servers that any AI agent can query. When your data is available as a Claude plugin, the "making it accessible" premium disappears.</p>
+<p>The irony is that LLMs accelerate the bifurcation. Companies with proprietary data win bigger. Companies without it lose everything.</p>
+<p>Here's the uncomfortable implication: if your data isn't truly unique—if it can be obtained, licensed, or synthesized elsewhere you're not safe. You're at risk of commoditization. The AI agent will own the relationship with the customer. It will be the interface users interact with, the brand they trust, the product they pay for. You become a supplier to the agent, not a vendor to the customer. This is aggregation theory playing out in real-time: the aggregator (the agent) captures the user relationship and margin, while the suppliers (data vendors) compete on price to feed the platform. If Bloomberg, FactSet, and a dozen smaller providers all offer similar market data, the agent will route to whichever is cheapest. Your pricing power evaporates. Your margins compress. You become a commodity input to someone else's product.</p>
+<h3>7. Regulatory and Compliance Lock-in → Structural</h3>
+<p>In healthcare, Epic's dominance isn't just about product quality. It's about HIPAA compliance, FDA certification, and the 18-month implementation cycles that hospitals endure. Switching EHR vendors is a multi-year, multi-million dollar project that literally risks patient safety. In financial services, compliance requirements create similar lock-in. Audit trails, regulatory reporting, data retention policies. All baked into the software.</p>
+<p>HIPAA doesn't care about LLMs. FDA certification doesn't get easier because GPT-5 exists. SOX compliance requirements don't change because Anthropic released a new plugin.</p>
+<p>Epic's dominance in healthcare EHR is fundamentally a regulatory moat. The 18-month implementation cycles, the compliance certifications, the integration with hospital billing systems. None of this is affected by LLMs.</p>
+<p>In fact, regulatory requirements may slow LLM adoption in exactly the verticals where compliance lock-in is strongest. A hospital can't replace Epic with an LLM agent because the LLM agent isn't HIPAA certified, doesn't have the required audit trails, and hasn't been validated by the FDA for clinical decision support.</p>
+<h3>8. Network Effects → Sticky</h3>
+<p>Some vertical software becomes more valuable as more industry participants use it. Bloomberg's messaging function (IB chat) is the de facto communication layer for Wall Street. If every counterparty uses Bloomberg, you have to use Bloomberg. Not because of the data. Because of the network.</p>
+<p>LLMs don't break network effects. If anything, they might make communication networks more valuable. The information flowing through these networks becomes training data, context, signal.</p>
+<p>The same applies to any vertical software that functions as a communication layer within an industry. Veeva's network effects across pharma companies. Procore's network effects across construction stakeholders. These are sticky because the value comes from who else is on the platform, not from the interface.</p>
+<h3>9. Transaction Embedding → Durable</h3>
+<p>Some vertical software sits directly in the money flow. Payment processing for restaurants. Loan origination for banks. Claims processing for insurance companies. When you're embedded in the transaction, switching means interrupting revenue. Nobody does that voluntarily.</p>
+<p>If your software processes payments, originates loans, or settles trades, an LLM doesn't disintermediate you. It might sit on top of you as a better interface, but the rails themselves remain essential.</p>
+<p>Stripe isn't threatened by LLMs. Neither is FIS or Fiserv. The transaction processing layer is infrastructure, not interface.</p>
+<h3>10. System of Record Status → Threatened Long-Term</h3>
+<p>When your software is the canonical source of truth for critical business data, switching isn't just inconvenient. It's existentially risky. What if data gets corrupted during migration? What if historical records are lost? What if audit trails break?</p>
+<p>Epic is the system of record for patient data. Salesforce is the system of record for customer relationships. These companies benefit from the asymmetry between the cost of staying (high fees) and the cost of leaving (potential data loss, operational disruption).</p>
+<blockquote>LLMs don't directly threaten system of record status today. But agents are quietly building their own.</blockquote>
+<p>Here's what's happening: AI agents don't just query existing systems. They read your SharePoint, your Outlook, your Slack. They collect data on the user. They write detailed memory files that persist across sessions. And when they perform key actions, they store that context. Over time, the agent accumulates a richer, more complete picture of a user's work than any single system of record.</p>
+<p>The agent's memory becomes the new source of truth. Not because anyone planned it, but because the agent is the one layer that sees everything. Salesforce sees your CRM data. Outlook sees your emails. SharePoint sees your documents. The agent sees all three, and remembers.</p>
+<p>This doesn't happen overnight. But directionally, agents are building their own system of record from the ground up. The traditional system of record's moat weakens as the agent's contextual memory grows.</p>
+<h2 data-test-id="pulse-publishing-h1"> The Net Effect: Barrier to Entry Collapses </h2>
+<p>Add it all up. Five moats destroyed or weakened. Five that hold. But the five that break are the ones that kept competitors out. The ones that hold are the ones that only some incumbents have.</p>
+<p>Before LLMs, building a credible competitor to Bloomberg or LexisNexis required hundreds of engineers who understand the domain, years of development time, massive data licensing deals, sales teams that can sell to conservative enterprises, and regulatory certifications. The result: most verticals had 2-3 serious competitors.</p>
+<p>After LLMs, a small team with frontier model APIs, domain expertise, and good data pipelines can build a product that handles 80% of what a vertical software does within months. I know this because I've done it. Fintool was built by a team of six. We serve hedge funds that previously relied exclusively on Bloomberg and FactSet. Not because we have better data. Because our AI agent delivers answers faster and more intuitively than a terminal/workstation that requires years of training to master.</p>
+<p>The critical insight is that competition doesn't increase linearly—it explodes combinatorially. You don't go from 3 incumbents to 4. You go from 3 to 300. And that's what craters pricing power. Before LLMs, each vertical had 2-3 dominant players commanding premium prices because the barriers to entry were insurmountable. That math changes completely when 50 AI-native startups can offer 80% of the capability at 20% of the price.</p>
+<h2 data-test-id="pulse-publishing-h1"> The Nuance: This is a Multi-Year Transition, Not an Overnight Collapse </h2>
+<p>Here's where I think the market is getting the timing wrong, even if the direction is right.</p>
+<h3>Enterprise Revenue Doesn't Disappear Overnight</h3>
+<p>FactSet's clients are on multi-year contracts. Bloomberg Terminal contracts are typically 2-year minimums. These contracts don't evaporate because Anthropic released a plugin.</p>
+<p>Enterprise procurement cycles are measured in quarters and years, not days. A $50B hedge fund isn't going to rip out S&amp;P Global CapIQ tomorrow because Claude can query SEC filings. They'll evaluate alternatives over 12-18 months. They'll run pilot programs. They'll negotiate contract terms. They'll wait for their existing contracts to expire.</p>
+<p>The revenue cliff is real but it's a slope, not a cliff. Current revenue is largely locked in for the next 12-24 months.</p>
+<p>But here's the thing the market already understands: you don't need revenue to decline for the stock to crash. You need the multiple to compress. A financial data company that traded at 15x revenue when it had pricing power and 95% retention might trade at 6x revenue when the market believes both are eroding. Revenue stays flat. The stock drops 60%. That's exactly what's happening to some companies right now. </p>
+<p>The market isn't pricing in a revenue collapse. It's pricing in the end of the premium multiple, because the moats that justified that multiple are dissolving.</p>
+<h3>The Real Threat</h3>
+<p>The real threat isn't the LLM itself. It's a pincer movement that vertical software incumbents didn't see coming.</p>
+<figure class="article-figure"><img alt="Article content" src="https://media.licdn.com/dms/image/v2/D5612AQGZtyO_kvWwDQ/article-inline_image-shrink_1500_2232/B56Zxoc_rQHQAY-/0/1771278957664?e=2147483647&amp;v=beta&amp;t=oqB4nck6Z-OAzAQ4j9e3yCIQRo6ypu45M21QBBd8e8U" class="article-image"/></figure>
+<p>From below, hundreds of AI-native startups are entering every vertical. When building a credible financial data product required 200 engineers and $50M in data licensing, markets naturally consolidated to 3-4 players. When it requires 10 engineers and frontier model APIs, the market fragments violently. Competition goes from 3 to 300.</p>
+<p>From above, horizontal platforms are going deep into vertical territory for the first time. Microsoft Copilot inside Excel now does AI-powered DCF modeling and financial statement parsing. Copilot inside Word does contract review and case law research. The horizontal tool becomes vertical through AI, not through engineering.</p>
+<p>Anthropic is doing the same thing from the other direction. And I'm watching it up close because Fintool is an Anthropic-backed company. Claude is going all-in on vertical. And the playbook is terrifyingly simple: a general-purpose agent harness (the SDK), pluggable data access (MCP), and domain-specific skills (markdown files). That's it. That's the entire stack you need to go from horizontal to vertical. No domain engineers. No years of development.</p>
+<p>Software is becoming headless. The interface disappears. Everything flows through the agent. What matters isn't the software anymore. It's owning the customer relationship and use cases, which means owning the agent itself.</p>
+<p>The technology that enables vertical depth (LLMs + skills + MCP) is the same technology that lets horizontal platforms finally compete in territory they could never reach before. And this is perhaps the most existential threat for vertical software: horizontal B2B players like Microsoft aren't just dabbling in vertical anymore they're extending aggressively into it because it's now easier than ever, and because they need to own the use cases and workflows to stay relevant in an AI-first world.</p>
+<h2 data-test-id="pulse-publishing-h1"> A Framework for Assessing Risk </h2>
+<p>Not all vertical software is equally exposed. Here's how I think about which categories survive and which don't.</p>
+<h3>High Risk: The Search Layer</h3>
+<p>If your primary value is making data searchable and accessible through a specialized interface, and the underlying data is public or licensable, you are in serious trouble. This includes financial data terminals built on licensed exchange data, legal research platforms built on public case law, patent search tools, and any vertical where the product is essentially "we built a better search engine for your industry's data."</p>
+<p>These companies traded at 15-20x revenue because of interface lock-in and limited competition. Both are evaporating. Think of the financial data providers that have lost 40-60% of their market cap in the last year. The market is right to reprice them.</p>
+<h3>Medium Risk: The Mixed Portfolio</h3>
+<p>Many vertical software companies have a mix of defensible and exposed business lines. A company might have a genuinely proprietary ratings business alongside a data analytics segment that's mostly repackaged public information. Or an index licensing business (embedded in the transaction, very defensible) alongside a research platform (pure search layer, very exposed).</p>
+<p>The stock declines in this category (20-30%) reflect the market's uncertainty about which segments dominate the valuation. The key question: what percentage of revenue comes from moats that LLMs can't touch?</p>
+<h3>Lower Risk: Regulatory Fortresses</h3>
+<p>If your moat is regulatory certification, compliance infrastructure, and deep integration with mission-critical workflows, LLMs are barely relevant to your competitive position in the medium term. Healthcare EHR systems with HIPAA compliance and FDA validation. Life sciences platforms with regulatory lock-in. Financial compliance and reporting infrastructure.</p>
+<p>These companies may even benefit from AI disruption elsewhere, as customers consolidate around the vendors they trust for regulated workflows while switching away from the vendors they used for information retrieval.</p>
+<h3>The Test</h3>
+<p>For any vertical software company, ask three questions:</p>
+<p>1. Is the data proprietary? If yes, the moat holds. If no, the accessibility layer is collapsing.</p>
+<p>2. Is there regulatory lock-in? If yes, LLMs don't change the switching cost equation. If no, switching costs are primarily interface-driven and dissolving.</p>
+<p>3. Is the software embedded in the transaction? If yes, LLMs sit on top of you, not instead of you. If no, you're replaceable.</p>
+<p>Zero "yes" answers: high risk. One: medium risk. Two or three: you're probably fine.</p>
+<figure class="article-figure"><img alt="Article content" src="https://media.licdn.com/dms/image/v2/D5612AQGgDBpITTGSJw/article-inline_image-shrink_1000_1488/B56ZxodIb4GcAQ-/0/1771278993483?e=2147483647&amp;v=beta&amp;t=2evR5ikxY7HB2tfTcToh16M8fQwrjuKnOSv2wSGEVuU" class="article-image"/></figure>
+<h2 data-test-id="pulse-publishing-h1"> What I've Learned Building on Both Sides </h2>
+<p>When I built Doctrine starting in 2016, one of the moat was the interface. We built beautiful search experiences over case law. Lawyers loved it because it was faster and more intuitive than anything else on the market. Most of the data was public but our interface and search made it accessible. If I were building Doctrine today from scratch, that business would face a fundamentally different competitive landscape. An LLM agent can query case law as effectively as our interface could. </p>
+<p>That realization is exactly why I built Fintool differently. We don't compete on interface. We compete on the quality of our AI agent's output, on the proprietary skills and data pipelines we've built, and on the trust we've earned with professional investors who rely on our accuracy for million dollar decisions. When the interface is a conversation, the product is the intelligence behind it.</p>
+<p>The vertical SaaS reckoning isn't about all vertical software dying. It's about the market finally distinguishing between companies that own something genuinely scarce and companies that built a pretty interface over someone else's data.</p></div>
+      
+    </article>
+    
+  </body>
+</html>
