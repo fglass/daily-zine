@@ -1,0 +1,448 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Fred Talks - 2026-08-24</title>
+    <style>
+      @page {
+        size: A5;
+        margin: 8mm 9mm 9mm;
+      }
+
+      :root {
+        color: #111;
+        font-family: "Times New Roman", Times, serif;
+        --body-text-size: 9.5pt;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        color: #111;
+        background: #fff;
+        font-family: "Times New Roman", Times, serif;
+        line-height: 1.45;
+      }
+
+      a,
+      a:visited {
+        color: #111;
+        text-decoration: underline;
+      }
+
+      .cover {
+        min-height: calc(210mm - 17mm);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        page-break-after: always;
+        border: 1px solid #111;
+        padding: 8mm;
+        background: #fff;
+      }
+
+      .toc-item-meta,
+      .article-meta {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .masthead {
+        margin: 0;
+        font-size: 40pt;
+        line-height: 0.95;
+        text-transform: uppercase;
+      }
+
+      .issue-date {
+        margin: 4mm 0 0;
+        font-size: 14pt;
+      }
+
+      .issue-date sup {
+        font-size: 0.58em;
+        vertical-align: super;
+        line-height: 0;
+      }
+
+      .cover-deck {
+        max-width: 90mm;
+        font-size: 12pt;
+        margin: 0;
+      }
+
+      .toc {
+        border-top: 3px solid #111;
+        padding-top: 6mm;
+      }
+
+      .toc h2 {
+        margin: 0 0 4mm;
+        font-size: 11pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .toc-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .toc-item {
+        padding: 3mm 0;
+        border-bottom: 1px solid rgba(17, 17, 17, 0.2);
+      }
+
+      .toc-item-title {
+        font-size: 12pt;
+        margin: 0 0 1mm;
+      }
+
+      .toc-item-meta {
+        font-size: 8pt;
+      }
+
+      .masthead-compact {
+        margin: 0 0 6mm;
+      }
+
+      .masthead-compact h1 {
+        margin: 0;
+        font-size: 22pt;
+        line-height: 1.1;
+        text-transform: uppercase;
+      }
+
+      .masthead-compact .issue-date {
+        margin: 2mm 0 0;
+        font-size: 11pt;
+      }
+
+      .toc-compact {
+        border-top: 1px solid #111;
+        border-bottom: 1px solid #111;
+        padding: 4mm 0;
+        margin: 0 0 8mm;
+      }
+
+      article + article {
+        margin-top: 10mm;
+        padding-top: 6mm;
+        border-top: 2px solid #111;
+      }
+
+      h1 {
+        margin: 0 0 2mm;
+        font-size: 18pt;
+        line-height: 1.1;
+      }
+
+      .article-meta {
+        font-size: 8.5pt;
+        margin-bottom: 6mm;
+        padding-bottom: 3mm;
+        border-bottom: 1px solid #111;
+      }
+
+      .article-body {
+        font-size: var(--body-text-size);
+        font-family: "Times New Roman", Times, serif;
+      }
+
+      .article-body p,
+      .article-body li,
+      .article-body blockquote,
+      .article-body dd,
+      .article-body dt {
+        margin: 0 0 4mm;
+        orphans: 3;
+        widows: 3;
+      }
+
+      .article-body ul,
+      .article-body ol,
+      .article-body dl {
+        margin: 0 0 4mm 5mm;
+        padding: 0;
+      }
+
+      .article-body h2,
+      .article-body h3,
+      .article-body h4 {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        margin: 7mm 0 3mm;
+        line-height: 1.2;
+      }
+
+      .article-body blockquote {
+        margin-left: 6mm;
+        padding-left: 4mm;
+        border-left: 2px solid #111;
+      }
+
+      .article-body .media-omitted {
+        margin: 0 0 4mm;
+        font-size: 8.5pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(17, 17, 17, 0.65);
+      }
+
+      .article-body figure,
+      .article-body .article-figure,
+      .article-body picture,
+      .article-body .article-picture {
+        display: block;
+        max-width: 72mm;
+        margin: 0 auto 4mm;
+        break-inside: avoid;
+      }
+
+      .article-body img,
+      .article-body .article-image {
+        display: block;
+        max-width: min(100%, 72mm);
+        max-height: 34mm;
+        height: auto;
+        width: auto;
+        object-fit: contain;
+        margin: 0 auto 3mm;
+      }
+
+      .article-body figcaption {
+        margin-top: 1.5mm;
+        font-size: 8.5pt;
+        line-height: 1.3;
+        color: rgba(17, 17, 17, 0.8);
+      }
+
+      .article-note {
+        margin-top: 6mm;
+        padding-top: 3mm;
+        border-top: 1px solid #111;
+        font-size: 9pt;
+        font-style: italic;
+      }
+
+      @media screen {
+        body {
+          padding: 2rem;
+          margin: 0 auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    
+    <header class="masthead-compact">
+      <h1>Fred Talks</h1>
+      <p class="issue-date">
+        24<sup>th</sup> August 2026
+      </p>
+    </header>
+
+    <nav class="toc toc-compact">
+      <h2>Contents</h2>
+      <ol class="toc-list">
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Every layer of review makes you 10x slower</div>
+          <div class="toc-item-meta">
+            Avery Pennarun · 2841 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Luddites and AI datacenters</div>
+          <div class="toc-item-meta">
+            seangoedecke.com RSS feed · 2789 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Control the ideas, not the code</div>
+          <div class="toc-item-meta">
+            antirez.com · 1245 words
+          </div>
+        </li>
+        
+      </ol>
+    </nav>
+    
+
+    
+    <article>
+      <h1>Every layer of review makes you 10x slower</h1>
+      <div class="article-meta">
+        Avery Pennarun
+        · 26 Mar 2026 · <a href="https://apenwarr.ca/log/20260316">Source</a>
+      </div>
+      <div class="article-body"><h2><a>2026-03-16 </a><a href="https://apenwarr.ca/log/20260316/20260316">»</a></h2>
+<p><b>Every layer of review makes you 10x slower</b></p>
+<p>We’ve all heard of those network effect laws: the value of a network goes up with the square of the number of members. Or the cost of communication goes up with the square of the number of members, or maybe it was n log n, or something like that, depending how you arrange the members. Anyway doubling a team doesn't double its speed; there’s coordination overhead. Exactly how much overhead depends on how badly you botch the org design.</p>
+<p>But there’s one rule of thumb that someone showed me decades ago, that has stuck with me ever since, because of how annoyingly true it is. The rule is annoying because it doesn’t <em>seem</em> like it should be true. There’s no theoretical basis for this claim that I’ve ever heard. And yet, every time I look for it, there it is.</p>
+<p>Here we go:</p>
+<p><b><strong>Every layer of approval makes a process 10x slower</strong></b></p>
+<p>I know what you're thinking. Come on, 10x? That’s a lot. It’s unfathomable. Surely we’re exaggerating.</p>
+<p>Nope.</p>
+<p>Just to be clear, we're counting “wall clock time” here rather than effort. Almost all the extra time is spent sitting and waiting.</p>
+<p>Look:</p>
+<ul> <li> <p>Code a simple bug fix<br/> 30 minutes</p> </li> <li> <p>Get it code reviewed by the peer next to you<br/> 300 minutes → 5 hours → half a day</p> </li> <li> <p>Get a design doc approved by your architects team first<br/> 50 hours → about a week</p> </li> <li> <p>Get it on some other team’s calendar to do all that<br/> (for example, if a customer requests a feature)<br/> 500 hours → 12 weeks → one fiscal quarter</p> </li> </ul>
+<p>I wish I could tell you that the next step up — 10 quarters or about 2.5 years — was too crazy to contemplate, but no. That’s the life of an executive sitting above a medium-sized team; I bump into it all the time even at a relatively small company like Tailscale if I want to change product direction. (And execs sitting above large teams can’t actually do work of their own at all. That's another story.)</p>
+<p><b><strong>AI can’t fix this</strong></b></p>
+<p>First of all, this isn’t a post about AI, because AI’s direct impact on this problem is minimal. Okay, so Claude can code it in 3 minutes instead of 30? That’s super, Claude, great work.</p>
+<p>Now you either get to spend 27 minutes reviewing the code yourself in a back-and-forth loop with the AI (this is actually kinda fun); or you save 27 minutes and submit unverified code to the code reviewer, who will still take 5 hours like before, but who will now be mad that you’re making them read the slop that you were too lazy to read yourself. Little of value was gained.</p>
+<p>Now now, you say, that’s not the value of agentic coding. You don’t use an agent on a 30-minute fix. You use it on a monstrosity week-long project that you and Claude can now do in a couple of hours! Now we’re talking. Except no, because the monstrosity is so big that your reviewer will be extra mad that you didn’t read it yourself, and it’s too big to review in one chunk so you have to slice it into new bite-sized chunks, each with a 5-hour review cycle. And there’s no design doc so there’s no intentional architecture, so eventually someone’s going to push back on that and here we go with the design doc review meeting, and now your monstrosity week-long project that you did in two hours is... oh. A week, again.</p>
+<p>I guess I could have called this post Systems Design 4 (or 5, or whatever I’m up to now, who knows, I’m writing this on a plane with no wifi) because yeah, you guessed it. It's Systems Design time again.</p>
+<p><b>The only way to sustainably go faster is fewer reviews</b></p>
+<p>It’s funny, everyone has been predicting the Singularity for decades now. The premise is we build systems that are so smart that they themselves can build the next system that is even smarter, that builds the next smarter one, and so on, and once we get that started, if they keep getting smarter faster enough, then the incremental time (t) to achieve a unit (u) of improvement goes to zero, so (u/t) goes to infinity and foom.</p>
+<p>Anyway, I have never believed in this theory for the simple reason we outlined above: the majority of time needed to get anything done is not actually the time doing it. It’s wall clock time. Waiting. Latency.</p>
+<p>And <a href="https://apenwarr.ca/log/20230415">you can’t overcome latency with brute force</a>.</p>
+<p>I know you want to. I know many of you now work at companies where the business model kinda depends on doing exactly that.</p>
+<p>Sorry.</p>
+<p><b>But you can’t just <em>not review</em> things!</b></p>
+<p>Ah, well, no, actually yeah. You really can’t.</p>
+<p>There are now many people who have seen the symptom: the start of the pipeline (AI generated code) is so much faster, but all the subsequent stages (reviews) are too slow! And so they intuit the obvious solution: stop reviewing then!</p>
+<p>The result might be slop, but if the slop is 100x cheaper, then it only needs to deliver 1% of the value per unit and it's still a fair trade. And if your value per unit is even a mere 2% of what it used to be, you’ve doubled your returns! Amazing.</p>
+<p>There are some pretty dumb assumptions underlying that theory; you can imagine them for yourself. Suffice it to say that this produces what I will call the AI Developer’s Descent Into Madness:</p>
+<ol> <li> <p>Whoa, I produced this prototype so fast! I have super powers!</p> </li> <li> <p>This prototype is getting buggy. I’ll tell the AI to fix the bugs.</p> </li> <li> <p>Hmm, every change now causes as many new bugs as it fixes.</p> </li> <li> <p>Aha! But if I have an AI agent also review the code, it can find its own bugs!</p> </li> <li> <p>Wait, why am I personally passing data back and forth between agents</p> </li> <li> <p>I need an agent framework</p> </li> <li> <p>I can have my agent write an agent framework!</p> </li> <li> <p>Return to step 1</p> </li> </ol>
+<p>It’s actually alarming how many friends and respected peers I’ve lost to this cycle already. Claude Code only got good maybe a few months ago, so this only recenlty started happening, so I assume they will emerge from the spiral eventually. I mean, I hope they will. We have no way of knowing.</p>
+<p><b>Why we review</b></p>
+<p>Anyway we know our symptom: the pipeline gets jammed up because of too much new code spewed into it at step 1. But what's the root cause of the clog? Why doesn’t the pipeline go faster?</p>
+<p>I said above that this isn’t an article about AI. Clearly I’m failing at that so far, but let’s bring it back to humans. It goes back to the annoyingly true observation I started with: every layer of review is 10x slower. As a society, we know this. Maybe you haven't seen it before now. But trust me: people who do org design for a living know that layers are expensive... and they still do it.</p>
+<p>As companies grow, they all end up with more and more layers of collaboration, review, and management. Why? Because otherwise mistakes get made, and mistakes are increasingly expensive at scale. The average value added by a new feature eventually becomes lower than the average value lost through the new bugs it causes. So, lacking a way to make features produce more value (wouldn't that be nice!), we try to at least reduce the damage.</p>
+<p>The more checks and controls we put in place, the slower we go, but the more monotonically the quality increases. And isn’t that the basis of <em>continuous improvement?</em></p>
+<p>Well, sort of. Monotonically increasing quality is on the right track. But “more checks and controls” went off the rails. That’s <em>only one way</em> to improve quality, and it's a fraught one.</p>
+<p><b>“Quality Assurance” reduces quality</b></p>
+<p>I wrote a few years ago about <a href="https://apenwarr.ca/log/20161226">W. E. Deming and the "new" philosophy around quality</a> that he popularized in Japanese auto manufacturing. (Eventually U.S. auto manufacturers more or less got the idea. So far the software industry hasn’t.)</p>
+<p>One of the effects he highlighted was the problem of a “QA” pass in a factory: build widgets, have an inspection/QA phase, reject widgets that fail QA. Of course, your inspectors probably miss some of the failures, so when in doubt, add a second QA phase after the first to catch the remaining ones, and so on.</p>
+<p>In a simplistic mathematical model this seems to make sense. (For example, if every QA pass catches 90% of defects, then after two QA passes you’ve reduced the number of defects by 100x. How awesome is that?)</p>
+<p>But in the reality of agentic humans, it’s not so simple. First of all, the incentives get weird. The second QA team basically serves to evaluate how well the first QA team is doing; if the first QA team keeps missing defects, fire them. Now, that second QA team has little incentive to produce that outcome for their friends. So maybe they don’t look too hard; after all, the first QA team missed the defect, it’s not unreasonable that we might miss it too.</p>
+<p>Furthermore, the first QA team knows there is a second QA team to catch any defects; if I don’t work too hard today, surely the second team will pick up the slack. That's why they're there!</p>
+<p>Also, the team making the widgets in the first place doesn’t check their work too carefully; that’s what the QA team is for! Why would I slow down the production of every widget by being careful, at a cost of say 20% more time, when there are only 10 defects in 100 and I can just eliminate them at the next step for only a 10% waste overhead? It only makes sense. Plus they'll fire me if I go 20% slower.</p>
+<p>To say nothing of a whole engineering redesign to improve quality, that would be super expensive and we could be designing all new widgets instead.</p>
+<p>Sound like any engineering departments you know?</p>
+<p>Well, this isn’t the right time to rehash Deming, but suffice it to say, he was on to something. And his techniques worked. You get things like the famous Toyota Production System where they eliminated the QA phase entirely, but gave everybody an “oh crap, stop the line, I found a defect!” button.</p>
+<p>Famously, US auto manufacturers tried to adopt the same system by installing the same “stop the line” buttons. Of course, nobody pushed those buttons. They were afraid of getting fired.</p>
+<p><b>Trust</b></p>
+<p>The basis of the Japanese system that worked, and the missing part of the American system that didn’t, is trust. Trust among individuals that your boss Really Truly Actually wants to know about every defect, and wants you to stop the line when you find one. Trust among managers that executives were serious about quality. Trust among executives that individuals, given a system that can work and has the right incentives, will produce quality work and spot their own defects, and push the stop button when they need to push it.</p>
+<p>But, one more thing: trust that the system <em>actually does work</em>. So first you need a system that will work.</p>
+<p><b>Fallibility</b></p>
+<p>AI coders are fallible; they write bad code, often. In this way, they are just like human programmers.</p>
+<p>Deming’s approach to manufacturing didn’t have any magic bullets. Alas, you can’t just follow his ten-step process and immediately get higher quality engineering. The secret is, you have to get your engineers to engineer higher quality into the whole system, from top to bottom, repeatedly. Continuously.</p>
+<p>Every time something goes wrong, you have to ask, “How did this happen?” and then do a whole post-mortem and the Five Whys (or however many Whys are in fashion nowadays) and fix the underlying Root Causes so that it doesn’t happen again. “The coder did it wrong” is never a root cause, only a symptom. Why was it possible for the coder to get it wrong?</p>
+<p>The job of a code reviewer isn't to review code. It's to figure out how to obsolete their code review comment, that whole class of comment, in all future cases, until you don't need their reviews at all anymore.</p>
+<p>(Think of the people who first created "go fmt" and how many stupid code review comments about whitespace are gone forever. Now that's engineering.)</p>
+<p>By the time your review catches a mistake, the mistake has already been made. The root cause happened already. You're too late.</p>
+<p><b>Modularity</b></p>
+<p>I wish I could tell you I had all the answers. Actually I don’t have much. If I did, I’d be first in line for the Singularity because it sounds kind of awesome.</p>
+<p>I think we’re going to be stuck with these systems pipeline problems for a long time. Review pipelines — layers of QA — don’t work. Instead, they make you slower while hiding root causes. Hiding causes makes them harder to fix.</p>
+<p>But, the call of AI coding is strong. That first, fast step in the pipeline is <em>so fast!</em> It really does feel like having super powers. I want more super powers. What are we going to do about it?</p>
+<p>Maybe we finally have a compelling enough excuse to fix the 20 years of problems hidden by code review culture, and replace it with a real culture of quality.</p>
+<p>I think the optimists have half of the right idea. Reducing review stages, even to an uncomfortable degree, is going to be needed. But you can’t just reduce review stages without something to replace them. That way lies the Ford Pinto or any recent Boeing aircraft.</p>
+<p>The complete package, the table flip, was what Deming brought to manufacturing. You can’t half-adopt a “total quality” system. You need to eliminate the reviews <em>and</em> obsolete them, in one step.</p>
+<p>How? You can fully adopt the new system, in small bites. What if some components of your system can be built the new way? Imagine an old-school U.S. auto manufacturer buying parts from Japanese suppliers; wow, these parts are so well made! Now I can start removing QA steps elsewhere because I can just assume the parts are going to work, and my job of "assemble a bigger widget from the parts" has a ton of its complexity removed.</p>
+<p>I like this view. I’ve always liked small beautiful things, that’s my own bias. But, you can assemble big beautiful things from small beautiful things.</p>
+<p>It’s a lot easier to build those individual beautiful things in small teams that trust each other, that know what quality looks like <em>to them</em>. They deliver their things to customer teams who can clearly explain what quality looks like <em>to them</em>. And on we go. Quality starts bottom-up, and spreads.</p>
+<p>I think small startups are going to do really well in this new world, probably better than ever. Startups already have fewer layers of review just because they have fewer people. Some startups will figure out how to produce high quality components quickly; others won't and will fail. Quality by natural selection?</p>
+<p>Bigger companies are gonna have a harder time, because their slow review systems are baked in, and deleting them would cause complete chaos.</p>
+<p>But, it’s not just about company size. I think engineering teams at any company can get smaller, and have better defined interfaces between them.</p>
+<p>Maybe you could have multiple teams inside a company competing to deliver the same component. Each one is just a few people and a few coding bots. Try it 100 ways and see who comes up with the best one. Again, quality by evolution. Code is cheap but good ideas are not. But now you can try out new ideas faster than ever.</p>
+<p>Maybe we’ll see a new optimal point on the <a href="https://tailscale.com/blog/modules-monoliths-and-microservices">monoliths-microservices continuum</a>. Microservices got a bad name because they were too micro; in the original terminology, a “micro” service was exactly the right size for a “two pizza team” to build and operate on their own. With AI, maybe it's one pizza and some tokens.</p>
+<p>What’s fun is you can also use this new, faster coding to experiment with different module <em>boundaries</em> faster. <em>Features</em> are still hard for lots of reasons, but refactoring and automated integration testing are things the AIs excel at. Try splitting out a module you were afraid to split out before. Maybe it'll add some lines of code. But suddenly lines of code are cheap, compared to the coordination overhead of a bigger team maintaining both parts.</p>
+<p>Every team has some monoliths that are a little too big, and too many layers of reviews. Maybe we won't get all the way to Singularity. But, we can engineer a much better world. Our problems are solvable.</p>
+<p>It just takes trust.</p>
+<p><b>Related</b></p>
+<p><a href="https://apenwarr.ca/log/20260316/20161226">Highlights on "quality," and Deming's work as it applies to software development</a> (2016)</p>
+<p><a href="https://apenwarr.ca/log/20260316/20251120">Systems design 3: LLMs and the semantic revolution</a> (2025)</p>
+<p><b>Unrelated</b></p>
+<p><a href="https://apenwarr.ca/log/20260316/20170928">SimSWE part 2: The perils of multitasking</a> (2017)</p></div>
+      
+    </article>
+    
+    <article>
+      <h1>Luddites and AI datacenters</h1>
+      <div class="article-meta">
+        seangoedecke.com RSS feed
+        · 22 Apr 2026 · <a href="https://seangoedecke.com/luddites-and-ai-datacenters/">Source</a>
+      </div>
+      <div class="article-body"><p>Is it time to start burning down datacenters?</p>
+<p>Some people think so. An Indianapolis city council member had his house recently <a href="https://www.kbtx.com/2026/04/07/councilman-says-someone-fired-shots-his-home-left-no-data-centers-note/">shot up</a> for supporting datacenters, and Sam Altman’s home was <a href="https://www.wired.com/story/sam-altman-home-attack-openai-san-franisco-office-threat/">firebombed</a> (and then <a href="https://sfstandard.com/2026/04/12/sam-altman-s-home-targeted-second-attack/">shot</a>) shortly afterwards. People from all sides of the argument are <a href="https://www.bloodinthemachine.com/p/why-the-ai-backlash-has-turned-violent">sounding</a> the <a href="https://thesoufancenter.org/intelbrief-2025-november-5/">alarm</a> about imminent violence.</p>
+<p>The obvious historical comparison is <a href="https://en.wikipedia.org/wiki/Luddite">Luddism</a>, the 19th-century phenomenon where English weavers and knitters destroyed the machines that were automating their work, and (in some cases) killed the machines’ owners. Anti-AI people are <a href="https://www.theguardian.com/commentisfree/article/2024/jul/27/harm-ai-artificial-intelligence-backlash-human-labour">reclaiming</a> the term to describe themselves, and many of the leading lights of the anti-AI movement (like <a href="https://www.bloodinthemachine.com/">Brian Merchant</a> or <a href="https://www.versobooks.com/en-gb/products/688-breaking-things-at-work?srsltid=AfmBOorCgru7ReSwbVdt40nZmQaaeGfbpjLV7epM0fSv_V01QSY5b5TP">Gavin Mueller</a>) have written books arguing more or less that the Luddites were right, and we ought to follow their example in order to resist AI automation<sup><a href="https://www.seangoedecke.com/luddites-and-ai-datacenters/#fn-1">1</a></sup>.</p>
+<p>Like many people, I have heard a lot about Luddism and Luddites, but only in the context of it being a general term for someone who is anti-technology. I was interested in learning more about the actual historical movement: what kind of people participated, what it was, and what it accomplished. I read Merchant’s and Mueller’s books, plus others<sup><a href="https://www.seangoedecke.com/luddites-and-ai-datacenters/#fn-2">2</a></sup>, to try and figure all of this out. Who were the actual, historical Luddites? What can we learn from them about burning down datacenters?</p>
+<h3>Who were the Luddites?</h3>
+<p>The Luddites were a decentralized movement of artisans in the 1810s who engaged in violent protest - smashing machines, threatening violence, and ultimately killing people - over the fact that their jobs were being automated away. They were not rich, but they were certainly not unskilled labor: these were people who had apprenticed for <a href="https://archive.org/stream/extractsfromrec01dendgoog/extractsfromrec01dendgoog_djvu.txt?utm_source=chatgpt.com">seven years</a>. They were mostly working from home, producing cloth from raw material given to them by their employer, often with tools rented from that same employer. They were working short weeks (three days, per William Gardiner) at their own discretion.</p>
+<p>In the early 1800s, their skilled labor was becoming unnecessary. With the help of expensive machines, unskilled labor could now produce lower-quality cloth, so employers were beginning to pass over these artisans in favor of cheaper employees: <a href="https://campus.murraystate.edu/academic/faculty/kBinfield/luddites/LudditeHistory.htm">children, unapprenticed workers, and women</a><sup><a href="https://www.seangoedecke.com/luddites-and-ai-datacenters/#fn-3">3</a></sup>. Combined with the bad economic position of England at the time (at war with France, and thus deliberately cutting off much European trade), times were beginning to be very tough indeed. Starvation was a real threat.</p>
+<h3>What did they do?</h3>
+<p>Cloth artisans were groups of capable men who were used to getting their own way, knew each other very well, and were broadly respected in their communities. It was thus a natural response for them to organize into what was effectively a militant union. The Luddites would send anonymous threatening letters to their old (or current) bosses, warning them to stop using their machines. If they didn’t comply, they would raid the workshop or factory, smashing the machines up.</p>
+<p>They typically did not harm people, though they certainly delivered threats of bodily harm or even murder, and the raids were violent enough (e.g. shooting through windows) to have risked accidental deaths. In at least two instances where a factory owner was seen as unusually cruel, the Luddites did attempt assassinations: one unsuccessful, and one successful one that eventually prompted a crackdown that ended the movement for good.</p>
+<p>Luddism was fully decentralized. Different communities could and did decide to engage in machine-raiding independently, particularly when news spread of the tactic succeeding. Although each community had its own influential men, there was never a single “leader of Luddism”. King Ludd himself was a folk-tale figure. This made it an absolute nightmare for the British government to try and suppress them: putting down one Luddist group did nothing to prevent other groups from continuing to operate.</p>
+<h3>All the king’s spies</h3>
+<p>I was surprised by how <em>difficult</em> it was for the government to get a hold of any of the local Luddist ringleaders. The government was willing to offer huge rewards to informers: at one point up to 40x the yearly wage. However, there were no takers for several years. Armies of spies were recruited and tasked with infiltrating Luddist groups, with absolutely no success.</p>
+<p>Why was it so hard? Firstly, because the working class was so overwhelmingly pro-Luddist. People universally blamed the economic situation on the government and the factory owners (rightfully so, since the government had chosen to go to war and the factory owners had chosen to embrace automation). Secondly, the communities in question were so insular and tightly-knit that informers would have to rat on their friends and relatives. The handful of people who did eventually inform lived out the rest of their lives as pariahs.</p>
+<p>Because each group was so insular, any spies trying to infiltrate the movement would have been complete strangers to the community, and would thus have a very hard time gaining the trust of a group of men who had known each other for their whole lives. The spies that did exist were restricted to the occasional inter-group Luddist meetings, where people didn’t all know each other so closely. But it’s unclear how important those meetings were, since Luddist groups didn’t need to coordinate to achieve their goals. According to Merchant, the spies spent much of their time embellishing tales of an imminent revolution to encourage their employers to keep the money flowing.</p>
+<h3>The crackdown</h3>
+<p>In the absence of reliable information, the British government was forced to use force. And they did, sending 12,000 troops<sup><a href="https://www.seangoedecke.com/luddites-and-ai-datacenters/#fn-4">4</a></sup> into the northern counties. This served mainly as an intimidation tactic, since there was no standing Luddite army to fight, and the soldiers spent most of their time marching back and forth or being abused by the townspeople.</p>
+<p>More successful was the imposition of a full police state in Yorkshire, under the magistrate Joseph Radcliffe, who was empowered to randomly grab people off the street and interrogate them for days. That pressure eventually convinced a handful of people to give up their local Luddist organizers, who were tried and inevitably hanged. Their deaths (and the ensuing climate of fear) ended the high-water mark of Luddist activity. Even then, Luddist raids continued on and off for <em>six more years</em> before petering out.</p>
+<h3>Did the Luddites succeed?</h3>
+<p>This is a tricky question. In one sense the answer is obviously no: the movement was crushed, many of their leaders were executed, the textile industry continued to be automated, and today there are no longer thousands of jobs for skilled British weavers, knitters, spinners and dyers. The pro-automation side won.</p>
+<p>However, they did achieve a number of short-lived victories. Their early threats often succeeded in preventing the building of a factory in a particular location, or in delaying the adoption of industrial machinery in a particular shop by years. In one case, hosiers that had been spooked by Luddite activity gave out pre-emptive bonuses to their workers to discourage them from smashing up their machines (which were indeed not smashed).</p>
+<p>The Luddites also scared the hell out of the British government, who (encouraged by their over-eager spies) thought they might have a genuine revolution on their hands. While they didn’t get many legal concessions at the time, the specter of Luddism must have loomed over the labor reform movement of the 1800s, which saw the first anti-child-labor laws and the beginnings of independent inspection of factories.</p>
+<p>Finally, every book I read argued that the Luddism movement may have created the first idea of a “working class”, by unifying many previously-independent groups of workers against a common enemy. Seen this way, the “political arm”<sup><a href="https://www.seangoedecke.com/luddites-and-ai-datacenters/#fn-5">5</a></sup> of Luddism can arguably claim partial credit for every labor victory since the 1800s (though the ringleaders were still hanged and the weavers did still lose their jobs).</p>
+<h3>The Luddist approach in a nutshell</h3>
+<p>We can now describe the “Luddist approach” to fighting technological change:</p>
+<ol> <li>Find a few conspirators in your existing community who agree with your political project (but don’t join a broader organization, since that leaves you vulnerable)</li> <li>Make public anonymous demands in support of your specific goals, backed up by threats of violence, signed by a fictional character that’s easy for other groups to appropriate</li> <li>If your threats are ignored, attack the physical machines in the dead of night, destroying them and threatening (but not killing) any guards</li> <li>Hope your example inspires many more people to independently do (1)-(3) themselves</li> <li>Keep raiding, optionally escalating to assassination of some of the bosses, until you bait a totalitarian crackdown from the government </li> <li>Eventually get arrested and executed, to great public dismay</li> <li>Twenty years later, your example inspires the first national trade unions</li> </ol>
+<p>Note that starting or joining a national movement is <em>not</em> the Luddist approach. Staying almost entirely isolated in small cells helped the Luddists avoid government spies and made them impossible to root out without enforcing a police state. Note also that you need a <em>lot</em> of public support for this to work: so that you get a lot of copycat groups without having to explicitly organize them, and so that your property destruction and murder is taken sympathetically instead of getting you immediately reported and arrested.</p>
+<h3>Why Luddism is not a good model for the anti-AI movement</h3>
+<p>There are many reasons why this doesn’t map onto the current anti-AI movement. First, Luddism grew from a homogeneous group of high-status workers whose jobs almost vanished overnight, not a broad group of people whose jobs are getting slightly worse because of AI (like the gig-economy workers Merchant endlessly references). That meant that Luddites had <em>really specific</em> asks: higher wages for piecework, a phased introduction of specific textiles machinery, and so on. They were not generally demanding that the machines all be immediately destroyed<sup><a href="https://www.seangoedecke.com/luddites-and-ai-datacenters/#fn-6">6</a></sup>.</p>
+<p>Second, Luddism was very local. A pre-existing group of artisans in a particular town would gather in that town - either at work or an inn, say - and decide to petition or raid the businesses in that town that were harming their livelihoods. AI concerns are not like this. It isn’t businesses in Chicago or Tokyo that are making decisions that imperil Chicago’s or Tokyo’s jobs, it’s businesses in San Francisco. Unlike the Luddists, anti-AI activists can’t naturally organize with people they already know to take direct action where they already live.</p>
+<p>Third, Luddist <em>victory</em> could also be local. If you successfully lobby your local cloth business to not use a weaving machine, you have secured your job at that business for a while. But if you successfully lobby your town (or even your country!) to not build a datacenter, it doesn’t meaningfully improve your local position, since your job can be as easily replaced by a datacenter on the other side of the planet.</p>
+<h3>A total failure of leadership</h3>
+<p>Reading through the history of the Luddites from a modern perspective, I was struck by the near-total absence of <em>good government</em>. The artisans were left to work out their grievances with their bosses more or less by themselves, with no formal channels for complaint or any attempt at mediation. When the government did intervene - in response to near-universal unrest in <em>half of the country</em> - they did this:</p>
+<ol> <li>Make machine-breaking and oath-taking capital crimes</li> <li>Dump thousands of soldiers more or less at random into the area, with no plan to guard factories or do anything beyond just hang around in case a revolution broke out</li> <li>Empower a single magistrate to arrest and interrogate whoever he wanted in order to root out the conspiracy</li> </ol>
+<p>I suppose it worked, in the sense that it eventually succeeded in stopping the Luddist raids. But I can’t help but think that even a token gesture of compromise (say, requiring employers to make their wages public, or restricting the most cheap-and-nasty factory-made textile products) would have gone a long way towards calming things down. This almost actually happened! The 1812 Framework Knitters’ Bill, which had these provisions in it, passed the House of Commons but was shot down in the House of Lords.</p>
+<p>Why did the government fail to even make a token attempt at compromise? Before the industrial revolution, I wonder if the workers and bosses of the English textiles industry were genuinely able to often just work out their problems together, so the government never really needed to do large-scale mediation. When that changed - when automation first made it possible for the bosses to durably “win” - government took a long time to realize, so there were some unpleasant decades of disempowered workers trying to bully factory-owners (via riots and death threats), and factory-owners trying to brutalize workers (via direct violence and automation).</p>
+<h3>Final thoughts</h3>
+<p>The Luddites weren’t anti-technology in general. Instead, they were against four or five specific machines that were automating away their skilled work. Contrary to many of the books I read, I think that’s actually fairly well understood today. But what surprised me was how truly decentralized and widespread the movement was. Every town with weavers faced the same incentives (the bosses to industrialize, and the workers to fight back) which created Luddism locally. And <em>nobody</em> was willing to report the Luddites: not for years, or for what would have been a fortune in cash, or in disagreement with their actions. They were only stopped by a truly fascist crackdown, with the army in the streets and the secret police pulling away random citizens for arrest and questioning.</p>
+<p>I can see why modern “Luddites” - who are genuinely anti-technology - talk so much about the legacy of original Luddites. Luddism was a grassroots organization which notched up some real short-term wins, enjoyed near-total support among the public, and didn’t seem to be troubled by infighting at all<sup><a href="https://www.seangoedecke.com/luddites-and-ai-datacenters/#fn-7">7</a></sup>. If you’re an anti-AI campaigner, I bet all of that sounds great<sup><a href="https://www.seangoedecke.com/luddites-and-ai-datacenters/#fn-8">8</a></sup>. But I’m not convinced that the neo-Luddites really are the inheritors of Luddism. A load-bearing feature of Luddism is that it was <em>local</em>: it didn’t have manifestos, or leaders, or factions, or even much explicit ideology beyond the artisans’ immediate practical concerns. These were local men striking back against the local factories harming their local jobs. That simply isn’t the case with AI, where a datacenter in China can take my job in Australia.</p>
+<p>If it isn’t time to start burning down datacenters, what can we do? Well, workers today are better off than the Luddites were, because we stand on their shoulders. Unlike the Luddites, today’s workers can all vote (and I suspect there will be no shortage of anti-AI candidates to vote for). It’s a much less exciting answer to say “try and get better laws passed” than to say “viva the revolution, where’s my Molotov cocktail”. Still, if the Luddites had that option, I suspect they would have used it.</p>
+<ol> <li> <p>I got linked <a href="https://tante.cc/2026/04/21/ai-as-a-fascist-artifact/">this article</a> calling AI a “fascist artifact” (on a blog called “Breaking Frames”, a clear reference to Luddism) while I was writing this blog post.</p> <a href="https://www.seangoedecke.com/luddites-and-ai-datacenters/#fnref-1">↩</a> </li> <li> <p>I really enjoyed Merchant’s book and did not enjoy Mueller’s (which I found to be 10% about the Luddites and 90% about interminable intra-Marxist ideological arguments). I also read <a href="https://www.amazon.com.au/Luddites-Protested-Machinery-Industrial-Revolution/dp/171936186X">The Luddites</a>, which was effectively a dry summary of the ground Merchant covers, a bunch of other essays, and went back and forth with ChatGPT and Claude on some of the key questions.</p> <a href="https://www.seangoedecke.com/luddites-and-ai-datacenters/#fnref-2">↩</a> </li> <li> <p>Merchant (around page 134) attempts to characterize Luddism as a pro-feminist movement, citing some examples of women helping organize raids, but later on even he (page 162) quotes a representative of the Irish weaver’s guild effectively saying “we don’t have your English problems of women working in the industry”. In general it’s a bit frustrating that the popular books on Luddism are all fairly uncritically pro-Luddist (though not surprising, I suppose). Merchant doesn’t touch at all on the Luddist <a href="https://ludditebicentenary.blogspot.com/2011/12/22nd-december-1811-william-milnes.html">practice</a> of going around to knitting-shops with women and “discharging them from working”.</p> <a href="https://www.seangoedecke.com/luddites-and-ai-datacenters/#fnref-3">↩</a> </li> <li> <p>Sometimes this is described as more troops that were sent to fight Napoleon (even by Merchant himself on page 89), but that <a href="https://medium.com/@antonhowes/were-more-troops-sent-to-quash-the-luddites-than-to-fight-napoleon-233c802c216d">isn’t right</a>.</p> <a href="https://www.seangoedecke.com/luddites-and-ai-datacenters/#fnref-4">↩</a> </li> <li> <p>In quotes because it was not an official Luddist group (there were none), just people who were trying to stop the violence through lobbying and legislation.</p> <a href="https://www.seangoedecke.com/luddites-and-ai-datacenters/#fnref-5">↩</a> </li> <li> <p>Otherwise why would any boss agree, instead of just waiting for the Luddites to do it themselves?</p> <a href="https://www.seangoedecke.com/luddites-and-ai-datacenters/#fnref-6">↩</a> </li> <li> <p>As far as I can tell this is true: the Luddists basically had no internal conflict. I think this is because each individual cell knew each other well already, and so handled their disagreements privately (instead of by writing pamphlets), and disagreements between cells didn’t matter that much because they had no need to coordinate.</p> <a href="https://www.seangoedecke.com/luddites-and-ai-datacenters/#fnref-7">↩</a> </li> <li> <p>It beats the hell of the other popular reference, Dune’s <a href="https://dune.fandom.com/wiki/Butlerian_Jihad">Butlerian Jihad</a>, which was two generations of brutal violence followed by the reimposition of the feudal system. (Although, at least the Butlerian Jihad <em>succeeded</em>…)</p> <a href="https://www.seangoedecke.com/luddites-and-ai-datacenters/#fnref-8">↩</a> </li> </ol></div>
+      
+    </article>
+    
+    <article>
+      <h1>Control the ideas, not the code</h1>
+      <div class="article-meta">
+        antirez.com
+        · 18 Jul 2026 · <a href="https://antirez.com/news/169">Source</a>
+      </div>
+      <div class="article-body"><pre>Look at the past history of this blog. There are many blog posts about programming with AI, a few of them date back to January 2024 (like this: <a href="https://antirez.com/news/140">https://antirez.com/news/140</a>). I’m a relatively well regarded programmer, after all. I don’t have the need to still be in the “loop” as a old man that seeks for relevance, I recently rejoined Redis, and now I also am developing a new open source software for local LLM inference that received a good welcome in the community. Why I keep doing this, of saying what people don’t want to hear? Why I keep announcing how future programming will be by default? Because I feel the urge of lowering the impact for people less prepared to the change than me, often younger than me, and that, unlikely me, didn’t see many of those things coming (In 2022 I published, before ChatGPT existed, a book preannouncing many things that now happened and other things that I believe *will* happen, so I feel like I can say this without sounding egocentric).
+
+So mine is a trick. People feel more and more programming is completely modified by AI and don’t know what they should do, if they can really start coding in a completely different way, without looking much at the code as their main output. They feel like they are betraying their own field. So my intention is to arrive and say “look at me, In can write code, you know, I’m not hiding behind AI: yet, things changed, it’s not your weakness, it’s not that you are AI-pilled. It is just that our field is evolving in an incredible *and* painful (but also joyful) direction”.
+
+This is why yesterday, on X, I said that I believe many programmers at this point have less impact they could have because they look at the code. I truly believe into that. And note that this does not mean to vibe code something just asking for the final product. The point is: if you control the ideas of your software, looking at the code itself is suboptimal and often pointless. For the following reasons:
+
+1. You can now generate a lot of code, even *not* accounting for the LLM code verbosity (that is also effect of not being able to instruct them well, for most of the part). How are you supposed to review 5k lines of code every day?
+
+2. LLMs are very good at writing locally optimal code, and are worse (but improving) with big ideas. What’s the point of scanning function by function, line by line? Instead you should prompt the design you have in mind, sometimes ask “how is exactly the design of that part? How does it work?”, and evaluate if it is the right model. It is much faster.
+
+3. The working day is 8 hours. If you read the code, it is a tradeoff. You are doing less of what today is the most important part of your job, that is, asking yourself: what I’m doing with this software? What are the new directions I want to take? And also, think at new ideas, features, optimizations tricks. And doing a lot of QA.
+
+Controlling the ideas. Do you remember this phrasing from the Mythical Man Month? Well, a book from the 70s tells us more things about the current software era than many of the things that were said from 2000 to 2020. Why people that now protest against AI were not horrified by the state of software in the last decade? The level of slop we touched during recent years, before AI, is unbelievable. I’ll say you another thing. What is slop? With DwarfStar I implemented an inference for two LLMs (DeepSeek v4 and GLM 5.2) in a completely automated way, but: try it yourself, you will discover you can’t just say “implement XYZ” and see it working. You have to understand how things work, what is the best design, how to reach a certain level of performance. Then I compared the implementation, for correctness, to other systems, finding that other implementations sometimes contained more errors. I researched more, and found that the local inference world is full of subtle errors that accumulate and damage the model output, issues in the attention implementation causing performance slopes after the context is over a certain limit because indexed attention implementations are broken (do more work than they should, for instance), and so forth. This is the result of a domain that is very complicated to handle, fast changing, with models that are slightly different one from the other in the inference graph being released every day. It’s an unfair game for developers. Well: AI helps a lot with that. There are many domains where rigorous engineering (in the design side) and testing is *far* better than writing a GPU kernel by hand (or reading it). So are we sure most of that resistance it is not ideological?
+
+Matteo Collina yesterday asked me, in reply to my tweet: but didn’t you say that you check all the AI generated code for Redis? And this is a good question indeed. Yes, I do, but this is, at this point, something I *need* to do but that I believe to be mostly pointless, partially once GPT 5.5 was released, but now with Fable and GPT 5.6 Sol even more. Yes: I identify things that I don’t like how they are coded, but if I open other Redis files written by other Redis contributors there is *far worse*, and not since they are not good coders, but because it is a matter of taste. I write very clean code since I want it to be readable, so during the implementation of Redis Arrays I operated changes. I’m doing it again for the 50% memory saving optimization of Redis sorted sets, a PR that I’ll submit soon. But I do not feel this is useful anymore. Nobody should anymore look at this code, but only at the ideas the code contain. I continued to do it out of respect for users. Redis is at this point a commonly useful thing, and many programmers will open files and modify stuff by hand. But if I had my hands free, you know what I would do, instead? Use all the time that the review is taking me to do more QA, to think at the next optimization idea and apply it, and to use LLMs to write a DESIGN.md file where each data structure is described in human language, with the ideas it contains, the implementation tricks, the design. That, in the future, is going to be much more useful. Do you want to modify sorted sets? You open the file, read the design, then you own the ideas. You can open your agent and ask it what to do with the right mental model. This is a lot more useful than reviewing the code.
+
+Fable and GPT 5.6 reviews to the sorted sets memory saving are going to spot ways more errors and subtle race conditions that my review is going to uncover. Yet I’ll do it. But for the majority of software projects, all this does not make sense anymore. Focus on controlling the ideas, instead. Focus on quality, testing, and having an idea of the software you want to ship. The world changed and it is painful, but also full of opportunities to improve a software world that was already completely rotten.</pre>
+<p>:</p></div>
+      
+    </article>
+    
+  </body>
+</html>
