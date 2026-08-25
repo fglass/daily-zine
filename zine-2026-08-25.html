@@ -1,0 +1,398 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Fred Talks - 2026-08-25</title>
+    <style>
+      @page {
+        size: A5;
+        margin: 8mm 9mm 9mm;
+      }
+
+      :root {
+        color: #111;
+        font-family: "Times New Roman", Times, serif;
+        --body-text-size: 9.5pt;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        color: #111;
+        background: #fff;
+        font-family: "Times New Roman", Times, serif;
+        line-height: 1.45;
+      }
+
+      a,
+      a:visited {
+        color: #111;
+        text-decoration: underline;
+      }
+
+      .cover {
+        min-height: calc(210mm - 17mm);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        page-break-after: always;
+        border: 1px solid #111;
+        padding: 8mm;
+        background: #fff;
+      }
+
+      .toc-item-meta,
+      .article-meta {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .masthead {
+        margin: 0;
+        font-size: 40pt;
+        line-height: 0.95;
+        text-transform: uppercase;
+      }
+
+      .issue-date {
+        margin: 4mm 0 0;
+        font-size: 14pt;
+      }
+
+      .issue-date sup {
+        font-size: 0.58em;
+        vertical-align: super;
+        line-height: 0;
+      }
+
+      .cover-deck {
+        max-width: 90mm;
+        font-size: 12pt;
+        margin: 0;
+      }
+
+      .toc {
+        border-top: 3px solid #111;
+        padding-top: 6mm;
+      }
+
+      .toc h2 {
+        margin: 0 0 4mm;
+        font-size: 11pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .toc-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .toc-item {
+        padding: 3mm 0;
+        border-bottom: 1px solid rgba(17, 17, 17, 0.2);
+      }
+
+      .toc-item-title {
+        font-size: 12pt;
+        margin: 0 0 1mm;
+      }
+
+      .toc-item-meta {
+        font-size: 8pt;
+      }
+
+      .masthead-compact {
+        margin: 0 0 6mm;
+      }
+
+      .masthead-compact h1 {
+        margin: 0;
+        font-size: 22pt;
+        line-height: 1.1;
+        text-transform: uppercase;
+      }
+
+      .masthead-compact .issue-date {
+        margin: 2mm 0 0;
+        font-size: 11pt;
+      }
+
+      .toc-compact {
+        border-top: 1px solid #111;
+        border-bottom: 1px solid #111;
+        padding: 4mm 0;
+        margin: 0 0 8mm;
+      }
+
+      article + article {
+        margin-top: 10mm;
+        padding-top: 6mm;
+        border-top: 2px solid #111;
+      }
+
+      h1 {
+        margin: 0 0 2mm;
+        font-size: 18pt;
+        line-height: 1.1;
+      }
+
+      .article-meta {
+        font-size: 8.5pt;
+        margin-bottom: 6mm;
+        padding-bottom: 3mm;
+        border-bottom: 1px solid #111;
+      }
+
+      .article-body {
+        font-size: var(--body-text-size);
+        font-family: "Times New Roman", Times, serif;
+      }
+
+      .article-body p,
+      .article-body li,
+      .article-body blockquote,
+      .article-body dd,
+      .article-body dt {
+        margin: 0 0 4mm;
+        orphans: 3;
+        widows: 3;
+      }
+
+      .article-body ul,
+      .article-body ol,
+      .article-body dl {
+        margin: 0 0 4mm 5mm;
+        padding: 0;
+      }
+
+      .article-body h2,
+      .article-body h3,
+      .article-body h4 {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        margin: 7mm 0 3mm;
+        line-height: 1.2;
+      }
+
+      .article-body blockquote {
+        margin-left: 6mm;
+        padding-left: 4mm;
+        border-left: 2px solid #111;
+      }
+
+      .article-body .media-omitted {
+        margin: 0 0 4mm;
+        font-size: 8.5pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(17, 17, 17, 0.65);
+      }
+
+      .article-body figure,
+      .article-body .article-figure,
+      .article-body picture,
+      .article-body .article-picture {
+        display: block;
+        max-width: 72mm;
+        margin: 0 auto 4mm;
+        break-inside: avoid;
+      }
+
+      .article-body img,
+      .article-body .article-image {
+        display: block;
+        max-width: min(100%, 72mm);
+        max-height: 34mm;
+        height: auto;
+        width: auto;
+        object-fit: contain;
+        margin: 0 auto 3mm;
+      }
+
+      .article-body figcaption {
+        margin-top: 1.5mm;
+        font-size: 8.5pt;
+        line-height: 1.3;
+        color: rgba(17, 17, 17, 0.8);
+      }
+
+      .article-note {
+        margin-top: 6mm;
+        padding-top: 3mm;
+        border-top: 1px solid #111;
+        font-size: 9pt;
+        font-style: italic;
+      }
+
+      @media screen {
+        body {
+          padding: 2rem;
+          margin: 0 auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    
+    <header class="masthead-compact">
+      <h1>Fred Talks</h1>
+      <p class="issue-date">
+        25<sup>th</sup> August 2026
+      </p>
+    </header>
+
+    <nav class="toc toc-compact">
+      <h2>Contents</h2>
+      <ol class="toc-list">
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Ownership</div>
+          <div class="toc-item-meta">
+            Thorsten Ball · 1122 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">“Code was never the hard part” is an insult to all programmers</div>
+          <div class="toc-item-meta">
+            Senko Rašić · 1400 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">The Night Watch</div>
+          <div class="toc-item-meta">
+            James Mickens · 2675 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Highway Signs</div>
+          <div class="toc-item-meta">
+            xkcd.com · 22 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Conceptual integrity and counting lines of code</div>
+          <div class="toc-item-meta">
+            Simon Willison&#39;s Weblog: Entries · 609 words
+          </div>
+        </li>
+        
+      </ol>
+    </nav>
+    
+
+    
+    <article>
+      <h1>Ownership</h1>
+      <div class="article-meta">
+        Thorsten Ball
+        · 08 Jul 2026 · <a href="https://registerspill.thorstenball.com/p/ownership">Source</a>
+      </div>
+      <div class="article-body"><div><h3>Thoughts on ownership I sent to the Amp team in internal note</h3><p><em>The following is an internal Slack message I sent to my Amp teammates after I had a conversation with one of them about ownership. It’s only lightly edited.<br/><br/>I <a href="https://x.com/thorstenball/status/2066907538499506349">shared it before</a>, but not here, because I didn’t think too much of it. Then today, someone said <a href="https://x.com/thorstenball/status/2074775146049474785">their CTO shared my post with them</a> and I thought: well, now I have to put it in the newsletter, don’t I? So here we are.</em></p><p><em>Below, after the Slack post, I added some thoughts on juniors on how I see this advice applying to them.</em></p><div class="captioned-image-container"><figure class="article-figure"><a class="image-link image2" href="https://substackcdn.com/image/fetch/$s_!uim-!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F450d3253-cf06-47ac-ad2e-688eef131f68.tif" target="_blank"><div class="image2-inset"><img alt="" class="sizing-normal article-image" height="22" src="https://substackcdn.com/image/fetch/$s_!uim-!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F450d3253-cf06-47ac-ad2e-688eef131f68.tif" width="693"/><div></div></div></a></figure></div><p>Just had a (great) conversation about ownership and engineering here and I realized that I often use the phrase “ownership” or allude to it, but haven’t explained what “ownership” means to me in a while.<br/><br/>So, ownership.</p><p>If I ask you “can you own this?” or “can you take care of this?” or “are you on it?” — what I’m doing is I’m asking you to <em>own</em> it, to own the solution of a problem from end to end. From “we have a problem” to “we don’t have to think about it again.”<br/><br/>That means, when you say that you’re owning something, the expectation is that you…</p><ul><li><p>Think about what the problem actually is. Maybe you already have a solution in mind, without having thought about what we’re actually trying to solve here. Maybe you think “the problem is that we need to migrate from using X to using Y”, but that’s not a problem, that’s a solution. The problem is likely something like “performance is bad”, “it’s not stable”, “it fails for customer x”. Maybe there’s other possible solutions to that? Think about those. What are the tradeoffs? What’s the best solution to go with considering these tradeoffs?</p></li><li><p>Think about edge cases. What are they? Which ones are important? Which ones can we ignore?</p></li><li><p>Think about failures. Network failures are a given, for example. How do we handle them? Retry? Well, how often? How long?</p></li><li><p>Think about data flow. How much data is involved here? Does data need to be migrated? Cleaned up? How can I get my hands on data to properly test this? What invariants are in the data? What assumptions do I have about the shape of the data that I haven’t confirmed yet?</p></li><li><p>Think about how you’d test this. How can I know that what I built is correct or not? Are tests enough? Do I need to manually poke at things? Is the difference visible on a screenshot or in a video?</p></li><li><p>How would we announce this? How do we communicate it? Can you picture it? How does it fit into the larger picture of our roadmap? Questions or concerns in that area — push back! ask!</p></li><li><p>Do the work, with precision, with care, with a sense of urgency, with calmness. Do not half-ass things. Before you merge, ask yourself: am I proud of this? would I show this to John Carmack and say “here’s what I built, under these constraints, with these tradeoffs?”</p></li><li><p>Test it manually. Yes, there’s automated tests. But in 99% of cases you can manually test or confirm that what you built works: you can run it yourself, you can ask an agent to run through test scenarios, you can poke at the data before and after, you can take screenshots, you can make a demo. Are you sure that what you did actually solves the problem?</p></li><li><p>Make sure it lands in production and <em>works in production</em>. Is it deployed? Did the deploy fail? Do you need to activate a feature flag? Does the feature flag work? Can you use it in production? Can you confirm it’s actually deployed?</p></li><li><p>If you think your colleagues needs to know about this change, because it’s new feature they should all test, or it’s a new convention in codebase, or maybe it’s a tricky thing everybody needs to be aware of, or something else: let them know! Do not underestimate peripheral vision: knowing that person X yesterday changed the behavior of how Z works might save person Y three hours of debugging today when a bug report related to Z comes in.</p></li><li><p>Do customers need to know? Who reported the bug? Who’s blocked? Let them know.</p></li><li><p>Does the world need to know? Announce that it’s out.</p></li><li><p>Are there follow-ups? Do you need to check on what you shipped in the logs? A week later maybe?</p></li></ul><p>Yes, that’s a lot. And there’s actually more, because I’m sure I forgot some stuff.<br/><br/>But that’s how you build a product in a small team. We don’t have PMs, we don’t have a Q&amp;A department. We’re small, but we’re <em>great</em>, we can do all of that.<br/><br/>And it’s always okay to ask for help, it’s okay to ask questions, it’s okay to redo things and triple-check. What’s not okay is to implicitly assume that someone else will do the things here that you haven’t thought about.</p><div class="captioned-image-container"><figure class="article-figure"><a class="image-link image2" href="https://substackcdn.com/image/fetch/$s_!__gY!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F394a7c97-4378-4e3d-9072-16d31ec47f61.tif" target="_blank"><div class="image2-inset"><img alt="" class="sizing-normal article-image" height="34" src="https://substackcdn.com/image/fetch/$s_!__gY!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F394a7c97-4378-4e3d-9072-16d31ec47f61.tif" width="717"/><div></div></div></a></figure></div><p><em>“How does this apply juniors? You can’t expect them to really do all of that?”</em></p><p>I’ve been asked these questions, or variations of them, after I shared the thoughts above and here’s my answer.</p><p>I do <em>not</em> expect juniors to <em>do</em> all of these things right away. But I would expect them to read through the list and <em>aspire</em> to one day be able to do all of these things. Until then, they can and should ask for help.</p><p>In fact, I don’t expect <em>anybody</em> to <em>always</em> do <em>all of these things</em> for <em>everything</em>. It’s a mental checklist of things to consider — problem, edge cases, tradeoffs, deployment, customers, messaging, … — but for quite a few things there aren’t edge cases to consider. Or big tradeoffs to weigh. Or deployment is a solved problem. And maybe someone else does the messaging for you.</p><p>And I imagine that most of these things you shouldn’t even consider when you work in a company with, say, 5000 employees. I’ve never worked in a company that large, only startups, so I can’t speak to how to successfully ship a software feature at Apple, end to end.</p><p>But when you work in a small company in which there’s only a single department, when you want to build things you’re proud of, when you work with me and you say own something, I expect you to keep these things in mind and run through them before you declare something as done.</p><div class="captioned-image-container"><figure class="article-figure"><a class="image-link image2" href="https://substackcdn.com/image/fetch/$s_!jAX5!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F4b50d509-3c6c-4db1-aea2-8f22bc60117c.tif" target="_blank"><div class="image2-inset"><img alt="" class="sizing-normal article-image" height="26" src="https://substackcdn.com/image/fetch/$s_!jAX5!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F4b50d509-3c6c-4db1-aea2-8f22bc60117c.tif" width="780"/><div></div></div></a></figure></div><div class="subscription-widget-wrap-editor"><div class="subscription-widget show-subscribe"><div class="preamble"><p class="cta-caption">You know what <em>you</em> should own? A subscription to this newsletter:</p></div></div></div></div></div>
+      
+    </article>
+    
+    <article>
+      <h1>“Code was never the hard part” is an insult to all programmers</h1>
+      <div class="article-meta">
+        Senko Rašić
+        · 09 Aug 2026 · <a href="https://blog.senko.net/code-was-never-the-hard-part-is-an-insult-to-all-programmers">Source</a>
+      </div>
+      <div class="article-body"><p>The software development profession is in the midst of upheaval. Nobody knows how the AI revolution will play out in the end, but it is clear many aspects of work and life will be transformed—including programming.</p>
+<p>One of the comments I hear often lately boils down to “<em>LLMs may be good at coding, but software was never the hard part</em>” and “<em>coding is easy, it's figuring out what to code that's hard</em>”.</p>
+<p>I believe that's a gross insult to all programmers everywhere.</p>
+<h2>If coding is easy...</h2>
+<p>If coding is easy, how come programmers were in high demand, and have demanded large salaries for years (even before ZIRP)? Why was there so much stress, overwork and burnout even before AI started churning out 5000-line PRs? Why did companies seek 10x ninja rockstar coders and subject them to leetcode interviews—surely, a junior fresh out of college could churn out something if it's so easy?</p>
+<p>If coding is easy, why do we have doorstoppers like <a href="https://www.goodreads.com/book/show/3735293-clean-code">Clean Code</a> and <a href="https://en.wikipedia.org/wiki/The_Pragmatic_Programmer">The Pragmatic Programmer</a>? Is <a href="https://www-cs-faculty.stanford.edu/~knuth/taocp.html">The Art of Computer Programming</a> a light summer read? Is SICP a coffee-table book? Why do we have bootcamps or even whole college degrees dedicated to it?</p>
+<p>If coding is easy, was <a href="https://en.wikipedia.org/wiki/John_Carmack">Carmack</a> just at the right place at the right time? Why do we consider <a href="https://bellard.org/">Fabrice Bellard</a> a genius?</p>
+<p>If coding is easy, why are people angry at AI (or anyone else) copying their code? Why do they act like they've poured their sweat, soul, and copious amounts of time into something so trivial?</p>
+<p>If coding is easy, why do many now feel like their identity and professional purpose are being stripped away from them?</p>
+<p>If coding is easy, why is software so damn buggy?</p>
+<h2>If figuring out what to build is the hard part...</h2>
+<p>If deciding what to build is the hard part, why do so many product managers seem clueless? Why aren't there rigorous 10-step interviews for them? Why aren't they getting paid more than the developers?</p>
+<p>If deciding what to build is the hard part, why aren't market researchers, usability experts and—hell, customer success—considered rockstars in a software company? If “understanding the customer” is harder, why are business analysts looked down on as pencil pushers?</p>
+<p>If implementation is easy and finding demand is harder, why are programmers upset when the salespeople promise a new feature to a customer to close the sale? They've found a genuine demand, something people will pay for!</p>
+<p>If coding is easy, why doesn't everyone just build ten variations of a thing and see which pans out?</p>
+<h2>There's no median programmer</h2>
+<p>Another cliché comment is “<em>most work in software development is talking to stakeholders, understanding the customer's needs, and having clarity on the priorities</em>”.</p>
+<p>I have met many programmers throughout my career, and very few of them want to talk to stakeholders, much less customers (exceptions are freelancers and founders, especially of software development shops). And, “having clarity on the priorities” boils down to “just tell me what to do and don't switch it up every two days”.</p>
+<p>Some software developers do say “I don't write code, I solve customer's problems”. But then they turn around and start to opine on monads, memory safety, and DRY principles, while their understanding of the customer is a made-up “user persona”, and they think “affordance” is the money your parents used to give you on weekends so you could go out and have a good time.</p>
+<p>Yet others will say “Software development is theory building”. Programs are actually proofs (as in, mathematical proofs). Every commit should tell a story. And solving a customer's problem by FTPing a PHP file is a cardinal sin.</p>
+<p>I don't mean to imply there are no developers that simultaneously care deeply about the craft of software development and really empathize with the customer. I do believe they might want to see a professional about a split personality disorder, tho.</p>
+<h2>What <em>is</em> important?</h2>
+<p>I do believe that talking to users, understanding their experience, empathizing with them, solving customers' problems and having all the stakeholders on the same page is critical to the success of a software project.</p>
+<p>I also believe that creating good code is a craft that requires skill, patience, attention to detail, experience and wisdom, and that it will continue to be relevant in the times ahead.</p>
+<p>¿Por qué no los dos?</p>
+<p>To the extent that we can pull it off, I think we should aim for both. A deep understanding of the system we're building, together with a deep understanding of <em>why</em> we're building it.</p>
+<p>Loudly proclaiming that “code is easy” or, at the opposite end, “code is art, a creative human expression that cannot be automated”, is just burying our heads in the sand.</p>
+<p>It's cope. And you don't want cope, you want to thrive.</p>
+<p>By this, I don't mean “jump on the LLM bandwagon.” I don't mean “become a manager of fleets of AI agents.” I also don't mean “AI-generated code is stolen slop garbage, fight it with tooth and nail, the bubble will pop soon enough anyways.”</p>
+<p>But do recognize we're in the middle of an industry-wide tectonic change. We need to figure out how to adapt. We need to understand what is likely to change and what never changes.</p>
+<h2>What doesn't change?</h2>
+<p>Software will be getting more complex. Software will always need maintenance: bit-rot is a fact of life. So is entropy. Technology (hardware and software) will move forward, for better or worse. The tower (skyscraper?) of abstractions grows ever higher.</p>
+<p>Users will always want more and be prepared to spend less. They still won't know how to relay their needs and wants. Worse, they still won't know exactly what they want. The disconnect between the customers (who actually pay for the software) and users (who use it) will still be here, as will the tension between the needs of the business and the needs of its customers.</p>
+<p>Also: there will never be a shortage of snake oil salesmen. Tech du jour comes and goes (I'm still waiting for the new VR renaissance!)</p>
+<h2>What changes?</h2>
+<p>Programmers have been in the business of disrupting our own industry since the beginning. Nobody uses punch-cards any more. Very few people need to code in assembly, or COBOL. Those decades spent fighting memory bugs in C or C++, with the scars to prove it, are worthless in the age of Rust, Go, Python and JavaScript.</p>
+<p>I'm old enough to appreciate <a href="https://valgrind.org/">valgrind</a> or remember <a href="https://www.php.net/manual/en/function.mysql-escape-string.php"><code>mysql_real_escape_string()</code></a> from the PHP4 era—stuff I'll never again need in my life. And that wasn't even so long ago! I narrowly missed the dBase, Clipper, HyperCard and Access era, technologies which I can still spot operating in shops, cafes, or a dusty, once beige and now golden-brown, midi-tower still happily running some bespoke biz solution (backups? what backups?)</p>
+<h2>How do we thrive?</h2>
+<p>Accept that change happens. Be equal parts curious and critical about the new stuff.</p>
+<p>Understand there's a lot of hype and try to discriminate between hot air and what really works (and to what extent). Also be aware of ever-shifting goalposts: stand back and look at the past year, or five, and assess the velocity of change (technical, economic, societal).</p>
+<p>Your role and your responsibilities <em>will</em> be changing. Be willing to invest time and energy into better understanding fields or roles adjacent to yours.</p>
+<p>If you're a senior developer, don't just find solace in deepening your expertise. Learn about user experience, customer interviews, or business strategies for the companies in your domain. It will help you gain a better appreciation of all the work done to put a piece of software into users' hands, whether or not you'll actually ever have to do any of those other bits.</p>
+<p>If you're just starting or are junior in your role: invest in deepening your understanding of how software works. Understanding pointers, recursion, or memory hierarchy will help you even if you're a JavaScript developer. Understanding network protocols and how HTTP works will be useful even if you're building WordPress plugins. Do leetcode and learn about algorithms and data structures even if you don't need to. Don't be afraid to ask <em>why</em> and <em>how exactly</em>.</p>
+<p>For inspiration, here are a few books and other resources that might be helpful:</p>
+<ul> <li><a href="https://www.goodreads.com/book/show/58046715-continuous-discovery-habits">Continuous Discovery Habits</a></li> </ul>
+<h2>One more thing</h2>
+<p>Whoever you are, don't outsource your understanding, judgement, empathy and taste to AI. Don't <a href="https://blog.senko.net/your-code-is-your-responsibility-even-if-ai-wrote-it">abdicate your responsibility</a>. Don't be a <a href="https://gruhn.me/blog/2026-08-03/">meat proxy</a>.</p></div>
+      
+    </article>
+    
+    <article>
+      <h1>The Night Watch</h1>
+      <div class="article-meta">
+        James Mickens
+        · 11 Apr 2026 · <a href="https://www.usenix.org/system/files/1311_05-08_mickens.pdf">Source</a>
+      </div>
+      <div class="article-body"><div><p></p><p>The Night Watch</p><p><br/></p><p>J AM E S M I C K E N S</p><p><br/></p><p><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/Qh_zJJv8ZR0hQwDrpMtI4o0UpsKc2Lc5K3V_L4-iyNg-PhqvNH_Sl5vCey.png" class="article-image"/></p><p>James Mickens is a researcher in the Distributed Systems group at Microsoft’s Redmond lab. His current research focuses on web applications,</p><p>with an emphasis on the design of JavaScript frameworks that allow developers to diagnose and fix bugs in widely deployed web applications. James also works on fast, scalable storage systems for datacenters.</p><p><a href="mailto:mickens@microsoft.com" target="_blank">James received his PhD in computer science from the University of Michigan, and a bachelor’s degree in computer science from Georgia Tech. </a><a href="mailto:mickens@microsoft.com" target="_blank">mickens@microsoft.com</a></p><p><br/></p><p>s a highly trained academic researcher, I spend a lot of time trying to advance the frontiers of human knowledge. However, as someone who was born in the South, I secretly believe that true progress is</p><p>A</p><p></p><p>a fantasy, and that I need to prepare for the end times, and for the chickens coming home to roost, and fast zombies, and slow zombies, and the polite zombies who say “sir” and “ma’am” but then try to eat your brain to acquire your skills. When the revolution comes, I need to be prepared; thus, in the quiet moments, when I’m not producing incredible scientific breakthroughs, I think about what I’ll do when the weather forecast inevitably becomes</p><p>RIVERS OF BLOOD ALL DAY EVERY DAY. The main thing that I ponder is who will be in my gang, because the likelihood of post-apocalyptic survival is directly related to the size and quality of your rag-tag group of associates. There are some obvious people who I’ll need to recruit: a locksmith (to open doors); a demolitions expert (for when the locksmith has run out of ideas); and a person who can procure, train, and then throw snakes at my enemies</p><p>(because, in a world without hope, snake throwing is a reasonable way to resolve disputes). All of these people will play a role in my ultimate success as a dystopian warlord philosopher. However, the most important person in my gang will be a systems programmer. A person who can debug a device driver or a distributed system is a person who can be trusted in a Hobbesian nightmare of breathtaking scope; a systems programmer has seen the terrors of the world and understood the intrinsic horror of existence. The systems programmer has written drivers for buggy devices whose firmware was implemented by a drunken child or a sober goldfish. The systems program- mer has traced a network problem across eight machines, three time zones, and a brief diversion into Amish country, where the problem was transmitted in the front left hoof of a mule named Deliverance. The systems program- mer has read the kernel source, to better understand the deep ways of the universe, and the systems programmer has seen the comment in the sched- uler that says “DOES THIS WORK LOL,” and the systems programmer has wept instead of LOLed, and the systems programmer has submitted a kernel patch to restore balance to The Force and fix the priority inversion that was causing MySQL to hang. A systems programmer will know what to do when society breaks down, because the systems programmer already lives in a world without law.</p><p><br/></p><p>Listen: I’m not saying that other kinds of computer people</p><p>are useless. I believe (but cannot prove) that PHP developers have souls. I think it’s great that database people keep trying to improve select-from-where, even though the only queries that cannot be expressed using select-from-where are inap- propriate limericks from “The Canterbury Tales.” In some way that I don’t yet understand, I’m glad that theorists are investigating the equivalence between five-dimensional Tur- ing machines and Edward Scissorhands. In most situations, GUI designers should not be forced to fight each other with tridents and nets as I yell “THERE ARE NO MODAL DIA- LOGS IN SPARTA.” I am like the Statue of Liberty: I accept everyone, even the wretched and the huddled and people who enjoy Haskell. But when things get tough, I need mission-crit- ical people; I need a person who can wear night-vision goggles and descend from a helicopter on ropes and do classified things to protect my freedom while country music plays in the background. A systems person can do that. I can realistically give a kernel hacker a nickname like “Diamondback” or “Zeus Hammer.” In contrast, no one has ever said, “These semi-</p><p>transparent icons are really semi-transparent! IS THIS THE WORK OF ZEUS HAMMER?”</p><p>I picked that last example at random. You must believe me when I say that I have the utmost respect for HCI people.</p><p>However, when HCI people debug their code, it’s like an</p><p>art show or a meeting of the United Nations. There are tea breaks and witticisms exchanged in French; wearing a non- functional scarf is optional, but encouraged. When HCI code doesn’t work, the problem can be resolved using grand theo- ries that relate form and perception to your deeply personal feelings about ovals. There will be rich debates about the socioeconomic implications of Helvetica Light, and at some point, you will have to decide whether serifs are daring state- ments of modernity, or tools of hegemonic oppression that implicitly support feudalism and illiteracy. Is pinching-and- dragging less elegant than circling-and-lightly-caressing?</p><p>These urgent mysteries will not solve themselves. And yet, after a long day of debugging HCI code, there is always hope, and there is no true anger; even if you fear that your drop- down list should be a radio button, the drop-down list will suffice until tomorrow, when the sun will rise, glorious and</p><p>vibrant, and inspire you to combine scroll bars and left-click- ing in poignant ways that you will commemorate in a sonnet when you return from your local farmer’s market.</p><p>This is not the world of the systems hacker. When you debug a distributed system or an OS kernel, you do it Texas-style. You gather some mean, stoic people, people who have seen things die, and you get some primitive tools, like a compass and a rucksack and a stick that’s pointed on one end, and you walk into the wilderness and you look for trouble, possibly while</p><p>using chewing tobacco. As a systems hacker, you must be pre- pared to do savage things, unspeakable things, to kill runaway threads with your bare hands, to write directly to network ports using telnet and an old copy of an RFC that you found in the Vatican. When you debug systems code, there are no high- level debates about font choices and the best kind of turquoise, because this is the Old Testament, an angry and monochro- matic world, and it doesn’t matter whether your Arial is Bold or Condensed when people are covered in boils and pestilence and Egyptian pharaoh oppression. HCI people discover bugs by receiving a concerned email from their therapist. Systems people discover bugs by waking up and discovering that their first-born children are missing and “ETIMEDOUT ” has been written in blood on the wall.</p><p>What is despair? I have known it—hear my song. Despair is when you’re debugging a kernel driver and you look at a mem- ory dump and you see that a pointer has a value of 7. THERE IS NO HARDWARE ARCHITECTURE THAT IS ALIGNED ON</p><p>7. Furthermore, 7 IS TOO SMALL AND ONLY EVIL CODE WOULD TRY TO ACCESS SMALL NUMBER MEMORY.</p><p>Misaligned, small-number memory accesses have stolen decades from my life. The only things worse than misaligned, small-number memory accesses are accesses with aligned buf- fer pointers, but impossibly large buffer lengths. Nothing ruins a Friday at 5 P.M. faster than taking one last pass through the log file and discovering a word-aligned buffer address, but a buffer length of NUMBER OF ELECTRONS IN THE UNI-</p><p>VERSE. This is a sorrow that lingers, because a 2893 byte read is the only thing that both Republicans and Democrats agree is wrong. It’s like, maybe Medicare is a good idea, maybe not, but there’s no way to justify reading everything that ever existed a jillion times into a mega-jillion sized array. This constant war on happiness is what non-systems people do not understand about the systems world. I mean, when a machine learning</p><p>algorithm mistakenly identifies a cat as an elephant, this is</p><p>actually hilarious. You can print a picture of a cat wearing an elephant costume and add an ironic caption that will entertain people who have middling intellects, and you can hand out cop- ies of the photo at work and rejoice in the fact that everything is still fundamentally okay. There is nothing funny to print when you have a misaligned memory access, because your machine is dead and there are no printers in the spirit world.</p><p>An impossibly large buffer error is even worse, because these errors often linger in the background, quietly overwriting your state with evil; if a misaligned memory access is like a criminal burning down your house in a fail-stop manner, an impossibly large buffer error is like a criminal who breaks into your house, sprinkles sand atop random bedsheets and toothbrushes, and then waits for you to slowly discover that your world has been tainted by madness. Indeed, the common discovery mode for an impossibly large buffer error is that your program seems to</p><p><br/></p><p>be working fine, and then it tries to display a string that should say “Hello world,” but instead it prints “#a[5]:3!” or another syntactically correct Perl script, and you’re like WHAT THE HOW THE, and then you realize that your prodigal memory accesses have been stomping around the heap like the Incred- ible Hulk when asked to write an essay entitled “Smashing Considered Harmful.”</p><p>You might ask, “Why would someone write code in a grotesque language that exposes raw memory addresses? Why not use</p><p>a modern language with garbage collection and functional programming and free massages after lunch?” Here’s the answer: Pointers are real. They’re what the hardware under- stands. Somebody has to deal with them. You can’t just place a LISP book on top of an x86 chip and hope that the hardware learns about lambda calculus by osmosis. Denying the exis- tence of pointers is like living in ancient Greece and denying the existence of Krackens and then being confused about why none of your ships ever make it to Morocco, or Ur-Morocco,</p><p>or whatever Morocco was called back then. Pointers are like Krackens—real, living things that must be dealt with so that polite society can exist. Make no mistake, I don’t want to write systems software in a language like C++. Similar to the Necro- nomicon, a C++ source code file is a wicked, obscure document that’s filled with cryptic incantations and forbidden knowl- edge. When it’s 3 A.M., and you’ve been debugging for 12 hours, and you encounter a virtual static friend protected volatile</p><p>templated function pointer, you want to go into hibernation and awake as a werewolf and then find the people who wrote the C++ standard and bring ruin to the things that they love. The C++ STL, with its dyslexia-inducing syntax blizzard of colons and angle brackets, guarantees that if you try to declare any reasonable data structure, your first seven attempts will result in compiler errors of Wagnerian fierceness:</p><p>Syntax error: unmatched thing in thing from std::nonstd::<u> </u> map&lt;_Cyrillic, _$$$dollars&gt;const basic_string&lt; epic_ mystery,mongoose_traits &amp;lt; char&gt;, <u>  </u>default_alloc_&lt;casual_ Fridays = maybe&gt;&gt;</p><p>One time I tried to create a list&lt;map&lt;int&gt;&gt;, and my syntax errors caused the dead to walk among the living. Such things are clearly unfortunate. Thus, I fully support high-level lan- guages in which pointers are hidden and types are strong and the declaration of data structures does not require you to solve a syntactical puzzle generated by a malevolent extraterrestrial species. That being said, if you find yourself drinking a martini and writing programs in garbage-collected, object-oriented Esperanto, be aware that the only reason that the Esperanto runtime works is because there are systems people who have exchanged any hope of losing their virginity for the exciting opportunity to think about hex numbers and their relationships</p><p>with the operating system, the hardware, and ancient blood rituals that Bjarne Stroustrup performed at Stonehenge.</p><p>Perhaps the worst thing about being a systems person is that other, non-systems people think that they understand the daily tragedies that compose your life. For example, a few weeks ago, I was debugging a new network file system that my research group created. The bug was inside a kernel-mode component, so my machines were crashing in spectacular and vindic-</p><p>tive ways. After a few days of manually rebooting servers, I had transformed into a shambling, broken man, kind of like a computer scientist version of Saddam Hussein when he was pulled from his bunker, all scraggly beard and dead eyes and florid, nonsensical ramblings about semi-imagined enemies.</p><p>As I paced the hallways, muttering Nixonian rants about my code, one of my colleagues from the HCI group asked me what my problem was. I described the bug, which involved concur- rent threads and corrupted state and asynchronous message delivery across multiple machines, and my coworker said,</p><p>“Yeah, that sounds bad. Have you checked the log files for errors?” I said, “Indeed, I would do that if I hadn’t broken every component that a logging system needs to log data. I have a network file system, and I have broken the network, and I have broken the file system, and my machines crash when I make eye contact with them. I HAVE NO TOOLS BECAUSE I’VE DESTROYED MY TOOLS WITH MY TOOLS. My only logging</p><p>option is to hire monks to transcribe the subjective experience of watching my machines die as I weep tears of blood.” My co- worker, in an earnest attempt to sympathize, recounted one of his personal debugging stories, a story that essentially involved an addition operation that had been mistakenly replaced with</p><p>a multiplication operation. I listened to this story, and I said, “Look, I get it. Multiplication is not addition. This has been known for years. However, multiplication and addition are at least related. Multiplication is like addition, but with more addition. Multiplication is a grown-up pterodactyl, and addi- tion is a baby pterodactyl. Thus, in your debugging story, your code is wayward, but it basically has the right idea. In contrast, there is no family-friendly GRE analogy that relates what my code should do, and what it is actually doing. I had the mod-</p><p>est goal of translating a file read into a network operation, and now my machines have tuberculosis and orifice containment issues. Do you see the difference between our lives? When you asked a girl to the prom, you discovered that her father was a cop. When I asked a girl to the prom, I DISCOVERED THAT HER FATHER WAS STALIN.”</p><p>In conclusion, I’m not saying that everyone should be a systems hacker. GUIs are useful. Spell-checkers are useful. I’m glad that people are working on new kinds of bouncing icons because they believe that humanity has solved cancer and homelessness and now lives in a consequence-free world</p><p><br/></p><p>of immersive sprites. That’s exciting, and I wish that I could join those people in the 27th century. But I live here, and I live now, and in my neighborhood, people are dying in the streets. It’s like, French is a great idea, but nobody is going to invent French if they’re constantly being attacked by bears. Do you see? SYSTEMS HACKERS SOLVE THE BEAR MENACE.</p><p>Only through the constant vigilance of my people do you get</p><p>the freedom to think about croissants and subtle puns involv- ing the true father of Louis XIV. So, if you see me wandering the halls, trying to explain synchronization bugs to confused monks, rest assured that every day, in every way, it gets a little better. For you, not me. I’ll always be furious at the number 7, but such is the hero’s journey.</p><p><br/></p><p><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/3PjVhm7SHAnNCFsrp4vYcMmjj4SbJW6_Nw3I8kCRkHo-Ttoq4t_0PjAixm.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/zu6piHoR3bKYZi8-bhTBDVes4mGPSwexqfHxhL2XV7c-fnmEuB_ncwO73o.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/BKRuB5D8rBa8HdORYoDsAG6E90Wxw-g5jzU5jNVL0SA-JTKhjG_mbyyoPB.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/vHq8DNX8KgbuwOrW5x382wBldGETJ_QYyCfJ7YvliGg-jXfgAF_o9Kq1Td.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/_hhGPcB-wnqc7Hnf0vlR-s9YoIerGTz5j1nzLF9EZJk-S6jgeu_wRLQZhx.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/BKWddr7mDr1b6vKoiuzT9S8wMfYmeWkFDHeUWXsXm-U-yn92ap_882g4tc.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/Ljll433Q85CHGZ11YSI8iwrSVzMulhf_alYDpGGHoWk-GQOhDC_AVH7JxR.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/9GWpw0igxFQBm9ou8MytnTuLjZAhYXJaKDpH7BBnldE-GpM9TP_vSR4tBG.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/o2Fev3AVMUxSlY-2J_kGIvtq6ByKB0zIP4yn6kOCFyk-UBZuJf_arJQIcs.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/Xudf2kb-JiTw-bGQeeKnuj5AVyH6QLWtcquVcSM7MKA-KdAkcQ_XxDwLTZ.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/hjRl1nz9wufUszQToA5y5jkEV26Q1Joh-Wb5DyURj00-ftwTzI_bFqqJ9N.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/HQ9IrO9DjZpOKeo0SBpG0PQ7PqI0tnFYcdHm60Xmp-w-6WcDjD_3FQbRGB.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/6xPTbWKef5Tx-Vhxff76tPrfZYE0jP1ofMjQ1AeyoFo-kNEPiT_ehz6XQh.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/yMRGU8iN4_0-UiKWfZV4O8P4NI96Uo6bKGd0xFZUfGM-DCPm2E_r6h3DVu.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/DdXYx8C0PDURQ_9sC-YpVVYvQcf0H7WsGVvc7aNlfNs-JADKKu_L4dXsj1.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/g0QHbZNs1N6ILk9mvaiOcn469uJltkjOjJm2tAgIGms-lc0DFt_pzteoe5.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/-ZQiQHqvWk3k208XO-fFM_KQI7jYpa0U4PWRwFfZmi4-jBoftz_UyYAJhQ.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/je5pVOg4iC_CKMY3kkak7SpW1bJjZ9bYxbelxBxJkYw-I4g_1D_b9icttQ.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/_yG37F0Ne-FE1e3ye7alCuIciUaoPw3TM2zNGnrEjiQ-LV6QAz_zwrScIL.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/MFAFSOuOEOGqJ655FpAwV1iWq_vtVGFNVU8AzWvTLWE-__I7sj_VyZuSB2.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/1jvrpT5BbqcPvkdTJebUKwKuRnnoth6ZRKkvFu1zqFY-4kCoUf_FMuVHNJ.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/GqkC-r47Olk3MK9ZfKR5JUXtsYIn0k35OULb7-46lpY-ImSCi4_qL5c0Fl.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/Cfi4KP8QlMJoXO20drN_-Pmz1ymZQHrLzDAuA1m2iTY-9Kktc1_GrrDaQO.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/qU4C4LNTzvu5a5yyRN_jTk2Vo6ja5PLVAcPsjOcgruc--4duo2_iOYWYgk.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/6h5FaIF8n_ImMtl9-wUQL1pY4UCwe6ShoJ-emKcZJlw-HNgmis_7IE6s9r.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/U7UQ12j1nrwIeXEtChEgxyj1iUbqjnIL8azTEKZ8ERg-mGn-ux_meEMikJ.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/0dXzLDFT43xEsh9KSPiZBeUSE55cg4LXBCYTUBclXpc-n0B6Zy_jUCdIxw.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/v5cKOT1MyuR7Q0J46JCzj4tfPE2Kh0WV3A8dW4mj9PE-fJoKj0_7IzpAwT.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/NXA_a7aZqfzD9e7sp4LyeVK0bt_ypoVuvrYNOkl-N5s-WcbOa2_NFdYZfe.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/09Fg0DVT-G10gdWFwMK9KSePZ3hv94eFgAMUAus6Vpo-iXi4nr_GUZg5fN.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/7HCO_Yz47hxS01U0Dvw83-G3oCQi_XPigYGxPtYSQXQ-qHWcyR_Oc38EO9.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/ZyKwjfvFVWMYOErKBJnBlX5kHnkXG6iURgCUBRkG23c-g4SZ_f_BRDpDIH.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/g1JfUtkpM102XJIXL1-_DF4jlKVkN73XelpeN-rbASo-Z3Rxe6_eV3T37T.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/ZqfF49Oq4gdxEwJQOnNr6cfnuwsw6WxyfNld8zXNkHU-X8E80p_nDd3ymo.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/j_aDFBxxPMKW1N1mQUiJD4Jv6sLvpgfDiVR_KYF15Yo-f-7gW__1Lrq8AE.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/X-rieWMGjDA3xhrFurgaVaoxVmOxGR1Gh5yWTulc8qc-5VWrpr_52uT7Ex.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/J0xH79919-Y-223udc_HjCkMou04iC-nM0gubKiV1zA-Czi66a_JiE87DE.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/-RgteSd4yAk_j608MaIw17AiWyVbpfSXPV49vhMjPq8-hh2rn9_RhGKlDl.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/qeMbUEBS5ivfsD7glHzGBCIP6gZxQyqCmZMS8_uPxIA-bNVeOY_bHIqKR0.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/m7htRL5yJwMBtLmrL2Sn9_WF0j7cbAXWynMsLz9iIQg-biESR8_p2TU36x.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/68FgZ46Dr-qlarRaZFW3Y-TJ2t6BsaFvGj6wMbHUZqY-e4jqWJ_7EnCXWN.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/odl1eG3KcxKWrDg_4KZlCGsAWK-Q5c0QdD6UEuK_uGk-B_5-ap_59TRnEf.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/nSs-ZwKiOxvQVjnwXzopfMSpZg6WETqwUNWsiQiD7bg-kDqNyf_556hL1M.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/blsJ1zGV7cw7yqPeKopXcPyv0xm-ahhrzwosz38ZwgM-Mndfp9_xP5Xptf.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/N4y9pAPhOW18YXsmDv5Tg4j8rPO6poNWLD-iIMYwtXg-9xg0ap_Fhj4MUC.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/G0pJsD4r__jnJu6Xagukx3ARxLhZ8TQEOPsrcehWl-I-35jJz-_BjrTOa2.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/377DrrLyQVfpIRl7w1nhp8rCXEib0QFUHJX0iWbXwCE-TGw66Y_Y6zIMig.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/N5bwSeNlv3R01-p5MvqgBQCIPwKNuDqTZrzIQYOBE4c-Lt1OUR_eG2HS8J.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/Uj4jTnGVwUZBKWzpcG-fWeteFhynvvxnChThxd7y6GM-CpT3Zv_rzsZoXx.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/2Q8SzdZ0E-uoSkurUo71zMdPuFBY5jAucH1Hxr7tSe8-FXHV8-_o3py9iI.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/f-cJudd5ZIX0zH93wBWiPd76QWhZvkQROzphrw8q4Lk-0MJpI4_nXHHIRm.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/4hylgy8BJ6DbXeHsaQu4RJHkIJZSzcCsaUDmFqSVAyM-Ogr0o7_j0dTzDf.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/W6EYed5UyuB9s0lgdHYN7heF1p0WaKjDUGI5baET8tI-zatTlx_3WFx9YF.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/UEyFXXe1FQOuttF6PAa_KSYV8I1Ijuv_2rK1DokyGFA-GohX5F_yCuDOxQ.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/z8y6R5sxvlSgDbEDW7_6BT5uK37GLMmYMASYMBUR82w-AMWOcI_t4hroEw.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/RsCulUTlhMRpRH2mBb1zNtn4iiIS-t423DqqU8Uej2o-X7XpCp_RY0ijzQ.png" class="article-image"/><img alt="image" src="https://readwise-assets.s3.amazonaws.com/media/reader/parsed_document_assets/8193036/kHBrdcBHSazzsaNzKWKvbViAnuQB5l3ZhOuDbEDPKPk-o71Hfo_A0ZNZw9.png" class="article-image"/></p><h1>Do you know about the USENIX Open Access Policy?</h1><p><br/></p><p>USENIX is the first computing association to offer free and open access to all of our conferences proceedings and videos. We stand by our mission to foster excellence and innovation while supporting research with a practical bias. Your membership fees play a major role in making this endeavor successful.</p><p><br/></p><p>Please help us support open access.</p><p>Renew your USENIX membership</p><p>and ask your colleagues to join or renew today!</p><p><br/></p><p><a href="http://www.usenix.org/membership">www.usenix.org/membership</a></p></div></div>
+      
+    </article>
+    
+    <article>
+      <h1>Highway Signs</h1>
+      <div class="article-meta">
+        xkcd.com
+        · 25 Aug 2026 · <a href="https://xkcd.com/3289/">Source</a>
+      </div>
+      <div class="article-body"><figure class="article-figure"><img alt="Highway Signs" data-title="Highway engineers like Planck units because, like the speed of light, the energy capacity of a typical car&#x27;s gas tank is 1." src="https://imgs.xkcd.com/comics/highway_signs_2x.png" srcset="https://imgs.xkcd.com/comics/highway_signs_2x.png 2x" class="article-image"/><figcaption>Highway engineers like Planck units because, like the speed of light, the energy capacity of a typical car's gas tank is 1.</figcaption></figure></div>
+      
+    </article>
+    
+    <article>
+      <h1>Conceptual integrity and counting lines of code</h1>
+      <div class="article-meta">
+        Simon Willison&#39;s Weblog: Entries
+        · 19 Aug 2026 · <a href="https://simonwillison.net/2026/Aug/19/conceptual-integrity-and-counting-lines-of-code/">Source</a>
+      </div>
+      <div class="article-body"><h2>Conceptual integrity and counting lines of code</h2>
+<p>Last week I recorded <a href="https://talkingpostgres.com/episodes/how-ai-is-changing-software-development-with-simon-willison">an episode of the Talking Postgres podcast</a> with Claire Giordano on the subject of “How AI is changing software development”. We had a really great conversation. Here are a couple of my highlights from a lightly edited transcript (prompt to Claude: “very minor edits to remove disfluencies”).</p>
+<p>This is the latest version of an argument I’ve been trying to build about why sometimes it <em>does</em> make sense to talk about lines of code as an indicator of productivity with coding agents, at <a href="https://talkingpostgres.com/episodes/how-ai-is-changing-software-development-with-simon-willison#t=35m1s">35:01</a>:</p>
+<blockquote> <p>A lot of people will tell you it makes no sense to measure productivity in lines of code. I’d actually disagree, because there’s a hard limit. In the before-times, a software engineer could produce a few hundred lines of production-ready code per day — and 200 lines of working, debugged, production-level code is an incredibly good day. Most days you’d produce 50 or 60.</p> <p>If agents let you produce a thousand lines of debugged code, that really is a very meaningful improvement — as long as the code is the same quality: maintainable, tested, all of that. You can get to that point with agents, but it takes a huge amount of skill and knowledge and experience. That’s what senior engineers are made of.</p> <p>I can do way more work as a single engineer than I could without agents. So you could argue, why should a company have more than one engineer? Beyond the obvious bus factor thing — a team of one is a very badly designed team — the answer is that the new limiting factor is cognitive capacity. I can churn out code a hundred times faster. I don’t have the cognitive capacity to stay on top of 100 times the amount of code. So you still need a team of engineers, so you can load balance that cognitive capacity across the team.</p> </blockquote>
+<p>And this section on conceptual integrity at <a href="https://talkingpostgres.com/episodes/how-ai-is-changing-software-development-with-simon-willison#t=46m3s">46:03</a>, which Claire equated to the <a href="https://en.wikipedia.org/wiki/Winchester_Mystery_House">Winchester Mystery House</a>!</p>
+<blockquote> <p><strong>Simon</strong>: There’s a concept in <em>The Mythical Man-Month</em> — conceptual integrity — where well-designed software has an integrity to it: there are no surprises in it, it covers exactly the right domain of things, everything fits together and makes sense. That’s so much harder with coding agents, where you can have an idea for a feature, run a prompt, and five minuteslater you’ve got the feature. Your software grows little weird bumps in funny different directions.</p> <p><strong>Claire</strong>: You know my analogy for that? The Winchester Mystery House.</p> <p><strong>Simon</strong>: It’s got 140 rooms, because the woman who built it was the widow of the guy who invented the Winchester rifle, and her psychic told her she’d be haunted by the ghosts of everyone killed with that rifle unless she kept building the house forever. So for 40 years she kept adding new rooms. That’s exactly the problem with coding agents and software: it’s very easy to keep adding new rooms, because the cost of adding those rooms is so much cheaper. What you end up with is something where the conceptual integrity falls apart — and then it’s harder to make decisions about it.</p> <p>It all keeps coming back to discipline. It used to be that the discipline was enforced on you by the amount of time it took. You’d come up with an idea for a crazy feature and think “yeah, but that would take me a week — I cannot justify that, so I’ll forget about it.” If it takes an hour, it’s so much easier to justify.</p> </blockquote>
+<p>(Side-note: the Wikipedia article includes credible sources that dispute the story about the psychic.)</p></div>
+      
+    </article>
+    
+  </body>
+</html>
