@@ -1,0 +1,438 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Fred Talks - 2026-08-26</title>
+    <style>
+      @page {
+        size: A5;
+        margin: 8mm 9mm 9mm;
+      }
+
+      :root {
+        color: #111;
+        font-family: "Times New Roman", Times, serif;
+        --body-text-size: 9.5pt;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        color: #111;
+        background: #fff;
+        font-family: "Times New Roman", Times, serif;
+        line-height: 1.45;
+      }
+
+      a,
+      a:visited {
+        color: #111;
+        text-decoration: underline;
+      }
+
+      .cover {
+        min-height: calc(210mm - 17mm);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        page-break-after: always;
+        border: 1px solid #111;
+        padding: 8mm;
+        background: #fff;
+      }
+
+      .toc-item-meta,
+      .article-meta {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .masthead {
+        margin: 0;
+        font-size: 40pt;
+        line-height: 0.95;
+        text-transform: uppercase;
+      }
+
+      .issue-date {
+        margin: 4mm 0 0;
+        font-size: 14pt;
+      }
+
+      .issue-date sup {
+        font-size: 0.58em;
+        vertical-align: super;
+        line-height: 0;
+      }
+
+      .cover-deck {
+        max-width: 90mm;
+        font-size: 12pt;
+        margin: 0;
+      }
+
+      .toc {
+        border-top: 3px solid #111;
+        padding-top: 6mm;
+      }
+
+      .toc h2 {
+        margin: 0 0 4mm;
+        font-size: 11pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .toc-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .toc-item {
+        padding: 3mm 0;
+        border-bottom: 1px solid rgba(17, 17, 17, 0.2);
+      }
+
+      .toc-item-title {
+        font-size: 12pt;
+        margin: 0 0 1mm;
+      }
+
+      .toc-item-meta {
+        font-size: 8pt;
+      }
+
+      .masthead-compact {
+        margin: 0 0 6mm;
+      }
+
+      .masthead-compact h1 {
+        margin: 0;
+        font-size: 22pt;
+        line-height: 1.1;
+        text-transform: uppercase;
+      }
+
+      .masthead-compact .issue-date {
+        margin: 2mm 0 0;
+        font-size: 11pt;
+      }
+
+      .toc-compact {
+        border-top: 1px solid #111;
+        border-bottom: 1px solid #111;
+        padding: 4mm 0;
+        margin: 0 0 8mm;
+      }
+
+      article + article {
+        margin-top: 10mm;
+        padding-top: 6mm;
+        border-top: 2px solid #111;
+      }
+
+      h1 {
+        margin: 0 0 2mm;
+        font-size: 18pt;
+        line-height: 1.1;
+      }
+
+      .article-meta {
+        font-size: 8.5pt;
+        margin-bottom: 6mm;
+        padding-bottom: 3mm;
+        border-bottom: 1px solid #111;
+      }
+
+      .article-body {
+        font-size: var(--body-text-size);
+        font-family: "Times New Roman", Times, serif;
+      }
+
+      .article-body p,
+      .article-body li,
+      .article-body blockquote,
+      .article-body dd,
+      .article-body dt {
+        margin: 0 0 4mm;
+        orphans: 3;
+        widows: 3;
+      }
+
+      .article-body ul,
+      .article-body ol,
+      .article-body dl {
+        margin: 0 0 4mm 5mm;
+        padding: 0;
+      }
+
+      .article-body h2,
+      .article-body h3,
+      .article-body h4 {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        margin: 7mm 0 3mm;
+        line-height: 1.2;
+      }
+
+      .article-body blockquote {
+        margin-left: 6mm;
+        padding-left: 4mm;
+        border-left: 2px solid #111;
+      }
+
+      .article-body .media-omitted {
+        margin: 0 0 4mm;
+        font-size: 8.5pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(17, 17, 17, 0.65);
+      }
+
+      .article-body figure,
+      .article-body .article-figure,
+      .article-body picture,
+      .article-body .article-picture {
+        display: block;
+        max-width: 72mm;
+        margin: 0 auto 4mm;
+        break-inside: avoid;
+      }
+
+      .article-body img,
+      .article-body .article-image {
+        display: block;
+        max-width: min(100%, 72mm);
+        max-height: 34mm;
+        height: auto;
+        width: auto;
+        object-fit: contain;
+        margin: 0 auto 3mm;
+      }
+
+      .article-body figcaption {
+        margin-top: 1.5mm;
+        font-size: 8.5pt;
+        line-height: 1.3;
+        color: rgba(17, 17, 17, 0.8);
+      }
+
+      .article-note {
+        margin-top: 6mm;
+        padding-top: 3mm;
+        border-top: 1px solid #111;
+        font-size: 9pt;
+        font-style: italic;
+      }
+
+      @media screen {
+        body {
+          padding: 2rem;
+          margin: 0 auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    
+    <header class="masthead-compact">
+      <h1>Fred Talks</h1>
+      <p class="issue-date">
+        26<sup>th</sup> August 2026
+      </p>
+    </header>
+
+    <nav class="toc toc-compact">
+      <h2>Contents</h2>
+      <ol class="toc-list">
+        
+        <li class="toc-item">
+          <div class="toc-item-title">How Claude Code navigates large codebases</div>
+          <div class="toc-item-meta">
+            Claude · 2694 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">It&#39;s-a Me, Agentic AI</div>
+          <div class="toc-item-meta">
+            Han, Not Solo · 2362 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Trigger scheduled tasks from Gmail, Slack, and GitHub events</div>
+          <div class="toc-item-meta">
+            Codex changelog · 146 words
+          </div>
+        </li>
+        
+      </ol>
+    </nav>
+    
+
+    
+    <article>
+      <h1>How Claude Code navigates large codebases</h1>
+      <div class="article-meta">
+        Claude
+        · 18 May 2026 · <a href="https://claude.com/blog/how-claude-code-works-in-large-codebases-best-practices-and-where-to-start">Source</a>
+      </div>
+      <div class="article-body"><p>Claude Code is running in production across multi-million-line monorepos, decades-old legacy systems, distributed architectures spanning dozens of repositories, and at organizations with thousands of developers. These environments present challenges that smaller, simpler codebases don’t, whether that’s build commands that differ across every subdirectory or legacy code spread across folders with no shared root.</p>
+<p>This article covers the patterns we've observed that have led to successful adoption of Claude Code at scale. We use “large codebase” to refer to a wide range of deployments: monorepos with millions of lines, legacy systems built over decades, dozens of microservices across separate repositories, or any combination of the above. That also includes codebases running on languages that teams don't always associate with AI coding tools, such as C, C++, C#, Java, PHP. (Claude Code performs better than most teams expect it to in those cases, particularly as of recent model releases.) While every large codebase deployment is shaped by its specific version control, team structure, and accumulated conventions, the patterns here generalize across them and are a good starting point for teams considering adopting Claude Code.</p>
+<p>Claude Code navigates a codebase the way a software engineer would: it traverses the file system, reads files, uses grep to find exactly what it needs, and follows references across the codebase. It operates locally on the developer’s machine and doesn’t require a codebase index to be built, maintained, or uploaded to a server.</p>
+<p>RAG-powered AI coding tools work by embedding the entire codebase and retrieving relevant chunks at query time. At large scale, those systems can fail because embedding pipelines can’t keep up with active engineering teams. By the time a developer queries the index, it reflects the codebase as it previously existed weeks, days, or even hours before. Retrieval then returns a function the team renamed two weeks ago, or references a module that was deleted in the last sprint, with no indication that either is out of date.</p>
+<p>Agentic search avoids those failure modes. There's no embedding pipeline or centralized index to maintain as thousands of engineers commit new code. Each developer's instance works from the live codebase.</p>
+<p>But the approach has a tradeoff: it works best when Claude has enough starting context to know where to look. This means the quality of Claude's navigation is shaped by how well the codebase is set up, layering context with CLAUDE.md files and skills. If you ask it to find all instances of a vague pattern across a billion-line codebase, you’ll hit context-window limits before the work begins. Teams that invest in codebase setup see better results.</p>
+<h2>The harness matters as much as the model</h2>
+<p>One of the most common misconceptions about Claude Code is that its capabilities are solely defined by the model used. Teams focus on a model’s benchmarks and how it performs on test tasks. In practice, the ecosystem built around the model—the harness—determines how Claude Code performs more than the model alone.</p>
+<p>The harness is built from five extension points—CLAUDE.md files, hooks, skills, plugins, and MCP servers—each serving a different function. The order in which teams build them matters, as each layer builds on what came before. Two additional capabilities, LSP integrations and subagents, round out the setup. Below, we explain what each of these components and capabilities do:</p>
+<p><a href="https://code.claude.com/docs/en/memory"><strong>CLAUDE.md</strong></a><strong> files come first</strong>. These are context files that Claude reads automatically at the start of every session: root file for the big picture, subdirectory files for local conventions. They give Claude the codebase knowledge it needs to do anything well. Because they load in every session regardless of the task, keeping them focused on what applies broadly will prevent them from becoming a drag on performance.</p>
+<p><a href="https://code.claude.com/docs/en/hooks-guide"><strong>Hooks</strong></a><strong> make the setup self-improving</strong>. Most teams think of hooks as scripts that prevent Claude from doing something wrong, but their more valuable use is continuous improvement. A stop hook can reflect on what happened during a session and propose CLAUDE.md updates while the context is fresh. A start hook can load team-specific context dynamically so every developer gets the right setup for their module without manual configuration. For automated checks like linting and formatting, hooks enforce the rules deterministically and produce more consistent results than relying on Claude to remember an instruction.</p>
+<p><a href="https://code.claude.com/docs/en/skills"><strong>Skills</strong></a><strong> keep the right expertise available on-demand without bloating every session. </strong>In a large codebase with dozens of task types, not all expertise needs to be present in every session. Skills solve this through <a href="https://platform.claude.com/docs/en/agents-and-tools/agent-skills/best-practices">progressive disclosure</a>, offloading specialized workflows and domain knowledge that would otherwise compete for context space and loading them only when the task calls for it. For example, a security review skill loads when Claude is assessing code for vulnerabilities, while a document processing skill loads when a code change is made and documentation needs to be updated.</p>
+<p>Skills can also be scoped to specific paths so they only activate in the relevant part of the codebase. A team that owns a payments service can bind their deployment skill to that directory, so it never auto-loads when someone is working elsewhere in the monorepo.</p>
+<p><a href="https://code.claude.com/docs/en/plugins"><strong>Plugins</strong></a><strong> distribute what works.</strong> One challenge with large codebases is that <em>good</em> setups can stay tribal. A plugin bundles skills, hooks, and MCP configurations into a single installable package, so when a new engineer installs that plugin on day one, they will immediately have the same context and capabilities as those who have been using Claude already. Plugin updates can be distributed across the organization through <a href="https://support.claude.com/en/articles/13837433-manage-claude-cowork-plugins-for-your-organization">managed marketplaces</a>.</p>
+<p>For example, a large retail organization we work with built a skill connecting Claude to their internal analytics platform so that business analysts could pull performance data without leaving their workflow. They distributed it as a plugin before the broad rollout to the business.</p>
+<p><strong>Language server protocol (LSP) integrations give Claude the same navigation a developer has in their IDE.</strong> Most large-codebase IDEs already have an LSP running, powering "go to definition" and "find all references." Surfacing this to Claude gives it symbol-level precision: it can follow a function call to its definition, trace references across files, and distinguish between identically named functions in different languages. Without it, Claude pattern-matches on text and can land on the wrong symbol. One enterprise software company we worked with deployed LSP integrations org-wide before their Claude Code rollout, specifically to make C and C++ navigation reliable at scale. For multi-language codebases, this is one of the highest-value investments.</p>
+<p><strong>MCP servers extend everything.</strong> MCP servers are how Claude connects to internal tools, data sources, and APIs that it can't otherwise reach. The most sophisticated teams built MCP servers exposing structured search as a tool Claude can call directly. Others connect Claude to internal documentation, ticketing systems, or analytics platforms.</p>
+<p><a href="https://code.claude.com/docs/en/sub-agents"><strong>Subagents</strong></a><strong> split exploration from editing.</strong> A subagent is an isolated Claude instance with its own context window that takes a task, does the work, and returns only the final result to the parent. Once the harness is in place, some teams spin up a read-only subagent to map a subsystem and write findings to a file, then have the main agent edit with the full picture.</p>
+<figure class="article-figure"><img alt="" src="https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a04aaf1c37c6196e5ee19bb_fig1-the-claude-code-harness-v1%402x.png" class="article-image"/><figcaption>Claude Code’s extension layer at a glance. </figcaption></figure>
+<p>The table below summarizes what each component does, when it loads, and the most common mistakes we see with each:</p>
+<figure class="article-figure"><table> <tr> <th>Component</th> <th>What it is</th> <th>When it loads</th> <th>Best for</th> <th>Common confusion</th> </tr> <tbody> <tr> <td>CLAUDE.md</td> <td>Context file Claude reads automatically</td> <td>Every session</td> <td>Project-specific conventions, codebase knowledge</td> <td>Using it for reusable expertise that belongs in a skill</td> </tr> <tr> <td>Hooks</td> <td>Scripts that run at key moments</td> <td>Triggered by events</td> <td>Automating consistent behavior, capturing session learnings</td> <td>Using prompts for things that should run automatically</td> </tr> <tr> <td>Skills</td> <td>Packaged instructions for specific task types</td> <td>On demand, when relevant</td> <td>Reusable expertise across sessions and projects</td> <td>Loading everything into CLAUDE.md instead</td> </tr> <tr> <td>Plugins</td> <td>Bundled skills, hooks, MCP configs</td> <td>Always available once configured</td> <td>Distributing a working setup across the org</td> <td>Letting good setups stay tribal</td> </tr> <tr> <td>Language server protocol (LSP)*</td> <td>Real-time code intelligence via language specific servers</td> <td>Always available once configured</td> <td>Symbol-level navigation and automatic error detection in typed languages</td> <td>Assuming that it's automatic</td> </tr> <tr> <td>MCP servers</td> <td>Connections to external tools and data</td> <td>Always available once configured</td> <td>Giving Claude access to internal tools it can't otherwise reach</td> <td>Building MCP connections before the basics are working</td> </tr> <tr> <td>Subagents*</td> <td>Separate Claude instances for specific tasks</td> <td>When invoked</td> <td>Splitting exploration from editing, parallel work</td> <td>Running exploration and editing in the same session</td> </tr> <tr> <td colspan="5">*LSP is accessed through the plugin layer. Subagents are a delegation capability rather than a configured extension point.</td> </tr> </tbody> </table></figure>
+<h2>Three configuration patterns from successful deployments</h2>
+<p>How you configure Claude Code for a large codebase depends heavily on how that codebase is structured. Still, three patterns appeared consistently across the deployments we observed.</p>
+<h3>Making the codebase navigable at scale</h3>
+<p>Claude’s ability to help in a large codebase is bounded by its ability to find the right context. Too much context loaded into every session degrades performance, while too little context leaves Claude to navigate blind. The most effective deployments invest upfront in making the codebase legible to Claude. A few patterns appear consistently:</p>
+<ul><li><strong>Keeping CLAUDE.md files lean and layered.</strong> Claude loads them additively as it moves through the codebase: root file for the big picture, subdirectory files for local conventions. The root file should be pointers and critical gotchas only; everything else drifts into noise.</li><li><strong>Initializing in subdirectories, not at the repo root.</strong> Claude works best when it's scoped to the part of the codebase that's actually relevant to the task. In monorepos, this can feel counterintuitive because tooling often assumes root access, but Claude automatically walks up the directory tree and loads every CLAUDE.md file it finds along the way, so root-level context is never lost.</li><li><strong>Scoping test and lint commands per subdirectory.</strong> Running the full suite when Claude changed one service causes timeouts and wastes context on irrelevant output. CLAUDE.md files at the subdirectory level should specify the commands that apply to that part of the codebase. This works well for service-oriented codebases where each directory has its own test and build commands. In compiled-language monorepos with deep cross-directory dependencies, per-subdirectory scoping is harder to achieve and may require project-specific build configurations.</li><li><strong>Using <code>.</code></strong><code>ignore</code><strong> files to exclude generated files, build artifacts, and third-party code.</strong> Committing <code>permissions.deny</code> rules in <code>.claude/settings.json</code> means the exclusions are version-controlled, so every developer on the team gets the same noise reduction without configuring it themselves. In some codebases, generated files are themselves the subject of development work. Developers who work on code generators can override project-level exclusions in their local settings without affecting the rest of the team.</li><li><strong>Building codebase maps when the directory structure doesn’t do the work. </strong>For organizations where code isn’t consolidated in a conventional directory structure, a lightweight markdown file at the repo root listing each top-level folder with a one-line description of what lives there gives Claude a table of contents it can scan before opening files. For codebases with hundreds of top-level folders, this works best as a layered approach: the root file describes only the highest-level structure, and subdirectory CLAUDE.md files provide the next level of detail, loading on demand as Claude moves through the tree. For simpler cases, @-mentioning the specific files or directories Claude should reference can do the same job.</li><li><strong>Running LSP servers so Claude searches by symbol, not by string. </strong>Grep for a common function name in a large codebase returns thousands of matches and Claude burns context opening files to figure out which matters. LSP returns only the references that point to the same symbol, so the filtering happens before Claude reads anything. Setting this up requires installing a <a href="https://code.claude.com/docs/en/discover-plugins#code-intelligence">code intelligence plugin</a> for your language and the corresponding language server binary; the Claude Code documentation covers the available plugins and troubleshooting.</li></ul>
+<p><strong>One caveat</strong>: there are edge cases where even the hierarchical CLAUDE.md approach breaks down, for example codebases with hundreds of thousands of folders and millions of files, or legacy systems on non-git version control. We will address their challenges in future installments of this series.</p>
+<h3>Actively maintaining CLAUDE.md files as model intelligence evolves </h3>
+<p>As models evolve, instructions written for your current model can work against a future one. CLAUDE.md files that guided Claude through patterns it used to struggle with may either become unnecessary or actively constraining when the next model ships. For example, a CLAUDE.md rule that tells Claude to break every refactor into single-file changes may have helped an earlier model stay on track but would prevent a newer one from making coordinated cross-file edits it handles well.</p>
+<p>Skills and hooks built to compensate for specific model limitations, whether in the model’s reasoning or in Claude Code’s own tooling, become overhead once those limitations no longer exist. A hook that intercepted file writes to enforce p4 edit in a Perforce codebase, for example, became redundant once Claude Code added native Perforce mode.</p>
+<p>Teams should expect to do a meaningful configuration review every three to six months, but it's also worth doing one whenever performance feels like it's plateaued after major model releases.</p>
+<h3>Assigning ownership for Claude Code management and adoption</h3>
+<p>Technical configuration alone doesn't drive adoption. The organizations that got it right invested in the organizational layer, too.</p>
+<p>The rollouts that spread fastest had a dedicated infrastructure investment before broad access. A small team, sometimes even just one person, wired up the tooling so Claude already fit developer workflows when they first touched it. At one company, a couple of engineers built a suite of plugins and MCPs that were available on day one. At another, an entire team focused on managing AI coding tools had the infrastructure in place before the rollout began. In both cases, developers' first experience was productive rather than frustrating, and adoption spread from there.</p>
+<figure class="article-figure"><img alt="" src="https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a04e25f1984beb50dc5525b_fig2-phases-of-claude-code-rollout-v1%402x.png" class="article-image"/></figure>
+<p>The teams doing this work today tend to sit under developer experience or developer productivity, which is typically the function responsible for onboarding new engineers and building developer tooling. An emerging role in several organizations is an agent manager: a hybrid PM/engineer function dedicated to managing the Claude Code ecosystem. For organizations without a dedicated team, the minimum viable version is a DRI: one person with ownership over the Claude Code configuration, the authority to make calls on settings, permissions policy, the plugin marketplace, and CLAUDE.md conventions, and the responsibility to keep them current.</p>
+<p>Bottoms-up adoption generates enthusiasm but can fragment without someone to centralize what works. You need to have an individual or a team assemble and evangelize the right Claude Code conventions (such as a standardized CLAUDE.md hierarchy or a curated set of skills and plugins). Without that work, knowledge will stay tribal and adoption will plateau.</p>
+<p>In large organizations, especially those in regulated industries, governance questions come up early, such as: who controls which skills and plugins are available, how do you prevent thousands of engineers from independently rebuilding the same thing, how do you make sure AI-generated code goes through the same review process as human-generated code? To address these early on, we suggest starting with a defined set of approved skills, required code review processes, and limited initial access, and expand as confidence builds.</p>
+<p>We’ve observed the smoothest deployments at organizations that establish cross-functional working groups early by bringing together engineering, information security, and governance representatives to define requirements together and build a rollout roadmap.</p>
+<h2>Applying these patterns to your organization</h2>
+<p>Claude Code is designed around conventional software engineering environments where engineers are the primary codebase contributors, the repo uses Git, and code follows standard directory structures. Most large codebases fit this mold, but non-traditional setups such as game engines with large binary assets, environments with unconventional version control, or non-engineers contributing to the codebase require additional configuration work. Our guidance assumes a conventional setup and the patterns we’ve described have worked across many of our customers. Any remaining complexity requires judgment specific to your codebase, tooling, and organization. That's where Anthropic's Applied AI team works directly with engineering teams to translate these patterns into your organization’s specific requirements.</p>
+<figure class="article-figure"><img alt="" src="https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a04e2860abbe67418ca0f8b_fig3-getting-started-checklist-v2%402x.png" class="article-image"/></figure>
+<p><strong><em>Acknowledgements:</em></strong><em> Special thanks to Alon Krifcher, Charmaine Lee, Chris Concannon, Harsh Patel, Henrique Savelli, Jason Schwartz, Jonah Dueck and Kirby Kohlmorgen from Anthropic’s Applied AI team for sharing their experience deploying Claude Code at scale, and to Amit Navindgi at Zoox for providing feedback on this article.</em></p></div>
+      
+    </article>
+    
+    <article>
+      <h1>It&#39;s-a Me, Agentic AI</h1>
+      <div class="article-meta">
+        Han, Not Solo
+        · 01 Mar 2026 · <a href="https://leehanchung.github.io/blogs/2026/02/18/mario-agentic-ai/">Source</a>
+      </div>
+      <div class="article-body"><p>Agentic AI is a fairly recent development that combines reasoning (<a href="https://cdn.openai.com/o1-system-card-20241205.pdf">OpenAI, 2024</a>) tool use (<a href="https://arxiv.org/abs/2302.04761">Schick et al, 2023</a>) in the same AI model. But an agentic AI system is not just the model, but also the harness, the environments, the tools, rewards, evaluations, and all of the infrastructure to support it. In this post, let’s use the top grossing franchise, Mario, to tell this story for understanding how agentic AI models are developed, how agent harnesses work, and how reinforcement learning ties everything together. If you survived World 8-4 as a kid, you already have the intuition for building agentic AI systems.</p>
+<figure class="article-figure"><img alt="alt text" src="https://leehanchung.github.io/assets/img/2026-02-18/00-tb.png" class="article-image"/><figcaption>alt text</figcaption></figure>
+<p>Small Mario is the <strong>base pretrained model</strong>. He’s just come out of pretraining on a massive corpus of platform game physics. He can walk. He can jump. He can move left and right. These are his base capabilities, the raw knowledge compressed from the training data.</p>
+<p>But Small Mario is fragile. One hit from a Goomba and he’s dead. He can’t break bricks. He can’t take damage. He has potential, but he’s not yet useful for anything beyond the most trivial tasks.</p>
+<p>This is your base LLM fresh off pretraining. It has absorbed enormous amounts of knowledge, it can do next-token prediction, and it can sort-of follow instructions. But ask it to do anything real, reliably, in production, and it falls apart on the first obstacle. One Goomba and it’s game over.</p>
+<h2><a href="https://leehanchung.github.io/blogs/2026/02/18/mario-agentic-ai/#model-harness">The Super Mushroom: Model Harness</a></h2>
+<p>Then Mario finds the <strong>Super Mushroom</strong>. He doubles in size. He can now break bricks. He can take a hit without dying. He goes from fragile to capable.</p>
+<p>The Super Mushroom is the <strong>model harness</strong>, the entire infrastructure and post-training pipeline that transforms a base model into something production-ready. This includes:</p>
+<ul> <li><strong>Instruction tuning</strong> (RLHF, DPO, etc.) to make the model actually follow directions</li> <li><strong>System prompts</strong> that define personality and constraints</li> <li><strong>Safety guardrails</strong> so it doesn’t run off cliffs</li> <li><strong>Memory and context management</strong> so it remembers where it’s been</li> <li><strong>Tool-use training</strong> so it knows power-ups exist and how to grab them</li> </ul>
+<p>Without the Super Mushroom, Mario is a liability. With it, he’s a platform for greatness. Similarly, without the model harness, a base LLM is a research artifact. With it, it’s a product.</p>
+<blockquote> <p>The Super Mushroom doesn’t change WHO Mario is. It changes what he can SURVIVE. The model harness doesn’t change the model’s core knowledge. It changes what the model can handle in production.</p> </blockquote>
+<p>Now here’s where it gets interesting. Super Mario can pick up <strong>power-ups</strong> that give him entirely new capabilities:</p>
+<table> <tr> <th>Power-Up</th> <th>Mario Ability</th> <th>Agent Equivalent</th> </tr> <tbody> <tr> <td><strong>Fire Flower</strong></td> <td>Throw fireballs to defeat enemies at range</td> <td><strong>Code execution</strong> - reach out and run code to solve problems the model can’t solve with text alone</td> </tr> <tr> <td><strong>Frog Suit</strong></td> <td>Swim through water levels with ease</td> <td><strong>Web search</strong> - navigate and retrieve information from an environment the model wasn’t trained on</td> </tr> <tr> <td><strong>Raccoon Leaf</strong></td> <td>Fly and reach otherwise inaccessible areas</td> <td><strong>File system access</strong> - explore and modify the codebase, reach files the model couldn’t otherwise touch</td> </tr> <tr> <td><strong>Hammer Suit</strong></td> <td>Throw hammers, defeat almost anything</td> <td><strong>Shell/terminal access</strong> - the most powerful tool, can interact with the full system</td> </tr> <tr> <td><strong>Star</strong></td> <td>Temporary invincibility, blow through everything</td> <td><strong>Extended thinking/reasoning mode</strong> - brute force through complex problems at higher compute cost</td> </tr> <tr> <td><strong>Cape Feather</strong></td> <td>Sustained flight and spin attack</td> <td><strong>MCP servers</strong> - sustained, extensible access to external services and APIs</td> </tr> </tbody> </table>
+<p>Each power-up doesn’t replace Mario’s core abilities. Mario still walks and jumps. The power-ups <strong>extend</strong> what he can do. A Fire Flower Mario can still jump on Goombas, but now he can also shoot fireballs at Piranha Plants hiding in pipes.</p>
+<p>This is exactly how agent tools work. The LLM still does what LLMs do: reasoning, language understanding, and planning. Tools extend the model’s reach into environments it can’t operate in alone. An LLM can’t execute Python by itself, just like Mario can’t throw fireballs without a Fire Flower. But give it the right tool, and suddenly the problem space opens up.</p>
+<p>And critically, <strong>Mario has to learn WHEN to use each power-up</strong>. Frog Suit is amazing in water levels, useless on land. Fire Flower is great against Goombas, pointless against Thwomps. The model needs to learn tool selection, knowing which tool to reach for in which context. This is one of the hardest parts of building agentic systems.</p>
+<p>One power-up deserves special attention: the <strong>Star</strong>. When Mario grabs a Star, he becomes invincible. He plows through Goombas, Koopa Troopas, Piranha Plants, everything in his path just disintegrates. Nothing can stop him. This is not dissimilar to having an engineering manager who’s really good at clearing organizational blockers for their engineers. The Goombas and Piranha Plants of bureaucracy, cross-team dependencies, access requests, and priority conflicts just melt away. Star power is temporary and expensive, but when you need to blast through a critical path, nothing else comes close.</p>
+<h2><a href="https://leehanchung.github.io/blogs/2026/02/18/mario-agentic-ai/#environments">The Mushroom Kingdom: Environments and Tasks</a></h2>
+<p>Now let’s talk about the world Mario operates in. Every level in the Mushroom Kingdom is an <strong>environment</strong>, and every environment is composed of the same building blocks:</p>
+<table> <tr> <th>Level Element</th> <th>Environment Equivalent</th> </tr> <tbody> <tr> <td><strong>Bricks</strong></td> <td>Structured data, APIs, databases that can be broken open to reveal resources</td> </tr> <tr> <td><strong>? Blocks</strong></td> <td>Unknown information sources, sometimes containing exactly what you need</td> </tr> <tr> <td><strong>Pipes</strong></td> <td>Entry points to sub-tasks, function calls, or deeper exploration</td> </tr> <tr> <td><strong>Coins</strong></td> <td>Incremental progress signals, intermediate rewards</td> </tr> <tr> <td><strong>Goombas</strong></td> <td>Common obstacles, predictable errors, edge cases</td> </tr> <tr> <td><strong>Koopa Troopas</strong></td> <td>Recyclable obstacles, errors whose solutions can be reused as tools</td> </tr> <tr> <td><strong>Piranha Plants</strong></td> <td>Traps hiding in seemingly safe passages, hallucination triggers</td> </tr> <tr> <td><strong>Vines</strong></td> <td>Hidden paths to bonus areas, unexpected shortcuts</td> </tr> <tr> <td><strong>Clouds / Platforms</strong></td> <td>Abstractions and scaffolding that support traversal</td> </tr> <tr> <td><strong>Pits</strong></td> <td>Catastrophic failures, unrecoverable errors</td> </tr> </tbody> </table>
+<p>Every level remixes these elements differently. World 1-1 is simple, a few Goombas, some bricks, a clear path to the flag. World 8-4 is a maze of pipes, hidden paths, and a boss fight with Bowser. Same building blocks, radically different difficulty.</p>
+<p>Throughout each level, Mario interacts with the environment as <strong>tool use</strong>. He enters pipes to warp from one place to another, the equivalent of an API call that transports you to an entirely different context. He bumps ? Blocks from below to discover power-ups, new agent skills materializing from the environment when you know where to look. He breaks bricks to clear paths or reveal hidden rewards, structured data yielding its value when you apply force in the right direction. He stomps on a Koopa shell and kicks it forward, turning an obstacle into a projectile that clears a line of Goombas, repurposing error outputs as inputs to solve downstream problems. The environment isn’t just a backdrop. It’s a toolbox.</p>
+<p>Having an environment is not enough. We need to define <strong>what we want to achieve</strong> from playing the game. These are the <strong>tasks</strong>.</p>
+<p>Mario can play the same level with completely different objectives. Complete the level. Complete the level in the shortest amount of time. Get the highest score. Collect the most coins. Accumulate the most 1-up lives. Find all the hidden rewards. Stomp on every last Goomba. Each objective produces a fundamentally different play style from the same environment.</p>
+<p>This is exactly the task definition problem in agentic AI. The same model operating in the same environment can be pointed at wildly different goals. “Summarize this codebase” and “refactor this codebase” use the same files, the same tools, the same context, but they require entirely different strategies. The task is what transforms an environment from a sandbox into a mission.</p>
+<h2><a href="https://leehanchung.github.io/blogs/2026/02/18/mario-agentic-ai/#rewards">The Flagpole: Evaluations and Reward Modeling</a></h2>
+<p>At the end of every level, there’s a <strong>flagpole</strong>. Mario jumps on it, pulls down the flag, and receives a reward. The higher he grabs the flag, the bigger the reward. Some levels end with a boss fight against Bowser, where the reward is freeing a Toad (or eventually, the Princess).</p>
+<p>This is the <strong>reward signal</strong> in reinforcement learning. But here’s the critical question: how do we actually <strong>measure</strong> how well the game was played? This is <strong>evaluation</strong>, or <strong>reward modeling</strong>, and it is where the machine learning engineering discipline really shines. (or research engineer, applied AI engineer. )</p>
+<p>The evaluation could be the raw score. It could be the number of 1-ups gained. Coins collected. Goombas stomped. Time remaining. Different paths discovered. Most frequently, it is a <strong>combination</strong> of some or all of the above, weighted and balanced against each other. Do we reward Mario more for speed or for thoroughness? For survival or for aggression? For finding secrets or for staying on the critical path?</p>
+<table> <tr> <th>Evaluation Metric</th> <th>Mario Measure</th> <th>Agent Measure</th> </tr> <tbody> <tr> <td><strong>Speed</strong></td> <td>Time remaining on the clock</td> <td>Task completion latency</td> </tr> <tr> <td><strong>Score</strong></td> <td>Points accumulated</td> <td>Overall output quality</td> </tr> <tr> <td><strong>Collection</strong></td> <td>Coins gathered</td> <td>Information retrieved, resources used efficiently</td> </tr> <tr> <td><strong>Completeness</strong></td> <td>Hidden blocks found, secrets discovered</td> <td>Edge cases handled, comprehensive coverage</td> </tr> <tr> <td><strong>Efficiency</strong></td> <td>Enemies defeated per life</td> <td>Correct tool invocations per task</td> </tr> <tr> <td><strong>Exploration</strong></td> <td>Different paths taken</td> <td>Novel approaches discovered</td> </tr> </tbody> </table>
+<p>Designing these rewards is a strict machine learning engineering discipline. A poorly shaped reward function produces an agent that technically completes tasks but in degenerate ways, like a Mario speedrunner who clips through walls. Impressive, but not what we actually wanted. Reward hacking is the Goodhart’s Law of agentic AI: when a measure becomes a target, it ceases to be a good measure.</p>
+<p>Here’s where the full picture comes together. How does Mario learn to complete levels? <strong>Reinforcement learning.</strong></p>
+<p>Mario starts each level knowing nothing about its specific layout. He has to:</p>
+<ol> <li><strong>Observe</strong> the current state, what’s on screen, where the enemies are, what power-ups are available</li> <li><strong>Decide</strong> on an action based on his policy, jump, run, shoot, or wait</li> <li><strong>Act</strong> and receive feedback from the environment</li> <li><strong>Update</strong> his policy based on the outcome</li> </ol>
+<p>This is the MDP (Markov Decision Process) loop. The same loop described in <a href="https://leehanchung.github.io/blogs/2025/05/09/agent-is-workflow/">Agents Are Workflows</a>. The same loop that every agentic AI system runs:</p>
+<p>The value of Mario’s current state equals the expected immediate reward plus the discounted value of the next state. Should Mario jump NOW to get the coin, or wait and avoid the Goomba? The optimal policy  balances immediate rewards against future outcomes.</p>
+<p>Through repeated play (training episodes), Mario learns:</p>
+<ul> <li>Which obstacles can be jumped on vs. avoided</li> <li>When to use power-ups vs. save them</li> <li>Which pipes lead to shortcuts vs. dead ends</li> <li>How to handle boss fights</li> </ul>
+<p>An agentic AI model goes through the same process. Through reinforcement learning (PPO, DPO, GRPO, or whatever the latest acronym is), the model learns:</p>
+<ul> <li>Which tools to invoke for which subtasks</li> <li>When to think longer vs. act immediately</li> <li>Which approaches work for which problem types</li> <li>How to decompose complex tasks into manageable steps</li> </ul>
+<p>So who’s actually making all of this work? Mario doesn’t train himself.</p>
+<p>To teach agent Mario to be really good at the game, we employ an <strong>Machine Learning Engineer (MLE)</strong>. The MLE is the game designer and coach rolled into one. They construct mock environments, set up the harnesses and tools, define the tasks that Mario needs to achieve, and most importantly, <strong>design the reward function</strong>. The MLE decides what “good” looks like. Do we reward Mario for speed? Thoroughness? Both? How much? This reward design is the single highest leverage decision in the entire pipeline. Get it right and Mario learns to play beautifully. Get it wrong and Mario learns to exploit glitches.</p>
+<p>Once the MLE has designed the training setup, the <strong>Machine Learning Systems Engineers (MLSys)</strong> take over. They are the ones who actually run the show at scale. They set up the environment and agent Mario across hundreds to hundreds of thousands of environments, tasks and iterations. They manage the compute, the distributed training runs, the data pipelines. They collect the reasoning traces, the sequences of observations, actions, and outcomes from every single episode Mario plays. And from these traces, they run the reinforcement learning algorithms that allow agent Mario to learn from experience.</p>
+<p>This is the unsexy but critical part. An MLE can design the most elegant reward function in the world, but without MLSys engineers standing up the infrastructure to run millions of training episodes and collect the resulting data, Mario never gets past World 1-1.</p>
+<h2><a href="https://leehanchung.github.io/blogs/2026/02/18/mario-agentic-ai/#agent-frameworks">Worlds: Agent Frameworks and Domains</a></h2>
+<p>The Mushroom Kingdom isn’t one level. It’s organized into <strong>Worlds</strong>, each with a distinct theme and set of challenges:</p>
+<table> <tr> <th>World</th> <th>Theme</th> <th>Agent Domain</th> </tr> <tbody> <tr> <td><strong>World 1</strong></td> <td>Grassland, basics</td> <td>Simple text tasks, Q&amp;A, summarization</td> </tr> <tr> <td><strong>World 2</strong></td> <td>Desert</td> <td>Data analysis, structured environments</td> </tr> <tr> <td><strong>World 3</strong></td> <td>Water</td> <td>Web and API navigation</td> </tr> <tr> <td><strong>World 4</strong></td> <td>Giant Land</td> <td>Large-scale refactoring, migrations</td> </tr> <tr> <td><strong>World 5</strong></td> <td>Sky</td> <td>Architecture and system design</td> </tr> <tr> <td><strong>World 6</strong></td> <td>Ice</td> <td>Debugging in fragile or legacy environments</td> </tr> <tr> <td><strong>World 7</strong></td> <td>Pipe Maze</td> <td>Complex multi-step workflows with dependencies</td> </tr> <tr> <td><strong>World 8</strong></td> <td>Bowser’s Castle</td> <td>Full autonomous task completion with adversarial conditions</td> </tr> </tbody> </table>
+<p>Agent frameworks are the <strong>World Maps</strong> - they organize how the agent navigates between levels (subtasks) and worlds (domains). Some frameworks are rigid, you follow the path laid out. Others let you pick your route. The best ones (like how Super Mario Bros. 3 introduced the overworld map) let the agent make strategic choices about which level to tackle next.</p>
+<p>But remember: <a href="https://leehanchung.github.io/blogs/2025/06/26/no-code-low-code-full-code/">the model is the product</a>. The World Map (framework) is useful scaffolding, but Mario does the actual playing. As models get stronger, they need less scaffolding. Today’s World 8 is tomorrow’s World 1.</p>
+<h2><a href="https://leehanchung.github.io/blogs/2026/02/18/mario-agentic-ai/#conclusion">Conclusion</a></h2>
+<p>The entire agentic AI stack maps to Mario with surprising fidelity:</p>
+<table> <tr> <th>Mario</th> <th>Agentic AI</th> </tr> <tbody> <tr> <td>Small Mario</td> <td>Base pretrained model</td> </tr> <tr> <td>Super Mushroom</td> <td>Model harness and post-training</td> </tr> <tr> <td>Power-ups</td> <td>Agent tools and skills</td> </tr> <tr> <td>Star Power</td> <td>Engineering manager clearing blockers</td> </tr> <tr> <td>Levels</td> <td>Task environments</td> </tr> <tr> <td>Pipes, bricks, shells</td> <td>Tool use within the environment</td> </tr> <tr> <td>Objectives (speed, score, coins)</td> <td>Task definitions</td> </tr> <tr> <td>Flagpole / Boss</td> <td>Reward signal and evaluation</td> </tr> <tr> <td>Reward design</td> <td>Reward modeling (ML engineering discipline)</td> </tr> <tr> <td>Learning to play</td> <td>Reinforcement learning</td> </tr> <tr> <td>MLE as game designer</td> <td>ML engineer designing tasks and rewards</td> </tr> <tr> <td>MLSys running millions of episodes</td> <td>ML infrastructure for training at scale</td> </tr> <tr> <td>World Map</td> <td>Agent framework</td> </tr> <tr> <td>Multiplayer</td> <td>Multi-agent systems</td> </tr> </tbody> </table>
+<p>The next time someone asks you to explain agentic AI, ask them: have you played Mario?</p>
+<p>If they can understand that Small Mario needs a mushroom to survive, power-ups to be effective, and practice to master each level, they can understand agentic AI development.</p>
+<p>Now go save Princess Peach.</p>
+<h2><a href="https://leehanchung.github.io/blogs/2026/02/18/mario-agentic-ai/#references">References</a></h2>
+<pre><code>@article{
+    leehanchung,
+    author = {Lee, Hanchung},
+    title = {It's-a Me, Agentic AI},
+    year = {2026},
+    month = {02},
+    day = {18},
+    howpublished = {\url{https://leehanchung.github.io}},
+    url = {https://leehanchung.github.io/blogs/2026/02/18/mario-agentic-ai/}
+}
+</code></pre></div>
+      
+    </article>
+    
+    <article>
+      <h1>Trigger scheduled tasks from Gmail, Slack, and GitHub events</h1>
+      <div class="article-meta">
+        Codex changelog
+        · 25 Aug 2026 · <a href="https://developers.openai.com/codex/changelog/#codex-2026-08-25-event-triggers">Source</a>
+      </div>
+      <div class="article-body"><div># Trigger scheduled tasks from Gmail, Slack, and GitHub events
+
+ChatGPT scheduled tasks can now run when supported events occur in Gmail, Slack,
+or GitHub. Filter Gmail messages by sender or subject, watch selected Slack
+channels, or respond to pull request activity such as reviews, comments, commit
+updates, and merges.
+
+Event-triggered tasks are available in ChatGPT on the web and mobile for
+eligible plans. Connect the relevant app and approve its requested access before
+creating a task.
+The ChatGPT Slack app must be a member of each watched channel, and the
+connected GitHub app must have access to each watched repository.
+
+An event-triggered task can't also use a time-based schedule. When matching
+events arrive close together, ChatGPT may combine them in one run.
+Open **Scheduled** to review pending events or choose **Run now**.
+
+[Learn how to trigger scheduled tasks from app
+events](/codex/automations?surface=web#web-trigger-tasks-from-app-events).</div></div>
+      
+    </article>
+    
+  </body>
+</html>
