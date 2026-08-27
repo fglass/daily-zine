@@ -1,0 +1,480 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Fred Talks - 2026-08-27</title>
+    <style>
+      @page {
+        size: A5;
+        margin: 8mm 9mm 9mm;
+      }
+
+      :root {
+        color: #111;
+        font-family: "Times New Roman", Times, serif;
+        --body-text-size: 9.5pt;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        color: #111;
+        background: #fff;
+        font-family: "Times New Roman", Times, serif;
+        line-height: 1.45;
+      }
+
+      a,
+      a:visited {
+        color: #111;
+        text-decoration: underline;
+      }
+
+      .cover {
+        min-height: calc(210mm - 17mm);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        page-break-after: always;
+        border: 1px solid #111;
+        padding: 8mm;
+        background: #fff;
+      }
+
+      .toc-item-meta,
+      .article-meta {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .masthead {
+        margin: 0;
+        font-size: 40pt;
+        line-height: 0.95;
+        text-transform: uppercase;
+      }
+
+      .issue-date {
+        margin: 4mm 0 0;
+        font-size: 14pt;
+      }
+
+      .issue-date sup {
+        font-size: 0.58em;
+        vertical-align: super;
+        line-height: 0;
+      }
+
+      .cover-deck {
+        max-width: 90mm;
+        font-size: 12pt;
+        margin: 0;
+      }
+
+      .toc {
+        border-top: 3px solid #111;
+        padding-top: 6mm;
+      }
+
+      .toc h2 {
+        margin: 0 0 4mm;
+        font-size: 11pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .toc-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .toc-item {
+        padding: 3mm 0;
+        border-bottom: 1px solid rgba(17, 17, 17, 0.2);
+      }
+
+      .toc-item-title {
+        font-size: 12pt;
+        margin: 0 0 1mm;
+      }
+
+      .toc-item-meta {
+        font-size: 8pt;
+      }
+
+      .masthead-compact {
+        margin: 0 0 6mm;
+      }
+
+      .masthead-compact h1 {
+        margin: 0;
+        font-size: 22pt;
+        line-height: 1.1;
+        text-transform: uppercase;
+      }
+
+      .masthead-compact .issue-date {
+        margin: 2mm 0 0;
+        font-size: 11pt;
+      }
+
+      .toc-compact {
+        border-top: 1px solid #111;
+        border-bottom: 1px solid #111;
+        padding: 4mm 0;
+        margin: 0 0 8mm;
+      }
+
+      article + article {
+        margin-top: 10mm;
+        padding-top: 6mm;
+        border-top: 2px solid #111;
+      }
+
+      h1 {
+        margin: 0 0 2mm;
+        font-size: 18pt;
+        line-height: 1.1;
+      }
+
+      .article-meta {
+        font-size: 8.5pt;
+        margin-bottom: 6mm;
+        padding-bottom: 3mm;
+        border-bottom: 1px solid #111;
+      }
+
+      .article-body {
+        font-size: var(--body-text-size);
+        font-family: "Times New Roman", Times, serif;
+      }
+
+      .article-body p,
+      .article-body li,
+      .article-body blockquote,
+      .article-body dd,
+      .article-body dt {
+        margin: 0 0 4mm;
+        orphans: 3;
+        widows: 3;
+      }
+
+      .article-body ul,
+      .article-body ol,
+      .article-body dl {
+        margin: 0 0 4mm 5mm;
+        padding: 0;
+      }
+
+      .article-body h2,
+      .article-body h3,
+      .article-body h4 {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        margin: 7mm 0 3mm;
+        line-height: 1.2;
+      }
+
+      .article-body blockquote {
+        margin-left: 6mm;
+        padding-left: 4mm;
+        border-left: 2px solid #111;
+      }
+
+      .article-body .media-omitted {
+        margin: 0 0 4mm;
+        font-size: 8.5pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(17, 17, 17, 0.65);
+      }
+
+      .article-body figure,
+      .article-body .article-figure,
+      .article-body picture,
+      .article-body .article-picture {
+        display: block;
+        max-width: 72mm;
+        margin: 0 auto 4mm;
+        break-inside: avoid;
+      }
+
+      .article-body img,
+      .article-body .article-image {
+        display: block;
+        max-width: min(100%, 72mm);
+        max-height: 34mm;
+        height: auto;
+        width: auto;
+        object-fit: contain;
+        margin: 0 auto 3mm;
+      }
+
+      .article-body figcaption {
+        margin-top: 1.5mm;
+        font-size: 8.5pt;
+        line-height: 1.3;
+        color: rgba(17, 17, 17, 0.8);
+      }
+
+      .article-note {
+        margin-top: 6mm;
+        padding-top: 3mm;
+        border-top: 1px solid #111;
+        font-size: 9pt;
+        font-style: italic;
+      }
+
+      @media screen {
+        body {
+          padding: 2rem;
+          margin: 0 auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    
+    <header class="masthead-compact">
+      <h1>Fred Talks</h1>
+      <p class="issue-date">
+        27<sup>th</sup> August 2026
+      </p>
+    </header>
+
+    <nav class="toc toc-compact">
+      <h2>Contents</h2>
+      <ol class="toc-list">
+        
+        <li class="toc-item">
+          <div class="toc-item-title">LLM Judges aren’t the shortcut you think</div>
+          <div class="toc-item-meta">
+            Doug Turnbull · 1869 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Ways to think about token pricing</div>
+          <div class="toc-item-meta">
+            Benedict Evans · 2607 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">How agents are transforming work | OpenAI</div>
+          <div class="toc-item-meta">
+            OpenAI · 1582 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Codex CLI Release: 0.150.1</div>
+          <div class="toc-item-meta">
+            Codex changelog · 38 words
+          </div>
+        </li>
+        
+      </ol>
+    </nav>
+    
+
+    
+    <article>
+      <h1>LLM Judges aren’t the shortcut you think</h1>
+      <div class="article-meta">
+        Doug Turnbull
+        · 03 Nov 2025 · <a href="http://softwaredoug.com/blog/2025/11/02/llm-judges-arent-the-shortcut-you-think.html">Source</a>
+      </div>
+      <div class="article-body"><p>Is “LLM as a judge” overhyped? After years of implementing LLM judges for clients, I find more of them recognize the limitations.</p>
+<p>LLM judges fail for the same reason any evaluation method fails: teams lack good data+evaluation to begin with. LLM judges aren’t the shortcut teams hope. Instead, they are themselves a thing that needs data and monitoring to get use out of.</p>
+<p>Let me walk through the pitfalls of LLM as a judge (for search) that you’ll encounter.</p>
+<h2>LLM as a judge</h2>
+<p>When I talk about LLM as a judge, my focus is search. I mean creating a <a href="https://softwaredoug.com/blog/2021/02/21/what-is-a-judgment-list">judgment list</a>. For search that means labeling how relevant a document is for a query. How relevant is the product “garden trowel” for a <code>q=shovels</code>? Maybe this “garden trowel” is less relevant than “iron spade”?</p>
+<p>In the ancient past, to improve the search, I would be limited to a tiny hand-labeled judgment list. Labeling by hand is expensive. Datasets drift out of date quickly. New use cases arise. So we constantly need humans to relabel.</p>
+<p>These costs inspire teams to use LLMs to build judgments, They:</p>
+<ol> <li>Start with a ground truth of human labels</li> <li>Build a prompt to approximate that ground truth</li> <li>Apply those prompts to go beyond the ground truth to new query / documents</li> </ol>
+<p>If done well, we can sit at our laptop, tinker with relevance algorithms, and continue to tune without bother humans for non-stop relabeling.</p>
+<p>Sounds promising. But teams often ignore many of the assumptions and nuance underlying the task of LLM labeling. Let’s go through them, and we’ll see at the end, maybe LLMs should play a different role in evaluation?</p>
+<h2>Problem one - LLM evals don’t know what’s engaging to users</h2>
+<p>Users’ ever-evolving lizard brains drive conversions. And while optimizing for just lizard brains would itself be a nightmare, so would only focusing on an LLM’s opinion.</p>
+<p>LLMs do a better job approximating <em>human evaluations</em>. In search, we call these evaluations <em>explicit</em> judgments. They use human labelers’ basic knowledge of the world to label a result as <em>topically relevant</em> to the query or not.</p>
+<p>Topical relevance is only one kind of relevance. As an example, for a search of “articles about harry potter”. The article is either factually about Harry Potter or its not. We might also consider other gradations:</p>
+<ul> <li>Is the article well written?</li> <li>Is it article from an authoritative source?</li> <li>Is the article about a tangential topic? Dumbledore vs Gandalf etc?</li> </ul>
+<p>All of which relate to topicality, authority, and knowledge. An LLM excels at this — LLMs live in a world of facts and knowledge.</p>
+<p>But LLMs don’t have limbic systems. So their evaluations come with limitations.</p>
+<p>In real search applications, “relevance” goes beyond topicality. I worked at Reddit on search. A search for “harry potter” might mean anything from a memes, to drama about JK Rowling, to every kind of juicy controversy, spicy post, or oddity. People search for “cybertruck” not for reviews but to see silly videos.</p>
+<p>Then there’s the more mundane. I found at Shopify, users preferred plain or black clothing over flashy items based on their clicks. Unless you tell an LLM this (because you’ve done the analysis) an LLM won’t intrinsically catch this.</p>
+<p>Often the “topical” part of search is relatively easy. But engaging search, that captures these human oddities, must go beyond world-knowledge to at least get <em>some</em> of a user’s lizard brain.</p>
+<h2>Problem two - the last 10% of disagreement is the important stuff</h2>
+<p>Many teams get excited when they immediately see 70-80% agreement with human labelers. With a bit of tuning, they can inch closer to 90%.</p>
+<p>In my experience, that last bit of human-LLM disagreement matters. Those are the non-obvious cases. Search deals with a big <a href="https://zilliz.com/ai-faq/what-is-hard-negative-mining-and-how-does-it-improve-embeddings">hard negatives</a> challenge. Those examples that deceptively seem relevant naive search algorithms (or labelers), but are, in fact irrelevant. That last 10-30% might be what more careful labelers would catch. Or represented in clickstream based labels.</p>
+<p>For example on this furniture dataset, a LLM doesn’t understand that a “bistro table” is meant for <strong><em>outdoor</em></strong> use in US furniture lingo. That’s not obvious to an LLM: The LLM imagines I’m opening a restaurant.</p>
+<p>Simple algorithms often capture that first 80-90%. It’s the 10-20% you need great labels for. So pay attention not just to coverage. But for which use cases.</p>
+<p>A 90% coverage might be good regression tests, it might not help you go beyond easier wins.</p>
+<h2>Problem three - sneaky overfitting</h2>
+<p>So far, I’ve mentioned a few strange cases the LLM judge might miss: a bistro table is meant for outdoor usage. Users preferring darker clothing items.</p>
+<p>The savvy prompt engineer will want to fill the prompt with examples to help the LLM perform better on these cases.</p>
+<p>But beware overfitting to these particular failure cases.</p>
+<p>With every new rule, you push the model’s meager attention away from the general problem, and towards your exceptions. Layer example after example, and you’ll find yourself with a brittle system focused excessively on specific use cases.</p>
+<p>Overfitting with prompts can be sneaky. Playing whack-a-mole with your eval data can degrade generality. You can get perfect results on the eval set, only to expand to unseen queries, and find the gains no longer hold.</p>
+<p>To do a good job, you need holdout data you’re not tuning against. A set of judgments you don’t peak at. Because peaking might cause you to sneak a change into the prompt, making the holdout less useful as an independent validation step.</p>
+<p>Add rules and exceptions carefully, you’ll be surprised how easy it is to pull an LLM away from its generality.</p>
+<h2>Problem four - LLMs only evaluate the document it sees</h2>
+<p>LLMs only evaluate the document it sees. IE:</p>
+<pre><code>Query: outdoor seating
+Product Name: Bistro Table
+Product Description: Enjoy this lovely bistro table on your porch...
+</code></pre>
+<p>Is this enough information for evaluating the product? Is it what a user sees?</p>
+<p>Suddenly, you decide to add new information about the product</p>
+<pre><code>Query: outdoor seating
+Product Name: Bistro Table
+Product Description: Enjoy this lovely bistro table on your porch...
+Category: Outdoors
+</code></pre>
+<p>What are we evaluating truly?</p>
+<ul> <li>The products relevance?</li> <li>The usefulness of a set of product properties for determining relevance?</li> <li>How comprehensively you’re describing products to an LLM?</li> </ul>
+<p>Really it gets down to a classic problem in search. There’s perceived relevance - the relevance of the product, as it appears in your product page. Then there’s actual relevance - the detailed, thoughtful understanding of your product by a user. A lot depends not just on true relevance, but how it’s presented to users.</p>
+<h2>Problem five - Your LLM judge can’t be trusted on novel use cases</h2>
+<p>I assume the goal of LLM as a judge in to align to human labelers. But rarely do those judgments comprehensively represent every use case.</p>
+<p>Search metrics with human evals don’t go up-and-to-the-right. They seesaw as teams reactively label, solve, label, solve ad infinitum. In my experience it’s rare to find a team build a true, comprehensive human labeled evals covering every use case. Even if we did, we’d need to account for evolving search use cases.</p>
+<p>The flow usually goes like this: we want to solve a problem (search by product name). So we capture some judgments for that use case. Relevance starts low. We work a bit to improve this use case and it goes up. Yay!</p>
+<p>But the boss comes to our desk and suggests we have a new problem to solve: search of furniture by the room (living room, etc). We gather more labels. We know we’re bad at this use case. So search metrics go back down. Sad 😟</p>
+<p>We solve that use case, it goes back up to where it was before. Repeat. Up and down. See-saw.</p>
+<p>This presents a problem for an LLM judge. If our human labels only focus on a subset of use cases, <strong>we’re also aligning our LLM judges on a subset of use cases.</strong></p>
+<p>Our LLM judge generalizes to just a piece of the problem. The LLM judge can’t be trusted on a new use case until we measure it’s abilities in that use case.</p>
+<p>So if you seesaw its human labeling, you must seesaw the alignment of the LLM judge to the use cases we capture in human eval. As we adopt a new use case, we need more human labels. We need to retest the LLM judge. And so on.</p>
+<p>The task of human labeling does not end with LLM Judges. In fact its even more crucial.</p>
+<h2>How to LLM as a judge</h2>
+<p>Here’s how I use LLM judges:</p>
+<ul> <li>To extend labels on use cases I already measure decently to new queries (because I can trust alignment of the LLM on this use case)</li> <li>As a safeguard against regressions</li> </ul>
+<p>I trust the LLM judge to flag a regression on the use cases my human labels cover. The LLM is aligned and measured against these. I don’t trust the LLM to discover new, unexpected ways users search. I look to the users for that, not LLMs.</p>
+<p>Still many teams don’t even do decent monitoring of topical relevance. There are plenty of obviously broken search engines. The ones that would benefit from an LLM judge, likely would benefit from rounds of human labeling first needed before blindly trusting an LLM judge.</p>
+<h2>We already have automated data labeling at home kids</h2>
+<p>If we have enough labels to evaluate LLM as a judge on a use case, we have enough to train an ML model to recover those labels. We can then see a better place LLM’s fit into evaluation:</p>
+<ul> <li>LLMs focus on factual, topical parts of the problem. But miss other parts of the problem</li> <li>LLMs might see a subset of the content features</li> <li>Other non-LLM features might help us better evaluate relevance (embedding similarity, text matches, etc)</li> <li>Other ground-truths (besides human) might be a better definition of relevance (ie engagement based labels)</li> </ul>
+<p>Instead of LLM as a Judge, <strong>why not Learning to Rank as a judge?</strong> We seem to have forgotten that ranking models provide value beyond directly deploying them to production. They can help guide more manual search tuning as well.</p>
+<p>I’m becoming more of a fan of LLM-for-feature-generation over LLM as a judge. LLMs can cover the topical part of relevance. You can ask them “Which of these product names is more relevant to the query?”. The downstream, traditional ML model is agnostic to where the features come from. They could be an embedding similarity, LLM decision, lexical similarity, or more.</p>
+<p>That’s much more my interest these days. When someone says “LLM as a judge” I nod and say yes let’s build that, but then go on and probably look into using LLM features heavily in a larger model. LLMs can be very useful for rapid feature development: they’re promptable and easy to play with.</p>
+<p>If you’re interested in this approach, check out this <a href="https://softwaredoug.com/blog/2025/01/21/llm-judge-decision-tree">blog post</a> and the corresponding <a href="https://www.youtube.com/watch?v=S7EXkGDcd7A">Haystack talk</a>. Also a talk from Shopify <a href="https://www.albertocastelo.com/blog/2024-06-12-mices-talk">choosing cross encoders for evaluation over LLMs</a></p>
+<p>Enjoy!</p>
+<h3>Enjoy softwaredoug in training course form!</h3>
+<figure class="article-figure"><a href="https://maven.com/softwaredoug/cheat-at-search"><img src="https://softwaredoug.com/assets/media/2025/cheat-at-search-social.png" class="article-image"/></a></figure>
+<p>I hope you join me at <a href="https://maven.com/softwaredoug/cheat-at-search">Cheat at Search with LLMs</a> to learn how to apply LLMs to search applications. Check out <a href="https://github.com/softwaredoug/softwaredoug.com/edit/master/_includes/post.html">this post</a> for a sneak preview.   </p></div>
+      
+    </article>
+    
+    <article>
+      <h1>Ways to think about token pricing</h1>
+      <div class="article-meta">
+        Benedict Evans
+        · 09 Aug 2026 · <a href="https://www.ben-evans.com/benedictevans/2026/7/9/ways-to-think-about-token-pricing">Source</a>
+      </div>
+      <div class="article-body"><h2>  AI is in a supply crunch today, but what happens when we come out of it? How and where will supply, demand, price, capacity and capex get back into equilibrium? Today, model labs can name their price, but why won’t they end up as low-margin commodity infrastructure? </h2>
+<p>There are only two things you can say with certainty about token prices: we’re in a supply crunch, and this is unstable. All of the variables are in play, and the market will get shaken out over the next few years to arrive at a new equilibrium. Right now we have a lot of frantic analysis of ‘time to power’, but question at the end of that is whether the foundation models have sustainable pricing power, strategic leverage and value capture, or whether they become low-margin commodity infrastructure providers. At the moment, I think every dynamic we can see points to the latter.</p>
+<p>Clearly, the situation today is transitory. On the supply side, a trillion dollars or more of data centre capex is coming down the pipe (and plenty more <a href="https://www.taipeitimes.com/News/biz/archives/2026/05/13/2003857222">semiconductor</a> <a href="https://www.wsj.com/tech/samsung-sk-hynix-to-spend-520-billion-on-chip-plants-in-south-korea-7d50aab2">capex</a> behind that), inference efficiency continues to improve very quickly, and new models are far more (or far less!) efficient in their token use. On the demand side, although the market has been <a href="https://www.cnbc.com/2025/10/01/microsoft-wants-to-mainly-use-its-own-ai-chips-in-the-future.html">capacity-constrained since 2022</a>, the crunch in the first half of this year has been driven by sudden product-market fit in really just one use case, software development, and that’s actually a pretty small field (imagine if we had product-market fit for a consumer use case with hundreds of millions of DAUs - today’s infrastructure couldn’t support it at any price). We don’t know what the next use-cases to scale will be, nor when that would be, nor what their token needs would be.</p>
+<p>Going up a level, it’s been pretty widely reported that inference today has 40-50% gross margins: this includes deprecation of the associated server costs (or the cost of renting them), but we don’t really know the asset life (five years? Seven years?) and obviously this doesn’t include the cost of training the next model a couple of times a year, which is currently far larger than revenue. In principle, inference is a marginal cost and training is a fixed cost, so with high enough revenue you can reach profitability, but we don’t know how training costs will change. On the other side of the table, it’s unclear how much of the surge in use in the last few months has an ROI (or at least has an ROI that can be quantified to a CFO), let alone any future use cases, and hence what prices people might be prepared to pay for them.</p>
+<p>So, all the variables will move all over the place over the next 12 months, and move again over the next three to five years. How could we suggest where this will settle? How and where will supply, demand, price, capacity and capex get back into equilibrium?</p>
+<p>In theory, you can model this bottom-up. You can make some assumptions around each of the variables I suggested above, and then try to model out how many chips there are now, how many chips with what performance TSMC and the rest of the semis industry might be able to deliver when, and how fast all of that can be brought online in data centers and how fast those can be powered. Then you can wonder about price discipline, and make some guesses about use cases. This will get you a number, but it will be rather like trying to build a five-year forecast for the broadband market in 1998: the spreadsheet will be very pretty, and you might even get close to the right number for this year, but there are too many unknown variables to make a useful forecast of a longer-term market structure.</p>
+<p>In other words, we can say that token price is a function of supply and demand at a level between the sellers’ marginal cost and the buyers’ ROI, but we don’t actually know what supply, demand, marginal cost or ROI will be.</p>
+<p>The other approach is to look from the top down: how do things like this tend to play out? What are the building blocks, and where can they go? Most of this conversation depends on what happens to this curve.</p>
+<figure class="article-figure"><img alt="" data-image="https://images.squarespace-cdn.com/content/v1/50363cf324ac8e905e7df861/25f40d77-7542-41a9-ba7e-213a3aa2c4cf/Intelligence+vs-+Cost+per+Intelligence+Index+Task+%288+Jul+%2726%29.png" data-image-dimensions="4068x2368" data-image-focal-point="0.5,0.5" data-load="false" data-loader="sqs" data-sqsp-image-classic-block-image="" data-src="https://images.squarespace-cdn.com/content/v1/50363cf324ac8e905e7df861/25f40d77-7542-41a9-ba7e-213a3aa2c4cf/Intelligence+vs-+Cost+per+Intelligence+Index+Task+%288+Jul+%2726%29.png" data-stretch="false" sizes="(max-width: 640px) 100vw, (max-width: 767px) 100vw, 100vw" src="https://images.squarespace-cdn.com/content/v1/50363cf324ac8e905e7df861/25f40d77-7542-41a9-ba7e-213a3aa2c4cf/Intelligence+vs-+Cost+per+Intelligence+Index+Task+%288+Jul+%2726%29.png?format=2500w" srcset="https://images.squarespace-cdn.com/content/v1/50363cf324ac8e905e7df861/25f40d77-7542-41a9-ba7e-213a3aa2c4cf/Intelligence+vs-+Cost+per+Intelligence+Index+Task+%288+Jul+%2726%29.png?format=100w 100w, https://images.squarespace-cdn.com/content/v1/50363cf324ac8e905e7df861/25f40d77-7542-41a9-ba7e-213a3aa2c4cf/Intelligence+vs-+Cost+per+Intelligence+Index+Task+%288+Jul+%2726%29.png?format=300w 300w, https://images.squarespace-cdn.com/content/v1/50363cf324ac8e905e7df861/25f40d77-7542-41a9-ba7e-213a3aa2c4cf/Intelligence+vs-+Cost+per+Intelligence+Index+Task+%288+Jul+%2726%29.png?format=500w 500w, https://images.squarespace-cdn.com/content/v1/50363cf324ac8e905e7df861/25f40d77-7542-41a9-ba7e-213a3aa2c4cf/Intelligence+vs-+Cost+per+Intelligence+Index+Task+%288+Jul+%2726%29.png?format=750w 750w, https://images.squarespace-cdn.com/content/v1/50363cf324ac8e905e7df861/25f40d77-7542-41a9-ba7e-213a3aa2c4cf/Intelligence+vs-+Cost+per+Intelligence+Index+Task+%288+Jul+%2726%29.png?format=1000w 1000w, https://images.squarespace-cdn.com/content/v1/50363cf324ac8e905e7df861/25f40d77-7542-41a9-ba7e-213a3aa2c4cf/Intelligence+vs-+Cost+per+Intelligence+Index+Task+%288+Jul+%2726%29.png?format=1500w 1500w, https://images.squarespace-cdn.com/content/v1/50363cf324ac8e905e7df861/25f40d77-7542-41a9-ba7e-213a3aa2c4cf/Intelligence+vs-+Cost+per+Intelligence+Index+Task+%288+Jul+%2726%29.png?format=2500w 2500w" class="article-image"/></figure>
+<p><strong>First, how many people will pay to be at the top right of the curve - to be at the frontier?</strong> At one extreme there are already use cases that already work just fine with a small, old, perhaps open source model that runs for ‘free’ on-prem or on your phone; at the other extreme there will be some that get better results from the latest, most expensive frontier model, consuming lots of tokens for lots of money; and then there will be many that are somewhere in between. So, how many use cases get better results from going how far up the cost curve, and how many have an ROI for that, and how much of the use is handled by models that are smaller, cheaper, good ‘enough’ and much more commoditised? The Panglossian view is that ROI might go <em>up</em> with more expensive frontier models because they have better results, but where does that really apply?</p>
+<p><strong>Second, does the frontier keep moving significantly?</strong> This is obviously the most basic science question in AI: how long does the frontier keep getting better, how long does that keep needing more and more compute, and does that continue to happen at a rate that keeps it ahead of downward pricing pressure from efficiency and capacity gains? Does the expensive head of the curve continue to be a thing?</p>
+<p><strong>Third, will there still be fierce competition between frontier models?</strong> Does the field shrink to fewer and fewer frontier models, perhaps with network effects emerging? Do frontier models diverge, with different models having much clearer leads in different fields? That could be another path to sustainable pricing power. Or do we continue with a mid-single-digit number of companies that are all making frontier models that all have generally equivalent capabilities? At the moment, everyone is using mostly the same science and mostly the same training data, and getting mostly the same results, and we don’t yet know of a network effect or any other winner-takes-all effect that would let one company pull ahead, stay ahead, and do things that others could not, in some sustainable way. Does that change?</p>
+<p><strong>Fourth, how much of the value from those high-end use cases is captured by the frontier model itself?</strong> How much needs to be wrapped in tooling, process, proprietary data, go-to-market, networks, support, and everything else associated with a traditional software company, even if you do need the big expensive frontier model underneath? Can that model do the whole thing, or is the model, no matter how good, still a piece of infrastructure that you use to make the actual product? At the extreme, can the model itself invent and make all of those things, and would that let them charge by seat, by outcome or just take the profit? Or do even (or especially) the most sophisticated and high-value use-cases need to sit inside hundreds of new companies that can pick and choose which models to use?</p>
+<p>None of these are binaries: they're all a question of degree, and they'll probably vary quite a lot by use case. But at one extreme, there are two or three giant minds that run half of everything and have massive pricing power, and at the other extreme LLMs look like databases - there’ll be millions of them, some very big and some very small, and the value is in what you build on top - after all, every SaaS company is a ’database wrapper’. There’s a future in which Anthropic (or a company we haven’t heard of yet) wins the whole thing and can set its own terms, and a future in which dozens of routers run real-time auctions to allocate your tasks across hundreds of low-margin model-farms and a benchmark company takes a fee on every single one.</p>
+<p>I don’t think anyone can actually <em>know</em> the answer yet. I’ve said “we don’t know” a lot, and that’s very deliberate. Part of the concept of the ‘S Curve’ is that there’s a stage early in the emergence of a new technology where it’s clear that this is going to be huge but nothing else is clear at all - the mid 1990s for the internet, say, and 2008 or 2009 for mobile. There are places where you can take a view - for example, I’ve argued at length that I think chatbots are a poor interface that will struggle to capture value up the stack - but we should presume there are big questions that we can’t see yet, let alone answer, and anyone picking one of the ten possible outcomes we can see and saying “it will be that one!” is just guessing.</p>
+<p>Meanwhile, there is structural uncertainty at the early stages of every big new technology, but the uncertainty now is different, because we don’t have a good theoretical understanding of why these models work so well and so we don’t know how much better they can get. In 1995, we didn’t know how the internet would evolve but we knew that there were less than 100m PCs on earth (and they were expensive) and that telcos couldn’t give everyone FTTH next year; in 2010 we didn’t know what the next iPhone would be but we knew it wouldn’t have retinal projection. We knew the physical limits in ways we don’t really know with LLMs. Next month a new approach could cut inference compute needs by 90%, or double demand, or both.</p>
+<p>All of this has people hunting for patterns to recognise (indeed, it’s been observed that <em>all</em> conversations about AI end in a hunt for metaphors). It has become common to draw comparisons with fiber, which had a massive overbuild in the Dotcom bubble that looks a bit like the infrastructure build-out today. The narrow problem with that is that fiber construction was far ahead of demand, where AI compute construction is far behind demand, though, as above, we don’t know what that supply/demand balance will look like in the future. But the more relevant objection, I think, is that fiber construction was mostly fixed cost (digging holes) rather than marginal cost (more equipment), whereas growth in compute needs means you need to buy more compute.</p>
+<p>That makes mobile data a more fruitful comparison here. Mobile networks have marginal cost for capacity, and like AI they had an enormous surge in usage 15 years ago, that overwhelmed capacity and had carriers scrambling to add capacity and <a href="https://archive.nytimes.com/gadgetwise.blogs.nytimes.com/2011/07/05/verizon-to-drop-its-unlimited-mobile-data-plan-july-7/">rebalance their pricing</a>. Meanwhile, selling bits looks superficially similar to selling tokens: it's an opaque measure of marginal cost that doesn't map in any transparent or intuitive way to use cases or value, and needs to be replaced with bundles of some kind. But most importantly, in the last 20 years cellular data traffic has risen by several orders of magnitude, and this has become an enormous industry, with annual revenue of a trillion dollars and capex of $200 billion, but the stocks have gone nowhere, and all the value was captured by other people further up the stack. This, of course, is one of the core questions for AI: is this going to be low-margin commodity infrastructure with all the value captured by other people further up the stack?</p>
+<figure class="article-figure">View fullsize<img alt="" data-image="https://images.squarespace-cdn.com/content/v1/50363cf324ac8e905e7df861/74d347c2-0844-416e-89d5-b3ba58d3431e/Screenshot+2026-07-08+at+3.21.19%E2%80%AFPM.png" data-image-dimensions="1922x1080" data-image-focal-point="0.5,0.5" data-load="false" data-loader="sqs" data-sqsp-image-classic-block-image="" data-src="https://images.squarespace-cdn.com/content/v1/50363cf324ac8e905e7df861/74d347c2-0844-416e-89d5-b3ba58d3431e/Screenshot+2026-07-08+at+3.21.19%E2%80%AFPM.png" data-stretch="false" sizes="(max-width: 640px) 100vw, (max-width: 767px) 100vw, 100vw" src="https://images.squarespace-cdn.com/content/v1/50363cf324ac8e905e7df861/74d347c2-0844-416e-89d5-b3ba58d3431e/Screenshot+2026-07-08+at+3.21.19%E2%80%AFPM.png?format=2500w" srcset="https://images.squarespace-cdn.com/content/v1/50363cf324ac8e905e7df861/74d347c2-0844-416e-89d5-b3ba58d3431e/Screenshot+2026-07-08+at+3.21.19%E2%80%AFPM.png?format=100w 100w, https://images.squarespace-cdn.com/content/v1/50363cf324ac8e905e7df861/74d347c2-0844-416e-89d5-b3ba58d3431e/Screenshot+2026-07-08+at+3.21.19%E2%80%AFPM.png?format=300w 300w, https://images.squarespace-cdn.com/content/v1/50363cf324ac8e905e7df861/74d347c2-0844-416e-89d5-b3ba58d3431e/Screenshot+2026-07-08+at+3.21.19%E2%80%AFPM.png?format=500w 500w, https://images.squarespace-cdn.com/content/v1/50363cf324ac8e905e7df861/74d347c2-0844-416e-89d5-b3ba58d3431e/Screenshot+2026-07-08+at+3.21.19%E2%80%AFPM.png?format=750w 750w, https://images.squarespace-cdn.com/content/v1/50363cf324ac8e905e7df861/74d347c2-0844-416e-89d5-b3ba58d3431e/Screenshot+2026-07-08+at+3.21.19%E2%80%AFPM.png?format=1000w 1000w, https://images.squarespace-cdn.com/content/v1/50363cf324ac8e905e7df861/74d347c2-0844-416e-89d5-b3ba58d3431e/Screenshot+2026-07-08+at+3.21.19%E2%80%AFPM.png?format=1500w 1500w, https://images.squarespace-cdn.com/content/v1/50363cf324ac8e905e7df861/74d347c2-0844-416e-89d5-b3ba58d3431e/Screenshot+2026-07-08+at+3.21.19%E2%80%AFPM.png?format=2500w 2500w" class="article-image"/></figure>
+<p>Semiconductor manufacturing also has echoes of AI, since unlike cellular it has something of the same escalating cost and complexity that we see in foundation models. Rock's Law pointed out that the cost of a cutting edge fab doubles every four years: over time the frontier of semiconductors become so hard and so expensive that the number of players dropped from dozens to a handful and now really only one, TSMC. That’s another core question for AI: will this get so hard and so expensive that only a couple of people can do it, even without network effects? Equally, many semiconductor uses are further back along the same kind of price/performance curve I just discussed for AI. Even here, though, while TSMC has a <em>de facto</em> monopoly on the frontier, and nice margins, it doesn't actually capture a large share of value from the broader tech economy: net income last year was $53bn, less than half of Apple alone.</p>
+<p>There are plenty of other comparisons one could make here: in the last six months Sam Altman has compared OpenAI both to Windows, a high-margin capital-light monopoly based on network effects, and electricity utilities, which are natural monopolies but also low-margin regulated utilities selling a pure commodity. One could also point to cloud (three leading players with good margins and clearly distinguished propositions, but again limited value-capture). But none of these have predictive value: analogies don’t have predictive value. You can't prove whether something will have the same outcome as mobile by arguing how much it’s like mobile: this was a mistake that many very clever people in tech made 15 years ago, claiming that Android would beat iOS because Android was ‘open’ and ‘open’ Wintel had beaten the ‘closed’ Mac in the 1990s (it’s also the mistake that doomers make when they claim that AI is ‘like’ nuclear weapons). Everything is different: bits, tokens and transistors are different, each of these examples are different from each other, and AI will be different too.</p>
+<p>However, these examples do tell us, empirically, that something can be very important, very expensive, change the world, and be full of very sophisticated science and engineering, and yet have a wide range of possible outcomes. There isn’t one inevitable path here: you can have price equilibrium at high margins and at low margins, and with and without market concentration, and you can’t hand-wave that away by talking about AGI and saying “you don’t understand exponentials!”</p>
+<p>However, if one thread in everything I've written above is how much we don’t yet know, the other thread is that every path to foundation models having market dominance, strategic leverage, value capture, winner-takes-all effects, or anything else other than becoming commodity infrastructure, requires something to change.</p>
+<p>Maybe frontier models will become less competitive - yet in the last six months, Mark Zuckerberg and <a href="https://artificialanalysis.ai/articles/grok-4-5-brings-spacexai-to-the-the-intelligence-frontier">Elon Musk</a> jumped from zero back onto the leaderboards. Maybe network effects will emerge. Maybe chatbots can grow into products and don’t need to be wrapped in software. Maybe one lab will start out-executing all the others and pull ahead on sheer product dynamism - Microsoft, Google, Facebook and Apple had to execute their way into a wining position before they had winner-takes-all efforts. Maybe <em>something</em> else will happen.</p>
+<p>In particular, we have not one but two potential <em>dei ex machina</em> - Trump and China. China is reportedly <a href="https://www.reuters.com/world/beijing-is-looking-curbing-overseas-access-chinas-top-ai-models-sources-say-2026-07-07/">considering</a> regulating open source and some people close to Trump have floated this as well (though since Meta abandoned Llama the US has no leading open model), and export controls could expand and become systematic. Many people see the pleas for regulation from Anthropic and (sometimes) OpenAI as a front for regulatory capture, but either way, we can’t presume this will remain an entirely free market.</p>
+<p>Even so, that brings me back to the same point: the current market dynamics point to a future in which, as today’s supply crunch eases, frontier models move towards becoming commodity infrastructure, with all of the value built on top, and for a different outcome, something needs to happen that we don’t see yet.</p></div>
+      
+    </article>
+    
+    <article>
+      <h1>How agents are transforming work | OpenAI</h1>
+      <div class="article-meta">
+        OpenAI
+        · 28 Jun 2026 · <a href="https://openai.com/index/how-agents-are-transforming-work/">Source</a>
+      </div>
+      <div class="article-body"><p>June 25, 2026</p>
+<p><a href="https://openai.com/news/company-announcements/">Company</a></p>
+<p>A new Economic Research paper measuring Codex’s economic potential at the frontier.</p>
+<p><a data-analytics="econ-codex-hero-cta" href="https://cdn.openai.com/pdf/5d1e1489-21c0-43e4-9d42-f87efdbf0082/the-shift-to-agentic-ai-evidence-from-codex.pdf">Read the paper</a></p>
+<p>Listen to article</p>
+<figure class="article-figure"><p class="media-omitted">[AUDIO OMITTED]</p></figure>
+<p>Share</p>
+<p>Agentic AI changes the unit of knowledge work from single interactions to delegated, long-horizon tasks. Chatbot interactions are often short and self-contained. Agents can operate independently for minutes or hours while orchestrating tool calls, interacting with environments, and iterating towards solutions. As a result, agents are quickly becoming the most powerful AI tool for work.</p>
+<p>Over the last year, we witnessed this transformation first-hand at OpenAI. For the first few months after Codex was released to the public, ChatGPT remained the default AI tool for work within OpenAI. Through August 2025, the average OpenAI worker spent less than 10% of their tokens on Codex. Now, every department, including non-technical departments such as Legal and Recruiting, uses Codex as their primary AI tool for work. This pattern reflects what we believe will be the future of work given the expanded capabilities and accessibility of agentic tools.</p>
+<p class="rw-outer-content"><span>Some content could not be imported from the original document.</span> <a href="https://openai.com/index/how-agents-are-transforming-work/">View content ↗ </a></p>
+<p class="rw-outer-content"><span>Some content could not be imported from the original document.</span> <a href="https://openai.com/index/how-agents-are-transforming-work/">View content ↗ </a></p>
+<p>Codex adoption grew in tandem with Codex’s capabilities. As Codex leveraged stronger models and new product features, it became capable of taking on an expanding set of productive tasks. Across Individual users, Organizational users, and OpenAI workers, we document four trends over the past year:</p>
+<ul><li><b>People use Codex for longer-horizon work</b>. By May 2026, 80.6% of sampled individual users made at least one Codex request estimated to exceed 30 minutes of human work, 70.2% made one estimated to exceed one hour, and 25.6% made at least one Codex request estimated to exceed eight hours.</li><li><b>Codex became the primary AI tool for every department at OpenAI</b>. Engineering moved first, but Legal, Finance, and Recruiting crossed into Codex being their primary AI tool around April 2026. For the average OpenAI worker, Codex usage now accounts for more than 85% of output tokens. Since Codex users tend to use more tokens than non-users, its share of overall tokens is even higher: Codex accounts for 99.8% of weekly output tokens generated within OpenAI.</li><li><b>Non-developer adoption grew especially rapidly, outpacing developer adoption</b>. Since August 2025, non-developer users rose 137x for individual users, 189x for organizational users, and 12x within OpenAI.</li><li><b>Codex enabled OpenAI workers to do tasks outside their job description</b>. While technical usage is still most prevalent among engineers, non-technical users regularly use Codex to take on coding or technical execution, including automation, data transformation, tooling, debugging, and structured analysis.</li></ul>
+<h2>Agents work longer hours on harder tasks</h2>
+<p>Nearly a quarter of all Codex requests are for tasks that would take a person more than one hour to complete<sup><a href="#footnote-1" id="inline-ref-footnote-1">(1)</a></sup>. As Codex’s capacity for independent long-context work improved, users shifted from short interactions toward more difficult tasks with longer horizons.</p>
+<p>The chart below estimates the share of individual users that crossed four human-time thresholds: tasks that would take a person more than 30 minutes, more than one hour, more than four hours, and more than eight hours<sup><a href="#footnote-2" id="inline-ref-footnote-2">(2)</a></sup>. From December 2025 to May 2026, the share of users who made a request that was estimated to correspond to work that would take a person more than 30 minutes rose to 80.6%. The share making a request that would take a person more than one hour rose to 70.2%. The share requesting work that would take a person more than eight hours grew the fastest from a low base.</p>
+<p>The growth in agentic usage can be seen in daily Codex runtime. Among daily active users at OpenAI, the heaviest users ask Codex to run many hours of agent work in a single day. By June 2026, users at the 99th percentile regularly generated more than 60 hours of Codex agent turns per day, distributed across multiple, parallel agents. As Codex became more powerful and parallelizable, users moved from only asking Codex for one answer at a time into increasingly orchestrating multiple agent tasks over the course of a day.</p>
+<h2>Adoption continues to move from engineers to the rest of OpenAI</h2>
+<p>Engineers at OpenAI began adopting Codex first, gradually. The average engineer at the company shifted the majority of their usage of OpenAI products to Codex by December 2025. Today, the average engineer generates 99% of their output tokens with Codex rather than ChatGPT. Legal, finance, and recruiting crossed over to majority use of Codex later, around April 2026, but their transitions were much faster. The average lawyer or recruiter at OpenAI now generates more than 85% of their output tokens on Codex.</p>
+<p>Over the last six months, Codex usage has deepened and intensified at OpenAI. Among active internal users, change in combined output tokens rose sharply across departments. Research saw the biggest jump: by June 2026, median use was 56 times higher than in November 2025. Customer Support rose 32 times and Engineering rose 27 times, while Legal grew more gradually but still reached 13 times its November level.</p>
+<p>These two patterns together illustrate how Codex has transformed how OpenAI uses AI to do productive work. Across the company, users are switching from chatbots to agents as their primary form of AI interaction and are deploying an exponentially growing amount of agentic labor.</p>
+<h2>Non-developers are the fastest-growing user groups</h2>
+<p>Across all user groups—OpenAI, organizational, and individual users—Codex use began with developers, the natural target audience for what began as a coding tool. However, as Codex expanded toward more general knowledge work, adoption among non-developers grew even more quickly. As shown in the user growth chart below, weekly non-developer users rose faster than developer users among individual, organizational, and OpenAI populations. By early June 2026, non-developer individual users multiplied 137 times since August 2025. Non-developer organizational users increased 189-fold, and non-developer OpenAI users increased 12-fold, likely because this group already started at a well above average starting point.</p>
+<p>The shift does not mean every non-developer is using Codex in the same way as an engineer. Rather, it means that more non-developers are using Codex for some kind of agentic work.</p>
+<h2>Codex is expanding the horizon of potential productive work</h2>
+<p>Codex enables non-technical departments to accelerate workflows previously bottlenecked by technical expertise. The heat map below compares inferred occupations within OpenAI to the type of work represented in Codex outputs. Engineering and coding show up as the largest category for data science and research, whereas knowledge work is the largest category for finance and business operations, marketing, operations, and other departments.</p>
+<p>That said, agentic tools can expand what an individual worker can do. For instance, over one-fourth of work done with Codex by workers in business functions was engineering or coding. Agents can lower the cost of moving across task boundaries and help workers do adjacent work that used to require more specialized technical support.</p>
+<figure class="article-figure"><figure class="article-figure"><h2>Occupation vs. work done with Codex</h2><table><tr><th></th><th colspan="5">Work category</th></tr><tr><th>Consolidated inferred department</th><th>Engineering / Coding</th><th>Data Analysis</th><th>Financial Analysis</th><th>Knowledge Work</th><th>Other</th></tr><tbody><tr><th>Engineering</th><td>72%</td><td>4%</td><td>1%</td><td>18%</td><td>5%</td></tr><tr><th>Data Science / Research</th><td>51%</td><td>10%</td><td>0%</td><td>30%</td><td>9%</td></tr><tr><th>Finance / Biz Ops</th><td>31%</td><td>9%</td><td>16%</td><td>34%</td><td>10%</td></tr><tr><th>Product / Marketing / Ops</th><td>25%</td><td>3%</td><td>7%</td><td>51%</td><td>15%</td></tr><tr><th>Other</th><td>50%</td><td>7%</td><td>2%</td><td>38%</td><td>4%</td></tr></tbody></table><figcaption>Share of output tokens within department</figcaption></figure></figure>
+<h2>What this means for agents’ economic potential </h2>
+<p>Increased use of agentic tools by non-engineer employees expands the frontier of what these workers can do. That matters for businesses deciding how to redesign workflows, for employees learning which skills become more valuable, and for policymakers and researchers trying to understand how AI changes the labor market.</p>
+<p>Our paper shows how frontier users adopt capable agentic tools at the frontier. Our results demonstrate what unfolds when people have broad, low-friction access to capable agentic tools: as the tools improve, people use them for longer, more complex, and more cross-functional work. As time goes on, this is likely to be what the future of work looks like.</p>
+<ul><li><a href="https://openai.com/news/?tags=2026">2026</a></li><li><a href="https://openai.com/news/?tags=economic-research">Economic Research</a></li><li><a href="https://openai.com/news/?tags=codex">Codex</a></li></ul>
+<h2>Author</h2>
+<p>OpenAI</p>
+<h2>Footnotes</h2>
+<ol><li id="footnote-1"><p class="mb-4! wrap-break-word [word-break:break-word]"><span> Task horizon is estimated using an LLM-as-judge with access to Codex transcripts.</span><span class="inline-block"><button aria-label="Scroll to citation 1 reference" class="ease-curve-a disabled:text-gray-40 flex items-center justify-center rounded-full outline-offset-2 transition duration-200 focus-visible:outline focus-visible:outline-offset-0 size-2.5 text-primary-60 focus:outline-primary-44 hover:bg-none hover:[&amp;&gt;svg]:opacity-60 scale-inline-100 ms-[10px]" type="button"><p class="media-omitted">[SVG OMITTED]</p></button></span></p><a href="#inline-ref-footnote-1">[find in text]</a></li><li id="footnote-2"><p class="mb-4! wrap-break-word [word-break:break-word]"><span>These thresholds are model-estimated, so they should be treated as directional rather than exact. This is also based only on individual data and based on the queries of a random sample of 0.1% of users.</span><span class="inline-block"><button aria-label="Scroll to citation 2 reference" class="ease-curve-a disabled:text-gray-40 flex items-center justify-center rounded-full outline-offset-2 transition duration-200 focus-visible:outline focus-visible:outline-offset-0 size-2.5 text-primary-60 focus:outline-primary-44 hover:bg-none hover:[&amp;&gt;svg]:opacity-60 scale-inline-100 ms-[10px]" type="button"><p class="media-omitted">[SVG OMITTED]</p></button></span></p><a href="#inline-ref-footnote-2">[find in text]</a></li></ol>
+<h2>Keep reading</h2>
+<p><a href="https://openai.com/news/">View all</a></p>
+<figure class="article-figure"><img alt="OpenAI and Broadcom Jalapeño inference chip card image" data-nimg="fill" data-nosnippet="true" sizes="(min-width: 1728px) 1728px, 100vw" src="https://images.ctfassets.net/kftzwdyauwt9/21KcazqOHUF7Cq71Hpfcnc/81ad98a1978845b441ab14e008168c75/openai-broadcom-jalapeno-inference-chip-image-1_1.png?w=3840&amp;q=90&amp;fm=webp" srcset="https://images.ctfassets.net/kftzwdyauwt9/21KcazqOHUF7Cq71Hpfcnc/81ad98a1978845b441ab14e008168c75/openai-broadcom-jalapeno-inference-chip-image-1_1.png?w=640&amp;q=90&amp;fm=webp 640w, https://images.ctfassets.net/kftzwdyauwt9/21KcazqOHUF7Cq71Hpfcnc/81ad98a1978845b441ab14e008168c75/openai-broadcom-jalapeno-inference-chip-image-1_1.png?w=750&amp;q=90&amp;fm=webp 750w, https://images.ctfassets.net/kftzwdyauwt9/21KcazqOHUF7Cq71Hpfcnc/81ad98a1978845b441ab14e008168c75/openai-broadcom-jalapeno-inference-chip-image-1_1.png?w=828&amp;q=90&amp;fm=webp 828w, https://images.ctfassets.net/kftzwdyauwt9/21KcazqOHUF7Cq71Hpfcnc/81ad98a1978845b441ab14e008168c75/openai-broadcom-jalapeno-inference-chip-image-1_1.png?w=1080&amp;q=90&amp;fm=webp 1080w, https://images.ctfassets.net/kftzwdyauwt9/21KcazqOHUF7Cq71Hpfcnc/81ad98a1978845b441ab14e008168c75/openai-broadcom-jalapeno-inference-chip-image-1_1.png?w=1200&amp;q=90&amp;fm=webp 1200w, https://images.ctfassets.net/kftzwdyauwt9/21KcazqOHUF7Cq71Hpfcnc/81ad98a1978845b441ab14e008168c75/openai-broadcom-jalapeno-inference-chip-image-1_1.png?w=1920&amp;q=90&amp;fm=webp 1920w, https://images.ctfassets.net/kftzwdyauwt9/21KcazqOHUF7Cq71Hpfcnc/81ad98a1978845b441ab14e008168c75/openai-broadcom-jalapeno-inference-chip-image-1_1.png?w=2048&amp;q=90&amp;fm=webp 2048w, https://images.ctfassets.net/kftzwdyauwt9/21KcazqOHUF7Cq71Hpfcnc/81ad98a1978845b441ab14e008168c75/openai-broadcom-jalapeno-inference-chip-image-1_1.png?w=3840&amp;q=90&amp;fm=webp 3840w" class="article-image"/></figure>
+<p><a href="https://openai.com/index/openai-broadcom-jalapeno-inference-chip/">OpenAI and Broadcom unveil LLM-optimized inference chip<p>CompanyJun 24, 2026</p></a></p>
+<figure class="article-figure"><img alt="Expanding Daybreak Art Card" data-nimg="fill" data-nosnippet="true" sizes="(min-width: 1728px) 1728px, 100vw" src="https://images.ctfassets.net/kftzwdyauwt9/735NOZviyogUBIFxd2EmWX/fa8baf9fc26e64f442ffa86d5fd9a41e/Art_Card__6_.png?w=3840&amp;q=90&amp;fm=webp" srcset="https://images.ctfassets.net/kftzwdyauwt9/735NOZviyogUBIFxd2EmWX/fa8baf9fc26e64f442ffa86d5fd9a41e/Art_Card__6_.png?w=640&amp;q=90&amp;fm=webp 640w, https://images.ctfassets.net/kftzwdyauwt9/735NOZviyogUBIFxd2EmWX/fa8baf9fc26e64f442ffa86d5fd9a41e/Art_Card__6_.png?w=750&amp;q=90&amp;fm=webp 750w, https://images.ctfassets.net/kftzwdyauwt9/735NOZviyogUBIFxd2EmWX/fa8baf9fc26e64f442ffa86d5fd9a41e/Art_Card__6_.png?w=828&amp;q=90&amp;fm=webp 828w, https://images.ctfassets.net/kftzwdyauwt9/735NOZviyogUBIFxd2EmWX/fa8baf9fc26e64f442ffa86d5fd9a41e/Art_Card__6_.png?w=1080&amp;q=90&amp;fm=webp 1080w, https://images.ctfassets.net/kftzwdyauwt9/735NOZviyogUBIFxd2EmWX/fa8baf9fc26e64f442ffa86d5fd9a41e/Art_Card__6_.png?w=1200&amp;q=90&amp;fm=webp 1200w, https://images.ctfassets.net/kftzwdyauwt9/735NOZviyogUBIFxd2EmWX/fa8baf9fc26e64f442ffa86d5fd9a41e/Art_Card__6_.png?w=1920&amp;q=90&amp;fm=webp 1920w, https://images.ctfassets.net/kftzwdyauwt9/735NOZviyogUBIFxd2EmWX/fa8baf9fc26e64f442ffa86d5fd9a41e/Art_Card__6_.png?w=2048&amp;q=90&amp;fm=webp 2048w, https://images.ctfassets.net/kftzwdyauwt9/735NOZviyogUBIFxd2EmWX/fa8baf9fc26e64f442ffa86d5fd9a41e/Art_Card__6_.png?w=3840&amp;q=90&amp;fm=webp 3840w" class="article-image"/></figure>
+<p><a href="https://openai.com/index/daybreak-securing-the-world/">Daybreak: Tools for securing every organization in the world<p>SecurityJun 22, 2026</p></a></p>
+<figure class="article-figure"><img alt="Samsung Electronics ChatGPT and Codex card image" data-nimg="fill" data-nosnippet="true" sizes="(min-width: 1728px) 1728px, 100vw" src="https://images.ctfassets.net/kftzwdyauwt9/1yLWuTdw8HyYoBldZk3ghx/85fe3f39213890099f6f72f41cec6d1b/samsung-electronics-1_1.png?w=3840&amp;q=90&amp;fm=webp" srcset="https://images.ctfassets.net/kftzwdyauwt9/1yLWuTdw8HyYoBldZk3ghx/85fe3f39213890099f6f72f41cec6d1b/samsung-electronics-1_1.png?w=640&amp;q=90&amp;fm=webp 640w, https://images.ctfassets.net/kftzwdyauwt9/1yLWuTdw8HyYoBldZk3ghx/85fe3f39213890099f6f72f41cec6d1b/samsung-electronics-1_1.png?w=750&amp;q=90&amp;fm=webp 750w, https://images.ctfassets.net/kftzwdyauwt9/1yLWuTdw8HyYoBldZk3ghx/85fe3f39213890099f6f72f41cec6d1b/samsung-electronics-1_1.png?w=828&amp;q=90&amp;fm=webp 828w, https://images.ctfassets.net/kftzwdyauwt9/1yLWuTdw8HyYoBldZk3ghx/85fe3f39213890099f6f72f41cec6d1b/samsung-electronics-1_1.png?w=1080&amp;q=90&amp;fm=webp 1080w, https://images.ctfassets.net/kftzwdyauwt9/1yLWuTdw8HyYoBldZk3ghx/85fe3f39213890099f6f72f41cec6d1b/samsung-electronics-1_1.png?w=1200&amp;q=90&amp;fm=webp 1200w, https://images.ctfassets.net/kftzwdyauwt9/1yLWuTdw8HyYoBldZk3ghx/85fe3f39213890099f6f72f41cec6d1b/samsung-electronics-1_1.png?w=1920&amp;q=90&amp;fm=webp 1920w, https://images.ctfassets.net/kftzwdyauwt9/1yLWuTdw8HyYoBldZk3ghx/85fe3f39213890099f6f72f41cec6d1b/samsung-electronics-1_1.png?w=2048&amp;q=90&amp;fm=webp 2048w, https://images.ctfassets.net/kftzwdyauwt9/1yLWuTdw8HyYoBldZk3ghx/85fe3f39213890099f6f72f41cec6d1b/samsung-electronics-1_1.png?w=3840&amp;q=90&amp;fm=webp 3840w" class="article-image"/></figure>
+<p><a href="https://openai.com/index/samsung-electronics-chatgpt-codex-deployment/">Samsung Electronics brings ChatGPT and Codex to employees<p>CompanyJun 21, 2026</p></a></p></div>
+      
+    </article>
+    
+    <article>
+      <h1>Codex CLI Release: 0.150.1</h1>
+      <div class="article-meta">
+        Codex changelog
+        · 27 Aug 2026 · <a href="https://developers.openai.com/codex/changelog/#github-release-377521340">Source</a>
+      </div>
+      <div class="article-body"><div><h2>Bug Fixes</h2>
+<ul>
+<li>Remote compaction now counts retained images toward its token budget by default, trimming older images as needed. (<a class="issue-link js-issue-link" href="https://github.com/openai/codex/pull/41003">#41003</a>)</li>
+</ul>
+<h2>Changelog</h2>
+<p>Full Changelog: <a class="commit-link" href="https://github.com/openai/codex/compare/rust-v0.150.0...rust-v0.150.1"><tt>rust-v0.150.0...rust-v0.150.1</tt></a></p>
+<ul>
+<li><a class="issue-link js-issue-link" href="https://github.com/openai/codex/pull/41003">#41003</a> Backport retained-image compaction budgeting to 0.150 <a class="user-mention notranslate" href="https://github.com/rhan-oai">@rhan-oai</a></li>
+</ul></div></div>
+      
+    </article>
+    
+  </body>
+</html>
