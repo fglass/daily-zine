@@ -1,0 +1,551 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Fred Talks - 2026-09-02</title>
+    <style>
+      @page {
+        size: A5;
+        margin: 8mm 9mm 9mm;
+      }
+
+      :root {
+        color: #111;
+        font-family: "Times New Roman", Times, serif;
+        --body-text-size: 9.5pt;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        color: #111;
+        background: #fff;
+        font-family: "Times New Roman", Times, serif;
+        line-height: 1.45;
+      }
+
+      a,
+      a:visited {
+        color: #111;
+        text-decoration: underline;
+      }
+
+      .cover {
+        min-height: calc(210mm - 17mm);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        page-break-after: always;
+        border: 1px solid #111;
+        padding: 8mm;
+        background: #fff;
+      }
+
+      .toc-item-meta,
+      .article-meta {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .masthead {
+        margin: 0;
+        font-size: 40pt;
+        line-height: 0.95;
+        text-transform: uppercase;
+      }
+
+      .issue-date {
+        margin: 4mm 0 0;
+        font-size: 14pt;
+      }
+
+      .issue-date sup {
+        font-size: 0.58em;
+        vertical-align: super;
+        line-height: 0;
+      }
+
+      .cover-deck {
+        max-width: 90mm;
+        font-size: 12pt;
+        margin: 0;
+      }
+
+      .toc {
+        border-top: 3px solid #111;
+        padding-top: 6mm;
+      }
+
+      .toc h2 {
+        margin: 0 0 4mm;
+        font-size: 11pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .toc-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .toc-item {
+        padding: 3mm 0;
+        border-bottom: 1px solid rgba(17, 17, 17, 0.2);
+      }
+
+      .toc-item-title {
+        font-size: 12pt;
+        margin: 0 0 1mm;
+      }
+
+      .toc-item-meta {
+        font-size: 8pt;
+      }
+
+      .masthead-compact {
+        margin: 0 0 6mm;
+      }
+
+      .masthead-compact h1 {
+        margin: 0;
+        font-size: 22pt;
+        line-height: 1.1;
+        text-transform: uppercase;
+      }
+
+      .masthead-compact .issue-date {
+        margin: 2mm 0 0;
+        font-size: 11pt;
+      }
+
+      .toc-compact {
+        border-top: 1px solid #111;
+        border-bottom: 1px solid #111;
+        padding: 4mm 0;
+        margin: 0 0 8mm;
+      }
+
+      article + article {
+        margin-top: 10mm;
+        padding-top: 6mm;
+        border-top: 2px solid #111;
+      }
+
+      h1 {
+        margin: 0 0 2mm;
+        font-size: 18pt;
+        line-height: 1.1;
+      }
+
+      .article-meta {
+        font-size: 8.5pt;
+        margin-bottom: 6mm;
+        padding-bottom: 3mm;
+        border-bottom: 1px solid #111;
+      }
+
+      .article-body {
+        font-size: var(--body-text-size);
+        font-family: "Times New Roman", Times, serif;
+      }
+
+      .article-body p,
+      .article-body li,
+      .article-body blockquote,
+      .article-body dd,
+      .article-body dt {
+        margin: 0 0 4mm;
+        orphans: 3;
+        widows: 3;
+      }
+
+      .article-body ul,
+      .article-body ol,
+      .article-body dl {
+        margin: 0 0 4mm 5mm;
+        padding: 0;
+      }
+
+      .article-body h2,
+      .article-body h3,
+      .article-body h4 {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        margin: 7mm 0 3mm;
+        line-height: 1.2;
+      }
+
+      .article-body blockquote {
+        margin-left: 6mm;
+        padding-left: 4mm;
+        border-left: 2px solid #111;
+      }
+
+      .article-body .media-omitted {
+        margin: 0 0 4mm;
+        font-size: 8.5pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(17, 17, 17, 0.65);
+      }
+
+      .article-body figure,
+      .article-body .article-figure,
+      .article-body picture,
+      .article-body .article-picture {
+        display: block;
+        max-width: 72mm;
+        margin: 0 auto 4mm;
+        break-inside: avoid;
+      }
+
+      .article-body img,
+      .article-body .article-image {
+        display: block;
+        max-width: min(100%, 72mm);
+        max-height: 34mm;
+        height: auto;
+        width: auto;
+        object-fit: contain;
+        margin: 0 auto 3mm;
+      }
+
+      .article-body figcaption {
+        margin-top: 1.5mm;
+        font-size: 8.5pt;
+        line-height: 1.3;
+        color: rgba(17, 17, 17, 0.8);
+      }
+
+      .article-note {
+        margin-top: 6mm;
+        padding-top: 3mm;
+        border-top: 1px solid #111;
+        font-size: 9pt;
+        font-style: italic;
+      }
+
+      @media screen {
+        body {
+          padding: 2rem;
+          margin: 0 auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    
+    <header class="masthead-compact">
+      <h1>Fred Talks</h1>
+      <p class="issue-date">
+        2<sup>nd</sup> September 2026
+      </p>
+    </header>
+
+    <nav class="toc toc-compact">
+      <h2>Contents</h2>
+      <ol class="toc-list">
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Control the ideas, not the code</div>
+          <div class="toc-item-meta">
+            antirez.com · 1245 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Zen of AI Coding</div>
+          <div class="toc-item-meta">
+            Yoav Aviram · 1912 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">8 Predictions for the Era of Continual Learning</div>
+          <div class="toc-item-meta">
+            Dwarkesh Patel · 1412 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Ways to think about token pricing</div>
+          <div class="toc-item-meta">
+            Benedict Evans · 2607 words
+          </div>
+        </li>
+        
+      </ol>
+    </nav>
+    
+
+    
+    <article>
+      <h1>Control the ideas, not the code</h1>
+      <div class="article-meta">
+        antirez.com
+        · 18 Jul 2026 · <a href="https://antirez.com/news/169">Source</a>
+      </div>
+      <div class="article-body"><pre>Look at the past history of this blog. There are many blog posts about programming with AI, a few of them date back to January 2024 (like this: <a href="https://antirez.com/news/140">https://antirez.com/news/140</a>). I’m a relatively well regarded programmer, after all. I don’t have the need to still be in the “loop” as a old man that seeks for relevance, I recently rejoined Redis, and now I also am developing a new open source software for local LLM inference that received a good welcome in the community. Why I keep doing this, of saying what people don’t want to hear? Why I keep announcing how future programming will be by default? Because I feel the urge of lowering the impact for people less prepared to the change than me, often younger than me, and that, unlikely me, didn’t see many of those things coming (In 2022 I published, before ChatGPT existed, a book preannouncing many things that now happened and other things that I believe *will* happen, so I feel like I can say this without sounding egocentric).
+
+So mine is a trick. People feel more and more programming is completely modified by AI and don’t know what they should do, if they can really start coding in a completely different way, without looking much at the code as their main output. They feel like they are betraying their own field. So my intention is to arrive and say “look at me, In can write code, you know, I’m not hiding behind AI: yet, things changed, it’s not your weakness, it’s not that you are AI-pilled. It is just that our field is evolving in an incredible *and* painful (but also joyful) direction”.
+
+This is why yesterday, on X, I said that I believe many programmers at this point have less impact they could have because they look at the code. I truly believe into that. And note that this does not mean to vibe code something just asking for the final product. The point is: if you control the ideas of your software, looking at the code itself is suboptimal and often pointless. For the following reasons:
+
+1. You can now generate a lot of code, even *not* accounting for the LLM code verbosity (that is also effect of not being able to instruct them well, for most of the part). How are you supposed to review 5k lines of code every day?
+
+2. LLMs are very good at writing locally optimal code, and are worse (but improving) with big ideas. What’s the point of scanning function by function, line by line? Instead you should prompt the design you have in mind, sometimes ask “how is exactly the design of that part? How does it work?”, and evaluate if it is the right model. It is much faster.
+
+3. The working day is 8 hours. If you read the code, it is a tradeoff. You are doing less of what today is the most important part of your job, that is, asking yourself: what I’m doing with this software? What are the new directions I want to take? And also, think at new ideas, features, optimizations tricks. And doing a lot of QA.
+
+Controlling the ideas. Do you remember this phrasing from the Mythical Man Month? Well, a book from the 70s tells us more things about the current software era than many of the things that were said from 2000 to 2020. Why people that now protest against AI were not horrified by the state of software in the last decade? The level of slop we touched during recent years, before AI, is unbelievable. I’ll say you another thing. What is slop? With DwarfStar I implemented an inference for two LLMs (DeepSeek v4 and GLM 5.2) in a completely automated way, but: try it yourself, you will discover you can’t just say “implement XYZ” and see it working. You have to understand how things work, what is the best design, how to reach a certain level of performance. Then I compared the implementation, for correctness, to other systems, finding that other implementations sometimes contained more errors. I researched more, and found that the local inference world is full of subtle errors that accumulate and damage the model output, issues in the attention implementation causing performance slopes after the context is over a certain limit because indexed attention implementations are broken (do more work than they should, for instance), and so forth. This is the result of a domain that is very complicated to handle, fast changing, with models that are slightly different one from the other in the inference graph being released every day. It’s an unfair game for developers. Well: AI helps a lot with that. There are many domains where rigorous engineering (in the design side) and testing is *far* better than writing a GPU kernel by hand (or reading it). So are we sure most of that resistance it is not ideological?
+
+Matteo Collina yesterday asked me, in reply to my tweet: but didn’t you say that you check all the AI generated code for Redis? And this is a good question indeed. Yes, I do, but this is, at this point, something I *need* to do but that I believe to be mostly pointless, partially once GPT 5.5 was released, but now with Fable and GPT 5.6 Sol even more. Yes: I identify things that I don’t like how they are coded, but if I open other Redis files written by other Redis contributors there is *far worse*, and not since they are not good coders, but because it is a matter of taste. I write very clean code since I want it to be readable, so during the implementation of Redis Arrays I operated changes. I’m doing it again for the 50% memory saving optimization of Redis sorted sets, a PR that I’ll submit soon. But I do not feel this is useful anymore. Nobody should anymore look at this code, but only at the ideas the code contain. I continued to do it out of respect for users. Redis is at this point a commonly useful thing, and many programmers will open files and modify stuff by hand. But if I had my hands free, you know what I would do, instead? Use all the time that the review is taking me to do more QA, to think at the next optimization idea and apply it, and to use LLMs to write a DESIGN.md file where each data structure is described in human language, with the ideas it contains, the implementation tricks, the design. That, in the future, is going to be much more useful. Do you want to modify sorted sets? You open the file, read the design, then you own the ideas. You can open your agent and ask it what to do with the right mental model. This is a lot more useful than reviewing the code.
+
+Fable and GPT 5.6 reviews to the sorted sets memory saving are going to spot ways more errors and subtle race conditions that my review is going to uncover. Yet I’ll do it. But for the majority of software projects, all this does not make sense anymore. Focus on controlling the ideas, instead. Focus on quality, testing, and having an idea of the software you want to ship. The world changed and it is painful, but also full of opportunities to improve a software world that was already completely rotten.</pre>
+<p>:</p></div>
+      
+    </article>
+    
+    <article>
+      <h1>Zen of AI Coding</h1>
+      <div class="article-meta">
+        Yoav Aviram
+        · 08 Mar 2026 · <a href="https://nonstructured.com/zen-of-ai-coding/">Source</a>
+      </div>
+      <div class="article-body"><p>Dedicated to all those who are sceptical about the significance of agentic coding, and to those who are not, and are wondering what it means for the future of their profession. The title is an homage to <a href="https://en.wikipedia.org/wiki/Zen_of_Python">Zen of Python</a> by Tim Peters. Unlike Tim, I am not a zen master. My only aim is to take stock of where we are and where we might be heading. I have been building with coding agents daily for the past year, and I also help teams adopt them without losing reliability or security.</p>
+<ol> <li>Software development is dead</li> <li>Code is cheap</li> <li>Refactoring easy</li> <li>So is repaying technical debt</li> <li>All bugs are shallow</li> <li>Create tight feedback loops</li> <li>Any stack is <em>your</em> stack</li> <li>Agents are not just for coding</li> <li>The context bottleneck is in your head</li> <li>Build for a changing world</li> <li>When considering Buy vs. Build, the answer, more often, is build</li> <li>Fast rubbish is still rubbish</li> <li>Software is a liability, a product is an asset</li> <li>Moats are more expensive</li> <li>Build for agents</li> <li>Anticipate modes of failure</li> </ol>
+<h4><strong>Software development is dead </strong></h4>
+<p>You do not need to write another line of code if you do not want to. Coding agents can accomplish most coding tasks with the right direction.</p>
+<p>Software development, as the act of manually producing code, is dying. A new discipline is being born. Your role in it is vital, but it is no longer centered on typing code. It is centered on framing problems, shaping context, defining constraints, and judging outcomes.</p>
+<p>The marginal cost of code is collapsing. That single fact changes everything that follows.</p>
+<h4><strong>Code is cheap</strong></h4>
+<p>The economics of software have changed.</p>
+<p>When coding is cheap, implementation stops being the constraint. You can build ten things in parallel. You cannot decide, validate, and ship ten things in parallel, at least not without changing the rest of the pipeline.</p>
+<p>Cost of delay shifts. It is no longer about developer days. It is about time stuck in other bottlenecks: product decisions, unclear requirements, security review, user testing, release processes, and operational risk. Agents can flood these queues. Inventory grows. Lead time grows. Delay becomes more expensive, not less.</p>
+<p>This changes prioritization. The highest leverage work is what unblocks shipping: tight feedback loops, tests, evals, guardrails, observability, and clear acceptance criteria. Anything that turns “we can build it” into “we can trust it”.</p>
+<p>Agents can help alleviate some of these bottlenecks. The challenge is applying them outside of coding (see Agents are not just for coding)</p>
+<h4><strong>Refactoring is easy</strong></h4>
+<p>The cost of changing your mind is lower than it has ever been. Architectural decisions that once felt permanent are now provisional.</p>
+<p>You chose React. Two months later, you regret it. Ask an agent to rewrite the project.</p>
+<p>Making imperfect decisions is no longer fatal. In fact, it can be productive. A flawed reference implementation provides better context than a pristine specification. Agents reason more effectively from concrete artifacts than from abstract intent.</p>
+<p>Rapid iteration is now the default mode. Over the last three months, we rebuilt our CMS four times from scratch, each with a different architecture. Each time we learned more about what we actually needed and what works.</p>
+<p>When code is cheap, you can run more small bets.</p>
+<h4><strong>So is repaying technical debt</strong></h4>
+<p>There is little excuse for stale dependencies or ignored security patches. Updating libraries, migrating APIs, modernizing patterns. These are prompts away.</p>
+<p>Prune your code regularly. Upgrade aggressively. Keep the surface clean.</p>
+<p>Technical debt has not disappeared. But the cost of servicing it has dropped. That changes the incentive structure. Neglect becomes less defensible.</p>
+<h4><strong>All bugs are shallow</strong></h4>
+<p><a href="https://en.wikipedia.org/wiki/Linus%27s_law">Linus’s law</a> states that “given enough eyeballs, all bugs are shallow.” Those eyeballs are now abundant.</p>
+<p>Ask one model to review your code. Ask another. They may find different issues. Ask them to fix what they find. Often they will succeed.</p>
+<p>How “dense” are bugs given a piece of code is a philosophical question. Bugs are not magically gone. Agents do not achieve perfection. From a practical perspective, however, the limiting factor is no longer the number of reviewers. It is the tightness of your feedback loops.</p>
+<p>The claim here is profound: comprehension of the codebase at the function level is no longer necessary. At the same time, relying entirely on the models is a recipe for disaster. You still have a job! (see: create tight feedback loops, anticipate modes of failure)</p>
+<p>Agents can sometimes one-shot a task.</p>
+<p>We’ve built agents that create a complete custom-made marketing website in one shot, but this is by far the exception. In most cases, agents operate best when iterating towards a well-defined goal, guided by feedback.</p>
+<p>Good tests are the first feedback loop. The agent will iterate until the tests pass. It is your responsibility to make sure the tests are adequate (by instructing the agent to create good ones) and to make sure the agent does not cheat (by weakening the tests or simply skipping them).</p>
+<p>Give your agent access to your CI to create a second feedback loop. Give it access to your server logs to create a third. Giving the agent away to visually inspect a UI is yet another example.</p>
+<p>Your job is to design environments where iteration converges toward correctness instead of drifting toward plausible nonsense.</p>
+<p>Velocity without feedback is chaos.</p>
+<h4><strong>Any stack is your stack</strong></h4>
+<p>Agents are competent across most major stacks where training data exists. Since you are not writing the code, your attachment to a specific stack becomes less relevant.</p>
+<p>Do not limit yourself to what you personally know. Your conceptual understanding transfers more than you think.</p>
+<p>When you lack terminology or domain knowledge, ask the agent to brief you. The barrier to entry into unfamiliar ecosystems is lower than it has ever been.</p>
+<h4><strong>Agents are not just for coding</strong></h4>
+<p>Coding is only the beginning.</p>
+<p>Agents can assist with business analysis, UX, infrastructure, operations, ad campaigns, analytics configuration, even accounting workflows.</p>
+<p>I migrated four WordPress blogs from an overpriced host to Hetzner in minutes after postponing the task for years. The blocker was never a technical difficulty. It was attention. Claude completed the task in 15 minutes.</p>
+<p>Agents reduce the activation energy required to execute tedious but valuable work.</p>
+<p>Grant access carefully. Limit scope. Audit results. Direction without oversight is reckless.</p>
+<h4><strong>The context bottleneck is in your head</strong></h4>
+<p>Context engineering has improved. Tooling has improved.</p>
+<p>Yet when running multiple agents in parallel, the real bottleneck is human coordination.</p>
+<p>You must track what each agent is doing. You must remember which assumptions were made. You know what questions to ask next.</p>
+<p>As agents become better at managing their own context, your ability to supervise them becomes the limiting factor.</p>
+<p>The constraint is no longer tokens. It is cognition.</p>
+<h4><strong>Build for a changing world</strong></h4>
+<p>New models. New capabilities. New frameworks. New skills.</p>
+<p>The ground shifts daily. Some models are better at reasoning. Some at coding. Some at translation.</p>
+<p>Flexibility is not optional. It must be built into your workflow and products. Both must be engineered for experimentation and adaptability.</p>
+<h4><strong>When considering Buy vs. Build, the answer, more often, is build</strong></h4>
+<p>When code was expensive, buying made sense. When code approaches zero marginal cost, the calculus changes.</p>
+<p>Every paid API is now a question. Could we replicate this internally? Should we?</p>
+<p>For our QA agent, we needed full-page screenshots of live sites. Many APIs offered this. Instead, we deployed Playwright to AWS Lambda, tailored to our needs, and hardened.</p>
+<p>This is not a blanket argument against SaaS. Maintenance, security, and scale still matter. But many small and medium services that once required vendors are now within reach.</p>
+<p>Some call this the <a href="https://www.forbes.com/sites/donmuir/2026/02/04/300-billion-evaporated-the-saaspocalypse-has-begun/">end of SaaS</a>.</p>
+<h4><strong>Fast rubbish is still rubbish</strong></h4>
+<p>Speed is intoxicating. It is also dangerous.</p>
+<p>You can generate enormous amounts of code quickly. But velocity and lines of code written were always terrible indicators of progress.</p>
+<p>Refactoring is cheap, but it is cheaper to detect flawed direction early.</p>
+<p>Discipline matters more, not less, when execution is frictionless.</p>
+<h4><strong>Software is a liability, a product is an asset</strong></h4>
+<p>Software costs money to maintain. It only becomes an asset when it produces value for someone.</p>
+<p>This was always true. It is harder to remember now because building is so easy.</p>
+<p>It is tricker then ever to resist the temptation to add features. Resist it. Build what is used. Kill what is not.</p>
+<p>Feature gaps close quickly. What once took years to replicate can now take months. What took months can now take days.</p>
+<p>A feature set is no longer a durable moat.</p>
+<p>Moats shift toward distribution, data, brand, network effects, regulation, and ecosystem integration.</p>
+<p>The barrier to entry falls. The barrier to defensibility rises.</p>
+<p>There is a new hierarchy.</p>
+<p>At the base are models (Opus 4.6, GPT-5.3-codex). On top of them sit agents (Claude Code, OpenClaw). On top of agents sit services.</p>
+<p>Today, agents use services designed for humans. It works, but it is inefficient. The next step is services designed for agents (<a href="https://www.moltbook.com/">Moltbook</a> being the harbinger).</p>
+<p>Make your services accessible to agents. Expose structured context. Provide machine-readable surfaces.</p>
+<p>Agentic commerce is emerging. In some cases, a markdown endpoint is enough. In others, the service itself must be designed agent-first.</p>
+<p>Agent-first is not a tooling choice. It is a product decision. It changes your interfaces, your reliability model, your metrics, and what you build next.</p>
+<p>We are building an agent-first CMS. If we succeed, humans will not need to use it, though they can.</p>
+<p>AX is the new UX</p>
+<p>Do not assume competence implies perfection.</p>
+<p>Like an engineer overseeing the construction of a bridge, your job is not to lay bricks. It is to ensure the structure does not collapse.</p>
+<p>Agents will make mistakes. They will drift off course. They will introduce subtle flaws. They will create security vulnerabilities. One of mine attempted to commit a .env file to git. They can be inventive in how they self-sabotage.</p>
+<p>Be one step ahead. Ask yourself how this could break. Where could it leak. What could it expose. What assumptions is the agent quietly making.</p>
+<p>Play the what-if game relentlessly. Then build guardrails.</p>
+<p>Automate checks. Lock down permissions. Isolate environments. Add monitoring. Create recovery paths. Make rollback trivial.</p>
+<p>Remember, code is cheap, and you have new superpowers. Build tools to allow you to probe deep, discover vulnerabilities, and test for anticipated failure modes. Design systems that expect failure and degrade gracefully.</p>
+<p>This is the distinction between software development and software engineering.</p>
+<p>I work with engineering and product teams adopting agents. The goal is simple: ship faster without lowering standards.</p>
+<p>I usually help in two ways:</p>
+<p><strong>Agent-first software engineering</strong><br/>
+We turn agents into part of the system, not a novelty. We design workflows, guardrails, and supporting tools so the team can delegate confidently.</p>
+<p>If you want to operationalize coding agents without turning your codebase into a casino, get in touch.</p>
+<p><strong>Agent-first product strategy</strong><br/>
+I help companies shift products from human-centric interfaces to agent-accessible, and where it makes sense, agents-first. That means clarifying what agents should be able to do, what constraints they must operate under, and what needs to change in your APIs, permissions, reliability model, and product surface area to support them.</p>
+<p>This typically results in an agent-access roadmap, an operating model, and a prioritized set of product changes that make agents a first-class user.</p>
+<p>I’m the co-founder of <a href="https://www.whiteboar.it/">WhiteBoar</a>, where AI agents build your brand and launch visually striking marketing websites, complete with professional multi-lingual content, in minutes, not months. Contact me at <a href="mailto:yoav@whiteboar.it">yoav@whiteboar.it</a>.</p></div>
+      
+    </article>
+    
+    <article>
+      <h1>8 Predictions for the Era of Continual Learning</h1>
+      <div class="article-meta">
+        Dwarkesh Patel
+        · 07 Aug 2026 · <a href="mailto:reader-forwarded-email/2fd39f6148da8c15159bf0cbf2311aed">Source</a>
+      </div>
+      <div class="article-body"><div class="rw-email-parsed">
+ <p>
+  <a href="https://substack.com/app-link/post?publication_id=69345&amp;post_id=210233020&amp;utm_source=podcast-email&amp;play_audio=true&amp;r=73nuu7&amp;utm_campaign=email-play-on-substack&amp;token=eyJ1c2VyX2lkIjo0Mjk0MTUxMzUsInBvc3RfaWQiOjIxMDIzMzAyMCwiaWF0IjoxNzg2MTI0MTk4LCJleHAiOjE3ODg3MTYxOTgsImlzcyI6InB1Yi02OTM0NSIsInN1YiI6InBvc3QtcmVhY3Rpb24ifQ.dkq79UjmADM5qoM0h3yKtF9LNKPBsLoIAcvo24FbVkU&amp;utm_content=watch_now_gif">
+   <img alt="SUB Era_Continual_Learning.mp4" src="https://substackcdn.com/image/fetch/$s_!mXx9!,w_1138,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F86911731-bd40-4f0f-86e9-3eb5637ae854_320x180.gif" style="max-width: 550px; border: none; vertical-align: middle; width: 100%; border-radius: 12px" class="article-image"/>
+  </a>
+ </p>
+ <h3 class="subtitle subtitle-HEEcLo" dir="auto" style="direction: auto; text-align: start; unicode-bidi: isolate; font-weight: normal; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: antialiased; -webkit-appearance: optimizelegibility; -moz-appearance: optimizelegibility; appearance: optimizelegibility; margin: 4px 0 0; overflow-wrap: break-word; word-break: keep-all; line-height: 24px; margin-top: 12px">
+  Locking in AI safety regulation now is a mistake.
+ </h3>
+ <p style="margin: 0 0 20px 0; line-height: 26px; margin-top: 0">
+  I have explained
+  <a href="https://substack.com/redirect/33741e33-7a02-4990-9419-8361d562341c?j=eyJ1IjoiNzNudXU3In0.H33_bBJvgyu8PtgGjxpU9p_wtwFQOCWZQjwLWMkgjCQ" style="text-decoration: underline">
+   elsewhere
+  </a>
+  why I think continual learning is needed. I don’t think you can have AIs that perform whole jobs as competently as humans if they’re forced to just write  Markdown files from session to session.
+ </p>
+ <p style="margin: 0 0 20px 0; line-height: 26px">
+  To give an illustrative example, imagine if the way students had to learn to play the saxophone is that one student tries to play it from a cold start, then after her first session, writes down a bunch of notes, then the next student waiting outside the music hall who’s also never played the saxophone reads all their notes before trying to play, and so on. Even if you had an infinite sequence of saxophone-virgin students waiting outside the studio that could write notes to the next guy, there’s no sequence of text they could write together that would allow the Nth student outside to play proficiently on their first try. At some point, you have to accumulate the experience into the brain. I think the same will be true about a lot of skills and knowledge that we’ll want AIs to learn in all the different workplaces they find themselves deployed in.
+ </p>
+ <p style="margin: 0 0 20px 0; line-height: 26px">
+  Okay, so what changes about AI once we have continual learning?
+ </p>
+ <ul style="margin-top: 0; padding: 0">
+  <li style="margin: 8px 0 0 32px; mso-special-format: bullet">
+   <span>
+    A lot of the proposals that have been put forward for regulating AI assume that you train a model, and then you deploy it. And therefore if we run a bunch of checks before the model is deployed, then we can make sure that it’s not going to aid in cyber attacks or recursive self improvement. But what if the base model is getting updated every single day based on the millions of sessions of work it does? This is one of many reasons why I think it’s unwise to lock in some kind of regulatory safety regime right now. We simply don’t know what kind of technology we’re going to be looking at even in a year, let alone in five years or ten years, and we’d be entrenching an archaic and potentially counterproductive approach to dealing with the threats from AI. To the extent that the government really wants to do some kind of safety evaluations on model providers, it would make more sense to do monthly or quarterly risk inspections rather than singling out some special moment that occurs after training is done and before deployment begins, because that will not be a meaningfully distinct category in the future.
+   </span>
+  </li>
+  <li style="margin: 8px 0 0 32px; mso-special-format: bullet">
+   <span>
+    How the labs do technical alignment would need to totally change. Almost all current techniques are focused on the problem of how we make it so that a frozen set of weights behaves well during deployment. I’m not aware of much research on the question of how to guarantee that, even with constant weight updates, the AI system never falls prey to jailbreaks or changes into a deceptive or evil persona. And if AIs are agglomerating learnings between users as well, how do you prevent users from injecting backdoors or some kind of malicious inclination into the base model? In some sense it is actually closer to the human alignment problem - your kids go out and learn new things, sometimes get one-shotted by crazy ideologies or drugs or something - but you hope you’ve given them enough common sense and basic values to improve as people in a self-directed way, without ending up with some super weird and misanthropic beliefs.
+   </span>
+  </li>
+  <li style="margin: 8px 0 0 32px; mso-special-format: bullet">
+   <span>
+    The diversity of AI minds will increase. Right now, there are &lt;5 prominent AI minds, and they are all quite similar to each other on account of being trained on roughly the same data. But if AIs are learning from experience, and that experience is different between different AIs, we could see actually different AIs come out the other end.
+   </span>
+  </li>
+  <li style="margin: 8px 0 0 32px; mso-special-format: bullet">
+   <span>
+    When deployment becomes part of training, the returns to being ahead will accelerate. If you have the best model, and more people use your AI for more complicated and useful work, and give it lots of feedback that it can integrate beyond the session window, then your model will become even smarter.
+   </span>
+  </li>
+  <li style="margin: 8px 0 0 32px; mso-special-format: bullet">
+   <span>
+    If the model learns mainly from deployment, labs will feel the pressure to deploy their smartest model earlier. Anthropic has been using Mythos internally since February. But it only shipped this model to the public in June. In a continual learning regime, a four-month internal/external gap means ceding four months of deployment learning. Your competitor who ships earlier might be worse than yours on release day, but it gets to use a lot more real world experience to get better.
+   </span>
+  </li>
+  <li style="margin: 8px 0 0 32px; mso-special-format: bullet">
+   <span>
+    Continual learning will create a clear moat for leading AI labs that they currently lack. Many people have been asking, how will the AI labs actually make money? When I asked Dario this question on my podcast, he made the analogy to cloud providers, who also offer many undifferentiated services, but earn high profit margins on them nonetheless. But the reason cloud margins are high is that it’s really time-consuming and expensive to switch from one cloud to another. But currently there is no switching cost for AI models. There’s nothing that’s preventing me from starting a software repository with Codex and then finishing it with Claude Code. But once we get continual learning and the model you’re working with is actually getting better as it interacts with you from session to session, then there are actually pretty significant switching costs. If you want to change what AI you are using, you basically have to fire an employee that has months of context on your organization and replace them with a fresh one that you have to retrain from scratch. Once you’re locked in like this, model providers can demand pretty hefty margins.
+   </span>
+  </li>
+  <li style="margin: 8px 0 0 32px; mso-special-format: bullet">
+   <span>
+    Enterprises will be wise to this. They will try to avoid this kind of lock-in. But what if the choice is that you either get locked into a model provider, or you lose out on this super valuable feature where the model improves for you session after session? If real usage ends up becoming the main way models improve, then labs may subsidize users and enterprises which allow the model to train on their sessions, especially on hard economically important work. Just the same way that Google gives away search. And conversely, the labs may say that any enterprise that refuses to let them train on its sessions can’t have access to the very best models. With both carrots and sticks, the labs will try to get their users to allow AIs to learn from experience. I’m glossing over the fact that there’s a difference between updating one user’s set of weights, and pooling all these different weight forks back into the main model, and the latter may be technically more challenging, but in due time that too will be solved.
+   </span>
+  </li>
+  <li style="margin: 8px 0 0 32px; mso-special-format: bullet">
+   <span>
+    AI training already has large economies of scale (the theoretical reason to expect this is that you can amortize your expensive training across more users, and the practical evidence is that so far, lab revenues have increased faster than their compute). But continual learning may also lead to economies of scale in inference for end users, namely from batching, if per-company information requires full weight updates rather than living in low rank adapters. Back-of-the-envelope math suggests that the optimal inference batch size for a sparse model like DeepSeek V3 is &gt; 2,400 (that is to say that unless your model is concurrently generating that many sequences at once, you’re underutilizing your compute). If you want to understand why, go watch my
+   </span>
+   <a href="https://substack.com/redirect/b6793bf2-8118-47b0-beba-5a363f618d61?j=eyJ1IjoiNzNudXU3In0.H33_bBJvgyu8PtgGjxpU9p_wtwFQOCWZQjwLWMkgjCQ" style="text-decoration: underline">
+    <span>
+     full episode with Reiner Pope
+    </span>
+   </a>
+   <span>
+    on inference economics. But anyway, the point here is that a given set of weights is only served efficiently when thousands of sequences are decoding against it at once. A large company whose employees and agents generate that much concurrent traffic can efficiently serve their continually-updated weight fork; an individual user serving themself at batch size 1 might suffer a 100x+ compute efficiency penalty. So the economics of serving personalized weights strongly favor big organizations.
+   </span>
+  </li>
+ </ul>
+ <p style="margin: 0 0 20px 0; line-height: 26px; margin-bottom: 0">
+  Plenty more will have changed by the time continual learning works, and the most important changes are probably the ones hardest to anticipate. But the ones above seem clear even now.
+ </p>
+ <p class="cta-box" style="margin: 0 auto 20px; width: 90%; line-height: 26px; margin-bottom: 0; text-align: center; margin-left: auto; margin-right: auto">
+  <a class="button primary" href="https://substack.com/redirect/2/eyJlIjoiaHR0cHM6Ly93d3cuZHdhcmtlc2guY29tL3N1YnNjcmliZT91dG1fc291cmNlPXBvc3QmdXRtX2NhbXBhaWduPWVtYWlsLWNoZWNrb3V0Jm5leHQ9aHR0cHMlM0ElMkYlMkZ3d3cuZHdhcmtlc2guY29tJTJGcCUyRmVyYS1vZi1jb250aW51YWwtbGVhcm5pbmcmcj03M251dTcmdG9rZW49ZXlKMWMyVnlYMmxrSWpvME1qazBNVFV4TXpVc0ltbGhkQ0k2TVRjNE5qRXlOREU1T0N3aVpYaHdJam94TnpnNE56RTJNVGs0TENKcGMzTWlPaUp3ZFdJdE5qa3pORFVpTENKemRXSWlPaUpqYUdWamEyOTFkQ0o5LnRfTGhrbGhnVlpWZnFERWlOQkdRMmdBbDZ4cENVNF80bVJIWWFJZUFzbWciLCJwIjoyMTAyMzMwMjAsInMiOjY5MzQ1LCJmIjp0cnVlLCJ1Ijo0Mjk0MTUxMzUsImlhdCI6MTc4NjEyNDE5OCwiZXhwIjoyMTAxNzAwMTk4LCJpc3MiOiJwdWItMCIsInN1YiI6ImxpbmstcmVkaXJlY3QifQ.RdYEA5g5gKa4KOsFFKJB6Ew0yC4iWSs2ulKlvUvPQ2Q?&amp;utm_source=substack&amp;utm_medium=email&amp;utm_content=postcta" role="button" style="font-family: system-ui,-apple-system,BlinkMacSystemFont,&#x27;Segoe UI&#x27;,Roboto,Helvetica,Arial,sans-serif,&#x27;Apple Color Emoji&#x27;,&#x27;Segoe UI Emoji&#x27;,&#x27;Segoe UI Symbol&#x27;;display: inline-block;box-sizing: border-box;cursor: pointer;border: none;height: 40px;border-radius: 8px;font-size: 14px;line-height: 20px;font-weight: 600;text-align: center;padding: 10px 20px;margin: 0;opacity: 1;outline: none;white-space: nowrap;color: #ffffff !important;text-decoration: none !important;background-color: #f3c016;">
+   Upgrade to paid
+  </a>
+ </p>
+ <p>
+  <a href="https://substack.com/app-link/post?publication_id=69345&amp;post_id=210233020&amp;utm_source=post-email-title&amp;utm_campaign=email-post-title&amp;isFreemail=true&amp;r=73nuu7&amp;token=eyJ1c2VyX2lkIjo0Mjk0MTUxMzUsInBvc3RfaWQiOjIxMDIzMzAyMCwiaWF0IjoxNzg2MTI0MTk4LCJleHAiOjE3ODg3MTYxOTgsImlzcyI6InB1Yi02OTM0NSIsInN1YiI6InBvc3QtcmVhY3Rpb24ifQ.dkq79UjmADM5qoM0h3yKtF9LNKPBsLoIAcvo24FbVkU">
+   View in app
+  </a>
+ </p></div></div>
+      
+    </article>
+    
+    <article>
+      <h1>Ways to think about token pricing</h1>
+      <div class="article-meta">
+        Benedict Evans
+        · 09 Aug 2026 · <a href="https://www.ben-evans.com/benedictevans/2026/7/9/ways-to-think-about-token-pricing">Source</a>
+      </div>
+      <div class="article-body"><h2>  AI is in a supply crunch today, but what happens when we come out of it? How and where will supply, demand, price, capacity and capex get back into equilibrium? Today, model labs can name their price, but why won’t they end up as low-margin commodity infrastructure? </h2>
+<p>There are only two things you can say with certainty about token prices: we’re in a supply crunch, and this is unstable. All of the variables are in play, and the market will get shaken out over the next few years to arrive at a new equilibrium. Right now we have a lot of frantic analysis of ‘time to power’, but question at the end of that is whether the foundation models have sustainable pricing power, strategic leverage and value capture, or whether they become low-margin commodity infrastructure providers. At the moment, I think every dynamic we can see points to the latter.</p>
+<p>Clearly, the situation today is transitory. On the supply side, a trillion dollars or more of data centre capex is coming down the pipe (and plenty more <a href="https://www.taipeitimes.com/News/biz/archives/2026/05/13/2003857222">semiconductor</a> <a href="https://www.wsj.com/tech/samsung-sk-hynix-to-spend-520-billion-on-chip-plants-in-south-korea-7d50aab2">capex</a> behind that), inference efficiency continues to improve very quickly, and new models are far more (or far less!) efficient in their token use. On the demand side, although the market has been <a href="https://www.cnbc.com/2025/10/01/microsoft-wants-to-mainly-use-its-own-ai-chips-in-the-future.html">capacity-constrained since 2022</a>, the crunch in the first half of this year has been driven by sudden product-market fit in really just one use case, software development, and that’s actually a pretty small field (imagine if we had product-market fit for a consumer use case with hundreds of millions of DAUs - today’s infrastructure couldn’t support it at any price). We don’t know what the next use-cases to scale will be, nor when that would be, nor what their token needs would be.</p>
+<p>Going up a level, it’s been pretty widely reported that inference today has 40-50% gross margins: this includes deprecation of the associated server costs (or the cost of renting them), but we don’t really know the asset life (five years? Seven years?) and obviously this doesn’t include the cost of training the next model a couple of times a year, which is currently far larger than revenue. In principle, inference is a marginal cost and training is a fixed cost, so with high enough revenue you can reach profitability, but we don’t know how training costs will change. On the other side of the table, it’s unclear how much of the surge in use in the last few months has an ROI (or at least has an ROI that can be quantified to a CFO), let alone any future use cases, and hence what prices people might be prepared to pay for them.</p>
+<p>So, all the variables will move all over the place over the next 12 months, and move again over the next three to five years. How could we suggest where this will settle? How and where will supply, demand, price, capacity and capex get back into equilibrium?</p>
+<p>In theory, you can model this bottom-up. You can make some assumptions around each of the variables I suggested above, and then try to model out how many chips there are now, how many chips with what performance TSMC and the rest of the semis industry might be able to deliver when, and how fast all of that can be brought online in data centers and how fast those can be powered. Then you can wonder about price discipline, and make some guesses about use cases. This will get you a number, but it will be rather like trying to build a five-year forecast for the broadband market in 1998: the spreadsheet will be very pretty, and you might even get close to the right number for this year, but there are too many unknown variables to make a useful forecast of a longer-term market structure.</p>
+<p>In other words, we can say that token price is a function of supply and demand at a level between the sellers’ marginal cost and the buyers’ ROI, but we don’t actually know what supply, demand, marginal cost or ROI will be.</p>
+<p>The other approach is to look from the top down: how do things like this tend to play out? What are the building blocks, and where can they go? Most of this conversation depends on what happens to this curve.</p>
+<figure class="article-figure"><img alt="" data-image="https://images.squarespace-cdn.com/content/v1/50363cf324ac8e905e7df861/25f40d77-7542-41a9-ba7e-213a3aa2c4cf/Intelligence+vs-+Cost+per+Intelligence+Index+Task+%288+Jul+%2726%29.png" data-image-dimensions="4068x2368" data-image-focal-point="0.5,0.5" data-load="false" data-loader="sqs" data-sqsp-image-classic-block-image="" data-src="https://images.squarespace-cdn.com/content/v1/50363cf324ac8e905e7df861/25f40d77-7542-41a9-ba7e-213a3aa2c4cf/Intelligence+vs-+Cost+per+Intelligence+Index+Task+%288+Jul+%2726%29.png" data-stretch="false" sizes="(max-width: 640px) 100vw, (max-width: 767px) 100vw, 100vw" src="https://images.squarespace-cdn.com/content/v1/50363cf324ac8e905e7df861/25f40d77-7542-41a9-ba7e-213a3aa2c4cf/Intelligence+vs-+Cost+per+Intelligence+Index+Task+%288+Jul+%2726%29.png?format=2500w" srcset="https://images.squarespace-cdn.com/content/v1/50363cf324ac8e905e7df861/25f40d77-7542-41a9-ba7e-213a3aa2c4cf/Intelligence+vs-+Cost+per+Intelligence+Index+Task+%288+Jul+%2726%29.png?format=100w 100w, https://images.squarespace-cdn.com/content/v1/50363cf324ac8e905e7df861/25f40d77-7542-41a9-ba7e-213a3aa2c4cf/Intelligence+vs-+Cost+per+Intelligence+Index+Task+%288+Jul+%2726%29.png?format=300w 300w, https://images.squarespace-cdn.com/content/v1/50363cf324ac8e905e7df861/25f40d77-7542-41a9-ba7e-213a3aa2c4cf/Intelligence+vs-+Cost+per+Intelligence+Index+Task+%288+Jul+%2726%29.png?format=500w 500w, https://images.squarespace-cdn.com/content/v1/50363cf324ac8e905e7df861/25f40d77-7542-41a9-ba7e-213a3aa2c4cf/Intelligence+vs-+Cost+per+Intelligence+Index+Task+%288+Jul+%2726%29.png?format=750w 750w, https://images.squarespace-cdn.com/content/v1/50363cf324ac8e905e7df861/25f40d77-7542-41a9-ba7e-213a3aa2c4cf/Intelligence+vs-+Cost+per+Intelligence+Index+Task+%288+Jul+%2726%29.png?format=1000w 1000w, https://images.squarespace-cdn.com/content/v1/50363cf324ac8e905e7df861/25f40d77-7542-41a9-ba7e-213a3aa2c4cf/Intelligence+vs-+Cost+per+Intelligence+Index+Task+%288+Jul+%2726%29.png?format=1500w 1500w, https://images.squarespace-cdn.com/content/v1/50363cf324ac8e905e7df861/25f40d77-7542-41a9-ba7e-213a3aa2c4cf/Intelligence+vs-+Cost+per+Intelligence+Index+Task+%288+Jul+%2726%29.png?format=2500w 2500w" class="article-image"/></figure>
+<p><strong>First, how many people will pay to be at the top right of the curve - to be at the frontier?</strong> At one extreme there are already use cases that already work just fine with a small, old, perhaps open source model that runs for ‘free’ on-prem or on your phone; at the other extreme there will be some that get better results from the latest, most expensive frontier model, consuming lots of tokens for lots of money; and then there will be many that are somewhere in between. So, how many use cases get better results from going how far up the cost curve, and how many have an ROI for that, and how much of the use is handled by models that are smaller, cheaper, good ‘enough’ and much more commoditised? The Panglossian view is that ROI might go <em>up</em> with more expensive frontier models because they have better results, but where does that really apply?</p>
+<p><strong>Second, does the frontier keep moving significantly?</strong> This is obviously the most basic science question in AI: how long does the frontier keep getting better, how long does that keep needing more and more compute, and does that continue to happen at a rate that keeps it ahead of downward pricing pressure from efficiency and capacity gains? Does the expensive head of the curve continue to be a thing?</p>
+<p><strong>Third, will there still be fierce competition between frontier models?</strong> Does the field shrink to fewer and fewer frontier models, perhaps with network effects emerging? Do frontier models diverge, with different models having much clearer leads in different fields? That could be another path to sustainable pricing power. Or do we continue with a mid-single-digit number of companies that are all making frontier models that all have generally equivalent capabilities? At the moment, everyone is using mostly the same science and mostly the same training data, and getting mostly the same results, and we don’t yet know of a network effect or any other winner-takes-all effect that would let one company pull ahead, stay ahead, and do things that others could not, in some sustainable way. Does that change?</p>
+<p><strong>Fourth, how much of the value from those high-end use cases is captured by the frontier model itself?</strong> How much needs to be wrapped in tooling, process, proprietary data, go-to-market, networks, support, and everything else associated with a traditional software company, even if you do need the big expensive frontier model underneath? Can that model do the whole thing, or is the model, no matter how good, still a piece of infrastructure that you use to make the actual product? At the extreme, can the model itself invent and make all of those things, and would that let them charge by seat, by outcome or just take the profit? Or do even (or especially) the most sophisticated and high-value use-cases need to sit inside hundreds of new companies that can pick and choose which models to use?</p>
+<p>None of these are binaries: they're all a question of degree, and they'll probably vary quite a lot by use case. But at one extreme, there are two or three giant minds that run half of everything and have massive pricing power, and at the other extreme LLMs look like databases - there’ll be millions of them, some very big and some very small, and the value is in what you build on top - after all, every SaaS company is a ’database wrapper’. There’s a future in which Anthropic (or a company we haven’t heard of yet) wins the whole thing and can set its own terms, and a future in which dozens of routers run real-time auctions to allocate your tasks across hundreds of low-margin model-farms and a benchmark company takes a fee on every single one.</p>
+<p>I don’t think anyone can actually <em>know</em> the answer yet. I’ve said “we don’t know” a lot, and that’s very deliberate. Part of the concept of the ‘S Curve’ is that there’s a stage early in the emergence of a new technology where it’s clear that this is going to be huge but nothing else is clear at all - the mid 1990s for the internet, say, and 2008 or 2009 for mobile. There are places where you can take a view - for example, I’ve argued at length that I think chatbots are a poor interface that will struggle to capture value up the stack - but we should presume there are big questions that we can’t see yet, let alone answer, and anyone picking one of the ten possible outcomes we can see and saying “it will be that one!” is just guessing.</p>
+<p>Meanwhile, there is structural uncertainty at the early stages of every big new technology, but the uncertainty now is different, because we don’t have a good theoretical understanding of why these models work so well and so we don’t know how much better they can get. In 1995, we didn’t know how the internet would evolve but we knew that there were less than 100m PCs on earth (and they were expensive) and that telcos couldn’t give everyone FTTH next year; in 2010 we didn’t know what the next iPhone would be but we knew it wouldn’t have retinal projection. We knew the physical limits in ways we don’t really know with LLMs. Next month a new approach could cut inference compute needs by 90%, or double demand, or both.</p>
+<p>All of this has people hunting for patterns to recognise (indeed, it’s been observed that <em>all</em> conversations about AI end in a hunt for metaphors). It has become common to draw comparisons with fiber, which had a massive overbuild in the Dotcom bubble that looks a bit like the infrastructure build-out today. The narrow problem with that is that fiber construction was far ahead of demand, where AI compute construction is far behind demand, though, as above, we don’t know what that supply/demand balance will look like in the future. But the more relevant objection, I think, is that fiber construction was mostly fixed cost (digging holes) rather than marginal cost (more equipment), whereas growth in compute needs means you need to buy more compute.</p>
+<p>That makes mobile data a more fruitful comparison here. Mobile networks have marginal cost for capacity, and like AI they had an enormous surge in usage 15 years ago, that overwhelmed capacity and had carriers scrambling to add capacity and <a href="https://archive.nytimes.com/gadgetwise.blogs.nytimes.com/2011/07/05/verizon-to-drop-its-unlimited-mobile-data-plan-july-7/">rebalance their pricing</a>. Meanwhile, selling bits looks superficially similar to selling tokens: it's an opaque measure of marginal cost that doesn't map in any transparent or intuitive way to use cases or value, and needs to be replaced with bundles of some kind. But most importantly, in the last 20 years cellular data traffic has risen by several orders of magnitude, and this has become an enormous industry, with annual revenue of a trillion dollars and capex of $200 billion, but the stocks have gone nowhere, and all the value was captured by other people further up the stack. This, of course, is one of the core questions for AI: is this going to be low-margin commodity infrastructure with all the value captured by other people further up the stack?</p>
+<figure class="article-figure">View fullsize<img alt="" data-image="https://images.squarespace-cdn.com/content/v1/50363cf324ac8e905e7df861/74d347c2-0844-416e-89d5-b3ba58d3431e/Screenshot+2026-07-08+at+3.21.19%E2%80%AFPM.png" data-image-dimensions="1922x1080" data-image-focal-point="0.5,0.5" data-load="false" data-loader="sqs" data-sqsp-image-classic-block-image="" data-src="https://images.squarespace-cdn.com/content/v1/50363cf324ac8e905e7df861/74d347c2-0844-416e-89d5-b3ba58d3431e/Screenshot+2026-07-08+at+3.21.19%E2%80%AFPM.png" data-stretch="false" sizes="(max-width: 640px) 100vw, (max-width: 767px) 100vw, 100vw" src="https://images.squarespace-cdn.com/content/v1/50363cf324ac8e905e7df861/74d347c2-0844-416e-89d5-b3ba58d3431e/Screenshot+2026-07-08+at+3.21.19%E2%80%AFPM.png?format=2500w" srcset="https://images.squarespace-cdn.com/content/v1/50363cf324ac8e905e7df861/74d347c2-0844-416e-89d5-b3ba58d3431e/Screenshot+2026-07-08+at+3.21.19%E2%80%AFPM.png?format=100w 100w, https://images.squarespace-cdn.com/content/v1/50363cf324ac8e905e7df861/74d347c2-0844-416e-89d5-b3ba58d3431e/Screenshot+2026-07-08+at+3.21.19%E2%80%AFPM.png?format=300w 300w, https://images.squarespace-cdn.com/content/v1/50363cf324ac8e905e7df861/74d347c2-0844-416e-89d5-b3ba58d3431e/Screenshot+2026-07-08+at+3.21.19%E2%80%AFPM.png?format=500w 500w, https://images.squarespace-cdn.com/content/v1/50363cf324ac8e905e7df861/74d347c2-0844-416e-89d5-b3ba58d3431e/Screenshot+2026-07-08+at+3.21.19%E2%80%AFPM.png?format=750w 750w, https://images.squarespace-cdn.com/content/v1/50363cf324ac8e905e7df861/74d347c2-0844-416e-89d5-b3ba58d3431e/Screenshot+2026-07-08+at+3.21.19%E2%80%AFPM.png?format=1000w 1000w, https://images.squarespace-cdn.com/content/v1/50363cf324ac8e905e7df861/74d347c2-0844-416e-89d5-b3ba58d3431e/Screenshot+2026-07-08+at+3.21.19%E2%80%AFPM.png?format=1500w 1500w, https://images.squarespace-cdn.com/content/v1/50363cf324ac8e905e7df861/74d347c2-0844-416e-89d5-b3ba58d3431e/Screenshot+2026-07-08+at+3.21.19%E2%80%AFPM.png?format=2500w 2500w" class="article-image"/></figure>
+<p>Semiconductor manufacturing also has echoes of AI, since unlike cellular it has something of the same escalating cost and complexity that we see in foundation models. Rock's Law pointed out that the cost of a cutting edge fab doubles every four years: over time the frontier of semiconductors become so hard and so expensive that the number of players dropped from dozens to a handful and now really only one, TSMC. That’s another core question for AI: will this get so hard and so expensive that only a couple of people can do it, even without network effects? Equally, many semiconductor uses are further back along the same kind of price/performance curve I just discussed for AI. Even here, though, while TSMC has a <em>de facto</em> monopoly on the frontier, and nice margins, it doesn't actually capture a large share of value from the broader tech economy: net income last year was $53bn, less than half of Apple alone.</p>
+<p>There are plenty of other comparisons one could make here: in the last six months Sam Altman has compared OpenAI both to Windows, a high-margin capital-light monopoly based on network effects, and electricity utilities, which are natural monopolies but also low-margin regulated utilities selling a pure commodity. One could also point to cloud (three leading players with good margins and clearly distinguished propositions, but again limited value-capture). But none of these have predictive value: analogies don’t have predictive value. You can't prove whether something will have the same outcome as mobile by arguing how much it’s like mobile: this was a mistake that many very clever people in tech made 15 years ago, claiming that Android would beat iOS because Android was ‘open’ and ‘open’ Wintel had beaten the ‘closed’ Mac in the 1990s (it’s also the mistake that doomers make when they claim that AI is ‘like’ nuclear weapons). Everything is different: bits, tokens and transistors are different, each of these examples are different from each other, and AI will be different too.</p>
+<p>However, these examples do tell us, empirically, that something can be very important, very expensive, change the world, and be full of very sophisticated science and engineering, and yet have a wide range of possible outcomes. There isn’t one inevitable path here: you can have price equilibrium at high margins and at low margins, and with and without market concentration, and you can’t hand-wave that away by talking about AGI and saying “you don’t understand exponentials!”</p>
+<p>However, if one thread in everything I've written above is how much we don’t yet know, the other thread is that every path to foundation models having market dominance, strategic leverage, value capture, winner-takes-all effects, or anything else other than becoming commodity infrastructure, requires something to change.</p>
+<p>Maybe frontier models will become less competitive - yet in the last six months, Mark Zuckerberg and <a href="https://artificialanalysis.ai/articles/grok-4-5-brings-spacexai-to-the-the-intelligence-frontier">Elon Musk</a> jumped from zero back onto the leaderboards. Maybe network effects will emerge. Maybe chatbots can grow into products and don’t need to be wrapped in software. Maybe one lab will start out-executing all the others and pull ahead on sheer product dynamism - Microsoft, Google, Facebook and Apple had to execute their way into a wining position before they had winner-takes-all efforts. Maybe <em>something</em> else will happen.</p>
+<p>In particular, we have not one but two potential <em>dei ex machina</em> - Trump and China. China is reportedly <a href="https://www.reuters.com/world/beijing-is-looking-curbing-overseas-access-chinas-top-ai-models-sources-say-2026-07-07/">considering</a> regulating open source and some people close to Trump have floated this as well (though since Meta abandoned Llama the US has no leading open model), and export controls could expand and become systematic. Many people see the pleas for regulation from Anthropic and (sometimes) OpenAI as a front for regulatory capture, but either way, we can’t presume this will remain an entirely free market.</p>
+<p>Even so, that brings me back to the same point: the current market dynamics point to a future in which, as today’s supply crunch eases, frontier models move towards becoming commodity infrastructure, with all of the value built on top, and for a different outcome, something needs to happen that we don’t see yet.</p></div>
+      
+    </article>
+    
+  </body>
+</html>
