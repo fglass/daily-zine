@@ -1,0 +1,516 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Fred Talks - 2026-09-07</title>
+    <style>
+      @page {
+        size: A5;
+        margin: 8mm 9mm 9mm;
+      }
+
+      :root {
+        color: #111;
+        font-family: "Times New Roman", Times, serif;
+        --body-text-size: 9.5pt;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        color: #111;
+        background: #fff;
+        font-family: "Times New Roman", Times, serif;
+        line-height: 1.45;
+      }
+
+      a,
+      a:visited {
+        color: #111;
+        text-decoration: underline;
+      }
+
+      .cover {
+        min-height: calc(210mm - 17mm);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        page-break-after: always;
+        border: 1px solid #111;
+        padding: 8mm;
+        background: #fff;
+      }
+
+      .toc-item-meta,
+      .article-meta {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .masthead {
+        margin: 0;
+        font-size: 40pt;
+        line-height: 0.95;
+        text-transform: uppercase;
+      }
+
+      .issue-date {
+        margin: 4mm 0 0;
+        font-size: 14pt;
+      }
+
+      .issue-date sup {
+        font-size: 0.58em;
+        vertical-align: super;
+        line-height: 0;
+      }
+
+      .cover-deck {
+        max-width: 90mm;
+        font-size: 12pt;
+        margin: 0;
+      }
+
+      .toc {
+        border-top: 3px solid #111;
+        padding-top: 6mm;
+      }
+
+      .toc h2 {
+        margin: 0 0 4mm;
+        font-size: 11pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .toc-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .toc-item {
+        padding: 3mm 0;
+        border-bottom: 1px solid rgba(17, 17, 17, 0.2);
+      }
+
+      .toc-item-title {
+        font-size: 12pt;
+        margin: 0 0 1mm;
+      }
+
+      .toc-item-meta {
+        font-size: 8pt;
+      }
+
+      .masthead-compact {
+        margin: 0 0 6mm;
+      }
+
+      .masthead-compact h1 {
+        margin: 0;
+        font-size: 22pt;
+        line-height: 1.1;
+        text-transform: uppercase;
+      }
+
+      .masthead-compact .issue-date {
+        margin: 2mm 0 0;
+        font-size: 11pt;
+      }
+
+      .toc-compact {
+        border-top: 1px solid #111;
+        border-bottom: 1px solid #111;
+        padding: 4mm 0;
+        margin: 0 0 8mm;
+      }
+
+      article + article {
+        margin-top: 10mm;
+        padding-top: 6mm;
+        border-top: 2px solid #111;
+      }
+
+      h1 {
+        margin: 0 0 2mm;
+        font-size: 18pt;
+        line-height: 1.1;
+      }
+
+      .article-meta {
+        font-size: 8.5pt;
+        margin-bottom: 6mm;
+        padding-bottom: 3mm;
+        border-bottom: 1px solid #111;
+      }
+
+      .article-body {
+        font-size: var(--body-text-size);
+        font-family: "Times New Roman", Times, serif;
+      }
+
+      .article-body p,
+      .article-body li,
+      .article-body blockquote,
+      .article-body dd,
+      .article-body dt {
+        margin: 0 0 4mm;
+        orphans: 3;
+        widows: 3;
+      }
+
+      .article-body ul,
+      .article-body ol,
+      .article-body dl {
+        margin: 0 0 4mm 5mm;
+        padding: 0;
+      }
+
+      .article-body h2,
+      .article-body h3,
+      .article-body h4 {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        margin: 7mm 0 3mm;
+        line-height: 1.2;
+      }
+
+      .article-body blockquote {
+        margin-left: 6mm;
+        padding-left: 4mm;
+        border-left: 2px solid #111;
+      }
+
+      .article-body .media-omitted {
+        margin: 0 0 4mm;
+        font-size: 8.5pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(17, 17, 17, 0.65);
+      }
+
+      .article-body figure,
+      .article-body .article-figure,
+      .article-body picture,
+      .article-body .article-picture {
+        display: block;
+        max-width: 72mm;
+        margin: 0 auto 4mm;
+        break-inside: avoid;
+      }
+
+      .article-body img,
+      .article-body .article-image {
+        display: block;
+        max-width: min(100%, 72mm);
+        max-height: 34mm;
+        height: auto;
+        width: auto;
+        object-fit: contain;
+        margin: 0 auto 3mm;
+      }
+
+      .article-body figcaption {
+        margin-top: 1.5mm;
+        font-size: 8.5pt;
+        line-height: 1.3;
+        color: rgba(17, 17, 17, 0.8);
+      }
+
+      .article-note {
+        margin-top: 6mm;
+        padding-top: 3mm;
+        border-top: 1px solid #111;
+        font-size: 9pt;
+        font-style: italic;
+      }
+
+      @media screen {
+        body {
+          padding: 2rem;
+          margin: 0 auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    
+    <header class="masthead-compact">
+      <h1>Fred Talks</h1>
+      <p class="issue-date">
+        7<sup>th</sup> September 2026
+      </p>
+    </header>
+
+    <nav class="toc toc-compact">
+      <h2>Contents</h2>
+      <ol class="toc-list">
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Please for the love of all that is holy: Stop writing long boring Titles</div>
+          <div class="toc-item-meta">
+            swyx · 1431 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Surrender as a non-stupid life strategy</div>
+          <div class="toc-item-meta">
+            Sasha Chapin · 2104 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Agentic search - retrieval, harness, or model?</div>
+          <div class="toc-item-meta">
+            Doug Turnbull · 1535 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Control the ideas, not the code</div>
+          <div class="toc-item-meta">
+            antirez.com · 1245 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Asteroid Mission</div>
+          <div class="toc-item-meta">
+            xkcd.com · 29 words
+          </div>
+        </li>
+        
+      </ol>
+    </nav>
+    
+
+    
+    <article>
+      <h1>Please for the love of all that is holy: Stop writing long boring Titles</h1>
+      <div class="article-meta">
+        swyx
+        · 30 Mar 2026 · <a href="https://dx.tips/titles">Source</a>
+      </div>
+      <div class="article-body"><p>People code switch. Every ethnic minority has <a href="https://en.wikipedia.org/wiki/Sorry_to_Bother_You">lived experience of this</a>. When you talk to me in Singapore, I sound very different than when I’m in San Francisco. And the way you talk at work is probably very different from how you talk to your kids and how you talk to your lover.</p>
+<p>I’ve been dealing with a particularly virulent form of code switching in the simple form of titling blogposts and talks. When you ask the writer face to face what their thing is about, they can give you a perfectly human explanation. And then when they send you their piece, it’s all “<strong><em>Leveraging GenAI with Robust Data Foundations to Transform Businesses</em></strong>”. I’ve left my body by the time I read the first word.</p>
+<p>My hope in writing this piece is to <strong>put an end to bad titles</strong>.</p>
+<p>If I sent you this guide, it is not an insult. You just don’t have good title game. That’s ok. You’re great at what you do, title game isn’t your job. I’m the guy that wrote <a href="https://www.swyx.io/how-to-name-things">How To Name Things</a> and <a href="http://swyx.io/two-words">Two Words</a>. I sent you this guide <strong><em>because</em></strong> your shitty title is the main thing stopping your readers from getting to the good part. If you didn’t have anything good, I wouldn’t bother with a lost cause.</p>
+<p>First…</p>
+<h2>Towards Leveraging Corporate Speak For Maximum Enterprise Synergy</h2>
+<p>DO NOT:</p>
+<ul> <li>Start with “Leveraging” or “Towards” or “Navigating” or “Empowering”</li> </ul>
+<p>Yeah just stop. There’s no rescuing this when you start there. Just delete meaningless corporate weasel words. Anything &gt;3 syllables is a red flag.</p>
+<h2>Make It Quotable</h2>
+<p><strong>If you do not try to make your title roll off the tongue, it probably won’t.</strong></p>
+<p>Literally imagine telling your friend about your talk. Telling a new acquaintance to google your blogpost. Having a fan of yours cite it back to you. How much do they stumble? Yeah. This has all happened to me.</p>
+<p>There’s an extremely high correlation between what are considered the best talks and the quotability of titles. <a href="https://www.infoq.com/presentations/Simple-Made-Easy/">Simple Made Easy</a>. <a href="https://www.youtube.com/watch?v=PUv66718DII">Inventing on Principle</a>. Our list of best <a href="https://dx.tips/pitches">demos/pitches</a> of all time.</p>
+<p>Resist colons. It lacks confidence. Why Use Lot Word: <s>When Few Word Do Trick</s>? You’re not <a href="https://en.wikipedia.org/wiki/High_School_Musical:_The_Musical:_The_Series">High School Musical: The Musical: The Series</a>.</p>
+<p>Put the SEO keyword vomit in the description.</p>
+<p>Titles are for humans.</p>
+<h2>Prescribe A Strong Opinion</h2>
+<p>Opinions are one of the most quotable things.</p>
+<p>But more importantly, a good Opinion Piece is load bearing because it is eminently forwardable, and therefore viral and impactful. Your Job To Be Done is to be the definitive, conclusive, piece on that Opinion. Stake out territory in Opinion Space, list out all the arguments for, counter all the arguments against, provide datapoints, and watch that go further than anything you’ve ever done.</p>
+<p>How to know what’s a good opinion? <strong>Three Strikes rule</strong>: If you repeat yourself <a href="https://www.swyx.io/three-strikes">three times</a>, ship it. Even if you’re just quoting others, its fine, credit them and make it your own.</p>
+<p><strong>Mental Models and Frameworks</strong> are more complex opinions that allow others to scaffold their thought around you. My <a href="https://dx.tips/circles">Radiating Circles</a> and <a href="https://www.swyx.io/measuring-devrel">Measuring Developer Relations</a> and <a href="https://www.swyx.io/js-third-age">Third Age of JavaScript</a> did this.</p>
+<p><strong>Opinions contrary to an established opinion</strong> are the hardest to do well and the best when correct. <a href="https://stratechery.com/2013/clayton-christensen-got-wrong/">What Clayton Christensen Got Wrong</a> made Ben Thompson’s career. <a href="http://latent.space/p/ai-engineer">Rise of AI Engineer</a> countered the prevailing Prompt Engineer -and- GPU Rich Startup/ML Engineer narrative at the time, with room to grow.</p>
+<h2>Curiosity Gap Dynamics</h2>
+<p>Marketers know the power of <a href="https://copyhackers.com/2014/04/curiosity-gap/">the Curiosity Gap</a>. Here is where we toy closest with clickbait. I’ll be honest that I wasn’t even sure if I wanted to give it its own subheading, but its a very important concept that you should at least be aware exists, even if you’re going to ignore it.</p>
+<p>Strong enough opinions create their own curiosity gaps; you won’t have to try very hard to make it interesting if you got my attention in 4 words anyway.</p>
+<p>Curiosity gaps done poorly can lead to “<a href="https://www.merriam-webster.com/wordplay/bury-the-lede-versus-lead">burying the lede</a>”, which make your talk less Quotable and you also don’t want to do that.</p>
+<p>Simplest way to put it is; if the most interesting thing about your content is your title, and what people take away after having read your post matches what they would have predicted after reading your title, then you’ve probably said too much and could cut.</p>
+<h2>Play Madlibs</h2>
+<p>You don’t have to invent your title from scratch (nor should you always do what I’m about to suggest). Here’s some templates that work well:</p>
+<ul> <li><p>{<em>BENEFIT EVERYONE WANTS</em>} <strong>without</strong> {<em>DOWNSIDE EVERYBODY EXPECTS</em>}</p> <ul> <li>e.g. <a href="https://nav.al/rich">How to Get Rich (Without Getting Lucky)</a>, <a href="https://x.com/swyx/status/1249793388037025797">How to Market Yourself (Without Being A Celebrity)</a>. See also subtitle of this post.</li> </ul> </li> <li><p>{<em>PRESCRIPTIVE OPINION</em>}, <strong>don’t</strong> {<em>THING YOU DO</em>}</p> <ul> <li><p>e.g. <a href="https://lexi-lambda.github.io/blog/2019/11/05/parse-don-t-validate/">Parse, don’t validate</a></p> </li> <li><p>alternative prescriptive opinion: <strong>Never</strong> {THING YOU DO}</p> </li> <li><p>see also title of this post</p> </li> </ul> </li> <li><p>{<em>POPULAR THING</em>} <strong>IS DEAD</strong></p> <ul> <li><p>unfortunately this is clickbait that works</p> </li> <li><p>e.g. <a href="https://www.youtube.com/watch?v=D2HurSldDkE&amp;t=1833s">Prompt Engineering is Dead</a>, <a href="https://motherduck.com/blog/big-data-is-dead/">Big Data is Dead</a></p> </li> <li><p>when given at a conference for <em>POPULAR THING,</em> this is known as a <a href="https://www.swyx.io/cfp-advice#pick-a-genre">Heresy Talk</a></p> </li> <li><p>opposite also works:</p> <ul> <li><p><a href="https://hn.algolia.com/?dateRange=all&amp;page=0&amp;prefix=true&amp;query=the%20rise%20of&amp;sort=byPopularity&amp;type=story"><strong>The Rise of</strong> {THING}</a></p> </li> <li><p><a href="https://hn.algolia.com/?dateRange=all&amp;page=0&amp;prefix=true&amp;query=unreasonable&amp;sort=byPopularity&amp;type=story"><strong>The Unreasonable Effectiveness of</strong> {THING}</a></p> </li> </ul> </li> </ul> </li> <li><p><strong>Fundamentals of</strong> {THING}</p> <ul> <li><p>straightforward, people love fundamentals</p> </li> <li><p>also <strong>How</strong> {THING} <strong>Really Works</strong></p> </li> <li><p>You can also flip it and go for the <strong>Advanced</strong> {THING} tier content</p> </li> </ul> </li> <li><p>{CONVEY EXPERIENCE/SCALE} with {THING}</p> <ul> <li>e.g. <a href="https://www.oreilly.com/radar/what-we-learned-from-a-year-of-building-with-llms-part-i/">What We Learned from a Year of Building with LLMs</a>, <a href="https://news.ycombinator.com/item?id=40877136">Insights from over <strong><em>10</em></strong>,<strong><em>000</em></strong> comments on "Ask HN: Who Is Hiring" using GPT-4o</a></li> </ul> </li> </ul>
+<p><a href="https://news.ycombinator.com/item?id=40877136">There’s loads more templates that work, please suggest in comments</a> and I can add/review.</p>
+<p>You can also browse the masters of microcopy like <a href="https://stephsmith.io/">Steph Smith</a> and <a href="https://www.youtube.com/@MyFirstMillionPod">Shaan Puri</a>, and if you are worried about clickbait, you can see <a href="https://www.youtube.com/watch?v=S2xHZPH5Sng">Veritasium’s</a> take or <a href="https://simonwillison.net/">Simon Willison’s Highlights</a>.</p>
+<p>also <a href="https://andrewchen.com/">Andrew Chen</a> senpai:</p>
+<h2>Understand Buzzword Metagame</h2>
+<p>Buzzwords work. Because of a mix of human psychology and algorithmic recsys. Don’t avoid them, just use them judiciously. This involves the ability to read the room, which many smart people sadly cannot without significant involvement in the broader community you are trying to speak to. I don’t see any way around it other than trying to authentically immerse, or consult a friendly who does.</p>
+<p>Not all buzzwords are created equal. Databricks/Berkeley tried to push <a href="https://www.databricks.com/glossary/compound-ai-systems">Compound AI Systems</a>, Gartner is pushing <a href="https://www.gartner.com/en/newsroom/press-releases/2024-09-25-gartner-identifies-composite-ai-and-supply-chain-data-governance-as-highest-impact-supply-chain-planning-technology-trends">Composite AI</a> and <a href="https://www.gartner.com/smarterwithgartner/gartner-keynote-the-future-of-business-is-composable">Composable</a> business — this resonates with their audience, but not more broadly.</p>
+<p>Pick the <a href="https://www.youtube.com/watch?v=fqkaBEWPH18">shibboleths</a> that work for the community you want. <a href="http://latent.space/p/ai-engineer">AI Engineer</a> worked for reasons that are well understood now. <a href="https://www.youtube.com/playlist?list=PLNoPYaf7mNI_Iq_TinuafkIE5n_O_Y5Cy">GraphRAG</a> is working outside of the company that coined it. These buzzwords travel, go ahead and put them in there.</p>
+<p>Buzzwords rise and fall. Try to catch them on the rise — go harder than everyone else on the rise up and regularly test their effectiveness, such that by the time your main buzzword has tapped out you’ve got 2-3 others cooking.</p>
+<h2>Workshopping your titles</h2>
+<p>I write this post out of frustration, but also to capture my own thought process. I’m currently procrastinating while writing a Latent Space post.</p>
+<ul> <li><p>The original title was <a href="https://www.youtube.com/watch?v=-rSbvS0qLqY&amp;t=361s">Why every AI Engineer needs an AI Gateway</a>. Good, genuine opinion, load bearing. But not super memorable.</p> </li> <li><p>My next iteration was “<strong>Stop writing model routers, use an LLM Gateway</strong>”. Ok, prescriptive, evocative. But didn’t cover the other elements other than model routing. One could shorten to “Stop writing your own LLM Gateway” but that doesnt quite express what people do.</p> </li> <li><p>My next one is “<strong>It's not your job to DIY an LLM Gateway</strong>”. No buzzword bc “your job” is implied (for a Latent Space audience), a little curiosity gap, LLM buzzword, strong opinion. But still not strong enough.</p> </li> <li><p>Final one is “<strong>LLM Gateway: The One Decision That Removes 100 AI Engineering Decisions</strong>”. Leans on <a href="https://tim.blog/2020/01/20/one-decision-that-removes-100-decisions/">Tim Ferriss’ madlbs</a>.</p> </li> </ul>
+<p>It’s very common for the “tail to wag the dog to wag the tail” - the title is so important to clickthrough and so impactful to the message, that you spend a bunch of time on just the title itself, because that determines the piece you will write, then write the piece, then you go back and tweak the title based on what happened.</p>
+<p>Amateur writers think their content has 95% of the value and then spend 5% on the title. Pros will put the value of titles closer to 50% and then act like it.</p>
+<h2>You Should Break The Rules Once You Understand Human Behavior More Intuitively Than Rules Can Model</h2>
+<p>See title of this post. No better aura than intentional, conspicuous, successful rulebreaking.</p>
+<h2>Subscribe to our newsletter</h2></div>
+      
+    </article>
+    
+    <article>
+      <h1>Surrender as a non-stupid life strategy</h1>
+      <div class="article-meta">
+        Sasha Chapin
+        · 04 Jul 2026 · <a href="https://sashachapin.substack.com/p/should-you-be-in-charge-of-your-life">Source</a>
+      </div>
+      <div class="article-body"><p>After getting everything I wanted in my 20s, and discovering that I was still miserable, I decided that I should no longer be in charge of choosing what I want, and I slowly settled into a frame of, “I’ll do whatever God seems to want from me.”</p>
+<p>Some years after making that decision, I’m much happier. My life is richer, and I’m doing more for others. Regularly, I react with positive disbelief when I look at what my life has become. It looks like I’ve been executing a genius strategy. But in reality, I am living in a state of ongoing confusion, just seeing what happens.</p>
+<p>If you’ve achieved a bunch of your goals, and you’re still not happy with your life, consider giving up on self-chosen plans. Instead, listen to your life, inner and outer, and see if you can feel a current. Then fall into it, especially if it has nothing to do with the story you had about where you were supposed to be going.</p>
+<p>This choice is known as surrender. As with most cliches, I don’t think I can explain the profound experiential content of surrender—what it feels like, why it works. But perhaps I can lay out a constellation of propositions<a data-component-name="FootnoteAnchorToDOM" href="#footnote-1" id="footnote-anchor-1"><sup> [1] </sup></a> that will, together, illuminate a worldview very different from the one I once inhabited.</p>
+<h3><strong>Knowing and not-knowing yourself</strong></h3>
+<p><strong>1.1</strong> The planning part of your mind, the one that generates ambitions and hypothetical situations, is a small part of your overall intelligence. Anyone who is halfway good at sex, comedy, or any creative art will know this. Designing your life based on what that part of your mind wants is like designing your house to fit the needs of your right hand. Congratulations, your house is filled with fidget spinners and soap.</p>
+<p><strong>1.2</strong> A large percentage of human suffering is anticipatory tension, or dreading a future experience such that you actualize its potential suffering in the now. Anticipatory tension is using the illusion of knowledge to generate the illusion of control. Much of what people call planning is this.</p>
+<p><strong>1.3</strong> My best outfits are all selected by someone else. When I’m at a clothing store, and I meet an employee who seems engaged, I tell them to dress me for maximum attractiveness. They do a much better job than I do. Of course: I can’t see myself as well as someone else can. This is why I try to listen to what the world apparently wants to do with me,rather than who I imagine I am.</p>
+<p><strong>1.4</strong> Often, our self-image is a defense against the traits we reject in ourselves. “I love to be spontaneous,” says the most calculating person you’ve ever met. Thus, if you’re trying to live in self-loathing and denial, one way is to sculpt your life around the self-image you’ve decided on.</p>
+<p><strong>1.5</strong> I’ve discovered that scrutinizing my motives too closely is a great way to stop creating. The unexamined life may not be worth living, but the fully examined life is a pinned butterfly in a glass case. I’ve concluded that my life is a grand artistic project, but I’m best off not knowing what it is.</p>
+<p><strong>1.6</strong> You know that person who had important ripple effects in your life, based on a brief meeting or a kind gesture they extended to you, which meant nothing to them, but everything to you? Or that interesting stranger whose manner cast a brief spell on you, lingering in your memory disproportionately? That’s you also, you’re that person. Most of your impact on others, you will never fully apprehend or appreciate. Thus, it’s not important to know what you’re doing.</p>
+<p><strong>1.7</strong> The proper end of introspection is not being filled with facts about oneself. Your introspection is successful if it is finite, if it leads you towards direct contact with experience. Get out of the way of your becoming.</p>
+<h3><strong>Choice and authenticity</strong></h3>
+<p><strong>2.1</strong> People feel most themselves when they are unselfconscious, which is to say, their actions emerge without apparent control. Think of the phrase “singing with abandon.” In our most profound moments of intimacy, we have abandoned the wheel. Who is driving, at that moment? What if we simply let that driver have the wheel more often? It takes practice to notice when that’s the person taking over the wheel—as opposed to our reactive, fear-based conditioning, which is also eager to take the job. Surrender is a skill.</p>
+<p><strong>2.2</strong> When people talk about “being authentic,” they are often referring to executing some program, some persona, that they’ve devised privately. Of course, our impression of such people is that they’re unnatural and unoriginal. They assign us the job of reinforcing a character we never agreed on.</p>
+<p><strong>2.3</strong> Surrender is something that happens through you, not something chosen<a data-component-name="FootnoteAnchorToDOM" href="#footnote-2" id="footnote-anchor-2"><sup> [2] </sup></a>. I couldn’t have skipped the part of my life when I was contriving everything. And the way I’m living now wouldn’t work without the skills I accumulated during that period of contrivance. If you’re reading this and thinking, “gosh, I wish person <em>x </em>would see the wisdom of surrender,” you have discovered an opportunity to surrender to interpersonal helplessness.</p>
+<p><strong>2.4</strong> Often, the apparent struggle to make a decision is an attempt to meet an internal flailing quota, after which we will feel affirmed in the choice we already knew we were making. Sometimes you can just skip all of that, and admit that you’re scared of what you know you will do. And then do it.</p>
+<h3><strong>Goals, outcomes, effort</strong></h3>
+<p><strong>3.1</strong> Discovered goals are entirely different from preconceived goals. Let’s say you notice that when you play guitar and sing, people stop what they’re doing to stare at you. The discovered goal of being a musician has presented itself. You are more likely to be successful than someone who privately dreams of being a musician without prompting from existence. Noticing such opportunities requires a lack of some previously decided agenda.</p>
+<p><strong>3.2</strong> I’ve known many impressive people. Almost none of them started with a comprehensive vision of the grand work they would produce. Instead, they simply got into escalating amounts of trouble, and kept riding the trouble wave as far as it would go.</p>
+<p><strong>3.3</strong> Excellence requires non-attachment to principles. All mediocre performers are the same: instead of improving on feedback from what happens, they react to what they think is supposed to be happening, or try to reinforce a theory they’ve internalized—perhaps an inaccurate approximation of someone they admire. This attempt at coherence is futile, since the mind of an expert makes no sense. It is filled with exceptions, contradictory principles butting up against each other. Perhaps the knowledge of how your life works is the same.</p>
+<p><strong>3.4</strong> When a project in my life is working, it’s typically marked by a sense of leverage. It’s as if I’ve fallen into an updraft and it’s propelling me. Meanwhile, when I’m privately excited about something, but there’s no cooperation from the world, nothing comes together. The sensible conclusion is that my enthusiasm, alone, is not a helpful measurement.</p>
+<p><strong>3.5</strong> It’s nice to enjoy what you’re doing. But there is a greater liberation available: accepting that the Work in front of you is your Work, and that has little to do with how you feel.</p>
+<p><strong>3.6</strong> Another property of things that work out for me: they don’t make sense to my rationalizing mind. There is the thought, “this isn’t what I’m supposed to be doing,” even as greater forces pull me forward. This is known as the refusal of the call to adventure. It’s a routine part of adventure.</p>
+<p><strong>3.7</strong> There is a criticism you could make of my advocacy of surrender. It is: “you’re just lucky and narrativizing it.” Yes. If you, too, have luck that seems unrelated to your conscious choices, consider letting that run the show.</p>
+<h3><strong>Happiness</strong></h3>
+<p><strong>4.1</strong> The norm for human life: gross injustice, corrupt rulers, disease and death, unequal fortunes, looming apocalypses. It’s possible that a large portion of our species will die off—it’s happened before, we’ve almost gone extinct previously, that’s allowed in the game. If your basic needs are met but you cannot be content with the way it is now, that is not the fault of the way things are now. It’s because you haven’t surrendered to the basic properties of incarnating in human form.</p>
+<p><strong>4.2</strong> Strangely, happiness isn’t produced by getting what you want. Unhappiness is the product of the number of times per minute that you believe circumstances should be otherwise. “Enough” and “not enough” are mental stances that, very often, are uncorrelated with exterior facts. Perhaps this is one reason Jesus says it is “easier for a camel to go through the eye of a needle than for a rich man to enter the kingdom of God”—the more you focus on expanding your pile, the more ravenousness becomes a habit. By contrast, you can, right now, try believing that what’s happening is what’s supposed to be happening, in exactly the right order.</p>
+<p><strong>4.3</strong> Satisfaction comes from giving yourself away. From realizing that you have been called to some occasion that requires everything from you, and saying, fine, fuck it, here I am, tear me apart, I will exhaust myself to set right this one irrelevant corner. It is possible to view your whole existence this way, as a process of giving away all, everything, of what was never yours.</p>
+<p><strong>4.4</strong> Another profound source of satisfaction is fit: when you fit like a slender hand in the glove of your circumstances. Consider the possibility that this satisfaction is already trying to happen, but you are resisting it, in a doomed attempt to be happy. Settling into this fit is another way of describing what I mean by “doing what God seems to want.”</p>
+<p><strong>4.5</strong> I can’t defend this intellectually, but it has been true in my experience: spontaneous compassion is the approach to ethics that feels best and works most often. If you want a plan for consistently being good, the dumbest one that will work, and therefore the most robust, is “notice that prosocial behavior is nourishing, and that peace is only available if you’re on good terms with your conscience, and allow behavior to flow from that.” I’m not deluded enough to think this is always sufficient, but it’s a good start.</p>
+<h3><strong>Love</strong></h3>
+<p><strong>5.1</strong> I am capable of privately spoiling my wonderful marriage at any time, by noticing that it’s not the relationship I would’ve imagined being in. Meanwhile, a few months before meeting my wife, I wrote down a list of characteristics that the perfect partner would have, and I subsequently met that person. She was completely lovely—I find much to criticize in my own behavior from that period and nothing bad to say about her. And yet the relationship did not stick. How odd.</p>
+<p><strong>5.2</strong> When I insist that a relationship must survive, I begin to resent it—I become burdened by all of the little moments of inauthenticity engaged in to shield the other person. The person becomes an obstacle, someone to navigate around. When I accept that any relationship could end, and surrender to the reality of people finding their own level, I become free to relate openly, and then actual closeness happens.</p>
+<p><strong>5.3</strong> Panic is a part of love. I’ve learned that as I enter into any relationship that will alter me for the better, the manager in my head will come up with convincing reasons why it’s all wrong. This, too, is the refusal of the call; it is the fear of personal transformation masquerading as reason.</p>
+<p><strong>5.4</strong> The older I get, the more that friendship is a discovered property. There are lots of wonderful people I meet who aren’t my friends. And then I meet someone and think: oh, that’s my friend, you’re coming with me. One of the best things you can do for yourself is to notice when you’re inexplicably bound to someone, and act on it without thinking.</p>
+<p><strong>5.5</strong> We are drawn towards people because they are different. We are given the opportunity to love more when we find ourselves resenting them for the very difference that drew us to them. The opportunity is to release resentment and instead surrender to separateness. Ironically, this is how you feel less alone.</p>
+<p><em>Thank you to Erin Shetron for editorial assistance. This essay was inspired a little bit by The Surrender Experiment, and a lot by <a href="https://luminousdharma.org/returning-to-nature-advanced-dharma-practice/">this totally wonderful meditation guide</a>. Photo credit goes to Daido Moriyama. </em></p>
+<p><a href="#footnote-anchor-1" id="footnote-1">1 [find in text]</a></p>
+<p>This format is shamelessly stolen from <a href="https://medium.com/@sumdepony/seeing-like-a-communist-f3049710fb6c">this fascinating essay</a> by “de Pony Sum.”</p>
+<p><a href="#footnote-anchor-2" id="footnote-2">2 [find in text]</a></p>
+<p>I first heard this point made by Adyashanti.</p>
+<h3>...</h3></div>
+      
+    </article>
+    
+    <article>
+      <h1>Agentic search - retrieval, harness, or model?</h1>
+      <div class="article-meta">
+        Doug Turnbull
+        · 09 Jun 2026 · <a href="http://softwaredoug.com/blog/2026/06/08/three-kinds-of-agentic-search.html">Source</a>
+      </div>
+      <div class="article-body"><p>Agentic search gets interesting when agents do not know how to find the right answer.</p>
+<p>Oh, the agent might think it knows. It might confidently BS us. But the agent’s poor domain intuition steers itself astray.</p>
+<p>Agents make false assumptions about what <em>our</em> users think is relevant. Our fashionista users think “red shoes” should return high-heels. When I worked at one company ABE wasn’t a president, it was an A/B testing tool. Agents need context to know these things - and <a href="https://www.youtube.com/watch?v=ynJyIKwjonM">context engineering needs agentic search</a></p>
+<p>Confusingly, depending who you talk to, agentic search can mean one of three distinct implementation patterns:</p>
+<ul> <li><strong>Retrieval-centric</strong> - just build good search so agents can use it to fill in missing context</li> <li><strong>Harness-centric</strong> - steer the agent towards needed context, even with bad search</li> <li><strong>Model-centric</strong> - fine tune an LLM to know how to search <em>our</em> data</li> </ul>
+<p>In this post, I’ll walk through each. With a bit more breadth, you might appreciate which flavor your colleagues seem to mean when they say “agentic search”</p>
+<h2>Retrieval-Centric Implementation</h2>
+<p>When frontier models don’t know, they search. Ask ChatGPT a question about news, it’ll search. Ask it about a very specific technical problem, it’ll search. During training, LLMs see <em>search</em> examples as a technique to learn what it doesn’t know. To find what it needs.</p>
+<p>Therefore, we just need to build good search to solve any conceivable query from an agent.</p>
+<p>Let’s assume we run an e-commerce catalog. For us, when users search “red shoes” they mean “red high heels”. But the agent doesn’t know that. Luckily it asks <em>search</em>. Below we see it returns the right results.</p>
+<p>Below we see initial retrieval to lexical / vector backends pulls back some reasonable, if naive, “red shoe” candidates. Still that’s not quite right. Luckily the reranker shapes the results towards our understanding of that intent.</p>
+<figure class="article-figure"><img alt="image.png" src="https://softwaredoug.com/assets/media/2026/three-kinds-of-agentic-search/image.png" class="article-image"/></figure>
+<p>Of course we might have other components here - query understanding, diversity, custom embedding models, and more.</p>
+<p>The important point is that <em>search leads the agent by the nose</em> towards what’s relevant. We assume search can define what a good “red shoe” is, overriding the agent’s perspective.</p>
+<p>Most teams build retrieval-centric approaches with classic RAG. Chunks of answers, and embeddings trained to recognize them as answers.</p>
+<p>Unfortunately, answers don’t always look tied to the question. For example:</p>
+<p>Question:</p>
+<blockquote> <p>Synopsis of the book Ubik</p> </blockquote>
+<p>Answer:</p>
+<blockquote> <p>By the year 1992, humanity has colonized the Moon and psychic powers are common. The protagonist, Joe Chip, is a debt-ridden technician working for Runciter Associates, a “prudence organization” employing “inertials”—people with the ability to negate the powers of telepaths and “precogs”—to enforce the privacy of clients.</p> </blockquote>
+<p>If you don’t know the book Ubik, it’s not clear that this answers the question. The agent says “cool story bro” and ignores the info.</p>
+<p>Search like this actually is divorced from the web search trusted by fronteir models. The web contains titles, headings, and other elements placing the answer in context.</p>
+<h3>The big downside? Search remains hard. We’re not Google.</h3>
+<p>Most importantly, we don’t have perfect search like Google or Bing. Even with good search - almost nobody builds <em>google quality results.</em> And since agents trust search - simple distractors in retrieval can, as Lester Solbakken says, <a href="https://2026.berlinbuzzwords.de/session/when-better-retrieval-makes-agents-worse/">easily confuse reasoning</a>.</p>
+<h2>Harness-centric implementations</h2>
+<p>Who should be in charge? Should the agent manage the search process? Or should search drive the agent?</p>
+<p>Moving the emphasis to the harness, we put the agent in charge.</p>
+<p>Imagine stripping search tools down to core retrieval primitives. Just a BM25 backend. Or a filesystem with CLI tools. We tell the agent find to what it needs with these untuned tools. The agent might struggle more, but hey, its smart, it can get figure it out. Right?</p>
+<p>Still, the agent might find what it thinks is relevant, as it does in the image below. Sadly that’s not what’s actually relevant. To help the agent, we inject external knowledge. We let a judge direct the agent, correcting its mistakes, and guiding it towards better search strategies.</p>
+<p>So when the agent returns results, it’s not the “user” that receives the candidates. Instead a judge labels results as relevant or not. The agent gets the hint, finding results similar to those labeled relevant. Avoiding those labeled irrelevant. To steel from Jo Kristian Bergem, this is <a href="https://program.berlinbuzzwords.de/bbuzz26/talk/PLNTP9/">relevance feedback on steroids</a>.</p>
+<figure class="article-figure"><img alt="image.png" src="https://softwaredoug.com/assets/media/2026/three-kinds-of-agentic-search/image%201.png" class="article-image"/></figure>
+<p>This works. Look at the ESCI dataset. If I have an oracle labeling with judgments from these datasets, I get quite significant improvements.</p>
+<table> <tr> <th>Variant</th> <th>NDCG@10</th> <th>Description</th> </tr> <tbody> <tr> <td>ESCI BM25</td> <td>0.2895</td> <td>Simple BM25 weighing name / description</td> </tr> <tr> <td>ESCI agentic</td> <td>0.4101</td> <td>GPT5-mini tool calling loop w/ BM25+e5 embeddings tools</td> </tr> <tr> <td>ESCI agentic w/ oracle</td> <td>0.5843</td> <td>GPT5-mini tool calling loop w/ BM25+e5 embeddings tools. Judge responds with feedback once</td> </tr> </tbody> </table>
+<p>Here the second row we trust the agent’s interpretation of queries. That provides a large gain over BM25. But inject more domain knowledge via a judge (the third row) and agent performance improves dramatically.</p>
+<p>We can guide agents with information ahead of time too. For example, I’ve seen teams take inspiration from skills in coding agents. Imagine a targeted query plan that tells the agent how to use it’s tools to solve a specific problem.</p>
+<figure class="article-figure"><img alt="image.png" src="https://softwaredoug.com/assets/media/2026/three-kinds-of-agentic-search/image%202.png" class="article-image"/></figure>
+<h3>Optimizing content helps harnesses</h3>
+<p>We help agents even further by optimizing content for findability. That’s the trick we’ve played on ourselves with coding agents. We write docs to explain to agents why something’s useful. We don’t just rely on that dumb chunk, we document the purpose of the knowledge:</p>
+<blockquote> <p>/books/scifi/ubik.txt</p> </blockquote>
+<blockquote> <p>## About Book Ubik Ubik is a book by Philip K. Dick</p> <p>## Synopsis</p> <p>By the year 1992, humanity has colonized the Moon and psychic powers are common. The protagonist, Joe Chip, is a debt-ridden technician working for Runciter Associates, a “prudence organization” employing “inertials”—people with the ability to negate the powers of telepaths and “precogs”—to enforce the privacy of clients.</p> </blockquote>
+<p>Unlike a naive chunk, this bit of information has purpose. It’s clear, when its in the context, what problem it solves.</p>
+<p>By organizing + cataloging information we’ve done what every search developer wishes their content team would do: actually optimize content to be findable.</p>
+<h3>The downside: cost</h3>
+<p>The major downside here? Token costs. The exploration here requires more than just issuing a search and retrieving one set of results. It’s an agent’s exploration of the environment. And that exploration starts fresh with every new context window.</p>
+<h2>Model-centric approach</h2>
+<p>What if we literally fine-tuned the LLM to search efficiently?</p>
+<p>The harness based approach takes a long, winding path towards relevant results. With every fresh context, it wastes calls relearning what works over-and-over. It’s costly and slow.</p>
+<p>Could we train a model that doesn’t repeat the same mistakes with our tools?</p>
+<p>Our judge helps label some of the agent’s reasoning / tool-calling paths as useful. And label others less so. Once you have labeled traces, you can fine-tune an open weights model to proactively, efficiently make the right tool calls given the input.</p>
+<p>Below, for example, the model knows exactly how to search for our “red shoes” query given its extensive fine tuning.</p>
+<figure class="article-figure"><img alt="image.png" src="https://softwaredoug.com/assets/media/2026/three-kinds-of-agentic-search/image%203.png" class="article-image"/></figure>
+<p>Now we’ve built a model targeting the search task. We don’t tune our retrievers much. Instead we continue to use the simpler / dumb search tools.</p>
+<p>Even cooler, the agentic search model’s behavior can change just by adjusting the system prompt. “This is an e-commerce search task, optimize for top 10 ranking” might be different from “You’re retrieving chunks for financial research, maximize diversity and relevance at the same time.”</p>
+<p>Further the models can stay smaller. By just focusing no the search part - not the entire domain problem - they can shrink to a manageable size allowing them to be self hosted.</p>
+<h3>The downside? Early days</h3>
+<p>The OG in the space is <a href="http://sid.ai">SID</a>. Other contenders like Glean’s Waldo model have sense entered. They’re all promising, but not widely adopted. Many unknown unknowns exist. In a sense, we don’t yet know the upside or downsides yet. I suspect though this paradigm has tremendous promise in the years ahead.</p>
+<p>In other words - stay tuned!</p>
+<h2>The alchemy of ambiguity</h2>
+<p>People use “agentic search” confusingly and inconsistenly. They focus on their part of the problem. That means we have a collection of solutions like enriched base metals - and its unclear what alchemy brings them together.</p>
+<p>We’re converging on a fascinating mix of easier to organize data (like <a href="https://pageindex.ai/about">PageIndex</a>). I’m seeing patterns in harness design that mirror coding agents - hooks / evaluators that steer agents. Or “skills” that guide them a priori. Much like with coding - the agents eat the harnesses. When a successful pattern emerges, agents, in our case agentic search models, train to memorize these patterns.</p>
+<p>Retrieval also seems to be moving towards agent-centric approaches. Agents have <a href="https://hornet.dev/blog/this-is-what-agentic-retrieval-looks-like">their own specific, unique retrieval patterns</a>. We’re finally seeing late interaction + learned sparse retrieval approaches have their day from companies like <a href="http://lighton.ai">LightOn</a> and <a href="http://mixedbread.ai">MixedBread</a></p>
+<p>We’re swimming in an interesting retrieval primordial goop, what comes out may be an obvious combination - or look nothing like the component parts. Exciting times!</p>
+<h3>Enjoy softwaredoug in training course form!</h3>
+<h4>Starting May 18!</h4>
+<p>Signup here - <a href="http://maven.com/softwaredoug/cheat-at-search">http://maven.com/softwaredoug/cheat-at-search</a></p>
+<figure class="article-figure"><a href="https://maven.com/softwaredoug/cheat-at-search"><img src="https://softwaredoug.com/assets/media/2026/cheat-at-search-social.png" class="article-image"/></a></figure>
+<p>I hope you join me at <a href="https://maven.com/softwaredoug/cheat-at-search">Cheat at Search with Agents</a> to learn use agents in search. build better RAG and use LLMs in query understanding.   </p></div>
+      
+    </article>
+    
+    <article>
+      <h1>Control the ideas, not the code</h1>
+      <div class="article-meta">
+        antirez.com
+        · 18 Jul 2026 · <a href="https://antirez.com/news/169">Source</a>
+      </div>
+      <div class="article-body"><pre>Look at the past history of this blog. There are many blog posts about programming with AI, a few of them date back to January 2024 (like this: <a href="https://antirez.com/news/140">https://antirez.com/news/140</a>). I’m a relatively well regarded programmer, after all. I don’t have the need to still be in the “loop” as a old man that seeks for relevance, I recently rejoined Redis, and now I also am developing a new open source software for local LLM inference that received a good welcome in the community. Why I keep doing this, of saying what people don’t want to hear? Why I keep announcing how future programming will be by default? Because I feel the urge of lowering the impact for people less prepared to the change than me, often younger than me, and that, unlikely me, didn’t see many of those things coming (In 2022 I published, before ChatGPT existed, a book preannouncing many things that now happened and other things that I believe *will* happen, so I feel like I can say this without sounding egocentric).
+
+So mine is a trick. People feel more and more programming is completely modified by AI and don’t know what they should do, if they can really start coding in a completely different way, without looking much at the code as their main output. They feel like they are betraying their own field. So my intention is to arrive and say “look at me, In can write code, you know, I’m not hiding behind AI: yet, things changed, it’s not your weakness, it’s not that you are AI-pilled. It is just that our field is evolving in an incredible *and* painful (but also joyful) direction”.
+
+This is why yesterday, on X, I said that I believe many programmers at this point have less impact they could have because they look at the code. I truly believe into that. And note that this does not mean to vibe code something just asking for the final product. The point is: if you control the ideas of your software, looking at the code itself is suboptimal and often pointless. For the following reasons:
+
+1. You can now generate a lot of code, even *not* accounting for the LLM code verbosity (that is also effect of not being able to instruct them well, for most of the part). How are you supposed to review 5k lines of code every day?
+
+2. LLMs are very good at writing locally optimal code, and are worse (but improving) with big ideas. What’s the point of scanning function by function, line by line? Instead you should prompt the design you have in mind, sometimes ask “how is exactly the design of that part? How does it work?”, and evaluate if it is the right model. It is much faster.
+
+3. The working day is 8 hours. If you read the code, it is a tradeoff. You are doing less of what today is the most important part of your job, that is, asking yourself: what I’m doing with this software? What are the new directions I want to take? And also, think at new ideas, features, optimizations tricks. And doing a lot of QA.
+
+Controlling the ideas. Do you remember this phrasing from the Mythical Man Month? Well, a book from the 70s tells us more things about the current software era than many of the things that were said from 2000 to 2020. Why people that now protest against AI were not horrified by the state of software in the last decade? The level of slop we touched during recent years, before AI, is unbelievable. I’ll say you another thing. What is slop? With DwarfStar I implemented an inference for two LLMs (DeepSeek v4 and GLM 5.2) in a completely automated way, but: try it yourself, you will discover you can’t just say “implement XYZ” and see it working. You have to understand how things work, what is the best design, how to reach a certain level of performance. Then I compared the implementation, for correctness, to other systems, finding that other implementations sometimes contained more errors. I researched more, and found that the local inference world is full of subtle errors that accumulate and damage the model output, issues in the attention implementation causing performance slopes after the context is over a certain limit because indexed attention implementations are broken (do more work than they should, for instance), and so forth. This is the result of a domain that is very complicated to handle, fast changing, with models that are slightly different one from the other in the inference graph being released every day. It’s an unfair game for developers. Well: AI helps a lot with that. There are many domains where rigorous engineering (in the design side) and testing is *far* better than writing a GPU kernel by hand (or reading it). So are we sure most of that resistance it is not ideological?
+
+Matteo Collina yesterday asked me, in reply to my tweet: but didn’t you say that you check all the AI generated code for Redis? And this is a good question indeed. Yes, I do, but this is, at this point, something I *need* to do but that I believe to be mostly pointless, partially once GPT 5.5 was released, but now with Fable and GPT 5.6 Sol even more. Yes: I identify things that I don’t like how they are coded, but if I open other Redis files written by other Redis contributors there is *far worse*, and not since they are not good coders, but because it is a matter of taste. I write very clean code since I want it to be readable, so during the implementation of Redis Arrays I operated changes. I’m doing it again for the 50% memory saving optimization of Redis sorted sets, a PR that I’ll submit soon. But I do not feel this is useful anymore. Nobody should anymore look at this code, but only at the ideas the code contain. I continued to do it out of respect for users. Redis is at this point a commonly useful thing, and many programmers will open files and modify stuff by hand. But if I had my hands free, you know what I would do, instead? Use all the time that the review is taking me to do more QA, to think at the next optimization idea and apply it, and to use LLMs to write a DESIGN.md file where each data structure is described in human language, with the ideas it contains, the implementation tricks, the design. That, in the future, is going to be much more useful. Do you want to modify sorted sets? You open the file, read the design, then you own the ideas. You can open your agent and ask it what to do with the right mental model. This is a lot more useful than reviewing the code.
+
+Fable and GPT 5.6 reviews to the sorted sets memory saving are going to spot ways more errors and subtle race conditions that my review is going to uncover. Yet I’ll do it. But for the majority of software projects, all this does not make sense anymore. Focus on controlling the ideas, instead. Focus on quality, testing, and having an idea of the software you want to ship. The world changed and it is painful, but also full of opportunities to improve a software world that was already completely rotten.</pre>
+<p>:</p></div>
+      
+    </article>
+    
+    <article>
+      <h1>Asteroid Mission</h1>
+      <div class="article-meta">
+        xkcd.com
+        · 04 Sep 2026 · <a href="https://xkcd.com/3294/">Source</a>
+      </div>
+      <div class="article-body"><figure class="article-figure"><img alt="Asteroid Mission" data-title="Lander, this is Houston. There&#x27;s been a request that you turn clipping back on and instead set the mass to 1kg. The theorists believe that will be pretty funny." src="https://imgs.xkcd.com/comics/asteroid_mission_2x.png" srcset="https://imgs.xkcd.com/comics/asteroid_mission_2x.png 2x" class="article-image"/><figcaption>Lander, this is Houston. There's been a request that you turn clipping back on and instead set the mass to 1kg. The theorists believe that will be pretty funny.</figcaption></figure></div>
+      
+    </article>
+    
+  </body>
+</html>
