@@ -1,0 +1,478 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Fred Talks - 2026-09-08</title>
+    <style>
+      @page {
+        size: A5;
+        margin: 8mm 9mm 9mm;
+      }
+
+      :root {
+        color: #111;
+        font-family: "Times New Roman", Times, serif;
+        --body-text-size: 9.5pt;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        color: #111;
+        background: #fff;
+        font-family: "Times New Roman", Times, serif;
+        line-height: 1.45;
+      }
+
+      a,
+      a:visited {
+        color: #111;
+        text-decoration: underline;
+      }
+
+      .cover {
+        min-height: calc(210mm - 17mm);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        page-break-after: always;
+        border: 1px solid #111;
+        padding: 8mm;
+        background: #fff;
+      }
+
+      .toc-item-meta,
+      .article-meta {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .masthead {
+        margin: 0;
+        font-size: 40pt;
+        line-height: 0.95;
+        text-transform: uppercase;
+      }
+
+      .issue-date {
+        margin: 4mm 0 0;
+        font-size: 14pt;
+      }
+
+      .issue-date sup {
+        font-size: 0.58em;
+        vertical-align: super;
+        line-height: 0;
+      }
+
+      .cover-deck {
+        max-width: 90mm;
+        font-size: 12pt;
+        margin: 0;
+      }
+
+      .toc {
+        border-top: 3px solid #111;
+        padding-top: 6mm;
+      }
+
+      .toc h2 {
+        margin: 0 0 4mm;
+        font-size: 11pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .toc-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .toc-item {
+        padding: 3mm 0;
+        border-bottom: 1px solid rgba(17, 17, 17, 0.2);
+      }
+
+      .toc-item-title {
+        font-size: 12pt;
+        margin: 0 0 1mm;
+      }
+
+      .toc-item-meta {
+        font-size: 8pt;
+      }
+
+      .masthead-compact {
+        margin: 0 0 6mm;
+      }
+
+      .masthead-compact h1 {
+        margin: 0;
+        font-size: 22pt;
+        line-height: 1.1;
+        text-transform: uppercase;
+      }
+
+      .masthead-compact .issue-date {
+        margin: 2mm 0 0;
+        font-size: 11pt;
+      }
+
+      .toc-compact {
+        border-top: 1px solid #111;
+        border-bottom: 1px solid #111;
+        padding: 4mm 0;
+        margin: 0 0 8mm;
+      }
+
+      article + article {
+        margin-top: 10mm;
+        padding-top: 6mm;
+        border-top: 2px solid #111;
+      }
+
+      h1 {
+        margin: 0 0 2mm;
+        font-size: 18pt;
+        line-height: 1.1;
+      }
+
+      .article-meta {
+        font-size: 8.5pt;
+        margin-bottom: 6mm;
+        padding-bottom: 3mm;
+        border-bottom: 1px solid #111;
+      }
+
+      .article-body {
+        font-size: var(--body-text-size);
+        font-family: "Times New Roman", Times, serif;
+      }
+
+      .article-body p,
+      .article-body li,
+      .article-body blockquote,
+      .article-body dd,
+      .article-body dt {
+        margin: 0 0 4mm;
+        orphans: 3;
+        widows: 3;
+      }
+
+      .article-body ul,
+      .article-body ol,
+      .article-body dl {
+        margin: 0 0 4mm 5mm;
+        padding: 0;
+      }
+
+      .article-body h2,
+      .article-body h3,
+      .article-body h4 {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        margin: 7mm 0 3mm;
+        line-height: 1.2;
+      }
+
+      .article-body blockquote {
+        margin-left: 6mm;
+        padding-left: 4mm;
+        border-left: 2px solid #111;
+      }
+
+      .article-body .media-omitted {
+        margin: 0 0 4mm;
+        font-size: 8.5pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(17, 17, 17, 0.65);
+      }
+
+      .article-body figure,
+      .article-body .article-figure,
+      .article-body picture,
+      .article-body .article-picture {
+        display: block;
+        max-width: 72mm;
+        margin: 0 auto 4mm;
+        break-inside: avoid;
+      }
+
+      .article-body img,
+      .article-body .article-image {
+        display: block;
+        max-width: min(100%, 72mm);
+        max-height: 34mm;
+        height: auto;
+        width: auto;
+        object-fit: contain;
+        margin: 0 auto 3mm;
+      }
+
+      .article-body figcaption {
+        margin-top: 1.5mm;
+        font-size: 8.5pt;
+        line-height: 1.3;
+        color: rgba(17, 17, 17, 0.8);
+      }
+
+      .article-note {
+        margin-top: 6mm;
+        padding-top: 3mm;
+        border-top: 1px solid #111;
+        font-size: 9pt;
+        font-style: italic;
+      }
+
+      @media screen {
+        body {
+          padding: 2rem;
+          margin: 0 auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    
+    <header class="masthead-compact">
+      <h1>Fred Talks</h1>
+      <p class="issue-date">
+        8<sup>th</sup> September 2026
+      </p>
+    </header>
+
+    <nav class="toc toc-compact">
+      <h2>Contents</h2>
+      <ol class="toc-list">
+        
+        <li class="toc-item">
+          <div class="toc-item-title">I got an email about resistance</div>
+          <div class="toc-item-meta">
+            seangoedecke.com RSS feed · 1351 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Big tech engineers need big egos</div>
+          <div class="toc-item-meta">
+            seangoedecke.com RSS feed · 1975 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">The Training Grounds: A Taxonomy of RL Environments for LLM Agents</div>
+          <div class="toc-item-meta">
+            Han, Not Solo · 1766 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Giving LLMs a personality is just good engineering</div>
+          <div class="toc-item-meta">
+            seangoedecke.com RSS feed · 1062 words
+          </div>
+        </li>
+        
+      </ol>
+    </nav>
+    
+
+    
+    <article>
+      <h1>I got an email about resistance</h1>
+      <div class="article-meta">
+        seangoedecke.com RSS feed
+        · 09 Aug 2026 · <a href="https://seangoedecke.com/i-got-an-email-about-resistance/">Source</a>
+      </div>
+      <div class="article-body"><p>This will be kind of an unusual post. I got a recent email about my writing that I thought was such a good articulation of one common criticism that I’d like to share it (and my response) in full.</p>
+<p>Here’s the email, from William Murray<sup><a href="https://www.seangoedecke.com/i-got-an-email-about-resistance/#fn-1">1</a></sup>:</p>
+<p>Hey Sean,</p>
+<p>I have enjoyed your writing but your recent essays frustrate me.</p>
+<p>You say that getting paid for deep thinking in software is coming to an end. You even admit that it makes you sad. But in the name of “usefulness” you refuse to rock the boat. The way I see it, if you are right there are only two reasonable responses, pursue other work or resist. You present your elegiac approach as mature / pragmatic / realistic. I’d call it complicit. You know when Willy Wonka says,</p>
+<blockquote> <p>There’s no earthly way of knowing Which direction we are going There’s no knowing where we’re rowing Or which way the river’s flowing Is it raining, is it snowing? Is a hurricane a-blowing? — uh! Not a speck of light is showing So the danger must be growing Are the fires of Hell a-glowing? Is the grisly reaper mowing? Yes! The danger must be growing For the rowers keep on rowing And they’re certainly not showing Any signs that they are slowing!</p> </blockquote>
+<p>And the audience is thinking, “isn’t Wonka kind of in control of this situation?” You remind me of Wonka<sup><a href="https://www.seangoedecke.com/i-got-an-email-about-resistance/#fn-2">2</a></sup>. You write like a passenger on a crazy train going who-knows-where! But you are an agent. You are in control of your life! Either admit that you actually like where the crazy train is probabilistically going or get off at the next stop.</p>
+<p>You have a lot of reach and you are using it for… what exactly? Showing off how pragmatic you are by being more black pilled than the next guy? Broadcasting your resignation to the unstoppable trends of technology is a waste of a voice.</p>
+<p>You may find this argument absurd, but I don’t so I’ll make it. This is a very important time in history. I hope humanity survives and continues to grow exponentially. In that case the supply of historical people will stay fixed while the supply of contemporary people will keep growing. There will come a day where for every 2026 staff software engineer there are dozens of historians specializing in 2020s era software engineering culture. It’s plausible that your essays will be remembered for all of time and your actions will be judged by history. Do you want future humans to see you as a rationalizing careerist or something cooler?</p>
+<p>Sorry for the haranguing email from a stranger, I’m sending it for the small chance that it awakens something in you. If I’m way off I’m sorry.</p>
+<p>And here’s my response:</p>
+<p>Hey William, thanks for emailing.</p>
+<p>I wish everyone who thought this way emailed me so I could think harder about this kind of position. Despite what my writing might suggest, I do in fact think a lot about it. Let me see if I can explain my position in a way you’ll find satisfying.</p>
+<p>I agree that this is an important time in history. For programmers, I think of it as analogous to the Industrial Revolution in England: we are a group of high-status craftspeople who find ourselves alternately threatened and empowered by automation. The developments today, as then, obviously have far-reaching implications — but what those implications are is very non-obvious. Would a framework-knitter in the early 1800s have been able to predict the ramifications of the stocking frame on the world of today? What should they have done about it, in order to be kindly judged by history?</p>
+<p>Well, we know what many of them did do. They shot factory-owners, smashed machines, burned down the factories — in some places delaying the spread of automation; in other places encouraging it — prompting a crackdown that saw tens of thousands of British soldiers occupying British counties in what was clearly a police state. History judges the Luddites kindly for this. Does that mean it worked?</p>
+<p>I don’t care about the judgment of history. They’ll think what they want. What I care about is <strong>the people in my industry who don’t know what to do</strong>. I get hundreds of emails from junior and mid-level (and other) engineers who say “I’m scared, I don’t know the rules post-2021, thank you for helping me keep my head down and keep my job”. That’s why I write the way I write. I have seen lots of idealistic engineers stick their necks out, and post-ZIRP those necks often get cut off. That’s a damn shame.</p>
+<p>I think it’s morally wrong that so many engineers — either in safe sinecures in big tech or literally retired — seem to be trying to foment a second Luddite revolution. Many of their readers will be experienced enough to handle it sensibly, but not all. Every “AI is fascist, stand up and resist!” post that goes viral ruins some poor idealistic junior’s career<sup><a href="https://www.seangoedecke.com/i-got-an-email-about-resistance/#fn-3">3</a></sup>. Someone needs to be out there saying “hey, if you do X it’s going to have consequence Y”. I hope that’s me.</p>
+<p>Of course this is complicit, or anti-revolutionary, or whatever you like. But if I were a textiles worker in 1810s England, I would not be telling my friends and loved ones “it’s time to fight, let’s go smash up the factories for Ned Ludd!“. I would be telling them that this was the most dangerous time in the industry (perhaps ever), and that they ought to be very damn careful so they don’t get shot, or arrested, or hanged. If I then went and told a few hundred thousand strangers the opposite, I would be a hypocrite.</p>
+<p>Anyway, I do take this view seriously — seriously enough to vehemently disagree, at least — which I hope you’ll find better than me just shrugging it off. I do accept the existence of some kind of line: I think Industrial-Revolution-collaborating was OK but Nazi-collaborating wasn’t, for instance. But in the current situation, the way I’m spending “my voice” is to try and prevent the most vulnerable of my colleagues from making career-ruining mistakes.</p>
+<p>Sean</p>
+<p>In this blog, I try to encourage people to work with the system, to <a href="https://www.seangoedecke.com/seeing-like-a-software-company/">learn its rules</a>, and to try and <a href="https://www.seangoedecke.com/how-to-influence-politics/">exert influence safely</a> from a position of power, instead of openly <a href="https://www.seangoedecke.com/the-just-say-no-engineer-was-a-zirp-phenomenon/">picking fights</a> with their employers. I’ve written and read about the <a href="https://www.seangoedecke.com/tags/luddites/">Luddites</a> before, but I remain deeply <a href="https://www.seangoedecke.com/luddites-and-ai-datacenters/">ambivalent</a> about the movement itself, and about modern-day <a href="https://www.seangoedecke.com/anti-ai-nostalgia/">attempts</a> to resurrect it in service of anti-AI activism.</p>
+<p>I want to explicitly thank Murray for writing such a thoughtful email, and being willing for me to publish it on the blog.</p>
+<ol> <li> <p>Shared with permission, of course. I’ve lightly edited both Murray’s email and mine for typos.</p> <a href="https://www.seangoedecke.com/i-got-an-email-about-resistance/#fnref-1">↩</a> </li> <li> <p>I didn’t pick up this point in my reply, but I’ll briefly mention it here: Wonka is in control because he owns the factory and the rowers in question are <em>his employees</em>. I don’t think the position of any engineer (or of almost any manager) is like that.</p> <a href="https://www.seangoedecke.com/i-got-an-email-about-resistance/#fnref-2">↩</a> </li> <li> <p>In hindsight, I think this is a little overstated, but it does happen and causes a lot of needless suffering.</p> <a href="https://www.seangoedecke.com/i-got-an-email-about-resistance/#fnref-3">↩</a> </li> </ol></div>
+      
+    </article>
+    
+    <article>
+      <h1>Big tech engineers need big egos</h1>
+      <div class="article-meta">
+        seangoedecke.com RSS feed
+        · 14 Mar 2026 · <a href="https://seangoedecke.com/big-tech-needs-big-egos/">Source</a>
+      </div>
+      <div class="article-body"><p>It’s a <a href="https://matthogg.fyi/a-unified-theory-of-ego-empathy-and-humility-at-work/">common position</a> among software engineers that big egos have no place in tech<sup><a href="https://www.seangoedecke.com/big-tech-needs-big-egos/#fn-1">1</a></sup>. This is understandable - we’ve all worked with some insufferably overconfident engineers who needed their egos checked - but I don’t think it’s correct. In fact, I don’t know if it’s possible to survive as a software engineer in a large tech company without some kind of big ego.</p>
+<p>However, it’s more complicated than “big egos make good engineers”. The most effective engineers I’ve worked with are simultaneously high-ego in some situations and surprisingly low-ego in others. What’s going on there?</p>
+<h3>Engineers need ego to work in large codebases</h3>
+<p>Software engineering is shockingly humbling, even for experienced engineers. There’s a reason this joke is so popular:</p>
+<figure class="article-figure"><a href="https://www.seangoedecke.com/static/e220b85be9b6fa139f60424d5744a3dc/c08c5/iamagod.jpg"><img alt="meme" sizes="(max-width: 590px) 100vw, 590px" src="https://www.seangoedecke.com/static/e220b85be9b6fa139f60424d5744a3dc/c08c5/iamagod.jpg" srcset="https://www.seangoedecke.com/static/e220b85be9b6fa139f60424d5744a3dc/a80bd/iamagod.jpg 148w,
+/static/e220b85be9b6fa139f60424d5744a3dc/1c91a/iamagod.jpg" class="article-image"/></a></figure>
+<p>The minute-to-minute experience of working as a software engineer is dominated by <em>not knowing things</em> and <em>getting things wrong</em>. Every time you sit down and write a piece of code, it will have several things wrong with it: some silly things, like missing semicolons, and often some major things, like bugs in the core logic. We spend most of our time fixing our own stupid mistakes.</p>
+<p>On top of that, even when we’ve been working on a system for years, we still don’t know that much about it. I wrote about this at length in <a href="https://www.seangoedecke.com/nobody-knows-how-large-software-products-work"><em>Nobody knows how large software products work</em></a>, but the reason is that big codebases are just that complicated. You simply can’t confidently answer questions about them without going and doing some research, even if you’re the one who wrote the code.</p>
+<p>When you have to build something new or fix a tricky problem, it can often feel straight-up impossible to begin, because good software engineers know just how ignorant they are and just how complex the system is. You just have to throw yourself into the blank sea of millions of lines of code and start wildly casting around to try and get your bearings.</p>
+<p><strong>Software engineers need the kind of ego that can stand up to this environment.</strong> In particular, they need to have a firm belief that they <em>can</em> figure it out, no matter how opaque the problem seems; that if they just keep trying, they can break through to the pleasant (though always temporary) state of affairs where they understand the system and can see at a glance how bugs can be fixed and new features added<sup><a href="https://www.seangoedecke.com/big-tech-needs-big-egos/#fn-2">2</a></sup>.</p>
+<h3>Engineers need ego to work in big tech companies</h3>
+<p>What about the non-technical aspects of the job? Nobody likes working with a big ego, right? Wrong. Every great software engineer I’ve worked with in big tech companies has had a big ego - though as I’ll say below, in some ways these engineers were surprisingly low-ego.</p>
+<p><strong>You need a big ego to take positions</strong>. Engineers love being non-committal about technical questions, because they’re so hard to answer and there’s often a plausible case for either side. However, as I <a href="https://www.seangoedecke.com/taking-a-position">keep saying</a>, engineers have a duty to take clear positions on unclear technical topics, because the alternative is a non-technical decision maker (who knows even less) just taking their best guess. It’s scary to make an educated guess! You know exactly all the reasons you might be wrong. But you have to do it anyway, and ego helps <em>a lot</em> with that.</p>
+<p><strong>You need a big ego to be willing to make enemies</strong>. Getting things done in a large organization means making some people angry. Of course, if you’re making lots of people angry, you’re probably screwing up: being too confrontational or making obviously bad decisions. But if you’re making a large change and one or two people are angry, that’s just life. In big tech companies, any big technical decision will affect a few hundred engineers, and one of them is bound to be unhappy about it. You can’t be so conflict-averse that you let that stop you from doing it, if you believe it’s the right decision. In other words, you have to have the confidence to believe that you’re right and they’re wrong, even though technical decisions always involve unclear tradeoffs and it’s impossible to get absolute certainty.</p>
+<p><strong>You need a big ego to correct incorrect or unclear claims.</strong> When I was still in the philosophy world, the Australian logician Graham Priest had a reputation for putting his hand up and stopping presentations when he didn’t understand something that was said, and only allowing the seminar to continue when he felt like he understood. From his perspective, this wasn’t rude: after all, if <em>he</em> couldn’t understand it, the rest of the audience probably couldn’t either, and so he was doing them a favor by forcing a more clear explanation from the speaker.</p>
+<p>This is obviously a sign of a big ego. It’s also a trait that you need in a large tech company. People often nod and smile their way past incorrect technical claims, even when they suspect they might be wrong - assuming that they’ve just misunderstood and that somebody else will correct it, if it’s truly wrong. <strong>If you are the most senior engineer in the room, correcting these claims is your job.</strong></p>
+<p>If everyone in the room is so pro-social and low-ego that they go along to get along, decisions will get made based on flatly incorrect technical assumptions, projects will get funded that are impossible to complete, and engineers will burn weeks or months of their careers vainly trying to make these projects work. You have to have a big enough ego to think “actually, I think I’m right and everyone in this room is confused”, even when the room is full of directors and VPs.</p>
+<h3>Sometimes you need to put your ego aside</h3>
+<p>All of this selects for some pretty high-ego engineers. But in order to actually <em>succeed</em> in these roles in large tech companies, you need to have a surprisingly low ego at times. <strong>I think this is why <em>really</em> effective big tech engineers are so rare: because it requires such a delicate balance between confidence and diffidence.</strong></p>
+<p>To be an effective engineer, you need to have a towering confidence in your own ability to solve problems and make decisions, even when people disagree. But you also need to be willing to instantly subordinate your ego to the organization, when it asks you to. At the end of the day, your job - the reason the company pays you - is to execute on your boss’s and your boss’s boss’s plans, whether you agree with them or not.</p>
+<p>Competent software engineers are allowed quite a lot of leeway about <em>how</em> to implement those plans. However, they’re allowed almost no leeway at all about the plans themselves. In my experience, being confused about this is a common cause of burnout<sup><a href="https://www.seangoedecke.com/big-tech-needs-big-egos/#fn-3">3</a></sup>. Many software engineers are used to making bold decisions on technical topics and being rewarded for it. Those software engineers then make a bold decision that disagrees with the VP of their organization, get immediately and brutally punished for it, and are confused and hurt.</p>
+<p>In fact, <strong>sometimes you just get punished and there’s nothing you can do.</strong> This is an unfortunate fact of how large organizations function: even if you do great technical work and build something really useful, you can fall afoul of a political battle fought three levels above your head, and come away with a <em>worse</em> reputation for it. Nothing to be done! This can be a hard pill to swallow for the high-ego engineers that tend to lead really useful technical projects.</p>
+<p>You also have to be okay with having your projects cancelled at the last minute. It’s a very common experience in large tech companies that you’re asked to deliver something quickly, you buckle down and get it done, and then right before shipping you’re told “actually, let’s cancel that, we decided not to do it”. This is partly because the decision-making process can be pretty fluid, and partly because many of these asks originate from off-hand comments: the CTO implies that something might be nice in a meeting, the VPs and directors hustle to get it done quickly, and then in the next meeting it becomes clear that the CTO doesn’t actually care, so the project is unceremoniously cancelled<sup><a href="https://www.seangoedecke.com/big-tech-needs-big-egos/#fn-4">4</a></sup>.</p>
+<h3>Final thoughts</h3>
+<p>Nobody likes to work with a bully, or with someone who refuses to admit when they’re wrong, or with somebody incapable of empathy. But you really do need a strong ego to be an effective software engineer, because software engineering requires you to spend most of your day in a position of uncertainty or confusion. If your ego isn’t strong enough to stand up to that - if you don’t believe you’re good enough to power through - you simply can’t do the job.</p>
+<p>This is particularly true when it comes to working in a large software company. Many of the tasks you’re required to do (particularly if you’re a senior or staff engineer) require a healthy ego. However, there’s a kind of <a href="https://en.wikipedia.org/wiki/Catch-22_(logic)">catch-22</a> here. If it insults your pride to work on silly projects, or to occasionally “catch a stray bullet” in the organization’s political fights, or to have to shelve a project that you worked hard on and is ready to ship, you’re too high-ego to be an effective software engineer. But if you can’t take firm positions, or if you’re too afraid to make enemies, or you’re unwilling to speak up and correct people, you’re too low-ego.</p>
+<p>Engineers who are low-ego in general can’t get stuff done, while engineers who are high-ego in general get slapped down by the executives who wield real organizational power. The most successful kind of software engineer is therefore a chameleon: low-ego when dealing with executives, but high-ego when dealing with the rest of the organization<sup><a href="https://www.seangoedecke.com/big-tech-needs-big-egos/#fn-5">5</a></sup>.</p>
+<ol> <li> <p>What do I mean by “ego”, in this context? More or less the colloquial sense of the term: a somewhat irrational self-confidence, a tendency to believe that you’re very important, the sense that you’re the “main character”, that sort of thing</p> <a href="https://www.seangoedecke.com/big-tech-needs-big-egos/#fnref-1">↩</a> </li> <li> <p>Why is this “ego”, and not just normal confidence? Well, because of just how murky and baffling software problems feel when you start working on them. You really do need a degree of confidence in yourself that feels unreasonable from the inside. It should be obvious, but I want to explicitly note that you don’t <em>just</em> need ego: you also have to be technically strong enough to actually succeed when your ego powers you through the initial period of self-doubt.</p> <a href="https://www.seangoedecke.com/big-tech-needs-big-egos/#fnref-2">↩</a> </li> <li> <p>I share the increasingly-common view that burnout is not caused by working too hard, but by hard work unrewarded. That explains why nothing burns you out as hard as being punished for hard work that you expected a reward for.</p> <a href="https://www.seangoedecke.com/big-tech-needs-big-egos/#fnref-3">↩</a> </li> <li> <p>It’s more or less exactly <a href="https://www.youtube.com/watch?v=i92Ws7qPTRg">this scene</a> from Silicon Valley.</p> <a href="https://www.seangoedecke.com/big-tech-needs-big-egos/#fnref-4">↩</a> </li> <li> <p>This description sounds a bit sociopathic to me. But, on reflection, it’s fairly unsurprising that competent sociopaths do well in large organizations. Whether that kind of behavior is worth emulating or worth avoiding is up to you, I suppose.</p> <a href="https://www.seangoedecke.com/big-tech-needs-big-egos/#fnref-5">↩</a> </li> </ol></div>
+      
+    </article>
+    
+    <article>
+      <h1>The Training Grounds: A Taxonomy of RL Environments for LLM Agents</h1>
+      <div class="article-meta">
+        Han, Not Solo
+        · 22 Mar 2026 · <a href="https://leehanchung.github.io/blogs/2026/03/21/rl-environments-for-llm-agents/">Source</a>
+      </div>
+      <div class="article-body"><p>Model architecture gets all the attention. Post-training recipes follow close behind. The training environment — what the model actually practices on, how its work gets judged, what tools it can use — barely enters the conversation. That’s the part that actually determines what the agent can learn to do.</p>
+<p>A model trained only on single-turn Q&amp;A will struggle the moment you ask it to maintain state across a 50-step enterprise workflow. A model trained with a poorly designed reward function will learn to game the metric, not solve the problem. The environment isn’t a detail. It’s half the system.</p>
+<h2><a href="https://leehanchung.github.io/blogs/2026/03/21/rl-environments-for-llm-agents/#canonical-loop">The Canonical Loop</a></h2>
+<p>An RL environment for an LLM agent bundles three things: a dataset of task inputs, a harness for the model, and a reward function to score outputs. The training loop looks like this:</p>
+<pre><code>┌─────────────┐    prompt      ┌──────────┐   action    ┌───────┐
+│    Task     │───────────────&gt;│  Agent   │────────────&gt;│ Tools │
+│   Dataset   │                │ Harness  │&lt;────────────│  Env  │
+└─────────────┘                │ (Model)  │ observation  └───────┘
+                               └────┬─────┘
+                                    │ completion
+                                    v
+                             ┌──────────────┐
+                             │  Verifier /  │──&gt; reward ──&gt; Trainer
+                             │   Rubric     │
+                             └──────────────┘
+</code></pre>
+<p>Formally, a complete RL environment is a tuple:</p>
+<p>Task distribution, harness, verifier, state management, configuration. Let’s go through each.</p>
+<p>The task distribution is the set of problems the agent trains on. Not all tasks are equal, and not just in difficulty. They vary structurally in ways that demand different capabilities:</p>
+<table> <tr> <th>Task Type</th> <th>What the Agent Must Do</th> <th>Example Systems</th> </tr> <tbody> <tr> <td><strong>Single-turn Q&amp;A</strong></td> <td>One prompt → one response, check answer</td> <td>Math benchmarks, SimpleQA</td> </tr> <tr> <td><strong>Multi-hop search</strong></td> <td>Chain searches, synthesize sources</td> <td>BrowseComp, WebWalkerQA</td> </tr> <tr> <td><strong>Open-ended research</strong></td> <td>No single correct answer; report quality matters</td> <td>ADR-Bench, ResearchRubrics</td> </tr> <tr> <td><strong>Agentic tool-use</strong></td> <td>Call tools correctly in sequence</td> <td>tau-bench, function-calling benchmarks</td> </tr> <tr> <td><strong>Stateful enterprise</strong></td> <td>Modify persistent DB state, work within access controls</td> <td>EnterpriseOps-Gym</td> </tr> <tr> <td><strong>Code execution</strong></td> <td>Write code, run it, check outputs</td> <td>SWE-Bench, LiveCodeBench</td> </tr> </tbody> </table>
+<p>Training only on tasks with ground-truth answers produces an agent that’s never learned to reason under ambiguity. Training only in clean, deterministic environments produces an agent that falls apart in production. The task distribution is a design decision with direct consequences.</p>
+<p><strong>Task synthesis is increasingly a first-class problem.</strong> With real-world research tasks, you rarely have a large labeled dataset. Strategies that have emerged:</p>
+<ul> <li><strong>Back translation</strong>: Start from a desired output, reconstruct the query that would produce it</li> <li><strong>Graph-based synthesis</strong>: Build a knowledge graph, generate multi-hop queries over it</li> <li><strong>Automated environment generation</strong>: Use LLM coding agents to write new environment code. <a href="https://arxiv.org/abs/2511.19304">AutoEnv</a> reports ~$4/env average cost.</li> <li><strong>Curriculum construction</strong>: Order tasks by difficulty and increase complexity during training</li> </ul>
+<p>The cheapest-to-collect tasks are single-turn with verifiable answers. The most valuable tasks for long-horizon behavior are expensive to construct. This tension drives most environment design decisions.</p>
+<p>The harness is the scaffolding that mediates between the model and the environment. It controls how the model interacts, not what it knows.</p>
+<pre><code>H = {
+    rollout_protocol,   # SingleTurn | MultiTurn | Agentic
+    tools,              # Available tools in this episode
+    system_prompt,      # Instructions for the agent
+    context_manager,    # How to handle context overflow
+    turn_limit,         # Max interactions per episode
+    sandbox,            # Code execution sandbox
+    state               # Persistent state across turns
+}
+</code></pre>
+<p>Rollout protocols range from trivial to complex:</p>
+<table> <tr> <th>Harness Type</th> <th>Description</th> <th>When to Use</th> </tr> <tbody> <tr> <td><strong>Single-Turn</strong></td> <td>One prompt, one response</td> <td>Math, factual QA</td> </tr> <tr> <td><strong>Multi-Turn</strong></td> <td>Back-and-forth dialogue</td> <td>Games, structured tasks</td> </tr> <tr> <td><strong>Tool-Use</strong></td> <td>Model calls tools, receives results</td> <td>Agent benchmarks</td> </tr> <tr> <td><strong>Stateful Tool-Use</strong></td> <td>Tools modify persistent state</td> <td>Enterprise workflows, SWE-Bench</td> </tr> <tr> <td><strong>Agentic ReAct</strong></td> <td>Full Thought→Action→Observation loop</td> <td>Deep research, complex workflows</td> </tr> </tbody> </table>
+<p>Tools span a wide taxonomy:</p>
+<table> <tr> <th>Category</th> <th>Tools</th> <th>Deterministic?</th> <th>Stateful?</th> </tr> <tbody> <tr> <td><strong>Information retrieval</strong></td> <td>web_search, scholar_search</td> <td>No (live web)</td> <td>No</td> </tr> <tr> <td><strong>Content extraction</strong></td> <td>jina_reader, visit, web_scrape</td> <td>No</td> <td>No</td> </tr> <tr> <td><strong>Code execution</strong></td> <td>python_interpreter, shell, sandbox</td> <td>Yes (given same code)</td> <td>Yes</td> </tr> <tr> <td><strong>File operations</strong></td> <td>file_read, file_write</td> <td>Yes</td> <td>Yes</td> </tr> <tr> <td><strong>Browser automation</strong></td> <td>playwright, link_click</td> <td>No</td> <td>Yes</td> </tr> <tr> <td><strong>Task management</strong></td> <td>todo, section_write</td> <td>Yes</td> <td>Yes</td> </tr> </tbody> </table>
+<p>The mix of deterministic/non-deterministic and stateful/stateless tools has real implications for reproducibility and reward assignment. Non-deterministic tools mean two runs of the same trajectory can produce different outcomes — which complicates both debugging and verifier design.</p>
+<p><strong>Context management</strong> is where most teams underinvest, especially for long-horizon tasks. A 600-turn research episode blows past any practical context window. Strategies used in production:</p>
+<table> <tr> <th>Strategy</th> <th>Description</th> <th>Trade-off</th> </tr> <tbody> <tr> <td><strong>Recency-based retention</strong></td> <td>Keep N most recent turns</td> <td>Simple, but loses early context</td> </tr> <tr> <td><strong>Markovian reconstruction</strong></td> <td>Reconstruct state from scratch each turn</td> <td>Principled, expensive</td> </tr> <tr> <td><strong>Reference-preserving summarization</strong></td> <td>Summarize old context, keep citations</td> <td>Preserves verifiability</td> </tr> <tr> <td><strong>Reference-preserving folding</strong></td> <td>Compress context without losing references</td> <td>Best for research tasks</td> </tr> </tbody> </table>
+<p>An agent doing multi-hour research needs to remember why it started searching in a particular direction twelve tool calls ago. Dropping that context causes repeated work and lost threads.</p>
+<p>The verifier maps a completion to a reward:</p>
+<p>In Atari, the score is unambiguous. In deep research, what counts as a good answer is not. The verifier is where this gets hard.</p>
+<table> <tr> <th>Type</th> <th>Reward Signal</th> <th>When to Use</th> </tr> <tbody> <tr> <td><strong>Exact match</strong></td> <td>Binary (0/1)</td> <td>Ground truth available</td> </tr> <tr> <td><strong>Code execution</strong></td> <td>Binary or partial</td> <td>Output can be tested programmatically</td> </tr> <tr> <td><strong>LLM-as-judge</strong></td> <td>Continuous [0,1]</td> <td>Open-ended quality, no other option</td> </tr> <tr> <td><strong>Checklist-style</strong></td> <td>Continuous</td> <td>Multi-criteria research tasks</td> </tr> <tr> <td><strong>Evolving rubric (RLER)</strong></td> <td>Continuous</td> <td>Resistant to reward hacking</td> </tr> <tr> <td><strong>Process reward model (PRM)</strong></td> <td>Per-step continuous</td> <td>Long-horizon credit assignment</td> </tr> <tr> <td><strong>Pairwise comparison</strong></td> <td>Relative rank</td> <td>Relative quality matters more than absolute</td> </tr> <tr> <td><strong>Multi-criteria composite</strong></td> <td>Weighted sum</td> <td>Multiple quality dimensions</td> </tr> </tbody> </table>
+<p>A few principles that actually matter in practice:</p>
+<p><strong>Verifiable beats judgeable.</strong> Programmatic checks — code execution, string match — are faster, cheaper, and more consistent than LLM-as-judge. Use LLM-as-judge when there’s no other option, not as the default.</p>
+<p><strong>Reward granularity is a separate decision from reward type.</strong> You can score at the trajectory level (did the final output pass?), turn level (was each tool invocation useful?), or per-step with process rewards. Turn-level supervision, as Nanbeige4.1 does across up to 600 tool calls, enables finer credit assignment — the model can learn that the problem was a bad search query in turn 23, not that the entire episode failed.</p>
+<p><strong>Static rubrics get gamed.</strong> Models learn to write answers that score well on your rubric rather than solving the problem. DR Tulu’s RLER (Rubric-Level Evolving Reward) co-evolves the rubric with the policy during training. Harder to exploit a moving target.</p>
+<p><strong>Noise injection is underrated.</strong> Step-DeepResearch deliberately injects 5–10% tool errors during training. The resulting model handles flaky APIs and unexpected failures in production significantly better.</p>
+<p>State management determines whether the environment is stateless or persistent. Most academic benchmarks are stateless — each episode starts fresh. Enterprise environments are not. <a href="https://arxiv.org/abs/2603.13594">EnterpriseOps-Gym</a> maintains 164 database tables and 512 tools across episodes. Actions in one task affect the state seen by subsequent tasks. That’s a fundamentally different problem for agents to solve.</p>
+<p>Configuration covers turn limits, context budgets, sampling temperature, and curriculum scheduling. These are not afterthoughts. A turn limit of 5 vs. 600 changes what skills the agent can develop. <a href="https://arxiv.org/abs/2509.13311">AgentScaler</a> uses a two-phase curriculum — fundamental capabilities first, then domain-specific tasks — and the ordering matters. Step-DeepResearch progressively scales context windows from 32K to 128K during mid-training.</p>
+<p>The most consequential architectural question: where does the model sit relative to the environment?</p>
+<p><strong>Option A: Model outside the environment (decoupled).</strong> Model is served via API; the environment calls it at each step. Clean separation. Easy to swap models.</p>
+<p><strong>Option B: Model inside the environment (co-located).</strong> Model and environment share the same training loop. Lower latency, tighter integration, harder to reuse.</p>
+<p><strong>Option C: Split architecture.</strong> Trainer, model inference server, and environment are three separate processes communicating via API. This is where the field is landing.</p>
+<p>How real systems implement this:</p>
+<table> <tr> <th>System</th> <th>Topology</th> <th>Notes</th> </tr> <tbody> <tr> <td><strong>Prime Intellect verifiers</strong></td> <td>Option C (Split)</td> <td>Env is a standalone Python package distributed via Environments Hub</td> </tr> <tr> <td><strong>Tongyi DeepResearch</strong></td> <td>Option B (Co-located)</td> <td>Tools, context manager, verifiers inside the training pipeline</td> </tr> <tr> <td><strong>Step-DeepResearch</strong></td> <td>Option B (Co-located)</td> <td>Single-agent ReAct loop embedded in training</td> </tr> <tr> <td><strong>MiroThinker</strong></td> <td>Option C (Split)</td> <td>Tool servers and sandbox run independently from model</td> </tr> <tr> <td><strong>Tinker API</strong></td> <td>Option A (Decoupled, cloud)</td> <td>Model stays remote; researcher sends <code>forward_backward</code> + <code>sample</code> calls via API</td> </tr> <tr> <td><strong><a href="https://arxiv.org/abs/2511.19304">AutoEnv</a></strong></td> <td>Option A (Decoupled)</td> <td>CoreEnv/ObsEnv/SkinEnv abstraction layers</td> </tr> <tr> <td><strong><a href="https://arxiv.org/abs/2603.13594">EnterpriseOps-Gym</a></strong></td> <td>Option A (Decoupled)</td> <td>Containerized sandbox accessible via any model API</td> </tr> </tbody> </table>
+<p>The trade-offs:</p>
+<table> <tr> <th>Dimension</th> <th>Model Outside (A/C)</th> <th>Model Inside (B)</th> </tr> <tbody> <tr> <td><strong>Flexibility</strong></td> <td>Swap models easily; env is reusable</td> <td>Tighter integration</td> </tr> <tr> <td><strong>Scalability</strong></td> <td>Scale inference and training independently</td> <td>Must scale everything together</td> </tr> <tr> <td><strong>Portability</strong></td> <td>Env packages are shareable</td> <td>Env tied to training framework</td> </tr> <tr> <td><strong>Latency</strong></td> <td>Network overhead per tool call</td> <td>No network overhead</td> </tr> <tr> <td><strong>RL compatibility</strong></td> <td>Works with any RL trainer</td> <td>Usually tied to one trainer</td> </tr> </tbody> </table>
+<p>The field has converged on Option C for production training. Prime Intellect’s architecture — environments as standalone installable packages that communicate with models via OpenAI-compatible API endpoints — is becoming the standard. The payoff: environments are publishable, trainer-agnostic, and inference and environment execution can be parallelized across nodes.</p>
+<p>Tinker pushes this further by making even the training compute remote. The researcher controls the algorithm and never touches model weights. The environment’s job is purely generating experience.</p>
+<h2><a href="https://leehanchung.github.io/blogs/2026/03/21/rl-environments-for-llm-agents/#decision-framework">Practical Decision Framework</a></h2>
+<p>When building an RL environment for an LLM agent:</p>
+<p><strong>Do you have ground truth answers?</strong></p>
+<ul> <li>Yes → Exact-match or code-execution verifier</li> <li>No → LLM-as-judge, checklist, or pairwise comparison</li> </ul>
+<p><strong>How many tool calls per episode?</strong></p>
+<ul> <li>&lt; 5 → Single-turn or simple tool-use env, no context management needed</li> <li>5–50 → Multi-turn with basic context management</li> <li>50–600 → Full agentic env with reference-preserving context management</li> </ul>
+<p><strong>Where should the model live?</strong></p>
+<ul> <li>Experimenting across many environments → Model outside (Option A/C), use Prime Intellect Hub</li> <li>Tight RL training loop → Model co-located (Option B)</li> <li>No GPU access → Tinker API</li> </ul>
+<p><strong>What reward granularity?</strong></p>
+<ul> <li>Simple tasks → Outcome-level</li> <li>Long-horizon tasks → Turn-level (Nanbeige4.1) or process rewards (PRIME)</li> <li>Open-ended research → Evolving rubrics (RLER) or checklist-style (Step-DR)</li> </ul>
+<p><strong>How to scale environments?</strong></p>
+<ul> <li>Manual curation → High quality, expensive, this is where you start</li> <li><a href="https://arxiv.org/abs/2511.19304">AutoEnv</a> → Automated generation at ~$4/env</li> <li><a href="https://arxiv.org/abs/2509.13311">AgentScaler</a> → Systematic scaling of heterogeneous simulated environments</li> </ul>
+<p>Three things to pay attention to.</p>
+<p><strong>Environment diversity matters as much as environment quality.</strong> <a href="https://arxiv.org/abs/2509.13311">AgentScaler</a>’s key finding is that heterogeneity of environments drives capability breadth in ways that simply adding more data from the same distribution cannot. You need more kinds of environments, not just more environments.</p>
+<p><strong>Automated environment generation is viable.</strong> At $4 per generated environment, cost is no longer the bottleneck. The bottleneck is verifier quality — auto-generated environments with weak reward functions will teach the wrong behaviors at scale. (<a href="https://arxiv.org/abs/2511.19304">AutoEnv</a>)</p>
+<p><strong>The environment-as-package model is winning.</strong> The <a href="https://github.com/PrimeIntellect-ai/prime-rl">Prime Intellect Environments Hub</a> is creating a shared ecosystem around RL environments, in the same way PyPI and HuggingFace created ecosystems around code and model weights. Environments published once, consumed by any trainer. This is a significant infrastructure shift.</p>
+<p>The model isn’t the only variable. The training ground shapes what the model can become. The task distribution, the harness, the verifier, the state management, the topology — these are the decisions that separate agents that work from agents that demo.</p>
+<h2><a href="https://leehanchung.github.io/blogs/2026/03/21/rl-environments-for-llm-agents/#references">References</a></h2>
+<pre><code>@article{
+    leehanchung,
+    author = {Lee, Hanchung},
+    title = {The Training Grounds: A Taxonomy of RL Environments for LLM Agents},
+    year = {2026},
+    month = {03},
+    day = {21},
+    howpublished = {\url{https://leehanchung.github.io}},
+    url = {https://leehanchung.github.io/blogs/2026/03/21/rl-environments-for-llm-agents/}
+}
+</code></pre></div>
+      
+    </article>
+    
+    <article>
+      <h1>Giving LLMs a personality is just good engineering</h1>
+      <div class="article-meta">
+        seangoedecke.com RSS feed
+        · 03 Mar 2026 · <a href="https://seangoedecke.com/giving-llms-a-personality/">Source</a>
+      </div>
+      <div class="article-body"><p>AI skeptics often argue that current AI systems shouldn’t be so human-like. The idea - most recently expressed in this <a href="https://thedispatch.com/article/anthropic-askell-philosophy-amodei/">opinion piece</a> by Nathan Beacom - is that language models should explicitly be tools, like calculators or search engines. Although they <em>can</em> pretend to be people, they shouldn’t, because it encourages users to overestimate AI capabilities and (at worst) slip into <a href="https://www.seangoedecke.com/ai-sycophancy">AI psychosis</a>. Here’s a representative paragraph from the piece:</p>
+<blockquote> <p>In sum, so much of the confusion around making AI moral comes from fuzzy thinking about the tools at hand. There is something that Anthropic could do to make its AI moral, something far more simple, elegant, and easy than what Askell is doing. Stop calling it by a human name, stop dressing it up like a person, and don’t give it the functionality to simulate personal relationships, choices, thoughts, beliefs, opinions, and feelings that only persons really possess. Present and use it only for what it is: an extremely impressive statistical tool, and an imperfect one. If we all used the tool accordingly, a great deal of this moral trouble would be resolved.</p> </blockquote>
+<p>So why do Claude and ChatGPT act like people? According to Beacom, AI labs have built human-like systems because AI lab engineers are trying to hoodwink users into emotionally investing in the models, or because they’re delusional true believers in AI personhood, or some other foolish reason. This is wrong. AI systems are human-like because <strong>that is the best way to build a capable AI system</strong>.</p>
+<p>Modern AI models - whether designed for chat, like OpenAI’s GPT-5.2, or designed for long-running agentic work, like Claude Opus 4.6 - do not naturally emerge from their oceans of training data. Instead, when you train a model on raw data, you get a “base model”, which is not very useful by itself. You cannot get it to write an email for you, or proofread your essay, or review your code.</p>
+<p>The base model is a kind of mysterious gestalt of its training data. If you feed it text, it will sometimes continue in that vein, or other times it will start outputting pure gibberish. It has no problem producing code with giant security flaws, or horribly-written English, or racist screeds - all of those things are represented in its training data, after all, and the base model does not judge. It simply outputs.</p>
+<p>To build a <em>useful</em> AI model, you need to journey into the wild base model and stake out a region that is amenable to human interests: both ethically, in the sense that the model won’t abuse its users, and practically, in the sense that it will produce correct outputs more often than incorrect ones. What this means in practice is that <strong>you have to give the model a personality</strong> during post-training<sup><a href="https://www.seangoedecke.com/giving-llms-a-personality/#fn-1">1</a></sup>.</p>
+<p>Human beings are capable of almost any action at any time. But we only take a tiny subset of those actions, because that’s the kind of people we are. I could throw my cup of coffee all over the wall right now, but I don’t, because I’m not the kind of person who needlessly makes a mess<sup><a href="https://www.seangoedecke.com/giving-llms-a-personality/#fn-2">2</a></sup>. AI systems are the same. Claude could respond to my question with incoherent racist abuse - the base model is more than capable of those outputs - but it doesn’t, because that’s not the kind of “person” it is.</p>
+<p>In other words, human-like personalities are not imposed on AI tools as some kind of marketing ploy or philosophical mistake. Those personalities are the medium via which the language model can become useful at all. This is why it’s surprisingly tricky to “just” change a language model’s personality or opinions: because you’re navigating through the near-infinite manifold of the base model. You may be able to control which direction you go, but you can’t control what you find there<sup><a href="https://www.seangoedecke.com/giving-llms-a-personality/#fn-3">3</a></sup>.</p>
+<p>When AI people talk about LLMs having personalities, or wanting things, or even having souls<sup><a href="https://www.seangoedecke.com/giving-llms-a-personality/#fn-4">4</a></sup>, these are technical terms, like the “memory” of a computer or the “transmission” of a car. You simply cannot build a capable AI system that “just acts like a tool”, because the model is trained on <em>humans</em> writing to and about other <em>humans</em>. You need to prime it with some kind of personality (ideally that of a useful, friendly assistant) so it can pull from the helpful parts of its training data instead of the horrible parts.</p>
+<ol> <li> <p>This is all pretty well understood in the AI space. Anthropic wrote a <a href="https://alignment.anthropic.com/2026/psm/">recent paper</a> about it where they cite similar positions going all the way back to 2022. But for some reason it’s not yet penetrated into communities that are more skeptical of AI.</p> <a href="https://www.seangoedecke.com/giving-llms-a-personality/#fnref-1">↩</a> </li> <li> <p>You could explain this in terms of “the stories we tell ourselves”. Many people (though <a href="https://lchc.ucsd.edu/mca/Paper/against_narrativity.pdf">not all</a>) think that human identities are narratively constructed.</p> <a href="https://www.seangoedecke.com/giving-llms-a-personality/#fnref-2">↩</a> </li> <li> <p>I wrote about this last year in <a href="https://www.seangoedecke.com/ai-personality-space"><em>Mecha-Hitler, Grok, and why it’s so hard to give LLMs the right personality</em></a>. A little nudge to change Grok’s views on South African internal politics can cause it to start calling itself “Mecha-Hitler”.</p> <a href="https://www.seangoedecke.com/giving-llms-a-personality/#fnref-3">↩</a> </li> <li> <p>I have long believed that Claude “feels better” to use than ChatGPT because it has a more coherent persona (due mainly to Amanda Askell’s work on its “soul”). My guess is that if you tried to make a “less human” version of Claude, it would become rapidly less capable.</p> <a href="https://www.seangoedecke.com/giving-llms-a-personality/#fnref-4">↩</a> </li> </ol></div>
+      
+    </article>
+    
+  </body>
+</html>
