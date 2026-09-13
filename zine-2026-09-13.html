@@ -1,0 +1,468 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Fred Talks - 2026-09-13</title>
+    <style>
+      @page {
+        size: A5;
+        margin: 8mm 9mm 9mm;
+      }
+
+      :root {
+        color: #111;
+        font-family: "Times New Roman", Times, serif;
+        --body-text-size: 9.5pt;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        color: #111;
+        background: #fff;
+        font-family: "Times New Roman", Times, serif;
+        line-height: 1.45;
+      }
+
+      a,
+      a:visited {
+        color: #111;
+        text-decoration: underline;
+      }
+
+      .cover {
+        min-height: calc(210mm - 17mm);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        page-break-after: always;
+        border: 1px solid #111;
+        padding: 8mm;
+        background: #fff;
+      }
+
+      .toc-item-meta,
+      .article-meta {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .masthead {
+        margin: 0;
+        font-size: 40pt;
+        line-height: 0.95;
+        text-transform: uppercase;
+      }
+
+      .issue-date {
+        margin: 4mm 0 0;
+        font-size: 14pt;
+      }
+
+      .issue-date sup {
+        font-size: 0.58em;
+        vertical-align: super;
+        line-height: 0;
+      }
+
+      .cover-deck {
+        max-width: 90mm;
+        font-size: 12pt;
+        margin: 0;
+      }
+
+      .toc {
+        border-top: 3px solid #111;
+        padding-top: 6mm;
+      }
+
+      .toc h2 {
+        margin: 0 0 4mm;
+        font-size: 11pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .toc-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .toc-item {
+        padding: 3mm 0;
+        border-bottom: 1px solid rgba(17, 17, 17, 0.2);
+      }
+
+      .toc-item-title {
+        font-size: 12pt;
+        margin: 0 0 1mm;
+      }
+
+      .toc-item-meta {
+        font-size: 8pt;
+      }
+
+      .masthead-compact {
+        margin: 0 0 6mm;
+      }
+
+      .masthead-compact h1 {
+        margin: 0;
+        font-size: 22pt;
+        line-height: 1.1;
+        text-transform: uppercase;
+      }
+
+      .masthead-compact .issue-date {
+        margin: 2mm 0 0;
+        font-size: 11pt;
+      }
+
+      .toc-compact {
+        border-top: 1px solid #111;
+        border-bottom: 1px solid #111;
+        padding: 4mm 0;
+        margin: 0 0 8mm;
+      }
+
+      article + article {
+        margin-top: 10mm;
+        padding-top: 6mm;
+        border-top: 2px solid #111;
+      }
+
+      h1 {
+        margin: 0 0 2mm;
+        font-size: 18pt;
+        line-height: 1.1;
+      }
+
+      .article-meta {
+        font-size: 8.5pt;
+        margin-bottom: 6mm;
+        padding-bottom: 3mm;
+        border-bottom: 1px solid #111;
+      }
+
+      .article-body {
+        font-size: var(--body-text-size);
+        font-family: "Times New Roman", Times, serif;
+      }
+
+      .article-body p,
+      .article-body li,
+      .article-body blockquote,
+      .article-body dd,
+      .article-body dt {
+        margin: 0 0 4mm;
+        orphans: 3;
+        widows: 3;
+      }
+
+      .article-body ul,
+      .article-body ol,
+      .article-body dl {
+        margin: 0 0 4mm 5mm;
+        padding: 0;
+      }
+
+      .article-body h2,
+      .article-body h3,
+      .article-body h4 {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        margin: 7mm 0 3mm;
+        line-height: 1.2;
+      }
+
+      .article-body blockquote {
+        margin-left: 6mm;
+        padding-left: 4mm;
+        border-left: 2px solid #111;
+      }
+
+      .article-body .media-omitted {
+        margin: 0 0 4mm;
+        font-size: 8.5pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(17, 17, 17, 0.65);
+      }
+
+      .article-body figure,
+      .article-body .article-figure,
+      .article-body picture,
+      .article-body .article-picture {
+        display: block;
+        max-width: 72mm;
+        margin: 0 auto 4mm;
+        break-inside: avoid;
+      }
+
+      .article-body img,
+      .article-body .article-image {
+        display: block;
+        max-width: min(100%, 72mm);
+        max-height: 34mm;
+        height: auto;
+        width: auto;
+        object-fit: contain;
+        margin: 0 auto 3mm;
+      }
+
+      .article-body figcaption {
+        margin-top: 1.5mm;
+        font-size: 8.5pt;
+        line-height: 1.3;
+        color: rgba(17, 17, 17, 0.8);
+      }
+
+      .article-note {
+        margin-top: 6mm;
+        padding-top: 3mm;
+        border-top: 1px solid #111;
+        font-size: 9pt;
+        font-style: italic;
+      }
+
+      @media screen {
+        body {
+          padding: 2rem;
+          margin: 0 auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    
+    <header class="masthead-compact">
+      <h1>Fred Talks</h1>
+      <p class="issue-date">
+        13<sup>th</sup> September 2026
+      </p>
+    </header>
+
+    <nav class="toc toc-compact">
+      <h2>Contents</h2>
+      <ol class="toc-list">
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Every layer of review makes you 10x slower</div>
+          <div class="toc-item-meta">
+            Avery Pennarun · 2841 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">An Uncomplicated Man</div>
+          <div class="toc-item-meta">
+            Emily Wilson · 4163 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">The Reverse Information Paradox</div>
+          <div class="toc-item-meta">
+            sn scratchpad · 819 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Control the ideas, not the code</div>
+          <div class="toc-item-meta">
+            antirez.com · 1245 words
+          </div>
+        </li>
+        
+      </ol>
+    </nav>
+    
+
+    
+    <article>
+      <h1>Every layer of review makes you 10x slower</h1>
+      <div class="article-meta">
+        Avery Pennarun
+        · 26 Mar 2026 · <a href="https://apenwarr.ca/log/20260316">Source</a>
+      </div>
+      <div class="article-body"><h2><a>2026-03-16 </a><a href="https://apenwarr.ca/log/20260316/20260316">»</a></h2>
+<p><b>Every layer of review makes you 10x slower</b></p>
+<p>We’ve all heard of those network effect laws: the value of a network goes up with the square of the number of members. Or the cost of communication goes up with the square of the number of members, or maybe it was n log n, or something like that, depending how you arrange the members. Anyway doubling a team doesn't double its speed; there’s coordination overhead. Exactly how much overhead depends on how badly you botch the org design.</p>
+<p>But there’s one rule of thumb that someone showed me decades ago, that has stuck with me ever since, because of how annoyingly true it is. The rule is annoying because it doesn’t <em>seem</em> like it should be true. There’s no theoretical basis for this claim that I’ve ever heard. And yet, every time I look for it, there it is.</p>
+<p>Here we go:</p>
+<p><b><strong>Every layer of approval makes a process 10x slower</strong></b></p>
+<p>I know what you're thinking. Come on, 10x? That’s a lot. It’s unfathomable. Surely we’re exaggerating.</p>
+<p>Nope.</p>
+<p>Just to be clear, we're counting “wall clock time” here rather than effort. Almost all the extra time is spent sitting and waiting.</p>
+<p>Look:</p>
+<ul> <li> <p>Code a simple bug fix<br/> 30 minutes</p> </li> <li> <p>Get it code reviewed by the peer next to you<br/> 300 minutes → 5 hours → half a day</p> </li> <li> <p>Get a design doc approved by your architects team first<br/> 50 hours → about a week</p> </li> <li> <p>Get it on some other team’s calendar to do all that<br/> (for example, if a customer requests a feature)<br/> 500 hours → 12 weeks → one fiscal quarter</p> </li> </ul>
+<p>I wish I could tell you that the next step up — 10 quarters or about 2.5 years — was too crazy to contemplate, but no. That’s the life of an executive sitting above a medium-sized team; I bump into it all the time even at a relatively small company like Tailscale if I want to change product direction. (And execs sitting above large teams can’t actually do work of their own at all. That's another story.)</p>
+<p><b><strong>AI can’t fix this</strong></b></p>
+<p>First of all, this isn’t a post about AI, because AI’s direct impact on this problem is minimal. Okay, so Claude can code it in 3 minutes instead of 30? That’s super, Claude, great work.</p>
+<p>Now you either get to spend 27 minutes reviewing the code yourself in a back-and-forth loop with the AI (this is actually kinda fun); or you save 27 minutes and submit unverified code to the code reviewer, who will still take 5 hours like before, but who will now be mad that you’re making them read the slop that you were too lazy to read yourself. Little of value was gained.</p>
+<p>Now now, you say, that’s not the value of agentic coding. You don’t use an agent on a 30-minute fix. You use it on a monstrosity week-long project that you and Claude can now do in a couple of hours! Now we’re talking. Except no, because the monstrosity is so big that your reviewer will be extra mad that you didn’t read it yourself, and it’s too big to review in one chunk so you have to slice it into new bite-sized chunks, each with a 5-hour review cycle. And there’s no design doc so there’s no intentional architecture, so eventually someone’s going to push back on that and here we go with the design doc review meeting, and now your monstrosity week-long project that you did in two hours is... oh. A week, again.</p>
+<p>I guess I could have called this post Systems Design 4 (or 5, or whatever I’m up to now, who knows, I’m writing this on a plane with no wifi) because yeah, you guessed it. It's Systems Design time again.</p>
+<p><b>The only way to sustainably go faster is fewer reviews</b></p>
+<p>It’s funny, everyone has been predicting the Singularity for decades now. The premise is we build systems that are so smart that they themselves can build the next system that is even smarter, that builds the next smarter one, and so on, and once we get that started, if they keep getting smarter faster enough, then the incremental time (t) to achieve a unit (u) of improvement goes to zero, so (u/t) goes to infinity and foom.</p>
+<p>Anyway, I have never believed in this theory for the simple reason we outlined above: the majority of time needed to get anything done is not actually the time doing it. It’s wall clock time. Waiting. Latency.</p>
+<p>And <a href="https://apenwarr.ca/log/20230415">you can’t overcome latency with brute force</a>.</p>
+<p>I know you want to. I know many of you now work at companies where the business model kinda depends on doing exactly that.</p>
+<p>Sorry.</p>
+<p><b>But you can’t just <em>not review</em> things!</b></p>
+<p>Ah, well, no, actually yeah. You really can’t.</p>
+<p>There are now many people who have seen the symptom: the start of the pipeline (AI generated code) is so much faster, but all the subsequent stages (reviews) are too slow! And so they intuit the obvious solution: stop reviewing then!</p>
+<p>The result might be slop, but if the slop is 100x cheaper, then it only needs to deliver 1% of the value per unit and it's still a fair trade. And if your value per unit is even a mere 2% of what it used to be, you’ve doubled your returns! Amazing.</p>
+<p>There are some pretty dumb assumptions underlying that theory; you can imagine them for yourself. Suffice it to say that this produces what I will call the AI Developer’s Descent Into Madness:</p>
+<ol> <li> <p>Whoa, I produced this prototype so fast! I have super powers!</p> </li> <li> <p>This prototype is getting buggy. I’ll tell the AI to fix the bugs.</p> </li> <li> <p>Hmm, every change now causes as many new bugs as it fixes.</p> </li> <li> <p>Aha! But if I have an AI agent also review the code, it can find its own bugs!</p> </li> <li> <p>Wait, why am I personally passing data back and forth between agents</p> </li> <li> <p>I need an agent framework</p> </li> <li> <p>I can have my agent write an agent framework!</p> </li> <li> <p>Return to step 1</p> </li> </ol>
+<p>It’s actually alarming how many friends and respected peers I’ve lost to this cycle already. Claude Code only got good maybe a few months ago, so this only recenlty started happening, so I assume they will emerge from the spiral eventually. I mean, I hope they will. We have no way of knowing.</p>
+<p><b>Why we review</b></p>
+<p>Anyway we know our symptom: the pipeline gets jammed up because of too much new code spewed into it at step 1. But what's the root cause of the clog? Why doesn’t the pipeline go faster?</p>
+<p>I said above that this isn’t an article about AI. Clearly I’m failing at that so far, but let’s bring it back to humans. It goes back to the annoyingly true observation I started with: every layer of review is 10x slower. As a society, we know this. Maybe you haven't seen it before now. But trust me: people who do org design for a living know that layers are expensive... and they still do it.</p>
+<p>As companies grow, they all end up with more and more layers of collaboration, review, and management. Why? Because otherwise mistakes get made, and mistakes are increasingly expensive at scale. The average value added by a new feature eventually becomes lower than the average value lost through the new bugs it causes. So, lacking a way to make features produce more value (wouldn't that be nice!), we try to at least reduce the damage.</p>
+<p>The more checks and controls we put in place, the slower we go, but the more monotonically the quality increases. And isn’t that the basis of <em>continuous improvement?</em></p>
+<p>Well, sort of. Monotonically increasing quality is on the right track. But “more checks and controls” went off the rails. That’s <em>only one way</em> to improve quality, and it's a fraught one.</p>
+<p><b>“Quality Assurance” reduces quality</b></p>
+<p>I wrote a few years ago about <a href="https://apenwarr.ca/log/20161226">W. E. Deming and the "new" philosophy around quality</a> that he popularized in Japanese auto manufacturing. (Eventually U.S. auto manufacturers more or less got the idea. So far the software industry hasn’t.)</p>
+<p>One of the effects he highlighted was the problem of a “QA” pass in a factory: build widgets, have an inspection/QA phase, reject widgets that fail QA. Of course, your inspectors probably miss some of the failures, so when in doubt, add a second QA phase after the first to catch the remaining ones, and so on.</p>
+<p>In a simplistic mathematical model this seems to make sense. (For example, if every QA pass catches 90% of defects, then after two QA passes you’ve reduced the number of defects by 100x. How awesome is that?)</p>
+<p>But in the reality of agentic humans, it’s not so simple. First of all, the incentives get weird. The second QA team basically serves to evaluate how well the first QA team is doing; if the first QA team keeps missing defects, fire them. Now, that second QA team has little incentive to produce that outcome for their friends. So maybe they don’t look too hard; after all, the first QA team missed the defect, it’s not unreasonable that we might miss it too.</p>
+<p>Furthermore, the first QA team knows there is a second QA team to catch any defects; if I don’t work too hard today, surely the second team will pick up the slack. That's why they're there!</p>
+<p>Also, the team making the widgets in the first place doesn’t check their work too carefully; that’s what the QA team is for! Why would I slow down the production of every widget by being careful, at a cost of say 20% more time, when there are only 10 defects in 100 and I can just eliminate them at the next step for only a 10% waste overhead? It only makes sense. Plus they'll fire me if I go 20% slower.</p>
+<p>To say nothing of a whole engineering redesign to improve quality, that would be super expensive and we could be designing all new widgets instead.</p>
+<p>Sound like any engineering departments you know?</p>
+<p>Well, this isn’t the right time to rehash Deming, but suffice it to say, he was on to something. And his techniques worked. You get things like the famous Toyota Production System where they eliminated the QA phase entirely, but gave everybody an “oh crap, stop the line, I found a defect!” button.</p>
+<p>Famously, US auto manufacturers tried to adopt the same system by installing the same “stop the line” buttons. Of course, nobody pushed those buttons. They were afraid of getting fired.</p>
+<p><b>Trust</b></p>
+<p>The basis of the Japanese system that worked, and the missing part of the American system that didn’t, is trust. Trust among individuals that your boss Really Truly Actually wants to know about every defect, and wants you to stop the line when you find one. Trust among managers that executives were serious about quality. Trust among executives that individuals, given a system that can work and has the right incentives, will produce quality work and spot their own defects, and push the stop button when they need to push it.</p>
+<p>But, one more thing: trust that the system <em>actually does work</em>. So first you need a system that will work.</p>
+<p><b>Fallibility</b></p>
+<p>AI coders are fallible; they write bad code, often. In this way, they are just like human programmers.</p>
+<p>Deming’s approach to manufacturing didn’t have any magic bullets. Alas, you can’t just follow his ten-step process and immediately get higher quality engineering. The secret is, you have to get your engineers to engineer higher quality into the whole system, from top to bottom, repeatedly. Continuously.</p>
+<p>Every time something goes wrong, you have to ask, “How did this happen?” and then do a whole post-mortem and the Five Whys (or however many Whys are in fashion nowadays) and fix the underlying Root Causes so that it doesn’t happen again. “The coder did it wrong” is never a root cause, only a symptom. Why was it possible for the coder to get it wrong?</p>
+<p>The job of a code reviewer isn't to review code. It's to figure out how to obsolete their code review comment, that whole class of comment, in all future cases, until you don't need their reviews at all anymore.</p>
+<p>(Think of the people who first created "go fmt" and how many stupid code review comments about whitespace are gone forever. Now that's engineering.)</p>
+<p>By the time your review catches a mistake, the mistake has already been made. The root cause happened already. You're too late.</p>
+<p><b>Modularity</b></p>
+<p>I wish I could tell you I had all the answers. Actually I don’t have much. If I did, I’d be first in line for the Singularity because it sounds kind of awesome.</p>
+<p>I think we’re going to be stuck with these systems pipeline problems for a long time. Review pipelines — layers of QA — don’t work. Instead, they make you slower while hiding root causes. Hiding causes makes them harder to fix.</p>
+<p>But, the call of AI coding is strong. That first, fast step in the pipeline is <em>so fast!</em> It really does feel like having super powers. I want more super powers. What are we going to do about it?</p>
+<p>Maybe we finally have a compelling enough excuse to fix the 20 years of problems hidden by code review culture, and replace it with a real culture of quality.</p>
+<p>I think the optimists have half of the right idea. Reducing review stages, even to an uncomfortable degree, is going to be needed. But you can’t just reduce review stages without something to replace them. That way lies the Ford Pinto or any recent Boeing aircraft.</p>
+<p>The complete package, the table flip, was what Deming brought to manufacturing. You can’t half-adopt a “total quality” system. You need to eliminate the reviews <em>and</em> obsolete them, in one step.</p>
+<p>How? You can fully adopt the new system, in small bites. What if some components of your system can be built the new way? Imagine an old-school U.S. auto manufacturer buying parts from Japanese suppliers; wow, these parts are so well made! Now I can start removing QA steps elsewhere because I can just assume the parts are going to work, and my job of "assemble a bigger widget from the parts" has a ton of its complexity removed.</p>
+<p>I like this view. I’ve always liked small beautiful things, that’s my own bias. But, you can assemble big beautiful things from small beautiful things.</p>
+<p>It’s a lot easier to build those individual beautiful things in small teams that trust each other, that know what quality looks like <em>to them</em>. They deliver their things to customer teams who can clearly explain what quality looks like <em>to them</em>. And on we go. Quality starts bottom-up, and spreads.</p>
+<p>I think small startups are going to do really well in this new world, probably better than ever. Startups already have fewer layers of review just because they have fewer people. Some startups will figure out how to produce high quality components quickly; others won't and will fail. Quality by natural selection?</p>
+<p>Bigger companies are gonna have a harder time, because their slow review systems are baked in, and deleting them would cause complete chaos.</p>
+<p>But, it’s not just about company size. I think engineering teams at any company can get smaller, and have better defined interfaces between them.</p>
+<p>Maybe you could have multiple teams inside a company competing to deliver the same component. Each one is just a few people and a few coding bots. Try it 100 ways and see who comes up with the best one. Again, quality by evolution. Code is cheap but good ideas are not. But now you can try out new ideas faster than ever.</p>
+<p>Maybe we’ll see a new optimal point on the <a href="https://tailscale.com/blog/modules-monoliths-and-microservices">monoliths-microservices continuum</a>. Microservices got a bad name because they were too micro; in the original terminology, a “micro” service was exactly the right size for a “two pizza team” to build and operate on their own. With AI, maybe it's one pizza and some tokens.</p>
+<p>What’s fun is you can also use this new, faster coding to experiment with different module <em>boundaries</em> faster. <em>Features</em> are still hard for lots of reasons, but refactoring and automated integration testing are things the AIs excel at. Try splitting out a module you were afraid to split out before. Maybe it'll add some lines of code. But suddenly lines of code are cheap, compared to the coordination overhead of a bigger team maintaining both parts.</p>
+<p>Every team has some monoliths that are a little too big, and too many layers of reviews. Maybe we won't get all the way to Singularity. But, we can engineer a much better world. Our problems are solvable.</p>
+<p>It just takes trust.</p>
+<p><b>Related</b></p>
+<p><a href="https://apenwarr.ca/log/20260316/20161226">Highlights on "quality," and Deming's work as it applies to software development</a> (2016)</p>
+<p><a href="https://apenwarr.ca/log/20260316/20251120">Systems design 3: LLMs and the semantic revolution</a> (2025)</p>
+<p><b>Unrelated</b></p>
+<p><a href="https://apenwarr.ca/log/20260316/20170928">SimSWE part 2: The perils of multitasking</a> (2017)</p></div>
+      
+    </article>
+    
+    <article>
+      <h1>An Uncomplicated Man</h1>
+      <div class="article-meta">
+        Emily Wilson
+        · 09 Aug 2026 · <a href="https://lrb.co.uk/the-paper/v48/n14/emily-wilson/an-uncomplicated-man/">Source</a>
+      </div>
+      <div class="article-body"><p>Christopher Nolan’s $250 million action movie version of Homer’s ancient Greek poem is an entertaining way to hide from the high temperatures for a few hours. Nolan’s trademark jumps and twists in the narrative structure are relatively easy to follow, and appropriate for <em>The Odyssey</em>, a narrative of tales nested in tales. My teenagers had a good time. Unlike some of Nolan’s other films, <em>The Odyssey</em> is not boring, thanks to the source material, which is impossible to mess up entirely. It’s a family-friendly audiovisual spectacle, like an elaborate Fourth of July fireworks display – and with about the same level of narrative and emotional depth.</p>
+<p>As in his previous films, Nolan is interested in the discontinuities of space and time, in magic, tricks, craft, technology, rivalry, substitution, masks, miscommunication, what we remember and what we choose to forget. Yet again, survival is portrayed as a kind of triumph. Yet again, there are long, claustrophobic scenes of drowning and near-drowning, and technically impressive episodes in which buildings are engulfed in flames and vehicles explode. Yet again, we watch a male character’s desperate quest to recover and/or avenge a female love object. I had hoped that Nolan’s affinity with these Homeric themes might push him to new creative heights, and enable him to conjure more believable characters. But <em>The Odyssey</em> features his usual combination of grandiosity and superficiality. Without a tub of wax for my ears – which Himesh Patel’s ever anxious Eurylochus, Odysseus’s doomed right-hand man, uses to sail safely past the Sirens – I was exposed to the full din of thumping sticks, staffs, swords and clashing armour, thunderbolts, crashing waves, grunts, screams, toppling palaces and burning temples. But unlike Matt Damon, the wax-free Odysseus who is tied to the mast as he is conveyed past the Sirens (naked ladies reclining on some uncomfortable-looking rocks), I gazed at the shipwrecks and bloodbaths without any agony of emotion. My eyes stayed dry, even for Argos the dog – whose adorableness as a puppy is predictably amped up to suit our animal-loving times. If only the human characters had been treated with such serious attention.</p>
+<p>The Homeric epic was already an adaptation. The poem used a relatively new technology – the written alphabet – to rework existing mythical traditions, reshaping the story of a veteran’s homecoming to resonate with the complex concerns of Greek-speakers in the archaic period, an era of migration, colonisation and urbanisation. Some seventh-century BCE Greek communities were ruled by an oligarchy, some by a single man. The poem traces the tension between the needs and desires of groups of men – Odysseus’ comrades or the suitors of his wife, Penelope – and those of a single powerful and cunning man, who wants to rule them all and win eternal fame for himself. In a period of cultural and technological change, it explores a fantasy of going back in time as well as space, while also showing its dangers and costs. The poem wrestles with the challenges of encountering strangers, of entering their homes and welcoming or rejecting them from one’s own. The contemporary resonances are obvious and Nolan’s movie hints at some of them, in interesting if scattered ways. But the film’s vision is too confused, its characters too underdeveloped, to deliver what it half-promises in terms of big ideas – although it is very good at conveying big bangs and big giants.</p>
+<p>Adaptations needn’t and shouldn’t follow the original with anything like the exactitude of a translation. Some of the best radically transform or resist the source material, providing what Harold Bloom called ‘strong misreadings’ of their ancestors. The most memorable creative responses to <em>The Odyssey –</em> such as Euripides’ <em>Helen,</em> Virgil’s <em>Aeneid,</em> Milton’s <em>Paradise Lost</em>, Joyce’s <em>Ulysses</em>, Walcott’s <em>Omeros</em>, Atwood’s <em>Penelopiad,</em> Madeline Miller’s <em>Circe</em> or Lisa Peterson’s play set in a modern migrant camp – reconsider the poem’s structure, narrative and values. In theory, Nolan seems to understand the assignment and its hazards. His first feature film, <em>Following</em> (1998), was a powerful black and white thriller about the fascination and dangers of tracking strangers through space and time. The hunter is more likely to become the hunted, <em>Following</em> suggests, if the would-be stalker lacks a clear identity beyond a misplaced belief in his own ingenuity. But knowing what temptations should be avoided isn’t the same as avoiding them – as Odysseus’ men learn to their cost when they kill the sacred Cattle of the Sun. Homer’s Odysseus makes it home because he is able, temporarily, to suppress his own desires – for meat and wine, for his wife, for control of his household and land, for slaughter, for victory over time and the threat of being forgotten, for a glorious eternal name. But there is no restraint in Nolan’s version of <em>The Odyssey</em>: every second is jam-packed with incident, lights and noise, and nothing is ever at a human scale.</p>
+<p>Nolan’s spectacle threatens to drown out his story just as the towering waves of the wine-dark sea – more grey than purple – threaten to overwhelm his hero’s ship. In looks, this <em>Odyssey</em> is often reminiscent of other 21st-century screen ‘epics’, not least Peter Jackson’s <em>Lord of the Rings</em> trilogy. The visit to the Land of the Dead reminded me of the excursions beyond the Wall in <em>Game of Thrones</em>. At the end of the film, a character sets out to ‘sail beyond the sunset’ and I almost expected everyone to break into Elvish. The film has none of the stylish sparseness of Uberto Pasolini’s <em>The Return</em> (2024), starring a scarred, desperate, mostly naked Ralph Fiennes, conflicted about his homecoming to a convincingly unhappy Juliet Binoche. Lacking the budget for gods or special effects, that film invited us to wonder what remains of <em>The Odyssey</em> and its hero when stripped down to the sinews and the hungry heart. Nolan gives us an all-inclusive buffet.</p>
+<p>The race-neutral casting of Nolan’s <em>Odyssey</em> was inevitably deplored in some quarters. But there is nothing woke or even progressive about it. Most of the non-white actors – Zendaya, Lupita Nyong’o, Himesh Patel, Corey Antonio Hawkins, Travis Scott – play versions of the Black best friend, whose only role in the drama is to provide aid to the white protagonist. Scott, as the Ithacan bard, Phemius, yells a few words and pounds a stick, but does not get to sing, tell a story or play the lyre: the most melodic note in the percussive soundtrack comes from the plucking of Odysseus’ bow (a beautiful sonic image of the archer as musician, borrowed from the poem). Nyong’o’s double part as Helen and Clytemnestra is hugely underwritten; she is given only a few minutes of screen time to perform a set of brief tableaux of female victims (the outraged bereaved mother, the abused wife, the repentant adulteress).</p>
+<p>There are more female characters than in most Nolan movies, thanks to the source material. But none of them has much to say, in contrast to the characterisations in the poem. Homer’s Calypso has a wonderfully outraged, operatic speech about divine double standards: male gods can kidnap and rape any mortal woman they desire, but when a goddess tries it, Zeus and his cronies scupper her chances. It’s a clever and comical distortion of the mythological ‘facts’: the poem’s listeners know that it is primarily Athena (a female deity) who is taking Calypso’s mortal victim away from her (Hermes, whom she’s complaining to, is merely the messenger) – and Eos, goddess of the dawn, as we’ve been reminded only a few lines earlier, has not been prohibited by the divine patriarchy from holding on to Tithonus. Charlize Theron’s Calypso looks gorgeous, but she is never angry, never funny, not skilled in rhetoric, and never consumed by lust for her scraggly mortal victim. She’s an unpaid therapist, soothing the soul of the bedraggled, PTSD-ridden Odysseus with drugs, and graciously listening to his disjointed tale of woe.</p>
+<p>Similarly, Homer’s Penelope gives the disguised Odysseus a wonderfully vivid account of a dream she has had about some geese in her yard being killed by an eagle; the eagle explained that the geese were her suitors, soon to be slaughtered by her returning husband. But in the dream, Penelope wept – suggesting a fascinatingly ambivalent response to the return of Odysseus and the imminent end to her long period of waiting, like a bride, for a husband. Nolan’s Penelope has no dreams. Anne Hathaway’s face is as expressive as ever, and she looks beautiful and mysterious, glimpsed mostly through the veil of a clever set design that separates the women’s quarters from the main hall. But the script gives her nothing to do except yearn for Matt Damon, for reasons unknown. The couple have no chemistry and nothing in common. Throughout his wanderings, the uxorious Odysseus clings to a little doll figure, intended to represent his wife (like the spinning top clutched by Leonardo di Caprio in <em>Inception</em>); the real woman is barely more interesting.</p>
+<p>It’s a challenge to represent deities on film without veering into <em>Clash of the Titans</em> silliness, so Nolan may have been sensible to leave them out. Even Zendaya’s underwritten Athena turns out to be a vulnerable victim of war, or perhaps a projection of Odysseus’ conscience – not a scheming and bloodthirsty war goddess. Other goddesses appear in cameo – Calypso, the seal-lady Sirens, Circe, Scylla and Charybdis – but there is no sign that we are supposed to realise they are goddesses. Poseidon, Hermes and Helius do not appear in person, although there are some scary storms and shipwrecks. One of my favourite moments was when Zendaya assures Damon that gods are not hard for mortals to understand: ‘Who doesn’t understand thunder? Fire?’ But the film wants to have it both ways. There are no gods, and yet shipwrecks and death are presented as the inevitable consequence of blinding the son of Poseidon and devouring the Cattle of the Sun. Zeus’ law is portrayed as being crucially important, and yet there is no Zeus. Nolan’s vision of the world is not quite big enough to include either real gods or real people who might be different from us.</p>
+<p>There are giants, including Polyphemus (here, a lone Cyclops) and some overdressed Laestrygonians. Circe, played with earthy vigour by Samantha Morton, is Baba Yaga in a Hansel and Gretel cottage; she uses a labour-intensive form of plastic surgery to turn Odysseus’ greedy men into the pigs they already are. There is only one lotus eater, though the theme of amnesia takes on new significance, as you might expect. Famous scenes flash by: Scylla and Charybdis threaten the boat, Eurycleia recognises the scar on Odysseus’ leg, Antinous hurls a footstool at our hero in disguise. A few notable sequences from the epic are missing: the film skips the island of Scheria, home of the helpful princess Nausicaa, where Homer’s Odysseus tells the tall tale of his adventures to the hospitable Phaeacians. There is no room in this maximalist film for anything as charmingly mundane and small-scale as Nausicaa’s laundry and her girlish fantasies about a husband. Damon’s grizzled Odysseus is neither a master storyteller nor a flirt. More substantially, the inclusion of a friendly, wealthy, culture-rich foreign place would have added more confusion to the film’s already muddled premise: that this Hollywood version of Mycenaean Greece is the only ‘civilisation’ in the world – the only place that still just about remembers that strangers and beggars must be welcomed, according to Zeus’ law.</p>
+<p>The costumes, armour, boats and architecture are a mishmash, which is in keeping with Homer’s poem – itself drawn from many generations of storytelling and incorporating bits and pieces from different eras, dialects and traditions. Linguistically, too, Homeric Greek is a composite – although it is always metrical poetry, not language anyone ever actually spoke. Despite the manufactured online outrage, there is nothing inherently wrong with the movie’s attempt to approximate contemporary American speech. If you’re not going to compose a script in Homeric Greek, or even in metrical English verse, you might as well use something like conversational American English. But writing dialogue is not one of Nolan’s talents. The language is relentlessly expository, humourless and flat. Attempts at vigorous speech – ‘My dad’s coming home’ or ‘Let’s get off this fucking beach’ – sit uncomfortably next to grandiose meditations: ‘Yes, my queen. The breaking of Zeus’ law, spreading like plague. Our age of bronze is collapsing, and maybe he couldn’t bear to see the ruins of what he’d done. Anywhere. Least of all, his home.’</p>
+<p>As they say at the awards shows, I was humbled to learn that Nolan has read at least the first line of my translation of <em>The Odyssey</em> into iambic pentameter. In at least one interview, he cited my version of the first line of the poem: ‘Tell me about a complicated man.’ But I would be ashamed to have written any part of this script. Sadly, Damon’s Odysseus isn’t complicated or wily or artful. One of Odysseus’ funniest (and most famous) tricks in Homer is to tell Polyphemus that his name is ‘No Man’. When the blinded giant screams for help from his neighbours, the other Cyclopes are reassured to learn that ‘No Man’ is hurting him. In the movie Odysseus doesn’t have to outwit Polyphemus because the Cyclops is a puppet who has no wits. Nolan’s grunting one-eyed giant is referred to as ‘it’, barely speaks, doesn’t get drunk and has neither neighbours nor a favourite sheep.</p>
+<p>Perhaps more surprising from the director of <em>Oppenheimer,</em> Damon’s lummoxy Odysseus also seems to lack technological intelligence (<em>polymēchania</em>). He does not build a marriage bed out of a tree growing in his house (it would be a waste of effort, since he so rarely seems to sleep or have sex). The raft on which he escapes from Calypso is cobbled together from a few bits of driftwood (in contrast to the elaborate wood-chopping and shipbuilding in Homer). We don’t see the design or construction of the Trojan Horse; instead, a kitsch, poorly designed horse (with no wheels) appears on the windswept beach as if dumped there by drone. The difficulties of transporting large, unwieldy objects over difficult terrain must have been on the director’s mind as he lugged his IMAX cameras through the film’s many challenging locations.</p>
+<p>The most obvious new spin that Nolan brings to the source material is a subplot based on a story from the <em>Aeneid</em>, describing the way the Trojans were tricked into taking the Trojan Horse (an invention of ‘cruel Ulysses’) into the city, thanks to the machinations of a Greek double agent called Sinon (his name means ‘harmful’). In contrast to the relatively positive representation of cunning intelligence in Homer’s <em>Odyssey</em>, Virgil makes Ulysses cruel and predatory; Sinon is his deceitful accomplice.</p>
+<p>In Nolan’s movie, Sinon is played by Elliot Page, and far from being a bad guy he’s the film’s moral centre. He is recruited to the Trojan War as a plucky youngster, thanks to the evil machinations of a teenage draft-dodger, Antinous (played in adulthood by a charismatically slimy Robert Pattinson). The main emotional arc of the film concerns Odysseus’ belated realisation that he is complicit in Sinon’s exploitation because he failed to tell him the truth about the Trojan Horse plot. Once he recovers his memory, Odysseus is racked by guilt. The film doesn’t address the moral dilemmas raised by its own narrative invention, such as why it matters so much whether Batman told the whole truth to valiant Robin, given that he would be killed instantly either way – or why the sinless Sinon wants in on the scheme, if the sack of Troy was as bad as the movie wants to suggest. Odysseus’ lie to Sinon doesn’t start the Trojan War, and the Trojans would presumably have taken the horse into the city anyway – as they do in Homer’s <em>Odyssey</em>. This muddled subplot is foisted on the film in order to make Nolan’s relentlessly didactic point about the contemporary Anglophone world: that the lies and xenophobia of the war on terror and Brexit began a cultural decline that is now destroying the values ‘we’ hold most dear.</p>
+<p>Nolan’s other major addition to Homer’s narrative is the repeated reference to threats to ‘our civilisation’ from ‘the sea peoples’ – a now debunked 19th-century theory about maritime tribes who were thought to have attacked Egypt around 1200 BCE and to have also been responsible for the roughly coeval collapse of Mycenaean Greek culture. ‘Our civilisation is under attack,’ Penelope wails. Odysseus comforts her by saying that ‘Bronze Age civilisation’, including literacy, will rise again from the ashes. The current consensus, as Nolan clearly knows, is that there was no such thing as ‘the sea peoples’, and that the Greek-speaking world’s shift away from the more centralised, literate palace culture of the Mycenaeans in the 11th century BCE towards the fragmented social formations of the early Greek Iron Age was caused by a range of factors, including climate change, earthquakes and internal unrest. Nolan uses these competing historical theories to create a characteristic narrative twist about the identity of ‘the sea peoples’, which I will not spoil, though you can probably guess it.</p>
+<p>Zeus’ law is a version of archaic Greek <em>xenia</em>: the idealised relationships between strangers, hosts and guests, who must treat one another with mutual respect, thereby forming multi-generational bonds between unrelated families. In the film, <em>xenia</em> is filtered through contemporary American ideas about the importance of philanthropic charity: wealthy people should be gracious towards the poor and hungry in their midst (without necessarily doing anything to mitigate their poverty). Many of the film’s implicit values directly contradict those of Homer’s poem. Deception, warmongering, extramarital sex, cruelty to animals, abusing women and yearning for honour – all perfectly fine in the world of Homer – are, in this version, very bad. This is not in itself a problem, but it is a problem if the film’s own values and vision don’t hang together, and if the characters’ motivations don’t make sense on their own terms.</p>
+<p>In Nolan’s <em>Odyssey</em>, slaughtering people with the help of trickery, technology and weapons is presented as bad when the Greeks are killing the Trojans, who have violated <em>xenia</em>, but good when Odysseus is killing the suitors, who have violated <em>xenia</em>. Taking something ostensibly abandoned by Odysseus and his comrades is natural and forgivable when the Trojans lay claim to the horse, but unnatural and unforgivable when the suitors lay claim to Odysseus’ palace, food, wine and wife. Strangers in Ithaca are to be treated with gracious kindness, as possible gods in disguise; but strangers in foreign lands are usually monstrous, to be blinded, robbed and slaughtered. Defying the gods is noble and brave when Odysseus blinds Polyphemus, son of Poseidon; it’s stupid and greedy when Eurylochus eats the Cattle of the Sun. Deception is bad when Odysseus tricks Sinon or the suitors trick Telemachus, but good when Telemachus and Odysseus trick the suitors. Sharing is good, and Odysseus is seen taking his place at an oar alongside his men; but one-man rule is also unambiguously good, and those who challenge monarchy or autocracy, or try to eat more than their allotted portion, are either evil (the suitors) or foolish (Eurylochus). Either way, they have to die. It is bad to fight and kill to accumulate wealth, as Agamemnon does; it is good to fight and kill to preserve the wealth that you have already acquired (even if by war). Any one of these moral contradictions could make for an interesting and generative theme in a movie, but Nolan lets the fragments of an incomplete set of big ideas spin around in the epic whirlpool, with no plank of solid, specific human experience to which we might cling.</p>
+<p>Homer’s <em>Odyssey</em> gives a clear, moving account of the feelings, histories and perspectives of several of Odysseus’ comrades and subordinates, including Eurylochus and the enslaved swineherd, Eumaeus. Kidnapped, trafficked and sold into slavery as a child, Eumaeus fantasises that his long-lost enslaver, Odysseus, will one day return and give him a home of his own. In the film, none of these subordinate characters has a personality of their own. Mentor (Ryan Hurst), who helps Telemachus (Tom Holland), is not a disguised goddess but a helpful guy with a beard; Eurylochus is not an embittered rival to Odysseus but another helpful guy with a beard. John Leguizamo does his best with the part of Eumaeus, now cursed with cataracts to ensure that he is unable to recognise Odysseus until the right moment, but Nolan’s script gives him nothing to work with; the only wish of this ‘servant’ (the film’s preferred term for ‘slave’) is to make Odysseus’ life more comfortable. But Damon’s Odysseus remains miserable as he hikes doggedly towards the camera across yet another beautiful landscape.</p>
+<p>The Trojan War is an aberration, the fault of faceless, monstrous Agamemnon (the one in the weird Darth Vader outfit), who has failed as an American family man by killing his daughter. Odysseus is an idealised leader who would never willingly put his people in danger: his foolish men insist on going to check out Circe’s hut for themselves, and he kindly retrieves them (without pausing to have sex with the goddess even for an hour, let alone a whole magical year). Damon’s Odysseus is motivated mostly by anxiety and guilt, though he is also eager to protect his boy (Holland is good at playing a gormless young man of twenty going on twelve).</p>
+<p>But the representation of Odysseus as a reluctant warlord makes a nonsense of the movie’s imagined world. We are not shown that war or killing are bad, only that good men sometimes feel bad about it – a very different point. Any serious depiction of violence, ancient or modern, must show the perspectives of the victims as well as the perpetrators, and the Homeric poems easily clear the bar – but Nolan doesn’t. The Trojans are dehumanised by their masks; we know none of them by name or face. The hands of Odysseus and Telemachus are bloodied only by the most righteous, computer-game modes of killing, and we feel no pity or horror at the deaths of their victims, whether Trojans, giants, suitors or slaves. During the sack of Troy – which he supposedly organised – Odysseus gazes around in bewilderment and horror, as if he has never seen a massacre before.</p>
+<p>Yet we are also invited to despise Penelope’s chief suitor, Antinous (‘opposite mind’), for being a coward, a liar and a schemer. The film asks us both to be horrified at war and to celebrate the action-movie sequences in which the reluctant warrior finally gets his hands on his bow and the blood starts flowing. The massacre of the suitors is probably the most enjoyable sequence in the film. The exuberantly villainous Antinous – Pattinson is the only person on set who seems to be having any fun – clearly deserves to be stabbed to death with the dagger of Sinon, but he also deserves one of the Oscars that will shower down on this movie like the golden rain of Zeus.</p>
+<p>Nolan’s <em>Odyssey</em> lacks many of the elements that make the poem great. It has nothing convincing to say about time, memory, history, war, or about the relationship between one warrior’s glorious return and the lives of his family, adversaries, comrades, friends and neighbours. It lacks psychological, emotional, political and ethical depth. Its narrative structure is gimmicky. The writing is abysmal. None of the characters has convincing motivation for their actions or words. There are no sex scenes, and all the food looks horrible.</p>
+<p>The most troubling ethical problem with Nolan’s <em>Odyssey</em> concerns the decision to film part of the movie in the occupied territory of Western Sahara, thus normalising the ongoing violence against the indigenous Sahrawi people. It is particularly galling that Nolan used this land simply as a visually striking backdrop for a film that centres, aggrandises and redeems the hero of a territorial war on account of his belated and partial acknowledgment of his own guilt.</p>
+<p>Despite all this, the release of <em>The Odyssey</em> is still an event to celebrate. In what we are told is the streaming era, this epic is bringing audiences back to cinemas. In what we are told is a time of declining literacy and the ‘death of the humanities’, translations of <em>The Odyssey</em>, including mine, are flying off the shelves. Some of those who buy the book or show up in cinemas to watch Tom Holland may go on to study ancient Greek. Perhaps the film will persuade a few college administrators not to cut their literature, language and history departments. Nolan, who studied English at University College London – where students still study <em>The Odyssey</em> as a first year ‘foundational text’ – is doing his best to get the general public reading again, and I am grateful.</p></div>
+      
+    </article>
+    
+    <article>
+      <h1>The Reverse Information Paradox</h1>
+      <div class="article-meta">
+        sn scratchpad
+        · 05 Aug 2026 · <a href="https://snscratchpad.com/posts/reverse-information-paradox/">Source</a>
+      </div>
+      <div class="article-body"><p>Notes on advances in technology and real-world impact</p>
+<p>In the age of intelligence, how should firms protect their core IP?</p>
+<p>Nobel Prize winning economist Kenneth Arrow <a href="https://www.nber.org/system/files/chapters/c2144/c2144.pdf">famously described</a> a paradox in the market for information. “Its value for the purchaser is not known until he has the information, but then he has in effect acquired it without cost.” In Arrow’s “Information Paradox,” the seller risks giving away knowledge in order to sell it.</p>
+<p>AI creates the reverse problem. In the AI age, the buyer risks giving away knowledge, just in order to use what they bought.</p>
+<p>You essentially pay for intelligence twice, once with money, and again with something even more valuable: the proprietary knowledge you must reveal to make that intelligence useful. The better you want the model to perform, the more of that knowledge you have to feed it!</p>
+<p>Over time, the information asymmetry becomes increasingly skewed. The seller learns more and more about you as you use what you purchased, while you learn very little about what the seller is learning in return.</p>
+<p>That is what I think of as the Reverse Information Paradox.</p>
+<p>Patents solve one aspect of Arrow’s paradox. They let an inventor disclose an idea without simply giving it away. The Reverse Information Paradox needs its own equivalent.</p>
+<p>This requires more than data protection. Models learn from “exhaust,” the prompts people write, the tools agents use, and especially the corrections people make when the model is wrong. Every correction is distilled into institutional know-how. It’s the kind of knowledge a competitor could never buy, and the kind that leaks almost imperceptibly: trace by trace, correction by correction, eval by eval.</p>
+<p>In consuming intelligence, you are creating intelligence. And what you create should belong to you. This is your particular intelligence, in Hayek’s sense: the knowledge of time, place, and circumstance that no one else can hold. It knows what you think, what you value, and how you measure success.</p>
+<p>While the great innovation that comes from model providers having fair use rights to train models on public data is needed, I find it ironic that the status quo is to then turn around and impose restrictive terms on distillation, and to reserve the right to learn from customer usage and interaction data. If learning flows in only one direction, economic value converges toward the owners of the learning infrastructure rather than the creators of the knowledge itself. Therefore, it’s imperative that we distribute the learning infrastructure to every firm so that they can control their own learning loop.</p>
+<p>As Alex Karp <a href="https://x.com/PalantirTech/status/2072326189079757277">put it</a>: “What the technical customers want is control over their compute, their models, their data stack, and their alpha. They want to know they own the means of production, and it’s not being transferred to someone else.” The current regime does precisely the transfer Karp and companies fear.</p>
+<p>That is why enterprises need a real trust boundary for their <a href="https://snscratchpad.com/posts/frontier-ecosystem/">human capital and token capital to compound</a>. It is where an organization’s data, traces, evals, adapted weights, and memory accumulate and improve together. And it is a hard boundary across which nothing crosses, not even the intelligence exhaust, without consent. Enterprises will demand the rights to use model outputs to fine tune and/or train their own models. I think of this as every firm’s right to align models to their enterprise accountability obligations.</p>
+<p>In the cloud era, enterprises accumulated data. In the AI era, they accumulate learning. The trust boundary must evolve accordingly, from protecting information to protecting the mechanisms through which organizations learn, adapt, and compound intelligence. There are a few things every enterprise must do to ensure this:</p>
+<p>Control: Create your private evals, because evals define what “good” looks like inside the organization. Also, retain ownership of your organization’s memory, traces, feedbacks, decisions, and institutional context, and ability to use outputs of models from your own tasks and queries.</p>
+<p>Capability: Build your own proprietary learning environments within the tenant boundary to train or tune models, where models learn against real workflows without exposing the company’s knowledge.</p>
+<p>Choice: Ensure the orchestration layer is decoupled from any single model. Ask yourself: If any one model you are using is taken away, do you still have the ability to operate and optimize for your evals using other models? Does your company “veteran” capability remain with you even if a given “generalist” model is taken away?</p>
+<p>Cost: By decoupling the orchestration layer, you are also able to bring together context, models, and tasks in the most efficient and cost-effective way without sacrificing quality.</p>
+<p>Compound: Bring these four together and you create your own continuous learning loop (i.e. hill climbing machine) that will allow your AI investments to compound the value of your firm.</p>
+<p>In other words, a company should be able to use a model without giving up the knowledge that makes it unique. That is the reverse information paradox we need to confront.</p></div>
+      
+    </article>
+    
+    <article>
+      <h1>Control the ideas, not the code</h1>
+      <div class="article-meta">
+        antirez.com
+        · 18 Jul 2026 · <a href="https://antirez.com/news/169">Source</a>
+      </div>
+      <div class="article-body"><pre>Look at the past history of this blog. There are many blog posts about programming with AI, a few of them date back to January 2024 (like this: <a href="https://antirez.com/news/140">https://antirez.com/news/140</a>). I’m a relatively well regarded programmer, after all. I don’t have the need to still be in the “loop” as a old man that seeks for relevance, I recently rejoined Redis, and now I also am developing a new open source software for local LLM inference that received a good welcome in the community. Why I keep doing this, of saying what people don’t want to hear? Why I keep announcing how future programming will be by default? Because I feel the urge of lowering the impact for people less prepared to the change than me, often younger than me, and that, unlikely me, didn’t see many of those things coming (In 2022 I published, before ChatGPT existed, a book preannouncing many things that now happened and other things that I believe *will* happen, so I feel like I can say this without sounding egocentric).
+
+So mine is a trick. People feel more and more programming is completely modified by AI and don’t know what they should do, if they can really start coding in a completely different way, without looking much at the code as their main output. They feel like they are betraying their own field. So my intention is to arrive and say “look at me, In can write code, you know, I’m not hiding behind AI: yet, things changed, it’s not your weakness, it’s not that you are AI-pilled. It is just that our field is evolving in an incredible *and* painful (but also joyful) direction”.
+
+This is why yesterday, on X, I said that I believe many programmers at this point have less impact they could have because they look at the code. I truly believe into that. And note that this does not mean to vibe code something just asking for the final product. The point is: if you control the ideas of your software, looking at the code itself is suboptimal and often pointless. For the following reasons:
+
+1. You can now generate a lot of code, even *not* accounting for the LLM code verbosity (that is also effect of not being able to instruct them well, for most of the part). How are you supposed to review 5k lines of code every day?
+
+2. LLMs are very good at writing locally optimal code, and are worse (but improving) with big ideas. What’s the point of scanning function by function, line by line? Instead you should prompt the design you have in mind, sometimes ask “how is exactly the design of that part? How does it work?”, and evaluate if it is the right model. It is much faster.
+
+3. The working day is 8 hours. If you read the code, it is a tradeoff. You are doing less of what today is the most important part of your job, that is, asking yourself: what I’m doing with this software? What are the new directions I want to take? And also, think at new ideas, features, optimizations tricks. And doing a lot of QA.
+
+Controlling the ideas. Do you remember this phrasing from the Mythical Man Month? Well, a book from the 70s tells us more things about the current software era than many of the things that were said from 2000 to 2020. Why people that now protest against AI were not horrified by the state of software in the last decade? The level of slop we touched during recent years, before AI, is unbelievable. I’ll say you another thing. What is slop? With DwarfStar I implemented an inference for two LLMs (DeepSeek v4 and GLM 5.2) in a completely automated way, but: try it yourself, you will discover you can’t just say “implement XYZ” and see it working. You have to understand how things work, what is the best design, how to reach a certain level of performance. Then I compared the implementation, for correctness, to other systems, finding that other implementations sometimes contained more errors. I researched more, and found that the local inference world is full of subtle errors that accumulate and damage the model output, issues in the attention implementation causing performance slopes after the context is over a certain limit because indexed attention implementations are broken (do more work than they should, for instance), and so forth. This is the result of a domain that is very complicated to handle, fast changing, with models that are slightly different one from the other in the inference graph being released every day. It’s an unfair game for developers. Well: AI helps a lot with that. There are many domains where rigorous engineering (in the design side) and testing is *far* better than writing a GPU kernel by hand (or reading it). So are we sure most of that resistance it is not ideological?
+
+Matteo Collina yesterday asked me, in reply to my tweet: but didn’t you say that you check all the AI generated code for Redis? And this is a good question indeed. Yes, I do, but this is, at this point, something I *need* to do but that I believe to be mostly pointless, partially once GPT 5.5 was released, but now with Fable and GPT 5.6 Sol even more. Yes: I identify things that I don’t like how they are coded, but if I open other Redis files written by other Redis contributors there is *far worse*, and not since they are not good coders, but because it is a matter of taste. I write very clean code since I want it to be readable, so during the implementation of Redis Arrays I operated changes. I’m doing it again for the 50% memory saving optimization of Redis sorted sets, a PR that I’ll submit soon. But I do not feel this is useful anymore. Nobody should anymore look at this code, but only at the ideas the code contain. I continued to do it out of respect for users. Redis is at this point a commonly useful thing, and many programmers will open files and modify stuff by hand. But if I had my hands free, you know what I would do, instead? Use all the time that the review is taking me to do more QA, to think at the next optimization idea and apply it, and to use LLMs to write a DESIGN.md file where each data structure is described in human language, with the ideas it contains, the implementation tricks, the design. That, in the future, is going to be much more useful. Do you want to modify sorted sets? You open the file, read the design, then you own the ideas. You can open your agent and ask it what to do with the right mental model. This is a lot more useful than reviewing the code.
+
+Fable and GPT 5.6 reviews to the sorted sets memory saving are going to spot ways more errors and subtle race conditions that my review is going to uncover. Yet I’ll do it. But for the majority of software projects, all this does not make sense anymore. Focus on controlling the ideas, instead. Focus on quality, testing, and having an idea of the software you want to ship. The world changed and it is painful, but also full of opportunities to improve a software world that was already completely rotten.</pre>
+<p>:</p></div>
+      
+    </article>
+    
+  </body>
+</html>
