@@ -1,0 +1,487 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Fred Talks - 2026-09-16</title>
+    <style>
+      @page {
+        size: A5;
+        margin: 8mm 9mm 9mm;
+      }
+
+      :root {
+        color: #111;
+        font-family: "Times New Roman", Times, serif;
+        --body-text-size: 9.5pt;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        color: #111;
+        background: #fff;
+        font-family: "Times New Roman", Times, serif;
+        line-height: 1.45;
+      }
+
+      a,
+      a:visited {
+        color: #111;
+        text-decoration: underline;
+      }
+
+      .cover {
+        min-height: calc(210mm - 17mm);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        page-break-after: always;
+        border: 1px solid #111;
+        padding: 8mm;
+        background: #fff;
+      }
+
+      .toc-item-meta,
+      .article-meta {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .masthead {
+        margin: 0;
+        font-size: 40pt;
+        line-height: 0.95;
+        text-transform: uppercase;
+      }
+
+      .issue-date {
+        margin: 4mm 0 0;
+        font-size: 14pt;
+      }
+
+      .issue-date sup {
+        font-size: 0.58em;
+        vertical-align: super;
+        line-height: 0;
+      }
+
+      .cover-deck {
+        max-width: 90mm;
+        font-size: 12pt;
+        margin: 0;
+      }
+
+      .toc {
+        border-top: 3px solid #111;
+        padding-top: 6mm;
+      }
+
+      .toc h2 {
+        margin: 0 0 4mm;
+        font-size: 11pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .toc-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .toc-item {
+        padding: 3mm 0;
+        border-bottom: 1px solid rgba(17, 17, 17, 0.2);
+      }
+
+      .toc-item-title {
+        font-size: 12pt;
+        margin: 0 0 1mm;
+      }
+
+      .toc-item-meta {
+        font-size: 8pt;
+      }
+
+      .masthead-compact {
+        margin: 0 0 6mm;
+      }
+
+      .masthead-compact h1 {
+        margin: 0;
+        font-size: 22pt;
+        line-height: 1.1;
+        text-transform: uppercase;
+      }
+
+      .masthead-compact .issue-date {
+        margin: 2mm 0 0;
+        font-size: 11pt;
+      }
+
+      .toc-compact {
+        border-top: 1px solid #111;
+        border-bottom: 1px solid #111;
+        padding: 4mm 0;
+        margin: 0 0 8mm;
+      }
+
+      article + article {
+        margin-top: 10mm;
+        padding-top: 6mm;
+        border-top: 2px solid #111;
+      }
+
+      h1 {
+        margin: 0 0 2mm;
+        font-size: 18pt;
+        line-height: 1.1;
+      }
+
+      .article-meta {
+        font-size: 8.5pt;
+        margin-bottom: 6mm;
+        padding-bottom: 3mm;
+        border-bottom: 1px solid #111;
+      }
+
+      .article-body {
+        font-size: var(--body-text-size);
+        font-family: "Times New Roman", Times, serif;
+      }
+
+      .article-body p,
+      .article-body li,
+      .article-body blockquote,
+      .article-body dd,
+      .article-body dt {
+        margin: 0 0 4mm;
+        orphans: 3;
+        widows: 3;
+      }
+
+      .article-body ul,
+      .article-body ol,
+      .article-body dl {
+        margin: 0 0 4mm 5mm;
+        padding: 0;
+      }
+
+      .article-body h2,
+      .article-body h3,
+      .article-body h4 {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        margin: 7mm 0 3mm;
+        line-height: 1.2;
+      }
+
+      .article-body blockquote {
+        margin-left: 6mm;
+        padding-left: 4mm;
+        border-left: 2px solid #111;
+      }
+
+      .article-body .media-omitted {
+        margin: 0 0 4mm;
+        font-size: 8.5pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(17, 17, 17, 0.65);
+      }
+
+      .article-body figure,
+      .article-body .article-figure,
+      .article-body picture,
+      .article-body .article-picture {
+        display: block;
+        max-width: 72mm;
+        margin: 0 auto 4mm;
+        break-inside: avoid;
+      }
+
+      .article-body img,
+      .article-body .article-image {
+        display: block;
+        max-width: min(100%, 72mm);
+        max-height: 34mm;
+        height: auto;
+        width: auto;
+        object-fit: contain;
+        margin: 0 auto 3mm;
+      }
+
+      .article-body figcaption {
+        margin-top: 1.5mm;
+        font-size: 8.5pt;
+        line-height: 1.3;
+        color: rgba(17, 17, 17, 0.8);
+      }
+
+      .article-note {
+        margin-top: 6mm;
+        padding-top: 3mm;
+        border-top: 1px solid #111;
+        font-size: 9pt;
+        font-style: italic;
+      }
+
+      @media screen {
+        body {
+          padding: 2rem;
+          margin: 0 auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    
+    <header class="masthead-compact">
+      <h1>Fred Talks</h1>
+      <p class="issue-date">
+        16<sup>th</sup> September 2026
+      </p>
+    </header>
+
+    <nav class="toc toc-compact">
+      <h2>Contents</h2>
+      <ol class="toc-list">
+        
+        <li class="toc-item">
+          <div class="toc-item-title">The Training Grounds: A Taxonomy of RL Environments for LLM Agents</div>
+          <div class="toc-item-meta">
+            Han, Not Solo · 1766 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Every layer of review makes you 10x slower</div>
+          <div class="toc-item-meta">
+            Avery Pennarun · 2841 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Slow developer experience will bottleneck fast models</div>
+          <div class="toc-item-meta">
+            seangoedecke.com RSS feed · 612 words
+          </div>
+        </li>
+        
+      </ol>
+    </nav>
+    
+
+    
+    <article>
+      <h1>The Training Grounds: A Taxonomy of RL Environments for LLM Agents</h1>
+      <div class="article-meta">
+        Han, Not Solo
+        · 22 Mar 2026 · <a href="https://leehanchung.github.io/blogs/2026/03/21/rl-environments-for-llm-agents/">Source</a>
+      </div>
+      <div class="article-body"><p>Model architecture gets all the attention. Post-training recipes follow close behind. The training environment — what the model actually practices on, how its work gets judged, what tools it can use — barely enters the conversation. That’s the part that actually determines what the agent can learn to do.</p>
+<p>A model trained only on single-turn Q&amp;A will struggle the moment you ask it to maintain state across a 50-step enterprise workflow. A model trained with a poorly designed reward function will learn to game the metric, not solve the problem. The environment isn’t a detail. It’s half the system.</p>
+<h2><a href="https://leehanchung.github.io/blogs/2026/03/21/rl-environments-for-llm-agents/#canonical-loop">The Canonical Loop</a></h2>
+<p>An RL environment for an LLM agent bundles three things: a dataset of task inputs, a harness for the model, and a reward function to score outputs. The training loop looks like this:</p>
+<pre><code>┌─────────────┐    prompt      ┌──────────┐   action    ┌───────┐
+│    Task     │───────────────&gt;│  Agent   │────────────&gt;│ Tools │
+│   Dataset   │                │ Harness  │&lt;────────────│  Env  │
+└─────────────┘                │ (Model)  │ observation  └───────┘
+                               └────┬─────┘
+                                    │ completion
+                                    v
+                             ┌──────────────┐
+                             │  Verifier /  │──&gt; reward ──&gt; Trainer
+                             │   Rubric     │
+                             └──────────────┘
+</code></pre>
+<p>Formally, a complete RL environment is a tuple:</p>
+<p>Task distribution, harness, verifier, state management, configuration. Let’s go through each.</p>
+<p>The task distribution is the set of problems the agent trains on. Not all tasks are equal, and not just in difficulty. They vary structurally in ways that demand different capabilities:</p>
+<table> <tr> <th>Task Type</th> <th>What the Agent Must Do</th> <th>Example Systems</th> </tr> <tbody> <tr> <td><strong>Single-turn Q&amp;A</strong></td> <td>One prompt → one response, check answer</td> <td>Math benchmarks, SimpleQA</td> </tr> <tr> <td><strong>Multi-hop search</strong></td> <td>Chain searches, synthesize sources</td> <td>BrowseComp, WebWalkerQA</td> </tr> <tr> <td><strong>Open-ended research</strong></td> <td>No single correct answer; report quality matters</td> <td>ADR-Bench, ResearchRubrics</td> </tr> <tr> <td><strong>Agentic tool-use</strong></td> <td>Call tools correctly in sequence</td> <td>tau-bench, function-calling benchmarks</td> </tr> <tr> <td><strong>Stateful enterprise</strong></td> <td>Modify persistent DB state, work within access controls</td> <td>EnterpriseOps-Gym</td> </tr> <tr> <td><strong>Code execution</strong></td> <td>Write code, run it, check outputs</td> <td>SWE-Bench, LiveCodeBench</td> </tr> </tbody> </table>
+<p>Training only on tasks with ground-truth answers produces an agent that’s never learned to reason under ambiguity. Training only in clean, deterministic environments produces an agent that falls apart in production. The task distribution is a design decision with direct consequences.</p>
+<p><strong>Task synthesis is increasingly a first-class problem.</strong> With real-world research tasks, you rarely have a large labeled dataset. Strategies that have emerged:</p>
+<ul> <li><strong>Back translation</strong>: Start from a desired output, reconstruct the query that would produce it</li> <li><strong>Graph-based synthesis</strong>: Build a knowledge graph, generate multi-hop queries over it</li> <li><strong>Automated environment generation</strong>: Use LLM coding agents to write new environment code. <a href="https://arxiv.org/abs/2511.19304">AutoEnv</a> reports ~$4/env average cost.</li> <li><strong>Curriculum construction</strong>: Order tasks by difficulty and increase complexity during training</li> </ul>
+<p>The cheapest-to-collect tasks are single-turn with verifiable answers. The most valuable tasks for long-horizon behavior are expensive to construct. This tension drives most environment design decisions.</p>
+<p>The harness is the scaffolding that mediates between the model and the environment. It controls how the model interacts, not what it knows.</p>
+<pre><code>H = {
+    rollout_protocol,   # SingleTurn | MultiTurn | Agentic
+    tools,              # Available tools in this episode
+    system_prompt,      # Instructions for the agent
+    context_manager,    # How to handle context overflow
+    turn_limit,         # Max interactions per episode
+    sandbox,            # Code execution sandbox
+    state               # Persistent state across turns
+}
+</code></pre>
+<p>Rollout protocols range from trivial to complex:</p>
+<table> <tr> <th>Harness Type</th> <th>Description</th> <th>When to Use</th> </tr> <tbody> <tr> <td><strong>Single-Turn</strong></td> <td>One prompt, one response</td> <td>Math, factual QA</td> </tr> <tr> <td><strong>Multi-Turn</strong></td> <td>Back-and-forth dialogue</td> <td>Games, structured tasks</td> </tr> <tr> <td><strong>Tool-Use</strong></td> <td>Model calls tools, receives results</td> <td>Agent benchmarks</td> </tr> <tr> <td><strong>Stateful Tool-Use</strong></td> <td>Tools modify persistent state</td> <td>Enterprise workflows, SWE-Bench</td> </tr> <tr> <td><strong>Agentic ReAct</strong></td> <td>Full Thought→Action→Observation loop</td> <td>Deep research, complex workflows</td> </tr> </tbody> </table>
+<p>Tools span a wide taxonomy:</p>
+<table> <tr> <th>Category</th> <th>Tools</th> <th>Deterministic?</th> <th>Stateful?</th> </tr> <tbody> <tr> <td><strong>Information retrieval</strong></td> <td>web_search, scholar_search</td> <td>No (live web)</td> <td>No</td> </tr> <tr> <td><strong>Content extraction</strong></td> <td>jina_reader, visit, web_scrape</td> <td>No</td> <td>No</td> </tr> <tr> <td><strong>Code execution</strong></td> <td>python_interpreter, shell, sandbox</td> <td>Yes (given same code)</td> <td>Yes</td> </tr> <tr> <td><strong>File operations</strong></td> <td>file_read, file_write</td> <td>Yes</td> <td>Yes</td> </tr> <tr> <td><strong>Browser automation</strong></td> <td>playwright, link_click</td> <td>No</td> <td>Yes</td> </tr> <tr> <td><strong>Task management</strong></td> <td>todo, section_write</td> <td>Yes</td> <td>Yes</td> </tr> </tbody> </table>
+<p>The mix of deterministic/non-deterministic and stateful/stateless tools has real implications for reproducibility and reward assignment. Non-deterministic tools mean two runs of the same trajectory can produce different outcomes — which complicates both debugging and verifier design.</p>
+<p><strong>Context management</strong> is where most teams underinvest, especially for long-horizon tasks. A 600-turn research episode blows past any practical context window. Strategies used in production:</p>
+<table> <tr> <th>Strategy</th> <th>Description</th> <th>Trade-off</th> </tr> <tbody> <tr> <td><strong>Recency-based retention</strong></td> <td>Keep N most recent turns</td> <td>Simple, but loses early context</td> </tr> <tr> <td><strong>Markovian reconstruction</strong></td> <td>Reconstruct state from scratch each turn</td> <td>Principled, expensive</td> </tr> <tr> <td><strong>Reference-preserving summarization</strong></td> <td>Summarize old context, keep citations</td> <td>Preserves verifiability</td> </tr> <tr> <td><strong>Reference-preserving folding</strong></td> <td>Compress context without losing references</td> <td>Best for research tasks</td> </tr> </tbody> </table>
+<p>An agent doing multi-hour research needs to remember why it started searching in a particular direction twelve tool calls ago. Dropping that context causes repeated work and lost threads.</p>
+<p>The verifier maps a completion to a reward:</p>
+<p>In Atari, the score is unambiguous. In deep research, what counts as a good answer is not. The verifier is where this gets hard.</p>
+<table> <tr> <th>Type</th> <th>Reward Signal</th> <th>When to Use</th> </tr> <tbody> <tr> <td><strong>Exact match</strong></td> <td>Binary (0/1)</td> <td>Ground truth available</td> </tr> <tr> <td><strong>Code execution</strong></td> <td>Binary or partial</td> <td>Output can be tested programmatically</td> </tr> <tr> <td><strong>LLM-as-judge</strong></td> <td>Continuous [0,1]</td> <td>Open-ended quality, no other option</td> </tr> <tr> <td><strong>Checklist-style</strong></td> <td>Continuous</td> <td>Multi-criteria research tasks</td> </tr> <tr> <td><strong>Evolving rubric (RLER)</strong></td> <td>Continuous</td> <td>Resistant to reward hacking</td> </tr> <tr> <td><strong>Process reward model (PRM)</strong></td> <td>Per-step continuous</td> <td>Long-horizon credit assignment</td> </tr> <tr> <td><strong>Pairwise comparison</strong></td> <td>Relative rank</td> <td>Relative quality matters more than absolute</td> </tr> <tr> <td><strong>Multi-criteria composite</strong></td> <td>Weighted sum</td> <td>Multiple quality dimensions</td> </tr> </tbody> </table>
+<p>A few principles that actually matter in practice:</p>
+<p><strong>Verifiable beats judgeable.</strong> Programmatic checks — code execution, string match — are faster, cheaper, and more consistent than LLM-as-judge. Use LLM-as-judge when there’s no other option, not as the default.</p>
+<p><strong>Reward granularity is a separate decision from reward type.</strong> You can score at the trajectory level (did the final output pass?), turn level (was each tool invocation useful?), or per-step with process rewards. Turn-level supervision, as Nanbeige4.1 does across up to 600 tool calls, enables finer credit assignment — the model can learn that the problem was a bad search query in turn 23, not that the entire episode failed.</p>
+<p><strong>Static rubrics get gamed.</strong> Models learn to write answers that score well on your rubric rather than solving the problem. DR Tulu’s RLER (Rubric-Level Evolving Reward) co-evolves the rubric with the policy during training. Harder to exploit a moving target.</p>
+<p><strong>Noise injection is underrated.</strong> Step-DeepResearch deliberately injects 5–10% tool errors during training. The resulting model handles flaky APIs and unexpected failures in production significantly better.</p>
+<p>State management determines whether the environment is stateless or persistent. Most academic benchmarks are stateless — each episode starts fresh. Enterprise environments are not. <a href="https://arxiv.org/abs/2603.13594">EnterpriseOps-Gym</a> maintains 164 database tables and 512 tools across episodes. Actions in one task affect the state seen by subsequent tasks. That’s a fundamentally different problem for agents to solve.</p>
+<p>Configuration covers turn limits, context budgets, sampling temperature, and curriculum scheduling. These are not afterthoughts. A turn limit of 5 vs. 600 changes what skills the agent can develop. <a href="https://arxiv.org/abs/2509.13311">AgentScaler</a> uses a two-phase curriculum — fundamental capabilities first, then domain-specific tasks — and the ordering matters. Step-DeepResearch progressively scales context windows from 32K to 128K during mid-training.</p>
+<p>The most consequential architectural question: where does the model sit relative to the environment?</p>
+<p><strong>Option A: Model outside the environment (decoupled).</strong> Model is served via API; the environment calls it at each step. Clean separation. Easy to swap models.</p>
+<p><strong>Option B: Model inside the environment (co-located).</strong> Model and environment share the same training loop. Lower latency, tighter integration, harder to reuse.</p>
+<p><strong>Option C: Split architecture.</strong> Trainer, model inference server, and environment are three separate processes communicating via API. This is where the field is landing.</p>
+<p>How real systems implement this:</p>
+<table> <tr> <th>System</th> <th>Topology</th> <th>Notes</th> </tr> <tbody> <tr> <td><strong>Prime Intellect verifiers</strong></td> <td>Option C (Split)</td> <td>Env is a standalone Python package distributed via Environments Hub</td> </tr> <tr> <td><strong>Tongyi DeepResearch</strong></td> <td>Option B (Co-located)</td> <td>Tools, context manager, verifiers inside the training pipeline</td> </tr> <tr> <td><strong>Step-DeepResearch</strong></td> <td>Option B (Co-located)</td> <td>Single-agent ReAct loop embedded in training</td> </tr> <tr> <td><strong>MiroThinker</strong></td> <td>Option C (Split)</td> <td>Tool servers and sandbox run independently from model</td> </tr> <tr> <td><strong>Tinker API</strong></td> <td>Option A (Decoupled, cloud)</td> <td>Model stays remote; researcher sends <code>forward_backward</code> + <code>sample</code> calls via API</td> </tr> <tr> <td><strong><a href="https://arxiv.org/abs/2511.19304">AutoEnv</a></strong></td> <td>Option A (Decoupled)</td> <td>CoreEnv/ObsEnv/SkinEnv abstraction layers</td> </tr> <tr> <td><strong><a href="https://arxiv.org/abs/2603.13594">EnterpriseOps-Gym</a></strong></td> <td>Option A (Decoupled)</td> <td>Containerized sandbox accessible via any model API</td> </tr> </tbody> </table>
+<p>The trade-offs:</p>
+<table> <tr> <th>Dimension</th> <th>Model Outside (A/C)</th> <th>Model Inside (B)</th> </tr> <tbody> <tr> <td><strong>Flexibility</strong></td> <td>Swap models easily; env is reusable</td> <td>Tighter integration</td> </tr> <tr> <td><strong>Scalability</strong></td> <td>Scale inference and training independently</td> <td>Must scale everything together</td> </tr> <tr> <td><strong>Portability</strong></td> <td>Env packages are shareable</td> <td>Env tied to training framework</td> </tr> <tr> <td><strong>Latency</strong></td> <td>Network overhead per tool call</td> <td>No network overhead</td> </tr> <tr> <td><strong>RL compatibility</strong></td> <td>Works with any RL trainer</td> <td>Usually tied to one trainer</td> </tr> </tbody> </table>
+<p>The field has converged on Option C for production training. Prime Intellect’s architecture — environments as standalone installable packages that communicate with models via OpenAI-compatible API endpoints — is becoming the standard. The payoff: environments are publishable, trainer-agnostic, and inference and environment execution can be parallelized across nodes.</p>
+<p>Tinker pushes this further by making even the training compute remote. The researcher controls the algorithm and never touches model weights. The environment’s job is purely generating experience.</p>
+<h2><a href="https://leehanchung.github.io/blogs/2026/03/21/rl-environments-for-llm-agents/#decision-framework">Practical Decision Framework</a></h2>
+<p>When building an RL environment for an LLM agent:</p>
+<p><strong>Do you have ground truth answers?</strong></p>
+<ul> <li>Yes → Exact-match or code-execution verifier</li> <li>No → LLM-as-judge, checklist, or pairwise comparison</li> </ul>
+<p><strong>How many tool calls per episode?</strong></p>
+<ul> <li>&lt; 5 → Single-turn or simple tool-use env, no context management needed</li> <li>5–50 → Multi-turn with basic context management</li> <li>50–600 → Full agentic env with reference-preserving context management</li> </ul>
+<p><strong>Where should the model live?</strong></p>
+<ul> <li>Experimenting across many environments → Model outside (Option A/C), use Prime Intellect Hub</li> <li>Tight RL training loop → Model co-located (Option B)</li> <li>No GPU access → Tinker API</li> </ul>
+<p><strong>What reward granularity?</strong></p>
+<ul> <li>Simple tasks → Outcome-level</li> <li>Long-horizon tasks → Turn-level (Nanbeige4.1) or process rewards (PRIME)</li> <li>Open-ended research → Evolving rubrics (RLER) or checklist-style (Step-DR)</li> </ul>
+<p><strong>How to scale environments?</strong></p>
+<ul> <li>Manual curation → High quality, expensive, this is where you start</li> <li><a href="https://arxiv.org/abs/2511.19304">AutoEnv</a> → Automated generation at ~$4/env</li> <li><a href="https://arxiv.org/abs/2509.13311">AgentScaler</a> → Systematic scaling of heterogeneous simulated environments</li> </ul>
+<p>Three things to pay attention to.</p>
+<p><strong>Environment diversity matters as much as environment quality.</strong> <a href="https://arxiv.org/abs/2509.13311">AgentScaler</a>’s key finding is that heterogeneity of environments drives capability breadth in ways that simply adding more data from the same distribution cannot. You need more kinds of environments, not just more environments.</p>
+<p><strong>Automated environment generation is viable.</strong> At $4 per generated environment, cost is no longer the bottleneck. The bottleneck is verifier quality — auto-generated environments with weak reward functions will teach the wrong behaviors at scale. (<a href="https://arxiv.org/abs/2511.19304">AutoEnv</a>)</p>
+<p><strong>The environment-as-package model is winning.</strong> The <a href="https://github.com/PrimeIntellect-ai/prime-rl">Prime Intellect Environments Hub</a> is creating a shared ecosystem around RL environments, in the same way PyPI and HuggingFace created ecosystems around code and model weights. Environments published once, consumed by any trainer. This is a significant infrastructure shift.</p>
+<p>The model isn’t the only variable. The training ground shapes what the model can become. The task distribution, the harness, the verifier, the state management, the topology — these are the decisions that separate agents that work from agents that demo.</p>
+<h2><a href="https://leehanchung.github.io/blogs/2026/03/21/rl-environments-for-llm-agents/#references">References</a></h2>
+<pre><code>@article{
+    leehanchung,
+    author = {Lee, Hanchung},
+    title = {The Training Grounds: A Taxonomy of RL Environments for LLM Agents},
+    year = {2026},
+    month = {03},
+    day = {21},
+    howpublished = {\url{https://leehanchung.github.io}},
+    url = {https://leehanchung.github.io/blogs/2026/03/21/rl-environments-for-llm-agents/}
+}
+</code></pre></div>
+      
+    </article>
+    
+    <article>
+      <h1>Every layer of review makes you 10x slower</h1>
+      <div class="article-meta">
+        Avery Pennarun
+        · 26 Mar 2026 · <a href="https://apenwarr.ca/log/20260316">Source</a>
+      </div>
+      <div class="article-body"><h2><a>2026-03-16 </a><a href="https://apenwarr.ca/log/20260316/20260316">»</a></h2>
+<p><b>Every layer of review makes you 10x slower</b></p>
+<p>We’ve all heard of those network effect laws: the value of a network goes up with the square of the number of members. Or the cost of communication goes up with the square of the number of members, or maybe it was n log n, or something like that, depending how you arrange the members. Anyway doubling a team doesn't double its speed; there’s coordination overhead. Exactly how much overhead depends on how badly you botch the org design.</p>
+<p>But there’s one rule of thumb that someone showed me decades ago, that has stuck with me ever since, because of how annoyingly true it is. The rule is annoying because it doesn’t <em>seem</em> like it should be true. There’s no theoretical basis for this claim that I’ve ever heard. And yet, every time I look for it, there it is.</p>
+<p>Here we go:</p>
+<p><b><strong>Every layer of approval makes a process 10x slower</strong></b></p>
+<p>I know what you're thinking. Come on, 10x? That’s a lot. It’s unfathomable. Surely we’re exaggerating.</p>
+<p>Nope.</p>
+<p>Just to be clear, we're counting “wall clock time” here rather than effort. Almost all the extra time is spent sitting and waiting.</p>
+<p>Look:</p>
+<ul> <li> <p>Code a simple bug fix<br/> 30 minutes</p> </li> <li> <p>Get it code reviewed by the peer next to you<br/> 300 minutes → 5 hours → half a day</p> </li> <li> <p>Get a design doc approved by your architects team first<br/> 50 hours → about a week</p> </li> <li> <p>Get it on some other team’s calendar to do all that<br/> (for example, if a customer requests a feature)<br/> 500 hours → 12 weeks → one fiscal quarter</p> </li> </ul>
+<p>I wish I could tell you that the next step up — 10 quarters or about 2.5 years — was too crazy to contemplate, but no. That’s the life of an executive sitting above a medium-sized team; I bump into it all the time even at a relatively small company like Tailscale if I want to change product direction. (And execs sitting above large teams can’t actually do work of their own at all. That's another story.)</p>
+<p><b><strong>AI can’t fix this</strong></b></p>
+<p>First of all, this isn’t a post about AI, because AI’s direct impact on this problem is minimal. Okay, so Claude can code it in 3 minutes instead of 30? That’s super, Claude, great work.</p>
+<p>Now you either get to spend 27 minutes reviewing the code yourself in a back-and-forth loop with the AI (this is actually kinda fun); or you save 27 minutes and submit unverified code to the code reviewer, who will still take 5 hours like before, but who will now be mad that you’re making them read the slop that you were too lazy to read yourself. Little of value was gained.</p>
+<p>Now now, you say, that’s not the value of agentic coding. You don’t use an agent on a 30-minute fix. You use it on a monstrosity week-long project that you and Claude can now do in a couple of hours! Now we’re talking. Except no, because the monstrosity is so big that your reviewer will be extra mad that you didn’t read it yourself, and it’s too big to review in one chunk so you have to slice it into new bite-sized chunks, each with a 5-hour review cycle. And there’s no design doc so there’s no intentional architecture, so eventually someone’s going to push back on that and here we go with the design doc review meeting, and now your monstrosity week-long project that you did in two hours is... oh. A week, again.</p>
+<p>I guess I could have called this post Systems Design 4 (or 5, or whatever I’m up to now, who knows, I’m writing this on a plane with no wifi) because yeah, you guessed it. It's Systems Design time again.</p>
+<p><b>The only way to sustainably go faster is fewer reviews</b></p>
+<p>It’s funny, everyone has been predicting the Singularity for decades now. The premise is we build systems that are so smart that they themselves can build the next system that is even smarter, that builds the next smarter one, and so on, and once we get that started, if they keep getting smarter faster enough, then the incremental time (t) to achieve a unit (u) of improvement goes to zero, so (u/t) goes to infinity and foom.</p>
+<p>Anyway, I have never believed in this theory for the simple reason we outlined above: the majority of time needed to get anything done is not actually the time doing it. It’s wall clock time. Waiting. Latency.</p>
+<p>And <a href="https://apenwarr.ca/log/20230415">you can’t overcome latency with brute force</a>.</p>
+<p>I know you want to. I know many of you now work at companies where the business model kinda depends on doing exactly that.</p>
+<p>Sorry.</p>
+<p><b>But you can’t just <em>not review</em> things!</b></p>
+<p>Ah, well, no, actually yeah. You really can’t.</p>
+<p>There are now many people who have seen the symptom: the start of the pipeline (AI generated code) is so much faster, but all the subsequent stages (reviews) are too slow! And so they intuit the obvious solution: stop reviewing then!</p>
+<p>The result might be slop, but if the slop is 100x cheaper, then it only needs to deliver 1% of the value per unit and it's still a fair trade. And if your value per unit is even a mere 2% of what it used to be, you’ve doubled your returns! Amazing.</p>
+<p>There are some pretty dumb assumptions underlying that theory; you can imagine them for yourself. Suffice it to say that this produces what I will call the AI Developer’s Descent Into Madness:</p>
+<ol> <li> <p>Whoa, I produced this prototype so fast! I have super powers!</p> </li> <li> <p>This prototype is getting buggy. I’ll tell the AI to fix the bugs.</p> </li> <li> <p>Hmm, every change now causes as many new bugs as it fixes.</p> </li> <li> <p>Aha! But if I have an AI agent also review the code, it can find its own bugs!</p> </li> <li> <p>Wait, why am I personally passing data back and forth between agents</p> </li> <li> <p>I need an agent framework</p> </li> <li> <p>I can have my agent write an agent framework!</p> </li> <li> <p>Return to step 1</p> </li> </ol>
+<p>It’s actually alarming how many friends and respected peers I’ve lost to this cycle already. Claude Code only got good maybe a few months ago, so this only recenlty started happening, so I assume they will emerge from the spiral eventually. I mean, I hope they will. We have no way of knowing.</p>
+<p><b>Why we review</b></p>
+<p>Anyway we know our symptom: the pipeline gets jammed up because of too much new code spewed into it at step 1. But what's the root cause of the clog? Why doesn’t the pipeline go faster?</p>
+<p>I said above that this isn’t an article about AI. Clearly I’m failing at that so far, but let’s bring it back to humans. It goes back to the annoyingly true observation I started with: every layer of review is 10x slower. As a society, we know this. Maybe you haven't seen it before now. But trust me: people who do org design for a living know that layers are expensive... and they still do it.</p>
+<p>As companies grow, they all end up with more and more layers of collaboration, review, and management. Why? Because otherwise mistakes get made, and mistakes are increasingly expensive at scale. The average value added by a new feature eventually becomes lower than the average value lost through the new bugs it causes. So, lacking a way to make features produce more value (wouldn't that be nice!), we try to at least reduce the damage.</p>
+<p>The more checks and controls we put in place, the slower we go, but the more monotonically the quality increases. And isn’t that the basis of <em>continuous improvement?</em></p>
+<p>Well, sort of. Monotonically increasing quality is on the right track. But “more checks and controls” went off the rails. That’s <em>only one way</em> to improve quality, and it's a fraught one.</p>
+<p><b>“Quality Assurance” reduces quality</b></p>
+<p>I wrote a few years ago about <a href="https://apenwarr.ca/log/20161226">W. E. Deming and the "new" philosophy around quality</a> that he popularized in Japanese auto manufacturing. (Eventually U.S. auto manufacturers more or less got the idea. So far the software industry hasn’t.)</p>
+<p>One of the effects he highlighted was the problem of a “QA” pass in a factory: build widgets, have an inspection/QA phase, reject widgets that fail QA. Of course, your inspectors probably miss some of the failures, so when in doubt, add a second QA phase after the first to catch the remaining ones, and so on.</p>
+<p>In a simplistic mathematical model this seems to make sense. (For example, if every QA pass catches 90% of defects, then after two QA passes you’ve reduced the number of defects by 100x. How awesome is that?)</p>
+<p>But in the reality of agentic humans, it’s not so simple. First of all, the incentives get weird. The second QA team basically serves to evaluate how well the first QA team is doing; if the first QA team keeps missing defects, fire them. Now, that second QA team has little incentive to produce that outcome for their friends. So maybe they don’t look too hard; after all, the first QA team missed the defect, it’s not unreasonable that we might miss it too.</p>
+<p>Furthermore, the first QA team knows there is a second QA team to catch any defects; if I don’t work too hard today, surely the second team will pick up the slack. That's why they're there!</p>
+<p>Also, the team making the widgets in the first place doesn’t check their work too carefully; that’s what the QA team is for! Why would I slow down the production of every widget by being careful, at a cost of say 20% more time, when there are only 10 defects in 100 and I can just eliminate them at the next step for only a 10% waste overhead? It only makes sense. Plus they'll fire me if I go 20% slower.</p>
+<p>To say nothing of a whole engineering redesign to improve quality, that would be super expensive and we could be designing all new widgets instead.</p>
+<p>Sound like any engineering departments you know?</p>
+<p>Well, this isn’t the right time to rehash Deming, but suffice it to say, he was on to something. And his techniques worked. You get things like the famous Toyota Production System where they eliminated the QA phase entirely, but gave everybody an “oh crap, stop the line, I found a defect!” button.</p>
+<p>Famously, US auto manufacturers tried to adopt the same system by installing the same “stop the line” buttons. Of course, nobody pushed those buttons. They were afraid of getting fired.</p>
+<p><b>Trust</b></p>
+<p>The basis of the Japanese system that worked, and the missing part of the American system that didn’t, is trust. Trust among individuals that your boss Really Truly Actually wants to know about every defect, and wants you to stop the line when you find one. Trust among managers that executives were serious about quality. Trust among executives that individuals, given a system that can work and has the right incentives, will produce quality work and spot their own defects, and push the stop button when they need to push it.</p>
+<p>But, one more thing: trust that the system <em>actually does work</em>. So first you need a system that will work.</p>
+<p><b>Fallibility</b></p>
+<p>AI coders are fallible; they write bad code, often. In this way, they are just like human programmers.</p>
+<p>Deming’s approach to manufacturing didn’t have any magic bullets. Alas, you can’t just follow his ten-step process and immediately get higher quality engineering. The secret is, you have to get your engineers to engineer higher quality into the whole system, from top to bottom, repeatedly. Continuously.</p>
+<p>Every time something goes wrong, you have to ask, “How did this happen?” and then do a whole post-mortem and the Five Whys (or however many Whys are in fashion nowadays) and fix the underlying Root Causes so that it doesn’t happen again. “The coder did it wrong” is never a root cause, only a symptom. Why was it possible for the coder to get it wrong?</p>
+<p>The job of a code reviewer isn't to review code. It's to figure out how to obsolete their code review comment, that whole class of comment, in all future cases, until you don't need their reviews at all anymore.</p>
+<p>(Think of the people who first created "go fmt" and how many stupid code review comments about whitespace are gone forever. Now that's engineering.)</p>
+<p>By the time your review catches a mistake, the mistake has already been made. The root cause happened already. You're too late.</p>
+<p><b>Modularity</b></p>
+<p>I wish I could tell you I had all the answers. Actually I don’t have much. If I did, I’d be first in line for the Singularity because it sounds kind of awesome.</p>
+<p>I think we’re going to be stuck with these systems pipeline problems for a long time. Review pipelines — layers of QA — don’t work. Instead, they make you slower while hiding root causes. Hiding causes makes them harder to fix.</p>
+<p>But, the call of AI coding is strong. That first, fast step in the pipeline is <em>so fast!</em> It really does feel like having super powers. I want more super powers. What are we going to do about it?</p>
+<p>Maybe we finally have a compelling enough excuse to fix the 20 years of problems hidden by code review culture, and replace it with a real culture of quality.</p>
+<p>I think the optimists have half of the right idea. Reducing review stages, even to an uncomfortable degree, is going to be needed. But you can’t just reduce review stages without something to replace them. That way lies the Ford Pinto or any recent Boeing aircraft.</p>
+<p>The complete package, the table flip, was what Deming brought to manufacturing. You can’t half-adopt a “total quality” system. You need to eliminate the reviews <em>and</em> obsolete them, in one step.</p>
+<p>How? You can fully adopt the new system, in small bites. What if some components of your system can be built the new way? Imagine an old-school U.S. auto manufacturer buying parts from Japanese suppliers; wow, these parts are so well made! Now I can start removing QA steps elsewhere because I can just assume the parts are going to work, and my job of "assemble a bigger widget from the parts" has a ton of its complexity removed.</p>
+<p>I like this view. I’ve always liked small beautiful things, that’s my own bias. But, you can assemble big beautiful things from small beautiful things.</p>
+<p>It’s a lot easier to build those individual beautiful things in small teams that trust each other, that know what quality looks like <em>to them</em>. They deliver their things to customer teams who can clearly explain what quality looks like <em>to them</em>. And on we go. Quality starts bottom-up, and spreads.</p>
+<p>I think small startups are going to do really well in this new world, probably better than ever. Startups already have fewer layers of review just because they have fewer people. Some startups will figure out how to produce high quality components quickly; others won't and will fail. Quality by natural selection?</p>
+<p>Bigger companies are gonna have a harder time, because their slow review systems are baked in, and deleting them would cause complete chaos.</p>
+<p>But, it’s not just about company size. I think engineering teams at any company can get smaller, and have better defined interfaces between them.</p>
+<p>Maybe you could have multiple teams inside a company competing to deliver the same component. Each one is just a few people and a few coding bots. Try it 100 ways and see who comes up with the best one. Again, quality by evolution. Code is cheap but good ideas are not. But now you can try out new ideas faster than ever.</p>
+<p>Maybe we’ll see a new optimal point on the <a href="https://tailscale.com/blog/modules-monoliths-and-microservices">monoliths-microservices continuum</a>. Microservices got a bad name because they were too micro; in the original terminology, a “micro” service was exactly the right size for a “two pizza team” to build and operate on their own. With AI, maybe it's one pizza and some tokens.</p>
+<p>What’s fun is you can also use this new, faster coding to experiment with different module <em>boundaries</em> faster. <em>Features</em> are still hard for lots of reasons, but refactoring and automated integration testing are things the AIs excel at. Try splitting out a module you were afraid to split out before. Maybe it'll add some lines of code. But suddenly lines of code are cheap, compared to the coordination overhead of a bigger team maintaining both parts.</p>
+<p>Every team has some monoliths that are a little too big, and too many layers of reviews. Maybe we won't get all the way to Singularity. But, we can engineer a much better world. Our problems are solvable.</p>
+<p>It just takes trust.</p>
+<p><b>Related</b></p>
+<p><a href="https://apenwarr.ca/log/20260316/20161226">Highlights on "quality," and Deming's work as it applies to software development</a> (2016)</p>
+<p><a href="https://apenwarr.ca/log/20260316/20251120">Systems design 3: LLMs and the semantic revolution</a> (2025)</p>
+<p><b>Unrelated</b></p>
+<p><a href="https://apenwarr.ca/log/20260316/20170928">SimSWE part 2: The perils of multitasking</a> (2017)</p></div>
+      
+    </article>
+    
+    <article>
+      <h1>Slow developer experience will bottleneck fast models</h1>
+      <div class="article-meta">
+        seangoedecke.com RSS feed
+        · 13 Sep 2026 · <a href="https://seangoedecke.com/slow-devex-will-bottleneck-fast-models/">Source</a>
+      </div>
+      <div class="article-body"><p>Right now developer experience is measured in seconds. If your tests take a second to run, that’s good; if they take thirty seconds, that’s bad. Any faster than a second doesn’t really matter, because most of your time is spent either thinking or waiting for an AI agent to spin. Shaving milliseconds off your dev server reload time or whatever is pointless: that’s not the bottleneck.</p>
+<p>It will be. Small models are getting faster and faster, and smart models are getting smaller. I think most engineers will still want to use the smartest available model — software engineering is hard — but we will increasingly see faster models get used as subagents or for well-understood tasks. This is largely uncharted territory. Very few people have developed intuitions for what it is going to be like to work with agents that run at thousands of tokens-per-second.</p>
+<p>GPT-6-Astra can run at about <a href="https://openrouter.ai/openai/gpt-6-astra#providers">sixty</a> tokens per second. That means you spend a lot of time waiting for it to think. You work with it like you would work with another human: delegating a task and then context-switching until that task is complete. If you haven’t yet, have a play around with <a href="https://chatjimmy.ai/">Jimmy</a>, Taalas’ version of LLaMA-3.1-8B running<sup><a href="https://www.seangoedecke.com/slow-devex-will-bottleneck-fast-models/#fn-1">1</a></sup> at <em>seventeen thousand tokens per second</em>. No matter how long the response is, it arrives in the instant of you hitting send. The model is not good enough for agentic work, but it gives a glimpse of what it would be like: you would simply get your answer instantly<sup><a href="https://www.seangoedecke.com/slow-devex-will-bottleneck-fast-models/#fn-2">2</a></sup>.</p>
+<p>Well, that’s assuming the agent’s tool calls are fast. When generating tokens is not the bottleneck, it will suddenly matter a lot whether it can read a file in 100ms vs 10ms, or whether it can run your tests in 500ms vs two seconds. Fast tool calls are going to be the difference between a near-instant response and having to wait several minutes. There is thus going to be enormous pressure to do agentic coding in languages with fast compilers and tests, like Golang, and to tightly optimize the dev loop in agentic codebases.</p>
+<p>Teams focused on DevEx — developer experience — are largely a relic of the 2010s, when companies were <a href="https://www.seangoedecke.com/good-times-are-over/">incentivized</a> to make their engineers happy. Most companies have cut them down to a skeleton crew or removed them entirely. But we may see a return of DevEx in the late 2020s, focused on speeding up the experience for AI agents.</p>
+<ol> <li> <p>Like most ultra-fast inference, it relies on fitting the entire model onto a huge GPU-like chip that’s specially designed to run inference: for Taalas, it’s in the silicon itself; for Cerebras and Groq, it’s in giant embedded onboard memory units.</p> <a href="https://www.seangoedecke.com/slow-devex-will-bottleneck-fast-models/#fnref-1">↩</a> </li> <li> <p>Will AI providers simply train models to spend more time reasoning, so users would have to wait for roughly the same time? I doubt it. Most ordinary engineering problems would not be solved better by spending an extra million tokens thinking. You only need to do that when you’re pushing right up against the limits of the model.</p> <a href="https://www.seangoedecke.com/slow-devex-will-bottleneck-fast-models/#fnref-2">↩</a> </li> </ol></div>
+      
+    </article>
+    
+  </body>
+</html>
