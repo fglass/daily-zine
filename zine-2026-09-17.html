@@ -1,0 +1,508 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Fred Talks - 2026-09-17</title>
+    <style>
+      @page {
+        size: A5;
+        margin: 8mm 9mm 9mm;
+      }
+
+      :root {
+        color: #111;
+        font-family: "Times New Roman", Times, serif;
+        --body-text-size: 9.5pt;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        color: #111;
+        background: #fff;
+        font-family: "Times New Roman", Times, serif;
+        line-height: 1.45;
+      }
+
+      a,
+      a:visited {
+        color: #111;
+        text-decoration: underline;
+      }
+
+      .cover {
+        min-height: calc(210mm - 17mm);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        page-break-after: always;
+        border: 1px solid #111;
+        padding: 8mm;
+        background: #fff;
+      }
+
+      .toc-item-meta,
+      .article-meta {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .masthead {
+        margin: 0;
+        font-size: 40pt;
+        line-height: 0.95;
+        text-transform: uppercase;
+      }
+
+      .issue-date {
+        margin: 4mm 0 0;
+        font-size: 14pt;
+      }
+
+      .issue-date sup {
+        font-size: 0.58em;
+        vertical-align: super;
+        line-height: 0;
+      }
+
+      .cover-deck {
+        max-width: 90mm;
+        font-size: 12pt;
+        margin: 0;
+      }
+
+      .toc {
+        border-top: 3px solid #111;
+        padding-top: 6mm;
+      }
+
+      .toc h2 {
+        margin: 0 0 4mm;
+        font-size: 11pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .toc-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .toc-item {
+        padding: 3mm 0;
+        border-bottom: 1px solid rgba(17, 17, 17, 0.2);
+      }
+
+      .toc-item-title {
+        font-size: 12pt;
+        margin: 0 0 1mm;
+      }
+
+      .toc-item-meta {
+        font-size: 8pt;
+      }
+
+      .masthead-compact {
+        margin: 0 0 6mm;
+      }
+
+      .masthead-compact h1 {
+        margin: 0;
+        font-size: 22pt;
+        line-height: 1.1;
+        text-transform: uppercase;
+      }
+
+      .masthead-compact .issue-date {
+        margin: 2mm 0 0;
+        font-size: 11pt;
+      }
+
+      .toc-compact {
+        border-top: 1px solid #111;
+        border-bottom: 1px solid #111;
+        padding: 4mm 0;
+        margin: 0 0 8mm;
+      }
+
+      article + article {
+        margin-top: 10mm;
+        padding-top: 6mm;
+        border-top: 2px solid #111;
+      }
+
+      h1 {
+        margin: 0 0 2mm;
+        font-size: 18pt;
+        line-height: 1.1;
+      }
+
+      .article-meta {
+        font-size: 8.5pt;
+        margin-bottom: 6mm;
+        padding-bottom: 3mm;
+        border-bottom: 1px solid #111;
+      }
+
+      .article-body {
+        font-size: var(--body-text-size);
+        font-family: "Times New Roman", Times, serif;
+      }
+
+      .article-body p,
+      .article-body li,
+      .article-body blockquote,
+      .article-body dd,
+      .article-body dt {
+        margin: 0 0 4mm;
+        orphans: 3;
+        widows: 3;
+      }
+
+      .article-body ul,
+      .article-body ol,
+      .article-body dl {
+        margin: 0 0 4mm 5mm;
+        padding: 0;
+      }
+
+      .article-body h2,
+      .article-body h3,
+      .article-body h4 {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        margin: 7mm 0 3mm;
+        line-height: 1.2;
+      }
+
+      .article-body blockquote {
+        margin-left: 6mm;
+        padding-left: 4mm;
+        border-left: 2px solid #111;
+      }
+
+      .article-body .media-omitted {
+        margin: 0 0 4mm;
+        font-size: 8.5pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(17, 17, 17, 0.65);
+      }
+
+      .article-body figure,
+      .article-body .article-figure,
+      .article-body picture,
+      .article-body .article-picture {
+        display: block;
+        max-width: 72mm;
+        margin: 0 auto 4mm;
+        break-inside: avoid;
+      }
+
+      .article-body img,
+      .article-body .article-image {
+        display: block;
+        max-width: min(100%, 72mm);
+        max-height: 34mm;
+        height: auto;
+        width: auto;
+        object-fit: contain;
+        margin: 0 auto 3mm;
+      }
+
+      .article-body figcaption {
+        margin-top: 1.5mm;
+        font-size: 8.5pt;
+        line-height: 1.3;
+        color: rgba(17, 17, 17, 0.8);
+      }
+
+      .article-note {
+        margin-top: 6mm;
+        padding-top: 3mm;
+        border-top: 1px solid #111;
+        font-size: 9pt;
+        font-style: italic;
+      }
+
+      @media screen {
+        body {
+          padding: 2rem;
+          margin: 0 auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    
+    <header class="masthead-compact">
+      <h1>Fred Talks</h1>
+      <p class="issue-date">
+        17<sup>th</sup> September 2026
+      </p>
+    </header>
+
+    <nav class="toc toc-compact">
+      <h2>Contents</h2>
+      <ol class="toc-list">
+        
+        <li class="toc-item">
+          <div class="toc-item-title">“Code was never the hard part” is an insult to all programmers</div>
+          <div class="toc-item-meta">
+            Senko Rašić · 1400 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Building agents that reach production systems with MCP</div>
+          <div class="toc-item-meta">
+            claude.com · 1746 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Mastering Codex Remote for engineering</div>
+          <div class="toc-item-meta">
+            developers.openai.com · 2207 words
+          </div>
+        </li>
+        
+      </ol>
+    </nav>
+    
+
+    
+    <article>
+      <h1>“Code was never the hard part” is an insult to all programmers</h1>
+      <div class="article-meta">
+        Senko Rašić
+        · 09 Aug 2026 · <a href="https://blog.senko.net/code-was-never-the-hard-part-is-an-insult-to-all-programmers">Source</a>
+      </div>
+      <div class="article-body"><p>The software development profession is in the midst of upheaval. Nobody knows how the AI revolution will play out in the end, but it is clear many aspects of work and life will be transformed—including programming.</p>
+<p>One of the comments I hear often lately boils down to “<em>LLMs may be good at coding, but software was never the hard part</em>” and “<em>coding is easy, it's figuring out what to code that's hard</em>”.</p>
+<p>I believe that's a gross insult to all programmers everywhere.</p>
+<h2>If coding is easy...</h2>
+<p>If coding is easy, how come programmers were in high demand, and have demanded large salaries for years (even before ZIRP)? Why was there so much stress, overwork and burnout even before AI started churning out 5000-line PRs? Why did companies seek 10x ninja rockstar coders and subject them to leetcode interviews—surely, a junior fresh out of college could churn out something if it's so easy?</p>
+<p>If coding is easy, why do we have doorstoppers like <a href="https://www.goodreads.com/book/show/3735293-clean-code">Clean Code</a> and <a href="https://en.wikipedia.org/wiki/The_Pragmatic_Programmer">The Pragmatic Programmer</a>? Is <a href="https://www-cs-faculty.stanford.edu/~knuth/taocp.html">The Art of Computer Programming</a> a light summer read? Is SICP a coffee-table book? Why do we have bootcamps or even whole college degrees dedicated to it?</p>
+<p>If coding is easy, was <a href="https://en.wikipedia.org/wiki/John_Carmack">Carmack</a> just at the right place at the right time? Why do we consider <a href="https://bellard.org/">Fabrice Bellard</a> a genius?</p>
+<p>If coding is easy, why are people angry at AI (or anyone else) copying their code? Why do they act like they've poured their sweat, soul, and copious amounts of time into something so trivial?</p>
+<p>If coding is easy, why do many now feel like their identity and professional purpose are being stripped away from them?</p>
+<p>If coding is easy, why is software so damn buggy?</p>
+<h2>If figuring out what to build is the hard part...</h2>
+<p>If deciding what to build is the hard part, why do so many product managers seem clueless? Why aren't there rigorous 10-step interviews for them? Why aren't they getting paid more than the developers?</p>
+<p>If deciding what to build is the hard part, why aren't market researchers, usability experts and—hell, customer success—considered rockstars in a software company? If “understanding the customer” is harder, why are business analysts looked down on as pencil pushers?</p>
+<p>If implementation is easy and finding demand is harder, why are programmers upset when the salespeople promise a new feature to a customer to close the sale? They've found a genuine demand, something people will pay for!</p>
+<p>If coding is easy, why doesn't everyone just build ten variations of a thing and see which pans out?</p>
+<h2>There's no median programmer</h2>
+<p>Another cliché comment is “<em>most work in software development is talking to stakeholders, understanding the customer's needs, and having clarity on the priorities</em>”.</p>
+<p>I have met many programmers throughout my career, and very few of them want to talk to stakeholders, much less customers (exceptions are freelancers and founders, especially of software development shops). And, “having clarity on the priorities” boils down to “just tell me what to do and don't switch it up every two days”.</p>
+<p>Some software developers do say “I don't write code, I solve customer's problems”. But then they turn around and start to opine on monads, memory safety, and DRY principles, while their understanding of the customer is a made-up “user persona”, and they think “affordance” is the money your parents used to give you on weekends so you could go out and have a good time.</p>
+<p>Yet others will say “Software development is theory building”. Programs are actually proofs (as in, mathematical proofs). Every commit should tell a story. And solving a customer's problem by FTPing a PHP file is a cardinal sin.</p>
+<p>I don't mean to imply there are no developers that simultaneously care deeply about the craft of software development and really empathize with the customer. I do believe they might want to see a professional about a split personality disorder, tho.</p>
+<h2>What <em>is</em> important?</h2>
+<p>I do believe that talking to users, understanding their experience, empathizing with them, solving customers' problems and having all the stakeholders on the same page is critical to the success of a software project.</p>
+<p>I also believe that creating good code is a craft that requires skill, patience, attention to detail, experience and wisdom, and that it will continue to be relevant in the times ahead.</p>
+<p>¿Por qué no los dos?</p>
+<p>To the extent that we can pull it off, I think we should aim for both. A deep understanding of the system we're building, together with a deep understanding of <em>why</em> we're building it.</p>
+<p>Loudly proclaiming that “code is easy” or, at the opposite end, “code is art, a creative human expression that cannot be automated”, is just burying our heads in the sand.</p>
+<p>It's cope. And you don't want cope, you want to thrive.</p>
+<p>By this, I don't mean “jump on the LLM bandwagon.” I don't mean “become a manager of fleets of AI agents.” I also don't mean “AI-generated code is stolen slop garbage, fight it with tooth and nail, the bubble will pop soon enough anyways.”</p>
+<p>But do recognize we're in the middle of an industry-wide tectonic change. We need to figure out how to adapt. We need to understand what is likely to change and what never changes.</p>
+<h2>What doesn't change?</h2>
+<p>Software will be getting more complex. Software will always need maintenance: bit-rot is a fact of life. So is entropy. Technology (hardware and software) will move forward, for better or worse. The tower (skyscraper?) of abstractions grows ever higher.</p>
+<p>Users will always want more and be prepared to spend less. They still won't know how to relay their needs and wants. Worse, they still won't know exactly what they want. The disconnect between the customers (who actually pay for the software) and users (who use it) will still be here, as will the tension between the needs of the business and the needs of its customers.</p>
+<p>Also: there will never be a shortage of snake oil salesmen. Tech du jour comes and goes (I'm still waiting for the new VR renaissance!)</p>
+<h2>What changes?</h2>
+<p>Programmers have been in the business of disrupting our own industry since the beginning. Nobody uses punch-cards any more. Very few people need to code in assembly, or COBOL. Those decades spent fighting memory bugs in C or C++, with the scars to prove it, are worthless in the age of Rust, Go, Python and JavaScript.</p>
+<p>I'm old enough to appreciate <a href="https://valgrind.org/">valgrind</a> or remember <a href="https://www.php.net/manual/en/function.mysql-escape-string.php"><code>mysql_real_escape_string()</code></a> from the PHP4 era—stuff I'll never again need in my life. And that wasn't even so long ago! I narrowly missed the dBase, Clipper, HyperCard and Access era, technologies which I can still spot operating in shops, cafes, or a dusty, once beige and now golden-brown, midi-tower still happily running some bespoke biz solution (backups? what backups?)</p>
+<h2>How do we thrive?</h2>
+<p>Accept that change happens. Be equal parts curious and critical about the new stuff.</p>
+<p>Understand there's a lot of hype and try to discriminate between hot air and what really works (and to what extent). Also be aware of ever-shifting goalposts: stand back and look at the past year, or five, and assess the velocity of change (technical, economic, societal).</p>
+<p>Your role and your responsibilities <em>will</em> be changing. Be willing to invest time and energy into better understanding fields or roles adjacent to yours.</p>
+<p>If you're a senior developer, don't just find solace in deepening your expertise. Learn about user experience, customer interviews, or business strategies for the companies in your domain. It will help you gain a better appreciation of all the work done to put a piece of software into users' hands, whether or not you'll actually ever have to do any of those other bits.</p>
+<p>If you're just starting or are junior in your role: invest in deepening your understanding of how software works. Understanding pointers, recursion, or memory hierarchy will help you even if you're a JavaScript developer. Understanding network protocols and how HTTP works will be useful even if you're building WordPress plugins. Do leetcode and learn about algorithms and data structures even if you don't need to. Don't be afraid to ask <em>why</em> and <em>how exactly</em>.</p>
+<p>For inspiration, here are a few books and other resources that might be helpful:</p>
+<ul> <li><a href="https://www.goodreads.com/book/show/58046715-continuous-discovery-habits">Continuous Discovery Habits</a></li> </ul>
+<h2>One more thing</h2>
+<p>Whoever you are, don't outsource your understanding, judgement, empathy and taste to AI. Don't <a href="https://blog.senko.net/your-code-is-your-responsibility-even-if-ai-wrote-it">abdicate your responsibility</a>. Don't be a <a href="https://gruhn.me/blog/2026-08-03/">meat proxy</a>.</p></div>
+      
+    </article>
+    
+    <article>
+      <h1>Building agents that reach production systems with MCP</h1>
+      <div class="article-meta">
+        claude.com
+        · 23 Apr 2026 · <a href="https://claude.com/blog/building-agents-that-reach-production-systems-with-mcp">Source</a>
+      </div>
+      <div class="article-body"><div><div><p>Agents are only as useful as the systems they can reach. Teams tend to converge on three approaches for connecting them to external systems—direct API calls, CLIs, and MCP. This post lays out where each fits, why production agents tend to land on MCP, and the patterns for building those integrations effectively.</p><h2>Connecting agents to external systems</h2><p>We generally see three paths for connecting agents to external systems: direct API calls, CLIs, and MCP. Each makes sense somewhere, depending on what you're building. The key distinction is whether there's a common layer between agents and services, and how far that layer reaches.</p><h3>Direct API calls</h3><p>The agent calls your API directly—either by writing code that issues HTTP requests inside a code-execution sandbox, or through a generic function-calling tool. This is where most teams start, and it works fine for one agent talking to one service, or a small number of integrations that don't need to be reused across agent platforms.<br/><br/>The challenges start to hit at scale. With no common layer between agents and services, each agent–service pair becomes a bespoke integration with its own auth handling, tool descriptions, and edge cases—the M×N integration problem.</p><h3>Command-line interface (CLI)</h3><p>The agent runs your command-line tool in a shell. This is fast, lightweight, and leans on pre-existing tooling. It works great for local environments and sandboxed containers—anywhere there's a filesystem and a shell. This provides a common layer, but it’s thin. <br/><br/>CLIs hit hard limits reaching mobile, web, or cloud-hosted platforms that don't expose a container, and auth is handled by the CLI's own mechanism—usually a credential file on disk. This is best suited to quick, permissive integrations in local environments.</p><h3>Model Context Protocol (MCP)</h3><p>MCP provides the common layer as a protocol. The agent connects to a server that exposes your system's capabilities, with auth, discovery, and rich semantics standardized. One remote server reaches any compatible client (Claude, ChatGPT, Cursor, VS Code, and more), in any deployment environment.</p><p>It requires a little bit more upfront investment. The return is that the integration is portable, and provides the semantics needed for a feature-rich agent integration.</p><h2>Production agents run in the cloud</h2><p>Production agents increasingly run in the cloud, so they can scale and operate continuously. The systems they need to reach are cloud-hosted too: where your data lives, work is tracked, and your infrastructure runs. Often these systems are remote and behind auth, where MCP provides the common layer. </p><p>We’re already seeing this in adoption. The <a href="https://modelcontextprotocol.io/docs/sdk">MCP SDKs</a> recently surpassed 300 million downloads a month, up from 100 million at the start of the year, with strong adoption across enterprises and popular agentic platforms. Millions of people use MCP with Claude every day, and the protocol underpins much of what we've shipped recently, including <a href="https://claude.com/product/cowork">Claude Cowork</a>, <a href="https://claude.com/blog/claude-managed-agents">Claude Managed Agents</a>, and <a href="https://code.claude.com/docs/en/channels">channels in Claude Code</a>. <br/>‍<br/>As MCP continues to support production agentic systems, we’re sharing patterns for building these integrations well: from building advanced servers to context-efficient clients, and where skills complement the protocol. </p><h2>Building effective MCP servers</h2><p>We have over 200 MCP servers in our <a href="https://claude.ai/directory/connectors">directory</a>, used by millions of people every day. From working closely with enterprises and developers building on the protocol, we’ve spotted a handful of design patterns that determine how reliably agents can use a server.</p><h3>Build remote servers for maximum reach</h3><p>A remote server is what gives you distribution—it's the only configuration that runs across web, mobile, and cloud-hosted agents, and it's what every major client is optimized to consume. Build remote servers so agents can use your system wherever they run. </p><h3>Group tools around intent, not endpoints</h3><p>Fewer, well-described tools consistently outperform exhaustive API mirrors. Don't wrap your API into an MCP server one-to-one—group tools around intent, so the agent can accomplish a task in a couple of calls instead of stitching many primitives together. A single create_issue_from_thread tool beats get_thread + parse_messages + create_issue + link_attachment. See<a href="https://www.anthropic.com/engineering/writing-tools-for-agents"> writing effective tools for agents</a> to learn more about the full pattern.</p><h3>Design for code orchestration when your surface is large</h3><p>If your service requires hundreds of distinct operations, such as Cloudflare, AWS, or Kubernetes, an intent-grouped toolset likely won't cover it. Instead, expose a thin tool surface that accepts code: the agent writes a short script, your server runs it in a sandbox against your API, and only the result returns. <a href="https://github.com/cloudflare/mcp">Cloudflare's MCP server</a> is the reference example—two tools (search and execute) cover ~2,500 endpoints in roughly 1K tokens.</p><h3>Ship rich semantics where they help</h3><p><a href="https://modelcontextprotocol.io/extensions/apps/overview">MCP Apps</a> is the first official protocol extension and lets a tool return an interactive interface, such as a chart, form, or dashboard, all rendered inline in the chat interface. Servers that ship MCP apps tend to see meaningfully higher adoption and retention than those that return text alone. Use it to put your product's UI in front of agents or end-users at the moment it matters—the extension is supported in Claude.ai, Claude Cowork, and many other top AI tools.</p><figure class="article-figure"><p><div class="rw-embed-wrapper"><embed src="https://www.youtube.com/embed/bluAmTHoEow" type="video/mp4"></embed></div></p></figure><p>‍<a href="https://modelcontextprotocol.io/specification/2025-11-25/client/elicitation">Elicitation</a> lets your server pause mid-tool call to ask the user for input. <a href="https://modelcontextprotocol.io/specification/2025-11-25/client/elicitation#form-mode-elicitation-requests">Form mode</a> sends a simple schema and the client renders a native form—use it to request a missing parameter, confirm a destructive action, or disambiguate options. <a href="https://modelcontextprotocol.io/specification/2025-11-25/client/elicitation#url-mode-elicitation-requests">URL mode</a> hands the user to a browser—use it to complete downstream OAuth, take a payment, or collect any credential that should never transit the MCP client. Both keep the user in the flow instead of sending them to a settings page. Form mode is supported broadly; URL mode is supported in Claude Code, with more clients in progress.</p><h3>Lean on standardized auth </h3><p>Standardized auth makes MCP practical for cloud-hosted agents. If your server requires OAuth, the latest <a href="https://modelcontextprotocol.io/specification/2025-11-25">MCP spec</a> supports <a href="https://modelcontextprotocol.io/specification/2025-11-25/basic/authorization#client-id-metadata-documents">CIMD</a> (Client ID Metadata Documents) for client registration—it gives users a fast first-time auth flow and far fewer surprise re-auth prompts. This is our recommended approach for auth, the capability is supported in MCP SDKs, Claude.ai, and Claude Code, and is being broadly adopted across the industry.<br/><br/>Once a user has authorized, the next question is how a cloud-hosted agent holds and reuses those tokens at runtime. <a href="https://platform.claude.com/docs/en/managed-agents/vaults#mcp-oauth-credential">Vaults</a> in <a href="https://platform.claude.com/docs/en/managed-agents/overview">Claude Managed Agents</a> covers this: register a user's OAuth tokens once, reference the vault by ID at session creation, and the platform injects the right credentials into each MCP connection and refreshes them on your behalf—no secret store to build, no tokens to pass around per call.</p><h2>Making MCP clients more context-efficient</h2><p>MCP standardizes how AI agents (<a href="https://modelcontextprotocol.io/docs/develop/build-client#python"><em>clients</em></a>) connect to and work with tools and data sources they need (<a href="https://modelcontextprotocol.io/docs/develop/build-server"><em>servers</em></a>). The server securely exposes a range of capabilities, while the client orchestrates them and manages context. If you’re building an MCP client, make it context-efficient with patterns for progressive disclosure.</p><h3>Load tool definitions on demand with tool search</h3><p><a href="https://platform.claude.com/docs/en/agents-and-tools/tool-use/tool-search-tool">Tool search</a> defers loading all tools into context, rather than loading them upfront. This allows the agent to search the catalog at runtime, pulling in the relevant tools when needed. In our <a href="https://www.anthropic.com/engineering/advanced-tool-use">testing</a>, tool search tends to cut tool-definition tokens by 85%+ while maintaining high selection accuracy. </p><figure class="article-figure"><figcaption>Reducing context usage with tool search. Source: <a href="https://www.anthropic.com/engineering/advanced-tool-use">advanced tool use<br/></a></figcaption></figure><h3>Process tool results in code with programmatic tool calling</h3><p><a href="https://www.anthropic.com/engineering/code-execution-with-mcp">Programmatic tool calling</a> processes tool results in a code-execution sandbox, rather than returning them raw to the model. This lets the agent loop, filter, and aggregate across calls in code, with only the final output reaching context. In our testing, this reduces token usage by roughly <a href="https://platform.claude.com/docs/en/agents-and-tools/tool-use/programmatic-tool-calling">37%</a> on complex multi-step workflows.</p><p>Together, these patterns compose naturally across multiple servers: leaner context, fewer round-trips, faster responses. See<a href="https://www.anthropic.com/engineering/advanced-tool-use"> <em>advanced tool use</em></a> for the full breakdown.</p><h2>Pairing MCP servers with skills</h2><p><a href="https://claude.com/blog/skills-explained">Skills and MCP are complementary</a>. MCP gives an agent access to tools and data from external systems, while skills teach an agent the procedural knowledge of <em>how</em> to use those tools to accomplish real work. The most capable agents use both, and skills make MCP servers scale beyond a handful of connections. There are two general patterns for combining them:</p><h3>Bundle skills and MCP servers as a plugin</h3><p><a href="https://code.claude.com/docs/en/plugins-reference#plugin-components-reference">Plugins</a> for Claude are a useful abstraction that allow developers to bundle skills, MCP servers, hooks, LSP servers, and specialized subagents in one easily-consumable distribution method. Using this approach is the best way to unify multiple context providers with minimal friction. <br/><br/>Combining MCP servers with skills allows Claude to act more like a domain-specialist. Grab your tools via MCP, and give Claude the skills to orchestrate workflows end-to-end. See our <a href="https://claude.ai/directory/plugins/data%40knowledge-work-plugins">data plugin</a> for Cowork as an example, which consists of 10 skills and 8 MCP servers for apps like Snowflake, Databricks, BigQuery, Hex and more.</p><figure class="article-figure"><figcaption>Combining skills with MCP. Source: <a href="https://claude.com/blog/extending-claude-capabilities-with-skills-mcp-servers">Extending Claude’s capabilities with skills and MCP servers</a></figcaption></figure><h3>Distribute skills from an MCP server</h3><p>It's increasingly common for providers to publish a skill alongside their MCP server, so the agent gets both the raw capabilities and an opinionated playbook for using them well. <a href="https://claude.com/connectors/atlassian">Canva</a>, <a href="https://claude.com/connectors/notion">Notion</a>, <a href="https://claude.com/connectors/sentry">Sentry</a>, and more do this today in Claude, listing the skill next to their connector in our <a href="https://claude.com/connectors">web directory</a>.</p><p>To make that pairing portable across every client, the MCP community is actively working on an <a href="https://github.com/modelcontextprotocol/experimental-ext-skills">extension</a> for delivering skills directly from servers. This way the client inherits the relevant expertise automatically, versioned with the API it depends on. We expect this pattern to see broad adoption as the extension stabilizes.</p><h2>The compounding layer </h2><p>We opened with three paths for connecting agents to external systems. In practice, mature integrations will ship all three: the API as the foundation, a CLI for local-first environments, and MCP for cloud-based agents.</p><p>As production agents move to the cloud, MCP becomes the critical layer, and it’s the one that compounds. Today, a remote server reaches every compatible client across any deployment environment, with auth, interactivity, and rich semantics handled by the protocol. As more clients adopt the spec and more extensions land in it, that same server gets more capable without you shipping anything new.</p><p>When building an integration, if your goal is to have production agents in the cloud reach your system, build an MCP server and make it excellent using the patterns above. Every integration built on MCP strengthens the ecosystem: fewer edge cases to solve alone, fewer bespoke integrations to maintain.</p><h3>Acknowledgements</h3><p>Thanks to Den Delimarsky, David Soria Parra, Henry Shi, Felix Rieseberg, Conor Kelly, Molly Vorwerck, Andy Schumeister, Kevin Garcia, Amie Rotherham, Matt Samuels, Angela Jiang, Katelyn Lesse, AJ Rebeiro and Jess Yan<strong> </strong>for their contributions to this blog.</p></div></div></div>
+      
+    </article>
+    
+    <article>
+      <h1>Mastering Codex Remote for engineering</h1>
+      <div class="article-meta">
+        developers.openai.com
+        · 25 Jun 2026 · <a href="https://developers.openai.com/blog/mastering-codex-remote-for-engineering">Source</a>
+      </div>
+      <div class="article-body"><div><article> <p>Codex Remote is easy to underestimate.</p>
+<p>At first glance, it looks like a way to check on a coding task from your phone. That is useful, but it misses the bigger idea. The real power of Codex Remote is that it lets you start, direct, review, and organize work running on your development machines without pretending that an iPhone should be a tiny terminal.</p>
+<p>Over the last two months, we have added a surprising amount of depth to that loop: remote host connections, worktrees, goals, side chats, inline code review, queued and steering prompts, attachments, skills and plugins, archived threads, security controls, and a long tail of small details that make the app useful for serious work.</p>
+<p>This is the field guide I wish every new power user had.</p>
+<p><img alt="Codex Remote project picker on an iPhone" src="https://developers.openai.com/images/blog/mastering-codex-remote-for-engineering.jpg" class="article-image"/></p>
+<h2>The right mental model: Your phone is the control plane</h2>
+<p>The code still runs where it belongs: on your Mac, Windows machine, devbox, or other connected host. Codex Remote gives you a native interface for controlling that work.</p>
+<p>That distinction matters. The goal is not to reproduce every terminal affordance on a small screen. The goal is to make the decisions that unblock an agent easy from anywhere:</p>
+<ul>
+<li>What repository and workspace should it use?</li>
+<li>Should this run in the current branch or a fresh worktree?</li>
+<li>Should my next message wait, or should it redirect the active turn?</li>
+<li>Is this command safe to approve?</li>
+<li>What changed, and do I agree with it?</li>
+<li>Should this become a durable goal, a separate thread, or a quick side question?</li>
+</ul>
+<p>Once you use the app this way, it stops feeling like remote desktop software and starts feeling like an engineering control plane.</p>
+<h2>1. Start the task with the right boundaries</h2>
+<p>Good agent work starts with a correctly scoped environment. Codex Remote lets you choose the connected host and workspace before the first prompt. For a new thread, you can also choose a branch, create a separate worktree, and run the environment setup associated with it.</p>
+<p>That makes a few useful patterns possible:</p>
+<ul>
+<li>Use the current checkout for a quick investigation.</li>
+<li>Create a new worktree for a change that should stay isolated.</li>
+<li>Start from the intended base branch instead of fixing Git state later.</li>
+<li>Let the environment setup run before asking Codex to build or test.</li>
+</ul>
+<p>This is one of the most important power-user habits: Spend 10 seconds choosing the right execution context and save 10 minutes of cleanup later.</p>
+<p>The composer can also carry more context than plain text. You can attach files, photos, or a fresh camera capture. Skills and plugins appear inline, which makes it much easier to confirm that your prompt is invoking the capability you intended.</p>
+<p>My rule is simple: If a screenshot, file, or named skill can remove ambiguity, attach or mention it before the first turn.</p>
+<h2>2. Learn the difference between Queue and Steer</h2>
+<p>This is probably the least obvious high-leverage setting in Codex Remote.</p>
+<p>When Codex is already working, a follow-up can do one of two things:</p>
+<ul>
+<li><strong>Queue</strong> waits until the current response finishes, then sends your prompt as the next turn.</li>
+<li><strong>Steer</strong> injects guidance into the work already in progress.</li>
+</ul>
+<p>Queue is the safe default. Use it for a second task, an extra test request, or anything that should happen after the current work.</p>
+<p>Steer is for correcting direction while the cost of continuing down the wrong path is still growing:</p>
+<blockquote>
+<p>Keep the fix inside the mobile package. Do not refactor the shared renderer.</p>
+</blockquote>
+<blockquote>
+<p>The reproduction only happens after reconnect. Test the resumed path, not the live path.</p>
+</blockquote>
+<blockquote>
+<p>Stop investigating the UI. Check whether the server removed the item during resume.</p>
+</blockquote>
+<p>That turns the phone into something more useful than a status screen. You can intervene at the exact moment a run needs judgment.</p>
+<p>You can choose the default follow-up behavior in Codex settings. I keep Queue as the default and use Steer deliberately; accidental mid-turn redirection is usually more expensive than waiting.</p>
+<h2>3. Use side chats as a branch of thought</h2>
+<p>Long-running coding threads accumulate valuable context. Interrupting one with every side question makes the main transcript noisy and can pull the agent away from the objective.</p>
+<p>That is what side chats solve.</p>
+<p>Use <code>/side</code> to open a lightweight conversation connected to the current thread. Use <code>/side &lt;prompt&gt;</code> to open it with a question already prepared. Even better, select text in the transcript and choose <strong>Ask in side chat</strong>. The selected passage becomes the starting context for the new conversation.</p>
+<p>I use side chats for questions such as:</p>
+<ul>
+<li>Why did Codex choose this architecture?</li>
+<li>What does this error actually mean?</li>
+<li>Is this behavior consistent with the desktop app?</li>
+<li>Give me a release-note version of this implementation detail.</li>
+<li>What should I verify before I approve this command?</li>
+</ul>
+<p>The distinction is useful: The main thread owns the work; the side chat helps me understand the work.</p>
+<h2>4. Use Plan for the path and Goal for the outcome</h2>
+<p>Plan mode and goals solve different problems.</p>
+<p>Plan mode asks Codex to propose the implementation path before changing code. It is useful when the task is underspecified, risky, or likely to touch several systems.</p>
+<p>A goal is durable. It tells Codex what outcome to keep pursuing across turns. On mobile, <code>/goal</code> can create and manage that objective, while progress remains visible as the work continues.</p>
+<p>A practical pattern is:</p>
+<ol>
+<li>Start with Plan mode for a risky change.</li>
+<li>Inspect the proposed boundaries.</li>
+<li>Turn the accepted outcome into a goal when the work will require multiple iterations.</li>
+<li>Let Codex continue through implementation, tests, review feedback, and cleanup without restating the objective every time.</li>
+</ol>
+<p>Plans answer “How should we approach this?” Goals answer “What must be true before we are done?”</p>
+<h2>5. Review code without leaving the conversation</h2>
+<p>The review loop is where Codex Remote becomes genuinely useful for engineering rather than merely convenient.</p>
+<p>Completed turns can show a summary of changed files. From there, you can open the diff, inspect individual files, expand or collapse sections, wrap long lines, and open a source file with syntax highlighting. You can attach inline comments to the relevant lines and send that review context back to Codex.</p>
+<p>There are several levels to the workflow:</p>
+<ul>
+<li>Open the changed-file summary for a quick sanity check.</li>
+<li>Tap through to the full source when a diff lacks surrounding context.</li>
+<li>Add inline comments for precise corrections.</li>
+<li>Use the review command to review local changes or compare against a branch.</li>
+<li>Link a file back into the chat when you want Codex to reason about that file specifically.</li>
+</ul>
+<p>This makes a tight mobile review loop possible:</p>
+<ol>
+<li>Codex completes the implementation.</li>
+<li>I inspect the diff from my phone.</li>
+<li>I leave two inline comments.</li>
+<li>Codex addresses them in the same thread.</li>
+<li>I review the smaller follow-up diff.</li>
+</ol>
+<p>The important point is not that a phone replaces a large monitor for deep code reading. It does not. The point is that many reviews are blocked on one or two decisions, and those decisions no longer need to wait until I am back at my desk.</p>
+<h2>6. Treat permissions as part of the workflow</h2>
+<p>Remote work is only useful if control stays explicit.</p>
+<p>Codex Remote surfaces approval requests for commands, file changes, network access, and connected tools. Depending on the request and host configuration, an approval may apply once, for the current chat, or more broadly.</p>
+<p>The power-user move is not to approve everything. It is to choose the narrowest permission that keeps the work moving.</p>
+<p>For a well-understood command in a trusted thread, a chat-scoped approval can remove repetitive interruptions. For an unfamiliar command, a sensitive repository, or a request whose effect is unclear, approve once—or deny it and ask Codex to explain or use a safer approach.</p>
+<p>You can also choose the thread’s broader approval behavior when starting work. Think of this as part of task setup, alongside the host, workspace, branch, and model.</p>
+<h2>7. Manage context before it becomes a problem</h2>
+<p>Agent threads are stateful, and long threads eventually accumulate enough context to become slower or less focused.</p>
+<p>Codex Remote has a small set of tools for managing that lifecycle:</p>
+<ul>
+<li><code>/status</code> shows session details, workspace, context usage, and available rate-limit information.</li>
+<li>The optional context indicator keeps remaining context visible in the composer.</li>
+<li><code>/compact</code> compresses an overgrown thread while preserving the useful working state.</li>
+<li><code>/fork</code> creates a new thread from the current one when you want shared history but a different direction.</li>
+</ul>
+<p>The practical sequence is: Check status, compact when the objective is still the same, and fork when the objective has diverged.</p>
+<p>Do not use a side chat and a fork interchangeably. A side chat is a lightweight question around the current work. A fork is a new primary line of work that inherits the thread’s history.</p>
+<h2>8. Keep a clean Thread Desk</h2>
+<p>My own Codex workflow increasingly looks like a small operations desk.</p>
+<p>I pin the few threads that are actively moving, rename them around outcomes, and archive them aggressively once the work is done. Archived-thread browsing makes this safe: Archive is organization, not deletion.</p>
+<p>Notifications are part of that system. A completion notification can open the relevant Codex task directly, so the handoff from “agent finished” to “human reviews” is one tap.</p>
+<p>Spotlight and Shortcuts can open Codex Remote directly. On iPad, keyboard shortcuts make the app surprisingly efficient: Create a new thread, move between threads, open changed files, pin, rename, and archive without reaching for every control.</p>
+<p>This is the “chief of staff” use case for Codex Remote. The app is not only where I issue prompts. It is where I keep track of which pieces of engineering work are active, blocked, waiting for review, or finished.</p>
+<h2>9. The hidden command palette</h2>
+<p>Typing <code>/</code> reveals the fastest route to many of the app’s advanced behaviors. Availability can depend on the connected host, app version, and account configuration.</p>
+<div><table><thead><tr><th>Command</th><th>What it is for</th></tr></thead><tbody><tr><td><code>/plan</code></td><td>Toggle Plan mode before implementation.</td></tr><tr><td><code>/goal &lt;objective&gt;</code></td><td>Create or update a durable objective.</td></tr><tr><td><code>/side [question]</code></td><td>Ask a side question without disrupting the main thread.</td></tr><tr><td><code>/review</code></td><td>Review local changes or compare them with a branch.</td></tr><tr><td><code>/status</code></td><td>Inspect the session, workspace, context, and rate limits.</td></tr><tr><td><code>/compact</code></td><td>Compress a long thread’s context.</td></tr><tr><td><code>/fork</code></td><td>Create a new primary thread from the current history.</td></tr><tr><td><code>/fast</code></td><td>Switch between standard and faster execution when available.</td></tr><tr><td><code>/feedback</code></td><td>Send product feedback tied to the current session.</td></tr></tbody></table></div>
+<p>The command palette is worth learning because it exposes the product’s real conceptual model: Plan, pursue, branch, review, inspect, and recover.</p>
+<h2>10. Five workflows that work especially well on mobile</h2>
+<h3>The release captain</h3>
+<p>Start a focused thread for a release or pull request. Ask Codex to check the current branch, CI state, open review feedback, and release inclusion. Pin the thread. When new information arrives, steer only when it invalidates the active investigation; otherwise, queue it. Review the final diff or release note from the phone and archive the thread when the release lands.</p>
+<h3>The interrupt-driven bug fix</h3>
+<p>Attach a screenshot, log, or captured file. Ask Codex to diagnose before editing. Use a side chat to interrogate one suspicious error without derailing the main investigation. Once the cause is clear, return to the main thread and authorize the narrow fix.</p>
+<h3>The mobile reviewer</h3>
+<p>Run a review against the intended branch, inspect the changed-file summary, open the files that matter, and attach inline comments. Ask Codex to address only those comments, then review the follow-up diff.</p>
+<h3>The long-running objective</h3>
+<p>Create a goal with a concrete completion condition: Tests green, review feedback resolved, or a reproducible performance threshold met. Check progress from notifications and status rather than repeatedly asking “Are you done?” Use queued prompts for additional work and reserve steering for corrections.</p>
+<h3>The multi-machine operator</h3>
+<p>Keep hosts named clearly and organize work by machine and workspace. Use the phone to start a task on the machine that has the right checkout, credentials, simulator, or operating system. This is especially useful when one task requires a Mac and another needs a Windows host.</p>
+<h2>Small features with outsized impact</h2>
+<p>Some of my favorite additions are not headline features:</p>
+<ul>
+<li>Edit the latest sent prompt instead of adding a correction turn.</li>
+<li>Save or copy rendered images from a task.</li>
+<li>See queued prompts while Codex is still running.</li>
+<li>Open completed tasks directly from notifications.</li>
+<li>Browse archived threads instead of keeping the active list crowded.</li>
+<li>Wrap long diff lines when reading on a narrow screen.</li>
+<li>Use Face ID or the device passcode to protect Codex separately.</li>
+<li>See skills and plugins inline in the composer before sending.</li>
+<li>Capture a photo directly into a prompt when the real-world object is the context.</li>
+<li>Start a side chat from selected transcript text rather than re-explaining the question.</li>
+</ul>
+<p>None of these changes the fundamental agent model. Together, they remove the friction that makes a remote workflow feel fragile.</p>
+<h2>The larger lesson</h2>
+<p>The best mobile software does not shrink a desktop interface. It identifies the decisions that matter when you are away from the desk and makes those decisions fast, legible, and safe.</p>
+<p>That is how I think about Codex Remote now. It is where I can choose the right environment, set the objective, redirect a run, answer an approval, inspect the result, and keep the whole queue of engineering work coherent.</p>
+<p>The computer still does the work. The phone keeps me in control.</p></article></div></div>
+      
+    </article>
+    
+  </body>
+</html>
