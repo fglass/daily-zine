@@ -1,0 +1,511 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Fred Talks - 2026-09-29</title>
+    <style>
+      @page {
+        size: A5;
+        margin: 8mm 9mm 9mm;
+      }
+
+      :root {
+        color: #111;
+        font-family: "Times New Roman", Times, serif;
+        --body-text-size: 9.5pt;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        color: #111;
+        background: #fff;
+        font-family: "Times New Roman", Times, serif;
+        line-height: 1.45;
+      }
+
+      a,
+      a:visited {
+        color: #111;
+        text-decoration: underline;
+      }
+
+      .cover {
+        min-height: calc(210mm - 17mm);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        page-break-after: always;
+        border: 1px solid #111;
+        padding: 8mm;
+        background: #fff;
+      }
+
+      .toc-item-meta,
+      .article-meta {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .masthead {
+        margin: 0;
+        font-size: 40pt;
+        line-height: 0.95;
+        text-transform: uppercase;
+      }
+
+      .issue-date {
+        margin: 4mm 0 0;
+        font-size: 14pt;
+      }
+
+      .issue-date sup {
+        font-size: 0.58em;
+        vertical-align: super;
+        line-height: 0;
+      }
+
+      .cover-deck {
+        max-width: 90mm;
+        font-size: 12pt;
+        margin: 0;
+      }
+
+      .toc {
+        border-top: 3px solid #111;
+        padding-top: 6mm;
+      }
+
+      .toc h2 {
+        margin: 0 0 4mm;
+        font-size: 11pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .toc-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .toc-item {
+        padding: 3mm 0;
+        border-bottom: 1px solid rgba(17, 17, 17, 0.2);
+      }
+
+      .toc-item-title {
+        font-size: 12pt;
+        margin: 0 0 1mm;
+      }
+
+      .toc-item-meta {
+        font-size: 8pt;
+      }
+
+      .masthead-compact {
+        margin: 0 0 6mm;
+      }
+
+      .masthead-compact h1 {
+        margin: 0;
+        font-size: 22pt;
+        line-height: 1.1;
+        text-transform: uppercase;
+      }
+
+      .masthead-compact .issue-date {
+        margin: 2mm 0 0;
+        font-size: 11pt;
+      }
+
+      .toc-compact {
+        border-top: 1px solid #111;
+        border-bottom: 1px solid #111;
+        padding: 4mm 0;
+        margin: 0 0 8mm;
+      }
+
+      article + article {
+        margin-top: 10mm;
+        padding-top: 6mm;
+        border-top: 2px solid #111;
+      }
+
+      h1 {
+        margin: 0 0 2mm;
+        font-size: 18pt;
+        line-height: 1.1;
+      }
+
+      .article-meta {
+        font-size: 8.5pt;
+        margin-bottom: 6mm;
+        padding-bottom: 3mm;
+        border-bottom: 1px solid #111;
+      }
+
+      .article-body {
+        font-size: var(--body-text-size);
+        font-family: "Times New Roman", Times, serif;
+      }
+
+      .article-body p,
+      .article-body li,
+      .article-body blockquote,
+      .article-body dd,
+      .article-body dt {
+        margin: 0 0 4mm;
+        orphans: 3;
+        widows: 3;
+      }
+
+      .article-body ul,
+      .article-body ol,
+      .article-body dl {
+        margin: 0 0 4mm 5mm;
+        padding: 0;
+      }
+
+      .article-body h2,
+      .article-body h3,
+      .article-body h4 {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        margin: 7mm 0 3mm;
+        line-height: 1.2;
+      }
+
+      .article-body blockquote {
+        margin-left: 6mm;
+        padding-left: 4mm;
+        border-left: 2px solid #111;
+      }
+
+      .article-body .media-omitted {
+        margin: 0 0 4mm;
+        font-size: 8.5pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(17, 17, 17, 0.65);
+      }
+
+      .article-body figure,
+      .article-body .article-figure,
+      .article-body picture,
+      .article-body .article-picture {
+        display: block;
+        max-width: 72mm;
+        margin: 0 auto 4mm;
+        break-inside: avoid;
+      }
+
+      .article-body img,
+      .article-body .article-image {
+        display: block;
+        max-width: min(100%, 72mm);
+        max-height: 34mm;
+        height: auto;
+        width: auto;
+        object-fit: contain;
+        margin: 0 auto 3mm;
+      }
+
+      .article-body figcaption {
+        margin-top: 1.5mm;
+        font-size: 8.5pt;
+        line-height: 1.3;
+        color: rgba(17, 17, 17, 0.8);
+      }
+
+      .article-note {
+        margin-top: 6mm;
+        padding-top: 3mm;
+        border-top: 1px solid #111;
+        font-size: 9pt;
+        font-style: italic;
+      }
+
+      @media screen {
+        body {
+          padding: 2rem;
+          margin: 0 auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    
+    <header class="masthead-compact">
+      <h1>Fred Talks</h1>
+      <p class="issue-date">
+        29<sup>th</sup> September 2026
+      </p>
+    </header>
+
+    <nav class="toc toc-compact">
+      <h2>Contents</h2>
+      <ol class="toc-list">
+        
+        <li class="toc-item">
+          <div class="toc-item-title">The new rules of context engineering for Claude 5 generation models</div>
+          <div class="toc-item-meta">
+            claude.com · 1148 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Mastering Codex Remote for engineering</div>
+          <div class="toc-item-meta">
+            developers.openai.com · 2207 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Scaling Managed Agents: Decoupling the brain from the hands</div>
+          <div class="toc-item-meta">
+            Anthropic Engineering Blog · 2024 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Jupiter Icy Moons Explorer</div>
+          <div class="toc-item-meta">
+            xkcd.com · 23 words
+          </div>
+        </li>
+        
+      </ol>
+    </nav>
+    
+
+    
+    <article>
+      <h1>The new rules of context engineering for Claude 5 generation models</h1>
+      <div class="article-meta">
+        claude.com
+        · 09 Aug 2026 · <a href="https://claude.com/blog/the-new-rules-of-context-engineering-for-claude-5-generation-models/">Source</a>
+      </div>
+      <div class="article-body"><div><div><h2>Then and now</h2><p>There were a number of previous context engineering best practices that had become myths. Including:.</p><figure class="article-figure"></figure><h3>Then: Give Claude rules</h3><h3>Now: Let Claude use judgement</h3><p>When we first rolled out Claude Code, we needed to be sure that Claude avoided worst case scenarios, such as deleting files. This meant we would give particularly strong guidance that might not always be true, For example, in the system prompt we used to say: </p><p><em>In code: default to writing no comments. Never write multi-paragraph docstrings or multi-line comment blocks — one short line max. Don't create planning, decision, or analysis documents unless the user asks for them — work from conversation context, not intermediate files.</em></p><p>But for a certain subset of prompts, this guidance would be wrong. In the case of documentation, the user may have their own preferences, or specific parts of very complex code might need multi-line comment blocks.</p><p>Still, without these guardrails for older models, the comments Claude wrote would be incorrect in many cases and we had to accept this tradeoff. But newer models have better judgement and can handle these decisions well without explicit rules. </p><p>In the new system prompt we say: <em>Write code that reads like the surrounding code: match its comment density, naming, and idiom.</em></p><h3>Then: Give Claude examples</h3><h3>Now: Design interfaces</h3><p>The number one rule for tool usage was to give Claude examples on how to use them. With our newest models, we’ve found that giving examples actually constrains them to a certain exploration space. </p><figure class="article-figure"></figure><p>Instead of using examples, think more about the design of your tools, scripts and files- what parameters does Claude have and how can they be more expressive? </p><p>For example, in the Todo tool example, just listing status as an enumeration between pending, in_progress, and completed, hints to Claude about how to use it. The instruction on keeping one item in_progress helps define our requested behavior.</p><h3>Then: Put it all upfront</h3><h3>Now: Use progressive disclosure</h3><p>Because Claude Code was focused on coding, our system prompt included detailed information on how to do code review and verification. These were not always needed, but when they were, it was crucial information.</p><p>Since then, Claude Code has gotten very competent at using progressive disclosure- loading the right context at the right times. For example, we moved verification and code review into their own skills that Claude Code could selectively call.</p><p>But progressive disclosure is not just for skills, we also use it for tools. Some of our tools are ‘deferred loading,’ which means the agent must search for their full definitions using ToolSearch before using them. This allows us to have more tools (such as our Task tools) that don’t take up context until they’re needed.</p><p>The same can be applied to your own CLAUDE.md and Skill.md files. A common myth is that you want to make these a central repository for every known practice that you <em>might</em> run into, because Claude would not find it otherwise. Instead, <a href="https://claude.com/blog/a-harness-for-every-task-dynamic-workflows-in-claude-code">consider having a tree of files that can be loaded at the right time</a>.</p><h3>Then: Repeat yourself</h3><h3>Now: Simple tool descriptions</h3><p>Earlier Claude models could sometimes need repeated instructions or be more likely to listen to instructions at the end of their context window than at the start. This meant our system prompt would sometimes have references to tools in the main system prompt as well as instructions in the tool description. </p><p>We found we could delete these repeat examples and put instructions on how to use tools in the tool descriptions rather than the system prompt.</p><h3>Then: Memory in CLAUDE.md files</h3><h3>Now: Auto-memory</h3><p>We used to encourage users to save things to Claude’s memory, by using the # hotkey to write to their <a href="http://claude.md">CLAUDE.md</a> automatically. Instead, Claude now automatically saves memories that are relevant to the work and to you. </p><h3>Then: Simple specs</h3><h3>Now: Rich references</h3><p>In plan mode, Claude Code has heavily relied on markdown files with plans. Storing these files as plans helped Claude refer to them when needed. Another similar best practice was to store specs in the codebase for Claude to refer to while working across longer projects.</p><p>But we’ve found that Claude can handle increasingly more complicated references. Instead of simple markdown files, Claude can reference HTML artifacts created by our new artifacts feature. </p><p>You may also give Claude references in the form of code. A spec may also be a detailed test suite, or a function in a different codebase that Claude might port. </p><p>Rubrics are another form of references. Rubrics allow Claude to try and verify your taste in a particular field (e.g. what does a good API design look like) by using <a href="https://claude.com/blog/a-harness-for-every-task-dynamic-workflows-in-claude-code">dynamic workflows</a> and spinning up verifier agents with those rubrics.</p><h2>Applying this to your context</h2><p>Pulling this all together, what does this look like when you assemble your context?</p><figure class="article-figure"></figure><h3>System Prompt</h3><p>A system prompt is heavily tied to the product context. It tells Claude what product it’s operating in and what it’s doing. For Claude Code, you will likely never modify this, but if you are building your own agent harness, this is where you should spend a lot of time.</p><h3>CLAUDE.md</h3><p>Keep your CLAUDE.md lightweight and briefly describe what your repo is for, but spend most of the tokens on gotchas inside of the codebase. For example, you may organize your code to keep types in one monolithic file and nowhere else. Avoid stating ‘the obvious’ things Claude should know by looking at your file system or your repo.</p><p>Use progressive disclosure heavily, for example if you have several unique instructions on how to verify your work, create a verification skill and reference it from your CLAUDE.md.</p><h3>Skills</h3><p>Think of skills as lightweight guides to let Claude find information when needed. Avoid making them overconstrained, except in highly important areas. </p><p>For long skills, try and use progressive disclosure as much as possible- divide it into many files and split them out.</p><p>It’s best when skills encode particular opinions, knowledge, or best practices that are particular to you, your team, or product. </p><h3>References </h3><p>You can @ mention files to include them as references. References allow Claude to refer to in-depth information about the current plan. </p><p>This might be in specs files, mockups, or even entire codebases. Generally you should prefer files that are in code as it provides clear, high-fidelity instructions to Claude in a language it knows very well. For example, a HTML mockup of a design will generally produce better results than a description of the design or a screenshot.</p><h2>Try simplifying</h2><p>Across your system prompt, skills, and CLAUDE.md files, you may need to simplify just like we did. We rolled out a new command called `claude doctor,` which will help you do this automatically as well. For more details on prompting more advanced models specifically, check out our <a href="https://claude.com/blog/a-field-guide-to-claude-fable-finding-your-unknowns">Fable field guide</a>.</p><p><em>This article was written by Thariq Shihipar, member of technical staff, Anthropic.</em></p></div></div></div>
+      
+    </article>
+    
+    <article>
+      <h1>Mastering Codex Remote for engineering</h1>
+      <div class="article-meta">
+        developers.openai.com
+        · 25 Jun 2026 · <a href="https://developers.openai.com/blog/mastering-codex-remote-for-engineering">Source</a>
+      </div>
+      <div class="article-body"><div><article> <p>Codex Remote is easy to underestimate.</p>
+<p>At first glance, it looks like a way to check on a coding task from your phone. That is useful, but it misses the bigger idea. The real power of Codex Remote is that it lets you start, direct, review, and organize work running on your development machines without pretending that an iPhone should be a tiny terminal.</p>
+<p>Over the last two months, we have added a surprising amount of depth to that loop: remote host connections, worktrees, goals, side chats, inline code review, queued and steering prompts, attachments, skills and plugins, archived threads, security controls, and a long tail of small details that make the app useful for serious work.</p>
+<p>This is the field guide I wish every new power user had.</p>
+<p><img alt="Codex Remote project picker on an iPhone" src="https://developers.openai.com/images/blog/mastering-codex-remote-for-engineering.jpg" class="article-image"/></p>
+<h2>The right mental model: Your phone is the control plane</h2>
+<p>The code still runs where it belongs: on your Mac, Windows machine, devbox, or other connected host. Codex Remote gives you a native interface for controlling that work.</p>
+<p>That distinction matters. The goal is not to reproduce every terminal affordance on a small screen. The goal is to make the decisions that unblock an agent easy from anywhere:</p>
+<ul>
+<li>What repository and workspace should it use?</li>
+<li>Should this run in the current branch or a fresh worktree?</li>
+<li>Should my next message wait, or should it redirect the active turn?</li>
+<li>Is this command safe to approve?</li>
+<li>What changed, and do I agree with it?</li>
+<li>Should this become a durable goal, a separate thread, or a quick side question?</li>
+</ul>
+<p>Once you use the app this way, it stops feeling like remote desktop software and starts feeling like an engineering control plane.</p>
+<h2>1. Start the task with the right boundaries</h2>
+<p>Good agent work starts with a correctly scoped environment. Codex Remote lets you choose the connected host and workspace before the first prompt. For a new thread, you can also choose a branch, create a separate worktree, and run the environment setup associated with it.</p>
+<p>That makes a few useful patterns possible:</p>
+<ul>
+<li>Use the current checkout for a quick investigation.</li>
+<li>Create a new worktree for a change that should stay isolated.</li>
+<li>Start from the intended base branch instead of fixing Git state later.</li>
+<li>Let the environment setup run before asking Codex to build or test.</li>
+</ul>
+<p>This is one of the most important power-user habits: Spend 10 seconds choosing the right execution context and save 10 minutes of cleanup later.</p>
+<p>The composer can also carry more context than plain text. You can attach files, photos, or a fresh camera capture. Skills and plugins appear inline, which makes it much easier to confirm that your prompt is invoking the capability you intended.</p>
+<p>My rule is simple: If a screenshot, file, or named skill can remove ambiguity, attach or mention it before the first turn.</p>
+<h2>2. Learn the difference between Queue and Steer</h2>
+<p>This is probably the least obvious high-leverage setting in Codex Remote.</p>
+<p>When Codex is already working, a follow-up can do one of two things:</p>
+<ul>
+<li><strong>Queue</strong> waits until the current response finishes, then sends your prompt as the next turn.</li>
+<li><strong>Steer</strong> injects guidance into the work already in progress.</li>
+</ul>
+<p>Queue is the safe default. Use it for a second task, an extra test request, or anything that should happen after the current work.</p>
+<p>Steer is for correcting direction while the cost of continuing down the wrong path is still growing:</p>
+<blockquote>
+<p>Keep the fix inside the mobile package. Do not refactor the shared renderer.</p>
+</blockquote>
+<blockquote>
+<p>The reproduction only happens after reconnect. Test the resumed path, not the live path.</p>
+</blockquote>
+<blockquote>
+<p>Stop investigating the UI. Check whether the server removed the item during resume.</p>
+</blockquote>
+<p>That turns the phone into something more useful than a status screen. You can intervene at the exact moment a run needs judgment.</p>
+<p>You can choose the default follow-up behavior in Codex settings. I keep Queue as the default and use Steer deliberately; accidental mid-turn redirection is usually more expensive than waiting.</p>
+<h2>3. Use side chats as a branch of thought</h2>
+<p>Long-running coding threads accumulate valuable context. Interrupting one with every side question makes the main transcript noisy and can pull the agent away from the objective.</p>
+<p>That is what side chats solve.</p>
+<p>Use <code>/side</code> to open a lightweight conversation connected to the current thread. Use <code>/side &lt;prompt&gt;</code> to open it with a question already prepared. Even better, select text in the transcript and choose <strong>Ask in side chat</strong>. The selected passage becomes the starting context for the new conversation.</p>
+<p>I use side chats for questions such as:</p>
+<ul>
+<li>Why did Codex choose this architecture?</li>
+<li>What does this error actually mean?</li>
+<li>Is this behavior consistent with the desktop app?</li>
+<li>Give me a release-note version of this implementation detail.</li>
+<li>What should I verify before I approve this command?</li>
+</ul>
+<p>The distinction is useful: The main thread owns the work; the side chat helps me understand the work.</p>
+<h2>4. Use Plan for the path and Goal for the outcome</h2>
+<p>Plan mode and goals solve different problems.</p>
+<p>Plan mode asks Codex to propose the implementation path before changing code. It is useful when the task is underspecified, risky, or likely to touch several systems.</p>
+<p>A goal is durable. It tells Codex what outcome to keep pursuing across turns. On mobile, <code>/goal</code> can create and manage that objective, while progress remains visible as the work continues.</p>
+<p>A practical pattern is:</p>
+<ol>
+<li>Start with Plan mode for a risky change.</li>
+<li>Inspect the proposed boundaries.</li>
+<li>Turn the accepted outcome into a goal when the work will require multiple iterations.</li>
+<li>Let Codex continue through implementation, tests, review feedback, and cleanup without restating the objective every time.</li>
+</ol>
+<p>Plans answer “How should we approach this?” Goals answer “What must be true before we are done?”</p>
+<h2>5. Review code without leaving the conversation</h2>
+<p>The review loop is where Codex Remote becomes genuinely useful for engineering rather than merely convenient.</p>
+<p>Completed turns can show a summary of changed files. From there, you can open the diff, inspect individual files, expand or collapse sections, wrap long lines, and open a source file with syntax highlighting. You can attach inline comments to the relevant lines and send that review context back to Codex.</p>
+<p>There are several levels to the workflow:</p>
+<ul>
+<li>Open the changed-file summary for a quick sanity check.</li>
+<li>Tap through to the full source when a diff lacks surrounding context.</li>
+<li>Add inline comments for precise corrections.</li>
+<li>Use the review command to review local changes or compare against a branch.</li>
+<li>Link a file back into the chat when you want Codex to reason about that file specifically.</li>
+</ul>
+<p>This makes a tight mobile review loop possible:</p>
+<ol>
+<li>Codex completes the implementation.</li>
+<li>I inspect the diff from my phone.</li>
+<li>I leave two inline comments.</li>
+<li>Codex addresses them in the same thread.</li>
+<li>I review the smaller follow-up diff.</li>
+</ol>
+<p>The important point is not that a phone replaces a large monitor for deep code reading. It does not. The point is that many reviews are blocked on one or two decisions, and those decisions no longer need to wait until I am back at my desk.</p>
+<h2>6. Treat permissions as part of the workflow</h2>
+<p>Remote work is only useful if control stays explicit.</p>
+<p>Codex Remote surfaces approval requests for commands, file changes, network access, and connected tools. Depending on the request and host configuration, an approval may apply once, for the current chat, or more broadly.</p>
+<p>The power-user move is not to approve everything. It is to choose the narrowest permission that keeps the work moving.</p>
+<p>For a well-understood command in a trusted thread, a chat-scoped approval can remove repetitive interruptions. For an unfamiliar command, a sensitive repository, or a request whose effect is unclear, approve once—or deny it and ask Codex to explain or use a safer approach.</p>
+<p>You can also choose the thread’s broader approval behavior when starting work. Think of this as part of task setup, alongside the host, workspace, branch, and model.</p>
+<h2>7. Manage context before it becomes a problem</h2>
+<p>Agent threads are stateful, and long threads eventually accumulate enough context to become slower or less focused.</p>
+<p>Codex Remote has a small set of tools for managing that lifecycle:</p>
+<ul>
+<li><code>/status</code> shows session details, workspace, context usage, and available rate-limit information.</li>
+<li>The optional context indicator keeps remaining context visible in the composer.</li>
+<li><code>/compact</code> compresses an overgrown thread while preserving the useful working state.</li>
+<li><code>/fork</code> creates a new thread from the current one when you want shared history but a different direction.</li>
+</ul>
+<p>The practical sequence is: Check status, compact when the objective is still the same, and fork when the objective has diverged.</p>
+<p>Do not use a side chat and a fork interchangeably. A side chat is a lightweight question around the current work. A fork is a new primary line of work that inherits the thread’s history.</p>
+<h2>8. Keep a clean Thread Desk</h2>
+<p>My own Codex workflow increasingly looks like a small operations desk.</p>
+<p>I pin the few threads that are actively moving, rename them around outcomes, and archive them aggressively once the work is done. Archived-thread browsing makes this safe: Archive is organization, not deletion.</p>
+<p>Notifications are part of that system. A completion notification can open the relevant Codex task directly, so the handoff from “agent finished” to “human reviews” is one tap.</p>
+<p>Spotlight and Shortcuts can open Codex Remote directly. On iPad, keyboard shortcuts make the app surprisingly efficient: Create a new thread, move between threads, open changed files, pin, rename, and archive without reaching for every control.</p>
+<p>This is the “chief of staff” use case for Codex Remote. The app is not only where I issue prompts. It is where I keep track of which pieces of engineering work are active, blocked, waiting for review, or finished.</p>
+<h2>9. The hidden command palette</h2>
+<p>Typing <code>/</code> reveals the fastest route to many of the app’s advanced behaviors. Availability can depend on the connected host, app version, and account configuration.</p>
+<div><table><thead><tr><th>Command</th><th>What it is for</th></tr></thead><tbody><tr><td><code>/plan</code></td><td>Toggle Plan mode before implementation.</td></tr><tr><td><code>/goal &lt;objective&gt;</code></td><td>Create or update a durable objective.</td></tr><tr><td><code>/side [question]</code></td><td>Ask a side question without disrupting the main thread.</td></tr><tr><td><code>/review</code></td><td>Review local changes or compare them with a branch.</td></tr><tr><td><code>/status</code></td><td>Inspect the session, workspace, context, and rate limits.</td></tr><tr><td><code>/compact</code></td><td>Compress a long thread’s context.</td></tr><tr><td><code>/fork</code></td><td>Create a new primary thread from the current history.</td></tr><tr><td><code>/fast</code></td><td>Switch between standard and faster execution when available.</td></tr><tr><td><code>/feedback</code></td><td>Send product feedback tied to the current session.</td></tr></tbody></table></div>
+<p>The command palette is worth learning because it exposes the product’s real conceptual model: Plan, pursue, branch, review, inspect, and recover.</p>
+<h2>10. Five workflows that work especially well on mobile</h2>
+<h3>The release captain</h3>
+<p>Start a focused thread for a release or pull request. Ask Codex to check the current branch, CI state, open review feedback, and release inclusion. Pin the thread. When new information arrives, steer only when it invalidates the active investigation; otherwise, queue it. Review the final diff or release note from the phone and archive the thread when the release lands.</p>
+<h3>The interrupt-driven bug fix</h3>
+<p>Attach a screenshot, log, or captured file. Ask Codex to diagnose before editing. Use a side chat to interrogate one suspicious error without derailing the main investigation. Once the cause is clear, return to the main thread and authorize the narrow fix.</p>
+<h3>The mobile reviewer</h3>
+<p>Run a review against the intended branch, inspect the changed-file summary, open the files that matter, and attach inline comments. Ask Codex to address only those comments, then review the follow-up diff.</p>
+<h3>The long-running objective</h3>
+<p>Create a goal with a concrete completion condition: Tests green, review feedback resolved, or a reproducible performance threshold met. Check progress from notifications and status rather than repeatedly asking “Are you done?” Use queued prompts for additional work and reserve steering for corrections.</p>
+<h3>The multi-machine operator</h3>
+<p>Keep hosts named clearly and organize work by machine and workspace. Use the phone to start a task on the machine that has the right checkout, credentials, simulator, or operating system. This is especially useful when one task requires a Mac and another needs a Windows host.</p>
+<h2>Small features with outsized impact</h2>
+<p>Some of my favorite additions are not headline features:</p>
+<ul>
+<li>Edit the latest sent prompt instead of adding a correction turn.</li>
+<li>Save or copy rendered images from a task.</li>
+<li>See queued prompts while Codex is still running.</li>
+<li>Open completed tasks directly from notifications.</li>
+<li>Browse archived threads instead of keeping the active list crowded.</li>
+<li>Wrap long diff lines when reading on a narrow screen.</li>
+<li>Use Face ID or the device passcode to protect Codex separately.</li>
+<li>See skills and plugins inline in the composer before sending.</li>
+<li>Capture a photo directly into a prompt when the real-world object is the context.</li>
+<li>Start a side chat from selected transcript text rather than re-explaining the question.</li>
+</ul>
+<p>None of these changes the fundamental agent model. Together, they remove the friction that makes a remote workflow feel fragile.</p>
+<h2>The larger lesson</h2>
+<p>The best mobile software does not shrink a desktop interface. It identifies the decisions that matter when you are away from the desk and makes those decisions fast, legible, and safe.</p>
+<p>That is how I think about Codex Remote now. It is where I can choose the right environment, set the objective, redirect a run, answer an approval, inspect the result, and keep the whole queue of engineering work coherent.</p>
+<p>The computer still does the work. The phone keeps me in control.</p></article></div></div>
+      
+    </article>
+    
+    <article>
+      <h1>Scaling Managed Agents: Decoupling the brain from the hands</h1>
+      <div class="article-meta">
+        Anthropic Engineering Blog
+        · 24 Apr 2026 · <a href="https://www.anthropic.com/engineering/managed-agents">Source</a>
+      </div>
+      <div class="article-body"><p><em>Get started with Claude Managed Agents by following our <a href="https://platform.claude.com/docs/en/managed-agents/overview">docs</a>.</em></p>
+<p>A running topic on the Engineering Blog is how to <a href="https://www.anthropic.com/engineering/building-effective-agents">build effective agents</a> and <a href="https://www.staging.ant.dev/engineering/effective-harnesses-for-long-running-agents">design harnesses</a> for <a href="https://www.anthropic.com/engineering/harness-design-long-running-apps">long-running work</a>. A common thread across this work is that harnesses encode assumptions about what Claude can’t do on its own. However, those assumptions need to be frequently questioned because they can <a href="http://www.incompleteideas.net/IncIdeas/BitterLesson.html">go stale</a> as models improve.</p>
+<p>As just one example, in prior work <a href="https://www.anthropic.com/engineering/harness-design-long-running-apps">we found</a> that Claude Sonnet 4.5 would wrap up tasks prematurely as it sensed its context limit approaching—a behavior sometimes called “context anxiety.” We addressed this by adding context resets to the harness. But when we used the same harness on Claude Opus 4.5, we found that the behavior was gone. The resets had become dead weight.</p>
+<p>We expect harnesses to continue evolving. So we built Managed Agents: a hosted service in the Claude Platform that runs long-horizon agents on your behalf through a small set of interfaces meant to outlast any particular implementation—including the ones we run today.</p>
+<p>Building Managed Agents meant solving an old problem in computing: how to design a system for “<a href="http://www.catb.org/esr/writings/taoup/html/ch03s01.html">programs as yet unthought of</a>.” Decades ago, operating systems solved this problem by virtualizing hardware into abstractions—<em>process, file</em>—general enough for programs that didn't exist yet. The abstractions outlasted the hardware. The <code>read()</code> command is agnostic as to whether it’s accessing a disk pack from the 1970s or a modern SSD. The abstractions on top stayed stable while the implementations underneath changed freely.</p>
+<p>Managed Agents follow the same pattern. We virtualized the components of an agent: a session (the append-only log of everything that happened), a harness (the loop that calls Claude and routes Claude’s tool calls to the relevant infrastructure), and a sandbox (an execution environment where Claude can run code and edit files). This allows the implementation of each to be swapped without disturbing the others. We're opinionated about the shape of these interfaces, not about what runs behind them.</p>
+<figure class="article-figure"><img data-nimg="1" src="https://www.anthropic.com/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F903b624ada206b10753a24c6a1367e74a869165d-1080x1080.png&amp;w=3840&amp;q=75" srcset="https://www.anthropic.com/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F903b624ada206b10753a24c6a1367e74a869165d-1080x1080.png&amp;w=1080&amp;q=75 1x," class="article-image"/></figure>
+<p>We started by placing all agent components into a single container, which meant the session, agent harness, and sandbox all shared an environment. There were benefits to this approach, including that file edits are direct syscalls, and there were no service boundaries to design.</p>
+<p>But by coupling everything into one container, we ran into an old infrastructure problem: we’d adopted a <a href="https://cloudscaling.com/blog/cloud-computing/the-history-of-pets-vs-cattle/"><em>pet</em></a>. In the pets-vs-cattle analogy, a pet is a named, hand-tended individual you can’t afford to lose, while cattle are interchangeable. In our case, the server became that pet; if a container failed, the session was lost. If a container was unresponsive, we had to nurse it back to health.</p>
+<p>Nursing containers meant debugging unresponsive stuck sessions. Our only window in was the WebSocket event stream, but that couldn’t tell us <em>where</em> failures arose, which meant that a bug in the harness, a packet drop in the event stream, or a container going offline all presented the same. To figure out what went wrong, an engineer had to open a shell inside the container, but because that container often also held user data, that approach essentially meant we lacked the ability to debug.</p>
+<p>A second issue was that the harness assumed that whatever Claude worked on lived in the container with it. When customers asked us to connect Claude to their virtual private cloud, they had to either peer their network with ours, or run our harness in their own environment. An assumption baked into the harness became a problem when we wanted to connect it to different infrastructure.</p>
+<p>The solution we arrived at was to decouple what we thought of as the “brain” (Claude and its harness) from both the “hands” (sandboxes and tools that perform actions) and the “session” (the log of session events). Each became an interface that made few assumptions about the others, and each could fail or be replaced independently.</p>
+<p><strong>The harness leaves the container. </strong>Decoupling the brain from the hands meant the harness no longer lived inside the container. It called the container the way it called any other tool: <code>execute(name, input) → string</code>. The container became cattle. If the container died, the harness caught the failure as a tool-call error and passed it back to Claude. If Claude decided to retry, a new container could be reinitialized with a standard recipe: <code>provision({resources})</code>. We no longer had to nurse failed containers back to health.</p>
+<p><strong>Recovering from harness failure. </strong>The harness also became cattle. Because the session log sits outside the harness, nothing in the harness needs to survive a crash. When one fails, a new one can be rebooted with <code>wake(sessionId)</code>, use <code>getSession(id)</code> to get back the event log, and resume from the last event. During the agent loop, the harness writes to the session with <code>emitEvent(id, event)</code> in order to keep a durable record of events.</p>
+<figure class="article-figure"><img data-nimg="1" src="https://www.anthropic.com/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F73e900af5b9d6ed8c64db0a8e74d4465963556b7-1640x1596.png&amp;w=3840&amp;q=75" srcset="https://www.anthropic.com/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F73e900af5b9d6ed8c64db0a8e74d4465963556b7-1640x1596.png&amp;w=1920&amp;q=75 1x," class="article-image"/></figure>
+<p><strong>The security boundary.</strong> In the coupled design, any untrusted code that Claude generated was run in the same container as credentials—so a prompt injection only had to convince Claude to read its own environment. Once an attacker has those tokens, they can spawn fresh, unrestricted sessions and delegate work to them. Narrow scoping is an obvious mitigation, but this encodes an assumption about what Claude can't do with a limited token—and Claude is getting increasingly smart. The structural fix was to make sure the tokens are never reachable from the sandbox where Claude’s generated code runs.</p>
+<p>We used two patterns to ensure this. Auth can be bundled with a resource or held in a vault outside the sandbox. For Git, we use each repository’s access token to clone the repo during sandbox initialization and wire it into the local git remote. Git <code>push</code> and <code>pull</code> work from inside the sandbox without the agent ever handling the token itself. For custom tools, we support MCP and store OAuth tokens in a secure vault. Claude calls MCP tools via a dedicated proxy; this proxy takes in a token associated with the session. The proxy can then fetch the corresponding credentials from the vault and make the call to the external service. The harness is never made aware of any credentials.</p>
+<h2>The session is not Claude’s context window</h2>
+<p>Long-horizon tasks often exceed the length of Claude’s context window, and the standard ways to address this all involve irreversible decisions about what to keep. We’ve explored these techniques in <a href="https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents">prior work</a> on context engineering. For example, compaction lets Claude save a summary of its context window and the memory tool lets Claude write context to files, enabling learning across sessions. This can be paired with context trimming, which selectively removes tokens such as old tool results or thinking blocks.</p>
+<p>But irreversible decisions to selectively retain or discard context can lead to failures. It is difficult to know which tokens the future turns will need. If messages are transformed by a compaction step, the harness removes compacted messages from Claude’s context window, and these are recoverable only if they are stored. Prior work <a href="https://arxiv.org/pdf/2512.24601">has explored</a> ways to address this by storing context as an object that lives <em>outside</em> the context window. For example, context can be an object in a REPL that the LLM programmatically accesses by writing code to filter or slice it.</p>
+<figure class="article-figure"><img data-nimg="1" src="https://www.anthropic.com/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fcf0719d7832b1f577b7393c84a7c53eecc725ca4-760x200.png&amp;w=1920&amp;q=75" srcset="https://www.anthropic.com/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fcf0719d7832b1f577b7393c84a7c53eecc725ca4-760x200.png&amp;w=828&amp;q=75 1x," class="article-image"/></figure>
+<p>In Managed Agents, the session provides this same benefit, serving as a context object that lives outside Claude’s context window. But rather than be stored within the sandbox or REPL, context is durably stored in the session log. The interface, <code>getEvents(),</code> allows the brain to interrogate context by selecting positional slices of the event stream. The interface can be used flexibly, allowing the brain to pick up from wherever it last stopped reading, rewinding a few events before a specific moment to see the lead up, or rereading context before a specific action.</p>
+<p>Any fetched events can also be transformed in the harness before being passed to Claude’s context window. These transformations can be whatever the harness encodes, including context organization to achieve a high prompt cache hit rate and context engineering. We separated the concerns of recoverable context storage in the session and arbitrary context management in the harness because we can’t predict what specific context engineering will be required in future models. The interfaces push that context management into the harness, and only guarantee that the session is durable and available for interrogation.</p>
+<p><strong>Many brains. </strong>Decoupling the brain from the hands solved one of our earliest customer complaints. When teams wanted Claude to work against resources in their own VPC, the only path was to peer their network with ours, because the container holding the harness assumed every resource sat next to it. Once the harness was no longer in the container, that assumption went away. The same change had a performance payoff. When we initially put the brain in a container, it meant that many brains required as many containers. For each brain, no inference could happen until that container was provisioned; every session paid the full container setup cost up front. Every session, even ones that would never touch the sandbox, had to clone the repo, boot the process, fetch pending events from our servers.</p>
+<p>That dead time is expressed in time-to-first-token (TTFT), which measures how long a session waits between accepting work and producing its first response token. TTFT is the latency the user most acutely <em>feels</em>.</p>
+<p>Decoupling the brain from the hands means that containers are provisioned by the brain via a tool call <code>(execute(name, input) → string)</code> only if they are needed. So a session that didn't need a container right away didn't wait for one. Inference could start as soon as the orchestration layer pulled pending events from the session log. Using this architecture, our p50 TTFT dropped roughly 60% and p95 dropped over 90%. Scaling to many brains just meant starting many stateless harnesses, and connecting them to hands only if needed.</p>
+<p><strong>Many hands. </strong>We also wanted the ability to connect each brain to many hands. In practice, this means Claude must reason about many execution environments and decide where to send work—a harder cognitive task than operating in a single shell. We started with the brain in a single container because earlier models weren't capable of this. As intelligence scaled, the single container became the limitation instead: when that container failed, we lost state for every hand that the brain was reaching into.</p>
+<p>Decoupling the brain from the hands makes each hand a tool, <code>execute(name, input) → string</code>: a name and input go in, and a string is returned. That interface supports any custom tool, any MCP server, and our own tools. The harness doesn’t know whether the sandbox is a container, a phone, or a Pokémon emulator. And because no hand is coupled to any brain, brains can pass hands to one another.</p>
+<figure class="article-figure"><img data-nimg="1" src="https://www.anthropic.com/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F4f67b1c10566552aec514a716ea43544ab330e0b-668x243.png&amp;w=1920&amp;q=75" srcset="https://www.anthropic.com/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F4f67b1c10566552aec514a716ea43544ab330e0b-668x243.png&amp;w=750&amp;q=75 1x," class="article-image"/></figure>
+<p>The challenge we faced is an old one: how to design a system for “programs as yet unthought of.” Operating systems have lasted decades by virtualizing the hardware into abstractions general enough for programs that didn't exist yet. With Managed Agents, we aimed to design a system that accommodates future harnesses, sandboxes, or other components around Claude.</p>
+<p>Managed Agents is a meta-harness in the same spirit, unopinionated about the <em>specific</em> harness that Claude will need in the future. Rather, it is a system with general interfaces that allow many different harnesses. For example, Claude Code is an excellent harness that we use widely across tasks. We’ve also shown that task-specific agent harnesses excel in narrow domains. Managed Agents can accommodate any of these, matching Claude’s intelligence over time.</p>
+<p>Meta-harness design means being opinionated about the interfaces around Claude: we expect that Claude will need the ability to manipulate state (the session) and perform computation (the sandbox). We also expect that Claude will require the ability to scale to many brains and many hands. We designed the interfaces so that these can be run reliably and securely over long time horizons. But we make no assumptions about the number or location of brains or hands that Claude will need.</p>
+<p>Written by Lance Martin, Gabe Cemaj and Michael Cohen. Special thanks to the Agents API team and Jake Eaton for their contributions.</p></div>
+      
+    </article>
+    
+    <article>
+      <h1>Jupiter Icy Moons Explorer</h1>
+      <div class="article-meta">
+        xkcd.com
+        · 29 Sep 2026 · <a href="https://xkcd.com/3304/">Source</a>
+      </div>
+      <div class="article-body"><figure class="article-figure"><img alt="Jupiter Icy Moons Explorer" data-title="&quot;I did briefly visit Venus in August 2025, but I figured out the mistake on my own because it didn&#x27;t have any moons.&quot;" src="https://imgs.xkcd.com/comics/jupiter_icy_moons_explorer_2x.png" srcset="https://imgs.xkcd.com/comics/jupiter_icy_moons_explorer_2x.png 2x" class="article-image"/><figcaption>"I did briefly visit Venus in August 2025, but I figured out the mistake on my own because it didn't have any moons."</figcaption></figure></div>
+      
+    </article>
+    
+  </body>
+</html>
