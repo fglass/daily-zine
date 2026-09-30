@@ -1,0 +1,516 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Fred Talks - 2026-09-30</title>
+    <style>
+      @page {
+        size: A5;
+        margin: 8mm 9mm 9mm;
+      }
+
+      :root {
+        color: #111;
+        font-family: "Times New Roman", Times, serif;
+        --body-text-size: 9.5pt;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        color: #111;
+        background: #fff;
+        font-family: "Times New Roman", Times, serif;
+        line-height: 1.45;
+      }
+
+      a,
+      a:visited {
+        color: #111;
+        text-decoration: underline;
+      }
+
+      .cover {
+        min-height: calc(210mm - 17mm);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        page-break-after: always;
+        border: 1px solid #111;
+        padding: 8mm;
+        background: #fff;
+      }
+
+      .toc-item-meta,
+      .article-meta {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .masthead {
+        margin: 0;
+        font-size: 40pt;
+        line-height: 0.95;
+        text-transform: uppercase;
+      }
+
+      .issue-date {
+        margin: 4mm 0 0;
+        font-size: 14pt;
+      }
+
+      .issue-date sup {
+        font-size: 0.58em;
+        vertical-align: super;
+        line-height: 0;
+      }
+
+      .cover-deck {
+        max-width: 90mm;
+        font-size: 12pt;
+        margin: 0;
+      }
+
+      .toc {
+        border-top: 3px solid #111;
+        padding-top: 6mm;
+      }
+
+      .toc h2 {
+        margin: 0 0 4mm;
+        font-size: 11pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .toc-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .toc-item {
+        padding: 3mm 0;
+        border-bottom: 1px solid rgba(17, 17, 17, 0.2);
+      }
+
+      .toc-item-title {
+        font-size: 12pt;
+        margin: 0 0 1mm;
+      }
+
+      .toc-item-meta {
+        font-size: 8pt;
+      }
+
+      .masthead-compact {
+        margin: 0 0 6mm;
+      }
+
+      .masthead-compact h1 {
+        margin: 0;
+        font-size: 22pt;
+        line-height: 1.1;
+        text-transform: uppercase;
+      }
+
+      .masthead-compact .issue-date {
+        margin: 2mm 0 0;
+        font-size: 11pt;
+      }
+
+      .toc-compact {
+        border-top: 1px solid #111;
+        border-bottom: 1px solid #111;
+        padding: 4mm 0;
+        margin: 0 0 8mm;
+      }
+
+      article + article {
+        margin-top: 10mm;
+        padding-top: 6mm;
+        border-top: 2px solid #111;
+      }
+
+      h1 {
+        margin: 0 0 2mm;
+        font-size: 18pt;
+        line-height: 1.1;
+      }
+
+      .article-meta {
+        font-size: 8.5pt;
+        margin-bottom: 6mm;
+        padding-bottom: 3mm;
+        border-bottom: 1px solid #111;
+      }
+
+      .article-body {
+        font-size: var(--body-text-size);
+        font-family: "Times New Roman", Times, serif;
+      }
+
+      .article-body p,
+      .article-body li,
+      .article-body blockquote,
+      .article-body dd,
+      .article-body dt {
+        margin: 0 0 4mm;
+        orphans: 3;
+        widows: 3;
+      }
+
+      .article-body ul,
+      .article-body ol,
+      .article-body dl {
+        margin: 0 0 4mm 5mm;
+        padding: 0;
+      }
+
+      .article-body h2,
+      .article-body h3,
+      .article-body h4 {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        margin: 7mm 0 3mm;
+        line-height: 1.2;
+      }
+
+      .article-body blockquote {
+        margin-left: 6mm;
+        padding-left: 4mm;
+        border-left: 2px solid #111;
+      }
+
+      .article-body .media-omitted {
+        margin: 0 0 4mm;
+        font-size: 8.5pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(17, 17, 17, 0.65);
+      }
+
+      .article-body figure,
+      .article-body .article-figure,
+      .article-body picture,
+      .article-body .article-picture {
+        display: block;
+        max-width: 72mm;
+        margin: 0 auto 4mm;
+        break-inside: avoid;
+      }
+
+      .article-body img,
+      .article-body .article-image {
+        display: block;
+        max-width: min(100%, 72mm);
+        max-height: 34mm;
+        height: auto;
+        width: auto;
+        object-fit: contain;
+        margin: 0 auto 3mm;
+      }
+
+      .article-body figcaption {
+        margin-top: 1.5mm;
+        font-size: 8.5pt;
+        line-height: 1.3;
+        color: rgba(17, 17, 17, 0.8);
+      }
+
+      .article-note {
+        margin-top: 6mm;
+        padding-top: 3mm;
+        border-top: 1px solid #111;
+        font-size: 9pt;
+        font-style: italic;
+      }
+
+      @media screen {
+        body {
+          padding: 2rem;
+          margin: 0 auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    
+    <header class="masthead-compact">
+      <h1>Fred Talks</h1>
+      <p class="issue-date">
+        30<sup>th</sup> September 2026
+      </p>
+    </header>
+
+    <nav class="toc toc-compact">
+      <h2>Contents</h2>
+      <ol class="toc-list">
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Surrender as a non-stupid life strategy</div>
+          <div class="toc-item-meta">
+            Sasha Chapin · 2104 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">The End of Code Review? Or an Opportunity to Rethink it?</div>
+          <div class="toc-item-meta">
+            Christian Kästner · 2579 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Test Coverage Won&#39;t Save You</div>
+          <div class="toc-item-meta">
+            Jenn Cooper · 1991 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">GPT-6.1 Sol in Codex and ChatGPT Work</div>
+          <div class="toc-item-meta">
+            Codex changelog · 63 words
+          </div>
+        </li>
+        
+      </ol>
+    </nav>
+    
+
+    
+    <article>
+      <h1>Surrender as a non-stupid life strategy</h1>
+      <div class="article-meta">
+        Sasha Chapin
+        · 04 Jul 2026 · <a href="https://sashachapin.substack.com/p/should-you-be-in-charge-of-your-life">Source</a>
+      </div>
+      <div class="article-body"><p>After getting everything I wanted in my 20s, and discovering that I was still miserable, I decided that I should no longer be in charge of choosing what I want, and I slowly settled into a frame of, “I’ll do whatever God seems to want from me.”</p>
+<p>Some years after making that decision, I’m much happier. My life is richer, and I’m doing more for others. Regularly, I react with positive disbelief when I look at what my life has become. It looks like I’ve been executing a genius strategy. But in reality, I am living in a state of ongoing confusion, just seeing what happens.</p>
+<p>If you’ve achieved a bunch of your goals, and you’re still not happy with your life, consider giving up on self-chosen plans. Instead, listen to your life, inner and outer, and see if you can feel a current. Then fall into it, especially if it has nothing to do with the story you had about where you were supposed to be going.</p>
+<p>This choice is known as surrender. As with most cliches, I don’t think I can explain the profound experiential content of surrender—what it feels like, why it works. But perhaps I can lay out a constellation of propositions<a data-component-name="FootnoteAnchorToDOM" href="#footnote-1" id="footnote-anchor-1"><sup> [1] </sup></a> that will, together, illuminate a worldview very different from the one I once inhabited.</p>
+<h3><strong>Knowing and not-knowing yourself</strong></h3>
+<p><strong>1.1</strong> The planning part of your mind, the one that generates ambitions and hypothetical situations, is a small part of your overall intelligence. Anyone who is halfway good at sex, comedy, or any creative art will know this. Designing your life based on what that part of your mind wants is like designing your house to fit the needs of your right hand. Congratulations, your house is filled with fidget spinners and soap.</p>
+<p><strong>1.2</strong> A large percentage of human suffering is anticipatory tension, or dreading a future experience such that you actualize its potential suffering in the now. Anticipatory tension is using the illusion of knowledge to generate the illusion of control. Much of what people call planning is this.</p>
+<p><strong>1.3</strong> My best outfits are all selected by someone else. When I’m at a clothing store, and I meet an employee who seems engaged, I tell them to dress me for maximum attractiveness. They do a much better job than I do. Of course: I can’t see myself as well as someone else can. This is why I try to listen to what the world apparently wants to do with me,rather than who I imagine I am.</p>
+<p><strong>1.4</strong> Often, our self-image is a defense against the traits we reject in ourselves. “I love to be spontaneous,” says the most calculating person you’ve ever met. Thus, if you’re trying to live in self-loathing and denial, one way is to sculpt your life around the self-image you’ve decided on.</p>
+<p><strong>1.5</strong> I’ve discovered that scrutinizing my motives too closely is a great way to stop creating. The unexamined life may not be worth living, but the fully examined life is a pinned butterfly in a glass case. I’ve concluded that my life is a grand artistic project, but I’m best off not knowing what it is.</p>
+<p><strong>1.6</strong> You know that person who had important ripple effects in your life, based on a brief meeting or a kind gesture they extended to you, which meant nothing to them, but everything to you? Or that interesting stranger whose manner cast a brief spell on you, lingering in your memory disproportionately? That’s you also, you’re that person. Most of your impact on others, you will never fully apprehend or appreciate. Thus, it’s not important to know what you’re doing.</p>
+<p><strong>1.7</strong> The proper end of introspection is not being filled with facts about oneself. Your introspection is successful if it is finite, if it leads you towards direct contact with experience. Get out of the way of your becoming.</p>
+<h3><strong>Choice and authenticity</strong></h3>
+<p><strong>2.1</strong> People feel most themselves when they are unselfconscious, which is to say, their actions emerge without apparent control. Think of the phrase “singing with abandon.” In our most profound moments of intimacy, we have abandoned the wheel. Who is driving, at that moment? What if we simply let that driver have the wheel more often? It takes practice to notice when that’s the person taking over the wheel—as opposed to our reactive, fear-based conditioning, which is also eager to take the job. Surrender is a skill.</p>
+<p><strong>2.2</strong> When people talk about “being authentic,” they are often referring to executing some program, some persona, that they’ve devised privately. Of course, our impression of such people is that they’re unnatural and unoriginal. They assign us the job of reinforcing a character we never agreed on.</p>
+<p><strong>2.3</strong> Surrender is something that happens through you, not something chosen<a data-component-name="FootnoteAnchorToDOM" href="#footnote-2" id="footnote-anchor-2"><sup> [2] </sup></a>. I couldn’t have skipped the part of my life when I was contriving everything. And the way I’m living now wouldn’t work without the skills I accumulated during that period of contrivance. If you’re reading this and thinking, “gosh, I wish person <em>x </em>would see the wisdom of surrender,” you have discovered an opportunity to surrender to interpersonal helplessness.</p>
+<p><strong>2.4</strong> Often, the apparent struggle to make a decision is an attempt to meet an internal flailing quota, after which we will feel affirmed in the choice we already knew we were making. Sometimes you can just skip all of that, and admit that you’re scared of what you know you will do. And then do it.</p>
+<h3><strong>Goals, outcomes, effort</strong></h3>
+<p><strong>3.1</strong> Discovered goals are entirely different from preconceived goals. Let’s say you notice that when you play guitar and sing, people stop what they’re doing to stare at you. The discovered goal of being a musician has presented itself. You are more likely to be successful than someone who privately dreams of being a musician without prompting from existence. Noticing such opportunities requires a lack of some previously decided agenda.</p>
+<p><strong>3.2</strong> I’ve known many impressive people. Almost none of them started with a comprehensive vision of the grand work they would produce. Instead, they simply got into escalating amounts of trouble, and kept riding the trouble wave as far as it would go.</p>
+<p><strong>3.3</strong> Excellence requires non-attachment to principles. All mediocre performers are the same: instead of improving on feedback from what happens, they react to what they think is supposed to be happening, or try to reinforce a theory they’ve internalized—perhaps an inaccurate approximation of someone they admire. This attempt at coherence is futile, since the mind of an expert makes no sense. It is filled with exceptions, contradictory principles butting up against each other. Perhaps the knowledge of how your life works is the same.</p>
+<p><strong>3.4</strong> When a project in my life is working, it’s typically marked by a sense of leverage. It’s as if I’ve fallen into an updraft and it’s propelling me. Meanwhile, when I’m privately excited about something, but there’s no cooperation from the world, nothing comes together. The sensible conclusion is that my enthusiasm, alone, is not a helpful measurement.</p>
+<p><strong>3.5</strong> It’s nice to enjoy what you’re doing. But there is a greater liberation available: accepting that the Work in front of you is your Work, and that has little to do with how you feel.</p>
+<p><strong>3.6</strong> Another property of things that work out for me: they don’t make sense to my rationalizing mind. There is the thought, “this isn’t what I’m supposed to be doing,” even as greater forces pull me forward. This is known as the refusal of the call to adventure. It’s a routine part of adventure.</p>
+<p><strong>3.7</strong> There is a criticism you could make of my advocacy of surrender. It is: “you’re just lucky and narrativizing it.” Yes. If you, too, have luck that seems unrelated to your conscious choices, consider letting that run the show.</p>
+<h3><strong>Happiness</strong></h3>
+<p><strong>4.1</strong> The norm for human life: gross injustice, corrupt rulers, disease and death, unequal fortunes, looming apocalypses. It’s possible that a large portion of our species will die off—it’s happened before, we’ve almost gone extinct previously, that’s allowed in the game. If your basic needs are met but you cannot be content with the way it is now, that is not the fault of the way things are now. It’s because you haven’t surrendered to the basic properties of incarnating in human form.</p>
+<p><strong>4.2</strong> Strangely, happiness isn’t produced by getting what you want. Unhappiness is the product of the number of times per minute that you believe circumstances should be otherwise. “Enough” and “not enough” are mental stances that, very often, are uncorrelated with exterior facts. Perhaps this is one reason Jesus says it is “easier for a camel to go through the eye of a needle than for a rich man to enter the kingdom of God”—the more you focus on expanding your pile, the more ravenousness becomes a habit. By contrast, you can, right now, try believing that what’s happening is what’s supposed to be happening, in exactly the right order.</p>
+<p><strong>4.3</strong> Satisfaction comes from giving yourself away. From realizing that you have been called to some occasion that requires everything from you, and saying, fine, fuck it, here I am, tear me apart, I will exhaust myself to set right this one irrelevant corner. It is possible to view your whole existence this way, as a process of giving away all, everything, of what was never yours.</p>
+<p><strong>4.4</strong> Another profound source of satisfaction is fit: when you fit like a slender hand in the glove of your circumstances. Consider the possibility that this satisfaction is already trying to happen, but you are resisting it, in a doomed attempt to be happy. Settling into this fit is another way of describing what I mean by “doing what God seems to want.”</p>
+<p><strong>4.5</strong> I can’t defend this intellectually, but it has been true in my experience: spontaneous compassion is the approach to ethics that feels best and works most often. If you want a plan for consistently being good, the dumbest one that will work, and therefore the most robust, is “notice that prosocial behavior is nourishing, and that peace is only available if you’re on good terms with your conscience, and allow behavior to flow from that.” I’m not deluded enough to think this is always sufficient, but it’s a good start.</p>
+<h3><strong>Love</strong></h3>
+<p><strong>5.1</strong> I am capable of privately spoiling my wonderful marriage at any time, by noticing that it’s not the relationship I would’ve imagined being in. Meanwhile, a few months before meeting my wife, I wrote down a list of characteristics that the perfect partner would have, and I subsequently met that person. She was completely lovely—I find much to criticize in my own behavior from that period and nothing bad to say about her. And yet the relationship did not stick. How odd.</p>
+<p><strong>5.2</strong> When I insist that a relationship must survive, I begin to resent it—I become burdened by all of the little moments of inauthenticity engaged in to shield the other person. The person becomes an obstacle, someone to navigate around. When I accept that any relationship could end, and surrender to the reality of people finding their own level, I become free to relate openly, and then actual closeness happens.</p>
+<p><strong>5.3</strong> Panic is a part of love. I’ve learned that as I enter into any relationship that will alter me for the better, the manager in my head will come up with convincing reasons why it’s all wrong. This, too, is the refusal of the call; it is the fear of personal transformation masquerading as reason.</p>
+<p><strong>5.4</strong> The older I get, the more that friendship is a discovered property. There are lots of wonderful people I meet who aren’t my friends. And then I meet someone and think: oh, that’s my friend, you’re coming with me. One of the best things you can do for yourself is to notice when you’re inexplicably bound to someone, and act on it without thinking.</p>
+<p><strong>5.5</strong> We are drawn towards people because they are different. We are given the opportunity to love more when we find ourselves resenting them for the very difference that drew us to them. The opportunity is to release resentment and instead surrender to separateness. Ironically, this is how you feel less alone.</p>
+<p><em>Thank you to Erin Shetron for editorial assistance. This essay was inspired a little bit by The Surrender Experiment, and a lot by <a href="https://luminousdharma.org/returning-to-nature-advanced-dharma-practice/">this totally wonderful meditation guide</a>. Photo credit goes to Daido Moriyama. </em></p>
+<p><a href="#footnote-anchor-1" id="footnote-1">1 [find in text]</a></p>
+<p>This format is shamelessly stolen from <a href="https://medium.com/@sumdepony/seeing-like-a-communist-f3049710fb6c">this fascinating essay</a> by “de Pony Sum.”</p>
+<p><a href="#footnote-anchor-2" id="footnote-2">2 [find in text]</a></p>
+<p>I first heard this point made by Adyashanti.</p>
+<h3>...</h3></div>
+      
+    </article>
+    
+    <article>
+      <h1>The End of Code Review? Or an Opportunity to Rethink it?</h1>
+      <div class="article-meta">
+        Christian Kästner
+        · 26 Sep 2026 · <a href="https://thelastsoftwareengineer.substack.com/p/the-end-of-code-review-or-an-opportunity">Source</a>
+      </div>
+      <div class="article-body"><p>Code review as we understand it today will probably not survive the shift to AI-generated code, but is that a problem? Code review is under pressure from agents producing code at an incredible pace, and reactions to that are quite split. There are many who want to protect code review as a core human software engineering practice, who put in place strict policies to preserve it. Others argue that code review is effectively dead, because it cannot keep up with the pace of production and will not survive competitive pressures if it becomes a bottleneck. Many experiment with automating code review at least partially. Implicit in this discussion is often the assumption that our prior code review practices were a gold standard, something to save or something to mourn. But is that really the case?</p>
+<figure class="article-figure"><a data-component-name="Image2ToDOM" href="https://substackcdn.com/image/fetch/$s_!NRTQ!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ff2f2ded4-704b-4565-b4e5-1bed2620499b_887x360.png"><picture class="article-picture"><img alt="" data-attrs="{&quot;src&quot;:&quot;https://substack-post-media.s3.amazonaws.com/public/images/f2f2ded4-704b-4565-b4e5-1bed2620499b_887x360.png&quot;,&quot;srcNoWatermark&quot;:null,&quot;fullscreen&quot;:null,&quot;imageSize&quot;:null,&quot;height&quot;:360,&quot;width&quot;:887,&quot;resizeWidth&quot;:null,&quot;bytes&quot;:null,&quot;alt&quot;:&quot;&quot;,&quot;title&quot;:null,&quot;type&quot;:null,&quot;href&quot;:null,&quot;belowTheFold&quot;:false,&quot;topImage&quot;:true,&quot;internalRedirect&quot;:null,&quot;isProcessing&quot;:false,&quot;align&quot;:null,&quot;offset&quot;:false}" sizes="100vw" src="https://substackcdn.com/image/fetch/$s_!NRTQ!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ff2f2ded4-704b-4565-b4e5-1bed2620499b_887x360.png" srcset="https://substackcdn.com/image/fetch/$s_!NRTQ!,w_424,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ff2f2ded4-704b-4565-b4e5-1bed2620499b_887x360.png 424w, https://substackcdn.com/image/fetch/$s_!NRTQ!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ff2f2ded4-704b-4565-b4e5-1bed2620499b_887x360.png 848w, https://substackcdn.com/image/fetch/$s_!NRTQ!,w_1272,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ff2f2ded4-704b-4565-b4e5-1bed2620499b_887x360.png 1272w, https://substackcdn.com/image/fetch/$s_!NRTQ!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ff2f2ded4-704b-4565-b4e5-1bed2620499b_887x360.png 1456w" class="article-image"/></picture></a></figure>
+<h1>A sweet spot for code review, historically?</h1>
+<p>Code review did not always look the way it does now (or at least the way it looked until coding agents took off). The contemporary practice that we now all know – tool-mediated, CI-integrated, lightweight review of individual commits, usually integrated with testing, static analysis, and other automation – is what reviewers call <strong>modern code review</strong> to distinguish it from other forms of code review and inspection.</p>
+<p>Modern code review is called <em>modern</em> in contrast to older practices that many junior engineers have probably never seen and that we barely teach these days, most popular among them <em>Fagan-style inspections</em>. These were heavyweight processes, popularized in the 70s and widely studied through the 80s and early 90s: Multiple reviewers read small fragments of code line by line before release (not incrementally while code is created), often meeting to talk it through and sometimes reading it aloud. Fagan-style inspection was widely taught and written about (e.g., Wiegers’ book “<a href="https://www.goodreads.com/book/show/846008.Peer_Reviews_in_Software">Peer Reviews in Software</a>”). <a href="https://bookshop.org/p/books/making-software-what-really-works-and-why-we-believe-it-andy-oram/78f0595ca7acddca?ean=9780596808327&amp;bkshp-astro=t">Studies</a> showed it to be the most effective technique to find bugs we have, more effective than testing. But it is slow and expensive, easily costing more than 8 developer hours across 3 reviewers, a moderator, and the author for reviewing merely 400 lines of code. That cost limited how much code could be reviewed. Fagan-inspections were well known in principle but only sparingly used for high-stakes settings – often to review the critical core of a product.</p>
+<p>The lightweight practice that eventually took over grew out of patch-by-patch review in open-source projects and converged, remarkably, on nearly the same practice in companies and in GitHub’s pull requests. <a href="https://dl.acm.org/doi/abs/10.5555/2486788.2486882">Studies</a> are clear that modern code review is pretty bad at catching bugs, catching mostly shallow ones and readability issues (though <a href="https://dl.acm.org/doi/pdf/10.1145/3585004">better tooling</a> has given reviewers a chance to go deeper). However, compared to Fagan-style inspections, it is cheap enough to do for <em>all</em> changes. While modern code review is not great at catching bugs, it provides many other benefits: forcing “<a href="https://dl.acm.org/doi/abs/10.1145/3183519.3183525">developers to write code that other developers could understand</a>,” fostering collective code ownership and awareness, supporting learning and mentorship, surfacing optimization opportunities, and enforcing conventions. Review has shifted, in <a href="https://dl.acm.org/doi/abs/10.1145/2491411.2491444">Rigby’s phrase</a>, from a defect-finding activity to a group problem-solving one.</p>
+<p>There may be many plausible reasons for the almost universal adoption of modern code reviews – whether companies copying successful open source practices (coined “inner source”) or just wanting to be more like Google, whether inertia, or whether developers just do not trust their interns – but let’s assume somewhat rational actors: If modern code review wouldn’t have provided any benefits, we would have stopped spending so much effort on it. For the sake of this argument, let’s assume, the community has eventually settled on an <strong>equilibrium</strong> where the value modern code review provides just justified its cost in a pre-AI world, whether through catching bugs or through those other benefits.</p>
+<h1>A simple model to untangle competing arguments</h1>
+<p>Before looking at how agentic coding puts code review under pressure, let’s posit a simple model that will help to untangle various moving parts to help put various forces into perspective.</p>
+<ul><li><p><strong>P</strong>: The cost of producing code, in $ per line.</p></li><li><p><strong>L</strong>: The liability of that code, in $ per line, meaning the expected future cost of its quality problems. Let’s assume liability has two parts: (a) <strong>Rework</strong>, the cost of finding and fixing bugs or in the worst case rearchitect the entire system. (b) <strong>Harm</strong>, the cost when problems escape to the outside world as security incidents, reputational damage, and losses to customers we may need to reimburse, sometimes after lawsuits. Rework is internal and is the main concern for low-stakes software, but harm is visible externally and can be substantial in high-stakes software.</p></li><li><p><strong>R</strong>: The cost of reviewing code, in $ per line.</p></li><li><p><strong>E</strong>: The effectiveness of review at reducing liability, as a percentage.</p></li></ul>
+<p>Overall cost per line is then P + L × (1 − E) + R. In a rational-actor world, teams invest in code review exactly up to the point where the last dollar spent on it just offsets the liability it removes.</p>
+<p>For high-stakes code with high potential liability (L), it is rational to invest heavily (R) into making review more effective (E), up to Fagan-style inspections. For most code, stakes are not that high and liability comes mostly from rework. Also many other efforts have helped reduce liability without code review: Modern languages prevent whole classes of memory defects, static analysis catches many issues, and test generation and continuous-integration automation move testing into the cost of production. In that setting, shallow and fairly ineffective modern code review looks rational with modest cost for modest liability reduction.</p>
+<h1>Agentic coding shifts every part of the model, all at once</h1>
+<p>Agentic coding clearly has the potential to lower the cost of code production, but it can also influence the cost and effectiveness of code review, and the liability of typical code produced. The specific effects are often disputed, point in different directions, and interact with various things changing at the same time. The model can help us to untangle what we might expect to happen.</p>
+<p><strong>Production cost (P) is the obvious starting point but only part of the story.</strong> [↘ production cost] Agentic coding promises to drastically cut the cost of producing code (P). If nothing else changed (e.g., same code review, agentic code producing the same liability as human code), review cost (R) and liability cost (L) limit how much we can reduce overall cost. For example, even if production costs are reduced by 90%, overall costs would just be reduced by 30% if production accounted for only a third of the costs previously. This effect likely explains some of the discrepancies between frequent claims of 10X productivity improvement (which may even feel intuitively right seeing how quickly code is produced) and much lower productivity improvements measured in academic studies (rarely above 30%). If production cost is the only thing that changes, code review feels very much like a bottleneck limiting progress.</p>
+<p><strong>Agentic coding affects liability (L) in at least three plausible ways, and it is not obvious where we will land.</strong> When it comes to code quality and liability, the effect of coding agents is disputed.</p>
+<p>[↗ liability due to lower code quality] First, there is some evidence (including our <a href="https://arxiv.org/abs/2511.04427">own study</a>) that coding agents produce code of lower quality than humans, so that it needs more rework later. Also there are plenty of stories of harms from poor agentic code, like the multiple security incidents in the vibe-coded <a href="https://www.wiz.io/blog/exposed-moltbook-database-reveals-millions-of-api-keys">Moltbook</a> and multiple AWS outages <a href="https://archive.is/1bkim">reported</a> to be caused by agentic coding tools. All of that would point toward increased liability of code generated by coding agents, which could call for more scrutiny with code review.</p>
+<p>[↘ liability due to better code quality] However, it is also plausible (even today with enough iteration and tool use, but plausibly more so with future improvements) that agentic code is of higher quality than human written code, lowering liability and the benefit of code review (E*L).</p>
+<p>[↘ liability due to cheaper rework] Second, just like code production, agents promise to make <em>rework</em> cheaper too, with automation in debugging and repair, which shrinks the rework part of liability. Especially in low-stakes settings, rework is likely the larger part of the liability cost, and lower code quality may simply not matter much if it can be fixed easily later.</p>
+<p>[↘ liability due to cheaper review substitutes] Third, alternatives to code review get cheaper too: Tests, static analysis, and automated code review, and maybe one day even formal verification and proof-carrying code at scale, can catch problems early during code production, reducing liability before code review. If such activities become effective and cheap enough, they render code review less important for liability reduction.</p>
+<p>I do not think it is clear yet how this will pan out. In low-stakes settings, self-reviewing agents, more testing, and cheap rework may seriously reduce most liability, but it seems less obvious how it will affect the kind of downstream harms that matter in high-stakes settings – security issues, safety issues, financial losses. When issues can create real harms, patching a system in production after harms have occurred may not be the best strategy.</p>
+<p><strong>Productivity pressure, surface plausibility of agentic code, and cognitive debt can each undermine review effectiveness (E).</strong> [↘ effectiveness due to productivity pressure] Many practitioners report enormous pressure to improve productivity with AI. With more code arriving from agents and review becoming the bottleneck, this translates into pressure to review faster, which can result in rubber-stamping, undermining any effectiveness modern code review may still have had.</p>
+<p>[↘ effectiveness due to deceptive plausibility of AI generated code and cognitive debt] In addition, agentic code may be harder to review well, because it looks plausible and well written (automation bias), and because a reviewer who was not engaged in producing it often lacks the context to judge it (cognitive debt). Both issues lower review effectiveness, or would require more investment into code review to retain effectiveness.</p>
+<p>These effects make preserving traditional human code review particularly challenging if most code is generated by AI. Insisting on manual review, but pushing more reviews through faster, likely just hollows it out. I fully agree that this will not be sustainable and code review will not survive in this form.</p>
+<p><strong>Automating the code review may lower review cost (R).</strong> [↘ review cost with review automation] Many of the quality problems that surface in modern code review, especially the shallow ones modern code review catches, can be found by machines mimicking code review. <em>Automated code review</em> by agents can arguably find many of those kinds of issues and lower review costs similar to how AI lowered production costs. Some offerings of automated code review can be quite pricey (e.g., <a href="https://code.claude.com/docs/en/code-review">Claude’s code review costs $15-25 per reviewed PR</a>), but they still likely undercut the costs of humans and they don’t share the human capacity bottleneck.</p>
+<p>Lowered review costs from automated code review cannot be viewed in isolation. Whether automated code review is more or less effective (E) than humans, or effective only for particular classes of bugs, is still unsettled. Automation is likely able to go much deeper and be more systematic than a typical human review (closer to Fagan-style inspections with checklists), but it may also miss issues obvious to humans. If automation produces more false positives than human reviewers, it would push production cost (P) back up, though if production is cheap that may not matter much.</p>
+<p><strong>Indirect effects of code review, beyond finding bugs, may or may not matter, and they will decide the future of code review.</strong> Code review has many well understood benefits beyond its ability to find bugs, including learning and mentoring, (collective) code ownership, and general awareness – not captured in the simplified model (P, L, E, R). Pushing more code through the review process or automating code review away will obviously degrade those benefits too: If developers review less, they may gain less experience that helps them in producing code or being effective at those reviews still remaining. Developers may not understand their code base at all, making it harder for them to write good prompts to change it further, possibly increasing liability indirectly through cognitive debt. Or tooling can cover enough of what is lost, freeing up developers’ time to focus on other parts that matter (e.g., requirements, specifications for test generation, infrastructure for testing in production).</p>
+<p>Such effects are all plausible, but it is not clear to me how it will shake out. If we want to argue for code review, we should be clear about what benefits we want to gain from it (beyond finding bugs). And frankly, we should look for ways of getting those benefits without traditional code review. More research is needed, and in it we must be explicit about the mechanisms we expect and what effects we predict, whether on production cost, review cost, liability, or anything else.</p>
+<h2><strong>Code review changed before</strong></h2>
+<p>Heavyweight inspection never became the norm, because it cost too much to run everywhere, and the lighter practice that spread in its place exchanged rigor for scalability. I suspect code review will change again, or will be replaced by something looking completely different. The previous “modern code review” practices were probably close to an equilibrium, but agentic coding changes the forces in play, making that form of code review no longer sustainable.</p>
+<p>Personally, I cannot predict where things will go. I think market pressures to increase productivity in an era of AI hype will make it difficult to preserve anything resembling our current modern code review practices when it becomes the bottleneck. But I also don’t see modern code review as a practice to protect for its own sake, just because that’s what we have previously done. I expect that coding agents will get much better at reviewing their own code during production, so that few of those more shallow and predictable issues remain that traditional code review or static analysis tools might have surfaced.</p>
+<p>I think the bigger question is about all the other benefits we got from code review that were not about code quality, like coordination and mentoring. I think the better question to ask is how much those are still needed and how we can get them in forms that are not code review. For example, would better standup meetings or AI summaries of changes be able to replace the awareness benefits of code review? Would <a href="https://dl.acm.org/doi/full/10.1145/3779312">deliberate feedback and mentoring mechanisms</a> better support the junior to senior software engineering pipeline than code review? I think stepping back and rethinking a world without code review is a more useful exercise than tweaking existing code review practices.</p>
+<p>Zooming out further, I think eventually the big question is really about where and how and how much humans will be in control in some form when producing software. Maybe that control is better focused on requirements, architectural design, test design, and security/safety safeguards, rather than reviewing lines of AI-generated code.</p>
+<p>So my main point is to stop asking whether and how code review in its current form can be saved, but to have an open conversation about what we are trying to achieve here and the costs and benefits of alternative models.</p>
+<p><em>Acknowledgment: This model grew out of a conversation with Courtney Miller about whether preserving code review is the right goal for researchers to support. I am no longer sure it is.</em></p>
+<h3>Code review is probably on its last legs, and we should focus on how to retain the indirect benefits it provided...</h3></div>
+      
+    </article>
+    
+    <article>
+      <h1>Test Coverage Won&#39;t Save You</h1>
+      <div class="article-meta">
+        Jenn Cooper
+        · 09 Jun 2026 · <a href="https://forestwalk.ai/blog/test-coverage-wont-save-you-from-incoherence/">Source</a>
+      </div>
+      <div class="article-body"><p>A year ago, if a codebase accumulated three different ways to do the same thing, somebody would usually notice.</p>
+<p>A reviewer might leave a comment. A senior engineer would mutter something about "yet another helper," and eventually the team would clean it up. Maybe they'd write a short doc. People would learn, collectively, that this was not the way.</p>
+<p>This was not a perfect system. Human review can be slow. People miss things. Pattern docs get stale. Engineers develop opinions that are 70% wisdom and 30% scar tissue.</p>
+<p>Still, the friction did something useful. It kept codebases from drifting too quickly.</p>
+<p>Coding agents change that.</p>
+<figure class="article-figure"><img alt="A room with too much electricity." src="https://forestwalk.ai/images/blog/too-much-electricity.jpg" class="article-image"/><figcaption>"Now, this is a room with electricity. But it has too much electricity."</figcaption></figure>
+<p>Once agents are writing a meaningful share of code, the question is no longer just "can we get working code faster?" Obviously, yes. We can. Sometimes hilariously so.</p>
+<p>The more interesting question is: what does the codebase teach the next agent?</p>
+<p>Because it does teach.</p>
+<p>Every merged PR becomes a precedent. If the repository contains one clear pattern, the next agent has a decent shot at following it. If it contains three slightly different patterns, the next agent may extend one, combine two, or invent a fourth for reasons that are, in technical terms, vibes.</p>
+<h2>The funhouse builds itself</h2>
+<p>Coding agents, like some of us, have a chaotic inner goth teenager.</p>
+<p>Their non-deterministic nature means they can be inconsistent, often in surprising ways. They can generate the weird little leap that solves the problem, or they can generate novelty where nobody asked for it.</p>
+<p>The dangerous thing is that most of the code is fine, if you look at it in isolation.</p>
+<p>A PR passes tests. The implementation makes sense. The file is clean enough. You look at the diff and think, yeah, sure, that seems okay.</p>
+<p>But zoom out, and the codebase as a whole has started to get weird.</p>
+<ul> <li>three near-duplicate utilities</li> <li>multiple data-fetching patterns</li> <li>parallel abstractions solving almost the same problem</li> </ul>
+<p>The codebase remains locally <strong>cohesive</strong>, while slowly losing global <strong>coherence</strong>.</p>
+<p>That matters more than it used to, because even more than humans, agents are responsive to the signals around them. A clear codebase gives them clear precedent. A muddled codebase gives them confusion.</p>
+<p>You can put principles in <code>CLAUDE.md</code> or docs, but they're... advisory. They compete with task instructions and inline comments for attention, get summarized when context windows compact, and depend on the agent attending to the right instruction at the right moment.</p>
+<p>If your codebase contains three slightly different ways to solve a problem, the next agent has to infer which one is canonical.</p>
+<p>From the agent's point of view, this is not irrational. The repository gave it mixed evidence.</p>
+<p>The scary outcome is not code that obviously fails. It is code that superficially keeps working, while the shape of the system increasingly gets worse.</p>
+<h2>Tests are nice</h2>
+<p>Most discussions about AI-native development jump from this problem – agents' tendency to accumulate tech debt – directly to tests.</p>
+<p>And yes, across the industry, teams are writing dramatically more tests than they ever have. Agents have made high test coverage affordable in a way it never used to be.</p>
+<p>Recently, <a href="https://x.com/garrytan/status/2054064931515855118">Garry Tan argued</a> that the primary way to keep AI agents on track is 90% test coverage:</p>
+<blockquote> <p><em>Tests are the ratchet. 90% coverage, every PR, no exceptions.</em></p> </blockquote>
+<p>And indeed, test coverage is the simplest kind of ratchet: a mechanism that allows motion in one direction only, like a socket wrench that turns the bolt forward but never lets it spin back. Once a test locks in a behaviour, it becomes difficult to accidentally regress.</p>
+<p>But it's worth being specific about what tests actually do.</p>
+<p>Unit tests check that a function still returns what it returned before. Integration tests check that pieces still wire together the same way. E2E tests reach further: they check whether the product still does what it used to, and the assertions you prioritize there should be an important act of human judgment.</p>
+<p>But they all share the same basic shape: tests verify that code does what it did before.</p>
+<p>Whether what it did was even the <em>right way to do it</em> is a separate question.</p>
+<p>Tests ratchet behavioural sameness.</p>
+<p>Meanwhile docs and evals can pin down reasoning and behaviour bars, which is sometimes more important. But none of these is directly looking at the <em>shape</em> of the system.</p>
+<h2>90% coverage of good patterns</h2>
+<p>A coverage ratchet only improves the codebase if the patterns it's locking in are already good ones.</p>
+<p>If a questionable pattern already exists in the code, the next agent is more likely to extend it. The tests generated around that implementation only reinforce it further.</p>
+<p>Over time, high coverage can unintentionally fossilize architectural drift, rather than prevent it in the first place.</p>
+<p>At first, especially during prototyping, this can be easy to miss, because nothing looks obviously broken. Coverage stays high. The system works. But over time, certain parts of the codebase become strangely resistant to cleanup.</p>
+<p>Tests that protect the wrong behaviour create drag against coherence. The harder you push for coverage, the more deeply you can lock in the shape you happened to start with.</p>
+<p>This isn't a criticism of tests. Tests are necessary. But tests primarily validate behaviour, while many of the emerging failure modes in agent-generated systems, especially as they grow, are failures of <em>shape</em>.</p>
+<figure class="article-figure"><img alt="A load-bearing poster." src="https://forestwalk.ai/images/blog/load-bearing-poster.jpg" class="article-image"/><figcaption>"Uh, I wouldn't take it down if I were you. It's a load-bearing poster."</figcaption></figure>
+<h2>Fitness functions protect the shape of the system</h2>
+<p>Unit tests ask whether the code still does what it did before. Fitness functions ask a different question: is the system still shaped the way we want?</p>
+<p>Most codebases already have a few simple versions of this. Linters, type checks, and import-boundary rules all encode some idea of acceptable shape, at the micro level.</p>
+<p>But in agentically-maintained codebases, we need an additional kind of macro fitness function. It has a couple of important jobs:</p>
+<ul> <li>catch bad agent choices at the moment of work</li> <li>redirect agents with the right amount of friction for the violation</li> </ul>
+<p>At Forestwalk, for example, we have a fitness check that prevents tool handlers from calling back into our AI services. Tool handlers run inside the agent's own loop, so any handler that kicks off more inference can stack model calls inside model calls and freeze a live meeting. Agents sometimes accidentally introduce this pattern, so our fitness check flags it and ensures it's not committed.</p>
+<p>Other fitness tests are ratchets that apply pressure to measurable properties – heuristics for shape like file size, bundle growth, prompt size, import fanout, and dependency count.</p>
+<p>For these, the ceiling starts at the current value (e.g. 837kb) and flags to agents and humans if a PR would unduly increase it. For instance, when an agent adds an unnecessary new dependency that blows up our frontend bundle, the check fails.</p>
+<p>The important part isn't just the limit itself. It's the “just in time” agent coaching.</p>
+<p>At first, we found agents would sometimes over-optimize against whatever metric the checks exposed, with great resourcefulness and in ways we did not want. But refining the flags to give common sense guidance helped steer the agents into considering tradeoffs correctly.</p>
+<p>For example, an agent might see this just in time:</p>
+<pre><code>⎯⎯⎯⎯⎯⎯⎯ Failed Checks: 1 ⎯⎯⎯⎯⎯⎯⎯
+
+FAIL  src/frontendBundleBudget.test.ts &gt; Frontend bundle size budget &gt; keep built JS growth modest
+AssertionError: Frontend bundle grew +29 KiB (700 -&gt; 729 KiB; fails at +5 KiB).
+
+This ratchet is review pressure, not a mandate to shrink the number at any cost.
+
+Diagnose first:
+- Is the growth accidental (dependency, duplicate/dead code, broad import, avoidable scope creep)?
+- Does the added JS unlock user-visible value?
+- Can cleanup reduce it without hurting UX, accessibility, tests, or maintainability?
+
+Quality-preserving fixes:
+- remove duplicated rendering paths or dead production code
+- move repeated styling or static configuration out of lazy-loaded JavaScript
+- lazy-load rarely used flows instead of loading them on the main path
+(more examples here)
+
+Do not fix this by:
+- omitting requested scope or deferring needed UI work
+- removing aria-label/title text or visible affordances
+- deleting helpful empty/error-state copy
+(more examples here)
+
+For intentional growth, (procedure here) and explain why in the PR.
+</code></pre>
+<p>If you simply tell agents to "reduce bundle size," they will sometimes do naive things like:</p>
+<ul> <li>delete empty-state copy</li> <li>replace styled controls with browser-native ones</li> <li>inline dependency code to avoid import costs</li> <li>remove accessibility affordances</li> </ul>
+<p>Instead, the idea is to not just explain what a given fitness test is protecting, but also explain what is <em>not allowed</em> to be sacrificed in the process, and do so at the moment the agent is working.</p>
+<p>In contrast, the same guidance in <code>CLAUDE.md</code> is often skimmed past or applied inconsistently by agents. A just-in-time check, on the other hand, creates desired friction between the agent and a finished task. Where humans get tired and occasionally creative about routing around friction like this, agents are quite willing to schlep through feedback and loop until the check is passing.</p>
+<figure class="article-figure"><img alt="A master bedroom." src="https://forestwalk.ai/images/blog/master-bedroom.jpg" class="article-image"/><figcaption>"Come on in, it's your master bedroom!"</figcaption></figure>
+<h2>What the checks can't see</h2>
+<p>Fitness functions are good at catching things precise enough to encode.</p>
+<p>That is useful, but coherence is not always that crisp. Some drift is obvious only in relation to the rest of the codebase: this new thing is too close to an existing thing, this test is protecting a pattern we no longer want, this change is making the next change harder.</p>
+<p>So in addition, we use a few non-deterministic checks on top of the deterministic ones.</p>
+<p>One runs before a PR is opened. It scans the proposed change against the existing codebase, and asks whether the agent has introduced or expanded a competing pattern. When it finds one, it points to the existing pattern, explains why the new one looks redundant, and asks the agent to either extend the original or justify why this case is genuinely different.</p>
+<p>Most of the time, the agent course-corrects quickly.</p>
+<p>We run a similar check again at the PR review level, where it has more context and can catch subtler pattern drift.</p>
+<p>Another check runs nightly and looks for tests that have fossilized patterns we have since decided against. Its mission is to find tests that protect old implementation choices that, if left alone, would teach future agents to preserve patterns we no longer want.</p>
+<p>These checks are not magic. They miss things. They can be noisy. They still need human judgment around them.</p>
+<p><strong>But the goal is not to eliminate judgment.</strong> The goal is to move more human judgment into places where it can be highest leverage.</p>
+<h2>Making coherence the easy path</h2>
+<p>Fitness ratchets are not the whole answer to maintaining coherence in agent-generated codebases.</p>
+<p>Fitness functions are one layer. Pattern drift checks are another. Product verification, code review, evals, documentation, repository structure, and the actual taste of the humans steering the system all matter too.</p>
+<p>However, it's worth investing regularly in the early layers: the ones closest to the moment an agent is making an implementation choice.</p>
+<p>That is where we have found these types of fitness functions useful. They do not solve coherence by themselves, but they add friction in the right places. Bad patterns get interrupted earlier. Good patterns have a better chance of becoming precedent.</p>
+<p>The same feedback loop that spreads bad patterns can be used to spread good ones.</p>
+<p>So there’s hope. When you see this pattern work, it soothes some of the worry we all have about agents causing chaos. They’re a lot more useful when the codebase gives them an obvious next move. The right pattern is easier to find. The weird fourth version of the thing has a harder time looking reasonable.</p>
+<p>It's not perfect. Keeping a growing codebase coherent still requires human judgment, architectural intuition, and social coordination. The system still needs to be built.</p>
+<p>But that system, itself, increasingly feels like the work.</p>
+<p>If the codebase trains the next agent, then the job is not just to write better code.</p>
+<p>It is to build the environment where better code is the obvious thing to write.</p></div>
+      
+    </article>
+    
+    <article>
+      <h1>GPT-6.1 Sol in Codex and ChatGPT Work</h1>
+      <div class="article-meta">
+        Codex changelog
+        · 29 Sep 2026 · <a href="https://developers.openai.com/codex/changelog/#codex-2026-09-29-gpt-61-sol">Source</a>
+      </div>
+      <div class="article-body"><div><p># GPT-6.1 Sol in Codex and ChatGPT Work</p><p>GPT-6.1 Sol offers near-Astra performance for complex work at a lower cost than
+Astra. Consider it for repeated, long-running work across code, apps, and
+documents. Availability depends on your plan, client, and workspace settings.</p><p>Use `gpt-6.1-sol`. See
+[Models](/codex/models#gpt-61-sol) for availability and
+[model selection](/api/docs/guides/model-selection#when-to-consider-gpt-61-sol)
+to compare models.</p></div></div>
+      
+    </article>
+    
+  </body>
+</html>
