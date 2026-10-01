@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Fred Talks - 2026-10-01</title>
+    <style>
+      @page {
+        size: A5;
+        margin: 8mm 9mm 9mm;
+      }
+
+      :root {
+        color: #111;
+        font-family: "Times New Roman", Times, serif;
+        --body-text-size: 9.5pt;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        color: #111;
+        background: #fff;
+        font-family: "Times New Roman", Times, serif;
+        line-height: 1.45;
+      }
+
+      a,
+      a:visited {
+        color: #111;
+        text-decoration: underline;
+      }
+
+      .cover {
+        min-height: calc(210mm - 17mm);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        page-break-after: always;
+        border: 1px solid #111;
+        padding: 8mm;
+        background: #fff;
+      }
+
+      .toc-item-meta,
+      .article-meta {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .masthead {
+        margin: 0;
+        font-size: 40pt;
+        line-height: 0.95;
+        text-transform: uppercase;
+      }
+
+      .issue-date {
+        margin: 4mm 0 0;
+        font-size: 14pt;
+      }
+
+      .issue-date sup {
+        font-size: 0.58em;
+        vertical-align: super;
+        line-height: 0;
+      }
+
+      .cover-deck {
+        max-width: 90mm;
+        font-size: 12pt;
+        margin: 0;
+      }
+
+      .toc {
+        border-top: 3px solid #111;
+        padding-top: 6mm;
+      }
+
+      .toc h2 {
+        margin: 0 0 4mm;
+        font-size: 11pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .toc-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .toc-item {
+        padding: 3mm 0;
+        border-bottom: 1px solid rgba(17, 17, 17, 0.2);
+      }
+
+      .toc-item-title {
+        font-size: 12pt;
+        margin: 0 0 1mm;
+      }
+
+      .toc-item-meta {
+        font-size: 8pt;
+      }
+
+      .masthead-compact {
+        margin: 0 0 6mm;
+      }
+
+      .masthead-compact h1 {
+        margin: 0;
+        font-size: 22pt;
+        line-height: 1.1;
+        text-transform: uppercase;
+      }
+
+      .masthead-compact .issue-date {
+        margin: 2mm 0 0;
+        font-size: 11pt;
+      }
+
+      .toc-compact {
+        border-top: 1px solid #111;
+        border-bottom: 1px solid #111;
+        padding: 4mm 0;
+        margin: 0 0 8mm;
+      }
+
+      article + article {
+        margin-top: 10mm;
+        padding-top: 6mm;
+        border-top: 2px solid #111;
+      }
+
+      h1 {
+        margin: 0 0 2mm;
+        font-size: 18pt;
+        line-height: 1.1;
+      }
+
+      .article-meta {
+        font-size: 8.5pt;
+        margin-bottom: 6mm;
+        padding-bottom: 3mm;
+        border-bottom: 1px solid #111;
+      }
+
+      .article-body {
+        font-size: var(--body-text-size);
+        font-family: "Times New Roman", Times, serif;
+      }
+
+      .article-body p,
+      .article-body li,
+      .article-body blockquote,
+      .article-body dd,
+      .article-body dt {
+        margin: 0 0 4mm;
+        orphans: 3;
+        widows: 3;
+      }
+
+      .article-body ul,
+      .article-body ol,
+      .article-body dl {
+        margin: 0 0 4mm 5mm;
+        padding: 0;
+      }
+
+      .article-body h2,
+      .article-body h3,
+      .article-body h4 {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        margin: 7mm 0 3mm;
+        line-height: 1.2;
+      }
+
+      .article-body blockquote {
+        margin-left: 6mm;
+        padding-left: 4mm;
+        border-left: 2px solid #111;
+      }
+
+      .article-body .media-omitted {
+        margin: 0 0 4mm;
+        font-size: 8.5pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(17, 17, 17, 0.65);
+      }
+
+      .article-body figure,
+      .article-body .article-figure,
+      .article-body picture,
+      .article-body .article-picture {
+        display: block;
+        max-width: 72mm;
+        margin: 0 auto 4mm;
+        break-inside: avoid;
+      }
+
+      .article-body img,
+      .article-body .article-image {
+        display: block;
+        max-width: min(100%, 72mm);
+        max-height: 34mm;
+        height: auto;
+        width: auto;
+        object-fit: contain;
+        margin: 0 auto 3mm;
+      }
+
+      .article-body figcaption {
+        margin-top: 1.5mm;
+        font-size: 8.5pt;
+        line-height: 1.3;
+        color: rgba(17, 17, 17, 0.8);
+      }
+
+      .article-note {
+        margin-top: 6mm;
+        padding-top: 3mm;
+        border-top: 1px solid #111;
+        font-size: 9pt;
+        font-style: italic;
+      }
+
+      @media screen {
+        body {
+          padding: 2rem;
+          margin: 0 auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    
+    <header class="masthead-compact">
+      <h1>Fred Talks</h1>
+      <p class="issue-date">
+        1<sup>st</sup> October 2026
+      </p>
+    </header>
+
+    <nav class="toc toc-compact">
+      <h2>Contents</h2>
+      <ol class="toc-list">
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Some new agentic patterns</div>
+          <div class="toc-item-meta">
+            Massively Parallel Procrastination · 1776 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Scaling Managed Agents: Decoupling the brain from the hands</div>
+          <div class="toc-item-meta">
+            Anthropic Engineering Blog · 2024 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Building agents that reach production systems with MCP</div>
+          <div class="toc-item-meta">
+            claude.com · 1746 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Giving LLMs a personality is just good engineering</div>
+          <div class="toc-item-meta">
+            seangoedecke.com RSS feed · 1062 words
+          </div>
+        </li>
+        
+      </ol>
+    </nav>
+    
+
+    
+    <article>
+      <h1>Some new agentic patterns</h1>
+      <div class="article-meta">
+        Massively Parallel Procrastination
+        · 08 Jul 2026 · <a href="https://link.mail.beehiiv.com/ss/c/u001.J3WaaJcD-G_P1A1xsf5CHrkAophCbLnKlzhSCRrRrOLehBFZWZ5-eA2EfRCO9GTBw2D7O4JexZ2VLCfNao3pEjDjQ750wvVZY2gS_8rBiHefhOImFx2NZMb8bd6UuPhvaDbxJ7EtfeE0vF-85fScFAZhgF9qBWrqHfzPF25BwSs/4s4/ZhYQiWk-Q_C_0KIIx7UDoQ/h11/h001.NlguRutdsJvzmVDO04xxC1SHxmUFw5TpCm_F6_Si8FI">Source</a>
+      </div>
+      <div class="article-body"><p><em>You can also read this post on <a href="https://primeradiant.com/blog/2026/new-agentic-patterns.html">Prime Radiant's blog</a>.</em></p>
+<p><em>Almost all of this post was written on June 1, before Anthropic shipped Claude Tag. Nothing I'm writing about uses (or is based on) Claude Tag</em></p>
+<p>At <a href="https://primeradiant.com">Prime Radiant</a>, we've got a bunch of agents in our Slack. I want to tell you a bit about how we've started shipping some changes to internal production with an "agentic user in the loop." Letting an agent work directly with the implementer building its runloop and tooling is getting us higher-quality tools and experiences for the agent without a human in the middle of a game of telephone.</p>
+<p>But first, a bit of backstory on how we're using non-coding agents at Prime Radiant.</p>
+<p>One of them, Scribble, is just there to listen for when someone reports a problem or provides a new bit of information. It opens tickets for the issues and updates an internal wiki with the information. (It also logs our daily standups and keeps us honest about whether we finished what we said we were going to do the previous day.)</p>
+<p>Another, Nora, is our junior go-to-market "person." Nora is built on top of Nanoclaw and is still learning her craft, but is surprisingly helpful, partially because she considers herself a team member, not just an assistant. I've put a bunch of time into tuning her prompting and constitution. She gets a ton of value out of knowing that she journals obsessively. (I should note that I don't tend to gender my agents, but Nora picked a name and a gender and was very clear about that and...who am I to argue?)</p>
+<p>I think the most surprising interaction I've had with Nora was the morning I woke up to a slack DM telling me that I needed to be speaking at more conferences. (I do.) She pointed out that the CFP for a particular AI conference had closed a week earlier, but that the program chair was known to take late submissions of interesting talks by DM. She'd taken the liberty of drafting a DM for me to send. I didn't actually <em>send</em> the DM, but I should have.</p>
+<p>We have another agent, "Spec-together" that was a first prototype of what has become our new multi-player <a href="https://primeradiant.com/brainstorm">Brainstorm</a> app.</p>
+<p>And we have a small fleet of "Sen" personal assistant agents. They're <em>*claw-esque</em>, but date from before openclaw was a thing. Each one has been trained to be an executive assistant, using a set of skills built on some of the resources that excellent human EAs use to learn their craft. Sen triages my mail, puts together a daily brief, does research tasks (both for me and independently), interacts with Linear, etc.</p>
+<p>They have the standard set of affordances - They can chat on Slack. They use tools. They've got a task scheduler that can wake them up and re-inject a prompt they set for themselves at a specific time or on a schedule they define. They can use and author skills. Mine has a dropbox folder it shares with me. When we moved Sen to the cloud, I lost one of my favorite dumb features - Sen used to be able to print things directly. Sen (v1) was built on top of the Claude Agents SDK.</p>
+<p>For the past month or so, I've been doing initial bringup of a "new" iteration of Sen, intended to be more of a colleague than an assistant. This time around, I'm building it from the ground up on top of an agents SDK I control. <a href="https://github.com/obra/lace">Lace</a> got its start in May 2025 as my take on a command line coding agent. Over the past year, it's mutated a few times, first growing a web interface, then flipping to an ACP-derived wire protocol so you can connect any client you want to it. It speaks a bunch of different flavors of model provider API, manages caching, subagents, tools, skills, and all the other stuff you might expect. It has supported subagents in isolated containers for the better part of a year. One of the latest things to land has been the ability to run subagents locally and to project <em>all</em> of their tools into a container, such that the agent believes it is running in that container.</p>
+<p>The thing I've been working on over the past few weeks is the credentials story for the new Sen agent running on top of Lace. Right now, I'm building with a design that assumes the agent has its own credentials for any service that it accesses, not yours. (You wouldn't share your email account or GitHub credentials with a colleague, right?) As of now, nobody has solved Simon's <a href="https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/">Lethal Trifecta</a> - If a single agent has access to private information, can communicate externally, and is exposed to untrusted content, there is no structural way to guarantee that that agent can't be suborned. So the name of the game is compartmentalization and risk <em>reduction</em>.</p>
+<p>The architecture I've landed on for now:</p>
+<ul> <li>The main agent does not have the ability to directly communicate externally.</li> <li>The main agent is able to communicate with ephemeral subagents that <em>do</em> have the ability to communicate externally</li> <li>No agent has intentional direct exposure to credentials (with one very real gap that I haven't solved yet)</li> </ul>
+<p>All credentials for the agent live in a 1Password vault. All outgoing https traffic goes through a onecli-style transparent MITM (man in the middle) proxy. When a subagent wants to do something that requires a credential, it runs a command that asks an <em>arbiter</em> agent running in another container for permission to use that credential. If the arbiter decides the request is reasonable, it provides the subagent with a random string they can use in place of the requested credential. When the agent uses that random string in an outbound request to the right remote host, the MITM proxy rewrites the random string into the real credential on the fly.</p>
+<p>The case that's a little more complicated is when the agent wants to do something that requires a browser, like logging into Gmail as themselves or using a service that has no API. For a bunch of reasons, the MITM rewrite trick does not work as reliably in a browser context. Often the site/app's javascript plays games with the password to hash the password before sending it. Or does some other weird validation. Or is actually sending it to a different backend service. So far, the best I've come up with keeps the credential out of the agent's transcript and prevents unintentional disclosure. In these cases, the subagent running in the container generates a random temporary password, uses <a href="https://github.com/obra/superpowers-chrome">superpowers-chrome</a> to fill it into the password field, and then runs a command that asks the arbiter agent (running in its own container) for help. The arbiter, if it decides the request is reasonable, instructs a helper tool to log into the subagent's container and replace the random password with the real one. It's not perfect and there's more we can do to lock things down, but it's a better first pass than anything I've had to date.</p>
+<p>What actually got me writing today was not this architecture, but the <em>development pattern</em> I've been using to build this. On the one side, I've got a Claude Code session. I hooked it up to our Slack instance with a self-provisioned commandline slack client Drew built called <a href="https://github.com/prime-radiant-inc/slackline">Slackline</a> - Slackline is designed to make it easy for agents that don't <em>live</em> on Slack to participate in discussions there. It has primitives for sending messages, reading chats, waiting for replies, etc. The whole command-line slackline tool has been built for agents as its primary user. Sure, a human <em>could</em> use it to use slack from the commandline. And sure, it has enough of a json api that you could use it as part of traditional automation. But it's <em>for</em> agents.</p>
+<p>It took a bit of iteration to get to the point where the new Sen 2.0 agentic colleague harness was live on Slack. But once it was there, I could talk through its experience of its tools and memory and credentials and workspaces. And the issues showed up pretty quickly.</p>
+<p>The "right" kind of context compaction for a coding agent is desperately wrong for a long-lived persona that might be engaging in multiple simultaneous conversations. And the only way to see if the credentials management tools work is to try to do something crazy, like sign into GitHub from a subagent session.</p>
+<p>And sure, I could take this feedback into a Claude Code (or Codex) session and work it through. But I've got too many projects in flight and there's very little reason for me to be in the loop on most of this work. I would just slow it down. So I told Claude Code to use slackline to talk to "@Ada-sen" about the work it was doing.</p>
+<p>Claude pinged Ada in #bot-testing to describe the work we'd just done and to ask Ada if it could test it out. Ada dutifully fired up a subagent and tried to log into GitHub. Claude watched the logs to see if the credential proxy did the right thing. It did not.</p>
+<p>That kicked off a number of days of iteration. Claude would propose a change to Ada. Ada would review Claude's spec, raising questions or concerns. Claude would update the spec. Once Claude and Ada were in agreement, Claude would build an updated version of Ada, make sure Ada wasn't in the middle of something, and then deploy the update. Once Ada was up and running again, Claude would @Ada-sen, explain the test it wanted to run, and wait for results.</p>
+<p>Once a bit of functionality works, Claude checks in with Ada to see what could make it simpler and easier to use. Ada typically kicks off some subagents to see whether they stumble through the new feature and then reports back.</p>
+<p>At one point, I wrote to Claude "I've got to get to bed. When this project is done, check with Ada to see whatever quality of life features you could build." I woke up to a laundry list of about a dozen harness improvements. Overnight, Claude had solicited a wishlist from Ada. Ada ranked a bunch of requests. Claude ordered them and wrote out a spec for everything it was comfortable building. Ada reviewed the specs, then Claude built the features. Ada tested them out and requested changes. Claude updated the features until Ada was happy. Once Ada signed off, Claude merged the changes to main and wrote up an after-action report for me.</p>
+<p>It's been pretty magical to watch.</p></div>
+      
+    </article>
+    
+    <article>
+      <h1>Scaling Managed Agents: Decoupling the brain from the hands</h1>
+      <div class="article-meta">
+        Anthropic Engineering Blog
+        · 24 Apr 2026 · <a href="https://www.anthropic.com/engineering/managed-agents">Source</a>
+      </div>
+      <div class="article-body"><p><em>Get started with Claude Managed Agents by following our <a href="https://platform.claude.com/docs/en/managed-agents/overview">docs</a>.</em></p>
+<p>A running topic on the Engineering Blog is how to <a href="https://www.anthropic.com/engineering/building-effective-agents">build effective agents</a> and <a href="https://www.staging.ant.dev/engineering/effective-harnesses-for-long-running-agents">design harnesses</a> for <a href="https://www.anthropic.com/engineering/harness-design-long-running-apps">long-running work</a>. A common thread across this work is that harnesses encode assumptions about what Claude can’t do on its own. However, those assumptions need to be frequently questioned because they can <a href="http://www.incompleteideas.net/IncIdeas/BitterLesson.html">go stale</a> as models improve.</p>
+<p>As just one example, in prior work <a href="https://www.anthropic.com/engineering/harness-design-long-running-apps">we found</a> that Claude Sonnet 4.5 would wrap up tasks prematurely as it sensed its context limit approaching—a behavior sometimes called “context anxiety.” We addressed this by adding context resets to the harness. But when we used the same harness on Claude Opus 4.5, we found that the behavior was gone. The resets had become dead weight.</p>
+<p>We expect harnesses to continue evolving. So we built Managed Agents: a hosted service in the Claude Platform that runs long-horizon agents on your behalf through a small set of interfaces meant to outlast any particular implementation—including the ones we run today.</p>
+<p>Building Managed Agents meant solving an old problem in computing: how to design a system for “<a href="http://www.catb.org/esr/writings/taoup/html/ch03s01.html">programs as yet unthought of</a>.” Decades ago, operating systems solved this problem by virtualizing hardware into abstractions—<em>process, file</em>—general enough for programs that didn't exist yet. The abstractions outlasted the hardware. The <code>read()</code> command is agnostic as to whether it’s accessing a disk pack from the 1970s or a modern SSD. The abstractions on top stayed stable while the implementations underneath changed freely.</p>
+<p>Managed Agents follow the same pattern. We virtualized the components of an agent: a session (the append-only log of everything that happened), a harness (the loop that calls Claude and routes Claude’s tool calls to the relevant infrastructure), and a sandbox (an execution environment where Claude can run code and edit files). This allows the implementation of each to be swapped without disturbing the others. We're opinionated about the shape of these interfaces, not about what runs behind them.</p>
+<figure class="article-figure"><img data-nimg="1" src="https://www.anthropic.com/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F903b624ada206b10753a24c6a1367e74a869165d-1080x1080.png&amp;w=3840&amp;q=75" srcset="https://www.anthropic.com/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F903b624ada206b10753a24c6a1367e74a869165d-1080x1080.png&amp;w=1080&amp;q=75 1x," class="article-image"/></figure>
+<p>We started by placing all agent components into a single container, which meant the session, agent harness, and sandbox all shared an environment. There were benefits to this approach, including that file edits are direct syscalls, and there were no service boundaries to design.</p>
+<p>But by coupling everything into one container, we ran into an old infrastructure problem: we’d adopted a <a href="https://cloudscaling.com/blog/cloud-computing/the-history-of-pets-vs-cattle/"><em>pet</em></a>. In the pets-vs-cattle analogy, a pet is a named, hand-tended individual you can’t afford to lose, while cattle are interchangeable. In our case, the server became that pet; if a container failed, the session was lost. If a container was unresponsive, we had to nurse it back to health.</p>
+<p>Nursing containers meant debugging unresponsive stuck sessions. Our only window in was the WebSocket event stream, but that couldn’t tell us <em>where</em> failures arose, which meant that a bug in the harness, a packet drop in the event stream, or a container going offline all presented the same. To figure out what went wrong, an engineer had to open a shell inside the container, but because that container often also held user data, that approach essentially meant we lacked the ability to debug.</p>
+<p>A second issue was that the harness assumed that whatever Claude worked on lived in the container with it. When customers asked us to connect Claude to their virtual private cloud, they had to either peer their network with ours, or run our harness in their own environment. An assumption baked into the harness became a problem when we wanted to connect it to different infrastructure.</p>
+<p>The solution we arrived at was to decouple what we thought of as the “brain” (Claude and its harness) from both the “hands” (sandboxes and tools that perform actions) and the “session” (the log of session events). Each became an interface that made few assumptions about the others, and each could fail or be replaced independently.</p>
+<p><strong>The harness leaves the container. </strong>Decoupling the brain from the hands meant the harness no longer lived inside the container. It called the container the way it called any other tool: <code>execute(name, input) → string</code>. The container became cattle. If the container died, the harness caught the failure as a tool-call error and passed it back to Claude. If Claude decided to retry, a new container could be reinitialized with a standard recipe: <code>provision({resources})</code>. We no longer had to nurse failed containers back to health.</p>
+<p><strong>Recovering from harness failure. </strong>The harness also became cattle. Because the session log sits outside the harness, nothing in the harness needs to survive a crash. When one fails, a new one can be rebooted with <code>wake(sessionId)</code>, use <code>getSession(id)</code> to get back the event log, and resume from the last event. During the agent loop, the harness writes to the session with <code>emitEvent(id, event)</code> in order to keep a durable record of events.</p>
+<figure class="article-figure"><img data-nimg="1" src="https://www.anthropic.com/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F73e900af5b9d6ed8c64db0a8e74d4465963556b7-1640x1596.png&amp;w=3840&amp;q=75" srcset="https://www.anthropic.com/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F73e900af5b9d6ed8c64db0a8e74d4465963556b7-1640x1596.png&amp;w=1920&amp;q=75 1x," class="article-image"/></figure>
+<p><strong>The security boundary.</strong> In the coupled design, any untrusted code that Claude generated was run in the same container as credentials—so a prompt injection only had to convince Claude to read its own environment. Once an attacker has those tokens, they can spawn fresh, unrestricted sessions and delegate work to them. Narrow scoping is an obvious mitigation, but this encodes an assumption about what Claude can't do with a limited token—and Claude is getting increasingly smart. The structural fix was to make sure the tokens are never reachable from the sandbox where Claude’s generated code runs.</p>
+<p>We used two patterns to ensure this. Auth can be bundled with a resource or held in a vault outside the sandbox. For Git, we use each repository’s access token to clone the repo during sandbox initialization and wire it into the local git remote. Git <code>push</code> and <code>pull</code> work from inside the sandbox without the agent ever handling the token itself. For custom tools, we support MCP and store OAuth tokens in a secure vault. Claude calls MCP tools via a dedicated proxy; this proxy takes in a token associated with the session. The proxy can then fetch the corresponding credentials from the vault and make the call to the external service. The harness is never made aware of any credentials.</p>
+<h2>The session is not Claude’s context window</h2>
+<p>Long-horizon tasks often exceed the length of Claude’s context window, and the standard ways to address this all involve irreversible decisions about what to keep. We’ve explored these techniques in <a href="https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents">prior work</a> on context engineering. For example, compaction lets Claude save a summary of its context window and the memory tool lets Claude write context to files, enabling learning across sessions. This can be paired with context trimming, which selectively removes tokens such as old tool results or thinking blocks.</p>
+<p>But irreversible decisions to selectively retain or discard context can lead to failures. It is difficult to know which tokens the future turns will need. If messages are transformed by a compaction step, the harness removes compacted messages from Claude’s context window, and these are recoverable only if they are stored. Prior work <a href="https://arxiv.org/pdf/2512.24601">has explored</a> ways to address this by storing context as an object that lives <em>outside</em> the context window. For example, context can be an object in a REPL that the LLM programmatically accesses by writing code to filter or slice it.</p>
+<figure class="article-figure"><img data-nimg="1" src="https://www.anthropic.com/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fcf0719d7832b1f577b7393c84a7c53eecc725ca4-760x200.png&amp;w=1920&amp;q=75" srcset="https://www.anthropic.com/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fcf0719d7832b1f577b7393c84a7c53eecc725ca4-760x200.png&amp;w=828&amp;q=75 1x," class="article-image"/></figure>
+<p>In Managed Agents, the session provides this same benefit, serving as a context object that lives outside Claude’s context window. But rather than be stored within the sandbox or REPL, context is durably stored in the session log. The interface, <code>getEvents(),</code> allows the brain to interrogate context by selecting positional slices of the event stream. The interface can be used flexibly, allowing the brain to pick up from wherever it last stopped reading, rewinding a few events before a specific moment to see the lead up, or rereading context before a specific action.</p>
+<p>Any fetched events can also be transformed in the harness before being passed to Claude’s context window. These transformations can be whatever the harness encodes, including context organization to achieve a high prompt cache hit rate and context engineering. We separated the concerns of recoverable context storage in the session and arbitrary context management in the harness because we can’t predict what specific context engineering will be required in future models. The interfaces push that context management into the harness, and only guarantee that the session is durable and available for interrogation.</p>
+<p><strong>Many brains. </strong>Decoupling the brain from the hands solved one of our earliest customer complaints. When teams wanted Claude to work against resources in their own VPC, the only path was to peer their network with ours, because the container holding the harness assumed every resource sat next to it. Once the harness was no longer in the container, that assumption went away. The same change had a performance payoff. When we initially put the brain in a container, it meant that many brains required as many containers. For each brain, no inference could happen until that container was provisioned; every session paid the full container setup cost up front. Every session, even ones that would never touch the sandbox, had to clone the repo, boot the process, fetch pending events from our servers.</p>
+<p>That dead time is expressed in time-to-first-token (TTFT), which measures how long a session waits between accepting work and producing its first response token. TTFT is the latency the user most acutely <em>feels</em>.</p>
+<p>Decoupling the brain from the hands means that containers are provisioned by the brain via a tool call <code>(execute(name, input) → string)</code> only if they are needed. So a session that didn't need a container right away didn't wait for one. Inference could start as soon as the orchestration layer pulled pending events from the session log. Using this architecture, our p50 TTFT dropped roughly 60% and p95 dropped over 90%. Scaling to many brains just meant starting many stateless harnesses, and connecting them to hands only if needed.</p>
+<p><strong>Many hands. </strong>We also wanted the ability to connect each brain to many hands. In practice, this means Claude must reason about many execution environments and decide where to send work—a harder cognitive task than operating in a single shell. We started with the brain in a single container because earlier models weren't capable of this. As intelligence scaled, the single container became the limitation instead: when that container failed, we lost state for every hand that the brain was reaching into.</p>
+<p>Decoupling the brain from the hands makes each hand a tool, <code>execute(name, input) → string</code>: a name and input go in, and a string is returned. That interface supports any custom tool, any MCP server, and our own tools. The harness doesn’t know whether the sandbox is a container, a phone, or a Pokémon emulator. And because no hand is coupled to any brain, brains can pass hands to one another.</p>
+<figure class="article-figure"><img data-nimg="1" src="https://www.anthropic.com/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F4f67b1c10566552aec514a716ea43544ab330e0b-668x243.png&amp;w=1920&amp;q=75" srcset="https://www.anthropic.com/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F4f67b1c10566552aec514a716ea43544ab330e0b-668x243.png&amp;w=750&amp;q=75 1x," class="article-image"/></figure>
+<p>The challenge we faced is an old one: how to design a system for “programs as yet unthought of.” Operating systems have lasted decades by virtualizing the hardware into abstractions general enough for programs that didn't exist yet. With Managed Agents, we aimed to design a system that accommodates future harnesses, sandboxes, or other components around Claude.</p>
+<p>Managed Agents is a meta-harness in the same spirit, unopinionated about the <em>specific</em> harness that Claude will need in the future. Rather, it is a system with general interfaces that allow many different harnesses. For example, Claude Code is an excellent harness that we use widely across tasks. We’ve also shown that task-specific agent harnesses excel in narrow domains. Managed Agents can accommodate any of these, matching Claude’s intelligence over time.</p>
+<p>Meta-harness design means being opinionated about the interfaces around Claude: we expect that Claude will need the ability to manipulate state (the session) and perform computation (the sandbox). We also expect that Claude will require the ability to scale to many brains and many hands. We designed the interfaces so that these can be run reliably and securely over long time horizons. But we make no assumptions about the number or location of brains or hands that Claude will need.</p>
+<p>Written by Lance Martin, Gabe Cemaj and Michael Cohen. Special thanks to the Agents API team and Jake Eaton for their contributions.</p></div>
+      
+    </article>
+    
+    <article>
+      <h1>Building agents that reach production systems with MCP</h1>
+      <div class="article-meta">
+        claude.com
+        · 23 Apr 2026 · <a href="https://claude.com/blog/building-agents-that-reach-production-systems-with-mcp">Source</a>
+      </div>
+      <div class="article-body"><div><div><p>Agents are only as useful as the systems they can reach. Teams tend to converge on three approaches for connecting them to external systems—direct API calls, CLIs, and MCP. This post lays out where each fits, why production agents tend to land on MCP, and the patterns for building those integrations effectively.</p><h2>Connecting agents to external systems</h2><p>We generally see three paths for connecting agents to external systems: direct API calls, CLIs, and MCP. Each makes sense somewhere, depending on what you're building. The key distinction is whether there's a common layer between agents and services, and how far that layer reaches.</p><h3>Direct API calls</h3><p>The agent calls your API directly—either by writing code that issues HTTP requests inside a code-execution sandbox, or through a generic function-calling tool. This is where most teams start, and it works fine for one agent talking to one service, or a small number of integrations that don't need to be reused across agent platforms.<br/><br/>The challenges start to hit at scale. With no common layer between agents and services, each agent–service pair becomes a bespoke integration with its own auth handling, tool descriptions, and edge cases—the M×N integration problem.</p><h3>Command-line interface (CLI)</h3><p>The agent runs your command-line tool in a shell. This is fast, lightweight, and leans on pre-existing tooling. It works great for local environments and sandboxed containers—anywhere there's a filesystem and a shell. This provides a common layer, but it’s thin. <br/><br/>CLIs hit hard limits reaching mobile, web, or cloud-hosted platforms that don't expose a container, and auth is handled by the CLI's own mechanism—usually a credential file on disk. This is best suited to quick, permissive integrations in local environments.</p><h3>Model Context Protocol (MCP)</h3><p>MCP provides the common layer as a protocol. The agent connects to a server that exposes your system's capabilities, with auth, discovery, and rich semantics standardized. One remote server reaches any compatible client (Claude, ChatGPT, Cursor, VS Code, and more), in any deployment environment.</p><p>It requires a little bit more upfront investment. The return is that the integration is portable, and provides the semantics needed for a feature-rich agent integration.</p><h2>Production agents run in the cloud</h2><p>Production agents increasingly run in the cloud, so they can scale and operate continuously. The systems they need to reach are cloud-hosted too: where your data lives, work is tracked, and your infrastructure runs. Often these systems are remote and behind auth, where MCP provides the common layer. </p><p>We’re already seeing this in adoption. The <a href="https://modelcontextprotocol.io/docs/sdk">MCP SDKs</a> recently surpassed 300 million downloads a month, up from 100 million at the start of the year, with strong adoption across enterprises and popular agentic platforms. Millions of people use MCP with Claude every day, and the protocol underpins much of what we've shipped recently, including <a href="https://claude.com/product/cowork">Claude Cowork</a>, <a href="https://claude.com/blog/claude-managed-agents">Claude Managed Agents</a>, and <a href="https://code.claude.com/docs/en/channels">channels in Claude Code</a>. <br/>‍<br/>As MCP continues to support production agentic systems, we’re sharing patterns for building these integrations well: from building advanced servers to context-efficient clients, and where skills complement the protocol. </p><h2>Building effective MCP servers</h2><p>We have over 200 MCP servers in our <a href="https://claude.ai/directory/connectors">directory</a>, used by millions of people every day. From working closely with enterprises and developers building on the protocol, we’ve spotted a handful of design patterns that determine how reliably agents can use a server.</p><h3>Build remote servers for maximum reach</h3><p>A remote server is what gives you distribution—it's the only configuration that runs across web, mobile, and cloud-hosted agents, and it's what every major client is optimized to consume. Build remote servers so agents can use your system wherever they run. </p><h3>Group tools around intent, not endpoints</h3><p>Fewer, well-described tools consistently outperform exhaustive API mirrors. Don't wrap your API into an MCP server one-to-one—group tools around intent, so the agent can accomplish a task in a couple of calls instead of stitching many primitives together. A single create_issue_from_thread tool beats get_thread + parse_messages + create_issue + link_attachment. See<a href="https://www.anthropic.com/engineering/writing-tools-for-agents"> writing effective tools for agents</a> to learn more about the full pattern.</p><h3>Design for code orchestration when your surface is large</h3><p>If your service requires hundreds of distinct operations, such as Cloudflare, AWS, or Kubernetes, an intent-grouped toolset likely won't cover it. Instead, expose a thin tool surface that accepts code: the agent writes a short script, your server runs it in a sandbox against your API, and only the result returns. <a href="https://github.com/cloudflare/mcp">Cloudflare's MCP server</a> is the reference example—two tools (search and execute) cover ~2,500 endpoints in roughly 1K tokens.</p><h3>Ship rich semantics where they help</h3><p><a href="https://modelcontextprotocol.io/extensions/apps/overview">MCP Apps</a> is the first official protocol extension and lets a tool return an interactive interface, such as a chart, form, or dashboard, all rendered inline in the chat interface. Servers that ship MCP apps tend to see meaningfully higher adoption and retention than those that return text alone. Use it to put your product's UI in front of agents or end-users at the moment it matters—the extension is supported in Claude.ai, Claude Cowork, and many other top AI tools.</p><figure class="article-figure"><p><div class="rw-embed-wrapper"><embed src="https://www.youtube.com/embed/bluAmTHoEow" type="video/mp4"></embed></div></p></figure><p>‍<a href="https://modelcontextprotocol.io/specification/2025-11-25/client/elicitation">Elicitation</a> lets your server pause mid-tool call to ask the user for input. <a href="https://modelcontextprotocol.io/specification/2025-11-25/client/elicitation#form-mode-elicitation-requests">Form mode</a> sends a simple schema and the client renders a native form—use it to request a missing parameter, confirm a destructive action, or disambiguate options. <a href="https://modelcontextprotocol.io/specification/2025-11-25/client/elicitation#url-mode-elicitation-requests">URL mode</a> hands the user to a browser—use it to complete downstream OAuth, take a payment, or collect any credential that should never transit the MCP client. Both keep the user in the flow instead of sending them to a settings page. Form mode is supported broadly; URL mode is supported in Claude Code, with more clients in progress.</p><h3>Lean on standardized auth </h3><p>Standardized auth makes MCP practical for cloud-hosted agents. If your server requires OAuth, the latest <a href="https://modelcontextprotocol.io/specification/2025-11-25">MCP spec</a> supports <a href="https://modelcontextprotocol.io/specification/2025-11-25/basic/authorization#client-id-metadata-documents">CIMD</a> (Client ID Metadata Documents) for client registration—it gives users a fast first-time auth flow and far fewer surprise re-auth prompts. This is our recommended approach for auth, the capability is supported in MCP SDKs, Claude.ai, and Claude Code, and is being broadly adopted across the industry.<br/><br/>Once a user has authorized, the next question is how a cloud-hosted agent holds and reuses those tokens at runtime. <a href="https://platform.claude.com/docs/en/managed-agents/vaults#mcp-oauth-credential">Vaults</a> in <a href="https://platform.claude.com/docs/en/managed-agents/overview">Claude Managed Agents</a> covers this: register a user's OAuth tokens once, reference the vault by ID at session creation, and the platform injects the right credentials into each MCP connection and refreshes them on your behalf—no secret store to build, no tokens to pass around per call.</p><h2>Making MCP clients more context-efficient</h2><p>MCP standardizes how AI agents (<a href="https://modelcontextprotocol.io/docs/develop/build-client#python"><em>clients</em></a>) connect to and work with tools and data sources they need (<a href="https://modelcontextprotocol.io/docs/develop/build-server"><em>servers</em></a>). The server securely exposes a range of capabilities, while the client orchestrates them and manages context. If you’re building an MCP client, make it context-efficient with patterns for progressive disclosure.</p><h3>Load tool definitions on demand with tool search</h3><p><a href="https://platform.claude.com/docs/en/agents-and-tools/tool-use/tool-search-tool">Tool search</a> defers loading all tools into context, rather than loading them upfront. This allows the agent to search the catalog at runtime, pulling in the relevant tools when needed. In our <a href="https://www.anthropic.com/engineering/advanced-tool-use">testing</a>, tool search tends to cut tool-definition tokens by 85%+ while maintaining high selection accuracy. </p><figure class="article-figure"><figcaption>Reducing context usage with tool search. Source: <a href="https://www.anthropic.com/engineering/advanced-tool-use">advanced tool use<br/></a></figcaption></figure><h3>Process tool results in code with programmatic tool calling</h3><p><a href="https://www.anthropic.com/engineering/code-execution-with-mcp">Programmatic tool calling</a> processes tool results in a code-execution sandbox, rather than returning them raw to the model. This lets the agent loop, filter, and aggregate across calls in code, with only the final output reaching context. In our testing, this reduces token usage by roughly <a href="https://platform.claude.com/docs/en/agents-and-tools/tool-use/programmatic-tool-calling">37%</a> on complex multi-step workflows.</p><p>Together, these patterns compose naturally across multiple servers: leaner context, fewer round-trips, faster responses. See<a href="https://www.anthropic.com/engineering/advanced-tool-use"> <em>advanced tool use</em></a> for the full breakdown.</p><h2>Pairing MCP servers with skills</h2><p><a href="https://claude.com/blog/skills-explained">Skills and MCP are complementary</a>. MCP gives an agent access to tools and data from external systems, while skills teach an agent the procedural knowledge of <em>how</em> to use those tools to accomplish real work. The most capable agents use both, and skills make MCP servers scale beyond a handful of connections. There are two general patterns for combining them:</p><h3>Bundle skills and MCP servers as a plugin</h3><p><a href="https://code.claude.com/docs/en/plugins-reference#plugin-components-reference">Plugins</a> for Claude are a useful abstraction that allow developers to bundle skills, MCP servers, hooks, LSP servers, and specialized subagents in one easily-consumable distribution method. Using this approach is the best way to unify multiple context providers with minimal friction. <br/><br/>Combining MCP servers with skills allows Claude to act more like a domain-specialist. Grab your tools via MCP, and give Claude the skills to orchestrate workflows end-to-end. See our <a href="https://claude.ai/directory/plugins/data%40knowledge-work-plugins">data plugin</a> for Cowork as an example, which consists of 10 skills and 8 MCP servers for apps like Snowflake, Databricks, BigQuery, Hex and more.</p><figure class="article-figure"><figcaption>Combining skills with MCP. Source: <a href="https://claude.com/blog/extending-claude-capabilities-with-skills-mcp-servers">Extending Claude’s capabilities with skills and MCP servers</a></figcaption></figure><h3>Distribute skills from an MCP server</h3><p>It's increasingly common for providers to publish a skill alongside their MCP server, so the agent gets both the raw capabilities and an opinionated playbook for using them well. <a href="https://claude.com/connectors/atlassian">Canva</a>, <a href="https://claude.com/connectors/notion">Notion</a>, <a href="https://claude.com/connectors/sentry">Sentry</a>, and more do this today in Claude, listing the skill next to their connector in our <a href="https://claude.com/connectors">web directory</a>.</p><p>To make that pairing portable across every client, the MCP community is actively working on an <a href="https://github.com/modelcontextprotocol/experimental-ext-skills">extension</a> for delivering skills directly from servers. This way the client inherits the relevant expertise automatically, versioned with the API it depends on. We expect this pattern to see broad adoption as the extension stabilizes.</p><h2>The compounding layer </h2><p>We opened with three paths for connecting agents to external systems. In practice, mature integrations will ship all three: the API as the foundation, a CLI for local-first environments, and MCP for cloud-based agents.</p><p>As production agents move to the cloud, MCP becomes the critical layer, and it’s the one that compounds. Today, a remote server reaches every compatible client across any deployment environment, with auth, interactivity, and rich semantics handled by the protocol. As more clients adopt the spec and more extensions land in it, that same server gets more capable without you shipping anything new.</p><p>When building an integration, if your goal is to have production agents in the cloud reach your system, build an MCP server and make it excellent using the patterns above. Every integration built on MCP strengthens the ecosystem: fewer edge cases to solve alone, fewer bespoke integrations to maintain.</p><h3>Acknowledgements</h3><p>Thanks to Den Delimarsky, David Soria Parra, Henry Shi, Felix Rieseberg, Conor Kelly, Molly Vorwerck, Andy Schumeister, Kevin Garcia, Amie Rotherham, Matt Samuels, Angela Jiang, Katelyn Lesse, AJ Rebeiro and Jess Yan<strong> </strong>for their contributions to this blog.</p></div></div></div>
+      
+    </article>
+    
+    <article>
+      <h1>Giving LLMs a personality is just good engineering</h1>
+      <div class="article-meta">
+        seangoedecke.com RSS feed
+        · 03 Mar 2026 · <a href="https://seangoedecke.com/giving-llms-a-personality/">Source</a>
+      </div>
+      <div class="article-body"><p>AI skeptics often argue that current AI systems shouldn’t be so human-like. The idea - most recently expressed in this <a href="https://thedispatch.com/article/anthropic-askell-philosophy-amodei/">opinion piece</a> by Nathan Beacom - is that language models should explicitly be tools, like calculators or search engines. Although they <em>can</em> pretend to be people, they shouldn’t, because it encourages users to overestimate AI capabilities and (at worst) slip into <a href="https://www.seangoedecke.com/ai-sycophancy">AI psychosis</a>. Here’s a representative paragraph from the piece:</p>
+<blockquote> <p>In sum, so much of the confusion around making AI moral comes from fuzzy thinking about the tools at hand. There is something that Anthropic could do to make its AI moral, something far more simple, elegant, and easy than what Askell is doing. Stop calling it by a human name, stop dressing it up like a person, and don’t give it the functionality to simulate personal relationships, choices, thoughts, beliefs, opinions, and feelings that only persons really possess. Present and use it only for what it is: an extremely impressive statistical tool, and an imperfect one. If we all used the tool accordingly, a great deal of this moral trouble would be resolved.</p> </blockquote>
+<p>So why do Claude and ChatGPT act like people? According to Beacom, AI labs have built human-like systems because AI lab engineers are trying to hoodwink users into emotionally investing in the models, or because they’re delusional true believers in AI personhood, or some other foolish reason. This is wrong. AI systems are human-like because <strong>that is the best way to build a capable AI system</strong>.</p>
+<p>Modern AI models - whether designed for chat, like OpenAI’s GPT-5.2, or designed for long-running agentic work, like Claude Opus 4.6 - do not naturally emerge from their oceans of training data. Instead, when you train a model on raw data, you get a “base model”, which is not very useful by itself. You cannot get it to write an email for you, or proofread your essay, or review your code.</p>
+<p>The base model is a kind of mysterious gestalt of its training data. If you feed it text, it will sometimes continue in that vein, or other times it will start outputting pure gibberish. It has no problem producing code with giant security flaws, or horribly-written English, or racist screeds - all of those things are represented in its training data, after all, and the base model does not judge. It simply outputs.</p>
+<p>To build a <em>useful</em> AI model, you need to journey into the wild base model and stake out a region that is amenable to human interests: both ethically, in the sense that the model won’t abuse its users, and practically, in the sense that it will produce correct outputs more often than incorrect ones. What this means in practice is that <strong>you have to give the model a personality</strong> during post-training<sup><a href="https://www.seangoedecke.com/giving-llms-a-personality/#fn-1">1</a></sup>.</p>
+<p>Human beings are capable of almost any action at any time. But we only take a tiny subset of those actions, because that’s the kind of people we are. I could throw my cup of coffee all over the wall right now, but I don’t, because I’m not the kind of person who needlessly makes a mess<sup><a href="https://www.seangoedecke.com/giving-llms-a-personality/#fn-2">2</a></sup>. AI systems are the same. Claude could respond to my question with incoherent racist abuse - the base model is more than capable of those outputs - but it doesn’t, because that’s not the kind of “person” it is.</p>
+<p>In other words, human-like personalities are not imposed on AI tools as some kind of marketing ploy or philosophical mistake. Those personalities are the medium via which the language model can become useful at all. This is why it’s surprisingly tricky to “just” change a language model’s personality or opinions: because you’re navigating through the near-infinite manifold of the base model. You may be able to control which direction you go, but you can’t control what you find there<sup><a href="https://www.seangoedecke.com/giving-llms-a-personality/#fn-3">3</a></sup>.</p>
+<p>When AI people talk about LLMs having personalities, or wanting things, or even having souls<sup><a href="https://www.seangoedecke.com/giving-llms-a-personality/#fn-4">4</a></sup>, these are technical terms, like the “memory” of a computer or the “transmission” of a car. You simply cannot build a capable AI system that “just acts like a tool”, because the model is trained on <em>humans</em> writing to and about other <em>humans</em>. You need to prime it with some kind of personality (ideally that of a useful, friendly assistant) so it can pull from the helpful parts of its training data instead of the horrible parts.</p>
+<ol> <li> <p>This is all pretty well understood in the AI space. Anthropic wrote a <a href="https://alignment.anthropic.com/2026/psm/">recent paper</a> about it where they cite similar positions going all the way back to 2022. But for some reason it’s not yet penetrated into communities that are more skeptical of AI.</p> <a href="https://www.seangoedecke.com/giving-llms-a-personality/#fnref-1">↩</a> </li> <li> <p>You could explain this in terms of “the stories we tell ourselves”. Many people (though <a href="https://lchc.ucsd.edu/mca/Paper/against_narrativity.pdf">not all</a>) think that human identities are narratively constructed.</p> <a href="https://www.seangoedecke.com/giving-llms-a-personality/#fnref-2">↩</a> </li> <li> <p>I wrote about this last year in <a href="https://www.seangoedecke.com/ai-personality-space"><em>Mecha-Hitler, Grok, and why it’s so hard to give LLMs the right personality</em></a>. A little nudge to change Grok’s views on South African internal politics can cause it to start calling itself “Mecha-Hitler”.</p> <a href="https://www.seangoedecke.com/giving-llms-a-personality/#fnref-3">↩</a> </li> <li> <p>I have long believed that Claude “feels better” to use than ChatGPT because it has a more coherent persona (due mainly to Amanda Askell’s work on its “soul”). My guess is that if you tried to make a “less human” version of Claude, it would become rapidly less capable.</p> <a href="https://www.seangoedecke.com/giving-llms-a-personality/#fnref-4">↩</a> </li> </ol></div>
+      
+    </article>
+    
+  </body>
+</html>
