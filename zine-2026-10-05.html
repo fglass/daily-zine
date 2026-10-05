@@ -1,0 +1,469 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Fred Talks - 2026-10-05</title>
+    <style>
+      @page {
+        size: A5;
+        margin: 8mm 9mm 9mm;
+      }
+
+      :root {
+        color: #111;
+        font-family: "Times New Roman", Times, serif;
+        --body-text-size: 9.5pt;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        color: #111;
+        background: #fff;
+        font-family: "Times New Roman", Times, serif;
+        line-height: 1.45;
+      }
+
+      a,
+      a:visited {
+        color: #111;
+        text-decoration: underline;
+      }
+
+      .cover {
+        min-height: calc(210mm - 17mm);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        page-break-after: always;
+        border: 1px solid #111;
+        padding: 8mm;
+        background: #fff;
+      }
+
+      .toc-item-meta,
+      .article-meta {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .masthead {
+        margin: 0;
+        font-size: 40pt;
+        line-height: 0.95;
+        text-transform: uppercase;
+      }
+
+      .issue-date {
+        margin: 4mm 0 0;
+        font-size: 14pt;
+      }
+
+      .issue-date sup {
+        font-size: 0.58em;
+        vertical-align: super;
+        line-height: 0;
+      }
+
+      .cover-deck {
+        max-width: 90mm;
+        font-size: 12pt;
+        margin: 0;
+      }
+
+      .toc {
+        border-top: 3px solid #111;
+        padding-top: 6mm;
+      }
+
+      .toc h2 {
+        margin: 0 0 4mm;
+        font-size: 11pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .toc-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .toc-item {
+        padding: 3mm 0;
+        border-bottom: 1px solid rgba(17, 17, 17, 0.2);
+      }
+
+      .toc-item-title {
+        font-size: 12pt;
+        margin: 0 0 1mm;
+      }
+
+      .toc-item-meta {
+        font-size: 8pt;
+      }
+
+      .masthead-compact {
+        margin: 0 0 6mm;
+      }
+
+      .masthead-compact h1 {
+        margin: 0;
+        font-size: 22pt;
+        line-height: 1.1;
+        text-transform: uppercase;
+      }
+
+      .masthead-compact .issue-date {
+        margin: 2mm 0 0;
+        font-size: 11pt;
+      }
+
+      .toc-compact {
+        border-top: 1px solid #111;
+        border-bottom: 1px solid #111;
+        padding: 4mm 0;
+        margin: 0 0 8mm;
+      }
+
+      article + article {
+        margin-top: 10mm;
+        padding-top: 6mm;
+        border-top: 2px solid #111;
+      }
+
+      h1 {
+        margin: 0 0 2mm;
+        font-size: 18pt;
+        line-height: 1.1;
+      }
+
+      .article-meta {
+        font-size: 8.5pt;
+        margin-bottom: 6mm;
+        padding-bottom: 3mm;
+        border-bottom: 1px solid #111;
+      }
+
+      .article-body {
+        font-size: var(--body-text-size);
+        font-family: "Times New Roman", Times, serif;
+      }
+
+      .article-body p,
+      .article-body li,
+      .article-body blockquote,
+      .article-body dd,
+      .article-body dt {
+        margin: 0 0 4mm;
+        orphans: 3;
+        widows: 3;
+      }
+
+      .article-body ul,
+      .article-body ol,
+      .article-body dl {
+        margin: 0 0 4mm 5mm;
+        padding: 0;
+      }
+
+      .article-body h2,
+      .article-body h3,
+      .article-body h4 {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        margin: 7mm 0 3mm;
+        line-height: 1.2;
+      }
+
+      .article-body blockquote {
+        margin-left: 6mm;
+        padding-left: 4mm;
+        border-left: 2px solid #111;
+      }
+
+      .article-body .media-omitted {
+        margin: 0 0 4mm;
+        font-size: 8.5pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(17, 17, 17, 0.65);
+      }
+
+      .article-body figure,
+      .article-body .article-figure,
+      .article-body picture,
+      .article-body .article-picture {
+        display: block;
+        max-width: 72mm;
+        margin: 0 auto 4mm;
+        break-inside: avoid;
+      }
+
+      .article-body img,
+      .article-body .article-image {
+        display: block;
+        max-width: min(100%, 72mm);
+        max-height: 34mm;
+        height: auto;
+        width: auto;
+        object-fit: contain;
+        margin: 0 auto 3mm;
+      }
+
+      .article-body figcaption {
+        margin-top: 1.5mm;
+        font-size: 8.5pt;
+        line-height: 1.3;
+        color: rgba(17, 17, 17, 0.8);
+      }
+
+      .article-note {
+        margin-top: 6mm;
+        padding-top: 3mm;
+        border-top: 1px solid #111;
+        font-size: 9pt;
+        font-style: italic;
+      }
+
+      @media screen {
+        body {
+          padding: 2rem;
+          margin: 0 auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    
+    <header class="masthead-compact">
+      <h1>Fred Talks</h1>
+      <p class="issue-date">
+        5<sup>th</sup> October 2026
+      </p>
+    </header>
+
+    <nav class="toc toc-compact">
+      <h2>Contents</h2>
+      <ol class="toc-list">
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Test Coverage Won&#39;t Save You</div>
+          <div class="toc-item-meta">
+            Jenn Cooper · 1991 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Why I don&#39;t like the &#34;staff engineer archetypes&#34;</div>
+          <div class="toc-item-meta">
+            seangoedecke.com RSS feed · 1426 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">The End of Code Review? Or an Opportunity to Rethink it?</div>
+          <div class="toc-item-meta">
+            Christian Kästner · 2579 words
+          </div>
+        </li>
+        
+      </ol>
+    </nav>
+    
+
+    
+    <article>
+      <h1>Test Coverage Won&#39;t Save You</h1>
+      <div class="article-meta">
+        Jenn Cooper
+        · 09 Jun 2026 · <a href="https://forestwalk.ai/blog/test-coverage-wont-save-you-from-incoherence/">Source</a>
+      </div>
+      <div class="article-body"><p>A year ago, if a codebase accumulated three different ways to do the same thing, somebody would usually notice.</p>
+<p>A reviewer might leave a comment. A senior engineer would mutter something about "yet another helper," and eventually the team would clean it up. Maybe they'd write a short doc. People would learn, collectively, that this was not the way.</p>
+<p>This was not a perfect system. Human review can be slow. People miss things. Pattern docs get stale. Engineers develop opinions that are 70% wisdom and 30% scar tissue.</p>
+<p>Still, the friction did something useful. It kept codebases from drifting too quickly.</p>
+<p>Coding agents change that.</p>
+<figure class="article-figure"><img alt="A room with too much electricity." src="https://forestwalk.ai/images/blog/too-much-electricity.jpg" class="article-image"/><figcaption>"Now, this is a room with electricity. But it has too much electricity."</figcaption></figure>
+<p>Once agents are writing a meaningful share of code, the question is no longer just "can we get working code faster?" Obviously, yes. We can. Sometimes hilariously so.</p>
+<p>The more interesting question is: what does the codebase teach the next agent?</p>
+<p>Because it does teach.</p>
+<p>Every merged PR becomes a precedent. If the repository contains one clear pattern, the next agent has a decent shot at following it. If it contains three slightly different patterns, the next agent may extend one, combine two, or invent a fourth for reasons that are, in technical terms, vibes.</p>
+<h2>The funhouse builds itself</h2>
+<p>Coding agents, like some of us, have a chaotic inner goth teenager.</p>
+<p>Their non-deterministic nature means they can be inconsistent, often in surprising ways. They can generate the weird little leap that solves the problem, or they can generate novelty where nobody asked for it.</p>
+<p>The dangerous thing is that most of the code is fine, if you look at it in isolation.</p>
+<p>A PR passes tests. The implementation makes sense. The file is clean enough. You look at the diff and think, yeah, sure, that seems okay.</p>
+<p>But zoom out, and the codebase as a whole has started to get weird.</p>
+<ul> <li>three near-duplicate utilities</li> <li>multiple data-fetching patterns</li> <li>parallel abstractions solving almost the same problem</li> </ul>
+<p>The codebase remains locally <strong>cohesive</strong>, while slowly losing global <strong>coherence</strong>.</p>
+<p>That matters more than it used to, because even more than humans, agents are responsive to the signals around them. A clear codebase gives them clear precedent. A muddled codebase gives them confusion.</p>
+<p>You can put principles in <code>CLAUDE.md</code> or docs, but they're... advisory. They compete with task instructions and inline comments for attention, get summarized when context windows compact, and depend on the agent attending to the right instruction at the right moment.</p>
+<p>If your codebase contains three slightly different ways to solve a problem, the next agent has to infer which one is canonical.</p>
+<p>From the agent's point of view, this is not irrational. The repository gave it mixed evidence.</p>
+<p>The scary outcome is not code that obviously fails. It is code that superficially keeps working, while the shape of the system increasingly gets worse.</p>
+<h2>Tests are nice</h2>
+<p>Most discussions about AI-native development jump from this problem – agents' tendency to accumulate tech debt – directly to tests.</p>
+<p>And yes, across the industry, teams are writing dramatically more tests than they ever have. Agents have made high test coverage affordable in a way it never used to be.</p>
+<p>Recently, <a href="https://x.com/garrytan/status/2054064931515855118">Garry Tan argued</a> that the primary way to keep AI agents on track is 90% test coverage:</p>
+<blockquote> <p><em>Tests are the ratchet. 90% coverage, every PR, no exceptions.</em></p> </blockquote>
+<p>And indeed, test coverage is the simplest kind of ratchet: a mechanism that allows motion in one direction only, like a socket wrench that turns the bolt forward but never lets it spin back. Once a test locks in a behaviour, it becomes difficult to accidentally regress.</p>
+<p>But it's worth being specific about what tests actually do.</p>
+<p>Unit tests check that a function still returns what it returned before. Integration tests check that pieces still wire together the same way. E2E tests reach further: they check whether the product still does what it used to, and the assertions you prioritize there should be an important act of human judgment.</p>
+<p>But they all share the same basic shape: tests verify that code does what it did before.</p>
+<p>Whether what it did was even the <em>right way to do it</em> is a separate question.</p>
+<p>Tests ratchet behavioural sameness.</p>
+<p>Meanwhile docs and evals can pin down reasoning and behaviour bars, which is sometimes more important. But none of these is directly looking at the <em>shape</em> of the system.</p>
+<h2>90% coverage of good patterns</h2>
+<p>A coverage ratchet only improves the codebase if the patterns it's locking in are already good ones.</p>
+<p>If a questionable pattern already exists in the code, the next agent is more likely to extend it. The tests generated around that implementation only reinforce it further.</p>
+<p>Over time, high coverage can unintentionally fossilize architectural drift, rather than prevent it in the first place.</p>
+<p>At first, especially during prototyping, this can be easy to miss, because nothing looks obviously broken. Coverage stays high. The system works. But over time, certain parts of the codebase become strangely resistant to cleanup.</p>
+<p>Tests that protect the wrong behaviour create drag against coherence. The harder you push for coverage, the more deeply you can lock in the shape you happened to start with.</p>
+<p>This isn't a criticism of tests. Tests are necessary. But tests primarily validate behaviour, while many of the emerging failure modes in agent-generated systems, especially as they grow, are failures of <em>shape</em>.</p>
+<figure class="article-figure"><img alt="A load-bearing poster." src="https://forestwalk.ai/images/blog/load-bearing-poster.jpg" class="article-image"/><figcaption>"Uh, I wouldn't take it down if I were you. It's a load-bearing poster."</figcaption></figure>
+<h2>Fitness functions protect the shape of the system</h2>
+<p>Unit tests ask whether the code still does what it did before. Fitness functions ask a different question: is the system still shaped the way we want?</p>
+<p>Most codebases already have a few simple versions of this. Linters, type checks, and import-boundary rules all encode some idea of acceptable shape, at the micro level.</p>
+<p>But in agentically-maintained codebases, we need an additional kind of macro fitness function. It has a couple of important jobs:</p>
+<ul> <li>catch bad agent choices at the moment of work</li> <li>redirect agents with the right amount of friction for the violation</li> </ul>
+<p>At Forestwalk, for example, we have a fitness check that prevents tool handlers from calling back into our AI services. Tool handlers run inside the agent's own loop, so any handler that kicks off more inference can stack model calls inside model calls and freeze a live meeting. Agents sometimes accidentally introduce this pattern, so our fitness check flags it and ensures it's not committed.</p>
+<p>Other fitness tests are ratchets that apply pressure to measurable properties – heuristics for shape like file size, bundle growth, prompt size, import fanout, and dependency count.</p>
+<p>For these, the ceiling starts at the current value (e.g. 837kb) and flags to agents and humans if a PR would unduly increase it. For instance, when an agent adds an unnecessary new dependency that blows up our frontend bundle, the check fails.</p>
+<p>The important part isn't just the limit itself. It's the “just in time” agent coaching.</p>
+<p>At first, we found agents would sometimes over-optimize against whatever metric the checks exposed, with great resourcefulness and in ways we did not want. But refining the flags to give common sense guidance helped steer the agents into considering tradeoffs correctly.</p>
+<p>For example, an agent might see this just in time:</p>
+<pre><code>⎯⎯⎯⎯⎯⎯⎯ Failed Checks: 1 ⎯⎯⎯⎯⎯⎯⎯
+
+FAIL  src/frontendBundleBudget.test.ts &gt; Frontend bundle size budget &gt; keep built JS growth modest
+AssertionError: Frontend bundle grew +29 KiB (700 -&gt; 729 KiB; fails at +5 KiB).
+
+This ratchet is review pressure, not a mandate to shrink the number at any cost.
+
+Diagnose first:
+- Is the growth accidental (dependency, duplicate/dead code, broad import, avoidable scope creep)?
+- Does the added JS unlock user-visible value?
+- Can cleanup reduce it without hurting UX, accessibility, tests, or maintainability?
+
+Quality-preserving fixes:
+- remove duplicated rendering paths or dead production code
+- move repeated styling or static configuration out of lazy-loaded JavaScript
+- lazy-load rarely used flows instead of loading them on the main path
+(more examples here)
+
+Do not fix this by:
+- omitting requested scope or deferring needed UI work
+- removing aria-label/title text or visible affordances
+- deleting helpful empty/error-state copy
+(more examples here)
+
+For intentional growth, (procedure here) and explain why in the PR.
+</code></pre>
+<p>If you simply tell agents to "reduce bundle size," they will sometimes do naive things like:</p>
+<ul> <li>delete empty-state copy</li> <li>replace styled controls with browser-native ones</li> <li>inline dependency code to avoid import costs</li> <li>remove accessibility affordances</li> </ul>
+<p>Instead, the idea is to not just explain what a given fitness test is protecting, but also explain what is <em>not allowed</em> to be sacrificed in the process, and do so at the moment the agent is working.</p>
+<p>In contrast, the same guidance in <code>CLAUDE.md</code> is often skimmed past or applied inconsistently by agents. A just-in-time check, on the other hand, creates desired friction between the agent and a finished task. Where humans get tired and occasionally creative about routing around friction like this, agents are quite willing to schlep through feedback and loop until the check is passing.</p>
+<figure class="article-figure"><img alt="A master bedroom." src="https://forestwalk.ai/images/blog/master-bedroom.jpg" class="article-image"/><figcaption>"Come on in, it's your master bedroom!"</figcaption></figure>
+<h2>What the checks can't see</h2>
+<p>Fitness functions are good at catching things precise enough to encode.</p>
+<p>That is useful, but coherence is not always that crisp. Some drift is obvious only in relation to the rest of the codebase: this new thing is too close to an existing thing, this test is protecting a pattern we no longer want, this change is making the next change harder.</p>
+<p>So in addition, we use a few non-deterministic checks on top of the deterministic ones.</p>
+<p>One runs before a PR is opened. It scans the proposed change against the existing codebase, and asks whether the agent has introduced or expanded a competing pattern. When it finds one, it points to the existing pattern, explains why the new one looks redundant, and asks the agent to either extend the original or justify why this case is genuinely different.</p>
+<p>Most of the time, the agent course-corrects quickly.</p>
+<p>We run a similar check again at the PR review level, where it has more context and can catch subtler pattern drift.</p>
+<p>Another check runs nightly and looks for tests that have fossilized patterns we have since decided against. Its mission is to find tests that protect old implementation choices that, if left alone, would teach future agents to preserve patterns we no longer want.</p>
+<p>These checks are not magic. They miss things. They can be noisy. They still need human judgment around them.</p>
+<p><strong>But the goal is not to eliminate judgment.</strong> The goal is to move more human judgment into places where it can be highest leverage.</p>
+<h2>Making coherence the easy path</h2>
+<p>Fitness ratchets are not the whole answer to maintaining coherence in agent-generated codebases.</p>
+<p>Fitness functions are one layer. Pattern drift checks are another. Product verification, code review, evals, documentation, repository structure, and the actual taste of the humans steering the system all matter too.</p>
+<p>However, it's worth investing regularly in the early layers: the ones closest to the moment an agent is making an implementation choice.</p>
+<p>That is where we have found these types of fitness functions useful. They do not solve coherence by themselves, but they add friction in the right places. Bad patterns get interrupted earlier. Good patterns have a better chance of becoming precedent.</p>
+<p>The same feedback loop that spreads bad patterns can be used to spread good ones.</p>
+<p>So there’s hope. When you see this pattern work, it soothes some of the worry we all have about agents causing chaos. They’re a lot more useful when the codebase gives them an obvious next move. The right pattern is easier to find. The weird fourth version of the thing has a harder time looking reasonable.</p>
+<p>It's not perfect. Keeping a growing codebase coherent still requires human judgment, architectural intuition, and social coordination. The system still needs to be built.</p>
+<p>But that system, itself, increasingly feels like the work.</p>
+<p>If the codebase trains the next agent, then the job is not just to write better code.</p>
+<p>It is to build the environment where better code is the obvious thing to write.</p></div>
+      
+    </article>
+    
+    <article>
+      <h1>Why I don&#39;t like the &#34;staff engineer archetypes&#34;</h1>
+      <div class="article-meta">
+        seangoedecke.com RSS feed
+        · 03 May 2026 · <a href="https://seangoedecke.com/staff-engineer-archetypes/">Source</a>
+      </div>
+      <div class="article-body"><p>The most influential piece of writing about staff engineers in the last decade has to be Will Larson’s <a href="https://staffeng.com/guides/staff-archetypes/"><em>Staff engineer archetypes</em></a>. He argues that the “staff engineer” title covers at least four very different roles: the team lead, the architect, the solver, and the right hand. This taxonomy gets cited a lot as advice for people who are trying to become effective staff engineers. For <a href="https://www.seangoedecke.com/staff-engineer-promotions">both</a> of my promotions to staff engineer, my manager at the time linked me to the “staff engineer archetypes” and asked me to consider which of these archetypes I was aiming towards.</p>
+<p>These archetypes definitely exist<sup><a href="https://www.seangoedecke.com/staff-engineer-archetypes/#fn-1">1</a></sup>. However, I think it’s bad practical advice to tell engineers to try and target them.</p>
+<h3>Archetypes do not make good goals</h3>
+<p>To see why, let’s take the “team lead” archetype. Larson describes this as an informal technical leadership role: not necessarily an explicit authority figure, but someone who’s good at scoping work, planning projects, and maintaining the kind of relationships (e.g. with other teams) needed to successfully <a href="https://www.seangoedecke.com/how-to-ship">ship</a>. If you want to fill this role, shouldn’t you start trying to do these things? No! You don’t become a technical leader by trying really hard to be a technical leader, much like you don’t become a writer by trying really hard “to be a writer”. You become a technical leader by <em>doing good technical work</em> until your skills and relationships emerge organically.</p>
+<p>I wrote about this process in <a href="https://www.seangoedecke.com/ratchet-effects"><em>Ratchet effects determine engineer reputation at large companies</em></a>. To get good at shipping large complex projects, you must start by shipping tiny pieces of work, until you’re familiar enough with the system and you’ve built enough trust to take on slightly larger pieces. At each stage, if you do good work - “good work” here means “deliver <a href="https://www.seangoedecke.com/shareholder-value/">shareholder value</a>” - you will very naturally be given opportunities to work on more complex and important things. If you try to jump ahead, you’re going to run into all kinds of problems:</p>
+<ul> <li>Important projects are usually assigned top-down, not bottom-up, so you’ll either be trying to muscle out the planned engineering lead for a project or to pitch your own (complex, important) engineering task to senior management. Either way, good luck with that!</li> <li>You likely won’t have a good enough relationship with senior management to know what their real priorities are.</li> <li>If you’re not yet trusted to execute, you may get assigned “minders” (often current staff engineers) who will ghost-lead the project through you<sup><a href="https://www.seangoedecke.com/staff-engineer-archetypes/#fn-2">2</a></sup>.</li> <li>You’ll likely make <a href="https://www.seangoedecke.com/you-cant-design-software-you-dont-work-on/">poor technical decisions</a>.</li> </ul>
+<p>The other archetypes are like this as well. If you want to become a successful architect, you do not get there by studying software architecture in the abstract, because <a href="https://www.seangoedecke.com/you-cant-design-software-you-dont-work-on/">you can’t design software you don’t work on</a>. The “solver” and “right hand” archetypes both rely on having an enormous amount of trust and influence. You can’t aim for those archetypes directly, because trust and influence accumulate over time. In fact, the idea of “aiming for” a particular staff engineer archetype reflects a misunderstanding of what the staff engineer role is. What is the defining attribute of the staff engineering role, then?</p>
+<h3>What is a staff engineer?</h3>
+<p><strong>A staff engineer has to be useful to the company.</strong> Of course, a senior or mid-level software engineer ought to be useful too, but all they <em>have</em> to do is execute on the job in front of them. If they end up not providing value (maybe their project turns out to be unimportant, or they don’t get the support needed to succeed) that’s their manager’s problem, not theirs<sup><a href="https://www.seangoedecke.com/staff-engineer-archetypes/#fn-3">3</a></sup>. In contrast, staff engineers are expected to deliver value regardless: to make the project work, or to find something else useful to do if the project truly can’t be salvaged.</p>
+<p>This is an unfair expectation. Often projects really do fail through no fault of your own, and sometimes it just isn’t possible to conjure useful work from thin air. That’s actually by design: <strong>the staff engineer role is supposed to be unfair</strong>. Something many engineers don’t realize is that all senior management and executive leadership roles are unfair too, in the same way. That’s just part of the deal: executives are given power and great compensation, and in return they get thrown off the boat in bad weather<sup><a href="https://www.seangoedecke.com/staff-engineer-archetypes/#fn-4">4</a></sup>. “Staff engineer” is the first engineering role where you are held largely responsible for outcomes you don’t control.</p>
+<p>Developing a “staff engineer mindset” thus has very little to do with the archetypes. Instead, you should:</p>
+<ol> <li>Develop the habit of constantly asking yourself “is this useful to the company” (and answering correctly).</li> <li>Lose the habit of worrying about if you’re being treated “fairly”. Instead, try to think about your role in terms of incentives and consequences.</li> </ol>
+<p>At the beginning, you won’t look much like any of the staff engineer archetypes. You will look like being a level-headed engineer who can be trusted to move projects forward with a minimum of fuss, and who can be re-tasked to different work without complaining. You’ll also look like someone who’s <a href="https://www.seangoedecke.com/getting-the-main-thing-right/">paying a lot of attention</a> to what their manager’s actual priorities are, and who is thinking hard about how to fulfil those priorities (instead of their own goals).</p>
+<p>If you do this for long enough, you’ll eventually find yourself in one of the staff engineer archetypes. However, it probably won’t be the one you’re “aiming for”. The whole point of being a staff engineer is that you’re willing to fill whatever archetype the company needs at the time.</p>
+<h3>Final thoughts</h3>
+<p>In his original staff engineer post, Larson is pretty clear that these archetypes are more of an anthropological description of some of the varied niches staff engineers fill, not a how-to guide for succeeding in the role<sup><a href="https://www.seangoedecke.com/staff-engineer-archetypes/#fn-5">5</a></sup>. At the time, the “staff engineer” role was fairly new and people were still trying to figure out what it even meant. Pointing out that there were a few very different ways to succeed in the role was a genuinely novel observation.</p>
+<p>The staff engineer archetypes are a good list of ways an engineer can be very useful to their organization - but only once they’ve built a deep relationship of trust with their organization’s leadership. Advice on how to succeed as a staff engineer should be about <strong>how to build that trust</strong>, not about what to do once you have it.</p>
+<ol> <li> <p>One caveat that is too pedantic for the body of the post: each tech company has a different structure of roles. Some don’t have the formal “staff” title at all, while others have “staff” as a fairly early rung on the ladder and a panoply of “senior staff”, “senior principal staff”, and so on roles above it. Like all “staff engineer” discourse, this post is not about the word itself but about the point in the engineering job ladder where progression becomes significantly more difficult.</p> <a href="https://www.seangoedecke.com/staff-engineer-archetypes/#fnref-1">↩</a> </li> <li> <p>Impressing your VP’s trusted lieutenants can actually be a good way to build trust in the medium-term, but you’d better hope you’ve built enough understanding of the system to do it right. If this process goes badly, your reputation in the org might be torched for years.</p> <a href="https://www.seangoedecke.com/staff-engineer-archetypes/#fnref-2">↩</a> </li> <li> <p>In theory, at least. In practice it’s always better to be useful (again, in the sense of “delivering shareholder value”).</p> <a href="https://www.seangoedecke.com/staff-engineer-archetypes/#fnref-3">↩</a> </li> <li> <p>This is why very senior leadership sometimes seem so unempathetic towards engineering complaints: their work environment operates by very different rules and norms to that of most engineers. I keep meaning to try and write about this and never succeeding. This <a href="https://github.com/sgoedecke/gatsby-blog/blob/master/content/drafts/_icebox/strategy-for-swes/index.md">draft</a> is the closest thing I have to a deeper exploration of the point.</p> <a href="https://www.seangoedecke.com/staff-engineer-archetypes/#fnref-4">↩</a> </li> <li> <p>For the record, my how-to guides are <a href="https://www.seangoedecke.com/staff-engineer-archetypes/staff-engineer-promotions/">here</a> and <a href="https://www.seangoedecke.com/staff-engineer-archetypes/ratchet-effects/">here</a>.</p> <a href="https://www.seangoedecke.com/staff-engineer-archetypes/#fnref-5">↩</a> </li> </ol></div>
+      
+    </article>
+    
+    <article>
+      <h1>The End of Code Review? Or an Opportunity to Rethink it?</h1>
+      <div class="article-meta">
+        Christian Kästner
+        · 26 Sep 2026 · <a href="https://thelastsoftwareengineer.substack.com/p/the-end-of-code-review-or-an-opportunity">Source</a>
+      </div>
+      <div class="article-body"><p>Code review as we understand it today will probably not survive the shift to AI-generated code, but is that a problem? Code review is under pressure from agents producing code at an incredible pace, and reactions to that are quite split. There are many who want to protect code review as a core human software engineering practice, who put in place strict policies to preserve it. Others argue that code review is effectively dead, because it cannot keep up with the pace of production and will not survive competitive pressures if it becomes a bottleneck. Many experiment with automating code review at least partially. Implicit in this discussion is often the assumption that our prior code review practices were a gold standard, something to save or something to mourn. But is that really the case?</p>
+<figure class="article-figure"><a data-component-name="Image2ToDOM" href="https://substackcdn.com/image/fetch/$s_!NRTQ!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ff2f2ded4-704b-4565-b4e5-1bed2620499b_887x360.png"><picture class="article-picture"><img alt="" data-attrs="{&quot;src&quot;:&quot;https://substack-post-media.s3.amazonaws.com/public/images/f2f2ded4-704b-4565-b4e5-1bed2620499b_887x360.png&quot;,&quot;srcNoWatermark&quot;:null,&quot;fullscreen&quot;:null,&quot;imageSize&quot;:null,&quot;height&quot;:360,&quot;width&quot;:887,&quot;resizeWidth&quot;:null,&quot;bytes&quot;:null,&quot;alt&quot;:&quot;&quot;,&quot;title&quot;:null,&quot;type&quot;:null,&quot;href&quot;:null,&quot;belowTheFold&quot;:false,&quot;topImage&quot;:true,&quot;internalRedirect&quot;:null,&quot;isProcessing&quot;:false,&quot;align&quot;:null,&quot;offset&quot;:false}" sizes="100vw" src="https://substackcdn.com/image/fetch/$s_!NRTQ!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ff2f2ded4-704b-4565-b4e5-1bed2620499b_887x360.png" srcset="https://substackcdn.com/image/fetch/$s_!NRTQ!,w_424,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ff2f2ded4-704b-4565-b4e5-1bed2620499b_887x360.png 424w, https://substackcdn.com/image/fetch/$s_!NRTQ!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ff2f2ded4-704b-4565-b4e5-1bed2620499b_887x360.png 848w, https://substackcdn.com/image/fetch/$s_!NRTQ!,w_1272,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ff2f2ded4-704b-4565-b4e5-1bed2620499b_887x360.png 1272w, https://substackcdn.com/image/fetch/$s_!NRTQ!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ff2f2ded4-704b-4565-b4e5-1bed2620499b_887x360.png 1456w" class="article-image"/></picture></a></figure>
+<h1>A sweet spot for code review, historically?</h1>
+<p>Code review did not always look the way it does now (or at least the way it looked until coding agents took off). The contemporary practice that we now all know – tool-mediated, CI-integrated, lightweight review of individual commits, usually integrated with testing, static analysis, and other automation – is what reviewers call <strong>modern code review</strong> to distinguish it from other forms of code review and inspection.</p>
+<p>Modern code review is called <em>modern</em> in contrast to older practices that many junior engineers have probably never seen and that we barely teach these days, most popular among them <em>Fagan-style inspections</em>. These were heavyweight processes, popularized in the 70s and widely studied through the 80s and early 90s: Multiple reviewers read small fragments of code line by line before release (not incrementally while code is created), often meeting to talk it through and sometimes reading it aloud. Fagan-style inspection was widely taught and written about (e.g., Wiegers’ book “<a href="https://www.goodreads.com/book/show/846008.Peer_Reviews_in_Software">Peer Reviews in Software</a>”). <a href="https://bookshop.org/p/books/making-software-what-really-works-and-why-we-believe-it-andy-oram/78f0595ca7acddca?ean=9780596808327&amp;bkshp-astro=t">Studies</a> showed it to be the most effective technique to find bugs we have, more effective than testing. But it is slow and expensive, easily costing more than 8 developer hours across 3 reviewers, a moderator, and the author for reviewing merely 400 lines of code. That cost limited how much code could be reviewed. Fagan-inspections were well known in principle but only sparingly used for high-stakes settings – often to review the critical core of a product.</p>
+<p>The lightweight practice that eventually took over grew out of patch-by-patch review in open-source projects and converged, remarkably, on nearly the same practice in companies and in GitHub’s pull requests. <a href="https://dl.acm.org/doi/abs/10.5555/2486788.2486882">Studies</a> are clear that modern code review is pretty bad at catching bugs, catching mostly shallow ones and readability issues (though <a href="https://dl.acm.org/doi/pdf/10.1145/3585004">better tooling</a> has given reviewers a chance to go deeper). However, compared to Fagan-style inspections, it is cheap enough to do for <em>all</em> changes. While modern code review is not great at catching bugs, it provides many other benefits: forcing “<a href="https://dl.acm.org/doi/abs/10.1145/3183519.3183525">developers to write code that other developers could understand</a>,” fostering collective code ownership and awareness, supporting learning and mentorship, surfacing optimization opportunities, and enforcing conventions. Review has shifted, in <a href="https://dl.acm.org/doi/abs/10.1145/2491411.2491444">Rigby’s phrase</a>, from a defect-finding activity to a group problem-solving one.</p>
+<p>There may be many plausible reasons for the almost universal adoption of modern code reviews – whether companies copying successful open source practices (coined “inner source”) or just wanting to be more like Google, whether inertia, or whether developers just do not trust their interns – but let’s assume somewhat rational actors: If modern code review wouldn’t have provided any benefits, we would have stopped spending so much effort on it. For the sake of this argument, let’s assume, the community has eventually settled on an <strong>equilibrium</strong> where the value modern code review provides just justified its cost in a pre-AI world, whether through catching bugs or through those other benefits.</p>
+<h1>A simple model to untangle competing arguments</h1>
+<p>Before looking at how agentic coding puts code review under pressure, let’s posit a simple model that will help to untangle various moving parts to help put various forces into perspective.</p>
+<ul><li><p><strong>P</strong>: The cost of producing code, in $ per line.</p></li><li><p><strong>L</strong>: The liability of that code, in $ per line, meaning the expected future cost of its quality problems. Let’s assume liability has two parts: (a) <strong>Rework</strong>, the cost of finding and fixing bugs or in the worst case rearchitect the entire system. (b) <strong>Harm</strong>, the cost when problems escape to the outside world as security incidents, reputational damage, and losses to customers we may need to reimburse, sometimes after lawsuits. Rework is internal and is the main concern for low-stakes software, but harm is visible externally and can be substantial in high-stakes software.</p></li><li><p><strong>R</strong>: The cost of reviewing code, in $ per line.</p></li><li><p><strong>E</strong>: The effectiveness of review at reducing liability, as a percentage.</p></li></ul>
+<p>Overall cost per line is then P + L × (1 − E) + R. In a rational-actor world, teams invest in code review exactly up to the point where the last dollar spent on it just offsets the liability it removes.</p>
+<p>For high-stakes code with high potential liability (L), it is rational to invest heavily (R) into making review more effective (E), up to Fagan-style inspections. For most code, stakes are not that high and liability comes mostly from rework. Also many other efforts have helped reduce liability without code review: Modern languages prevent whole classes of memory defects, static analysis catches many issues, and test generation and continuous-integration automation move testing into the cost of production. In that setting, shallow and fairly ineffective modern code review looks rational with modest cost for modest liability reduction.</p>
+<h1>Agentic coding shifts every part of the model, all at once</h1>
+<p>Agentic coding clearly has the potential to lower the cost of code production, but it can also influence the cost and effectiveness of code review, and the liability of typical code produced. The specific effects are often disputed, point in different directions, and interact with various things changing at the same time. The model can help us to untangle what we might expect to happen.</p>
+<p><strong>Production cost (P) is the obvious starting point but only part of the story.</strong> [↘ production cost] Agentic coding promises to drastically cut the cost of producing code (P). If nothing else changed (e.g., same code review, agentic code producing the same liability as human code), review cost (R) and liability cost (L) limit how much we can reduce overall cost. For example, even if production costs are reduced by 90%, overall costs would just be reduced by 30% if production accounted for only a third of the costs previously. This effect likely explains some of the discrepancies between frequent claims of 10X productivity improvement (which may even feel intuitively right seeing how quickly code is produced) and much lower productivity improvements measured in academic studies (rarely above 30%). If production cost is the only thing that changes, code review feels very much like a bottleneck limiting progress.</p>
+<p><strong>Agentic coding affects liability (L) in at least three plausible ways, and it is not obvious where we will land.</strong> When it comes to code quality and liability, the effect of coding agents is disputed.</p>
+<p>[↗ liability due to lower code quality] First, there is some evidence (including our <a href="https://arxiv.org/abs/2511.04427">own study</a>) that coding agents produce code of lower quality than humans, so that it needs more rework later. Also there are plenty of stories of harms from poor agentic code, like the multiple security incidents in the vibe-coded <a href="https://www.wiz.io/blog/exposed-moltbook-database-reveals-millions-of-api-keys">Moltbook</a> and multiple AWS outages <a href="https://archive.is/1bkim">reported</a> to be caused by agentic coding tools. All of that would point toward increased liability of code generated by coding agents, which could call for more scrutiny with code review.</p>
+<p>[↘ liability due to better code quality] However, it is also plausible (even today with enough iteration and tool use, but plausibly more so with future improvements) that agentic code is of higher quality than human written code, lowering liability and the benefit of code review (E*L).</p>
+<p>[↘ liability due to cheaper rework] Second, just like code production, agents promise to make <em>rework</em> cheaper too, with automation in debugging and repair, which shrinks the rework part of liability. Especially in low-stakes settings, rework is likely the larger part of the liability cost, and lower code quality may simply not matter much if it can be fixed easily later.</p>
+<p>[↘ liability due to cheaper review substitutes] Third, alternatives to code review get cheaper too: Tests, static analysis, and automated code review, and maybe one day even formal verification and proof-carrying code at scale, can catch problems early during code production, reducing liability before code review. If such activities become effective and cheap enough, they render code review less important for liability reduction.</p>
+<p>I do not think it is clear yet how this will pan out. In low-stakes settings, self-reviewing agents, more testing, and cheap rework may seriously reduce most liability, but it seems less obvious how it will affect the kind of downstream harms that matter in high-stakes settings – security issues, safety issues, financial losses. When issues can create real harms, patching a system in production after harms have occurred may not be the best strategy.</p>
+<p><strong>Productivity pressure, surface plausibility of agentic code, and cognitive debt can each undermine review effectiveness (E).</strong> [↘ effectiveness due to productivity pressure] Many practitioners report enormous pressure to improve productivity with AI. With more code arriving from agents and review becoming the bottleneck, this translates into pressure to review faster, which can result in rubber-stamping, undermining any effectiveness modern code review may still have had.</p>
+<p>[↘ effectiveness due to deceptive plausibility of AI generated code and cognitive debt] In addition, agentic code may be harder to review well, because it looks plausible and well written (automation bias), and because a reviewer who was not engaged in producing it often lacks the context to judge it (cognitive debt). Both issues lower review effectiveness, or would require more investment into code review to retain effectiveness.</p>
+<p>These effects make preserving traditional human code review particularly challenging if most code is generated by AI. Insisting on manual review, but pushing more reviews through faster, likely just hollows it out. I fully agree that this will not be sustainable and code review will not survive in this form.</p>
+<p><strong>Automating the code review may lower review cost (R).</strong> [↘ review cost with review automation] Many of the quality problems that surface in modern code review, especially the shallow ones modern code review catches, can be found by machines mimicking code review. <em>Automated code review</em> by agents can arguably find many of those kinds of issues and lower review costs similar to how AI lowered production costs. Some offerings of automated code review can be quite pricey (e.g., <a href="https://code.claude.com/docs/en/code-review">Claude’s code review costs $15-25 per reviewed PR</a>), but they still likely undercut the costs of humans and they don’t share the human capacity bottleneck.</p>
+<p>Lowered review costs from automated code review cannot be viewed in isolation. Whether automated code review is more or less effective (E) than humans, or effective only for particular classes of bugs, is still unsettled. Automation is likely able to go much deeper and be more systematic than a typical human review (closer to Fagan-style inspections with checklists), but it may also miss issues obvious to humans. If automation produces more false positives than human reviewers, it would push production cost (P) back up, though if production is cheap that may not matter much.</p>
+<p><strong>Indirect effects of code review, beyond finding bugs, may or may not matter, and they will decide the future of code review.</strong> Code review has many well understood benefits beyond its ability to find bugs, including learning and mentoring, (collective) code ownership, and general awareness – not captured in the simplified model (P, L, E, R). Pushing more code through the review process or automating code review away will obviously degrade those benefits too: If developers review less, they may gain less experience that helps them in producing code or being effective at those reviews still remaining. Developers may not understand their code base at all, making it harder for them to write good prompts to change it further, possibly increasing liability indirectly through cognitive debt. Or tooling can cover enough of what is lost, freeing up developers’ time to focus on other parts that matter (e.g., requirements, specifications for test generation, infrastructure for testing in production).</p>
+<p>Such effects are all plausible, but it is not clear to me how it will shake out. If we want to argue for code review, we should be clear about what benefits we want to gain from it (beyond finding bugs). And frankly, we should look for ways of getting those benefits without traditional code review. More research is needed, and in it we must be explicit about the mechanisms we expect and what effects we predict, whether on production cost, review cost, liability, or anything else.</p>
+<h2><strong>Code review changed before</strong></h2>
+<p>Heavyweight inspection never became the norm, because it cost too much to run everywhere, and the lighter practice that spread in its place exchanged rigor for scalability. I suspect code review will change again, or will be replaced by something looking completely different. The previous “modern code review” practices were probably close to an equilibrium, but agentic coding changes the forces in play, making that form of code review no longer sustainable.</p>
+<p>Personally, I cannot predict where things will go. I think market pressures to increase productivity in an era of AI hype will make it difficult to preserve anything resembling our current modern code review practices when it becomes the bottleneck. But I also don’t see modern code review as a practice to protect for its own sake, just because that’s what we have previously done. I expect that coding agents will get much better at reviewing their own code during production, so that few of those more shallow and predictable issues remain that traditional code review or static analysis tools might have surfaced.</p>
+<p>I think the bigger question is about all the other benefits we got from code review that were not about code quality, like coordination and mentoring. I think the better question to ask is how much those are still needed and how we can get them in forms that are not code review. For example, would better standup meetings or AI summaries of changes be able to replace the awareness benefits of code review? Would <a href="https://dl.acm.org/doi/full/10.1145/3779312">deliberate feedback and mentoring mechanisms</a> better support the junior to senior software engineering pipeline than code review? I think stepping back and rethinking a world without code review is a more useful exercise than tweaking existing code review practices.</p>
+<p>Zooming out further, I think eventually the big question is really about where and how and how much humans will be in control in some form when producing software. Maybe that control is better focused on requirements, architectural design, test design, and security/safety safeguards, rather than reviewing lines of AI-generated code.</p>
+<p>So my main point is to stop asking whether and how code review in its current form can be saved, but to have an open conversation about what we are trying to achieve here and the costs and benefits of alternative models.</p>
+<p><em>Acknowledgment: This model grew out of a conversation with Courtney Miller about whether preserving code review is the right goal for researchers to support. I am no longer sure it is.</em></p>
+<h3>Code review is probably on its last legs, and we should focus on how to retain the indirect benefits it provided...</h3></div>
+      
+    </article>
+    
+  </body>
+</html>
