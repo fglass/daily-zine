@@ -1,0 +1,457 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Fred Talks - 2026-10-12</title>
+    <style>
+      @page {
+        size: A5;
+        margin: 8mm 9mm 9mm;
+      }
+
+      :root {
+        color: #111;
+        font-family: "Times New Roman", Times, serif;
+        --body-text-size: 9.5pt;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        color: #111;
+        background: #fff;
+        font-family: "Times New Roman", Times, serif;
+        line-height: 1.45;
+      }
+
+      a,
+      a:visited {
+        color: #111;
+        text-decoration: underline;
+      }
+
+      .cover {
+        min-height: calc(210mm - 17mm);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        page-break-after: always;
+        border: 1px solid #111;
+        padding: 8mm;
+        background: #fff;
+      }
+
+      .toc-item-meta,
+      .article-meta {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .masthead {
+        margin: 0;
+        font-size: 40pt;
+        line-height: 0.95;
+        text-transform: uppercase;
+      }
+
+      .issue-date {
+        margin: 4mm 0 0;
+        font-size: 14pt;
+      }
+
+      .issue-date sup {
+        font-size: 0.58em;
+        vertical-align: super;
+        line-height: 0;
+      }
+
+      .cover-deck {
+        max-width: 90mm;
+        font-size: 12pt;
+        margin: 0;
+      }
+
+      .toc {
+        border-top: 3px solid #111;
+        padding-top: 6mm;
+      }
+
+      .toc h2 {
+        margin: 0 0 4mm;
+        font-size: 11pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .toc-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .toc-item {
+        padding: 3mm 0;
+        border-bottom: 1px solid rgba(17, 17, 17, 0.2);
+      }
+
+      .toc-item-title {
+        font-size: 12pt;
+        margin: 0 0 1mm;
+      }
+
+      .toc-item-meta {
+        font-size: 8pt;
+      }
+
+      .masthead-compact {
+        margin: 0 0 6mm;
+      }
+
+      .masthead-compact h1 {
+        margin: 0;
+        font-size: 22pt;
+        line-height: 1.1;
+        text-transform: uppercase;
+      }
+
+      .masthead-compact .issue-date {
+        margin: 2mm 0 0;
+        font-size: 11pt;
+      }
+
+      .toc-compact {
+        border-top: 1px solid #111;
+        border-bottom: 1px solid #111;
+        padding: 4mm 0;
+        margin: 0 0 8mm;
+      }
+
+      article + article {
+        margin-top: 10mm;
+        padding-top: 6mm;
+        border-top: 2px solid #111;
+      }
+
+      h1 {
+        margin: 0 0 2mm;
+        font-size: 18pt;
+        line-height: 1.1;
+      }
+
+      .article-meta {
+        font-size: 8.5pt;
+        margin-bottom: 6mm;
+        padding-bottom: 3mm;
+        border-bottom: 1px solid #111;
+      }
+
+      .article-body {
+        font-size: var(--body-text-size);
+        font-family: "Times New Roman", Times, serif;
+      }
+
+      .article-body p,
+      .article-body li,
+      .article-body blockquote,
+      .article-body dd,
+      .article-body dt {
+        margin: 0 0 4mm;
+        orphans: 3;
+        widows: 3;
+      }
+
+      .article-body ul,
+      .article-body ol,
+      .article-body dl {
+        margin: 0 0 4mm 5mm;
+        padding: 0;
+      }
+
+      .article-body h2,
+      .article-body h3,
+      .article-body h4 {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        margin: 7mm 0 3mm;
+        line-height: 1.2;
+      }
+
+      .article-body blockquote {
+        margin-left: 6mm;
+        padding-left: 4mm;
+        border-left: 2px solid #111;
+      }
+
+      .article-body .media-omitted {
+        margin: 0 0 4mm;
+        font-size: 8.5pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(17, 17, 17, 0.65);
+      }
+
+      .article-body figure,
+      .article-body .article-figure,
+      .article-body picture,
+      .article-body .article-picture {
+        display: block;
+        max-width: 72mm;
+        margin: 0 auto 4mm;
+        break-inside: avoid;
+      }
+
+      .article-body img,
+      .article-body .article-image {
+        display: block;
+        max-width: min(100%, 72mm);
+        max-height: 34mm;
+        height: auto;
+        width: auto;
+        object-fit: contain;
+        margin: 0 auto 3mm;
+      }
+
+      .article-body figcaption {
+        margin-top: 1.5mm;
+        font-size: 8.5pt;
+        line-height: 1.3;
+        color: rgba(17, 17, 17, 0.8);
+      }
+
+      .article-note {
+        margin-top: 6mm;
+        padding-top: 3mm;
+        border-top: 1px solid #111;
+        font-size: 9pt;
+        font-style: italic;
+      }
+
+      @media screen {
+        body {
+          padding: 2rem;
+          margin: 0 auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    
+    <header class="masthead-compact">
+      <h1>Fred Talks</h1>
+      <p class="issue-date">
+        12<sup>th</sup> October 2026
+      </p>
+    </header>
+
+    <nav class="toc toc-compact">
+      <h2>Contents</h2>
+      <ol class="toc-list">
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Big tech engineers need big egos</div>
+          <div class="toc-item-meta">
+            seangoedecke.com RSS feed · 1975 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">The Self-Help Trap: What 20+ Years of “Optimizing” Has Taught Me</div>
+          <div class="toc-item-meta">
+            Tim Ferriss · 3114 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">The lies I used to tell myself</div>
+          <div class="toc-item-meta">
+            Cate Hall · 1900 words
+          </div>
+        </li>
+        
+      </ol>
+    </nav>
+    
+
+    
+    <article>
+      <h1>Big tech engineers need big egos</h1>
+      <div class="article-meta">
+        seangoedecke.com RSS feed
+        · 14 Mar 2026 · <a href="https://seangoedecke.com/big-tech-needs-big-egos/">Source</a>
+      </div>
+      <div class="article-body"><p>It’s a <a href="https://matthogg.fyi/a-unified-theory-of-ego-empathy-and-humility-at-work/">common position</a> among software engineers that big egos have no place in tech<sup><a href="https://www.seangoedecke.com/big-tech-needs-big-egos/#fn-1">1</a></sup>. This is understandable - we’ve all worked with some insufferably overconfident engineers who needed their egos checked - but I don’t think it’s correct. In fact, I don’t know if it’s possible to survive as a software engineer in a large tech company without some kind of big ego.</p>
+<p>However, it’s more complicated than “big egos make good engineers”. The most effective engineers I’ve worked with are simultaneously high-ego in some situations and surprisingly low-ego in others. What’s going on there?</p>
+<h3>Engineers need ego to work in large codebases</h3>
+<p>Software engineering is shockingly humbling, even for experienced engineers. There’s a reason this joke is so popular:</p>
+<figure class="article-figure"><a href="https://www.seangoedecke.com/static/e220b85be9b6fa139f60424d5744a3dc/c08c5/iamagod.jpg"><img alt="meme" sizes="(max-width: 590px) 100vw, 590px" src="https://www.seangoedecke.com/static/e220b85be9b6fa139f60424d5744a3dc/c08c5/iamagod.jpg" srcset="https://www.seangoedecke.com/static/e220b85be9b6fa139f60424d5744a3dc/a80bd/iamagod.jpg 148w,
+/static/e220b85be9b6fa139f60424d5744a3dc/1c91a/iamagod.jpg" class="article-image"/></a></figure>
+<p>The minute-to-minute experience of working as a software engineer is dominated by <em>not knowing things</em> and <em>getting things wrong</em>. Every time you sit down and write a piece of code, it will have several things wrong with it: some silly things, like missing semicolons, and often some major things, like bugs in the core logic. We spend most of our time fixing our own stupid mistakes.</p>
+<p>On top of that, even when we’ve been working on a system for years, we still don’t know that much about it. I wrote about this at length in <a href="https://www.seangoedecke.com/nobody-knows-how-large-software-products-work"><em>Nobody knows how large software products work</em></a>, but the reason is that big codebases are just that complicated. You simply can’t confidently answer questions about them without going and doing some research, even if you’re the one who wrote the code.</p>
+<p>When you have to build something new or fix a tricky problem, it can often feel straight-up impossible to begin, because good software engineers know just how ignorant they are and just how complex the system is. You just have to throw yourself into the blank sea of millions of lines of code and start wildly casting around to try and get your bearings.</p>
+<p><strong>Software engineers need the kind of ego that can stand up to this environment.</strong> In particular, they need to have a firm belief that they <em>can</em> figure it out, no matter how opaque the problem seems; that if they just keep trying, they can break through to the pleasant (though always temporary) state of affairs where they understand the system and can see at a glance how bugs can be fixed and new features added<sup><a href="https://www.seangoedecke.com/big-tech-needs-big-egos/#fn-2">2</a></sup>.</p>
+<h3>Engineers need ego to work in big tech companies</h3>
+<p>What about the non-technical aspects of the job? Nobody likes working with a big ego, right? Wrong. Every great software engineer I’ve worked with in big tech companies has had a big ego - though as I’ll say below, in some ways these engineers were surprisingly low-ego.</p>
+<p><strong>You need a big ego to take positions</strong>. Engineers love being non-committal about technical questions, because they’re so hard to answer and there’s often a plausible case for either side. However, as I <a href="https://www.seangoedecke.com/taking-a-position">keep saying</a>, engineers have a duty to take clear positions on unclear technical topics, because the alternative is a non-technical decision maker (who knows even less) just taking their best guess. It’s scary to make an educated guess! You know exactly all the reasons you might be wrong. But you have to do it anyway, and ego helps <em>a lot</em> with that.</p>
+<p><strong>You need a big ego to be willing to make enemies</strong>. Getting things done in a large organization means making some people angry. Of course, if you’re making lots of people angry, you’re probably screwing up: being too confrontational or making obviously bad decisions. But if you’re making a large change and one or two people are angry, that’s just life. In big tech companies, any big technical decision will affect a few hundred engineers, and one of them is bound to be unhappy about it. You can’t be so conflict-averse that you let that stop you from doing it, if you believe it’s the right decision. In other words, you have to have the confidence to believe that you’re right and they’re wrong, even though technical decisions always involve unclear tradeoffs and it’s impossible to get absolute certainty.</p>
+<p><strong>You need a big ego to correct incorrect or unclear claims.</strong> When I was still in the philosophy world, the Australian logician Graham Priest had a reputation for putting his hand up and stopping presentations when he didn’t understand something that was said, and only allowing the seminar to continue when he felt like he understood. From his perspective, this wasn’t rude: after all, if <em>he</em> couldn’t understand it, the rest of the audience probably couldn’t either, and so he was doing them a favor by forcing a more clear explanation from the speaker.</p>
+<p>This is obviously a sign of a big ego. It’s also a trait that you need in a large tech company. People often nod and smile their way past incorrect technical claims, even when they suspect they might be wrong - assuming that they’ve just misunderstood and that somebody else will correct it, if it’s truly wrong. <strong>If you are the most senior engineer in the room, correcting these claims is your job.</strong></p>
+<p>If everyone in the room is so pro-social and low-ego that they go along to get along, decisions will get made based on flatly incorrect technical assumptions, projects will get funded that are impossible to complete, and engineers will burn weeks or months of their careers vainly trying to make these projects work. You have to have a big enough ego to think “actually, I think I’m right and everyone in this room is confused”, even when the room is full of directors and VPs.</p>
+<h3>Sometimes you need to put your ego aside</h3>
+<p>All of this selects for some pretty high-ego engineers. But in order to actually <em>succeed</em> in these roles in large tech companies, you need to have a surprisingly low ego at times. <strong>I think this is why <em>really</em> effective big tech engineers are so rare: because it requires such a delicate balance between confidence and diffidence.</strong></p>
+<p>To be an effective engineer, you need to have a towering confidence in your own ability to solve problems and make decisions, even when people disagree. But you also need to be willing to instantly subordinate your ego to the organization, when it asks you to. At the end of the day, your job - the reason the company pays you - is to execute on your boss’s and your boss’s boss’s plans, whether you agree with them or not.</p>
+<p>Competent software engineers are allowed quite a lot of leeway about <em>how</em> to implement those plans. However, they’re allowed almost no leeway at all about the plans themselves. In my experience, being confused about this is a common cause of burnout<sup><a href="https://www.seangoedecke.com/big-tech-needs-big-egos/#fn-3">3</a></sup>. Many software engineers are used to making bold decisions on technical topics and being rewarded for it. Those software engineers then make a bold decision that disagrees with the VP of their organization, get immediately and brutally punished for it, and are confused and hurt.</p>
+<p>In fact, <strong>sometimes you just get punished and there’s nothing you can do.</strong> This is an unfortunate fact of how large organizations function: even if you do great technical work and build something really useful, you can fall afoul of a political battle fought three levels above your head, and come away with a <em>worse</em> reputation for it. Nothing to be done! This can be a hard pill to swallow for the high-ego engineers that tend to lead really useful technical projects.</p>
+<p>You also have to be okay with having your projects cancelled at the last minute. It’s a very common experience in large tech companies that you’re asked to deliver something quickly, you buckle down and get it done, and then right before shipping you’re told “actually, let’s cancel that, we decided not to do it”. This is partly because the decision-making process can be pretty fluid, and partly because many of these asks originate from off-hand comments: the CTO implies that something might be nice in a meeting, the VPs and directors hustle to get it done quickly, and then in the next meeting it becomes clear that the CTO doesn’t actually care, so the project is unceremoniously cancelled<sup><a href="https://www.seangoedecke.com/big-tech-needs-big-egos/#fn-4">4</a></sup>.</p>
+<h3>Final thoughts</h3>
+<p>Nobody likes to work with a bully, or with someone who refuses to admit when they’re wrong, or with somebody incapable of empathy. But you really do need a strong ego to be an effective software engineer, because software engineering requires you to spend most of your day in a position of uncertainty or confusion. If your ego isn’t strong enough to stand up to that - if you don’t believe you’re good enough to power through - you simply can’t do the job.</p>
+<p>This is particularly true when it comes to working in a large software company. Many of the tasks you’re required to do (particularly if you’re a senior or staff engineer) require a healthy ego. However, there’s a kind of <a href="https://en.wikipedia.org/wiki/Catch-22_(logic)">catch-22</a> here. If it insults your pride to work on silly projects, or to occasionally “catch a stray bullet” in the organization’s political fights, or to have to shelve a project that you worked hard on and is ready to ship, you’re too high-ego to be an effective software engineer. But if you can’t take firm positions, or if you’re too afraid to make enemies, or you’re unwilling to speak up and correct people, you’re too low-ego.</p>
+<p>Engineers who are low-ego in general can’t get stuff done, while engineers who are high-ego in general get slapped down by the executives who wield real organizational power. The most successful kind of software engineer is therefore a chameleon: low-ego when dealing with executives, but high-ego when dealing with the rest of the organization<sup><a href="https://www.seangoedecke.com/big-tech-needs-big-egos/#fn-5">5</a></sup>.</p>
+<ol> <li> <p>What do I mean by “ego”, in this context? More or less the colloquial sense of the term: a somewhat irrational self-confidence, a tendency to believe that you’re very important, the sense that you’re the “main character”, that sort of thing</p> <a href="https://www.seangoedecke.com/big-tech-needs-big-egos/#fnref-1">↩</a> </li> <li> <p>Why is this “ego”, and not just normal confidence? Well, because of just how murky and baffling software problems feel when you start working on them. You really do need a degree of confidence in yourself that feels unreasonable from the inside. It should be obvious, but I want to explicitly note that you don’t <em>just</em> need ego: you also have to be technically strong enough to actually succeed when your ego powers you through the initial period of self-doubt.</p> <a href="https://www.seangoedecke.com/big-tech-needs-big-egos/#fnref-2">↩</a> </li> <li> <p>I share the increasingly-common view that burnout is not caused by working too hard, but by hard work unrewarded. That explains why nothing burns you out as hard as being punished for hard work that you expected a reward for.</p> <a href="https://www.seangoedecke.com/big-tech-needs-big-egos/#fnref-3">↩</a> </li> <li> <p>It’s more or less exactly <a href="https://www.youtube.com/watch?v=i92Ws7qPTRg">this scene</a> from Silicon Valley.</p> <a href="https://www.seangoedecke.com/big-tech-needs-big-egos/#fnref-4">↩</a> </li> <li> <p>This description sounds a bit sociopathic to me. But, on reflection, it’s fairly unsurprising that competent sociopaths do well in large organizations. Whether that kind of behavior is worth emulating or worth avoiding is up to you, I suppose.</p> <a href="https://www.seangoedecke.com/big-tech-needs-big-egos/#fnref-5">↩</a> </li> </ol></div>
+      
+    </article>
+    
+    <article>
+      <h1>The Self-Help Trap: What 20+ Years of “Optimizing” Has Taught Me</h1>
+      <div class="article-meta">
+        Tim Ferriss
+        · 08 Mar 2026 · <a href="https://tim.blog/2026/03/04/the-self-help-trap/">Source</a>
+      </div>
+      <div class="article-body"><figure class="article-figure"><img alt="" data-lazy-sizes="(max-width: 1000px) 100vw, 1000px" data-lazy-src="https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image.jpeg?resize=1024%2C768&amp;ssl=1" data-lazy-srcset="https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image.jpeg?resize=1024%2C768&amp;ssl=1 1024w, https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image.jpeg?resize=300%2C225&amp;ssl=1 300w, https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image.jpeg?resize=768%2C576&amp;ssl=1 768w, https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image.jpeg?resize=1536%2C1152&amp;ssl=1 1536w, https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image.jpeg?w=1600&amp;ssl=1 1600w" data-ll-status="loaded" data-recalc-dims="1" sizes="(max-width: 1000px) 100vw, 1000px" src="https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image.jpeg?w=1600&amp;ssl=1" srcset="https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image.jpeg?resize=1024%2C768&amp;ssl=1 1024w, https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image.jpeg?resize=300%2C225&amp;ssl=1 300w, https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image.jpeg?resize=768%2C576&amp;ssl=1 768w, https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image.jpeg?resize=1536%2C1152&amp;ssl=1 1536w, https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image.jpeg?w=1600&amp;ssl=1 1600w" class="article-image"/><figcaption>One danger of modern self-help.</figcaption></figure>
+<blockquote> <p><strong>“We cannot reason ourselves out of our basic irrationality. All we can do is to learn the art of being irrational in a reasonable way.”<br/></strong> — Aldous Huxley, <em>Island</em></p> </blockquote>
+<p>It was cold out, but none of us were cold.</p>
+<p>I sat with five men in the mountains of Montana. As the sun set, the fire in the center cast dancing light on our faces. Reclined against fallen trees in a tight circle, we ate mushrooms and fish we’d found under trees and along streams. The whole crew burst into laughter yet again, and one of the guides passed around a fresh batch of pine needle tea.</p>
+<p>Bathed in warmth, I took off a layer and glanced skyward through an opening in the trees. The stars shone like crystals on black velvet, and the show—the biggest meteor shower of the year—was starting.</p>
+<p>In that moment, there was nothing to do. Nothing to improve. Nothing to fix.</p>
+<p>It was perfect.</p>
+<p>***</p>
+<p>The older I get, the more I think that self-help can be a trap. Sometimes the cure is worse than the disease. I say this after ~20 years of writing self-help and a lifetime of consuming it.</p>
+<p>Spend enough time in the world of “improvement,” and you’ll notice something strange: The people most obsessed with self-help are often the least helped by it. Behind the smiles and motivational quotes, behind closed doors and after a drink or two, the truth is that they’re not able to outsmart their worries.</p>
+<p>On one hand, perhaps this unhappiness is precisely what lands one in self-development in the first place, right? I long assumed this about myself, and it’s partially true.</p>
+<p>On the other hand, what if self-help <em>itself</em> is actually creating or amplifying unhappiness?</p>
+<p><em>Modern self-help contains an in-built flaw:</em></p>
+<p><strong><em>To continually improve yourself, you must continually locate the ways you are broken.</em></strong></p>
+<p>Fortunately, there are a few perspective shifts that make all the difference. It took me embarrassingly long to figure them out.</p>
+<p>To get started, let’s take a fresh look at an old concept.</p>
+<h3><strong>MASLOW’S HIERARCHY OF NEEDS?</strong></h3>
+<blockquote> <p><strong>“I suppose it is tempting, if the only tool you have is a hammer, to treat everything as if it were a nail.”<br/></strong>― Abraham Maslow</p> </blockquote>
+<p>Maslow’s Hierarchy of Needs has captured the minds of hundreds of millions. It offers simplicity in a terrifyingly complex world.</p>
+<p>Abraham Maslow’s “<a href="https://psychclassics.yorku.ca/Maslow/motivation.htm">A Theory of Human Motivation</a>” (1943) contains five levels, which are typically presented like the below pyramid. This one is pulled from <a href="https://en.wikipedia.org/wiki/Maslow%27s_hierarchy_of_needs">the Wikipedia entry</a> on the subject:</p>
+<figure class="article-figure"><img alt="" data-lazy-sizes="(max-width: 1000px) 100vw, 1000px" data-lazy-src="https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image.png?resize=1024%2C576&amp;ssl=1" data-lazy-srcset="https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image.png?resize=1024%2C576&amp;ssl=1 1024w, https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image.png?resize=300%2C169&amp;ssl=1 300w, https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image.png?resize=768%2C432&amp;ssl=1 768w, https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image.png?resize=1536%2C864&amp;ssl=1 1536w, https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image.png?w=1920&amp;ssl=1 1920w" data-recalc-dims="1" src="https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image.png?resize=1024%2C576&amp;ssl=1" class="article-image"/></figure>
+<p>We’ve all seen it. Clear as day, you can see the goal post at the top: self-actualization.</p>
+<p>LFG! It’s time to journal and 80/20 myself! Pass me a shaman and some modafinil.</p>
+<p>That’s the mission. That’s the point.</p>
+<p>Right?</p>
+<p>But hold on. A critical footnote got lost in the shuffle. In his later writings, especially notes compiled in <a href="https://www.amazon.com/Farther-Reaches-Human-Nature/dp/0140194703?tag=offsitoftimfe-20"><em>The Farther Reaches of Human Nature</em></a> (1971), Maslow added a <em>sixth</em> level above self-actualization:</p>
+<p><strong>Self-transcendence.<br/>
+<br/>
+</strong>That update never quite made it out of the crib. The consultants are to blame, but that comes later.</p>
+<p><strong>Self-transcendence means going beyond the self</strong> — seeking connection with something greater, such as service to others, nature, art, or the divine. Why is it important? Well, for one thing, as <a href="https://tim.blog/2014/10/15/money-master-the-game/">Tony Robbins</a> put it at an event long ago: “‘I, I, I, me, me, me’ gets to be a really fucking boring song.”</p>
+<p>But it’s not just a boring song; it’s dangerous to your health.</p>
+<h3><strong>DON’T BE A SOMO</strong></h3>
+<blockquote> <p><strong>“The man who renounces himself, comes to himself.” <br/></strong>— Ralph Waldo Emerson</p> </blockquote>
+<p>Self-help is dangerous precisely because it easily becomes self-fixation.</p>
+<p>A focus on improving the self usually first requires finding problems with the self. This is quite the pickle. In a society that rewards problem-solving, you can end up hallucinating or exaggerating unease in order to fix it. This leaves you always in the red, always one step behind. Imagine a dog chasing its tail that has committed to being unhappy until it catches the tail… but it’s always just a few inches short. Still, it whirls around and around, “doing the work.” Perfection always recedes by one more book, one more seminar, one more habit tracker.</p>
+<p>Put in more colorful terms, misdirected self-help turns you into a self-obsessed masturbatory <a href="https://en.wikipedia.org/wiki/Ouroboros">ouroboros</a> (SOMO).</p>
+<p>To remind me of the SOMO risk, I have this sticker on my laptop:</p>
+<figure class="article-figure"><img alt="" data-lazy-sizes="(max-width: 1000px) 100vw, 1000px" data-lazy-src="https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image.jpeg?resize=1024%2C768&amp;ssl=1" data-lazy-srcset="https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image.jpeg?resize=1024%2C768&amp;ssl=1 1024w, https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image.jpeg?resize=300%2C225&amp;ssl=1 300w, https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image.jpeg?resize=768%2C576&amp;ssl=1 768w, https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image.jpeg?resize=1536%2C1152&amp;ssl=1 1536w, https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image.jpeg?w=1600&amp;ssl=1 1600w" data-recalc-dims="1" src="https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image.jpeg?resize=1024%2C768&amp;ssl=1" class="article-image"/><figcaption><em><em>A picture is worth a thousand social media posts about yourself. Sticker from </em><a href="https://theporouswalker.com/products/plant-copy?_pos=1&amp;_sid=27cbc0341&amp;_ss=r"><em>Porous Walker</em></a><em>.</em></em></figcaption></figure>
+<p>Now, to be clear, I still love self-help. Ain’t no way Timmy can give up the sauce. There’s a place for it.</p>
+<p>From The Bible to Seneca, and from Ben Franklin to Stephen Covey and far beyond, there’s a lot of valuable advice worth taking. I used to mainline it all – no time to waste! – and jump straight into action. This did some good, but there was a lot of collateral damage.</p>
+<p>Why?</p>
+<p>Because there are at least three “tectonic plates of self-help” that I couldn’t see for decades, and they dictate how much net-positive or net-negative comes from all the striving. Before you sprint, you want to calibrate your direction.</p>
+<h3><strong>THE THREE TECTONIC PLATES OF SELF-HELP</strong></h3>
+<blockquote> <p><strong>“As to methods there may be a million and then some, but principles are few. The man who grasps principles can successfully select his own methods. The man who tries methods, ignoring principles, is sure to have trouble.”</strong><br/>— Harrington Emerson</p> </blockquote>
+<p>In the last few years, my life has become much more of a joy than a grind, and that’s because I’ve focused on three tectonic plates.</p>
+<p>Let’s take a close look at each.</p>
+<h3><strong>1. Intention</strong></h3>
+<p><em><strong>Individual or Social?</strong><br/>
+</em><br/>
+Americans, in particular, worship at the altar of the rugged individualist. There are clear upsides to this. But steeped in a culture – offline and especially online – that puts the self on a pedestal, we can take self-improvement to be an end unto itself: a better self.</p>
+<p>But is it an end unto itself? Does it automatically produce good things? I now have my doubts.</p>
+<p>Here’s one analogy I’ve drawn for myself.</p>
+<p>Let’s pretend that life is the game of soccer. You can work on the mechanics of soccer by yourself. You can always get better at dribbling, shooting, and running drills as a solo practitioner. You can read dozens of books, study tape, and earn a PhD in the physics of ball flight. You can post videos of stunning shots on YouTube and get showered by emojis.</p>
+<p>But none of this is actually playing the game of soccer.</p>
+<p>You can spend your whole life preparing for, instead of playing, the game of life.</p>
+<p>But why would anyone, including yours truly, succumb to this?</p>
+<p>Subconsciously, it spares you from the messiest but most rewarding game of all: human interaction. Perhaps people hurt or traumatized you long ago. You might also justify the endless polishing, as I did, with some version of “Once I’ve perfected myself, then I’ll be ready for relationships.” But here’s the rub: that practice is exactly endless. You can always get better at dribbling and penalty kicks.</p>
+<p>Digging further, focusing on improving the self is often in service of trying to control the world, especially if things were unpredictable or unstable when growing up. Banish emotion, live by spreadsheets, and all can be well. All can be <em>controlled</em>, or so the illusion goes. But as soon as you’re interacting with – let alone depending on – other people, control as a construct goes out the window. And so we consciously or subconsciously avoid the messiness. This is also one of the reasons why a lot of optimizing achiever folks have a hard time in intimate relationships.</p>
+<p>So how do I think about “self-help” now, having realized all of the above?</p>
+<p>It is refreshingly simple: the goal is to build and improve my relationships. The sooner you get on the real field with real players, the sooner you can get to playing soccer and engaging with life. No more auto-fellating, even with the best of intentions. We’ve evolved over millions of years to be deeply social creatures, and the more you dodge that IN REAL PHYSICAL LIFE, the more you will suffer. This is why solitary confinement in prisons is often considered cruel and unusual punishment… and yet we do it to ourselves all the time.</p>
+<p>There are a few questions that help corral this tectonic plate of <em>intention</em>:</p>
+<ul> <li>How does any given “self-help” help me in my relationships, and how can I apply it with other people <em>today</em> or <em>this week</em>?</li> <li>How can I take the ship out of the harbor and test it where it counts?</li> </ul>
+<h3><strong>2. Audience</strong></h3>
+<p><strong><em>Do you have an audience for your self-development? If so, be careful.</em></strong></p>
+<p>Nary a minute can be spent on social media without bumping into a CAPS-rich “HOW X CHANGED MY LIFE” or a photo carousel of an ayahuasca retreat. If only Costa Rica got a dime for every bikini-clad healer under a waterfall!</p>
+<p>Welcome to the theater of performative self-help. I won’t belabor this, as we’ve all seen it, but I suggest reading about the <a href="https://www.gurwinder.blog/p/the-perils-of-audience-capture">insidious creep of audience capture here</a>, and don’t forge ahead in the fame game before reading <a href="https://tim.blog/2020/02/02/reasons-to-not-become-famous/">11 reasons not to become famous</a>. It’s hard to put the genie back in the bottle, so you should know what that genie will do to your life.</p>
+<p>But the truth is that most of us aren’t extreme examples of this. But even minor tendencies in this direction can do extreme damage over time.</p>
+<p>Below are a few questions that I’ve found helpful for nudging this particular tectonic plate in the right direction:</p>
+<ul> <li>If you couldn’t tell a soul about “the work” you’re doing, would you still do it? If not, you’re not developing yourself; you’re curating yourself. </li> <li>How has sharing your personal development created tradeoffs? </li> <li>If you <em>had to</em> take down 20% of your most popular posts, which would you take down and why?</li> <li>Are you describing strong catalysts (psychedelics, The Hoffman Process, you name it) instead of doing the post-session integration that makes them truly valuable?</li> <li>Have you become more robust or more fragile by offering your inner workings up to public vote? </li> <li>Has your social presence made you more or less of the person you want to be? How would the you of three or five years ago feel about your last year of posts? What about the you of 10 years from now?</li> </ul>
+<h3><strong>3. Assumption</strong></h3>
+<p><strong><em>What are the fundamental assumptions behind your doing “the work”?</em></strong></p>
+<p>Let’s begin with <a href="https://essenceofbuddhism.wordpress.com/2014/05/18/ajahn-chah-and-the-big-heavy-boulder/">a Buddhist parable</a> that I first heard from the incredible <a href="https://tim.blog/2023/07/28/jack-kornfield-3/">Jack Kornfield</a>.</p>
+<blockquote> <p><em>The old Master points to a big boulder and asks a disciple, “See that large rock over there?”</em></p> <p><em>“Yes”, says the disciple.</em></p> <p><em>“Do you think it’s heavy?” continues the Master.</em></p> <p><em>“Yes, it’s very heavy!” replies the student.</em></p> <p><em>“Only if you pick it up,” smiles the Master.</em></p> </blockquote>
+<p>Once again, the fundamental assumption behind self-help is often this: Something is not OK. Something is wrong. Something is not enough. Something needs fixing. If I can’t find it, I’ll create it.</p>
+<p>We’ve established this. But there is a follow-on assumption that matters a lot.</p>
+<p><em>If I fix the things that aren’t OK, all will be well. If I improve myself enough, if I only work hard enough, I can finally eliminate my suffering.</em></p>
+<p>I hate to inform you, but this doesn’t work. I’m also thrilled to inform you that this doesn’t work. You can stop picking up a lot of boulders.</p>
+<p>There is one book that most opened my eyes to this reframe – <a href="https://www.amazon.com/Already-Free-Buddhism-Psychotherapy-Liberation/dp/1622034112?tag=offsitoftimfe-20"><em>Already Free: Buddhism Meets Psychotherapy on the Path of Liberation</em></a> by Bruce Tift. It offers a terrifying but ultimately liberating realization: there is no perfect escape from suffering. It doesn’t exist. But there is a way to find your long-sought unclenching, and it lies in cultivating your skill of acceptance as much as that of improvement.</p>
+<p>Now, I can hear the chorus: <em>Has Tim gone soft? Given up the good fight? Is he telling everyone to chill after he himself red-lined and got the spoils? How convenient!</em> <em>And…</em></p>
+<p>Hold on a second. I’m telling you – intelligent acceptance is high-leverage. It’s probably one of the highest forms of leverage. This is an approach that helps preserve your energy for where it really matters. My early forays into Stoicism and <a href="https://tim.blog/2017/07/06/tao-of-seneca/">Seneca The Younger</a> helped set the conditions for my biggest wins from 2004-2010. Still, I only learned a small fraction of what I needed.</p>
+<p>So how do you cultivate your skill of acceptance without becoming complacent?</p>
+<p>This is a big question and what I love about Bruce’s book. Compared to a strictly Western or purely Eastern book, he blends them and offers a surgical guide to using <em>both</em> action and acceptance. You don’t have to be a bull in a china shop or a cow in the rain; there is a middle path. That middle path is where all the gold is buried.</p>
+<p>If the only tool you have is “self-improvement,” you’ll become a hammer looking for nails in a world that is 50% screws. I tried it. It can create the veneer of success, but it will leave your inner world in turmoil.</p>
+<p>Suffice to say, the dual dance is the most joyful. Upgrade your toolkit with that in mind. Read Bruce’s book. If it doesn’t click, try <a href="https://www.amazon.com/Radical-Acceptance-Embracing-Heart-Buddha/dp/0553380990/?tag=offsitoftimfe-20"><em>Radical Acceptance: Embracing Your Life with the Heart of a Buddha</em></a> by Tara Brach, which had a large impact on my life a decade before I found Bruce’s book. In a sense, <a href="https://tim.blog/2017/07/06/tao-of-seneca/">the writing of Seneca</a> prepared me for <a href="https://www.amazon.com/Radical-Acceptance-Embracing-Heart-Buddha/dp/0553380990/?tag=offsitoftimfe-20">Tara</a>, which then prepared me for <a href="https://www.amazon.com/Already-Free-Buddhism-Psychotherapy-Liberation/dp/1622034112?tag=offsitoftimfe-20">Bruce</a>. So grab them all and thank me later.</p>
+<p>If you want serenity, you need to be able to put the <a href="https://en.wikipedia.org/wiki/Serenity_Prayer#Versions">Serenity Prayer</a> into practice. Seriously, <a href="https://www.instagram.com/reels/DTyC9AgCak3/">I read it all the time</a>.</p>
+<h3><strong>MASLOW’S HAMBURGER OF NEEDS?</strong></h3>
+<blockquote> <p><strong>“The more one forgets himself—by giving himself to a cause to serve or another person to love—the more human he is and the more he actualizes himself. What is called ‘self-actualization’ is not an attainable aim at all, for the simple reason that the more one would strive for it, the more he would miss it. In other words, self-actualization is possible only as a side-effect of self-transcendence.”</strong><br/>― Viktor E. Frankl</p> </blockquote>
+<p>How can we easily keep ourselves on the right track?</p>
+<p>As I remind myself these days: <strong>It’s the relationships, stupid.</strong></p>
+<p>For a nice simple visual, let’s revise Maslow’s pyramid with all of this in mind. This is easy, as Maslow never drew his model as a rigid pyramid!</p>
+<p>He described “classes” of needs that were unfixed, overlapping, and that could reverse in order. And believe it or not, self-actualization was only ever for the “self-actualizing minority.” In the 1960s, his work was co-opted by consultants and corporate trainers who needed a progression to sell. <a href="https://qz.com/work/1588491/maslow-didnt-make-the-pyramid-that-changed-management-history">True story</a>.</p>
+<p>Given all this, and after decades of trial and error, here’s where I’ve landed:</p>
+<p><strong>Maslow’s Hamburger of Needs.</strong></p>
+<p>Ahhh… what? Not to worry. It’s the same good ol’ Maslow ingredients, but I think of it as a hamburger:</p>
+<figure class="article-figure"><img alt="" data-lazy-sizes="(max-width: 1000px) 100vw, 1000px" data-lazy-src="https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image-1.png?resize=1024%2C683&amp;ssl=1" data-lazy-srcset="https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image-1.png?resize=1024%2C683&amp;ssl=1 1024w, https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image-1.png?resize=300%2C200&amp;ssl=1 300w, https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image-1.png?resize=768%2C512&amp;ssl=1 768w, https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image-1.png?w=1536&amp;ssl=1 1536w" data-recalc-dims="1" src="https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image-1.png?resize=1024%2C683&amp;ssl=1" class="article-image"/></figure>
+<p>For our purposes, the meat, the whole point of the hamburger, is that middle layer: relationships. That is the center of life. The heartbeat.</p>
+<p>As luck would have it, when you improve the heartbeat, it also feeds everything else.</p>
+<p>You’ll notice that the meat contains Abe’s most-important addendum—the sixth level of self-transcendence. Focusing on things bigger than yourself is a critical piece of the ultimate puzzle. Faith, nature, family, meditation, causes that outlive you, etc. – take your pick. But be careful. If you do it to inflate the ego or impress others, it’s self-obsession again, not self-transcendence. If you need credit, it doesn’t count.</p>
+<p>Of course, it should go without saying but the top and bottom layers matter a lot. A hamburger is a giant mess without the bun. Friends will get sick of you crashing on their couch and eating their food.</p>
+<p>But the bread and dressing layers exist to serve the middle. That’s the payload. Everything is in service of the payload. And the payload circulates benefits back to the edges, and then the cycle repeats. Even if you think this is oversimplified claptrap, temporarily assuming it’s true will help you.</p>
+<p>What if nearly everything you focused on — calendar, habits, goals — aimed to improve your relational life somehow? What if you took this as a challenge for even a week? Your lens on the world changes dramatically.</p>
+<p>You say yes differently.<br/>
+You say no more clearly.<br/>
+Your to-do list for life slowly transforms.</p>
+<p><strong>What if all that you focused on, all that you do, had to improve that middle layer in some fashion?</strong></p>
+<p>It’s a damn hard question if you’ve been on the <em>self</em>-help train for a while. I get it.</p>
+<p>So let’s try something easier: <strong>What if it only changed how you approach your to-do list? Try hamburger-first each day for 1-2 weeks and tell me what happens. Add and do the things that improve your relational life FIRST. Nothing on the list? Create something. It could be as simple as cooking dinner for your spouse, complimenting at least three people a day for a week, or introducing yourself to the barista you see every morning. Getting started is how you get grooving.</strong></p>
+<h3><strong>ARE YOU DOING SELF-HELP, OR IS SELF-HELP DOING YOU?</strong></h3>
+<blockquote> <p><strong>For friendship makes prosperity more shining and lessens adversity by dividing and sharing it.</strong><br/>— Marcus Tullius Cicero</p> </blockquote>
+<p>In his <a href="https://tim.blog/2016/01/22/the-tao-of-seneca/"><em>Moral Letters to Lucilius</em></a>, Seneca the Younger famously wrote that “These individuals [who put money at the center of life] have riches just as we say that we ‘have a fever,’ when really the fever has us.”</p>
+<p>What if self-help is similar?</p>
+<p>Obsessing over the self never provides peace. It cannot make you whole, as you aren’t the whole. Becoming whole starts by putting down the rock you didn’t even know you were carrying.<br/>
+<em><br/>
+</em>Because at the end of the day—and at the end of a Montana night—the point was never yourself.</p>
+<p>It was never the pyramid.</p>
+<p>It was never the optimization.</p>
+<p>It was the people around the fire.</p>
+<h3>Share this:</h3>
+<ul data-sharing-events-added="true"><li><a data-shared="sharing-twitter-113812" href="https://tim.blog/2026/03/04/the-self-help-trap/?share=twitter&amp;nb=1"> Share on X (Opens in new window) X </a></li><li><a data-shared="sharing-facebook-113812" href="https://tim.blog/2026/03/04/the-self-help-trap/?share=facebook&amp;nb=1"> Share on Facebook (Opens in new window) Facebook </a></li><li><a data-shared="sharing-linkedin-113812" href="https://tim.blog/2026/03/04/the-self-help-trap/?share=linkedin&amp;nb=1"> Share on LinkedIn (Opens in new window) LinkedIn </a></li><li><a data-email-share-error-text="If you&#x27;re having problems sharing via email, you might not have email set up for your browser. You may need to create a new email yourself." data-email-share-error-title="Do you have email set up?" data-email-share-nonce="715f07735d" data-email-share-track-url="https://tim.blog/2026/03/04/the-self-help-trap/?share=email" data-shared="sharing-email-113812" href="mailto:?subject=%5BShared%20Post%5D%20The%20Self-Help%20Trap%3A%20What%2020%2B%20Years%20of%20%22Optimizing%22%20Has%20Taught%20Me&amp;body=https%3A%2F%2Ftim.blog%2F2026%2F03%2F04%2Fthe-self-help-trap%2F&amp;share=email&amp;nb=1"> Email a link to a friend (Opens in new window) Email </a></li><li><a href="https://tim.blog/2026/03/04/the-self-help-trap/#">More</a></li></ul></div>
+      
+    </article>
+    
+    <article>
+      <h1>The lies I used to tell myself</h1>
+      <div class="article-meta">
+        Cate Hall
+        · 23 Jan 2026 · <a href="https://usefulfictions.substack.com/p/the-lies-i-used-to-tell-myself">Source</a>
+      </div>
+      <div class="article-body"><div><div class="captioned-image-container"><figure class="article-figure"><a class="image-link image2 is-viewable-img" href="https://substackcdn.com/image/fetch/$s_!petw!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fe40bf234-f1ac-498a-9f69-18ae8ad7a70f_1024x1024.png" target="_blank"><div class="image2-inset"><img alt="" class="sizing-normal article-image" height="1024" src="https://substackcdn.com/image/fetch/$s_!petw!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fe40bf234-f1ac-498a-9f69-18ae8ad7a70f_1024x1024.png" width="1024"/><div class="image-link-expand"><div class="pencraft pc-display-flex pc-gap-8 pc-reset"><button class="pencraft pc-reset pencraft icon-container restack-image" tabindex="0" type="button"></button><button class="pencraft pc-reset pencraft icon-container view-image" tabindex="0" type="button"></button></div></div></div></a></figure></div><h4>1. What doesn’t kill you makes you stronger.</h4><p>When I was 31, my husband of four years, who I loved more than my own life, left me completely out of the blue. We’d had an incredible, epic romance — drawn together like magnets, we married on our third date and spent the years that followed burrowing ever closer together. Maybe that was the problem — I can’t say for sure, because I never got a satisfying explanation out of him. One day I was the protagonist of a Princess Bride-worthy love story; 48 hours later, he moved out.</p><p>From the time we met, I had never contemplated the possibility of living without him, and I didn’t want to. I wanted to die for a long time — at least a couple of years. But as I slowly learned to sequester away thoughts of him and the emotions they brought up, I became convinced of a silver lining: The experience would make me impenetrable. If I survived it, I would know I could survive anything, and nothing would be able to hurt me again.</p><p>It took the better part of a decade and another deeply identity-shifting relationship, with the man who became my second husband, for me to see that I had it all wrong: Impenetrability means avoiding the parts of life that are most life-like. There’s a reason the visual metaphor for love is an arrow.</p><p>The near-fatal catastrophes of our lives don’t always make us stronger. Surviving one hard thing does provide evidence that you can survive other hard things, which is easy to <em>mistake</em> for getting stronger. But in reality they often just make us brittle, make us dissociate and flee from the situations that remind us we can be broken.</p><p></p><h4>2. When you know, you know.</h4><p>Mario Gabriele of the Generalist had a great <a href="https://www.generalist.com/p/observations-on-people-the-world?utm_source=post-email-title&amp;publication_id=15764&amp;post_id=177558144&amp;utm_campaign=email-post-title&amp;isFreemail=true&amp;r=hjebh&amp;triedRedirect=true">“50 Things” style post</a> a few months ago that I found myself nodding along to almost the whole way through. The glaring exception was Number 33: “Love is easy. The difference between bad relationships and meeting your spouse is not a matter of degree, but category. Compatibility is unignorable and effortless.”</p><p>I believed this completely, once. I’ve since come to believe that what’s unignorable and effortless is chemistry. Chemistry can be powerful enough to turn your life sideways, but it’s not the same thing as compatibility. Compatibility is litigated on the timescale of years and decades; it’s not a momentary feeling but a description of what happens during an extended course of change. Do you grow toward one another, or do you grow apart? Does the relationship help you move closer to the person you aspire to be?</p><p>I “just knew” with my first husband. I wasn’t sure with my second. Four years in, the signs have flipped.</p><p></p><h4>3. If it were a good idea, someone would be doing it already.</h4><p>There’s a belief, especially common among wonky types, that you don’t find $20 bills on the sidewalk — if an opportunity were real, someone would have seized it already. This sounds worldly and wise, but it’s actually a form of defensive thinking. It assumes the current way is best, that everything worth doing is being done.</p><p>In my experience, this is just false. When I started playing poker, I discovered that physical tells were basically a wide-open field — despite the fact that most pros believed the topic was played out. If you think you see an opportunity others have missed, you should have a story for why they’re missing it, and you should ask around to stress-test that story. But if no one can give you a satisfying reason, don’t assume one exists. Sometimes the answer really is just inertia or fear.</p><p></p><h4>4. If it’s worth doing, it’s worth doing well.</h4><p>Almost nothing is worth doing “well.” Many things can and should be done to a minimal standard of quality, because anything more is a <a href="https://usefulfictions.substack.com/p/fuck-willpower">waste of effort</a> that can be better allocated. The exceptions aren’t things that should be done “well,” but things that should be done to an exceptionally high standard, probably a much higher one than you see modeled by the people around you.</p><p>This is not semantics; most people really “do everything the way they do anything” — whether that’s in a low-effort or high-effort way. But the point of phoning it in on a lot of stuff is to save your energy to expend on the 1 in 1000 things that really matter … and then to actually spend it.</p><p>A recent example: I decided that I want to narrate my own audiobook for <em>You Can Just Do Things</em>. When I told a friend in the industry this and asked whether they knew any good coaches to work with, they said that hiring a coach wasn’t normal or necessary, because my publisher would decide based on a sample whether I was good enough at reading to do it, and if so give me a producer to work with day-of. But it “1 in 1000” matters to me whether the audiobook is so good no one would ever think of returning it on account of the narration, so I’m not interested in the normal-shaped solution that constitutes doing it “well,” I’m interested in the one that causes me to come to mind when someone asks <a href="https://substack.com/@usefulfictions/note/c-203076054?r=hjebh&amp;utm_source=notes-share-action&amp;utm_medium=web">this question</a>. In this case, that means hiring multiple coaches and practicing for months.</p><p></p><h4>5. If you like your job, you’re doing something wrong.</h4><p>Back when I was more alienated from my emotions, I thought about work like this: You have a budget of energy to spend, and the goal is to efficiently convert that energy into impact. You identify the activity that generates the highest impact per unit of energy, and then you spam that button for as many waking hours as you can stomach. Is it any wonder I was always <a href="https://usefulfictions.substack.com/p/burnout-is-breaking-a-sacred-pact">burning out</a>?</p><p>What I failed to understand is that energy is not fixed. It’s dramatically affected by what you choose to do — some activities increase your energy over time, others deplete it. This feels so obvious to me now that I feel kind of stupid including it here, but I know many people (they are endemic to the Bay Area) who still labor under the false belief. Whether you enjoy what you’re doing affects your ability to do it year in and year out, and dismissing this as “selfish” doesn’t make it untrue. As my husband puts it, the best use of effortful motivation is to engineer your life to require less of it.</p><p></p><h4>6. “All people are insane. They will do anything at any time, and God help anybody who looks for reasons.”</h4><p>This line, from Kurt Vonnegut, used to neatly encapsulate the way I understood other people — which is to say, not at all. Trying to figure out why people did what they did, or imagine what they’d do next, seemed like a fool’s errand. I was judgmental about it, too: I assumed this was a problem, not with me, but with everyone else.</p><p>I didn’t fundamentally move beyond this belief until recent years, when I came into contact with the Enneagram. I imagine there are other personality typing systems that can do something similar, but <a href="https://usefulfictions.substack.com/p/there-are-nine-wolves-inside-of-you">the Enneagram was magical for me</a> because it clued me into the fact that people can have very different motivational systems from my own that are still internally coherent and produce good things in the world.</p><p>People’s behavior was previously incomprehensible to me because I was imputing my own motivational system to them, trying to figure out what would cause me to act the way they did — essentially, concluding that <em>their </em>actions made no sense in light of <em>my </em>goals. But people have wildly diverse emotional hardware, which determines what’s rational for them. And my particular personality — independent, moralistic, systematic, challenge-seeking, competitive — is unusual, so I was especially poorly placed to measure others by the yardstick of myself.</p><p>This shift in perspective was dramatically good for me and for my relationships with other people. It let me see the ecosystem of psychologies as a kind of miracle — wow, it really does take all kinds — rather than a prompt for cosmic horror. And it gave me confidence that, if I invested in understanding people more deeply, they would eventually cease to be total mysteries, prone to bizarre and unreasonable behavior. As far as I can tell, this is the better part of emotional intelligence.</p><p></p><h4>7. Money can’t buy happiness.</h4><p>The good version of this advice is: You’ll still have to work at being happy, even if you’re rich. Money in your bank account won’t do it for you, and wealth comes with its own pathologies, like endless status-chasing. But the common gloss — that money stops mattering past some modest threshold — is basically false.</p><p>You may have heard there’s research showing money doesn’t buy happiness. That research was explosively popular precisely because it was counterintuitive — it betrayed the commonsense intuition that more money means more freedom, more options, more ability to help people you care about. Turns out it was also riddled with methodological problems. More recent work by Matthew Killingsworth (nominative determinism FTW), using large-scale studies that pinged participants about their happiness at random moments, found steady returns to well-being with rising income, no plateau in sight. The myth persists because it serves a psychological function: It helps people without money feel better about their situation, and helps the wealthy downplay their advantages. But it’s not true.</p><p></p><h4>8. Intuition is fake and rationality solves everything.</h4><p>I used to be horribly judgmental of people who made decisions based on intuition, as in, “I just do what feels right.” And then I noticed that whenever I overrode my intuitions, I made <em>terrible </em>decisions. I hired the wrong people, started projects with the wrong people, dated the wrong people, ate food that made me feel bad, did forms of exercise I found unfun and injurious. I don’t have a satisfying theory for why this is, but I know what happens: When I shift from emotional intuition to a logical story about a decision, it’s much easier for my reasoning to get hijacked by plausible-sounding directives that turn out to be nonsense.</p><p>It took me a long time to learn this, and that might have something to do with my training in law and poker. Overriding intuition in favor of explicit reasoning makes sense in contexts that reward systematic rationality, where you will get separated from your money if you count on gut feelings. But most of life isn’t a closed system with enumerated rules and clear outcomes. If you try to explicitly name all the factors that make someone a good friend or co-founder, you might come up with some good indicators, but your crude map will also mislead you about the territory.</p><p>This is why “wisdom is knowledge that can’t be transmitted.” Wise people have navigational skill, not a long list of rules.</p><p></p><p><em><strong><a href="https://mailchi.mp/44578760e686/book-preorder-signup">Sign up to be notified</a> when my book, You Can Just Do Things, is available for purchase.</strong></em></p></div></div>
+      
+    </article>
+    
+  </body>
+</html>
