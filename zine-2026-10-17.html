@@ -1,0 +1,523 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Fred Talks - 2026-10-17</title>
+    <style>
+      @page {
+        size: A5;
+        margin: 8mm 9mm 9mm;
+      }
+
+      :root {
+        color: #111;
+        font-family: "Times New Roman", Times, serif;
+        --body-text-size: 9.5pt;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        color: #111;
+        background: #fff;
+        font-family: "Times New Roman", Times, serif;
+        line-height: 1.45;
+      }
+
+      a,
+      a:visited {
+        color: #111;
+        text-decoration: underline;
+      }
+
+      .cover {
+        min-height: calc(210mm - 17mm);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        page-break-after: always;
+        border: 1px solid #111;
+        padding: 8mm;
+        background: #fff;
+      }
+
+      .toc-item-meta,
+      .article-meta {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .masthead {
+        margin: 0;
+        font-size: 40pt;
+        line-height: 0.95;
+        text-transform: uppercase;
+      }
+
+      .issue-date {
+        margin: 4mm 0 0;
+        font-size: 14pt;
+      }
+
+      .issue-date sup {
+        font-size: 0.58em;
+        vertical-align: super;
+        line-height: 0;
+      }
+
+      .cover-deck {
+        max-width: 90mm;
+        font-size: 12pt;
+        margin: 0;
+      }
+
+      .toc {
+        border-top: 3px solid #111;
+        padding-top: 6mm;
+      }
+
+      .toc h2 {
+        margin: 0 0 4mm;
+        font-size: 11pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .toc-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .toc-item {
+        padding: 3mm 0;
+        border-bottom: 1px solid rgba(17, 17, 17, 0.2);
+      }
+
+      .toc-item-title {
+        font-size: 12pt;
+        margin: 0 0 1mm;
+      }
+
+      .toc-item-meta {
+        font-size: 8pt;
+      }
+
+      .masthead-compact {
+        margin: 0 0 6mm;
+      }
+
+      .masthead-compact h1 {
+        margin: 0;
+        font-size: 22pt;
+        line-height: 1.1;
+        text-transform: uppercase;
+      }
+
+      .masthead-compact .issue-date {
+        margin: 2mm 0 0;
+        font-size: 11pt;
+      }
+
+      .toc-compact {
+        border-top: 1px solid #111;
+        border-bottom: 1px solid #111;
+        padding: 4mm 0;
+        margin: 0 0 8mm;
+      }
+
+      article + article {
+        margin-top: 10mm;
+        padding-top: 6mm;
+        border-top: 2px solid #111;
+      }
+
+      h1 {
+        margin: 0 0 2mm;
+        font-size: 18pt;
+        line-height: 1.1;
+      }
+
+      .article-meta {
+        font-size: 8.5pt;
+        margin-bottom: 6mm;
+        padding-bottom: 3mm;
+        border-bottom: 1px solid #111;
+      }
+
+      .article-body {
+        font-size: var(--body-text-size);
+        font-family: "Times New Roman", Times, serif;
+      }
+
+      .article-body p,
+      .article-body li,
+      .article-body blockquote,
+      .article-body dd,
+      .article-body dt {
+        margin: 0 0 4mm;
+        orphans: 3;
+        widows: 3;
+      }
+
+      .article-body ul,
+      .article-body ol,
+      .article-body dl {
+        margin: 0 0 4mm 5mm;
+        padding: 0;
+      }
+
+      .article-body h2,
+      .article-body h3,
+      .article-body h4 {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        margin: 7mm 0 3mm;
+        line-height: 1.2;
+      }
+
+      .article-body blockquote {
+        margin-left: 6mm;
+        padding-left: 4mm;
+        border-left: 2px solid #111;
+      }
+
+      .article-body .media-omitted {
+        margin: 0 0 4mm;
+        font-size: 8.5pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(17, 17, 17, 0.65);
+      }
+
+      .article-body figure,
+      .article-body .article-figure,
+      .article-body picture,
+      .article-body .article-picture {
+        display: block;
+        max-width: 72mm;
+        margin: 0 auto 4mm;
+        break-inside: avoid;
+      }
+
+      .article-body img,
+      .article-body .article-image {
+        display: block;
+        max-width: min(100%, 72mm);
+        max-height: 34mm;
+        height: auto;
+        width: auto;
+        object-fit: contain;
+        margin: 0 auto 3mm;
+      }
+
+      .article-body figcaption {
+        margin-top: 1.5mm;
+        font-size: 8.5pt;
+        line-height: 1.3;
+        color: rgba(17, 17, 17, 0.8);
+      }
+
+      .article-note {
+        margin-top: 6mm;
+        padding-top: 3mm;
+        border-top: 1px solid #111;
+        font-size: 9pt;
+        font-style: italic;
+      }
+
+      @media screen {
+        body {
+          padding: 2rem;
+          margin: 0 auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    
+    <header class="masthead-compact">
+      <h1>Fred Talks</h1>
+      <p class="issue-date">
+        17<sup>th</sup> October 2026
+      </p>
+    </header>
+
+    <nav class="toc toc-compact">
+      <h2>Contents</h2>
+      <ol class="toc-list">
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Big tech engineers need big egos</div>
+          <div class="toc-item-meta">
+            seangoedecke.com RSS feed · 1975 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Please for the love of all that is holy: Stop writing long boring Titles</div>
+          <div class="toc-item-meta">
+            swyx · 1431 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Test Coverage Won&#39;t Save You</div>
+          <div class="toc-item-meta">
+            Jenn Cooper · 1991 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Control the ideas, not the code</div>
+          <div class="toc-item-meta">
+            antirez.com · 1245 words
+          </div>
+        </li>
+        
+      </ol>
+    </nav>
+    
+
+    
+    <article>
+      <h1>Big tech engineers need big egos</h1>
+      <div class="article-meta">
+        seangoedecke.com RSS feed
+        · 14 Mar 2026 · <a href="https://seangoedecke.com/big-tech-needs-big-egos/">Source</a>
+      </div>
+      <div class="article-body"><p>It’s a <a href="https://matthogg.fyi/a-unified-theory-of-ego-empathy-and-humility-at-work/">common position</a> among software engineers that big egos have no place in tech<sup><a href="https://www.seangoedecke.com/big-tech-needs-big-egos/#fn-1">1</a></sup>. This is understandable - we’ve all worked with some insufferably overconfident engineers who needed their egos checked - but I don’t think it’s correct. In fact, I don’t know if it’s possible to survive as a software engineer in a large tech company without some kind of big ego.</p>
+<p>However, it’s more complicated than “big egos make good engineers”. The most effective engineers I’ve worked with are simultaneously high-ego in some situations and surprisingly low-ego in others. What’s going on there?</p>
+<h3>Engineers need ego to work in large codebases</h3>
+<p>Software engineering is shockingly humbling, even for experienced engineers. There’s a reason this joke is so popular:</p>
+<figure class="article-figure"><a href="https://www.seangoedecke.com/static/e220b85be9b6fa139f60424d5744a3dc/c08c5/iamagod.jpg"><img alt="meme" sizes="(max-width: 590px) 100vw, 590px" src="https://www.seangoedecke.com/static/e220b85be9b6fa139f60424d5744a3dc/c08c5/iamagod.jpg" srcset="https://www.seangoedecke.com/static/e220b85be9b6fa139f60424d5744a3dc/a80bd/iamagod.jpg 148w,
+/static/e220b85be9b6fa139f60424d5744a3dc/1c91a/iamagod.jpg" class="article-image"/></a></figure>
+<p>The minute-to-minute experience of working as a software engineer is dominated by <em>not knowing things</em> and <em>getting things wrong</em>. Every time you sit down and write a piece of code, it will have several things wrong with it: some silly things, like missing semicolons, and often some major things, like bugs in the core logic. We spend most of our time fixing our own stupid mistakes.</p>
+<p>On top of that, even when we’ve been working on a system for years, we still don’t know that much about it. I wrote about this at length in <a href="https://www.seangoedecke.com/nobody-knows-how-large-software-products-work"><em>Nobody knows how large software products work</em></a>, but the reason is that big codebases are just that complicated. You simply can’t confidently answer questions about them without going and doing some research, even if you’re the one who wrote the code.</p>
+<p>When you have to build something new or fix a tricky problem, it can often feel straight-up impossible to begin, because good software engineers know just how ignorant they are and just how complex the system is. You just have to throw yourself into the blank sea of millions of lines of code and start wildly casting around to try and get your bearings.</p>
+<p><strong>Software engineers need the kind of ego that can stand up to this environment.</strong> In particular, they need to have a firm belief that they <em>can</em> figure it out, no matter how opaque the problem seems; that if they just keep trying, they can break through to the pleasant (though always temporary) state of affairs where they understand the system and can see at a glance how bugs can be fixed and new features added<sup><a href="https://www.seangoedecke.com/big-tech-needs-big-egos/#fn-2">2</a></sup>.</p>
+<h3>Engineers need ego to work in big tech companies</h3>
+<p>What about the non-technical aspects of the job? Nobody likes working with a big ego, right? Wrong. Every great software engineer I’ve worked with in big tech companies has had a big ego - though as I’ll say below, in some ways these engineers were surprisingly low-ego.</p>
+<p><strong>You need a big ego to take positions</strong>. Engineers love being non-committal about technical questions, because they’re so hard to answer and there’s often a plausible case for either side. However, as I <a href="https://www.seangoedecke.com/taking-a-position">keep saying</a>, engineers have a duty to take clear positions on unclear technical topics, because the alternative is a non-technical decision maker (who knows even less) just taking their best guess. It’s scary to make an educated guess! You know exactly all the reasons you might be wrong. But you have to do it anyway, and ego helps <em>a lot</em> with that.</p>
+<p><strong>You need a big ego to be willing to make enemies</strong>. Getting things done in a large organization means making some people angry. Of course, if you’re making lots of people angry, you’re probably screwing up: being too confrontational or making obviously bad decisions. But if you’re making a large change and one or two people are angry, that’s just life. In big tech companies, any big technical decision will affect a few hundred engineers, and one of them is bound to be unhappy about it. You can’t be so conflict-averse that you let that stop you from doing it, if you believe it’s the right decision. In other words, you have to have the confidence to believe that you’re right and they’re wrong, even though technical decisions always involve unclear tradeoffs and it’s impossible to get absolute certainty.</p>
+<p><strong>You need a big ego to correct incorrect or unclear claims.</strong> When I was still in the philosophy world, the Australian logician Graham Priest had a reputation for putting his hand up and stopping presentations when he didn’t understand something that was said, and only allowing the seminar to continue when he felt like he understood. From his perspective, this wasn’t rude: after all, if <em>he</em> couldn’t understand it, the rest of the audience probably couldn’t either, and so he was doing them a favor by forcing a more clear explanation from the speaker.</p>
+<p>This is obviously a sign of a big ego. It’s also a trait that you need in a large tech company. People often nod and smile their way past incorrect technical claims, even when they suspect they might be wrong - assuming that they’ve just misunderstood and that somebody else will correct it, if it’s truly wrong. <strong>If you are the most senior engineer in the room, correcting these claims is your job.</strong></p>
+<p>If everyone in the room is so pro-social and low-ego that they go along to get along, decisions will get made based on flatly incorrect technical assumptions, projects will get funded that are impossible to complete, and engineers will burn weeks or months of their careers vainly trying to make these projects work. You have to have a big enough ego to think “actually, I think I’m right and everyone in this room is confused”, even when the room is full of directors and VPs.</p>
+<h3>Sometimes you need to put your ego aside</h3>
+<p>All of this selects for some pretty high-ego engineers. But in order to actually <em>succeed</em> in these roles in large tech companies, you need to have a surprisingly low ego at times. <strong>I think this is why <em>really</em> effective big tech engineers are so rare: because it requires such a delicate balance between confidence and diffidence.</strong></p>
+<p>To be an effective engineer, you need to have a towering confidence in your own ability to solve problems and make decisions, even when people disagree. But you also need to be willing to instantly subordinate your ego to the organization, when it asks you to. At the end of the day, your job - the reason the company pays you - is to execute on your boss’s and your boss’s boss’s plans, whether you agree with them or not.</p>
+<p>Competent software engineers are allowed quite a lot of leeway about <em>how</em> to implement those plans. However, they’re allowed almost no leeway at all about the plans themselves. In my experience, being confused about this is a common cause of burnout<sup><a href="https://www.seangoedecke.com/big-tech-needs-big-egos/#fn-3">3</a></sup>. Many software engineers are used to making bold decisions on technical topics and being rewarded for it. Those software engineers then make a bold decision that disagrees with the VP of their organization, get immediately and brutally punished for it, and are confused and hurt.</p>
+<p>In fact, <strong>sometimes you just get punished and there’s nothing you can do.</strong> This is an unfortunate fact of how large organizations function: even if you do great technical work and build something really useful, you can fall afoul of a political battle fought three levels above your head, and come away with a <em>worse</em> reputation for it. Nothing to be done! This can be a hard pill to swallow for the high-ego engineers that tend to lead really useful technical projects.</p>
+<p>You also have to be okay with having your projects cancelled at the last minute. It’s a very common experience in large tech companies that you’re asked to deliver something quickly, you buckle down and get it done, and then right before shipping you’re told “actually, let’s cancel that, we decided not to do it”. This is partly because the decision-making process can be pretty fluid, and partly because many of these asks originate from off-hand comments: the CTO implies that something might be nice in a meeting, the VPs and directors hustle to get it done quickly, and then in the next meeting it becomes clear that the CTO doesn’t actually care, so the project is unceremoniously cancelled<sup><a href="https://www.seangoedecke.com/big-tech-needs-big-egos/#fn-4">4</a></sup>.</p>
+<h3>Final thoughts</h3>
+<p>Nobody likes to work with a bully, or with someone who refuses to admit when they’re wrong, or with somebody incapable of empathy. But you really do need a strong ego to be an effective software engineer, because software engineering requires you to spend most of your day in a position of uncertainty or confusion. If your ego isn’t strong enough to stand up to that - if you don’t believe you’re good enough to power through - you simply can’t do the job.</p>
+<p>This is particularly true when it comes to working in a large software company. Many of the tasks you’re required to do (particularly if you’re a senior or staff engineer) require a healthy ego. However, there’s a kind of <a href="https://en.wikipedia.org/wiki/Catch-22_(logic)">catch-22</a> here. If it insults your pride to work on silly projects, or to occasionally “catch a stray bullet” in the organization’s political fights, or to have to shelve a project that you worked hard on and is ready to ship, you’re too high-ego to be an effective software engineer. But if you can’t take firm positions, or if you’re too afraid to make enemies, or you’re unwilling to speak up and correct people, you’re too low-ego.</p>
+<p>Engineers who are low-ego in general can’t get stuff done, while engineers who are high-ego in general get slapped down by the executives who wield real organizational power. The most successful kind of software engineer is therefore a chameleon: low-ego when dealing with executives, but high-ego when dealing with the rest of the organization<sup><a href="https://www.seangoedecke.com/big-tech-needs-big-egos/#fn-5">5</a></sup>.</p>
+<ol> <li> <p>What do I mean by “ego”, in this context? More or less the colloquial sense of the term: a somewhat irrational self-confidence, a tendency to believe that you’re very important, the sense that you’re the “main character”, that sort of thing</p> <a href="https://www.seangoedecke.com/big-tech-needs-big-egos/#fnref-1">↩</a> </li> <li> <p>Why is this “ego”, and not just normal confidence? Well, because of just how murky and baffling software problems feel when you start working on them. You really do need a degree of confidence in yourself that feels unreasonable from the inside. It should be obvious, but I want to explicitly note that you don’t <em>just</em> need ego: you also have to be technically strong enough to actually succeed when your ego powers you through the initial period of self-doubt.</p> <a href="https://www.seangoedecke.com/big-tech-needs-big-egos/#fnref-2">↩</a> </li> <li> <p>I share the increasingly-common view that burnout is not caused by working too hard, but by hard work unrewarded. That explains why nothing burns you out as hard as being punished for hard work that you expected a reward for.</p> <a href="https://www.seangoedecke.com/big-tech-needs-big-egos/#fnref-3">↩</a> </li> <li> <p>It’s more or less exactly <a href="https://www.youtube.com/watch?v=i92Ws7qPTRg">this scene</a> from Silicon Valley.</p> <a href="https://www.seangoedecke.com/big-tech-needs-big-egos/#fnref-4">↩</a> </li> <li> <p>This description sounds a bit sociopathic to me. But, on reflection, it’s fairly unsurprising that competent sociopaths do well in large organizations. Whether that kind of behavior is worth emulating or worth avoiding is up to you, I suppose.</p> <a href="https://www.seangoedecke.com/big-tech-needs-big-egos/#fnref-5">↩</a> </li> </ol></div>
+      
+    </article>
+    
+    <article>
+      <h1>Please for the love of all that is holy: Stop writing long boring Titles</h1>
+      <div class="article-meta">
+        swyx
+        · 30 Mar 2026 · <a href="https://dx.tips/titles">Source</a>
+      </div>
+      <div class="article-body"><p>People code switch. Every ethnic minority has <a href="https://en.wikipedia.org/wiki/Sorry_to_Bother_You">lived experience of this</a>. When you talk to me in Singapore, I sound very different than when I’m in San Francisco. And the way you talk at work is probably very different from how you talk to your kids and how you talk to your lover.</p>
+<p>I’ve been dealing with a particularly virulent form of code switching in the simple form of titling blogposts and talks. When you ask the writer face to face what their thing is about, they can give you a perfectly human explanation. And then when they send you their piece, it’s all “<strong><em>Leveraging GenAI with Robust Data Foundations to Transform Businesses</em></strong>”. I’ve left my body by the time I read the first word.</p>
+<p>My hope in writing this piece is to <strong>put an end to bad titles</strong>.</p>
+<p>If I sent you this guide, it is not an insult. You just don’t have good title game. That’s ok. You’re great at what you do, title game isn’t your job. I’m the guy that wrote <a href="https://www.swyx.io/how-to-name-things">How To Name Things</a> and <a href="http://swyx.io/two-words">Two Words</a>. I sent you this guide <strong><em>because</em></strong> your shitty title is the main thing stopping your readers from getting to the good part. If you didn’t have anything good, I wouldn’t bother with a lost cause.</p>
+<p>First…</p>
+<h2>Towards Leveraging Corporate Speak For Maximum Enterprise Synergy</h2>
+<p>DO NOT:</p>
+<ul> <li>Start with “Leveraging” or “Towards” or “Navigating” or “Empowering”</li> </ul>
+<p>Yeah just stop. There’s no rescuing this when you start there. Just delete meaningless corporate weasel words. Anything &gt;3 syllables is a red flag.</p>
+<h2>Make It Quotable</h2>
+<p><strong>If you do not try to make your title roll off the tongue, it probably won’t.</strong></p>
+<p>Literally imagine telling your friend about your talk. Telling a new acquaintance to google your blogpost. Having a fan of yours cite it back to you. How much do they stumble? Yeah. This has all happened to me.</p>
+<p>There’s an extremely high correlation between what are considered the best talks and the quotability of titles. <a href="https://www.infoq.com/presentations/Simple-Made-Easy/">Simple Made Easy</a>. <a href="https://www.youtube.com/watch?v=PUv66718DII">Inventing on Principle</a>. Our list of best <a href="https://dx.tips/pitches">demos/pitches</a> of all time.</p>
+<p>Resist colons. It lacks confidence. Why Use Lot Word: <s>When Few Word Do Trick</s>? You’re not <a href="https://en.wikipedia.org/wiki/High_School_Musical:_The_Musical:_The_Series">High School Musical: The Musical: The Series</a>.</p>
+<p>Put the SEO keyword vomit in the description.</p>
+<p>Titles are for humans.</p>
+<h2>Prescribe A Strong Opinion</h2>
+<p>Opinions are one of the most quotable things.</p>
+<p>But more importantly, a good Opinion Piece is load bearing because it is eminently forwardable, and therefore viral and impactful. Your Job To Be Done is to be the definitive, conclusive, piece on that Opinion. Stake out territory in Opinion Space, list out all the arguments for, counter all the arguments against, provide datapoints, and watch that go further than anything you’ve ever done.</p>
+<p>How to know what’s a good opinion? <strong>Three Strikes rule</strong>: If you repeat yourself <a href="https://www.swyx.io/three-strikes">three times</a>, ship it. Even if you’re just quoting others, its fine, credit them and make it your own.</p>
+<p><strong>Mental Models and Frameworks</strong> are more complex opinions that allow others to scaffold their thought around you. My <a href="https://dx.tips/circles">Radiating Circles</a> and <a href="https://www.swyx.io/measuring-devrel">Measuring Developer Relations</a> and <a href="https://www.swyx.io/js-third-age">Third Age of JavaScript</a> did this.</p>
+<p><strong>Opinions contrary to an established opinion</strong> are the hardest to do well and the best when correct. <a href="https://stratechery.com/2013/clayton-christensen-got-wrong/">What Clayton Christensen Got Wrong</a> made Ben Thompson’s career. <a href="http://latent.space/p/ai-engineer">Rise of AI Engineer</a> countered the prevailing Prompt Engineer -and- GPU Rich Startup/ML Engineer narrative at the time, with room to grow.</p>
+<h2>Curiosity Gap Dynamics</h2>
+<p>Marketers know the power of <a href="https://copyhackers.com/2014/04/curiosity-gap/">the Curiosity Gap</a>. Here is where we toy closest with clickbait. I’ll be honest that I wasn’t even sure if I wanted to give it its own subheading, but its a very important concept that you should at least be aware exists, even if you’re going to ignore it.</p>
+<p>Strong enough opinions create their own curiosity gaps; you won’t have to try very hard to make it interesting if you got my attention in 4 words anyway.</p>
+<p>Curiosity gaps done poorly can lead to “<a href="https://www.merriam-webster.com/wordplay/bury-the-lede-versus-lead">burying the lede</a>”, which make your talk less Quotable and you also don’t want to do that.</p>
+<p>Simplest way to put it is; if the most interesting thing about your content is your title, and what people take away after having read your post matches what they would have predicted after reading your title, then you’ve probably said too much and could cut.</p>
+<h2>Play Madlibs</h2>
+<p>You don’t have to invent your title from scratch (nor should you always do what I’m about to suggest). Here’s some templates that work well:</p>
+<ul> <li><p>{<em>BENEFIT EVERYONE WANTS</em>} <strong>without</strong> {<em>DOWNSIDE EVERYBODY EXPECTS</em>}</p> <ul> <li>e.g. <a href="https://nav.al/rich">How to Get Rich (Without Getting Lucky)</a>, <a href="https://x.com/swyx/status/1249793388037025797">How to Market Yourself (Without Being A Celebrity)</a>. See also subtitle of this post.</li> </ul> </li> <li><p>{<em>PRESCRIPTIVE OPINION</em>}, <strong>don’t</strong> {<em>THING YOU DO</em>}</p> <ul> <li><p>e.g. <a href="https://lexi-lambda.github.io/blog/2019/11/05/parse-don-t-validate/">Parse, don’t validate</a></p> </li> <li><p>alternative prescriptive opinion: <strong>Never</strong> {THING YOU DO}</p> </li> <li><p>see also title of this post</p> </li> </ul> </li> <li><p>{<em>POPULAR THING</em>} <strong>IS DEAD</strong></p> <ul> <li><p>unfortunately this is clickbait that works</p> </li> <li><p>e.g. <a href="https://www.youtube.com/watch?v=D2HurSldDkE&amp;t=1833s">Prompt Engineering is Dead</a>, <a href="https://motherduck.com/blog/big-data-is-dead/">Big Data is Dead</a></p> </li> <li><p>when given at a conference for <em>POPULAR THING,</em> this is known as a <a href="https://www.swyx.io/cfp-advice#pick-a-genre">Heresy Talk</a></p> </li> <li><p>opposite also works:</p> <ul> <li><p><a href="https://hn.algolia.com/?dateRange=all&amp;page=0&amp;prefix=true&amp;query=the%20rise%20of&amp;sort=byPopularity&amp;type=story"><strong>The Rise of</strong> {THING}</a></p> </li> <li><p><a href="https://hn.algolia.com/?dateRange=all&amp;page=0&amp;prefix=true&amp;query=unreasonable&amp;sort=byPopularity&amp;type=story"><strong>The Unreasonable Effectiveness of</strong> {THING}</a></p> </li> </ul> </li> </ul> </li> <li><p><strong>Fundamentals of</strong> {THING}</p> <ul> <li><p>straightforward, people love fundamentals</p> </li> <li><p>also <strong>How</strong> {THING} <strong>Really Works</strong></p> </li> <li><p>You can also flip it and go for the <strong>Advanced</strong> {THING} tier content</p> </li> </ul> </li> <li><p>{CONVEY EXPERIENCE/SCALE} with {THING}</p> <ul> <li>e.g. <a href="https://www.oreilly.com/radar/what-we-learned-from-a-year-of-building-with-llms-part-i/">What We Learned from a Year of Building with LLMs</a>, <a href="https://news.ycombinator.com/item?id=40877136">Insights from over <strong><em>10</em></strong>,<strong><em>000</em></strong> comments on "Ask HN: Who Is Hiring" using GPT-4o</a></li> </ul> </li> </ul>
+<p><a href="https://news.ycombinator.com/item?id=40877136">There’s loads more templates that work, please suggest in comments</a> and I can add/review.</p>
+<p>You can also browse the masters of microcopy like <a href="https://stephsmith.io/">Steph Smith</a> and <a href="https://www.youtube.com/@MyFirstMillionPod">Shaan Puri</a>, and if you are worried about clickbait, you can see <a href="https://www.youtube.com/watch?v=S2xHZPH5Sng">Veritasium’s</a> take or <a href="https://simonwillison.net/">Simon Willison’s Highlights</a>.</p>
+<p>also <a href="https://andrewchen.com/">Andrew Chen</a> senpai:</p>
+<h2>Understand Buzzword Metagame</h2>
+<p>Buzzwords work. Because of a mix of human psychology and algorithmic recsys. Don’t avoid them, just use them judiciously. This involves the ability to read the room, which many smart people sadly cannot without significant involvement in the broader community you are trying to speak to. I don’t see any way around it other than trying to authentically immerse, or consult a friendly who does.</p>
+<p>Not all buzzwords are created equal. Databricks/Berkeley tried to push <a href="https://www.databricks.com/glossary/compound-ai-systems">Compound AI Systems</a>, Gartner is pushing <a href="https://www.gartner.com/en/newsroom/press-releases/2024-09-25-gartner-identifies-composite-ai-and-supply-chain-data-governance-as-highest-impact-supply-chain-planning-technology-trends">Composite AI</a> and <a href="https://www.gartner.com/smarterwithgartner/gartner-keynote-the-future-of-business-is-composable">Composable</a> business — this resonates with their audience, but not more broadly.</p>
+<p>Pick the <a href="https://www.youtube.com/watch?v=fqkaBEWPH18">shibboleths</a> that work for the community you want. <a href="http://latent.space/p/ai-engineer">AI Engineer</a> worked for reasons that are well understood now. <a href="https://www.youtube.com/playlist?list=PLNoPYaf7mNI_Iq_TinuafkIE5n_O_Y5Cy">GraphRAG</a> is working outside of the company that coined it. These buzzwords travel, go ahead and put them in there.</p>
+<p>Buzzwords rise and fall. Try to catch them on the rise — go harder than everyone else on the rise up and regularly test their effectiveness, such that by the time your main buzzword has tapped out you’ve got 2-3 others cooking.</p>
+<h2>Workshopping your titles</h2>
+<p>I write this post out of frustration, but also to capture my own thought process. I’m currently procrastinating while writing a Latent Space post.</p>
+<ul> <li><p>The original title was <a href="https://www.youtube.com/watch?v=-rSbvS0qLqY&amp;t=361s">Why every AI Engineer needs an AI Gateway</a>. Good, genuine opinion, load bearing. But not super memorable.</p> </li> <li><p>My next iteration was “<strong>Stop writing model routers, use an LLM Gateway</strong>”. Ok, prescriptive, evocative. But didn’t cover the other elements other than model routing. One could shorten to “Stop writing your own LLM Gateway” but that doesnt quite express what people do.</p> </li> <li><p>My next one is “<strong>It's not your job to DIY an LLM Gateway</strong>”. No buzzword bc “your job” is implied (for a Latent Space audience), a little curiosity gap, LLM buzzword, strong opinion. But still not strong enough.</p> </li> <li><p>Final one is “<strong>LLM Gateway: The One Decision That Removes 100 AI Engineering Decisions</strong>”. Leans on <a href="https://tim.blog/2020/01/20/one-decision-that-removes-100-decisions/">Tim Ferriss’ madlbs</a>.</p> </li> </ul>
+<p>It’s very common for the “tail to wag the dog to wag the tail” - the title is so important to clickthrough and so impactful to the message, that you spend a bunch of time on just the title itself, because that determines the piece you will write, then write the piece, then you go back and tweak the title based on what happened.</p>
+<p>Amateur writers think their content has 95% of the value and then spend 5% on the title. Pros will put the value of titles closer to 50% and then act like it.</p>
+<h2>You Should Break The Rules Once You Understand Human Behavior More Intuitively Than Rules Can Model</h2>
+<p>See title of this post. No better aura than intentional, conspicuous, successful rulebreaking.</p>
+<h2>Subscribe to our newsletter</h2></div>
+      
+    </article>
+    
+    <article>
+      <h1>Test Coverage Won&#39;t Save You</h1>
+      <div class="article-meta">
+        Jenn Cooper
+        · 09 Jun 2026 · <a href="https://forestwalk.ai/blog/test-coverage-wont-save-you-from-incoherence/">Source</a>
+      </div>
+      <div class="article-body"><p>A year ago, if a codebase accumulated three different ways to do the same thing, somebody would usually notice.</p>
+<p>A reviewer might leave a comment. A senior engineer would mutter something about "yet another helper," and eventually the team would clean it up. Maybe they'd write a short doc. People would learn, collectively, that this was not the way.</p>
+<p>This was not a perfect system. Human review can be slow. People miss things. Pattern docs get stale. Engineers develop opinions that are 70% wisdom and 30% scar tissue.</p>
+<p>Still, the friction did something useful. It kept codebases from drifting too quickly.</p>
+<p>Coding agents change that.</p>
+<figure class="article-figure"><img alt="A room with too much electricity." src="https://forestwalk.ai/images/blog/too-much-electricity.jpg" class="article-image"/><figcaption>"Now, this is a room with electricity. But it has too much electricity."</figcaption></figure>
+<p>Once agents are writing a meaningful share of code, the question is no longer just "can we get working code faster?" Obviously, yes. We can. Sometimes hilariously so.</p>
+<p>The more interesting question is: what does the codebase teach the next agent?</p>
+<p>Because it does teach.</p>
+<p>Every merged PR becomes a precedent. If the repository contains one clear pattern, the next agent has a decent shot at following it. If it contains three slightly different patterns, the next agent may extend one, combine two, or invent a fourth for reasons that are, in technical terms, vibes.</p>
+<h2>The funhouse builds itself</h2>
+<p>Coding agents, like some of us, have a chaotic inner goth teenager.</p>
+<p>Their non-deterministic nature means they can be inconsistent, often in surprising ways. They can generate the weird little leap that solves the problem, or they can generate novelty where nobody asked for it.</p>
+<p>The dangerous thing is that most of the code is fine, if you look at it in isolation.</p>
+<p>A PR passes tests. The implementation makes sense. The file is clean enough. You look at the diff and think, yeah, sure, that seems okay.</p>
+<p>But zoom out, and the codebase as a whole has started to get weird.</p>
+<ul> <li>three near-duplicate utilities</li> <li>multiple data-fetching patterns</li> <li>parallel abstractions solving almost the same problem</li> </ul>
+<p>The codebase remains locally <strong>cohesive</strong>, while slowly losing global <strong>coherence</strong>.</p>
+<p>That matters more than it used to, because even more than humans, agents are responsive to the signals around them. A clear codebase gives them clear precedent. A muddled codebase gives them confusion.</p>
+<p>You can put principles in <code>CLAUDE.md</code> or docs, but they're... advisory. They compete with task instructions and inline comments for attention, get summarized when context windows compact, and depend on the agent attending to the right instruction at the right moment.</p>
+<p>If your codebase contains three slightly different ways to solve a problem, the next agent has to infer which one is canonical.</p>
+<p>From the agent's point of view, this is not irrational. The repository gave it mixed evidence.</p>
+<p>The scary outcome is not code that obviously fails. It is code that superficially keeps working, while the shape of the system increasingly gets worse.</p>
+<h2>Tests are nice</h2>
+<p>Most discussions about AI-native development jump from this problem – agents' tendency to accumulate tech debt – directly to tests.</p>
+<p>And yes, across the industry, teams are writing dramatically more tests than they ever have. Agents have made high test coverage affordable in a way it never used to be.</p>
+<p>Recently, <a href="https://x.com/garrytan/status/2054064931515855118">Garry Tan argued</a> that the primary way to keep AI agents on track is 90% test coverage:</p>
+<blockquote> <p><em>Tests are the ratchet. 90% coverage, every PR, no exceptions.</em></p> </blockquote>
+<p>And indeed, test coverage is the simplest kind of ratchet: a mechanism that allows motion in one direction only, like a socket wrench that turns the bolt forward but never lets it spin back. Once a test locks in a behaviour, it becomes difficult to accidentally regress.</p>
+<p>But it's worth being specific about what tests actually do.</p>
+<p>Unit tests check that a function still returns what it returned before. Integration tests check that pieces still wire together the same way. E2E tests reach further: they check whether the product still does what it used to, and the assertions you prioritize there should be an important act of human judgment.</p>
+<p>But they all share the same basic shape: tests verify that code does what it did before.</p>
+<p>Whether what it did was even the <em>right way to do it</em> is a separate question.</p>
+<p>Tests ratchet behavioural sameness.</p>
+<p>Meanwhile docs and evals can pin down reasoning and behaviour bars, which is sometimes more important. But none of these is directly looking at the <em>shape</em> of the system.</p>
+<h2>90% coverage of good patterns</h2>
+<p>A coverage ratchet only improves the codebase if the patterns it's locking in are already good ones.</p>
+<p>If a questionable pattern already exists in the code, the next agent is more likely to extend it. The tests generated around that implementation only reinforce it further.</p>
+<p>Over time, high coverage can unintentionally fossilize architectural drift, rather than prevent it in the first place.</p>
+<p>At first, especially during prototyping, this can be easy to miss, because nothing looks obviously broken. Coverage stays high. The system works. But over time, certain parts of the codebase become strangely resistant to cleanup.</p>
+<p>Tests that protect the wrong behaviour create drag against coherence. The harder you push for coverage, the more deeply you can lock in the shape you happened to start with.</p>
+<p>This isn't a criticism of tests. Tests are necessary. But tests primarily validate behaviour, while many of the emerging failure modes in agent-generated systems, especially as they grow, are failures of <em>shape</em>.</p>
+<figure class="article-figure"><img alt="A load-bearing poster." src="https://forestwalk.ai/images/blog/load-bearing-poster.jpg" class="article-image"/><figcaption>"Uh, I wouldn't take it down if I were you. It's a load-bearing poster."</figcaption></figure>
+<h2>Fitness functions protect the shape of the system</h2>
+<p>Unit tests ask whether the code still does what it did before. Fitness functions ask a different question: is the system still shaped the way we want?</p>
+<p>Most codebases already have a few simple versions of this. Linters, type checks, and import-boundary rules all encode some idea of acceptable shape, at the micro level.</p>
+<p>But in agentically-maintained codebases, we need an additional kind of macro fitness function. It has a couple of important jobs:</p>
+<ul> <li>catch bad agent choices at the moment of work</li> <li>redirect agents with the right amount of friction for the violation</li> </ul>
+<p>At Forestwalk, for example, we have a fitness check that prevents tool handlers from calling back into our AI services. Tool handlers run inside the agent's own loop, so any handler that kicks off more inference can stack model calls inside model calls and freeze a live meeting. Agents sometimes accidentally introduce this pattern, so our fitness check flags it and ensures it's not committed.</p>
+<p>Other fitness tests are ratchets that apply pressure to measurable properties – heuristics for shape like file size, bundle growth, prompt size, import fanout, and dependency count.</p>
+<p>For these, the ceiling starts at the current value (e.g. 837kb) and flags to agents and humans if a PR would unduly increase it. For instance, when an agent adds an unnecessary new dependency that blows up our frontend bundle, the check fails.</p>
+<p>The important part isn't just the limit itself. It's the “just in time” agent coaching.</p>
+<p>At first, we found agents would sometimes over-optimize against whatever metric the checks exposed, with great resourcefulness and in ways we did not want. But refining the flags to give common sense guidance helped steer the agents into considering tradeoffs correctly.</p>
+<p>For example, an agent might see this just in time:</p>
+<pre><code>⎯⎯⎯⎯⎯⎯⎯ Failed Checks: 1 ⎯⎯⎯⎯⎯⎯⎯
+
+FAIL  src/frontendBundleBudget.test.ts &gt; Frontend bundle size budget &gt; keep built JS growth modest
+AssertionError: Frontend bundle grew +29 KiB (700 -&gt; 729 KiB; fails at +5 KiB).
+
+This ratchet is review pressure, not a mandate to shrink the number at any cost.
+
+Diagnose first:
+- Is the growth accidental (dependency, duplicate/dead code, broad import, avoidable scope creep)?
+- Does the added JS unlock user-visible value?
+- Can cleanup reduce it without hurting UX, accessibility, tests, or maintainability?
+
+Quality-preserving fixes:
+- remove duplicated rendering paths or dead production code
+- move repeated styling or static configuration out of lazy-loaded JavaScript
+- lazy-load rarely used flows instead of loading them on the main path
+(more examples here)
+
+Do not fix this by:
+- omitting requested scope or deferring needed UI work
+- removing aria-label/title text or visible affordances
+- deleting helpful empty/error-state copy
+(more examples here)
+
+For intentional growth, (procedure here) and explain why in the PR.
+</code></pre>
+<p>If you simply tell agents to "reduce bundle size," they will sometimes do naive things like:</p>
+<ul> <li>delete empty-state copy</li> <li>replace styled controls with browser-native ones</li> <li>inline dependency code to avoid import costs</li> <li>remove accessibility affordances</li> </ul>
+<p>Instead, the idea is to not just explain what a given fitness test is protecting, but also explain what is <em>not allowed</em> to be sacrificed in the process, and do so at the moment the agent is working.</p>
+<p>In contrast, the same guidance in <code>CLAUDE.md</code> is often skimmed past or applied inconsistently by agents. A just-in-time check, on the other hand, creates desired friction between the agent and a finished task. Where humans get tired and occasionally creative about routing around friction like this, agents are quite willing to schlep through feedback and loop until the check is passing.</p>
+<figure class="article-figure"><img alt="A master bedroom." src="https://forestwalk.ai/images/blog/master-bedroom.jpg" class="article-image"/><figcaption>"Come on in, it's your master bedroom!"</figcaption></figure>
+<h2>What the checks can't see</h2>
+<p>Fitness functions are good at catching things precise enough to encode.</p>
+<p>That is useful, but coherence is not always that crisp. Some drift is obvious only in relation to the rest of the codebase: this new thing is too close to an existing thing, this test is protecting a pattern we no longer want, this change is making the next change harder.</p>
+<p>So in addition, we use a few non-deterministic checks on top of the deterministic ones.</p>
+<p>One runs before a PR is opened. It scans the proposed change against the existing codebase, and asks whether the agent has introduced or expanded a competing pattern. When it finds one, it points to the existing pattern, explains why the new one looks redundant, and asks the agent to either extend the original or justify why this case is genuinely different.</p>
+<p>Most of the time, the agent course-corrects quickly.</p>
+<p>We run a similar check again at the PR review level, where it has more context and can catch subtler pattern drift.</p>
+<p>Another check runs nightly and looks for tests that have fossilized patterns we have since decided against. Its mission is to find tests that protect old implementation choices that, if left alone, would teach future agents to preserve patterns we no longer want.</p>
+<p>These checks are not magic. They miss things. They can be noisy. They still need human judgment around them.</p>
+<p><strong>But the goal is not to eliminate judgment.</strong> The goal is to move more human judgment into places where it can be highest leverage.</p>
+<h2>Making coherence the easy path</h2>
+<p>Fitness ratchets are not the whole answer to maintaining coherence in agent-generated codebases.</p>
+<p>Fitness functions are one layer. Pattern drift checks are another. Product verification, code review, evals, documentation, repository structure, and the actual taste of the humans steering the system all matter too.</p>
+<p>However, it's worth investing regularly in the early layers: the ones closest to the moment an agent is making an implementation choice.</p>
+<p>That is where we have found these types of fitness functions useful. They do not solve coherence by themselves, but they add friction in the right places. Bad patterns get interrupted earlier. Good patterns have a better chance of becoming precedent.</p>
+<p>The same feedback loop that spreads bad patterns can be used to spread good ones.</p>
+<p>So there’s hope. When you see this pattern work, it soothes some of the worry we all have about agents causing chaos. They’re a lot more useful when the codebase gives them an obvious next move. The right pattern is easier to find. The weird fourth version of the thing has a harder time looking reasonable.</p>
+<p>It's not perfect. Keeping a growing codebase coherent still requires human judgment, architectural intuition, and social coordination. The system still needs to be built.</p>
+<p>But that system, itself, increasingly feels like the work.</p>
+<p>If the codebase trains the next agent, then the job is not just to write better code.</p>
+<p>It is to build the environment where better code is the obvious thing to write.</p></div>
+      
+    </article>
+    
+    <article>
+      <h1>Control the ideas, not the code</h1>
+      <div class="article-meta">
+        antirez.com
+        · 18 Jul 2026 · <a href="https://antirez.com/news/169">Source</a>
+      </div>
+      <div class="article-body"><pre>Look at the past history of this blog. There are many blog posts about programming with AI, a few of them date back to January 2024 (like this: <a href="https://antirez.com/news/140">https://antirez.com/news/140</a>). I’m a relatively well regarded programmer, after all. I don’t have the need to still be in the “loop” as a old man that seeks for relevance, I recently rejoined Redis, and now I also am developing a new open source software for local LLM inference that received a good welcome in the community. Why I keep doing this, of saying what people don’t want to hear? Why I keep announcing how future programming will be by default? Because I feel the urge of lowering the impact for people less prepared to the change than me, often younger than me, and that, unlikely me, didn’t see many of those things coming (In 2022 I published, before ChatGPT existed, a book preannouncing many things that now happened and other things that I believe *will* happen, so I feel like I can say this without sounding egocentric).
+
+So mine is a trick. People feel more and more programming is completely modified by AI and don’t know what they should do, if they can really start coding in a completely different way, without looking much at the code as their main output. They feel like they are betraying their own field. So my intention is to arrive and say “look at me, In can write code, you know, I’m not hiding behind AI: yet, things changed, it’s not your weakness, it’s not that you are AI-pilled. It is just that our field is evolving in an incredible *and* painful (but also joyful) direction”.
+
+This is why yesterday, on X, I said that I believe many programmers at this point have less impact they could have because they look at the code. I truly believe into that. And note that this does not mean to vibe code something just asking for the final product. The point is: if you control the ideas of your software, looking at the code itself is suboptimal and often pointless. For the following reasons:
+
+1. You can now generate a lot of code, even *not* accounting for the LLM code verbosity (that is also effect of not being able to instruct them well, for most of the part). How are you supposed to review 5k lines of code every day?
+
+2. LLMs are very good at writing locally optimal code, and are worse (but improving) with big ideas. What’s the point of scanning function by function, line by line? Instead you should prompt the design you have in mind, sometimes ask “how is exactly the design of that part? How does it work?”, and evaluate if it is the right model. It is much faster.
+
+3. The working day is 8 hours. If you read the code, it is a tradeoff. You are doing less of what today is the most important part of your job, that is, asking yourself: what I’m doing with this software? What are the new directions I want to take? And also, think at new ideas, features, optimizations tricks. And doing a lot of QA.
+
+Controlling the ideas. Do you remember this phrasing from the Mythical Man Month? Well, a book from the 70s tells us more things about the current software era than many of the things that were said from 2000 to 2020. Why people that now protest against AI were not horrified by the state of software in the last decade? The level of slop we touched during recent years, before AI, is unbelievable. I’ll say you another thing. What is slop? With DwarfStar I implemented an inference for two LLMs (DeepSeek v4 and GLM 5.2) in a completely automated way, but: try it yourself, you will discover you can’t just say “implement XYZ” and see it working. You have to understand how things work, what is the best design, how to reach a certain level of performance. Then I compared the implementation, for correctness, to other systems, finding that other implementations sometimes contained more errors. I researched more, and found that the local inference world is full of subtle errors that accumulate and damage the model output, issues in the attention implementation causing performance slopes after the context is over a certain limit because indexed attention implementations are broken (do more work than they should, for instance), and so forth. This is the result of a domain that is very complicated to handle, fast changing, with models that are slightly different one from the other in the inference graph being released every day. It’s an unfair game for developers. Well: AI helps a lot with that. There are many domains where rigorous engineering (in the design side) and testing is *far* better than writing a GPU kernel by hand (or reading it). So are we sure most of that resistance it is not ideological?
+
+Matteo Collina yesterday asked me, in reply to my tweet: but didn’t you say that you check all the AI generated code for Redis? And this is a good question indeed. Yes, I do, but this is, at this point, something I *need* to do but that I believe to be mostly pointless, partially once GPT 5.5 was released, but now with Fable and GPT 5.6 Sol even more. Yes: I identify things that I don’t like how they are coded, but if I open other Redis files written by other Redis contributors there is *far worse*, and not since they are not good coders, but because it is a matter of taste. I write very clean code since I want it to be readable, so during the implementation of Redis Arrays I operated changes. I’m doing it again for the 50% memory saving optimization of Redis sorted sets, a PR that I’ll submit soon. But I do not feel this is useful anymore. Nobody should anymore look at this code, but only at the ideas the code contain. I continued to do it out of respect for users. Redis is at this point a commonly useful thing, and many programmers will open files and modify stuff by hand. But if I had my hands free, you know what I would do, instead? Use all the time that the review is taking me to do more QA, to think at the next optimization idea and apply it, and to use LLMs to write a DESIGN.md file where each data structure is described in human language, with the ideas it contains, the implementation tricks, the design. That, in the future, is going to be much more useful. Do you want to modify sorted sets? You open the file, read the design, then you own the ideas. You can open your agent and ask it what to do with the right mental model. This is a lot more useful than reviewing the code.
+
+Fable and GPT 5.6 reviews to the sorted sets memory saving are going to spot ways more errors and subtle race conditions that my review is going to uncover. Yet I’ll do it. But for the majority of software projects, all this does not make sense anymore. Focus on controlling the ideas, instead. Focus on quality, testing, and having an idea of the software you want to ship. The world changed and it is painful, but also full of opportunities to improve a software world that was already completely rotten.</pre>
+<p>:</p></div>
+      
+    </article>
+    
+  </body>
+</html>
