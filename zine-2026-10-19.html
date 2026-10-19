@@ -1,0 +1,426 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Fred Talks - 2026-10-19</title>
+    <style>
+      @page {
+        size: A5;
+        margin: 8mm 9mm 9mm;
+      }
+
+      :root {
+        color: #111;
+        font-family: "Times New Roman", Times, serif;
+        --body-text-size: 9.5pt;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        color: #111;
+        background: #fff;
+        font-family: "Times New Roman", Times, serif;
+        line-height: 1.45;
+      }
+
+      a,
+      a:visited {
+        color: #111;
+        text-decoration: underline;
+      }
+
+      .cover {
+        min-height: calc(210mm - 17mm);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        page-break-after: always;
+        border: 1px solid #111;
+        padding: 8mm;
+        background: #fff;
+      }
+
+      .toc-item-meta,
+      .article-meta {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .masthead {
+        margin: 0;
+        font-size: 40pt;
+        line-height: 0.95;
+        text-transform: uppercase;
+      }
+
+      .issue-date {
+        margin: 4mm 0 0;
+        font-size: 14pt;
+      }
+
+      .issue-date sup {
+        font-size: 0.58em;
+        vertical-align: super;
+        line-height: 0;
+      }
+
+      .cover-deck {
+        max-width: 90mm;
+        font-size: 12pt;
+        margin: 0;
+      }
+
+      .toc {
+        border-top: 3px solid #111;
+        padding-top: 6mm;
+      }
+
+      .toc h2 {
+        margin: 0 0 4mm;
+        font-size: 11pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .toc-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .toc-item {
+        padding: 3mm 0;
+        border-bottom: 1px solid rgba(17, 17, 17, 0.2);
+      }
+
+      .toc-item-title {
+        font-size: 12pt;
+        margin: 0 0 1mm;
+      }
+
+      .toc-item-meta {
+        font-size: 8pt;
+      }
+
+      .masthead-compact {
+        margin: 0 0 6mm;
+      }
+
+      .masthead-compact h1 {
+        margin: 0;
+        font-size: 22pt;
+        line-height: 1.1;
+        text-transform: uppercase;
+      }
+
+      .masthead-compact .issue-date {
+        margin: 2mm 0 0;
+        font-size: 11pt;
+      }
+
+      .toc-compact {
+        border-top: 1px solid #111;
+        border-bottom: 1px solid #111;
+        padding: 4mm 0;
+        margin: 0 0 8mm;
+      }
+
+      article + article {
+        margin-top: 10mm;
+        padding-top: 6mm;
+        border-top: 2px solid #111;
+      }
+
+      h1 {
+        margin: 0 0 2mm;
+        font-size: 18pt;
+        line-height: 1.1;
+      }
+
+      .article-meta {
+        font-size: 8.5pt;
+        margin-bottom: 6mm;
+        padding-bottom: 3mm;
+        border-bottom: 1px solid #111;
+      }
+
+      .article-body {
+        font-size: var(--body-text-size);
+        font-family: "Times New Roman", Times, serif;
+      }
+
+      .article-body p,
+      .article-body li,
+      .article-body blockquote,
+      .article-body dd,
+      .article-body dt {
+        margin: 0 0 4mm;
+        orphans: 3;
+        widows: 3;
+      }
+
+      .article-body ul,
+      .article-body ol,
+      .article-body dl {
+        margin: 0 0 4mm 5mm;
+        padding: 0;
+      }
+
+      .article-body h2,
+      .article-body h3,
+      .article-body h4 {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        margin: 7mm 0 3mm;
+        line-height: 1.2;
+      }
+
+      .article-body blockquote {
+        margin-left: 6mm;
+        padding-left: 4mm;
+        border-left: 2px solid #111;
+      }
+
+      .article-body .media-omitted {
+        margin: 0 0 4mm;
+        font-size: 8.5pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(17, 17, 17, 0.65);
+      }
+
+      .article-body figure,
+      .article-body .article-figure,
+      .article-body picture,
+      .article-body .article-picture {
+        display: block;
+        max-width: 72mm;
+        margin: 0 auto 4mm;
+        break-inside: avoid;
+      }
+
+      .article-body img,
+      .article-body .article-image {
+        display: block;
+        max-width: min(100%, 72mm);
+        max-height: 34mm;
+        height: auto;
+        width: auto;
+        object-fit: contain;
+        margin: 0 auto 3mm;
+      }
+
+      .article-body figcaption {
+        margin-top: 1.5mm;
+        font-size: 8.5pt;
+        line-height: 1.3;
+        color: rgba(17, 17, 17, 0.8);
+      }
+
+      .article-note {
+        margin-top: 6mm;
+        padding-top: 3mm;
+        border-top: 1px solid #111;
+        font-size: 9pt;
+        font-style: italic;
+      }
+
+      @media screen {
+        body {
+          padding: 2rem;
+          margin: 0 auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    
+    <header class="masthead-compact">
+      <h1>Fred Talks</h1>
+      <p class="issue-date">
+        19<sup>th</sup> October 2026
+      </p>
+    </header>
+
+    <nav class="toc toc-compact">
+      <h2>Contents</h2>
+      <ol class="toc-list">
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Elite Young Runners Are Becoming Freakishly Fast. Welcome to ‘Trackflation’</div>
+          <div class="toc-item-meta">
+            Brendan I. Koerner · 4025 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Please for the love of all that is holy: Stop writing long boring Titles</div>
+          <div class="toc-item-meta">
+            swyx · 1431 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Good Interfaces Make Good Neighbors</div>
+          <div class="toc-item-meta">
+            boz. · 398 words
+          </div>
+        </li>
+        
+      </ol>
+    </nav>
+    
+
+    
+    <article>
+      <h1>Elite Young Runners Are Becoming Freakishly Fast. Welcome to ‘Trackflation’</h1>
+      <div class="article-meta">
+        Brendan I. Koerner
+        · 09 Aug 2026 · <a href="https://www.wired.com/story/teenagers-running-trackflation/">Source</a>
+      </div>
+      <div class="article-body"><h2>Four-minute miles are almost routine. Middle schoolers are beating college runners. Inside the youth track boom that’s turning kids and teens into speed machines.</h2>
+<figure class="article-figure"><picture class="article-picture"><img alt="Elite Young Runners Are Becoming Freakishly Fast. Welcome to ‘Trackflation" data-src="https://media.wired.com/photos/6a565246c8e0799a2981818e/master/w_2560%2Cc_limit/WEB_2026-06-21_EA-WIRED-NBNO-FullQual_0011.jpg" src="https://media.wired.com/photos/6a565246c8e0799a2981818e/master/w_2560%2Cc_limit/WEB_2026-06-21_EA-WIRED-NBNO-FullQual_0011.jpg" class="article-image"/></picture><figcaption>PHOTOGRAPH: Elijah Agurs</figcaption></figure>
+<p>A couple of years ago, my teenage son decided to spend the long New York winter running indoor track. An accomplished soccer player, he joined the team with the modest goal of staying fit during his main sport’s offseason, but before long his competitive streak kicked in. He trained like a demon for two months straight, brutalizing his legs and lungs with high-intensity <a href="https://www.wired.com/gallery/best-fitness-workout-apps/">workouts</a>. The suffering paid off: His time in the 1,600-meter run (just shy of a mile) dropped so much that he earned a spot in our sectional championship, competing against runners from three nearby counties.</p>
+<p>My son had the race of his life at sectionals, shaving several seconds off his personal best. He also got absolutely smoked. The top three boys all finished in well under 4 minutes and 30 seconds. The next six broke 4:38. By the time my son collapsed across the finish line in second-to-last place, the winner was deep into his post-race stretching routine.</p>
+<p>Had teenage <a href="https://www.wired.com/tag/running/">runners</a> at mid-tier meets always been that absurdly fast? Based on my limited knowledge of track, I suspected not, so I looked up the 1,600-meter results from the 2015 sectionals. Back then, only three boys broke 4:40, and my son would have finished in the middle of the pack. I was now curious whether kids beyond my provincial corner of New York were getting a lot faster too.</p>
+<p>I followed a few track social media accounts, and soon the algorithms deluged me with highlights of young runners obliterating records on what seemed like a daily basis. A 12th-grade girl from Ohio ran an indoor 2-miler in <a data-event-click="{&quot;element&quot;:&quot;ExternalLink&quot;,&quot;outgoingURL&quot;:&quot;https://www.instagram.com/p/DV1q2wUkfEr/?img_index=1&quot;}" data-offer-url="https://www.instagram.com/p/DV1q2wUkfEr/?img_index=1" href="https://www.instagram.com/p/DV1q2wUkfEr/?img_index=1">an otherworldly 9:37.15</a>, breaking a national high school record that had stood since 2013. A 10th-grade boy from Texas ran an outdoor 100-meter dash in 9.92 seconds, just a tenth of a second off the collegiate record. Crunch the data on any race in virtually any school-age meet and you’ll find that the top and median times have plunged since the late 2010s, often by several seconds.</p>
+<p>My favorite videos were made by a former University of Pittsburgh hurdler named Shyheim Wright, a master at <a data-event-click="{&quot;element&quot;:&quot;ExternalLink&quot;,&quot;outgoingURL&quot;:&quot;https://www.instagram.com/shyheim.wright/reels/&quot;}" data-offer-url="https://www.instagram.com/shyheim.wright/reels/" href="https://www.instagram.com/shyheim.wright/reels/">channeling the bewilderment</a> of track fans. “Pack it up, pack it up right now!” he marveled <a data-event-click="{&quot;element&quot;:&quot;ExternalLink&quot;,&quot;outgoingURL&quot;:&quot;https://www.instagram.com/p/DXSBwN4j8Fy/&quot;}" data-offer-url="https://www.instagram.com/p/DXSBwN4j8Fy/" href="https://www.instagram.com/p/DXSBwN4j8Fy/">over footage</a> of a ninth-grade girl from Georgia running 100 meters in 11.01 seconds, a time that made her faster than all but the very best college sprinters. “I’m so glad I don’t run no more, I’m so glad. The times now is getting ridiculous.”</p>
+<figure class="article-figure"><picture class="article-picture"><img alt="Elite Young Runners Are Becoming Freakishly Fast. Welcome to ‘Trackflation" sizes="100vw" src="https://media.wired.com/photos/6a5649721055be290573fd7d/master/w_1600%2Cc_limit/WEB_2026-06-21_EA-WIRED-NBNO-FullQual_0006.jpg" srcset="https://media.wired.com/photos/6a5649721055be290573fd7d/master/w_120,c_limit/WEB_2026-06-21_EA-WIRED-NBNO-FullQual_0006.jpg 120w, https://media.wired.com/photos/6a5649721055be290573fd7d/master/w_240,c_limit/WEB_2026-06-21_EA-WIRED-NBNO-FullQual_0006.jpg 240w, https://media.wired.com/photos/6a5649721055be290573fd7d/master/w_320,c_limit/WEB_2026-06-21_EA-WIRED-NBNO-FullQual_0006.jpg 320w, https://media.wired.com/photos/6a5649721055be290573fd7d/master/w_640,c_limit/WEB_2026-06-21_EA-WIRED-NBNO-FullQual_0006.jpg 640w, https://media.wired.com/photos/6a5649721055be290573fd7d/master/w_960,c_limit/WEB_2026-06-21_EA-WIRED-NBNO-FullQual_0006.jpg 960w, https://media.wired.com/photos/6a5649721055be290573fd7d/master/w_1280,c_limit/WEB_2026-06-21_EA-WIRED-NBNO-FullQual_0006.jpg 1280w, https://media.wired.com/photos/6a5649721055be290573fd7d/master/w_1600,c_limit/WEB_2026-06-21_EA-WIRED-NBNO-FullQual_0006.jpg 1600w" class="article-image"/></picture><figcaption>PHOTOGRAPH: Elijah Agurs</figcaption></figure>
+<figure class="article-figure"><picture class="article-picture"><img alt="Elite Young Runners Are Becoming Freakishly Fast. Welcome to ‘Trackflation" sizes="100vw" src="https://media.wired.com/photos/6a5649ba36e98c56882c9501/master/w_1600%2Cc_limit/WEB_2026-06-21_EA-WIRED-NBNO-FullQual_0009.jpg" srcset="https://media.wired.com/photos/6a5649ba36e98c56882c9501/master/w_120,c_limit/WEB_2026-06-21_EA-WIRED-NBNO-FullQual_0009.jpg 120w, https://media.wired.com/photos/6a5649ba36e98c56882c9501/master/w_240,c_limit/WEB_2026-06-21_EA-WIRED-NBNO-FullQual_0009.jpg 240w, https://media.wired.com/photos/6a5649ba36e98c56882c9501/master/w_320,c_limit/WEB_2026-06-21_EA-WIRED-NBNO-FullQual_0009.jpg 320w, https://media.wired.com/photos/6a5649ba36e98c56882c9501/master/w_640,c_limit/WEB_2026-06-21_EA-WIRED-NBNO-FullQual_0009.jpg 640w, https://media.wired.com/photos/6a5649ba36e98c56882c9501/master/w_960,c_limit/WEB_2026-06-21_EA-WIRED-NBNO-FullQual_0009.jpg 960w, https://media.wired.com/photos/6a5649ba36e98c56882c9501/master/w_1280,c_limit/WEB_2026-06-21_EA-WIRED-NBNO-FullQual_0009.jpg 1280w, https://media.wired.com/photos/6a5649ba36e98c56882c9501/master/w_1600,c_limit/WEB_2026-06-21_EA-WIRED-NBNO-FullQual_0009.jpg 1600w" class="article-image"/></picture><figcaption>PHOTOGRAPH: Elijah Agurs</figcaption></figure>
+<p>The track world, I discovered, has coined a name for this much-discussed phenomenon of kids getting ultra-fast: <em>trackflation</em>. In June 2025 at the New Balance Nationals, an annual championship that draws around 6,000 top youth athletes, more than 100 kids beat previous meet records. “There might now be a hundred kids that run under 4:10 in the full mile,” says Will Rodgers, who ran track at the University of Alabama in Huntsville in the early 2010s and now co-owns RunningLane, a coaching and events business. “Back when we were competing in high school, it might’ve been like 20 at max.”</p>
+<p>I had to know why kids today are essentially breaking track. And that meant trying to understand the dramatic shift happening at the sport’s roots.</p>
+<p>In early May, I drove down to Baltimore to attend the East Coast International Showcase, a two-day outdoor track meet sponsored by the shoe company Puma. One of its main draws was an 800-meter race featuring two fixtures of the elite youth circuit: Henry Bartle of Carmel, California, and Gunner Hammett of Williamsburg, Virginia.</p>
+<p>As these two stars warmed up alongside Morgan State University’s faded blue track, I spotted Hammett’s dad wearing a custom hoodie that listed his son’s credentials: “2 Time World Record Holder 800m, 18 Time All-American, 5-Time National Record Holder.”</p>
+<p>Those achievements were all the more impressive given Hammett’s tender age: He was 13, just a bit younger than the 14-year-old Bartle. Both boys were still weeks away from their eighth-grade graduations.</p>
+<p>The thin-limbed, bleached-blond Bartle ran the two-lap race in a personal best of 2:03.52, an outrageously good time. Three years ago that would have been enough to win the middle-school 800 meters at the New Balance Nationals. But he was nowhere close to Hammett, who coasted to a 1:57.75—a performance that put him on par with his home state’s fastest high school runners.</p>
+<p>“Guess I got smoked by you again,” a genial Bartle told Hammett as they gasped for air past the finish line. Bartle has, unfortunately, grown accustomed to falling short. Seven weeks earlier, he and another kid both shattered California’s age-group record for the indoor mile, but Bartle still finished six seconds off the podium. In the <a data-event-click="{&quot;element&quot;:&quot;ExternalLink&quot;,&quot;outgoingURL&quot;:&quot;https://www.instagram.com/p/DV10vN5keAF/&quot;}" data-offer-url="https://www.instagram.com/p/DV10vN5keAF/" href="https://www.instagram.com/p/DV10vN5keAF/">one-line caption</a> for his Instagram post about that race, Bartle captured the essence of trackflation: “Living in a time where a state record still doesn’t medal at Nationals.”</p>
+<p>Once Bartle had recouped enough oxygen to function, he gave me a thoughtful breakdown of his recent progress. “Last year, even if I had somewhat of an injury, I was very stubborn and I trained through it,” he told me. Now he’s prioritizing recovery as part of his regimen, and he believes a sub-two-minute 800 and a sub-4:30 mile are well within his grasp.</p>
+<p>Until seven or eight years ago, few eighth-grade runners operated with Bartle’s degree of maturity and determination. There were no middle-school divisions at the big national meets, and 13- and 14-year-olds rarely put serious weekly mileage on their legs. But perhaps inevitably, the youth sports boom expanded to include track.</p>
+<p>As millions of exhausted parents can attest, sports such as soccer and baseball have become dauntingly competitive over the past generation. Even for third and fourth graders, there’s a constant scramble for spots on prestigious travel teams, followed by nerve-racking fights for playing time. Some families decided they could avoid that madness by steering their kids toward track, which had relatively few participants at its entry-level ranks.</p>
+<p>Grade schoolers began flocking to local track clubs. Dennis Robinson, head coach of the Zephyrs Track Club in Chicago, told me that for most of the 2010s he only managed to sign up high schoolers. “We were concerned about the future of our club,” he said. “Now we’re starting to see more and more younger athletes. And when I say young, I mean we’ve had to turn away athletes who are 4 years old.” Another club I spoke with, the Youth Track Foundation in Portland, Oregon, signed up 60 kids in its first two years of existence and has a lengthy waiting list.</p>
+<p>These clubs have also benefited from track’s growing reputation as an antidote to the politics and favoritism that plague less objective sports. “I have so many parents that join our club, and they’re just like, ‘This is so great, because we had this terrible experience with the baseball team because this parent was coaching and he never let my kid pitch,’” says Brad Peterson, a cofounder of HP Distance, a track club in Indiana. “But in track there’s no argument.” The stopwatch determines everything.</p>
+<p>The rise of track clubs was apparent on the second day of the East Coast International Showcase, when I watched wave after wave of kids aged 5 to 9 compete in the 100 meters. The many standouts ran times that would be dazzling for boys or girls several years older, and I took note of their efficient mechanics—evidence, it seemed to me, that they’re already being coached to develop good habits.</p>
+<p>When talented elementary-age kids from the club system move into their tweens and early teens, they’re primed to start the grueling training that used to be reserved for high schoolers. “I’m asking middle-school girls to do eight 400s in 75 seconds, so at a 5-minute-mile pace,” says Peterson. “Whereas it used to be the middle-school program was, ‘Hey, let’s jog 20 minutes and let’s go play Capture the Flag,’ right?”</p>
+<p>Kids are increasingly doing that training in so-called “super shoes” such as the Nike Vaporfly 4 or New Balance FuelCell SuperComp Elite v5, both of which now often sell for well under $200. These shoes’ carbon plates and ultralight foams help return kinetic energy to the wearer’s body with every step. In races, super shoes have been proven to boost performance by 2 to 3 percent, which translates to roughly a second per 400-meter lap.</p>
+<p>Geoff Burns, a sports physiologist with the US Olympic &amp; Paralympic Committee, believes the shoes’ energy-return component decreases the traumatic stress endured by young bones and muscles. “If you’re able to do that same work but not have that mechanical collateral damage or nearly as much of it, then you’re just not building up as much scar tissue that could potentially inhibit performance,” he says. Instead of diverting lots of cellular energy to the healing process after every workout, the body can dedicate more resources to building strength.</p>
+<figure class="article-figure"><picture class="article-picture"><img alt="Elite Young Runners Are Becoming Freakishly Fast. Welcome to ‘Trackflation" sizes="100vw" src="https://media.wired.com/photos/6a564af36aaecd6bf7b0e118/master/w_1600%2Cc_limit/WEB_2026-06-21_EA-WIRED-NBNO-FullQual_0020.jpg" srcset="https://media.wired.com/photos/6a564af36aaecd6bf7b0e118/master/w_120,c_limit/WEB_2026-06-21_EA-WIRED-NBNO-FullQual_0020.jpg 120w, https://media.wired.com/photos/6a564af36aaecd6bf7b0e118/master/w_240,c_limit/WEB_2026-06-21_EA-WIRED-NBNO-FullQual_0020.jpg 240w, https://media.wired.com/photos/6a564af36aaecd6bf7b0e118/master/w_320,c_limit/WEB_2026-06-21_EA-WIRED-NBNO-FullQual_0020.jpg 320w, https://media.wired.com/photos/6a564af36aaecd6bf7b0e118/master/w_640,c_limit/WEB_2026-06-21_EA-WIRED-NBNO-FullQual_0020.jpg 640w, https://media.wired.com/photos/6a564af36aaecd6bf7b0e118/master/w_960,c_limit/WEB_2026-06-21_EA-WIRED-NBNO-FullQual_0020.jpg 960w, https://media.wired.com/photos/6a564af36aaecd6bf7b0e118/master/w_1280,c_limit/WEB_2026-06-21_EA-WIRED-NBNO-FullQual_0020.jpg 1280w, https://media.wired.com/photos/6a564af36aaecd6bf7b0e118/master/w_1600,c_limit/WEB_2026-06-21_EA-WIRED-NBNO-FullQual_0020.jpg 1600w" class="article-image"/></picture><figcaption>PHOTOGRAPH: Elijah Agurs</figcaption></figure>
+<p>As middle schoolers have gotten faster, big-name meets have made room for them. New Balance Nationals added its middle-school division in 2023, and other prominent track events followed suit. Athletes like Bartle now spend a significant chunk of every winter and spring traveling across the country.</p>
+<p>The results make track old-timers shake their heads with wonder. In April, for example, <a data-event-click="{&quot;element&quot;:&quot;ExternalLink&quot;,&quot;outgoingURL&quot;:&quot;https://www.instagram.com/p/DXUiTGNDvxm/?hl=en&quot;}" data-offer-url="https://www.instagram.com/p/DXUiTGNDvxm/?hl=en" href="https://www.instagram.com/p/DXUiTGNDvxm/?hl=en">an eighth-grade boy</a> shattered the national middle-school record for the mile (he ran it sub-4:18). Just two weeks later, <a data-event-click="{&quot;element&quot;:&quot;ExternalLink&quot;,&quot;outgoingURL&quot;:&quot;https://www.instagram.com/p/DX2YZzWFLkJ/&quot;}" data-offer-url="https://www.instagram.com/p/DX2YZzWFLkJ/" href="https://www.instagram.com/p/DX2YZzWFLkJ/">an eighth-grade girl</a> ran the 400 meters faster than any US high schooler had at that point in the year (she clocked 51.58).</p>
+<p>It’s not just the superstars who are getting faster. The runners in the pack behind them are picking up the pace, too, and they’re transforming what’s considered a decent time. “I think I have 10 middle-school girls who run between a 4:56 and a 5:16 mile,” says Peterson. “Ten years ago, you’d be like, ‘That’s insane.’ Now it’s nothing.” When these kids head to high school, they have the strength and experience to flourish right away. But given the sky-high expectations they face, the intensity can come at a cost.</p>
+<p>There has long been a vast discrepancy between the number of high schoolers who run track and the money their programs receive. Outdoor track and field boasts more high school athletes than any other sport, with over 1.1 million participants—a figure likely inflated by the fact that teams tend to make few if any cuts. (The second-most populous co-ed sport, basketball, has fewer than 900,000 players.) Many athletic departments treat track like an afterthought, undeserving of the resources needed to hire coaches with real expertise.</p>
+<p>“When I was coming through, my coach was a retired Marine who had never run a step in his life,” says Caryn Gehrke, an all–Ivy League runner at Columbia University in the early 2000s who now coaches in Ann Arbor, Michigan. “His entire philosophy was the more you hurt in practice, the more you can hurt in a race,” which is possibly the most counterproductive advice a runner can hear.</p>
+<p>Today, a high school runner can scrutinize workout videos posted by pros or simply ask ChatGPT “How do I run a sub-2:00 800?” and develop a more effective training plan than anything their forebears were using in 2016. But for runners with any financial means, hiring a private coach for one-on-one guidance has become commonplace. It’s easy to find former collegiate runners on Instagram who are eager to capitalize on their years of geeking out on training methods. These coaches have popularized techniques such as heat acclimatization, in which athletes overexert themselves in sweltering conditions—say, by running on a treadmill next to a space heater—so that their bodies will produce extra plasma. (This is sometimes referred to as “legal blood doping.”)</p>
+<p>They’re also a big reason why high school kids are dabbling in double-threshold training, which was pioneered by Norwegian pros. This approach involves doing a hard morning workout, then analyzing a drop of the athlete’s blood to see how much lactic acid their muscles produced. The runner then adjusts their pace up or down during a killer second workout of the day.</p>
+<figure class="article-figure"><picture class="article-picture"><img alt="Elite Young Runners Are Becoming Freakishly Fast. Welcome to ‘Trackflation" sizes="100vw" src="https://media.wired.com/photos/6a564b5e5b9b10830ab2bf5c/master/w_1600%2Cc_limit/WEB_2026-06-21_EA-WIRED-NBNO-FullQual_0015.jpg" srcset="https://media.wired.com/photos/6a564b5e5b9b10830ab2bf5c/master/w_120,c_limit/WEB_2026-06-21_EA-WIRED-NBNO-FullQual_0015.jpg 120w, https://media.wired.com/photos/6a564b5e5b9b10830ab2bf5c/master/w_240,c_limit/WEB_2026-06-21_EA-WIRED-NBNO-FullQual_0015.jpg 240w, https://media.wired.com/photos/6a564b5e5b9b10830ab2bf5c/master/w_320,c_limit/WEB_2026-06-21_EA-WIRED-NBNO-FullQual_0015.jpg 320w, https://media.wired.com/photos/6a564b5e5b9b10830ab2bf5c/master/w_640,c_limit/WEB_2026-06-21_EA-WIRED-NBNO-FullQual_0015.jpg 640w, https://media.wired.com/photos/6a564b5e5b9b10830ab2bf5c/master/w_960,c_limit/WEB_2026-06-21_EA-WIRED-NBNO-FullQual_0015.jpg 960w, https://media.wired.com/photos/6a564b5e5b9b10830ab2bf5c/master/w_1280,c_limit/WEB_2026-06-21_EA-WIRED-NBNO-FullQual_0015.jpg 1280w, https://media.wired.com/photos/6a564b5e5b9b10830ab2bf5c/master/w_1600,c_limit/WEB_2026-06-21_EA-WIRED-NBNO-FullQual_0015.jpg 1600w" class="article-image"/></picture><figcaption>PHOTOGRAPH: Elijah Agurs</figcaption></figure>
+<figure class="article-figure"><picture class="article-picture"><img alt="Elite Young Runners Are Becoming Freakishly Fast. Welcome to ‘Trackflation" sizes="100vw" src="https://media.wired.com/photos/6a564c21d152c4f328d8a3e8/master/w_1600%2Cc_limit/WEB_2026-06-21_EA-WIRED-NBNO-FullQual_0021.jpg" srcset="https://media.wired.com/photos/6a564c21d152c4f328d8a3e8/master/w_120,c_limit/WEB_2026-06-21_EA-WIRED-NBNO-FullQual_0021.jpg 120w, https://media.wired.com/photos/6a564c21d152c4f328d8a3e8/master/w_240,c_limit/WEB_2026-06-21_EA-WIRED-NBNO-FullQual_0021.jpg 240w, https://media.wired.com/photos/6a564c21d152c4f328d8a3e8/master/w_320,c_limit/WEB_2026-06-21_EA-WIRED-NBNO-FullQual_0021.jpg 320w, https://media.wired.com/photos/6a564c21d152c4f328d8a3e8/master/w_640,c_limit/WEB_2026-06-21_EA-WIRED-NBNO-FullQual_0021.jpg 640w, https://media.wired.com/photos/6a564c21d152c4f328d8a3e8/master/w_960,c_limit/WEB_2026-06-21_EA-WIRED-NBNO-FullQual_0021.jpg 960w, https://media.wired.com/photos/6a564c21d152c4f328d8a3e8/master/w_1280,c_limit/WEB_2026-06-21_EA-WIRED-NBNO-FullQual_0021.jpg 1280w, https://media.wired.com/photos/6a564c21d152c4f328d8a3e8/master/w_1600,c_limit/WEB_2026-06-21_EA-WIRED-NBNO-FullQual_0021.jpg 1600w" class="article-image"/></picture><figcaption>PHOTOGRAPH: Elijah Agurs</figcaption></figure>
+<p>Private coaches also preach about proper nutrition and supplements. Survey the trash cans at any meet and you’ll see empty tubs of Maurten Bicarb System, a sodium bicarbonate powder that runners consume en masse before races. The substance suppresses the development of lactic acid in muscles, allowing runners to stave off fatigue for a tad longer than normal. According to a 2021 meta survey, bicarb may boost performance by 1.5 percent, or around three seconds per mile.</p>
+<p>There’s plenty of chatter that some teen athletes are emulating the pros by ingesting banned substances—a cheat that’s almost impossible to detect, since there’s virtually no drug testing at the high school level. “I’m not saying I’m 100 percent on this, but I can pick out the athletes who are on it,” says Timothy Goldsack, a cofounder of the coaching service RunCCG, who cites human growth hormone and testosterone-replacement therapy as two popular performance enhancers. He blames familial pressure on kids to use track as a ticket to college: “Parents are crazy, you know that.”</p>
+<p>To impress college scouts, high schoolers must travel to the national meets that are known for producing the most trackflationary times. These meets tend to have bouncy polyurethane tracks, favorable weather, or pace lights that keep runners apprised of the tempos needed to break records. A few well-known teen runners receive airfare and hotel rooms for gracing these meets with their presence, but most competitors spend small fortunes to attend. “If a family has the money to invest in that and it costs them $2,000 to fly a kid across the country to take 15 seconds off their time, and that all of a sudden opens the door to another tier of scholarship or whatever, that’s a pretty good investment,” says Geoff Burns of the US Olympic &amp; Paralympic Committee.</p>
+<p>In mid-April, I spoke to Chris Catton, the other cofounder of RunCCG, as he prepared to coach several of his clients through a notoriously fast meet, the Asics Carolina Distance Carnival in North Carolina. “I have people who have flown here from Montana, North Dakota, Oklahoma, Rhode Island, New Jersey,” he told me by phone from his Airbnb in Charlotte. He was excited because the racing would take place at night, when times are fastest, and runners would be grouped together in heats according to their personal bests—a reliable way to get kids to push each other in a tight pack.</p>
+<p>Two days later, Catton texted me a heads-up to check out the Carnival’s results. They were staggering: In the high school boys’ mile, the top 14 finishers all went sub-4:10. Five middle-school girls had broken the 5-minute barrier. Catton said that one of his clients, a ninth-grade girl who ran the 3,200 meters, had set an Oklahoma state record at the Carnival, yet only managed to come in 14th—half a minute behind the winner.</p>
+<p>The social media content generated by these meets has turned a number of high schoolers into influencers. Some of them get sponsorship deals. Most receive perks rather than money—notably loads of free swag that they’re encouraged to flaunt online—though that may change as brands increasingly realize how much high school stars can shape the tastes of young consumers.</p>
+<p>I watched one of those sought-after celebrities, 17-year-old Natalie Dumas, compete at the East Coast International Showcase. The New Jersey native had been one of the most recognizable faces of trackflation for nearly a year, ever since she’d won <a data-event-click="{&quot;element&quot;:&quot;ExternalLink&quot;,&quot;outgoingURL&quot;:&quot;https://www.instagram.com/p/DLN0Eujv9OY/?img_index=1&quot;}" data-offer-url="https://www.instagram.com/p/DLN0Eujv9OY/?img_index=1" href="https://www.instagram.com/p/DLN0Eujv9OY/?img_index=1">an incredible three races</a> at the New Balance Nationals in June 2025. In Baltimore, she warmed up for a mere 20 minutes before demolishing the field in the 400-meter hurdles. She <a data-event-click="{&quot;element&quot;:&quot;ExternalLink&quot;,&quot;outgoingURL&quot;:&quot;https://www.instagram.com/p/DX2fkPPS60h/&quot;}" data-offer-url="https://www.instagram.com/p/DX2fkPPS60h/" href="https://www.instagram.com/p/DX2fkPPS60h/">looked almost bored</a> as she finished in 58.78; it wasn’t until I checked her Instagram later that I realized it was (at least at that moment) the fastest a high school girl had run the race this year.</p>
+<p>When I caught up with Dumas right after the race, she implied that she would have run much faster if she wasn’t in such high demand. “I ran Wednesday, Thursday, Friday, and today’s Saturday, so this is my fourth meet this week,” she told me. “This is my sixth event in the past four days.”</p>
+<figure class="article-figure"><picture class="article-picture"><img alt="Elite Young Runners Are Becoming Freakishly Fast. Welcome to ‘Trackflation" sizes="100vw" src="https://media.wired.com/photos/6a564cbda8c3319e5ecf8673/master/w_1600%2Cc_limit/WEB_2026-06-21_EA-WIRED-NBNO-FullQual_0014.jpg" srcset="https://media.wired.com/photos/6a564cbda8c3319e5ecf8673/master/w_120,c_limit/WEB_2026-06-21_EA-WIRED-NBNO-FullQual_0014.jpg 120w, https://media.wired.com/photos/6a564cbda8c3319e5ecf8673/master/w_240,c_limit/WEB_2026-06-21_EA-WIRED-NBNO-FullQual_0014.jpg 240w, https://media.wired.com/photos/6a564cbda8c3319e5ecf8673/master/w_320,c_limit/WEB_2026-06-21_EA-WIRED-NBNO-FullQual_0014.jpg 320w, https://media.wired.com/photos/6a564cbda8c3319e5ecf8673/master/w_640,c_limit/WEB_2026-06-21_EA-WIRED-NBNO-FullQual_0014.jpg 640w, https://media.wired.com/photos/6a564cbda8c3319e5ecf8673/master/w_960,c_limit/WEB_2026-06-21_EA-WIRED-NBNO-FullQual_0014.jpg 960w, https://media.wired.com/photos/6a564cbda8c3319e5ecf8673/master/w_1280,c_limit/WEB_2026-06-21_EA-WIRED-NBNO-FullQual_0014.jpg 1280w, https://media.wired.com/photos/6a564cbda8c3319e5ecf8673/master/w_1600,c_limit/WEB_2026-06-21_EA-WIRED-NBNO-FullQual_0014.jpg 1600w" class="article-image"/></picture><figcaption>PHOTOGRAPH: Elijah Agurs</figcaption></figure>
+<figure class="article-figure"><picture class="article-picture"><img alt="Image may contain Adult Person Sport Track And Field Clothing Footwear and Shoe" sizes="100vw" src="https://media.wired.com/photos/6a56987a36e98c56882c97c0/master/w_1600%2Cc_limit/2026-06-21_EA-WIRED-NBNO-FullQual_0003.jpg" srcset="https://media.wired.com/photos/6a56987a36e98c56882c97c0/master/w_120,c_limit/2026-06-21_EA-WIRED-NBNO-FullQual_0003.jpg 120w, https://media.wired.com/photos/6a56987a36e98c56882c97c0/master/w_240,c_limit/2026-06-21_EA-WIRED-NBNO-FullQual_0003.jpg 240w, https://media.wired.com/photos/6a56987a36e98c56882c97c0/master/w_320,c_limit/2026-06-21_EA-WIRED-NBNO-FullQual_0003.jpg 320w, https://media.wired.com/photos/6a56987a36e98c56882c97c0/master/w_640,c_limit/2026-06-21_EA-WIRED-NBNO-FullQual_0003.jpg 640w, https://media.wired.com/photos/6a56987a36e98c56882c97c0/master/w_960,c_limit/2026-06-21_EA-WIRED-NBNO-FullQual_0003.jpg 960w, https://media.wired.com/photos/6a56987a36e98c56882c97c0/master/w_1280,c_limit/2026-06-21_EA-WIRED-NBNO-FullQual_0003.jpg 1280w, https://media.wired.com/photos/6a56987a36e98c56882c97c0/master/w_1600,c_limit/2026-06-21_EA-WIRED-NBNO-FullQual_0003.jpg 1600w" class="article-image"/></picture><figcaption>PHOTOGRAPH: Elijah Agurs</figcaption></figure>
+<p>For a brief moment in April, a stunning video was everywhere in my Instagram feed. It showed a 12-year-old girl from Utah running the mile in 4:40.98, a time that crushed the previous world record for her age group by nearly six seconds. She might have run even faster had she not elected to celebrate with the Scuba Dance a few steps short of the finish line.</p>
+<p>The feat made Shyheim Wright, the content creator who specializes in highlighting the most ludicrous examples of trackflation, <a data-event-click="{&quot;element&quot;:&quot;ExternalLink&quot;,&quot;outgoingURL&quot;:&quot;https://www.instagram.com/reels/DXTHVQ9DTSB/&quot;}" data-offer-url="https://www.instagram.com/reels/DXTHVQ9DTSB/" href="https://www.instagram.com/reels/DXTHVQ9DTSB/">lose his mind</a>. “Nah, bro, nah, bro, no way!” he began his Instagram post. “Bro, nobody was even in the camera with her, bro. There was other people in the race. I didn’t see nobody.” (“She was in my heat,” wrote one commenter, a seventh grader from North Carolina who ran her personal best in the race. “I didn’t see her once, she was so far ahead.”)</p>
+<p>To many longtime track observers, however, the video was a cause for alarm. Multiple coaches and researchers told me this particular world record crystallized their fears for the safety of young runners who feel compelled to keep topping their peers. “When you see these amazing performances, it’s also just the tip of the spear of a lot of people also falling apart,” says Douglas Casa, a kinesiology professor at the University of Connecticut who studies elite athletes. “I’m not excited about all this progress. It just means that they’re working so much harder at a younger age.” He’s especially worried about young girls who specialize in middle- to long-distance events, since running the mileage required to excel in these races can delay puberty, leading to long-term issues such as lower bone density.</p>
+<p>Burnout has always been a major problem in track, a sport anchored in athletes’ ability to sop up unnatural amounts of punishment. “I’ve spent my whole life running a race fueled by fear, never-ending expectations, and external validation,” wrote Stanford University 800-meter specialist Roisin Willis in a 2025 Instagram post about overcoming her mental health struggles; around the same time, Chloe Foerster, an All American middle-distance runner at the University of Washington, went public about her serious anxiety, which often caused her to vomit before races.</p>
+<p>One 2022 study looked at the careers of 67,600 top-ranked teenage track-and-field athletes. Less than a quarter of 16- and 17-year-olds achieved comparable success past those ages, a transition rate the study authors described as “low.” Burns told me the results are even worse for kids who dominate at 16 or younger. “It’s a Faustian bargain,” he says. “Like, do you hyper-specialize and develop as a middle schooler and high schooler so you can get access and get scholarships and open all these doors, but it comes at the cost of actually being able to be good at it later?”</p>
+<p>I didn’t meet a single young runner who showed any trace of having pondered that question—naivete is one of the blessings of youth. They were instead wrapped up in envying the kids whose increasingly impressive victories get pumped into their phones every day: “When you see a girl run a faster time, all of them are trying to attack it, and they all have the mindset that they want to win,” said Dumas, the 17-year-old phenom.</p>
+<p>Whenever it seems like times are about to plateau in a certain race, another 14- or 15-year-old emerges to set a new standard and stoke the competition. (That Utah girl who set the internet alight with a 4:40 mile in April? She beat her own record by two seconds in June.) Jesse Williams, a meet organizer in Seattle, used to give coaches a rough estimate of what times would earn their athletes a spot at the Brooks PR, an elite invitational that he helps oversee. He had to stop—records are falling too fast for Williams to keep up.</p>
+<p>All that progress, of course, is built atop a foundation of pain, and I had to ask the kids why they love a sport that primarily tests their ability to endure agony. The answer that stuck with me most came from Dane Szczepkowski, an 18-year-old sprinter from SPIRE Academy in Geneva, Ohio. I caught him during a rough moment in Baltimore, mere minutes after he’d finished 39th in the 400 meters; he was clearly struggling as he tried to stretch away the damage he’d done to his legs. When I asked him why he’d become so devoted to running, he thought for a beat before offering an emphatic answer. “It’s hard,” he said. “It’s hard.”</p>
+<figure class="article-figure"><picture class="article-picture"><img alt="Elite Young Runners Are Becoming Freakishly Fast. Welcome to ‘Trackflation" sizes="100vw" src="https://media.wired.com/photos/6a564da9886df2cb58bfc72a/master/w_1600%2Cc_limit/WEB_2026-06-21_EA-WIRED-NBNO-FullQual_0016.jpg" srcset="https://media.wired.com/photos/6a564da9886df2cb58bfc72a/master/w_120,c_limit/WEB_2026-06-21_EA-WIRED-NBNO-FullQual_0016.jpg 120w, https://media.wired.com/photos/6a564da9886df2cb58bfc72a/master/w_240,c_limit/WEB_2026-06-21_EA-WIRED-NBNO-FullQual_0016.jpg 240w, https://media.wired.com/photos/6a564da9886df2cb58bfc72a/master/w_320,c_limit/WEB_2026-06-21_EA-WIRED-NBNO-FullQual_0016.jpg 320w, https://media.wired.com/photos/6a564da9886df2cb58bfc72a/master/w_640,c_limit/WEB_2026-06-21_EA-WIRED-NBNO-FullQual_0016.jpg 640w, https://media.wired.com/photos/6a564da9886df2cb58bfc72a/master/w_960,c_limit/WEB_2026-06-21_EA-WIRED-NBNO-FullQual_0016.jpg 960w, https://media.wired.com/photos/6a564da9886df2cb58bfc72a/master/w_1280,c_limit/WEB_2026-06-21_EA-WIRED-NBNO-FullQual_0016.jpg 1280w, https://media.wired.com/photos/6a564da9886df2cb58bfc72a/master/w_1600,c_limit/WEB_2026-06-21_EA-WIRED-NBNO-FullQual_0016.jpg 1600w" class="article-image"/></picture><figcaption>Elite Young Runners Are Becoming Freakishly Fast. Welcome to ‘Trackflation</figcaption></figure>
+<figure class="article-figure"><picture class="article-picture"><img alt="Elite Young Runners Are Becoming Freakishly Fast. Welcome to ‘Trackflation" sizes="100vw" src="https://media.wired.com/photos/6a564d9efbdd8db6a3f40648/master/w_1600%2Cc_limit/WEB_2026-06-21_EA-WIRED-NBNO-FullQual_0017.jpg" srcset="https://media.wired.com/photos/6a564d9efbdd8db6a3f40648/master/w_120,c_limit/WEB_2026-06-21_EA-WIRED-NBNO-FullQual_0017.jpg 120w, https://media.wired.com/photos/6a564d9efbdd8db6a3f40648/master/w_240,c_limit/WEB_2026-06-21_EA-WIRED-NBNO-FullQual_0017.jpg 240w, https://media.wired.com/photos/6a564d9efbdd8db6a3f40648/master/w_320,c_limit/WEB_2026-06-21_EA-WIRED-NBNO-FullQual_0017.jpg 320w, https://media.wired.com/photos/6a564d9efbdd8db6a3f40648/master/w_640,c_limit/WEB_2026-06-21_EA-WIRED-NBNO-FullQual_0017.jpg 640w, https://media.wired.com/photos/6a564d9efbdd8db6a3f40648/master/w_960,c_limit/WEB_2026-06-21_EA-WIRED-NBNO-FullQual_0017.jpg 960w, https://media.wired.com/photos/6a564d9efbdd8db6a3f40648/master/w_1280,c_limit/WEB_2026-06-21_EA-WIRED-NBNO-FullQual_0017.jpg 1280w, https://media.wired.com/photos/6a564d9efbdd8db6a3f40648/master/w_1600,c_limit/WEB_2026-06-21_EA-WIRED-NBNO-FullQual_0017.jpg 1600w" class="article-image"/></picture><figcaption>Elite Young Runners Are Becoming Freakishly Fast. Welcome to ‘Trackflation</figcaption></figure>
+<p>I’d heard that sentiment from a lot of runners. They had chosen track specifically because it’s an unglamorous grind—a lonely contest between them and a pitiless clock. The joy is in learning to appreciate the cause-and-effect relationship between arduous labor and incremental progress, even when that progress delivers a middle-of-the-pack result. Sophia Belcher, a high school junior from the Dallas area who won a Texas state title in the 800 meters this May, told me how the never-ending demands of track have been her rock through the most difficult moments of adolescence: “In a world where I think a lot of things are changing and not constant, I kind of had running that I could focus on, that would always be there.”</p>
+<p>There’s obviously nothing new about unmoored teens searching for structure, but track’s rise does feel connected to the unique tumult of the past few years. Kids are understandably reeling from the echoes of the pandemic, social media, AI. Track just might be the ideal sport for those who tend to turn inward when looking to build self-belief. Amid the acceleration of everything, there’s clarity to be found in trying to get a tenth of a second faster.</p>
+<p>My son was good-natured about his thumping loss at the 2025 sectionals, but that race turned out to be the apex of his running career. He ran winter track again as a senior but his heart wasn’t in it—he grew averse to the harsh training for the 1,600 and dropped down to shorter races, where faster sprinters dominated. A second trip to sectionals wasn’t in the cards, which didn’t bother him; by season’s end, he’d become more interested in trying to learn how to kick field goals so he can walk on to his college’s football team in the fall.</p>
+<p>But our family’s journey through track seems far from over. My 13-year-old daughter joined her middle-school team this spring, and after some trial and error, she settled on the 800 as her primary race. She gutted out some decent times at a few meets, and her coach rewarded her with a spot in a post-season meet held in a nearby college town.</p>
+<p>She was nervous for days beforehand, and I tried to assure her that just showing up and running would be a victory—no one expects her to be the next Natalie Dumas. On the afternoon of the meet, though, she called me to report that things had gone much better than expected. Not only had she conquered her butterflies, she’d also won her heat. She’d looked over her shoulder with about 50 meters to go and realized that no one was even close to overtaking her. “I pulverized those other girls,” she said with evident glee.</p>
+<p>She’s still light-years away from a shout-out in a Shyheim Wright video. But in the era of trackflation, all things seem possible.</p>
+<p><em>The images for this story were photographed at the New Balance Nationals Outdoor on June 21, 2026, at Franklin Field in Philadelphia.</em></p></div>
+      
+    </article>
+    
+    <article>
+      <h1>Please for the love of all that is holy: Stop writing long boring Titles</h1>
+      <div class="article-meta">
+        swyx
+        · 30 Mar 2026 · <a href="https://dx.tips/titles">Source</a>
+      </div>
+      <div class="article-body"><p>People code switch. Every ethnic minority has <a href="https://en.wikipedia.org/wiki/Sorry_to_Bother_You">lived experience of this</a>. When you talk to me in Singapore, I sound very different than when I’m in San Francisco. And the way you talk at work is probably very different from how you talk to your kids and how you talk to your lover.</p>
+<p>I’ve been dealing with a particularly virulent form of code switching in the simple form of titling blogposts and talks. When you ask the writer face to face what their thing is about, they can give you a perfectly human explanation. And then when they send you their piece, it’s all “<strong><em>Leveraging GenAI with Robust Data Foundations to Transform Businesses</em></strong>”. I’ve left my body by the time I read the first word.</p>
+<p>My hope in writing this piece is to <strong>put an end to bad titles</strong>.</p>
+<p>If I sent you this guide, it is not an insult. You just don’t have good title game. That’s ok. You’re great at what you do, title game isn’t your job. I’m the guy that wrote <a href="https://www.swyx.io/how-to-name-things">How To Name Things</a> and <a href="http://swyx.io/two-words">Two Words</a>. I sent you this guide <strong><em>because</em></strong> your shitty title is the main thing stopping your readers from getting to the good part. If you didn’t have anything good, I wouldn’t bother with a lost cause.</p>
+<p>First…</p>
+<h2>Towards Leveraging Corporate Speak For Maximum Enterprise Synergy</h2>
+<p>DO NOT:</p>
+<ul> <li>Start with “Leveraging” or “Towards” or “Navigating” or “Empowering”</li> </ul>
+<p>Yeah just stop. There’s no rescuing this when you start there. Just delete meaningless corporate weasel words. Anything &gt;3 syllables is a red flag.</p>
+<h2>Make It Quotable</h2>
+<p><strong>If you do not try to make your title roll off the tongue, it probably won’t.</strong></p>
+<p>Literally imagine telling your friend about your talk. Telling a new acquaintance to google your blogpost. Having a fan of yours cite it back to you. How much do they stumble? Yeah. This has all happened to me.</p>
+<p>There’s an extremely high correlation between what are considered the best talks and the quotability of titles. <a href="https://www.infoq.com/presentations/Simple-Made-Easy/">Simple Made Easy</a>. <a href="https://www.youtube.com/watch?v=PUv66718DII">Inventing on Principle</a>. Our list of best <a href="https://dx.tips/pitches">demos/pitches</a> of all time.</p>
+<p>Resist colons. It lacks confidence. Why Use Lot Word: <s>When Few Word Do Trick</s>? You’re not <a href="https://en.wikipedia.org/wiki/High_School_Musical:_The_Musical:_The_Series">High School Musical: The Musical: The Series</a>.</p>
+<p>Put the SEO keyword vomit in the description.</p>
+<p>Titles are for humans.</p>
+<h2>Prescribe A Strong Opinion</h2>
+<p>Opinions are one of the most quotable things.</p>
+<p>But more importantly, a good Opinion Piece is load bearing because it is eminently forwardable, and therefore viral and impactful. Your Job To Be Done is to be the definitive, conclusive, piece on that Opinion. Stake out territory in Opinion Space, list out all the arguments for, counter all the arguments against, provide datapoints, and watch that go further than anything you’ve ever done.</p>
+<p>How to know what’s a good opinion? <strong>Three Strikes rule</strong>: If you repeat yourself <a href="https://www.swyx.io/three-strikes">three times</a>, ship it. Even if you’re just quoting others, its fine, credit them and make it your own.</p>
+<p><strong>Mental Models and Frameworks</strong> are more complex opinions that allow others to scaffold their thought around you. My <a href="https://dx.tips/circles">Radiating Circles</a> and <a href="https://www.swyx.io/measuring-devrel">Measuring Developer Relations</a> and <a href="https://www.swyx.io/js-third-age">Third Age of JavaScript</a> did this.</p>
+<p><strong>Opinions contrary to an established opinion</strong> are the hardest to do well and the best when correct. <a href="https://stratechery.com/2013/clayton-christensen-got-wrong/">What Clayton Christensen Got Wrong</a> made Ben Thompson’s career. <a href="http://latent.space/p/ai-engineer">Rise of AI Engineer</a> countered the prevailing Prompt Engineer -and- GPU Rich Startup/ML Engineer narrative at the time, with room to grow.</p>
+<h2>Curiosity Gap Dynamics</h2>
+<p>Marketers know the power of <a href="https://copyhackers.com/2014/04/curiosity-gap/">the Curiosity Gap</a>. Here is where we toy closest with clickbait. I’ll be honest that I wasn’t even sure if I wanted to give it its own subheading, but its a very important concept that you should at least be aware exists, even if you’re going to ignore it.</p>
+<p>Strong enough opinions create their own curiosity gaps; you won’t have to try very hard to make it interesting if you got my attention in 4 words anyway.</p>
+<p>Curiosity gaps done poorly can lead to “<a href="https://www.merriam-webster.com/wordplay/bury-the-lede-versus-lead">burying the lede</a>”, which make your talk less Quotable and you also don’t want to do that.</p>
+<p>Simplest way to put it is; if the most interesting thing about your content is your title, and what people take away after having read your post matches what they would have predicted after reading your title, then you’ve probably said too much and could cut.</p>
+<h2>Play Madlibs</h2>
+<p>You don’t have to invent your title from scratch (nor should you always do what I’m about to suggest). Here’s some templates that work well:</p>
+<ul> <li><p>{<em>BENEFIT EVERYONE WANTS</em>} <strong>without</strong> {<em>DOWNSIDE EVERYBODY EXPECTS</em>}</p> <ul> <li>e.g. <a href="https://nav.al/rich">How to Get Rich (Without Getting Lucky)</a>, <a href="https://x.com/swyx/status/1249793388037025797">How to Market Yourself (Without Being A Celebrity)</a>. See also subtitle of this post.</li> </ul> </li> <li><p>{<em>PRESCRIPTIVE OPINION</em>}, <strong>don’t</strong> {<em>THING YOU DO</em>}</p> <ul> <li><p>e.g. <a href="https://lexi-lambda.github.io/blog/2019/11/05/parse-don-t-validate/">Parse, don’t validate</a></p> </li> <li><p>alternative prescriptive opinion: <strong>Never</strong> {THING YOU DO}</p> </li> <li><p>see also title of this post</p> </li> </ul> </li> <li><p>{<em>POPULAR THING</em>} <strong>IS DEAD</strong></p> <ul> <li><p>unfortunately this is clickbait that works</p> </li> <li><p>e.g. <a href="https://www.youtube.com/watch?v=D2HurSldDkE&amp;t=1833s">Prompt Engineering is Dead</a>, <a href="https://motherduck.com/blog/big-data-is-dead/">Big Data is Dead</a></p> </li> <li><p>when given at a conference for <em>POPULAR THING,</em> this is known as a <a href="https://www.swyx.io/cfp-advice#pick-a-genre">Heresy Talk</a></p> </li> <li><p>opposite also works:</p> <ul> <li><p><a href="https://hn.algolia.com/?dateRange=all&amp;page=0&amp;prefix=true&amp;query=the%20rise%20of&amp;sort=byPopularity&amp;type=story"><strong>The Rise of</strong> {THING}</a></p> </li> <li><p><a href="https://hn.algolia.com/?dateRange=all&amp;page=0&amp;prefix=true&amp;query=unreasonable&amp;sort=byPopularity&amp;type=story"><strong>The Unreasonable Effectiveness of</strong> {THING}</a></p> </li> </ul> </li> </ul> </li> <li><p><strong>Fundamentals of</strong> {THING}</p> <ul> <li><p>straightforward, people love fundamentals</p> </li> <li><p>also <strong>How</strong> {THING} <strong>Really Works</strong></p> </li> <li><p>You can also flip it and go for the <strong>Advanced</strong> {THING} tier content</p> </li> </ul> </li> <li><p>{CONVEY EXPERIENCE/SCALE} with {THING}</p> <ul> <li>e.g. <a href="https://www.oreilly.com/radar/what-we-learned-from-a-year-of-building-with-llms-part-i/">What We Learned from a Year of Building with LLMs</a>, <a href="https://news.ycombinator.com/item?id=40877136">Insights from over <strong><em>10</em></strong>,<strong><em>000</em></strong> comments on "Ask HN: Who Is Hiring" using GPT-4o</a></li> </ul> </li> </ul>
+<p><a href="https://news.ycombinator.com/item?id=40877136">There’s loads more templates that work, please suggest in comments</a> and I can add/review.</p>
+<p>You can also browse the masters of microcopy like <a href="https://stephsmith.io/">Steph Smith</a> and <a href="https://www.youtube.com/@MyFirstMillionPod">Shaan Puri</a>, and if you are worried about clickbait, you can see <a href="https://www.youtube.com/watch?v=S2xHZPH5Sng">Veritasium’s</a> take or <a href="https://simonwillison.net/">Simon Willison’s Highlights</a>.</p>
+<p>also <a href="https://andrewchen.com/">Andrew Chen</a> senpai:</p>
+<h2>Understand Buzzword Metagame</h2>
+<p>Buzzwords work. Because of a mix of human psychology and algorithmic recsys. Don’t avoid them, just use them judiciously. This involves the ability to read the room, which many smart people sadly cannot without significant involvement in the broader community you are trying to speak to. I don’t see any way around it other than trying to authentically immerse, or consult a friendly who does.</p>
+<p>Not all buzzwords are created equal. Databricks/Berkeley tried to push <a href="https://www.databricks.com/glossary/compound-ai-systems">Compound AI Systems</a>, Gartner is pushing <a href="https://www.gartner.com/en/newsroom/press-releases/2024-09-25-gartner-identifies-composite-ai-and-supply-chain-data-governance-as-highest-impact-supply-chain-planning-technology-trends">Composite AI</a> and <a href="https://www.gartner.com/smarterwithgartner/gartner-keynote-the-future-of-business-is-composable">Composable</a> business — this resonates with their audience, but not more broadly.</p>
+<p>Pick the <a href="https://www.youtube.com/watch?v=fqkaBEWPH18">shibboleths</a> that work for the community you want. <a href="http://latent.space/p/ai-engineer">AI Engineer</a> worked for reasons that are well understood now. <a href="https://www.youtube.com/playlist?list=PLNoPYaf7mNI_Iq_TinuafkIE5n_O_Y5Cy">GraphRAG</a> is working outside of the company that coined it. These buzzwords travel, go ahead and put them in there.</p>
+<p>Buzzwords rise and fall. Try to catch them on the rise — go harder than everyone else on the rise up and regularly test their effectiveness, such that by the time your main buzzword has tapped out you’ve got 2-3 others cooking.</p>
+<h2>Workshopping your titles</h2>
+<p>I write this post out of frustration, but also to capture my own thought process. I’m currently procrastinating while writing a Latent Space post.</p>
+<ul> <li><p>The original title was <a href="https://www.youtube.com/watch?v=-rSbvS0qLqY&amp;t=361s">Why every AI Engineer needs an AI Gateway</a>. Good, genuine opinion, load bearing. But not super memorable.</p> </li> <li><p>My next iteration was “<strong>Stop writing model routers, use an LLM Gateway</strong>”. Ok, prescriptive, evocative. But didn’t cover the other elements other than model routing. One could shorten to “Stop writing your own LLM Gateway” but that doesnt quite express what people do.</p> </li> <li><p>My next one is “<strong>It's not your job to DIY an LLM Gateway</strong>”. No buzzword bc “your job” is implied (for a Latent Space audience), a little curiosity gap, LLM buzzword, strong opinion. But still not strong enough.</p> </li> <li><p>Final one is “<strong>LLM Gateway: The One Decision That Removes 100 AI Engineering Decisions</strong>”. Leans on <a href="https://tim.blog/2020/01/20/one-decision-that-removes-100-decisions/">Tim Ferriss’ madlbs</a>.</p> </li> </ul>
+<p>It’s very common for the “tail to wag the dog to wag the tail” - the title is so important to clickthrough and so impactful to the message, that you spend a bunch of time on just the title itself, because that determines the piece you will write, then write the piece, then you go back and tweak the title based on what happened.</p>
+<p>Amateur writers think their content has 95% of the value and then spend 5% on the title. Pros will put the value of titles closer to 50% and then act like it.</p>
+<h2>You Should Break The Rules Once You Understand Human Behavior More Intuitively Than Rules Can Model</h2>
+<p>See title of this post. No better aura than intentional, conspicuous, successful rulebreaking.</p>
+<h2>Subscribe to our newsletter</h2></div>
+      
+    </article>
+    
+    <article>
+      <h1>Good Interfaces Make Good Neighbors</h1>
+      <div class="article-meta">
+        boz.
+        · 17 Oct 2026 · <a href="https://boz.com/articles/good-interfaces-make-good-neighbors">Source</a>
+      </div>
+      <div class="article-body"><p>In software, good interfaces allow independent systems to work together without knowing everything about one another. Organizations are not that different.</p>
+<p>We tend to treat collaboration problems between teams as relationship problems. Sometimes they are. More often I think they are interface problems.</p>
+<p>A good interface makes it obvious who owns what, what they are working on, and how new requests are evaluated. When those things are clear, teams can disagree without every disagreement becoming a conflict. When they aren’t, even well-intentioned people end up spending enormous energy navigating personalities and reverse-engineering decisions.</p>
+<p>For collaboration among smaller groups to work, I think we need three things:</p>
+<p><strong>1. Clear ownership.</strong> Every area of work needs one person who is clearly accountable for it. That doesn’t mean they do all the work or make every decision unilaterally. It means they are responsible for making sure decisions get made and conflicts get resolved. If another team cannot figure out who has that responsibility, the interface is broken.</p>
+<p><strong>2. Clear and inspectable priorities.</strong> This means an actual ordered list, including the work that is currently below the line. A list containing only the things a team has decided to do is not a priority list; it is a marketing document. The tradeoffs matter just as much as the commitments because they allow dependencies to plan and people to understand why a reasonable request might not be acted on.</p>
+<p><strong>3. A clear process for evaluating new work.</strong> People should know where to bring a request, who will assess it, what criteria will be used, when they should expect an answer, and where that decision will be documented. A new request should not automatically become the highest priority, but it should reliably get considered. Someone may be disappointed by the answer, but they should not be confused about how the answer was reached.</p>
+<p>Only after all three of those exist should escalation be required. Escalation is appropriate when two accountable leaders understand the same priorities and process but still believe their interpretations are in conflict. The escalation then is about understanding the priorities better, not about the specific decision in question.</p>
+<p>Every important shared surface should publish three things: its accountable owner, its ordered priorities — including what is below the line — and its process for evaluating new work. Good interfaces won’t eliminate disagreement. They will keep ordinary disagreement from becoming organizational dysfunction.</p></div>
+      
+    </article>
+    
+  </body>
+</html>
