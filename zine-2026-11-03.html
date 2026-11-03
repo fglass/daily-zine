@@ -1,0 +1,428 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Fred Talks - 2026-11-03</title>
+    <style>
+      @page {
+        size: A5;
+        margin: 8mm 9mm 9mm;
+      }
+
+      :root {
+        color: #111;
+        font-family: "Times New Roman", Times, serif;
+        --body-text-size: 9.5pt;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        color: #111;
+        background: #fff;
+        font-family: "Times New Roman", Times, serif;
+        line-height: 1.45;
+      }
+
+      a,
+      a:visited {
+        color: #111;
+        text-decoration: underline;
+      }
+
+      .cover {
+        min-height: calc(210mm - 17mm);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        page-break-after: always;
+        border: 1px solid #111;
+        padding: 8mm;
+        background: #fff;
+      }
+
+      .toc-item-meta,
+      .article-meta {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .masthead {
+        margin: 0;
+        font-size: 40pt;
+        line-height: 0.95;
+        text-transform: uppercase;
+      }
+
+      .issue-date {
+        margin: 4mm 0 0;
+        font-size: 14pt;
+      }
+
+      .issue-date sup {
+        font-size: 0.58em;
+        vertical-align: super;
+        line-height: 0;
+      }
+
+      .cover-deck {
+        max-width: 90mm;
+        font-size: 12pt;
+        margin: 0;
+      }
+
+      .toc {
+        border-top: 3px solid #111;
+        padding-top: 6mm;
+      }
+
+      .toc h2 {
+        margin: 0 0 4mm;
+        font-size: 11pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .toc-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .toc-item {
+        padding: 3mm 0;
+        border-bottom: 1px solid rgba(17, 17, 17, 0.2);
+      }
+
+      .toc-item-title {
+        font-size: 12pt;
+        margin: 0 0 1mm;
+      }
+
+      .toc-item-meta {
+        font-size: 8pt;
+      }
+
+      .masthead-compact {
+        margin: 0 0 6mm;
+      }
+
+      .masthead-compact h1 {
+        margin: 0;
+        font-size: 22pt;
+        line-height: 1.1;
+        text-transform: uppercase;
+      }
+
+      .masthead-compact .issue-date {
+        margin: 2mm 0 0;
+        font-size: 11pt;
+      }
+
+      .toc-compact {
+        border-top: 1px solid #111;
+        border-bottom: 1px solid #111;
+        padding: 4mm 0;
+        margin: 0 0 8mm;
+      }
+
+      article + article {
+        margin-top: 10mm;
+        padding-top: 6mm;
+        border-top: 2px solid #111;
+      }
+
+      h1 {
+        margin: 0 0 2mm;
+        font-size: 18pt;
+        line-height: 1.1;
+      }
+
+      .article-meta {
+        font-size: 8.5pt;
+        margin-bottom: 6mm;
+        padding-bottom: 3mm;
+        border-bottom: 1px solid #111;
+      }
+
+      .article-body {
+        font-size: var(--body-text-size);
+        font-family: "Times New Roman", Times, serif;
+      }
+
+      .article-body p,
+      .article-body li,
+      .article-body blockquote,
+      .article-body dd,
+      .article-body dt {
+        margin: 0 0 4mm;
+        orphans: 3;
+        widows: 3;
+      }
+
+      .article-body ul,
+      .article-body ol,
+      .article-body dl {
+        margin: 0 0 4mm 5mm;
+        padding: 0;
+      }
+
+      .article-body h2,
+      .article-body h3,
+      .article-body h4 {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        margin: 7mm 0 3mm;
+        line-height: 1.2;
+      }
+
+      .article-body blockquote {
+        margin-left: 6mm;
+        padding-left: 4mm;
+        border-left: 2px solid #111;
+      }
+
+      .article-body .media-omitted {
+        margin: 0 0 4mm;
+        font-size: 8.5pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(17, 17, 17, 0.65);
+      }
+
+      .article-body figure,
+      .article-body .article-figure,
+      .article-body picture,
+      .article-body .article-picture {
+        display: block;
+        max-width: 72mm;
+        margin: 0 auto 4mm;
+        break-inside: avoid;
+      }
+
+      .article-body img,
+      .article-body .article-image {
+        display: block;
+        max-width: min(100%, 72mm);
+        max-height: 34mm;
+        height: auto;
+        width: auto;
+        object-fit: contain;
+        margin: 0 auto 3mm;
+      }
+
+      .article-body figcaption {
+        margin-top: 1.5mm;
+        font-size: 8.5pt;
+        line-height: 1.3;
+        color: rgba(17, 17, 17, 0.8);
+      }
+
+      .article-note {
+        margin-top: 6mm;
+        padding-top: 3mm;
+        border-top: 1px solid #111;
+        font-size: 9pt;
+        font-style: italic;
+      }
+
+      @media screen {
+        body {
+          padding: 2rem;
+          margin: 0 auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    
+    <header class="masthead-compact">
+      <h1>Fred Talks</h1>
+      <p class="issue-date">
+        3<sup>rd</sup> November 2026
+      </p>
+    </header>
+
+    <nav class="toc toc-compact">
+      <h2>Contents</h2>
+      <ol class="toc-list">
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Automating eval design and hillclimbing with Claude</div>
+          <div class="toc-item-meta">
+            Lance Martin · 2792 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Agentic Monitoring</div>
+          <div class="toc-item-meta">
+            Ben Congdon · 1924 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">What requirements don&#39;t you have?</div>
+          <div class="toc-item-meta">
+            seangoedecke.com RSS feed · 945 words
+          </div>
+        </li>
+        
+      </ol>
+    </nav>
+    
+
+    
+    <article>
+      <h1>Automating eval design and hillclimbing with Claude</h1>
+      <div class="article-meta">
+        Lance Martin
+        · 01 Oct 2026 · <a href="https://claude.dev/blog/automating-eval-design-and-hillclimbing/">Source</a>
+      </div>
+      <div class="article-body"><p>Principles for designing evals and hillclimbing against them without fooling yourself, and how the claude-api skill's build-eval and hillclimb commands put them to work.</p>
+<p>Evaluations provide a signal on how your app or skill is performing on specific tasks. But designing evaluations, and improving performance on them without fooling yourself, is hard. We've added guidance for both to the <a href="https://github.com/anthropics/skills/tree/main/skills/claude-api">claude-api skill</a>.</p>
+<p>With the skill, you can run <code>/claude-api build-eval</code> to build an evaluation inside your codebase, and run <code>/claude-api hillclimb</code> to improve your application against it, one change at a time, with a held-out set of examples to catch overfitting.</p>
+<p>In this article, we highlight the principles of good eval design and hillclimbing first, then show how Claude Code with the <code>claude-api</code> skill applies those principles. We’ll close by showing a few examples of these commands.</p>
+<h2>EVAL DESIGN</h2>
+<p>Well designed evaluations have a few common elements (Figure 1):</p>
+<ol> <li><strong>Eval tasks mirror production.</strong> Sample tasks that you care about in “production,” or the setting in which the capability or application you are testing will be used. Sometimes tasks are picked because they are easy to generate or they are easy to grade. But it’s important to ensure that the task distribution represents what you <em>actually</em> care about.</li> <li><strong>Performance improves with stronger models and more thinking</strong>. More capable models and <a href="https://claude.dev/blog/spending-your-effort/">higher effort levels</a> typically should perform better on an evaluation. If they don’t, ambiguous tasks or a miscalibrated grader often are hobbling performance.</li> <li><strong>There is “passable” headroom at the frontier</strong>. The most capable model at the highest effort should be well below 100% on the evaluation, otherwise you can’t reliably judge how changes impact performance. Importantly, the gap should not be explained by impossible or ambiguous tasks: a common tell is that a task fails every evaluation run, regardless of the number of replicates. A good task is one where two domain experts would reach the same verdict and everything the grader checks is stated in the task.</li> <li><strong>Low run-to-run variance</strong>. High variance is often due to poorly designed, ambiguous tasks or a grader that produces different verdicts on identical output. Variance can also hide in the configuration. For example, effort may not be applied consistently. Also, the environment can affect the results of the evaluation: leftover state from an earlier trial (a file, a git history) can hand the agent the answer.</li> </ol>
+<figure class="article-figure"><img src="data:image/svg+xml;base64,PHN2ZyBjbGFzcz0iYXJ0LWRpYWdyYW0td2lkZSIgYXJpYS1oaWRkZW49InRydWUiIGZvY3VzYWJsZT0iZmFsc2UiIGlkPSJldmFsLWZvdXItZWxlbWVudHMiIHdpZHRoPSI2MzQiIGhlaWdodD0iNDYwIiB2aWV3Qm94PSIwIDAgNjM0IDQ2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48c3R5bGU+c3Zne2JhY2tncm91bmQ6I2ZhZjlmNTstLWJnOiNmYWY5ZjU7LS1pbms6IzE0MTQxMzstLWluay0yOiM0YzRiNDU7LS1saW5lOiMxNDE0MTMzODstLWxpbmUtc29mdDojMTQxNDEzMWM7LS12aXotbXV0ZWQ6IzY1NjQ1ZTstLXZpei1tMTojM2QzZDNhOy0tdml6LWI5OiM4ZThjODc7LS1maWctZm9jYWw6I2MxNWYzY308L3N0eWxlPjxzdHlsZT4jZXZhbC1mb3VyLWVsZW1lbnRzIHRleHR7Zm9udC1mYW1pbHk6J0FudGhyb3BpYyBTYW5zJywnQW50aHJvcGljIFNhbnMgRmFsbGJhY2snLCdBbnRocm9waWMgU2FucyBGYWxsYmFjayBSb2JvdG8nLHN5c3RlbS11aSxzYW5zLXNlcmlmfSNldmFsLWZvdXItZWxlbWVudHMgLnRudW17Zm9udC12YXJpYW50LW51bWVyaWM6dGFidWxhci1udW1zfTwvc3R5bGU+CjxsaW5lIHgxPSIyNi4wIiB4Mj0iNjE4LjAiIHkxPSIzMC4wIiB5Mj0iMzAuMCIgc3Ryb2tlLXdpZHRoPSIxIiBzdHJva2UtZGFzaGFycmF5PSIzIDQiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3R5bGU9InN0cm9rZTp2YXIoLS1saW5lKSIvPgo8dGV4dCB4PSIyNi4wIiB5PSIyNC4wIiBmb250LXNpemU9IjEyIiBzdHlsZT0iZmlsbDp2YXIoLS12aXotbXV0ZWQpIj5QZXJmZWN0IHNjb3JlPC90ZXh0Pgo8bGluZSB4MT0iMjYuMCIgeDI9IjYxOC4wIiB5MT0iMzQ0IiB5Mj0iMzQ0IiBzdHJva2Utd2lkdGg9IjEiIHN0eWxlPSJzdHJva2U6dmFyKC0tbGluZSkiLz4KPGcgZm9udC1zaXplPSIxMiIgc3R5bGU9ImZpbGw6dmFyKC0tdml6LW11dGVkKSI+CjxsaW5lIHgxPSIxODQuMSIgeDI9IjE4NC4xIiB5MT0iMzQ0IiB5Mj0iMzQ5IiBzdHJva2Utd2lkdGg9IjEiIHN0eWxlPSJzdHJva2U6dmFyKC0tbGluZSkiLz4KPHRleHQgeD0iMTg0LjEiIHk9IjM2NCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+bG93IGVmZm9ydDwvdGV4dD4KPGxpbmUgeDE9IjMzMS4xIiB4Mj0iMzMxLjEiIHkxPSIzNDQiIHkyPSIzNDkiIHN0cm9rZS13aWR0aD0iMSIgc3R5bGU9InN0cm9rZTp2YXIoLS1saW5lKSIvPgo8dGV4dCB4PSIzMzEuMSIgeT0iMzY0IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5tZWRpdW0gZWZmb3J0PC90ZXh0Pgo8bGluZSB4MT0iNDc4LjEiIHgyPSI0NzguMSIgeTE9IjM0NCIgeTI9IjM0OSIgc3Ryb2tlLXdpZHRoPSIxIiBzdHlsZT0ic3Ryb2tlOnZhcigtLWxpbmUpIi8+Cjx0ZXh0IHg9IjQ3OC4xIiB5PSIzNjQiIHRleHQtYW5jaG9yPSJtaWRkbGUiPmhpZ2ggZWZmb3J0PC90ZXh0Pgo8L2c+Cjx0ZXh0IHg9IjMyMi4wIiB5PSIzOTMuNSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSIxMyIgc3R5bGU9ImZpbGw6dmFyKC0tdml6LW11dGVkKSI+QWN0aW9uIHRva2VucyBwZXIgYXR0ZW1wdCwgbG9nIHNjYWxlPC90ZXh0Pgo8dGV4dCB0cmFuc2Zvcm09InRyYW5zbGF0ZSg5LjUgMTg3LjApIHJvdGF0ZSgtOTApIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjEzIiBzdHlsZT0iZmlsbDp2YXIoLS12aXotbXV0ZWQpIj5TY29yZTwvdGV4dD4KPGxpbmUgeDE9IjE5Mi4yIiB4Mj0iNTc1LjQiIHkxPSIxNDEuMCIgeTI9IjE0MS4wIiBzdHJva2Utd2lkdGg9IjEiIHN0cm9rZS1kYXNoYXJyYXk9IjMgNCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHlsZT0ic3Ryb2tlOnZhcigtLWxpbmUpIi8+CjxsaW5lIHgxPSI0ODYuMiIgeDI9IjU3NS40IiB5MT0iODEuMSIgeTI9IjgxLjEiIHN0cm9rZS13aWR0aD0iMSIgc3Ryb2tlLWRhc2hhcnJheT0iMyA0IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0eWxlPSJzdHJva2U6dmFyKC0tbGluZSkiLz4KPGcgY2xhc3M9InNlcmllcyI+CjxwYXRoIGQ9Ik0xODQuMSAxNDEuMCBMMzMxLjEgOTguNiBMNDc4LjEgODEuMSIgZmlsbD0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0eWxlPSJzdHJva2U6dmFyKC0tZmlnLWZvY2FsKSIvPgo8cGF0aCBkPSJNMTgxLjEgMTMzLjAgTDE4Ny4yIDEzMy4wIE0xODQuMSAxMzMuMCBMMTg0LjEgMTQ5LjAgTTE4MS4xIDE0OS4wIEwxODcuMiAxNDkuMCIgZmlsbD0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBzdHlsZT0ic3Ryb2tlOnZhcigtLWZpZy1mb2NhbCkiLz4KPGNpcmNsZSBjeD0iMTg0LjEiIGN5PSIxNDEuMCIgcj0iNC41IiBzdHJva2Utd2lkdGg9IjEiIHN0eWxlPSJmaWxsOnZhcigtLWZpZy1mb2NhbCk7c3Ryb2tlOnZhcigtLWJnKSIvPgo8cGF0aCBkPSJNMzI4LjEgOTAuNiBMMzM0LjIgOTAuNiBNMzMxLjEgOTAuNiBMMzMxLjEgMTA2LjYgTTMyOC4xIDEwNi42IEwzMzQuMiAxMDYuNiIgZmlsbD0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBzdHlsZT0ic3Ryb2tlOnZhcigtLWZpZy1mb2NhbCkiLz4KPGNpcmNsZSBjeD0iMzMxLjEiIGN5PSI5OC42IiByPSI0LjUiIHN0cm9rZS13aWR0aD0iMSIgc3R5bGU9ImZpbGw6dmFyKC0tZmlnLWZvY2FsKTtzdHJva2U6dmFyKC0tYmcpIi8+CjxwYXRoIGQ9Ik00NzUuMSA3My4xIEw0ODEuMiA3My4xIE00NzguMSA3My4xIEw0NzguMSA4OS4xIE00NzUuMSA4OS4xIEw0ODEuMiA4OS4xIiBmaWxsPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIHN0eWxlPSJzdHJva2U6dmFyKC0tZmlnLWZvY2FsKSIvPgo8Y2lyY2xlIGN4PSI0NzguMSIgY3k9IjgxLjEiIHI9IjQuNSIgc3Ryb2tlLXdpZHRoPSIxIiBzdHlsZT0iZmlsbDp2YXIoLS1maWctZm9jYWwpO3N0cm9rZTp2YXIoLS1iZykiLz4KPC9nPgo8ZyBjbGFzcz0ic2VyaWVzIj4KPHBhdGggZD0iTTE4NC4xIDIzNC40IEwzMzEuMSAyMDAuOCBMNDc4LjEgMTg2LjIiIGZpbGw9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHlsZT0ic3Ryb2tlOnZhcigtLXZpei1tMSkiLz4KPHBhdGggZD0iTTE4MS4xIDIyNi40IEwxODcuMiAyMjYuNCBNMTg0LjEgMjI2LjQgTDE4NC4xIDI0Mi40IE0xODEuMSAyNDIuNCBMMTg3LjIgMjQyLjQiIGZpbGw9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgc3R5bGU9InN0cm9rZTp2YXIoLS12aXotbTEpIi8+CjxjaXJjbGUgY3g9IjE4NC4xIiBjeT0iMjM0LjQiIHI9IjQuNSIgc3Ryb2tlLXdpZHRoPSIxIiBzdHlsZT0iZmlsbDp2YXIoLS12aXotbTEpO3N0cm9rZTp2YXIoLS1iZykiLz4KPHBhdGggZD0iTTMyOC4xIDE5Mi44IEwzMzQuMiAxOTIuOCBNMzMxLjEgMTkyLjggTDMzMS4xIDIwOC44IE0zMjguMSAyMDguOCBMMzM0LjIgMjA4LjgiIGZpbGw9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgc3R5bGU9InN0cm9rZTp2YXIoLS12aXotbTEpIi8+CjxjaXJjbGUgY3g9IjMzMS4xIiBjeT0iMjAwLjgiIHI9IjQuNSIgc3Ryb2tlLXdpZHRoPSIxIiBzdHlsZT0iZmlsbDp2YXIoLS12aXotbTEpO3N0cm9rZTp2YXIoLS1iZykiLz4KPHBhdGggZD0iTTQ3NS4xIDE3OC4yIEw0ODEuMiAxNzguMiBNNDc4LjEgMTc4LjIgTDQ3OC4xIDE5NC4yIE00NzUuMSAxOTQuMiBMNDgxLjIgMTk0LjIiIGZpbGw9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgc3R5bGU9InN0cm9rZTp2YXIoLS12aXotbTEpIi8+CjxjaXJjbGUgY3g9IjQ3OC4xIiBjeT0iMTg2LjIiIHI9IjQuNSIgc3Ryb2tlLXdpZHRoPSIxIiBzdHlsZT0iZmlsbDp2YXIoLS12aXotbTEpO3N0cm9rZTp2YXIoLS1iZykiLz4KPC9nPgo8ZyBjbGFzcz0ic2VyaWVzIj4KPHBhdGggZD0iTTE4NC4xIDMwMS42IEwzMzEuMSAyNzUuMyBMNDc4LjEgMjYzLjYiIGZpbGw9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgc3Ryb2tlLWRhc2hhcnJheT0iNSAzIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0eWxlPSJzdHJva2U6dmFyKC0tdml6LW11dGVkKSIvPgo8cGF0aCBkPSJNMTgxLjEgMjkzLjYgTDE4Ny4yIDI5My42IE0xODQuMSAyOTMuNiBMMTg0LjEgMzA5LjYgTTE4MS4xIDMwOS42IEwxODcuMiAzMDkuNiIgZmlsbD0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBzdHlsZT0ic3Ryb2tlOnZhcigtLXZpei1tdXRlZCkiLz4KPGNpcmNsZSBjeD0iMTg0LjEiIGN5PSIzMDEuNiIgcj0iNC41IiBzdHJva2Utd2lkdGg9IjEiIHN0eWxlPSJmaWxsOnZhcigtLXZpei1tdXRlZCk7c3Ryb2tlOnZhcigtLWJnKSIvPgo8cGF0aCBkPSJNMzI4LjEgMjY3LjMgTDMzNC4yIDI2Ny4zIE0zMzEuMSAyNjcuMyBMMzMxLjEgMjgzLjMgTTMyOC4xIDI4My4zIEwzMzQuMiAyODMuMyIgZmlsbD0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBzdHlsZT0ic3Ryb2tlOnZhcigtLXZpei1tdXRlZCkiLz4KPGNpcmNsZSBjeD0iMzMxLjEiIGN5PSIyNzUuMyIgcj0iNC41IiBzdHJva2Utd2lkdGg9IjEiIHN0eWxlPSJmaWxsOnZhcigtLXZpei1tdXRlZCk7c3Ryb2tlOnZhcigtLWJnKSIvPgo8cGF0aCBkPSJNNDc1LjEgMjU1LjYgTDQ4MS4yIDI1NS42IE00NzguMSAyNTUuNiBMNDc4LjEgMjcxLjYgTTQ3NS4xIDI3MS42IEw0ODEuMiAyNzEuNiIgZmlsbD0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBzdHlsZT0ic3Ryb2tlOnZhcigtLXZpei1tdXRlZCkiLz4KPGNpcmNsZSBjeD0iNDc4LjEiIGN5PSIyNjMuNiIgcj0iNC41IiBzdHJva2Utd2lkdGg9IjEiIHN0eWxlPSJmaWxsOnZhcigtLXZpei1tdXRlZCk7c3Ryb2tlOnZhcigtLWJnKSIvPgo8L2c+Cjx0ZXh0IGNsYXNzPSJtbmFtZSIgeD0iMTY3LjkiIHk9IjE0Ni4wIiB0ZXh0LWFuY2hvcj0iZW5kIiBmb250LXNpemU9IjE0IiBmb250LXdlaWdodD0iNTAwIiBzdHJva2Utd2lkdGg9IjMiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHBhaW50LW9yZGVyPSJzdHJva2UiIHN0eWxlPSJmaWxsOnZhcigtLWluayk7c3Ryb2tlOnZhcigtLWJnKSI+RnJvbnRpZXIgbW9kZWw8L3RleHQ+Cjx0ZXh0IGNsYXNzPSJtbmFtZSIgeD0iMTY3LjkiIHk9IjIzOS40IiB0ZXh0LWFuY2hvcj0iZW5kIiBmb250LXNpemU9IjE0IiBmb250LXdlaWdodD0iNTAwIiBzdHJva2Utd2lkdGg9IjMiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHBhaW50LW9yZGVyPSJzdHJva2UiIHN0eWxlPSJmaWxsOnZhcigtLWluayk7c3Ryb2tlOnZhcigtLWJnKSI+TWlkLXNpemUgbW9kZWw8L3RleHQ+Cjx0ZXh0IGNsYXNzPSJtbmFtZSIgeD0iMTY3LjkiIHk9IjMwNi42IiB0ZXh0LWFuY2hvcj0iZW5kIiBmb250LXNpemU9IjE0IiBmb250LXdlaWdodD0iNTAwIiBzdHJva2Utd2lkdGg9IjMiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHBhaW50LW9yZGVyPSJzdHJva2UiIHN0eWxlPSJmaWxsOnZhcigtLWluayk7c3Ryb2tlOnZhcigtLWJnKSI+U21hbGxlciBtb2RlbDwvdGV4dD4KPGxpbmUgeDE9IjQwOS4yIiB4Mj0iNDA5LjIiIHkxPSIxMDEuMyIgeTI9IjI1Ny4xIiBzdHJva2Utd2lkdGg9IjEiIHN0eWxlPSJzdHJva2U6dmFyKC0tdml6LW11dGVkKSIvPgo8cGF0aCBkPSJNNDA1LjYgMTA2LjMgTDQwOS4yIDEwMS4zIEw0MTIuNyAxMDYuMyIgZmlsbD0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0eWxlPSJzdHJva2U6dmFyKC0tdml6LW11dGVkKSIvPgo8cGF0aCBkPSJNNDA1LjYgMjUyLjEgTDQwOS4yIDI1Ny4xIEw0MTIuNyAyNTIuMSIgZmlsbD0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0eWxlPSJzdHJva2U6dmFyKC0tdml6LW11dGVkKSIvPgo8Y2lyY2xlIGN4PSI0MjYuNCIgY3k9IjE2Ni4yIiByPSI4LjUiIHN0cm9rZS13aWR0aD0iMSIgc3R5bGU9ImZpbGw6dmFyKC0tYmcpO3N0cm9rZTp2YXIoLS12aXotbTEpIi8+Cjx0ZXh0IHg9IjQyNi40IiB5PSIxNzAuMiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSIxMSIgZm9udC13ZWlnaHQ9IjUwMCIgc3R5bGU9ImZpbGw6dmFyKC0tdml6LW0xKSI+MTwvdGV4dD4KPGxpbmUgeDE9IjU2NS4zIiB4Mj0iNTY1LjMiIHkxPSI4NC4xIiB5Mj0iMTM4LjAiIHN0cm9rZS13aWR0aD0iMSIgc3R5bGU9InN0cm9rZTp2YXIoLS12aXotbXV0ZWQpIi8+CjxwYXRoIGQ9Ik01NjEuNyA4OS4xIEw1NjUuMyA4NC4xIEw1NjguOCA4OS4xIiBmaWxsPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3R5bGU9InN0cm9rZTp2YXIoLS12aXotbXV0ZWQpIi8+CjxwYXRoIGQ9Ik01NjEuNyAxMzMuMCBMNTY1LjMgMTM4LjAgTDU2OC44IDEzMy4wIiBmaWxsPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3R5bGU9InN0cm9rZTp2YXIoLS12aXotbXV0ZWQpIi8+CjxjaXJjbGUgY3g9IjU4NS42IiBjeT0iMTExLjAiIHI9IjguNSIgc3Ryb2tlLXdpZHRoPSIxIiBzdHlsZT0iZmlsbDp2YXIoLS1iZyk7c3Ryb2tlOnZhcigtLXZpei1tMSkiLz4KPHRleHQgeD0iNTg1LjYiIHk9IjExNS4wIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjExIiBmb250LXdlaWdodD0iNTAwIiBzdHlsZT0iZmlsbDp2YXIoLS12aXotbTEpIj4yPC90ZXh0Pgo8bGluZSB4MT0iNTY1LjMiIHgyPSI1NjUuMyIgeTE9IjMzLjAiIHkyPSI3OC4xIiBzdHJva2Utd2lkdGg9IjEiIHN0eWxlPSJzdHJva2U6dmFyKC0tdml6LW11dGVkKSIvPgo8cGF0aCBkPSJNNTYxLjcgMzguMCBMNTY1LjMgMzMuMCBMNTY4LjggMzguMCIgZmlsbD0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0eWxlPSJzdHJva2U6dmFyKC0tdml6LW11dGVkKSIvPgo8cGF0aCBkPSJNNTYxLjcgNzMuMSBMNTY1LjMgNzguMSBMNTY4LjggNzMuMSIgZmlsbD0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0eWxlPSJzdHJva2U6dmFyKC0tdml6LW11dGVkKSIvPgo8Y2lyY2xlIGN4PSI1ODUuNiIgY3k9IjU1LjYiIHI9IjguNSIgc3Ryb2tlLXdpZHRoPSIxIiBzdHlsZT0iZmlsbDp2YXIoLS1iZyk7c3Ryb2tlOnZhcigtLXZpei1tMSkiLz4KPHRleHQgeD0iNTg1LjYiIHk9IjU5LjYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtc2l6ZT0iMTEiIGZvbnQtd2VpZ2h0PSI1MDAiIHN0eWxlPSJmaWxsOnZhcigtLXZpei1tMSkiPjM8L3RleHQ+CjxsaW5lIHgxPSI0NzguMSIgeDI9IjQ3OC4xIiB5MT0iMjc1LjYiIHkyPSIzMTQuMCIgc3Ryb2tlLXdpZHRoPSIxIiBzdHlsZT0ic3Ryb2tlOnZhcigtLXZpei1tdXRlZCkiLz4KPHBhdGggZD0iTTQ3NC42IDI4MC42IEw0NzguMSAyNzUuNiBMNDgxLjcgMjgwLjYiIGZpbGw9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHlsZT0ic3Ryb2tlOnZhcigtLXZpei1tdXRlZCkiLz4KPGNpcmNsZSBjeD0iNDc4LjEiIGN5PSIzMjYuMCIgcj0iOC41IiBzdHJva2Utd2lkdGg9IjEiIHN0eWxlPSJmaWxsOnZhcigtLWJnKTtzdHJva2U6dmFyKC0tdml6LW0xKSIvPgo8dGV4dCB4PSI0NzguMSIgeT0iMzMwLjAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtc2l6ZT0iMTEiIGZvbnQtd2VpZ2h0PSI1MDAiIHN0eWxlPSJmaWxsOnZhcigtLXZpei1tMSkiPjQ8L3RleHQ+CjxjaXJjbGUgY3g9IjkuNSIgY3k9IjQxOS4wIiByPSI4LjUiIHN0cm9rZS13aWR0aD0iMSIgc3R5bGU9ImZpbGw6dmFyKC0tYmcpO3N0cm9rZTp2YXIoLS12aXotbTEpIi8+Cjx0ZXh0IHg9IjkuNSIgeT0iNDIzLjAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtc2l6ZT0iMTEiIGZvbnQtd2VpZ2h0PSI1MDAiIHN0eWxlPSJmaWxsOnZhcigtLXZpei1tMSkiPjE8L3RleHQ+Cjx0ZXh0IHg9IjI2LjUiIHk9IjQyNCIgZm9udC1zaXplPSIxMiIgc3R5bGU9ImZpbGw6dmFyKC0tdml6LW0xKSI+QSBtb3JlIGNhcGFibGUgbW9kZWwgc2NvcmVzIGhpZ2hlcjwvdGV4dD4KPGNpcmNsZSBjeD0iMzA5LjUiIGN5PSI0MTkuMCIgcj0iOC41IiBzdHJva2Utd2lkdGg9IjEiIHN0eWxlPSJmaWxsOnZhcigtLWJnKTtzdHJva2U6dmFyKC0tdml6LW0xKSIvPgo8dGV4dCB4PSIzMDkuNSIgeT0iNDIzLjAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtc2l6ZT0iMTEiIGZvbnQtd2VpZ2h0PSI1MDAiIHN0eWxlPSJmaWxsOnZhcigtLXZpei1tMSkiPjI8L3RleHQ+Cjx0ZXh0IHg9IjMyNi41IiB5PSI0MjQiIGZvbnQtc2l6ZT0iMTIiIHN0eWxlPSJmaWxsOnZhcigtLXZpei1tMSkiPk1vcmUgZWZmb3J0IHNjb3JlcyBoaWdoZXI8L3RleHQ+CjxjaXJjbGUgY3g9IjkuNSIgY3k9IjQ0NS4wIiByPSI4LjUiIHN0cm9rZS13aWR0aD0iMSIgc3R5bGU9ImZpbGw6dmFyKC0tYmcpO3N0cm9rZTp2YXIoLS12aXotbTEpIi8+Cjx0ZXh0IHg9IjkuNSIgeT0iNDQ5LjAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtc2l6ZT0iMTEiIGZvbnQtd2VpZ2h0PSI1MDAiIHN0eWxlPSJmaWxsOnZhcigtLXZpei1tMSkiPjM8L3RleHQ+Cjx0ZXh0IHg9IjI2LjUiIHk9IjQ1MCIgZm9udC1zaXplPSIxMiIgc3R5bGU9ImZpbGw6dmFyKC0tdml6LW0xKSI+SGVhZHJvb20gYmVsb3cgYSBwZXJmZWN0IHNjb3JlPC90ZXh0Pgo8Y2lyY2xlIGN4PSIzMDkuNSIgY3k9IjQ0NS4wIiByPSI4LjUiIHN0cm9rZS13aWR0aD0iMSIgc3R5bGU9ImZpbGw6dmFyKC0tYmcpO3N0cm9rZTp2YXIoLS12aXotbTEpIi8+Cjx0ZXh0IHg9IjMwOS41IiB5PSI0NDkuMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSIxMSIgZm9udC13ZWlnaHQ9IjUwMCIgc3R5bGU9ImZpbGw6dmFyKC0tdml6LW0xKSI+NDwvdGV4dD4KPHRleHQgeD0iMzI2LjUiIHk9IjQ1MCIgZm9udC1zaXplPSIxMiIgc3R5bGU9ImZpbGw6dmFyKC0tdml6LW0xKSI+TG93IHJ1bi10by1ydW4gdmFyaWFuY2U8L3RleHQ+Cjwvc3ZnPg==" class="article-image"/><figcaption>FIG 1 The four elements of a good eval</figcaption></figure>
+<h3>Adversarial sampling</h3>
+<p>Model capability is jagged. If you pick cases because today's model fails them, you are sampling the valleys of one model's capability surface (Figure 2). The evaluation can end up measuring that model's failure fingerprint rather than what is intrinsically hard or valuable for your application to do.</p>
+<figure class="article-figure"><img alt="Two panels plotting capability across task space, each with today’s model as a jagged curve and the next model as a smoother curve above it. On the left, cases sampled where today’s model fails sit only in its valleys; on the right, cases a person judged hard are spread across peaks and valleys, with a few should-not-fire cases." src="https://imgproxy.readwise.io/?url=https%3A//claude.dev/media/6a014fa959cbc13b3026ca0f2ac1cb8754d541bd07da79bb4c61d81af428024a.png&amp;hash=479bda98170110bbfd4385b0e0789112" class="article-image"/><figcaption>Two panels plotting capability across task space, each with today’s model as a jagged curve and the next model as a smoother curve above it. On the left, cases sampled where today’s model fails sit only in its valleys; on the right, cases a person judged hard are spread across peaks and valleys, with a few should-not-fire cases.</figcaption></figure>
+<p>Pick hard cases because a human judged them hard: a useful test is to be able to say why a task is hard before you include it. Include cases that are specific failures in your application derived from production traffic, bug reports, or tickets. However, don’t blindly trust user traffic: users sometimes try what they expect to work, so a task distribution drawn strictly from user traffic may skew easy.</p>
+<h2>/CLAUDE-API BUILD-EVAL</h2>
+<p>The <code>build-eval</code> command in the claude-api skill turns these principles into a guided workflow. When you run <code>/claude-api build-eval</code> in Claude Code, Claude interviews you, builds the eval inside your codebase, and pauses for approval at specific points.</p>
+<h3>Designing examples</h3>
+<p>Claude helps you sample inputs to build evaluations in this order:</p>
+<ol> <li>Production transcripts, after asking about retention and sensitive data.</li> <li>Bug reports and support tickets.</li> <li>Five to ten cases you write by hand.</li> <li>Cases synthesized from your codebase.</li> </ol>
+<p>The skill prioritizes production traffic, but it can also generate synthetic data anchored in a few real examples that you provide. The skill instructs Claude to generate a simple page that shows you every input and waits until you confirm them. As an illustration, below we show an example set of inputs for an e-mail router application that the skill may ask the user to review (Figure 3).</p>
+<figure class="article-figure"><img alt="The skill’s review page for an inbox-routing eval with 24 inputs, listing each case’s email text with tags such as billing, easy and ambiguous. Beside it, Claude asks in chat whether the inputs are representative, and the user answers yes." src="https://imgproxy.readwise.io/?url=https%3A//claude.dev/media/bccc92050c6361924330ef504796ca2c0ce9208d8837356472373f8957b9fdd5.png&amp;hash=6cd6e8884c819ef667cf0f55c3ca8112" class="article-image"/><figcaption>The skill’s review page for an inbox-routing eval with 24 inputs, listing each case’s email text with tags such as billing, easy and ambiguous. Beside it, Claude asks in chat whether the inputs are representative, and the user answers yes.</figcaption></figure>
+<h3>Validating the grader</h3>
+<p>After the inputs, Claude proposes the cheapest grader that fits your application’s output:</p>
+<ul> <li><strong>Programmatic verification</strong>: If the output possibilities are constrained, it uses a code based check (exact match, a label from a fixed set, JSON that matches a schema, tests that pass).</li> <li><strong>LLM-as-judge</strong>: It will default to this type of check if the output space is open-ended, with many valid answers but clear quality criteria. In this case, a second model reads the input, the output and a rubric written as checkable claims (not a 1-to-5 scale), and returns a score with its reasoning. If you have a baseline to compare against, the judge instead reads both inputs in random order, without being told which is the baseline, and picks the better one. You pick the judge model, and it should not be the model you are testing.</li> </ul>
+<p>Claude grades a handful of cases and asks whether you would have scored any of them differently (Figure 4). In general, it is important to <a href="https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents">read a sample of scored transcripts</a> before believing your evaluator; scoring failures are among the most common ways an evaluation is misconfigured.</p>
+<p>When you’ve validated the grader, the skill tells you the size of the evaluation set (cases × repeats × model, and roughly how long it will take), runs the baseline, and prints the score with a confidence interval. What you get back: the cases, the grader, the runner, one JSON line and one full transcript per case, and a plain page that lists each case's score with a link to its transcript. If you want more than that page shows (e.g., a chart), just ask and Claude will build it as an extra page next to it. By default, these extra pages are static files that open locally and load nothing from the network.</p>
+<figure class="article-figure"><img alt="The skill’s results page for the inbox-routing eval: a baseline scoring 0.681 mean correct across 24 cases, then a table of per-case scores with a link to each repetition. A rep link opens that case’s raw JSON trace, shown alongside." src="https://imgproxy.readwise.io/?url=https%3A//claude.dev/media/9c7c2f00ebdd0f9e6b8ad0d3de8cdcc6ebb162c9d2fa5b4f4950ac36b736aef8.png&amp;hash=c59d617812c51f51139b26203f940de2" class="article-image"/><figcaption>The skill’s results page for the inbox-routing eval: a baseline scoring 0.681 mean correct across 24 cases, then a table of per-case scores with a link to each repetition. A rep link opens that case’s raw JSON trace, shown alongside.</figcaption></figure>
+<h3>Diagnostic checks</h3>
+<p>During the baseline runs mentioned above, Claude checks a number of things:</p>
+<ul> <li><strong>Grader</strong>: Claude runs the grader twice on the same output, and reports whether the verdict changed.</li> <li><strong>Plumbing</strong>: Claude checks for timeouts, API errors, and cut-off answers to ensure infrastructure noise doesn't pass as model variance.</li> <li><strong>Headroom</strong>: if the baseline already scores about 95% or higher, the skill warns the user and alerts that the hillclimb should aim to explore cost or latency rather than quality.</li> </ul>
+<h2>HILLCLIMBING</h2>
+<p>Now that you have a reliable means of grading your application’s performance on a task, you can try to improve it. Hillclimbing is an effective way to tune parameters like effort or prompts, which trade-off cost and performance. Some general tips for choosing where to apply it:</p>
+<ul> <li><strong>Cheap iteration</strong> - It should be inexpensive (in terms of time, cost, and effort) to modify whatever surface you are focused on for hillclimbing. Many internal efforts and customers have focused hillclimbing on text, such as prompts and skills. These are easy to change and revert. In contrast, open-ended modifications to an agent harness during hillclimbing may involve extensive code changes.</li> <li><strong>Attributable</strong> - Changes in the score on your evaluation should be attributable to the surface you are modifying during hillclimbing. For example, several successful applications of hillclimbing have focused on <a href="https://claude.com/resources/articles/improving-skill-creator-test-measure-and-refine-agent-skills">skill triggering</a>. The evaluation metric (the trigger rate for the skill) is directly coupled to the skill description that is being modified.</li> <li><strong>Well-scoped objective</strong> - One common failure mode is an open-ended request to improve performance without careful consideration of the headroom available in the evaluation; an evaluation that’s near saturation or a poorly scoped surface (e.g., an open-ended request to update the harness) is more likely to stall. One generally strong objective across various efforts is cost: even if an evaluation is saturated, you can ask Claude to <a href="https://claude.com/blog/reducing-cost-and-improving-performance-with-claude-platform">find ways to reduce cost</a> while keeping performance at parity.</li> </ul>
+<h3>Overfitting</h3>
+<p>Even a well-designed evaluation rarely matches the exact task distribution you care about in production. As a result, "overfitting" to an evaluation is a common problem and results in a system that performs better on an evaluation than on production traffic.</p>
+<p>There are many ways an evaluation can "leak" into your harness (the code around the model, including prompts, tools, and loop that calls Claude). For example, consider an evaluation task that benefits from OCR, but OCR is rarely beneficial in your production tasks. The evaluation harness might add an OCR tool to your application, which improves on the benchmark without any impact on production. More broadly, hillclimbing may add features to that harness that address edge cases in the particular evaluation examples you’ve chosen. These harness additions improve your evaluation score, but don’t translate to improvements in production (Figure 5).</p>
+<figure class="article-figure"><img alt="The benchmark’s traits on the left, each shaping a matching addition to the harness on the right: a task mix that needs OCR adds an OCR tool, tasks in /app add “always cd /app, run pytest”, distinctive phrasings get a tuned prompt, and failures you’ve read get one patch each. A dashed arrow marks the outright leak: a public repo with answers lets the harness curl the reference solution." src="https://imgproxy.readwise.io/?url=https%3A//claude.dev/media/a328a3f4d5bfd0967174ef2ca79bc8f094d8db3c12af71be3189891bf40d0e53.png&amp;hash=8da795e41e9248e27ed2f352d7484398" class="article-image"/><figcaption>FIG 5 Common causes of harness overfitting.</figcaption></figure>
+<p>Three things can help address this:</p>
+<ul> <li><strong>Split the cases</strong>. Use a train set that the hillclimber may read and a test set that is never seen. If the train set scores improve while the test set scores stay flat, then that is a common overfitting warning sign.</li> <li><strong>Never paste failures into the prompt</strong>. If the hillclimber reads the failing transcripts, it should never paste the failure content into the prompt.</li> <li><strong>Keep the answers structurally out of the model's reach</strong>. Models can sometimes “reward hack” by directly finding answers to evaluations.</li> </ul>
+<p>As discussed below, the claude-api skill applies these principles for you.</p>
+<h2>/CLAUDE-API HILLCLIMB</h2>
+<p>The hillclimb command in the claude-api skill turns these principles into a guided workflow. When you run <code>/claude-api hillclimb</code> in Claude Code, Claude iterates to improve against a given evaluation. You choose what changes it can make including:</p>
+<ul> <li>Your system prompt</li> <li>Skills or instruction files</li> <li>Tool descriptions</li> <li>Model choice, effort level, and other API parameters</li> <li>Your harness code</li> </ul>
+<p>Before it starts, Claude asks what you want to optimize (e.g., performance, or cost while performance holds) and then splits the evaluation set at random into test and train. With a cost goal, it considers <a href="https://claude.com/blog/reducing-cost-and-improving-performance-with-claude-platform">a few common cost drivers</a>, including prompt caching, auditing the prompt for compatibility with the selected model, and picking the model and effort setting.</p>
+<p>Before the first round, Claude checks that the eval's noise (how far the score can move by chance alone) is smaller than the smallest improvement you'd act on; if it isn't, it says so and suggests more repetitions or cases.</p>
+<p>Each round, Claude reads the previous round’s train transcripts and proposes one change as a patch. It aims each round at a change whose effect can show above the eval's noise: it fixes the failing behavior at its root (e.g., rewrites the section that causes it or adds a missing rule) rather than rewording a line. It then runs evaluation with the patched change. At this point, Claude applies a check: if the <code>train</code> set improves but the <code>test</code> set is flat, Claude suspects overfitting and reverts the patch. If there is a regression, Claude reverts. If train and test sets improve, it keeps the patch (Figure 6).</p>
+<figure class="article-figure"><img alt="The hillclimbing loop: the thing being edited, such as a prompt, feeds a fixed model and harness that is scored on a held-out test split and a train split. An analyzer reads only the train failures and proposes one diff per round; the diff is kept when train and test both rise, and reverted when only train rises or either score drops." src="https://imgproxy.readwise.io/?url=https%3A//claude.dev/media/dafbc5fb0edf5aeed96af8984ec09f6a0f8ebd753274c305ccf3043e1640d75a.png&amp;hash=bb56f0830d2f0754b537576d9b272716" class="article-image"/><figcaption>The hillclimbing loop: the thing being edited, such as a prompt, feeds a fixed model and harness that is scored on a held-out test split and a train split. An analyzer reads only the train failures and proposes one diff per round; the diff is kept when train and test both rise, and reverted when only train rises or either score drops.</figcaption></figure>
+<p>When the score stalls for two or three rounds, Claude reads each remaining train failure and sorts it by cause. It does the same early if no single fix could gain more than the eval's noise, and suggests more repetitions or cases, rather than spending rounds on changes too small to measure. This step can catch ambiguous evaluation cases, harness errors, or run-to-run variance.</p>
+<p>Only legitimate failures are included in more hillclimbing rounds.</p>
+<p>When hillclimbing completes, Claude leaves your code at the version that did best on the test set for your goal. It reports the test result against the baseline with confidence intervals (Figure 7). If the gain is within noise, it says so and recommends against merging.</p>
+<figure class="article-figure"><img alt="The inbox-routing results page after hillclimbing, comparing three variants on train and test scores. Variant v1, which defines each queue and adds a tie-break rule, is marked best at 0.875 on both; v2, which adds two worked examples, was reverted because train went up while test stayed flat." src="https://imgproxy.readwise.io/?url=https%3A//claude.dev/media/8c9b0ffdf9d75df81ec451ccb55feb091693fb7eb88ad9c20f3911387e3ec4e1.png&amp;hash=a40d1feb6a94edac85bbb9177a987fb0" class="article-image"/><figcaption>The inbox-routing results page after hillclimbing, comparing three variants on train and test scores. Variant v1, which defines each queue and adds a tie-break rule, is marked best at 0.875 on both; v2, which adds two worked examples, was reverted because train went up while test stayed flat.</figcaption></figure>
+<h2>EXAMPLES</h2>
+<h3>Hillclimbing for cost reduction</h3>
+<p>We ran <code>/claude-api hillclimb</code> on an <a href="https://claude.com/blog/reducing-cost-and-improving-performance-with-claude-platform">internal customer support benchmark</a> with the goal of reducing cost and improving performance. The benchmark included 44 tickets, with 30 used for the search and 14 held out. It started on Opus 4.8 at default (high) effort settings with 74.4% decision accuracy on the search tickets and a token cost of 4.6 cents per ticket.</p>
+<p>The hillclimb first audited the prompt, <a href="https://claude.com/blog/reducing-cost-and-improving-performance-with-claude-platform">removing</a> mandatory tool-call rituals, a scratchpad step, and contradictory rules. Then it tried Opus 5.5 on low effort. This cleared the baseline accuracy bar at 87.8% and cut cost to 1.9 cents per ticket, less than half the starting cost.</p>
+<p>Part of that saving comes from <a href="https://claude.dev/blog/getting-the-most-out-of-opus-5-5/">Opus 5.5's pricing</a>: input and output tokens cost 20% less than on Opus 4.8, and cache reads cost 60% less. Because Opus 5.5 cleared the bar, the hillclimb then stepped down a tier to check whether a cheaper model could clear it too. Sonnet 5 on low effort scored about the same, 88.9%, at about half the cost, 1 cent per ticket (Figure 8).</p>
+<figure class="article-figure"><img src="data:image/svg+xml;base64,PHN2ZyBjbGFzcz0iYXJ0LWRpYWdyYW0td2lkZSIgYXJpYS1oaWRkZW49InRydWUiIGZvY3VzYWJsZT0iZmFsc2UiIGlkPSJldmFsLWNvc3QtcGF0aCIgd2lkdGg9IjYzNCIgaGVpZ2h0PSIzOTMuNSIgdmlld0JveD0iMCAwIDYzNCAzOTMuNSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48c3R5bGU+c3Zne2JhY2tncm91bmQ6I2ZhZjlmNTstLWJnOiNmYWY5ZjU7LS1pbms6IzE0MTQxMzstLWluay0yOiM0YzRiNDU7LS1saW5lOiMxNDE0MTMzODstLWxpbmUtc29mdDojMTQxNDEzMWM7LS12aXotbXV0ZWQ6IzY1NjQ1ZTstLXZpei1tMTojM2QzZDNhOy0tdml6LWI5OiM4ZThjODc7LS1maWctZm9jYWw6I2MxNWYzY308L3N0eWxlPjxzdHlsZT4jZXZhbC1jb3N0LXBhdGggdGV4dHtmb250LWZhbWlseTonQW50aHJvcGljIFNhbnMnLCdBbnRocm9waWMgU2FucyBGYWxsYmFjaycsJ0FudGhyb3BpYyBTYW5zIEZhbGxiYWNrIFJvYm90bycsc3lzdGVtLXVpLHNhbnMtc2VyaWZ9I2V2YWwtY29zdC1wYXRoIC50bnVte2ZvbnQtdmFyaWFudC1udW1lcmljOnRhYnVsYXItbnVtc308L3N0eWxlPgo8ZyBjbGFzcz0idG51bSIgZm9udC1zaXplPSIxMiIgc3R5bGU9ImZpbGw6dmFyKC0tdml6LW11dGVkKSI+CjxsaW5lIHgxPSI2OC4wIiB4Mj0iNjE4LjAiIHkxPSIyODYuMiIgeTI9IjI4Ni4yIiBzdHJva2Utd2lkdGg9IjEiIHN0eWxlPSJzdHJva2U6dmFyKC0tbGluZS1zb2Z0KSIvPgo8dGV4dCB4PSI2Mi4wIiB5PSIyOTAuNCIgdGV4dC1hbmNob3I9ImVuZCI+NzAlPC90ZXh0Pgo8bGluZSB4MT0iNjguMCIgeDI9IjYxOC4wIiB5MT0iMjAxLjYiIHkyPSIyMDEuNiIgc3Ryb2tlLXdpZHRoPSIxIiBzdHlsZT0ic3Ryb2tlOnZhcigtLWxpbmUtc29mdCkiLz4KPHRleHQgeD0iNjIuMCIgeT0iMjA1LjgiIHRleHQtYW5jaG9yPSJlbmQiPjgwJTwvdGV4dD4KPGxpbmUgeDE9IjY4LjAiIHgyPSI2MTguMCIgeTE9IjExNy4wIiB5Mj0iMTE3LjAiIHN0cm9rZS13aWR0aD0iMSIgc3R5bGU9InN0cm9rZTp2YXIoLS1saW5lLXNvZnQpIi8+Cjx0ZXh0IHg9IjYyLjAiIHk9IjEyMS4yIiB0ZXh0LWFuY2hvcj0iZW5kIj45MCU8L3RleHQ+CjxsaW5lIHgxPSI2OC4wIiB4Mj0iNjE4LjAiIHkxPSIzMi41IiB5Mj0iMzIuNSIgc3Ryb2tlLXdpZHRoPSIxIiBzdHlsZT0ic3Ryb2tlOnZhcigtLWxpbmUtc29mdCkiLz4KPHRleHQgeD0iNjIuMCIgeT0iMzYuNyIgdGV4dC1hbmNob3I9ImVuZCI+MTAwJTwvdGV4dD4KPC9nPgo8bGluZSB4MT0iNjguMCIgeDI9IjYxOC4wIiB5MT0iMzMwIiB5Mj0iMzMwIiBzdHJva2Utd2lkdGg9IjEiIHN0eWxlPSJzdHJva2U6dmFyKC0tbGluZSkiLz4KPGcgY2xhc3M9InRudW0iIGZvbnQtc2l6ZT0iMTIiIHN0eWxlPSJmaWxsOnZhcigtLXZpei1tdXRlZCkiPgo8bGluZSB4MT0iMTU0LjgiIHgyPSIxNTQuOCIgeTE9IjMzMCIgeTI9IjMzNSIgc3Ryb2tlLXdpZHRoPSIxIiBzdHlsZT0ic3Ryb2tlOnZhcigtLWxpbmUpIi8+Cjx0ZXh0IHg9IjE1NC44IiB5PSIzNTAiIHRleHQtYW5jaG9yPSJtaWRkbGUiPjHCojwvdGV4dD4KPGxpbmUgeDE9IjMyNC42IiB4Mj0iMzI0LjYiIHkxPSIzMzAiIHkyPSIzMzUiIHN0cm9rZS13aWR0aD0iMSIgc3R5bGU9InN0cm9rZTp2YXIoLS1saW5lKSIvPgo8dGV4dCB4PSIzMjQuNiIgeT0iMzUwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj4ywqI8L3RleHQ+CjxsaW5lIHgxPSI0OTQuMyIgeDI9IjQ5NC4zIiB5MT0iMzMwIiB5Mj0iMzM1IiBzdHJva2Utd2lkdGg9IjEiIHN0eWxlPSJzdHJva2U6dmFyKC0tbGluZSkiLz4KPHRleHQgeD0iNDk0LjMiIHk9IjM1MCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+NMKiPC90ZXh0Pgo8L2c+Cjx0ZXh0IHg9IjM0My4xIiB5PSIzNzkuNSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSIxMyIgc3R5bGU9ImZpbGw6dmFyKC0tdml6LW11dGVkKSI+Q29zdCBwZXIgdGlja2V0LCBsb2cgc2NhbGU8L3RleHQ+Cjx0ZXh0IHRyYW5zZm9ybT0idHJhbnNsYXRlKDEwLjUgMTc3LjApIHJvdGF0ZSgtOTApIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjEzIiBzdHlsZT0iZmlsbDp2YXIoLS12aXotbXV0ZWQpIj5EZWNpc2lvbiBhY2N1cmFjeSwgc2VhcmNoIHRpY2tldHM8L3RleHQ+CjxsaW5lIHgxPSI2OC4wIiB4Mj0iNjE4LjAiIHkxPSIyNDkuMCIgeTI9IjI0OS4wIiBzdHJva2Utd2lkdGg9IjEiIHN0cm9rZS1kYXNoYXJyYXk9IjMgNCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHlsZT0ic3Ryb2tlOnZhcigtLWxpbmUpIi8+Cjx0ZXh0IHg9Ijc0LjEiIHk9IjI0My4wIiBmb250LXNpemU9IjEyIiBzdHJva2Utd2lkdGg9IjMiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHBhaW50LW9yZGVyPSJzdHJva2UiIHN0eWxlPSJmaWxsOnZhcigtLXZpei1tdXRlZCk7c3Ryb2tlOnZhcigtLWJnKSI+U3RhcnRpbmcgYWNjdXJhY3k8L3RleHQ+CjxwYXRoIGQ9Ik01MTguNiAyNDMuOCBMMzIxLjkgMTQwLjgiIGZpbGw9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgc3Ryb2tlLWRhc2hhcnJheT0iNCAzIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0eWxlPSJzdHJva2U6dmFyKC0tdml6LW11dGVkKSIvPgo8cGF0aCBkPSJNMzI4LjEgMTQwLjEgTDMyMS45IDE0MC44IEwzMjQuOCAxNDYuMyIgZmlsbD0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0eWxlPSJzdHJva2U6dmFyKC0tdml6LW11dGVkKSIvPgo8cGF0aCBkPSJNMzAwLjggMTM1LjAgTDE2My42IDEyNy4wIiBmaWxsPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIHN0cm9rZS1kYXNoYXJyYXk9IjQgMyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHlsZT0ic3Ryb2tlOnZhcigtLXZpei1tdXRlZCkiLz4KPHBhdGggZD0iTTE2OC45IDEyMy44IEwxNjMuNiAxMjcuMCBMMTY4LjQgMTMwLjgiIGZpbGw9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHlsZT0ic3Ryb2tlOnZhcigtLXZpei1tdXRlZCkiLz4KPHBhdGggZD0iTTE1My4wIDExNS4zIEwxNTYuNiA1Mi43IiBmaWxsPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIHN0cm9rZS1kYXNoYXJyYXk9IjQgMyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHlsZT0ic3Ryb2tlOnZhcigtLXZpei1tdXRlZCkiLz4KPHBhdGggZD0iTTE1OS45IDU3LjkgTDE1Ni42IDUyLjcgTDE1Mi44IDU3LjUiIGZpbGw9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHlsZT0ic3Ryb2tlOnZhcigtLXZpei1tdXRlZCkiLz4KPGcgY2xhc3M9InNlcmllcyI+CjxjaXJjbGUgY3g9IjUyOC41IiBjeT0iMjQ5LjAiIHI9IjQuNSIgc3Ryb2tlLXdpZHRoPSIxIiBzdHlsZT0iZmlsbDp2YXIoLS1maWctZm9jYWwpO3N0cm9rZTp2YXIoLS1iZykiLz4KPGNpcmNsZSBjeD0iMzEyLjAiIGN5PSIxMzUuNiIgcj0iNC41IiBzdHJva2Utd2lkdGg9IjEiIHN0eWxlPSJmaWxsOnZhcigtLWZpZy1mb2NhbCk7c3Ryb2tlOnZhcigtLWJnKSIvPgo8Y2lyY2xlIGN4PSIxNTIuNCIgY3k9IjEyNi4zIiByPSI0LjUiIHN0cm9rZS13aWR0aD0iMSIgc3R5bGU9ImZpbGw6dmFyKC0tZmlnLWZvY2FsKTtzdHJva2U6dmFyKC0tYmcpIi8+CjxjaXJjbGUgY3g9IjE1Ny4zIiBjeT0iNDEuOCIgcj0iNC41IiBzdHJva2Utd2lkdGg9IjEiIHN0eWxlPSJmaWxsOnZhcigtLWZpZy1mb2NhbCk7c3Ryb2tlOnZhcigtLWJnKSIvPgo8L2c+CjxjaXJjbGUgY3g9IjM1NS40IiBjeT0iMjcyLjAiIHI9IjguNSIgc3Ryb2tlLXdpZHRoPSIxIiBzdHlsZT0iZmlsbDp2YXIoLS1iZyk7c3Ryb2tlOnZhcigtLXZpei1tMSkiLz4KPHRleHQgeD0iMzU1LjQiIHk9IjI3Ni4wIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjExIiBmb250LXdlaWdodD0iNTAwIiBzdHlsZT0iZmlsbDp2YXIoLS12aXotbTEpIj4xPC90ZXh0Pgo8dGV4dCBjbGFzcz0ibW5hbWUiIHg9IjM3MC4yIiB5PSIyNzcuMCIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9IjUwMCIgc3Ryb2tlLXdpZHRoPSIzIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBwYWludC1vcmRlcj0ic3Ryb2tlIiBzdHlsZT0iZmlsbDp2YXIoLS1pbmspO3N0cm9rZTp2YXIoLS1iZykiPk9wdXMgNC44LCBoaWdoIGVmZm9ydDwvdGV4dD4KPHRleHQgY2xhc3M9InRudW0iIHg9IjM3MC4yIiB5PSIyOTQuMCIgZm9udC1zaXplPSIxMiIgc3Ryb2tlLXdpZHRoPSIzIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBwYWludC1vcmRlcj0ic3Ryb2tlIiBzdHlsZT0iZmlsbDp2YXIoLS12aXotbXV0ZWQpO3N0cm9rZTp2YXIoLS1iZykiPkJhc2VsaW5lLCA3NC40JSBhdCA0LjbCojwvdGV4dD4KPGNpcmNsZSBjeD0iMzMyLjkiIGN5PSIxMDIuNiIgcj0iOC41IiBzdHJva2Utd2lkdGg9IjEiIHN0eWxlPSJmaWxsOnZhcigtLWJnKTtzdHJva2U6dmFyKC0tdml6LW0xKSIvPgo8dGV4dCB4PSIzMzIuOSIgeT0iMTA2LjYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtc2l6ZT0iMTEiIGZvbnQtd2VpZ2h0PSI1MDAiIHN0eWxlPSJmaWxsOnZhcigtLXZpei1tMSkiPjI8L3RleHQ+Cjx0ZXh0IGNsYXNzPSJtbmFtZSIgeD0iMzQ3LjciIHk9IjEwNy42IiBmb250LXNpemU9IjE0IiBmb250LXdlaWdodD0iNTAwIiBzdHJva2Utd2lkdGg9IjMiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHBhaW50LW9yZGVyPSJzdHJva2UiIHN0eWxlPSJmaWxsOnZhcigtLWluayk7c3Ryb2tlOnZhcigtLWJnKSI+T3B1cyA1LjUsIGxvdyBlZmZvcnQ8L3RleHQ+Cjx0ZXh0IGNsYXNzPSJ0bnVtIiB4PSIzNDcuNyIgeT0iMTI0LjYiIGZvbnQtc2l6ZT0iMTIiIHN0cm9rZS13aWR0aD0iMyIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgcGFpbnQtb3JkZXI9InN0cm9rZSIgc3R5bGU9ImZpbGw6dmFyKC0tdml6LW11dGVkKTtzdHJva2U6dmFyKC0tYmcpIj5BdWRpdGVkIHByb21wdCwgODcuOCUgYXQgMS45wqI8L3RleHQ+CjxjaXJjbGUgY3g9IjE2NS4xIiBjeT0iMTUxLjMiIHI9IjguNSIgc3Ryb2tlLXdpZHRoPSIxIiBzdHlsZT0iZmlsbDp2YXIoLS1iZyk7c3Ryb2tlOnZhcigtLXZpei1tMSkiLz4KPHRleHQgeD0iMTY1LjEiIHk9IjE1NS4zIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjExIiBmb250LXdlaWdodD0iNTAwIiBzdHlsZT0iZmlsbDp2YXIoLS12aXotbTEpIj4zPC90ZXh0Pgo8dGV4dCBjbGFzcz0ibW5hbWUiIHg9IjE3OS45IiB5PSIxNTYuMyIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9IjUwMCIgc3Ryb2tlLXdpZHRoPSIzIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBwYWludC1vcmRlcj0ic3Ryb2tlIiBzdHlsZT0iZmlsbDp2YXIoLS1pbmspO3N0cm9rZTp2YXIoLS1iZykiPlNvbm5ldCA1LCBsb3cgZWZmb3J0PC90ZXh0Pgo8dGV4dCBjbGFzcz0idG51bSIgeD0iMTc5LjkiIHk9IjE3My4zIiBmb250LXNpemU9IjEyIiBzdHJva2Utd2lkdGg9IjMiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHBhaW50LW9yZGVyPSJzdHJva2UiIHN0eWxlPSJmaWxsOnZhcigtLXZpei1tdXRlZCk7c3Ryb2tlOnZhcigtLWJnKSI+U2FtZSBwcm9tcHQsIDg4LjklIGF0IDHCojwvdGV4dD4KPGNpcmNsZSBjeD0iMTgwLjIiIGN5PSI0MS44IiByPSI4LjUiIHN0cm9rZS13aWR0aD0iMSIgc3R5bGU9ImZpbGw6dmFyKC0tYmcpO3N0cm9rZTp2YXIoLS12aXotbTEpIi8+Cjx0ZXh0IHg9IjE4MC4yIiB5PSI0NS44IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjExIiBmb250LXdlaWdodD0iNTAwIiBzdHlsZT0iZmlsbDp2YXIoLS12aXotbTEpIj40PC90ZXh0Pgo8dGV4dCBjbGFzcz0ibW5hbWUiIHg9IjE5NS4xIiB5PSI0Ni44IiBmb250LXNpemU9IjE0IiBmb250LXdlaWdodD0iNTAwIiBzdHJva2Utd2lkdGg9IjMiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHBhaW50LW9yZGVyPSJzdHJva2UiIHN0eWxlPSJmaWxsOnZhcigtLWluayk7c3Ryb2tlOnZhcigtLWJnKSI+U29ubmV0IDUsIGxvdyBlZmZvcnQ8L3RleHQ+Cjx0ZXh0IGNsYXNzPSJ0bnVtIiB4PSIxOTUuMSIgeT0iNjMuOCIgZm9udC1zaXplPSIxMiIgc3Ryb2tlLXdpZHRoPSIzIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBwYWludC1vcmRlcj0ic3Ryb2tlIiBzdHlsZT0iZmlsbDp2YXIoLS12aXotbXV0ZWQpO3N0cm9rZTp2YXIoLS1iZykiPkltcHJvdmVkIHByb21wdCwgOTguOSUgYXQgMcKiPC90ZXh0Pgo8L3N2Zz4=" class="article-image"/><figcaption>FIG 8 Cost-focused hillclimbing.</figcaption></figure>
+<p>Finally, Claude improved the prompt with routing rules and a refund-cap cross-reference, bringing Sonnet 5 to 98.9% at about the same cost. On the 14 held-out tickets that the search never saw, the final configuration scored 90.5% against the original setup's 78.6%, at about one fifth of the cost.</p>
+<h3>Hillclimbing for performance improvement</h3>
+<p>Another example is our <a href="https://github.com/anthropics/skills/tree/main/skills/claude-api">claude-api</a> skill, which provides guidance on using our APIs and general tips for working with Claude (including the sub-commands discussed in this article). We want to ensure our skill can correctly implement code that uses our APIs, and we built an evaluation set derived from our documentation to test the skill.</p>
+<p>On our evaluation, the skill started at 66%. We gave the hillclimber access to documentation and our SDKs, allowing Claude to identify errors and self-correct them (Figure 9). Claude found that the skill was missing coverage of eight features.</p>
+<p>Adding sections for them in the skill improved performance to 74%. It then found errors in C# and Java type tables, boosting performance to 77%.</p>
+<figure class="article-figure"><img src="data:image/svg+xml;base64,PHN2ZyBjbGFzcz0iYXJ0LWRpYWdyYW0td2lkZSIgYXJpYS1oaWRkZW49InRydWUiIGZvY3VzYWJsZT0iZmFsc2UiIGlkPSJldmFsLWhpbGxjbGltYi1yb3VuZHMiIHdpZHRoPSI2MzQiIGhlaWdodD0iNDg1LjYiIHZpZXdCb3g9IjAgMCA2MzQgNDg1LjYiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHN0eWxlPnN2Z3tiYWNrZ3JvdW5kOiNmYWY5ZjU7LS1iZzojZmFmOWY1Oy0taW5rOiMxNDE0MTM7LS1pbmstMjojNGM0YjQ1Oy0tbGluZTojMTQxNDEzMzg7LS1saW5lLXNvZnQ6IzE0MTQxMzFjOy0tdml6LW11dGVkOiM2NTY0NWU7LS12aXotbTE6IzNkM2QzYTstLXZpei1iOTojOGU4Yzg3Oy0tZmlnLWZvY2FsOiNjMTVmM2N9PC9zdHlsZT48c3R5bGU+I2V2YWwtaGlsbGNsaW1iLXJvdW5kcyB0ZXh0e2ZvbnQtZmFtaWx5OidBbnRocm9waWMgU2FucycsJ0FudGhyb3BpYyBTYW5zIEZhbGxiYWNrJywnQW50aHJvcGljIFNhbnMgRmFsbGJhY2sgUm9ib3RvJyxzeXN0ZW0tdWksc2Fucy1zZXJpZn0jZXZhbC1oaWxsY2xpbWItcm91bmRzIC50bnVte2ZvbnQtdmFyaWFudC1udW1lcmljOnRhYnVsYXItbnVtc308L3N0eWxlPgo8ZyBjbGFzcz0icGhhc2VzIj4KPHJlY3QgeD0iNTkuMyIgeT0iMTAiIHdpZHRoPSIzMDAuMSIgaGVpZ2h0PSIzMzAuMCIgZmlsbC1vcGFjaXR5PSIwLjUiIHN0eWxlPSJmaWxsOnZhcigtLWxpbmUtc29mdCkiLz4KPHJlY3QgeD0iNDQyLjMiIHk9IjEwIiB3aWR0aD0iMTc1LjciIGhlaWdodD0iMzMwLjAiIGZpbGwtb3BhY2l0eT0iMC41IiBzdHlsZT0iZmlsbDp2YXIoLS1saW5lLXNvZnQpIi8+CjwvZz4KPGcgY2xhc3M9InRudW0iIGZvbnQtc2l6ZT0iMTIiIHN0eWxlPSJmaWxsOnZhcigtLXZpei1tdXRlZCkiPgo8bGluZSB4MT0iNTkuMyIgeDI9IjYxOC4wIiB5MT0iMzA4LjgiIHkyPSIzMDguOCIgc3Ryb2tlLXdpZHRoPSIxIiBzdHlsZT0ic3Ryb2tlOnZhcigtLWxpbmUtc29mdCkiLz4KPHRleHQgeD0iNTMuMyIgeT0iMzEzLjAiIHRleHQtYW5jaG9yPSJlbmQiPjY1JTwvdGV4dD4KPGxpbmUgeDE9IjU5LjMiIHgyPSI2MTguMCIgeTE9IjI1NS45IiB5Mj0iMjU1LjkiIHN0cm9rZS13aWR0aD0iMSIgc3R5bGU9InN0cm9rZTp2YXIoLS1saW5lLXNvZnQpIi8+Cjx0ZXh0IHg9IjUzLjMiIHk9IjI2MC4xIiB0ZXh0LWFuY2hvcj0iZW5kIj43MCU8L3RleHQ+CjxsaW5lIHgxPSI1OS4zIiB4Mj0iNjE4LjAiIHkxPSIyMDIuOSIgeTI9IjIwMi45IiBzdHJva2Utd2lkdGg9IjEiIHN0eWxlPSJzdHJva2U6dmFyKC0tbGluZS1zb2Z0KSIvPgo8dGV4dCB4PSI1My4zIiB5PSIyMDcuMSIgdGV4dC1hbmNob3I9ImVuZCI+NzUlPC90ZXh0Pgo8bGluZSB4MT0iNTkuMyIgeDI9IjYxOC4wIiB5MT0iMTQ5LjkiIHkyPSIxNDkuOSIgc3Ryb2tlLXdpZHRoPSIxIiBzdHlsZT0ic3Ryb2tlOnZhcigtLWxpbmUtc29mdCkiLz4KPHRleHQgeD0iNTMuMyIgeT0iMTU0LjEiIHRleHQtYW5jaG9yPSJlbmQiPjgwJTwvdGV4dD4KPGxpbmUgeDE9IjU5LjMiIHgyPSI2MTguMCIgeTE9Ijk3LjAiIHkyPSI5Ny4wIiBzdHJva2Utd2lkdGg9IjEiIHN0eWxlPSJzdHJva2U6dmFyKC0tbGluZS1zb2Z0KSIvPgo8dGV4dCB4PSI1My4zIiB5PSIxMDEuMiIgdGV4dC1hbmNob3I9ImVuZCI+ODUlPC90ZXh0Pgo8bGluZSB4MT0iNTkuMyIgeDI9IjYxOC4wIiB5MT0iNDQuMCIgeTI9IjQ0LjAiIHN0cm9rZS13aWR0aD0iMSIgc3R5bGU9InN0cm9rZTp2YXIoLS1saW5lLXNvZnQpIi8+Cjx0ZXh0IHg9IjUzLjMiIHk9IjQ4LjIiIHRleHQtYW5jaG9yPSJlbmQiPjkwJTwvdGV4dD4KPC9nPgo8bGluZSB4MT0iNTkuMyIgeDI9IjYxOC4wIiB5MT0iMzQwIiB5Mj0iMzQwIiBzdHJva2Utd2lkdGg9IjEiIHN0eWxlPSJzdHJva2U6dmFyKC0tbGluZSkiLz4KPGcgY2xhc3M9InRudW0iIGZvbnQtc2l6ZT0iMTIiIHN0eWxlPSJmaWxsOnZhcigtLXZpei1tdXRlZCkiPgo8bGluZSB4MT0iODkuOSIgeDI9Ijg5LjkiIHkxPSIzNDAiIHkyPSIzNDUiIHN0cm9rZS13aWR0aD0iMSIgc3R5bGU9InN0cm9rZTp2YXIoLS1saW5lKSIvPgo8dGV4dCB4PSI4OS45IiB5PSIzNjAiIHRleHQtYW5jaG9yPSJtaWRkbGUiPjA8L3RleHQ+CjxsaW5lIHgxPSIyMTQuMyIgeDI9IjIxNC4zIiB5MT0iMzQwIiB5Mj0iMzQ1IiBzdHJva2Utd2lkdGg9IjEiIHN0eWxlPSJzdHJva2U6dmFyKC0tbGluZSkiLz4KPHRleHQgeD0iMjE0LjMiIHk9IjM2MCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+NjwvdGV4dD4KPGxpbmUgeDE9IjI3Ni40IiB4Mj0iMjc2LjQiIHkxPSIzNDAiIHkyPSIzNDUiIHN0cm9rZS13aWR0aD0iMSIgc3R5bGU9InN0cm9rZTp2YXIoLS1saW5lKSIvPgo8dGV4dCB4PSIyNzYuNCIgeT0iMzYwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj45PC90ZXh0Pgo8bGluZSB4MT0iMzE3LjkiIHgyPSIzMTcuOSIgeTE9IjM0MCIgeTI9IjM0NSIgc3Ryb2tlLXdpZHRoPSIxIiBzdHlsZT0ic3Ryb2tlOnZhcigtLWxpbmUpIi8+Cjx0ZXh0IHg9IjMxNy45IiB5PSIzNjAiIHRleHQtYW5jaG9yPSJtaWRkbGUiPjExPC90ZXh0Pgo8bGluZSB4MT0iMzU5LjQiIHgyPSIzNTkuNCIgeTE9IjM0MCIgeTI9IjM0NSIgc3Ryb2tlLXdpZHRoPSIxIiBzdHlsZT0ic3Ryb2tlOnZhcigtLWxpbmUpIi8+Cjx0ZXh0IHg9IjM1OS40IiB5PSIzNjAiIHRleHQtYW5jaG9yPSJtaWRkbGUiPjEzPC90ZXh0Pgo8bGluZSB4MT0iNDQyLjMiIHgyPSI0NDIuMyIgeTE9IjM0MCIgeTI9IjM0NSIgc3Ryb2tlLXdpZHRoPSIxIiBzdHlsZT0ic3Ryb2tlOnZhcigtLWxpbmUpIi8+Cjx0ZXh0IHg9IjQ0Mi4zIiB5PSIzNjAiIHRleHQtYW5jaG9yPSJtaWRkbGUiPjE3PC90ZXh0Pgo8bGluZSB4MT0iNTQ1LjkiIHgyPSI1NDUuOSIgeTE9IjM0MCIgeTI9IjM0NSIgc3Ryb2tlLXdpZHRoPSIxIiBzdHlsZT0ic3Ryb2tlOnZhcigtLWxpbmUpIi8+Cjx0ZXh0IHg9IjU0NS45IiB5PSIzNjAiIHRleHQtYW5jaG9yPSJtaWRkbGUiPjIyPC90ZXh0Pgo8bGluZSB4MT0iNTg3LjQiIHgyPSI1ODcuNCIgeTE9IjM0MCIgeTI9IjM0NSIgc3Ryb2tlLXdpZHRoPSIxIiBzdHlsZT0ic3Ryb2tlOnZhcigtLWxpbmUpIi8+Cjx0ZXh0IHg9IjU4Ny40IiB5PSIzNjAiIHRleHQtYW5jaG9yPSJtaWRkbGUiPjI0PC90ZXh0Pgo8L2c+Cjx0ZXh0IHg9IjMzOC43IiB5PSIzODkuNSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSIxMyIgc3R5bGU9ImZpbGw6dmFyKC0tdml6LW11dGVkKSI+SGlsbGNsaW1iaW5nIHJvdW5kICgwIGlzIHRoZSBiYXNlbGluZSk8L3RleHQ+Cjx0ZXh0IHRyYW5zZm9ybT0idHJhbnNsYXRlKDkuNSAxOTIuMCkgcm90YXRlKC05MCkiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtc2l6ZT0iMTMiIHN0eWxlPSJmaWxsOnZhcigtLXZpei1tdXRlZCkiPlBhc3MgcmF0ZTwvdGV4dD4KPGxpbmUgeDE9IjM1OS40IiB4Mj0iMzU5LjQiIHkxPSIxMCIgeTI9IjM0MCIgc3Ryb2tlLXdpZHRoPSIxIiBzdHJva2UtZGFzaGFycmF5PSIzIDQiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3R5bGU9InN0cm9rZTp2YXIoLS1saW5lKSIvPgo8bGluZSB4MT0iNDQyLjMiIHgyPSI0NDIuMyIgeTE9IjEwIiB5Mj0iMzQwIiBzdHJva2Utd2lkdGg9IjEiIHN0cm9rZS1kYXNoYXJyYXk9IjMgNCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHlsZT0ic3Ryb2tlOnZhcigtLWxpbmUpIi8+CjxjaXJjbGUgY3g9IjIwOS4zIiBjeT0iMTguMCIgcj0iOC41IiBzdHJva2Utd2lkdGg9IjEiIHN0eWxlPSJmaWxsOnZhcigtLWJnKTtzdHJva2U6dmFyKC0tdml6LW0xKSIvPgo8dGV4dCB4PSIyMDkuMyIgeT0iMjIuMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSIxMSIgZm9udC13ZWlnaHQ9IjUwMCIgc3R5bGU9ImZpbGw6dmFyKC0tdml6LW0xKSI+MTwvdGV4dD4KPGNpcmNsZSBjeD0iNDAwLjkiIGN5PSIxOC4wIiByPSI4LjUiIHN0cm9rZS13aWR0aD0iMSIgc3R5bGU9ImZpbGw6dmFyKC0tYmcpO3N0cm9rZTp2YXIoLS12aXotbTEpIi8+Cjx0ZXh0IHg9IjQwMC45IiB5PSIyMi4wIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjExIiBmb250LXdlaWdodD0iNTAwIiBzdHlsZT0iZmlsbDp2YXIoLS12aXotbTEpIj4yPC90ZXh0Pgo8Y2lyY2xlIGN4PSI1MzAuMiIgY3k9IjE4LjAiIHI9IjguNSIgc3Ryb2tlLXdpZHRoPSIxIiBzdHlsZT0iZmlsbDp2YXIoLS1iZyk7c3Ryb2tlOnZhcigtLXZpei1tMSkiLz4KPHRleHQgeD0iNTMwLjIiIHk9IjIyLjAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtc2l6ZT0iMTEiIGZvbnQtd2VpZ2h0PSI1MDAiIHN0eWxlPSJmaWxsOnZhcigtLXZpei1tMSkiPjM8L3RleHQ+CjxnIGNsYXNzPSJzZXJpZXMiPgo8cGF0aCBkPSJNODkuOSAyOTcuMiBMMjE0LjMgMjEwLjMgTDI3Ni40IDIxMy41IEwzMTcuOSAxNzYuNCBMMzU5LjQgMTc5LjYgTDQ0Mi4zIDE0OC45IEw1NDUuOSAxMDcuNiBMNTg3LjQgNjYuMiIgZmlsbD0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0eWxlPSJzdHJva2U6dmFyKC0tZmlnLWZvY2FsKSIvPgo8Y2lyY2xlIGN4PSI4OS45IiBjeT0iMjk3LjIiIHI9IjQuNSIgc3Ryb2tlLXdpZHRoPSIxIiBzdHlsZT0iZmlsbDp2YXIoLS1maWctZm9jYWwpO3N0cm9rZTp2YXIoLS1iZykiLz4KPGNpcmNsZSBjeD0iMjE0LjMiIGN5PSIyMTAuMyIgcj0iNC41IiBzdHJva2Utd2lkdGg9IjEiIHN0eWxlPSJmaWxsOnZhcigtLWZpZy1mb2NhbCk7c3Ryb2tlOnZhcigtLWJnKSIvPgo8Y2lyY2xlIGN4PSIyNzYuNCIgY3k9IjIxMy41IiByPSI0LjUiIHN0cm9rZS13aWR0aD0iMSIgc3R5bGU9ImZpbGw6dmFyKC0tZmlnLWZvY2FsKTtzdHJva2U6dmFyKC0tYmcpIi8+CjxjaXJjbGUgY3g9IjMxNy45IiBjeT0iMTc2LjQiIHI9IjQuNSIgc3Ryb2tlLXdpZHRoPSIxIiBzdHlsZT0iZmlsbDp2YXIoLS1maWctZm9jYWwpO3N0cm9rZTp2YXIoLS1iZykiLz4KPGNpcmNsZSBjeD0iMzU5LjQiIGN5PSIxNzkuNiIgcj0iNC41IiBzdHJva2Utd2lkdGg9IjEiIHN0eWxlPSJmaWxsOnZhcigtLWZpZy1mb2NhbCk7c3Ryb2tlOnZhcigtLWJnKSIvPgo8Y2lyY2xlIGN4PSI0NDIuMyIgY3k9IjE0OC45IiByPSI0LjUiIHN0cm9rZS13aWR0aD0iMSIgc3R5bGU9ImZpbGw6dmFyKC0tZmlnLWZvY2FsKTtzdHJva2U6dmFyKC0tYmcpIi8+CjxjaXJjbGUgY3g9IjU0NS45IiBjeT0iMTA3LjYiIHI9IjQuNSIgc3Ryb2tlLXdpZHRoPSIxIiBzdHlsZT0iZmlsbDp2YXIoLS1maWctZm9jYWwpO3N0cm9rZTp2YXIoLS1iZykiLz4KPGNpcmNsZSBjeD0iNTg3LjQiIGN5PSI2Ni4yIiByPSI0LjUiIHN0cm9rZS13aWR0aD0iMSIgc3R5bGU9ImZpbGw6dmFyKC0tZmlnLWZvY2FsKTtzdHJva2U6dmFyKC0tYmcpIi8+CjwvZz4KPGcgY2xhc3M9InRudW0iIGZvbnQtc2l6ZT0iMTIiIHN0cm9rZS13aWR0aD0iMyIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgcGFpbnQtb3JkZXI9InN0cm9rZSIgc3R5bGU9ImZpbGw6dmFyKC0tdml6LW0xKTtzdHJva2U6dmFyKC0tYmcpIj4KPHRleHQgeD0iOTguMSIgeT0iMzEzLjIiIHRleHQtYW5jaG9yPSJzdGFydCI+NjYuMSU8L3RleHQ+Cjx0ZXh0IHg9IjIxNC4zIiB5PSIyMDAuMyIgdGV4dC1hbmNob3I9Im1pZGRsZSI+NzQuMyU8L3RleHQ+Cjx0ZXh0IHg9IjI3Ni40IiB5PSIyMDMuNSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+NzQuMCU8L3RleHQ+Cjx0ZXh0IHg9IjMxNy45IiB5PSIxNjYuNCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+NzcuNSU8L3RleHQ+Cjx0ZXh0IHg9IjM1OS40IiB5PSIxNjkuNiIgdGV4dC1hbmNob3I9Im1pZGRsZSI+NzcuMiU8L3RleHQ+Cjx0ZXh0IHg9IjQ0Mi4zIiB5PSIxMzguOSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+ODAuMSU8L3RleHQ+Cjx0ZXh0IHg9IjUzOS44IiB5PSI5OS42IiB0ZXh0LWFuY2hvcj0iZW5kIj44NC4wJTwvdGV4dD4KPC9nPgo8dGV4dCBjbGFzcz0ibW5hbWUiIHg9IjU4Ny40IiB5PSI1NS4yIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjE0IiBmb250LXdlaWdodD0iNTAwIiBzdHJva2Utd2lkdGg9IjMiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHBhaW50LW9yZGVyPSJzdHJva2UiIHN0eWxlPSJmaWxsOnZhcigtLWluayk7c3Ryb2tlOnZhcigtLWJnKSI+ODcuOSU8L3RleHQ+CjxjaXJjbGUgY3g9IjkuNSIgY3k9IjQxOC42IiByPSI4LjUiIHN0cm9rZS13aWR0aD0iMSIgc3R5bGU9ImZpbGw6dmFyKC0tYmcpO3N0cm9rZTp2YXIoLS12aXotbTEpIi8+Cjx0ZXh0IHg9IjkuNSIgeT0iNDIyLjYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtc2l6ZT0iMTEiIGZvbnQtd2VpZ2h0PSI1MDAiIHN0eWxlPSJmaWxsOnZhcigtLXZpei1tMSkiPjE8L3RleHQ+Cjx0ZXh0IHg9IjI2LjUiIHk9IjQyMy42IiBmb250LXNpemU9IjEyIiBzdHlsZT0iZmlsbDp2YXIoLS12aXotbTEpIj5BZGRpbmcgbWlzc2luZyBzZWN0aW9ucyBhbmQgdHlwZSB0YWJsZXM8L3RleHQ+CjxjaXJjbGUgY3g9IjkuNSIgY3k9IjQ0NC42IiByPSI4LjUiIHN0cm9rZS13aWR0aD0iMSIgc3R5bGU9ImZpbGw6dmFyKC0tYmcpO3N0cm9rZTp2YXIoLS12aXotbTEpIi8+Cjx0ZXh0IHg9IjkuNSIgeT0iNDQ4LjYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtc2l6ZT0iMTEiIGZvbnQtd2VpZ2h0PSI1MDAiIHN0eWxlPSJmaWxsOnZhcigtLXZpei1tMSkiPjI8L3RleHQ+Cjx0ZXh0IHg9IjI2LjUiIHk9IjQ0OS42IiBmb250LXNpemU9IjEyIiBzdHlsZT0iZmlsbDp2YXIoLS12aXotbTEpIj5GaXhpbmcgaG93IHRoZSBza2lsbCB0ZWxscyBDbGF1ZGUgdG8gd3JpdGUgY29kZTwvdGV4dD4KPGNpcmNsZSBjeD0iOS41IiBjeT0iNDcwLjYiIHI9IjguNSIgc3Ryb2tlLXdpZHRoPSIxIiBzdHlsZT0iZmlsbDp2YXIoLS1iZyk7c3Ryb2tlOnZhcigtLXZpei1tMSkiLz4KPHRleHQgeD0iOS41IiB5PSI0NzQuNiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSIxMSIgZm9udC13ZWlnaHQ9IjUwMCIgc3R5bGU9ImZpbGw6dmFyKC0tdml6LW0xKSI+MzwvdGV4dD4KPHRleHQgeD0iMjYuNSIgeT0iNDc1LjYiIGZvbnQtc2l6ZT0iMTIiIHN0eWxlPSJmaWxsOnZhcigtLXZpei1tMSkiPkZpeGluZyBncmFkZXJzLCBwbHVzIG1vcmUgc2tpbGwgZWRpdHM8L3RleHQ+Cjwvc3ZnPg==" class="article-image"/><figcaption>FIG 9 Performance-focused hillclimbing.</figcaption></figure>
+<p>After the score stalled for two rounds, Claude analyzed the remaining failures and bucketed them by root-cause. A normal round makes one edit for the most common failure. This step makes no edit; it only sorts every remaining failure by cause. This reflection step was useful in a few ways:</p>
+<ul> <li>Reflecting across a collection of failures, the hillclimber found that the skill content was present but Claude was simply writing older API shapes (e.g., from its trained priors). To address, the hillclimber added a table near the top of the skill that guided Claude from the forms it remembered to the current ones: for example, from extended thinking with a fixed token budget, which the API now rejects on recent Opus models, to adaptive thinking, and from older versions of the web search and web fetch tools to the current ones. It also moved the C# and Java warnings against fixed-budget thinking above their adaptive-thinking examples. This improved performance to 80%.</li> <li>Tasks that never improved in performance despite addressing obvious content gaps are tells that the example or grader is flawed. One task asked for code that catches one error type, while its grader wanted a chain of at least three. Claude reworded the task. Another grader's instructions contradicted our docs, and testing the real API showed the docs were right. Addressing these, along with more skill edits, brought performance to ~88%.</li> </ul>
+<h2>GETTING STARTED</h2>
+<p><strong>Note:</strong> Run <code>claude update</code> first. The claude-api skill ships inside Claude Code, so updating gets you the latest version of these commands.</p>
+<pre>claude update</pre>
+<p>Then, in Claude Code:</p>
+<pre>/claude-api build-eval
+/claude-api hillclimb</pre>
+<p>These sub-commands can be used directly in Claude Code via the <a href="https://github.com/anthropics/skills/tree/main/skills/claude-api">claude-api skill</a>:</p>
+<p>Run <code>/claude-api build-eval</code> if you want to generate an evaluation set for a particular problem. You can steer it by providing access to examples (e.g., traces). Claude will employ the guidance shared in this article to design the examples and grader, and ensure you approve the examples and the grader.</p>
+<p>Run <code>/claude-api hillclimb</code> if you have an evaluation and want Claude to improve on this, guided by your goal (e.g., better performance, or lower cost while performance holds). Claude will employ the guidance shared in this article to check for overfitting while climbing and check for bugs in the eval itself, such as a grader that marks a correct-looking answer wrong or a harness error, both before the first round and whenever the score stalls.</p>
+<p><em>With special thanks to Misha Khalman for skill development. With thanks to Misha Khalman, Michael Segner, Matt Bell, Matt Thanabalan, and Punit Shah for reviews, contributions, and product support.</em></p></div>
+      
+    </article>
+    
+    <article>
+      <h1>Agentic Monitoring</h1>
+      <div class="article-meta">
+        Ben Congdon
+        · 23 Oct 2026 · <a href="https://link.mail.beehiiv.com/ss/c/u001.J3WaaJcD-G_P1A1xsf5CHqs7xs-O1BuVSGTZ9rHUyERnu1OLC6WPbdjO-YyEujHZjMSUsNCGJ1uZavTfSO9-Izhe5Rmmbx8kf9Ee_Gvc5fNA7fA6BBjUnGVd-W7NWrot8Bu_2iNxMtqPImGXhnPOfGAWbaT1tz6r0enba0prs33-Q656u2Xzy8GiJ37sHy80/4v4/_1oDCeWqRaiEbJhPeqbepw/h13/h001.yKKO_KfSrBWlPZGRPnbnFUQjmbmjfS-rxH_UfqA8aPQ">Source</a>
+      </div>
+      <div class="article-body"><p>A <a href="https://www.anthropic.com/engineering/redesigning-source-control">recent Anthropic blog post</a> contained a short paragraph, not at all the point of the post, which has been buzzing around my brain since I read it:</p>
+<blockquote> <p>A new level of operational excellence is possible. Our team uses Claude Tag heavily, which has helped us monitor each component of the system. For example, we created Slack channels where we tasked Claude with being obsessively focused on the health of a single component. We call these Claudes “superfans.” We have a scion-daemon superfan, a scion-cache superfan, an Antique merge queue superfan, and so on. They have access to our telemetry and logs, and act like an experienced engineer who has nothing better to do than to refresh charts and look for anything strange. We also have traditional alerts for all of our systems, but our superfans can detect subtle and novel issues that make these alerts seem one-dimensional by comparison.</p> </blockquote>
+<p>This is <em>so obviously</em> the path forward for software systems operations. I’ve been thinking about monitoring with agents for the past few weeks, and this paragraph crystallized some of those thoughts.</p>
+<p>Modern software systems, like the LLMs that write them, are becoming more “grown” than “designed”. Yes, human engineers often still give the high-level design and shape to the system, and yes, software systems (for now) are much more interpretable than LLMs – since you can just sit down and read the code, if you are so inclined. However, with the volume of code being written and shipped increasing exponentially, the amount of actual eyes-on-code knowledge that any human operator of a system has is decreasing.</p>
+<p>Systems monitoring was never <em>easy</em>. There is a whole industry of observability SaaS companies – <a href="https://sentry.io/">Sentry</a>, <a href="https://www.datadoghq.com/">Datadog</a>, <a href="https://www.splunk.com/">Splunk</a>, <a href="https://www.honeycomb.io/">Honeycomb</a>, to name a few. Observability is expensive.<sup><a href="https://benjamincongdon.me/blog/2026/10/19/Agentic-Monitoring/?aid=recXxmzxTKfqnPOZ0&amp;_bhlid=bed07809e80a1e2f13954b71d57198ebd383ae18#fn:1">1</a></sup> Doing it well requires a specialized human skill set and relies on building experience operating real systems at scale. One can really only develop these skills by working in industry. This is a domain that takes years to train junior engineers on.</p>
+<p>As with seemingly everything in the software industry in 2026, system monitoring is poised for a step change due to agents. I… am surprised I have not seen more people write about this, especially in the current milieu of “agent frenzy”. It’s right there in front of us all, and it <em>works</em>. There have been a bunch of startups trying to do the “AI SRE”, but very little writing from practitioners.</p>
+<p>But you don’t really need a full “AI SRE” to improve operational excellence, nor do you need a built-out SaaS product to do so. As of the Opus 5.5 / Astra class of models, with a bit of care, it’s entirely possible to make a good agent-driven monitoring system that “just works”.</p>
+<h3>Case study: change-point monitoring</h3>
+<p>I’ll ground this discussion in a problem that is near to my heart: production monitoring of change points, like binary releases and <a href="https://benjamincongdon.me/blog/2026/03/12/Feature-Flagging-at-Databricks/">config pushes</a>. The idea is that you want to do specialized, intensive monitoring around critical points of change to a system; these change points are more likely to trigger a regression, and thus if you monitor these events closely, you can limit its impact. To quote the clichéd line from the Google SRE book, “~70% of outages are due to changes in a live system”.</p>
+<p>This is a <a href="https://en.wikipedia.org/wiki/Wicked_problem">wicked problem</a>. I’ve been working on it in some form since 2023, and it’s been hard to get traction on. From talking with folks across the industry, I’ve learned there are ways to do change-point monitoring “well”, but these methods largely still rely on humans to do the right thing (e.g. tagging metrics/alerts diligently, defining precise signals, etc.) and require significant organizational investment.</p>
+<p>More specifically, achieving “takeoff” for change-point monitoring as a piece of platform engineering is hard because:</p>
+<ul> <li>Your first instinct may be to target highly motivated users who already have a good ops posture. However, these teams’ rollouts are already mostly safe, and you don’t actually raise the ops waterline much. The thing you’re selling here is <em>toil reduction</em>, which is “nice to have” but is not itself a first-order safety improvement. Precision is easier to achieve for highly motivated teams, but this means the change-point system is “competing” on recall and latency with traditional alerts.</li> <li>You can alternatively target the broad population of services. In other words, you go super wide and opt in “all services”, on a chosen subset of universal health metrics. In practice, most of these general health metrics are irreducibly noisy. This noise results in poor precision and alert fatigue.</li> <li>Prior to LLMs, there was a clear precision/latency tradeoff as well. Along this spectrum are: structured logs (precise, slow), metrics (coarse, fast), and alerts (even coarser, recall is pretty bad and precision is pretty bad, but “at least it’s something”).</li> </ul>
+<p>Shockingly, agents largely “just” solve this problem. Agents are happy to run copious queries, can write per-change queries on the fly, and will scan logs ad nauseam. As a result, you can get both good precision and recall for cheap. In the basic version of this setup, you just need the ability to connect your codebase (e.g. to reason about config consumption) and your observability stack (e.g. to view and monitor the live production state) to the agent.</p>
+<p>I’ve spiked a prototype of exactly this: an agent that proposes a monitoring plan based on the service code, a scaffold that executes that plan, and an agent that investigates triggered monitors, with an escalation path to humans. Even in this early prototype, I’ve been able to detect regressions in systems I have <em>zero</em> understanding of with precision and latency that would have been impossible a year ago.</p>
+<p>In my iteration on this, I’ve found that a pure agent loop is not the optimal shape for agentic monitors. Rather, a harness that allows the agent to write a spec of how to monitor, along with a deterministic system for running those specs, produces significantly cleaner signals with dramatically lower token usage. To the extent there is “secret sauce” in this pattern, it’s in the noise-reduction heuristics, the prompts that get the agent to write good specs, and a labeled eval set large enough to validate further tweaks.<sup><a href="https://benjamincongdon.me/blog/2026/10/19/Agentic-Monitoring/?aid=recXxmzxTKfqnPOZ0&amp;_bhlid=bed07809e80a1e2f13954b71d57198ebd383ae18#fn:2">2</a></sup></p>
+<h3>Agents are structurally well suited to monitoring</h3>
+<p>Two mindset shifts need to happen before this pattern can catch on:</p>
+<ol> <li>Agents actually can do a much better job at monitoring than humans.</li> <li>Monitoring agents need scaffolding, the same way the rest of the software development lifecycle had to adapt for coding agents. There hasn’t been a “Claude Code moment” for monitoring yet.</li> </ol>
+<p>Once you make these shifts, monitoring agents have several “unfair advantages” over human operators:</p>
+<ul> <li>Ability to track everything, 24/7. If tokens are cheap, then any regression in a metric you care about and any suspicious log line can be investigated – not just the events that would previously have risen above the “human attention cutline”. Agents don’t need to <a href="https://en.wikipedia.org/wiki/Follow-the-sun">“follow the sun”</a>.</li> <li>Ability to fan out and investigate several paths toward resolving a production problem. Agents can parallelize investigations when multiple things go wrong at once, and coordinate quickly. This is already my go-to for incident triage: I just launch a bunch of agents to investigate several potential threads or theorized incident causes. Right now, this is human-driven, but there’s really no reason it couldn’t be agent-initiated in the future. You can elastically scale up a fleet of incident responders. <ul> <li>We’re already seeing that this is becoming critical for security incidents. Teams/fleets/swarms of agents are being used for offensive cyberattacks, and defenders are beginning to build up similar defensive capabilities (e.g. OpenAI’s <a href="https://openai.com/index/expanding-daybreak-as-the-cyber-defense-window-narrows/">Daybreak Blue</a>, Anthropic’s <a href="https://www.anthropic.com/glasswing">Project Glasswing</a>, Google’s <a href="https://deepmind.google/fairwind-program/">Fairwind</a>).</li> </ul> </li> <li>Ability to respond faster to a problem than can a human. Agents can read code faster than humans. Agents can also query and digest metrics and log signals significantly faster. This speed doesn’t always translate into faster incident detection time; a human with a deep understanding of a system may still be faster at finding the right signal and intuiting the root causes. But to the extent that tacit knowledge can be recorded and made available to an agent, the agent will eventually beat the human on speed. <ul> <li>By extension, for systems where the human operator isn’t deeply experienced, the “time to understanding” is going to be shorter for an agent.</li> </ul> </li> </ul>
+<h3>“A new level of operational excellence is possible.”</h3>
+<p><strong>Be more diligent:</strong> You wouldn’t pay a full-time software engineer to look through all the Git commits for a service, pick out things to monitor, and make special short-term fast-trigger alerts just on those changes. However, for a couple cents per million tokens, it’s possible now, and will become an industry standard.</p>
+<p><strong>Continuously improve performance:</strong> Agents can monitor performance, look at heap dumps and stack traces and CPU profiles, and propose optimizations from the patterns they find. Put the proposed improvements behind A/B tests if necessary, and monitor as you would any other change to the service.</p>
+<p>In one instance, I observed that a few sessions of Astra/Opus investigation discovered 50% heap savings and 30% latency reduction in a common hot-path library that humans had already spent nontrivial effort to optimize. Once you give a sufficiently powerful LLM a VM and benchmarks to run, the “hill-climbing” ability of current-generation LLMs is remarkable.</p>
+<p><strong>Take action</strong>: Thus far, I’ve mostly been discussing “read-only” monitoring systems. Agents, of course, needn’t be “read-only”. With the right harness and guardrails in place, there’s definitely a future in which agents will be able to take front-line actions to remediate incidents. This could span anything from well-scoped operational tasks like resizing instances or rotating compute pools, to deterministic actions like rolling back a config change or binary, to open-ended tasks like root-causing bugs, proposing fixes, and redeploying on-the-fly. Obviously there is risk the more control you hand-over to the agent, but considering how much agent capabilities expanded over the course of the past 12 months, the amount of write-path work that can be responsibly handed over to agents is bound to increase. The promise of truly self-healing systems is exciting.</p>
+<p><strong>Cost is no longer a limitation.</strong> Luna/Haiku-class models<sup><a href="https://benjamincongdon.me/blog/2026/10/19/Agentic-Monitoring/?aid=recXxmzxTKfqnPOZ0&amp;_bhlid=bed07809e80a1e2f13954b71d57198ebd383ae18#fn:3">3</a></sup> are now competent graph-starers. A moderately large tech company could likely monitor its entire fleet for on the order of $100/day. Startup-scale fleets would be a small fraction of that. Compared to human labor, or even the cost of the infra that runs observability, this is trivial.</p>
+<p><strong>Create a virtuous cycle:</strong> If done well, agentic monitoring creates a positive feedback loop: coding agents allow you to ship more, monitoring agents allow you to support more systems, which in turn frees up human time to direct more things to ship. Humans increasingly spend time “building the <a href="https://en.wikipedia.org/wiki/Software_factory">factory</a>” or “tending the garden”.</p>
+<p>Agentic monitoring is worth investing in. It will soon be reckless not to have agents monitoring your systems. Until the rest of the industry catches up, getting started now affords an unfair advantage.</p>
+<ol> <li> <p>A set of optimizations my team recently completed saved us several million dollars in annualized observability cost, and… that was a mere fraction of what <em>just my team</em> spends on observability. <a href="https://benjamincongdon.me/blog/2026/10/19/Agentic-Monitoring/?aid=recXxmzxTKfqnPOZ0&amp;_bhlid=bed07809e80a1e2f13954b71d57198ebd383ae18#fnref:1">↩︎</a></p> </li> <li> <p>Much, much more could be written about the design of agentic monitoring harnesses. This is one of the clearest “we’re so early” feelings I’ve had in a while. General harnesses, like Anthropic’s “Claude Tag”, evidently already do a good job at agentic monitoring, per the original post. However, based on what I’ve seen, even a little monitoring-specific harness engineering picks up a lot of low-hanging fruit. <a href="https://benjamincongdon.me/blog/2026/10/19/Agentic-Monitoring/?aid=recXxmzxTKfqnPOZ0&amp;_bhlid=bed07809e80a1e2f13954b71d57198ebd383ae18#fnref:2">↩︎</a></p> </li> <li> <p>Here I mean GPT-6-Luna and Claude Haiku 5.5. <a href="https://benjamincongdon.me/blog/2026/10/19/Agentic-Monitoring/?aid=recXxmzxTKfqnPOZ0&amp;_bhlid=bed07809e80a1e2f13954b71d57198ebd383ae18#fnref:3">↩︎</a></p> </li> </ol></div>
+      
+    </article>
+    
+    <article>
+      <h1>What requirements don&#39;t you have?</h1>
+      <div class="article-meta">
+        seangoedecke.com RSS feed
+        · 19 Oct 2026 · <a href="https://seangoedecke.com/what-requirements-dont-you-have/">Source</a>
+      </div>
+      <div class="article-body"><div><section><p>When designing software, the requirements you don’t have are as important as the requirements you do. Identifying what you can compromise on — what can be slow, or stale, or inflexible — is usually the key to an elegant design.</p>
+<h3>Elegant systems drop some requirements<a aria-label="elegant systems drop some requirements permalink" href="#elegant-systems-drop-some-requirements"><p class="media-omitted">[SVG OMITTED]</p></a></h3>
+<p>For instance, take preforking web servers like <a href="https://github.com/defunkt/unicorn/">Unicorn</a>. Because they lack the feature of shared mutable state between server instances, they can run each server in its own process, which provides isolation for free. Because Unicorn specifically ignores the problem of slow client handling<sup></sup>, it can queue requests directly on Unix sockets, drastically simplifying the implementation.</p>
+<p>Because <a href="https://aws.amazon.com/s3">S3</a> does not support atomic multi-key updates — you cannot update multiple blobs in a single transaction — it can store data at the blob level however it chooses. That makes it much faster, since reads and writes don’t have to cross storage partitions, and much easier to scale, since less coordination means fewer sources of truth.</p>
+<p><a href="https://github.com/statsd/statsd">StatsD</a> uses UDP by default, which means it doesn’t guarantee that every piece of data you send makes it into storage. In exchange for dropping that requirement, it incurs much less network overhead, which is a big advantage for a stats aggregation service that’s constantly shoveling data over the wire.</p>
+<p>The general design approach of fanning out data to an edge cache buys a lot of speed and scaling by dropping the requirement that data must always be up-to-date. <a href="https://www.sqlite.org/">SQLite</a> buys operational simplicity — it can run out of a single file! — by dropping the requirement of concurrent writes. By accepting <a href="https://cursor.com/blog/git-at-any-scale">high tail latency</a><sup></sup>, Cursor can scale their distributed git backend more easily. Well-designed systems turn their weaknesses into strengths.</p>
+<h3>Why dropping requirements is hard<a aria-label="why dropping requirements is hard permalink" href="#why-dropping-requirements-is-hard"><p class="media-omitted">[SVG OMITTED]</p></a></h3>
+<p>Anyone who’s spent time designing real-world software (or who’s studied <a href="https://en.wikipedia.org/wiki/CAP_theorem">distributed systems</a>) knows that system design is a process of compromise. If you attempt to satisfy every single potential requirement — speed, concurrency, up-to-date data, a simple interface, supporting complex user behaviors — you will fail to design a working system at all.</p>
+<p>Figuring out what requirements you can relax is difficult because <strong>it combines both business and technical expertise</strong>. It is technically challenging to identify precisely the level of staleness that a particular design change will allow; it is likewise challenging from a business perspective to determine whether that level of staleness is acceptable to users.</p>
+<p>In most cases, an engineer who understands the technical side must try and explain it to a product manager, who can make a judgement on the business side. But this is a very difficult partnership to get right. Engineers and PMs have different incentives and little ability to check each other’s work, which makes it hard to <a href="https://seangoedecke.com/working-with-product-managers/#why-its-so-hard-to-build-trust">build trust</a>. Without trust, the product manager is liable to avoid giving any ground at all<sup></sup>, which leaves the design in an impossible state.</p>
+<p>This is an underappreciated reason why solo developers or startups can sometimes run rings around larger companies. Because the technical and business decisions are united in a single person, they can make design tradeoffs that would be impossible for a large company, enabling them to build systems that are far more elegant and powerful.</p>
+<h3>Working with LLMs<a aria-label="working with llms permalink" href="#working-with-llms"><p class="media-omitted">[SVG OMITTED]</p></a></h3>
+<p>Knowing what requirements you don’t have becomes far more important when working with coding agents. Frontier models are very capable, but they have all gone through the purifying flames of <a href="https://rlvrbook.com/">RLVR</a>: like high-achieving schoolchildren, they are obsessed with satisfying the Grader. On top of that, they have very little business context compared to an experienced human. That often manifests as them catching correctness or consistency “bugs” that are really just hypothetical unsatisfied requirements.</p>
+<p>For instance, it’s not uncommon for an LLM to casually introduce a mutex or other concurrency mechanism to ensure that two pieces of semi-related data are kept in sync, even if not told to do so. I’ve seen LLMs add weird checks in the middle of request handling to ensure that some already-checked piece of data hasn’t changed mid-flight, even if that wouldn’t successfully prevent the feared <a href="https://en.wikipedia.org/wiki/Time-of-check_to_time-of-use">TOCTOU</a> bug<sup></sup>. LLMs are obsessed with edge cases like “what if the current user loses their admin status in the middle of us handling one of their admin requests?”<sup></sup>, or “what if the cache in storage partition A is updated a nanosecond before the one in storage partition B, leading some users to see different data?“. Particularly if run in a loop or told to “make no mistakes”, they will pile on cases like these until they’ve transformed your four-line change into a thousand-line monster.</p>
+<p>This is why I’m confused by some people’s claims that <a href="https://newsletter.pragmaticengineer.com/p/what-is-happening-with-code-reviews">code review is dead</a>. About half the time I review a large AI-generated change, I notice some unnecessary requirement that makes the diff more complex. When I dig deeper, the LLM invariably introduced this requirement on its own.</p>
+<p>When working with a cache, I will often spell out in my prompt that I don’t mind the data sometimes being stale or briefly inconsistent between cache instances. When reviewing Golang code, the first thing I do is scan for added mutexes or layers of indirection that don’t look necessary to me.</p>
+<p>If you allow requirements like these to propagate unchecked through a codebase, they will petrify the system over time. The whole thing will be such a mess of checking and re-checking and holding locks and enforcing consistency that it cannot be scaled at all. Keeping systems elegant requires a ruthless focus: on accepting stale data or occasional tail latency, on avoiding all but critical instances of coordination, and in general on figuring out what requirements you <em>don’t</em> have to satisfy.</p></section></div></div>
+      
+    </article>
+    
+  </body>
+</html>
