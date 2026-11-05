@@ -1,0 +1,544 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Fred Talks - 2026-11-05</title>
+    <style>
+      @page {
+        size: A5;
+        margin: 8mm 9mm 9mm;
+      }
+
+      :root {
+        color: #111;
+        font-family: "Times New Roman", Times, serif;
+        --body-text-size: 9.5pt;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        color: #111;
+        background: #fff;
+        font-family: "Times New Roman", Times, serif;
+        line-height: 1.45;
+      }
+
+      a,
+      a:visited {
+        color: #111;
+        text-decoration: underline;
+      }
+
+      .cover {
+        min-height: calc(210mm - 17mm);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        page-break-after: always;
+        border: 1px solid #111;
+        padding: 8mm;
+        background: #fff;
+      }
+
+      .toc-item-meta,
+      .article-meta {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .masthead {
+        margin: 0;
+        font-size: 40pt;
+        line-height: 0.95;
+        text-transform: uppercase;
+      }
+
+      .issue-date {
+        margin: 4mm 0 0;
+        font-size: 14pt;
+      }
+
+      .issue-date sup {
+        font-size: 0.58em;
+        vertical-align: super;
+        line-height: 0;
+      }
+
+      .cover-deck {
+        max-width: 90mm;
+        font-size: 12pt;
+        margin: 0;
+      }
+
+      .toc {
+        border-top: 3px solid #111;
+        padding-top: 6mm;
+      }
+
+      .toc h2 {
+        margin: 0 0 4mm;
+        font-size: 11pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .toc-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .toc-item {
+        padding: 3mm 0;
+        border-bottom: 1px solid rgba(17, 17, 17, 0.2);
+      }
+
+      .toc-item-title {
+        font-size: 12pt;
+        margin: 0 0 1mm;
+      }
+
+      .toc-item-meta {
+        font-size: 8pt;
+      }
+
+      .masthead-compact {
+        margin: 0 0 6mm;
+      }
+
+      .masthead-compact h1 {
+        margin: 0;
+        font-size: 22pt;
+        line-height: 1.1;
+        text-transform: uppercase;
+      }
+
+      .masthead-compact .issue-date {
+        margin: 2mm 0 0;
+        font-size: 11pt;
+      }
+
+      .toc-compact {
+        border-top: 1px solid #111;
+        border-bottom: 1px solid #111;
+        padding: 4mm 0;
+        margin: 0 0 8mm;
+      }
+
+      article + article {
+        margin-top: 10mm;
+        padding-top: 6mm;
+        border-top: 2px solid #111;
+      }
+
+      h1 {
+        margin: 0 0 2mm;
+        font-size: 18pt;
+        line-height: 1.1;
+      }
+
+      .article-meta {
+        font-size: 8.5pt;
+        margin-bottom: 6mm;
+        padding-bottom: 3mm;
+        border-bottom: 1px solid #111;
+      }
+
+      .article-body {
+        font-size: var(--body-text-size);
+        font-family: "Times New Roman", Times, serif;
+      }
+
+      .article-body p,
+      .article-body li,
+      .article-body blockquote,
+      .article-body dd,
+      .article-body dt {
+        margin: 0 0 4mm;
+        orphans: 3;
+        widows: 3;
+      }
+
+      .article-body ul,
+      .article-body ol,
+      .article-body dl {
+        margin: 0 0 4mm 5mm;
+        padding: 0;
+      }
+
+      .article-body h2,
+      .article-body h3,
+      .article-body h4 {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        margin: 7mm 0 3mm;
+        line-height: 1.2;
+      }
+
+      .article-body blockquote {
+        margin-left: 6mm;
+        padding-left: 4mm;
+        border-left: 2px solid #111;
+      }
+
+      .article-body .media-omitted {
+        margin: 0 0 4mm;
+        font-size: 8.5pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(17, 17, 17, 0.65);
+      }
+
+      .article-body figure,
+      .article-body .article-figure,
+      .article-body picture,
+      .article-body .article-picture {
+        display: block;
+        max-width: 72mm;
+        margin: 0 auto 4mm;
+        break-inside: avoid;
+      }
+
+      .article-body img,
+      .article-body .article-image {
+        display: block;
+        max-width: min(100%, 72mm);
+        max-height: 34mm;
+        height: auto;
+        width: auto;
+        object-fit: contain;
+        margin: 0 auto 3mm;
+      }
+
+      .article-body figcaption {
+        margin-top: 1.5mm;
+        font-size: 8.5pt;
+        line-height: 1.3;
+        color: rgba(17, 17, 17, 0.8);
+      }
+
+      .article-note {
+        margin-top: 6mm;
+        padding-top: 3mm;
+        border-top: 1px solid #111;
+        font-size: 9pt;
+        font-style: italic;
+      }
+
+      @media screen {
+        body {
+          padding: 2rem;
+          margin: 0 auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    
+    <header class="masthead-compact">
+      <h1>Fred Talks</h1>
+      <p class="issue-date">
+        5<sup>th</sup> November 2026
+      </p>
+    </header>
+
+    <nav class="toc toc-compact">
+      <h2>Contents</h2>
+      <ol class="toc-list">
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Agentic Monitoring</div>
+          <div class="toc-item-meta">
+            Ben Congdon · 1924 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">The Self-Help Trap: What 20+ Years of “Optimizing” Has Taught Me</div>
+          <div class="toc-item-meta">
+            Tim Ferriss · 3114 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">My new book: Unfair Advantage</div>
+          <div class="toc-item-meta">
+            Shane Parrish (FS) · 253 words
+          </div>
+        </li>
+        
+      </ol>
+    </nav>
+    
+
+    
+    <article>
+      <h1>Agentic Monitoring</h1>
+      <div class="article-meta">
+        Ben Congdon
+        · 23 Oct 2026 · <a href="https://link.mail.beehiiv.com/ss/c/u001.J3WaaJcD-G_P1A1xsf5CHqs7xs-O1BuVSGTZ9rHUyERnu1OLC6WPbdjO-YyEujHZjMSUsNCGJ1uZavTfSO9-Izhe5Rmmbx8kf9Ee_Gvc5fNA7fA6BBjUnGVd-W7NWrot8Bu_2iNxMtqPImGXhnPOfGAWbaT1tz6r0enba0prs33-Q656u2Xzy8GiJ37sHy80/4v4/_1oDCeWqRaiEbJhPeqbepw/h13/h001.yKKO_KfSrBWlPZGRPnbnFUQjmbmjfS-rxH_UfqA8aPQ">Source</a>
+      </div>
+      <div class="article-body"><p>A <a href="https://www.anthropic.com/engineering/redesigning-source-control">recent Anthropic blog post</a> contained a short paragraph, not at all the point of the post, which has been buzzing around my brain since I read it:</p>
+<blockquote> <p>A new level of operational excellence is possible. Our team uses Claude Tag heavily, which has helped us monitor each component of the system. For example, we created Slack channels where we tasked Claude with being obsessively focused on the health of a single component. We call these Claudes “superfans.” We have a scion-daemon superfan, a scion-cache superfan, an Antique merge queue superfan, and so on. They have access to our telemetry and logs, and act like an experienced engineer who has nothing better to do than to refresh charts and look for anything strange. We also have traditional alerts for all of our systems, but our superfans can detect subtle and novel issues that make these alerts seem one-dimensional by comparison.</p> </blockquote>
+<p>This is <em>so obviously</em> the path forward for software systems operations. I’ve been thinking about monitoring with agents for the past few weeks, and this paragraph crystallized some of those thoughts.</p>
+<p>Modern software systems, like the LLMs that write them, are becoming more “grown” than “designed”. Yes, human engineers often still give the high-level design and shape to the system, and yes, software systems (for now) are much more interpretable than LLMs – since you can just sit down and read the code, if you are so inclined. However, with the volume of code being written and shipped increasing exponentially, the amount of actual eyes-on-code knowledge that any human operator of a system has is decreasing.</p>
+<p>Systems monitoring was never <em>easy</em>. There is a whole industry of observability SaaS companies – <a href="https://sentry.io/">Sentry</a>, <a href="https://www.datadoghq.com/">Datadog</a>, <a href="https://www.splunk.com/">Splunk</a>, <a href="https://www.honeycomb.io/">Honeycomb</a>, to name a few. Observability is expensive.<sup><a href="https://benjamincongdon.me/blog/2026/10/19/Agentic-Monitoring/?aid=recXxmzxTKfqnPOZ0&amp;_bhlid=bed07809e80a1e2f13954b71d57198ebd383ae18#fn:1">1</a></sup> Doing it well requires a specialized human skill set and relies on building experience operating real systems at scale. One can really only develop these skills by working in industry. This is a domain that takes years to train junior engineers on.</p>
+<p>As with seemingly everything in the software industry in 2026, system monitoring is poised for a step change due to agents. I… am surprised I have not seen more people write about this, especially in the current milieu of “agent frenzy”. It’s right there in front of us all, and it <em>works</em>. There have been a bunch of startups trying to do the “AI SRE”, but very little writing from practitioners.</p>
+<p>But you don’t really need a full “AI SRE” to improve operational excellence, nor do you need a built-out SaaS product to do so. As of the Opus 5.5 / Astra class of models, with a bit of care, it’s entirely possible to make a good agent-driven monitoring system that “just works”.</p>
+<h3>Case study: change-point monitoring</h3>
+<p>I’ll ground this discussion in a problem that is near to my heart: production monitoring of change points, like binary releases and <a href="https://benjamincongdon.me/blog/2026/03/12/Feature-Flagging-at-Databricks/">config pushes</a>. The idea is that you want to do specialized, intensive monitoring around critical points of change to a system; these change points are more likely to trigger a regression, and thus if you monitor these events closely, you can limit its impact. To quote the clichéd line from the Google SRE book, “~70% of outages are due to changes in a live system”.</p>
+<p>This is a <a href="https://en.wikipedia.org/wiki/Wicked_problem">wicked problem</a>. I’ve been working on it in some form since 2023, and it’s been hard to get traction on. From talking with folks across the industry, I’ve learned there are ways to do change-point monitoring “well”, but these methods largely still rely on humans to do the right thing (e.g. tagging metrics/alerts diligently, defining precise signals, etc.) and require significant organizational investment.</p>
+<p>More specifically, achieving “takeoff” for change-point monitoring as a piece of platform engineering is hard because:</p>
+<ul> <li>Your first instinct may be to target highly motivated users who already have a good ops posture. However, these teams’ rollouts are already mostly safe, and you don’t actually raise the ops waterline much. The thing you’re selling here is <em>toil reduction</em>, which is “nice to have” but is not itself a first-order safety improvement. Precision is easier to achieve for highly motivated teams, but this means the change-point system is “competing” on recall and latency with traditional alerts.</li> <li>You can alternatively target the broad population of services. In other words, you go super wide and opt in “all services”, on a chosen subset of universal health metrics. In practice, most of these general health metrics are irreducibly noisy. This noise results in poor precision and alert fatigue.</li> <li>Prior to LLMs, there was a clear precision/latency tradeoff as well. Along this spectrum are: structured logs (precise, slow), metrics (coarse, fast), and alerts (even coarser, recall is pretty bad and precision is pretty bad, but “at least it’s something”).</li> </ul>
+<p>Shockingly, agents largely “just” solve this problem. Agents are happy to run copious queries, can write per-change queries on the fly, and will scan logs ad nauseam. As a result, you can get both good precision and recall for cheap. In the basic version of this setup, you just need the ability to connect your codebase (e.g. to reason about config consumption) and your observability stack (e.g. to view and monitor the live production state) to the agent.</p>
+<p>I’ve spiked a prototype of exactly this: an agent that proposes a monitoring plan based on the service code, a scaffold that executes that plan, and an agent that investigates triggered monitors, with an escalation path to humans. Even in this early prototype, I’ve been able to detect regressions in systems I have <em>zero</em> understanding of with precision and latency that would have been impossible a year ago.</p>
+<p>In my iteration on this, I’ve found that a pure agent loop is not the optimal shape for agentic monitors. Rather, a harness that allows the agent to write a spec of how to monitor, along with a deterministic system for running those specs, produces significantly cleaner signals with dramatically lower token usage. To the extent there is “secret sauce” in this pattern, it’s in the noise-reduction heuristics, the prompts that get the agent to write good specs, and a labeled eval set large enough to validate further tweaks.<sup><a href="https://benjamincongdon.me/blog/2026/10/19/Agentic-Monitoring/?aid=recXxmzxTKfqnPOZ0&amp;_bhlid=bed07809e80a1e2f13954b71d57198ebd383ae18#fn:2">2</a></sup></p>
+<h3>Agents are structurally well suited to monitoring</h3>
+<p>Two mindset shifts need to happen before this pattern can catch on:</p>
+<ol> <li>Agents actually can do a much better job at monitoring than humans.</li> <li>Monitoring agents need scaffolding, the same way the rest of the software development lifecycle had to adapt for coding agents. There hasn’t been a “Claude Code moment” for monitoring yet.</li> </ol>
+<p>Once you make these shifts, monitoring agents have several “unfair advantages” over human operators:</p>
+<ul> <li>Ability to track everything, 24/7. If tokens are cheap, then any regression in a metric you care about and any suspicious log line can be investigated – not just the events that would previously have risen above the “human attention cutline”. Agents don’t need to <a href="https://en.wikipedia.org/wiki/Follow-the-sun">“follow the sun”</a>.</li> <li>Ability to fan out and investigate several paths toward resolving a production problem. Agents can parallelize investigations when multiple things go wrong at once, and coordinate quickly. This is already my go-to for incident triage: I just launch a bunch of agents to investigate several potential threads or theorized incident causes. Right now, this is human-driven, but there’s really no reason it couldn’t be agent-initiated in the future. You can elastically scale up a fleet of incident responders. <ul> <li>We’re already seeing that this is becoming critical for security incidents. Teams/fleets/swarms of agents are being used for offensive cyberattacks, and defenders are beginning to build up similar defensive capabilities (e.g. OpenAI’s <a href="https://openai.com/index/expanding-daybreak-as-the-cyber-defense-window-narrows/">Daybreak Blue</a>, Anthropic’s <a href="https://www.anthropic.com/glasswing">Project Glasswing</a>, Google’s <a href="https://deepmind.google/fairwind-program/">Fairwind</a>).</li> </ul> </li> <li>Ability to respond faster to a problem than can a human. Agents can read code faster than humans. Agents can also query and digest metrics and log signals significantly faster. This speed doesn’t always translate into faster incident detection time; a human with a deep understanding of a system may still be faster at finding the right signal and intuiting the root causes. But to the extent that tacit knowledge can be recorded and made available to an agent, the agent will eventually beat the human on speed. <ul> <li>By extension, for systems where the human operator isn’t deeply experienced, the “time to understanding” is going to be shorter for an agent.</li> </ul> </li> </ul>
+<h3>“A new level of operational excellence is possible.”</h3>
+<p><strong>Be more diligent:</strong> You wouldn’t pay a full-time software engineer to look through all the Git commits for a service, pick out things to monitor, and make special short-term fast-trigger alerts just on those changes. However, for a couple cents per million tokens, it’s possible now, and will become an industry standard.</p>
+<p><strong>Continuously improve performance:</strong> Agents can monitor performance, look at heap dumps and stack traces and CPU profiles, and propose optimizations from the patterns they find. Put the proposed improvements behind A/B tests if necessary, and monitor as you would any other change to the service.</p>
+<p>In one instance, I observed that a few sessions of Astra/Opus investigation discovered 50% heap savings and 30% latency reduction in a common hot-path library that humans had already spent nontrivial effort to optimize. Once you give a sufficiently powerful LLM a VM and benchmarks to run, the “hill-climbing” ability of current-generation LLMs is remarkable.</p>
+<p><strong>Take action</strong>: Thus far, I’ve mostly been discussing “read-only” monitoring systems. Agents, of course, needn’t be “read-only”. With the right harness and guardrails in place, there’s definitely a future in which agents will be able to take front-line actions to remediate incidents. This could span anything from well-scoped operational tasks like resizing instances or rotating compute pools, to deterministic actions like rolling back a config change or binary, to open-ended tasks like root-causing bugs, proposing fixes, and redeploying on-the-fly. Obviously there is risk the more control you hand-over to the agent, but considering how much agent capabilities expanded over the course of the past 12 months, the amount of write-path work that can be responsibly handed over to agents is bound to increase. The promise of truly self-healing systems is exciting.</p>
+<p><strong>Cost is no longer a limitation.</strong> Luna/Haiku-class models<sup><a href="https://benjamincongdon.me/blog/2026/10/19/Agentic-Monitoring/?aid=recXxmzxTKfqnPOZ0&amp;_bhlid=bed07809e80a1e2f13954b71d57198ebd383ae18#fn:3">3</a></sup> are now competent graph-starers. A moderately large tech company could likely monitor its entire fleet for on the order of $100/day. Startup-scale fleets would be a small fraction of that. Compared to human labor, or even the cost of the infra that runs observability, this is trivial.</p>
+<p><strong>Create a virtuous cycle:</strong> If done well, agentic monitoring creates a positive feedback loop: coding agents allow you to ship more, monitoring agents allow you to support more systems, which in turn frees up human time to direct more things to ship. Humans increasingly spend time “building the <a href="https://en.wikipedia.org/wiki/Software_factory">factory</a>” or “tending the garden”.</p>
+<p>Agentic monitoring is worth investing in. It will soon be reckless not to have agents monitoring your systems. Until the rest of the industry catches up, getting started now affords an unfair advantage.</p>
+<ol> <li> <p>A set of optimizations my team recently completed saved us several million dollars in annualized observability cost, and… that was a mere fraction of what <em>just my team</em> spends on observability. <a href="https://benjamincongdon.me/blog/2026/10/19/Agentic-Monitoring/?aid=recXxmzxTKfqnPOZ0&amp;_bhlid=bed07809e80a1e2f13954b71d57198ebd383ae18#fnref:1">↩︎</a></p> </li> <li> <p>Much, much more could be written about the design of agentic monitoring harnesses. This is one of the clearest “we’re so early” feelings I’ve had in a while. General harnesses, like Anthropic’s “Claude Tag”, evidently already do a good job at agentic monitoring, per the original post. However, based on what I’ve seen, even a little monitoring-specific harness engineering picks up a lot of low-hanging fruit. <a href="https://benjamincongdon.me/blog/2026/10/19/Agentic-Monitoring/?aid=recXxmzxTKfqnPOZ0&amp;_bhlid=bed07809e80a1e2f13954b71d57198ebd383ae18#fnref:2">↩︎</a></p> </li> <li> <p>Here I mean GPT-6-Luna and Claude Haiku 5.5. <a href="https://benjamincongdon.me/blog/2026/10/19/Agentic-Monitoring/?aid=recXxmzxTKfqnPOZ0&amp;_bhlid=bed07809e80a1e2f13954b71d57198ebd383ae18#fnref:3">↩︎</a></p> </li> </ol></div>
+      
+    </article>
+    
+    <article>
+      <h1>The Self-Help Trap: What 20+ Years of “Optimizing” Has Taught Me</h1>
+      <div class="article-meta">
+        Tim Ferriss
+        · 08 Mar 2026 · <a href="https://tim.blog/2026/03/04/the-self-help-trap/">Source</a>
+      </div>
+      <div class="article-body"><figure class="article-figure"><img alt="" data-lazy-sizes="(max-width: 1000px) 100vw, 1000px" data-lazy-src="https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image.jpeg?resize=1024%2C768&amp;ssl=1" data-lazy-srcset="https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image.jpeg?resize=1024%2C768&amp;ssl=1 1024w, https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image.jpeg?resize=300%2C225&amp;ssl=1 300w, https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image.jpeg?resize=768%2C576&amp;ssl=1 768w, https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image.jpeg?resize=1536%2C1152&amp;ssl=1 1536w, https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image.jpeg?w=1600&amp;ssl=1 1600w" data-ll-status="loaded" data-recalc-dims="1" sizes="(max-width: 1000px) 100vw, 1000px" src="https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image.jpeg?w=1600&amp;ssl=1" srcset="https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image.jpeg?resize=1024%2C768&amp;ssl=1 1024w, https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image.jpeg?resize=300%2C225&amp;ssl=1 300w, https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image.jpeg?resize=768%2C576&amp;ssl=1 768w, https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image.jpeg?resize=1536%2C1152&amp;ssl=1 1536w, https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image.jpeg?w=1600&amp;ssl=1 1600w" class="article-image"/><figcaption>One danger of modern self-help.</figcaption></figure>
+<blockquote> <p><strong>“We cannot reason ourselves out of our basic irrationality. All we can do is to learn the art of being irrational in a reasonable way.”<br/></strong> — Aldous Huxley, <em>Island</em></p> </blockquote>
+<p>It was cold out, but none of us were cold.</p>
+<p>I sat with five men in the mountains of Montana. As the sun set, the fire in the center cast dancing light on our faces. Reclined against fallen trees in a tight circle, we ate mushrooms and fish we’d found under trees and along streams. The whole crew burst into laughter yet again, and one of the guides passed around a fresh batch of pine needle tea.</p>
+<p>Bathed in warmth, I took off a layer and glanced skyward through an opening in the trees. The stars shone like crystals on black velvet, and the show—the biggest meteor shower of the year—was starting.</p>
+<p>In that moment, there was nothing to do. Nothing to improve. Nothing to fix.</p>
+<p>It was perfect.</p>
+<p>***</p>
+<p>The older I get, the more I think that self-help can be a trap. Sometimes the cure is worse than the disease. I say this after ~20 years of writing self-help and a lifetime of consuming it.</p>
+<p>Spend enough time in the world of “improvement,” and you’ll notice something strange: The people most obsessed with self-help are often the least helped by it. Behind the smiles and motivational quotes, behind closed doors and after a drink or two, the truth is that they’re not able to outsmart their worries.</p>
+<p>On one hand, perhaps this unhappiness is precisely what lands one in self-development in the first place, right? I long assumed this about myself, and it’s partially true.</p>
+<p>On the other hand, what if self-help <em>itself</em> is actually creating or amplifying unhappiness?</p>
+<p><em>Modern self-help contains an in-built flaw:</em></p>
+<p><strong><em>To continually improve yourself, you must continually locate the ways you are broken.</em></strong></p>
+<p>Fortunately, there are a few perspective shifts that make all the difference. It took me embarrassingly long to figure them out.</p>
+<p>To get started, let’s take a fresh look at an old concept.</p>
+<h3><strong>MASLOW’S HIERARCHY OF NEEDS?</strong></h3>
+<blockquote> <p><strong>“I suppose it is tempting, if the only tool you have is a hammer, to treat everything as if it were a nail.”<br/></strong>― Abraham Maslow</p> </blockquote>
+<p>Maslow’s Hierarchy of Needs has captured the minds of hundreds of millions. It offers simplicity in a terrifyingly complex world.</p>
+<p>Abraham Maslow’s “<a href="https://psychclassics.yorku.ca/Maslow/motivation.htm">A Theory of Human Motivation</a>” (1943) contains five levels, which are typically presented like the below pyramid. This one is pulled from <a href="https://en.wikipedia.org/wiki/Maslow%27s_hierarchy_of_needs">the Wikipedia entry</a> on the subject:</p>
+<figure class="article-figure"><img alt="" data-lazy-sizes="(max-width: 1000px) 100vw, 1000px" data-lazy-src="https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image.png?resize=1024%2C576&amp;ssl=1" data-lazy-srcset="https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image.png?resize=1024%2C576&amp;ssl=1 1024w, https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image.png?resize=300%2C169&amp;ssl=1 300w, https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image.png?resize=768%2C432&amp;ssl=1 768w, https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image.png?resize=1536%2C864&amp;ssl=1 1536w, https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image.png?w=1920&amp;ssl=1 1920w" data-recalc-dims="1" src="https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image.png?resize=1024%2C576&amp;ssl=1" class="article-image"/></figure>
+<p>We’ve all seen it. Clear as day, you can see the goal post at the top: self-actualization.</p>
+<p>LFG! It’s time to journal and 80/20 myself! Pass me a shaman and some modafinil.</p>
+<p>That’s the mission. That’s the point.</p>
+<p>Right?</p>
+<p>But hold on. A critical footnote got lost in the shuffle. In his later writings, especially notes compiled in <a href="https://www.amazon.com/Farther-Reaches-Human-Nature/dp/0140194703?tag=offsitoftimfe-20"><em>The Farther Reaches of Human Nature</em></a> (1971), Maslow added a <em>sixth</em> level above self-actualization:</p>
+<p><strong>Self-transcendence.<br/>
+<br/>
+</strong>That update never quite made it out of the crib. The consultants are to blame, but that comes later.</p>
+<p><strong>Self-transcendence means going beyond the self</strong> — seeking connection with something greater, such as service to others, nature, art, or the divine. Why is it important? Well, for one thing, as <a href="https://tim.blog/2014/10/15/money-master-the-game/">Tony Robbins</a> put it at an event long ago: “‘I, I, I, me, me, me’ gets to be a really fucking boring song.”</p>
+<p>But it’s not just a boring song; it’s dangerous to your health.</p>
+<h3><strong>DON’T BE A SOMO</strong></h3>
+<blockquote> <p><strong>“The man who renounces himself, comes to himself.” <br/></strong>— Ralph Waldo Emerson</p> </blockquote>
+<p>Self-help is dangerous precisely because it easily becomes self-fixation.</p>
+<p>A focus on improving the self usually first requires finding problems with the self. This is quite the pickle. In a society that rewards problem-solving, you can end up hallucinating or exaggerating unease in order to fix it. This leaves you always in the red, always one step behind. Imagine a dog chasing its tail that has committed to being unhappy until it catches the tail… but it’s always just a few inches short. Still, it whirls around and around, “doing the work.” Perfection always recedes by one more book, one more seminar, one more habit tracker.</p>
+<p>Put in more colorful terms, misdirected self-help turns you into a self-obsessed masturbatory <a href="https://en.wikipedia.org/wiki/Ouroboros">ouroboros</a> (SOMO).</p>
+<p>To remind me of the SOMO risk, I have this sticker on my laptop:</p>
+<figure class="article-figure"><img alt="" data-lazy-sizes="(max-width: 1000px) 100vw, 1000px" data-lazy-src="https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image.jpeg?resize=1024%2C768&amp;ssl=1" data-lazy-srcset="https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image.jpeg?resize=1024%2C768&amp;ssl=1 1024w, https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image.jpeg?resize=300%2C225&amp;ssl=1 300w, https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image.jpeg?resize=768%2C576&amp;ssl=1 768w, https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image.jpeg?resize=1536%2C1152&amp;ssl=1 1536w, https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image.jpeg?w=1600&amp;ssl=1 1600w" data-recalc-dims="1" src="https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image.jpeg?resize=1024%2C768&amp;ssl=1" class="article-image"/><figcaption><em><em>A picture is worth a thousand social media posts about yourself. Sticker from </em><a href="https://theporouswalker.com/products/plant-copy?_pos=1&amp;_sid=27cbc0341&amp;_ss=r"><em>Porous Walker</em></a><em>.</em></em></figcaption></figure>
+<p>Now, to be clear, I still love self-help. Ain’t no way Timmy can give up the sauce. There’s a place for it.</p>
+<p>From The Bible to Seneca, and from Ben Franklin to Stephen Covey and far beyond, there’s a lot of valuable advice worth taking. I used to mainline it all – no time to waste! – and jump straight into action. This did some good, but there was a lot of collateral damage.</p>
+<p>Why?</p>
+<p>Because there are at least three “tectonic plates of self-help” that I couldn’t see for decades, and they dictate how much net-positive or net-negative comes from all the striving. Before you sprint, you want to calibrate your direction.</p>
+<h3><strong>THE THREE TECTONIC PLATES OF SELF-HELP</strong></h3>
+<blockquote> <p><strong>“As to methods there may be a million and then some, but principles are few. The man who grasps principles can successfully select his own methods. The man who tries methods, ignoring principles, is sure to have trouble.”</strong><br/>— Harrington Emerson</p> </blockquote>
+<p>In the last few years, my life has become much more of a joy than a grind, and that’s because I’ve focused on three tectonic plates.</p>
+<p>Let’s take a close look at each.</p>
+<h3><strong>1. Intention</strong></h3>
+<p><em><strong>Individual or Social?</strong><br/>
+</em><br/>
+Americans, in particular, worship at the altar of the rugged individualist. There are clear upsides to this. But steeped in a culture – offline and especially online – that puts the self on a pedestal, we can take self-improvement to be an end unto itself: a better self.</p>
+<p>But is it an end unto itself? Does it automatically produce good things? I now have my doubts.</p>
+<p>Here’s one analogy I’ve drawn for myself.</p>
+<p>Let’s pretend that life is the game of soccer. You can work on the mechanics of soccer by yourself. You can always get better at dribbling, shooting, and running drills as a solo practitioner. You can read dozens of books, study tape, and earn a PhD in the physics of ball flight. You can post videos of stunning shots on YouTube and get showered by emojis.</p>
+<p>But none of this is actually playing the game of soccer.</p>
+<p>You can spend your whole life preparing for, instead of playing, the game of life.</p>
+<p>But why would anyone, including yours truly, succumb to this?</p>
+<p>Subconsciously, it spares you from the messiest but most rewarding game of all: human interaction. Perhaps people hurt or traumatized you long ago. You might also justify the endless polishing, as I did, with some version of “Once I’ve perfected myself, then I’ll be ready for relationships.” But here’s the rub: that practice is exactly endless. You can always get better at dribbling and penalty kicks.</p>
+<p>Digging further, focusing on improving the self is often in service of trying to control the world, especially if things were unpredictable or unstable when growing up. Banish emotion, live by spreadsheets, and all can be well. All can be <em>controlled</em>, or so the illusion goes. But as soon as you’re interacting with – let alone depending on – other people, control as a construct goes out the window. And so we consciously or subconsciously avoid the messiness. This is also one of the reasons why a lot of optimizing achiever folks have a hard time in intimate relationships.</p>
+<p>So how do I think about “self-help” now, having realized all of the above?</p>
+<p>It is refreshingly simple: the goal is to build and improve my relationships. The sooner you get on the real field with real players, the sooner you can get to playing soccer and engaging with life. No more auto-fellating, even with the best of intentions. We’ve evolved over millions of years to be deeply social creatures, and the more you dodge that IN REAL PHYSICAL LIFE, the more you will suffer. This is why solitary confinement in prisons is often considered cruel and unusual punishment… and yet we do it to ourselves all the time.</p>
+<p>There are a few questions that help corral this tectonic plate of <em>intention</em>:</p>
+<ul> <li>How does any given “self-help” help me in my relationships, and how can I apply it with other people <em>today</em> or <em>this week</em>?</li> <li>How can I take the ship out of the harbor and test it where it counts?</li> </ul>
+<h3><strong>2. Audience</strong></h3>
+<p><strong><em>Do you have an audience for your self-development? If so, be careful.</em></strong></p>
+<p>Nary a minute can be spent on social media without bumping into a CAPS-rich “HOW X CHANGED MY LIFE” or a photo carousel of an ayahuasca retreat. If only Costa Rica got a dime for every bikini-clad healer under a waterfall!</p>
+<p>Welcome to the theater of performative self-help. I won’t belabor this, as we’ve all seen it, but I suggest reading about the <a href="https://www.gurwinder.blog/p/the-perils-of-audience-capture">insidious creep of audience capture here</a>, and don’t forge ahead in the fame game before reading <a href="https://tim.blog/2020/02/02/reasons-to-not-become-famous/">11 reasons not to become famous</a>. It’s hard to put the genie back in the bottle, so you should know what that genie will do to your life.</p>
+<p>But the truth is that most of us aren’t extreme examples of this. But even minor tendencies in this direction can do extreme damage over time.</p>
+<p>Below are a few questions that I’ve found helpful for nudging this particular tectonic plate in the right direction:</p>
+<ul> <li>If you couldn’t tell a soul about “the work” you’re doing, would you still do it? If not, you’re not developing yourself; you’re curating yourself. </li> <li>How has sharing your personal development created tradeoffs? </li> <li>If you <em>had to</em> take down 20% of your most popular posts, which would you take down and why?</li> <li>Are you describing strong catalysts (psychedelics, The Hoffman Process, you name it) instead of doing the post-session integration that makes them truly valuable?</li> <li>Have you become more robust or more fragile by offering your inner workings up to public vote? </li> <li>Has your social presence made you more or less of the person you want to be? How would the you of three or five years ago feel about your last year of posts? What about the you of 10 years from now?</li> </ul>
+<h3><strong>3. Assumption</strong></h3>
+<p><strong><em>What are the fundamental assumptions behind your doing “the work”?</em></strong></p>
+<p>Let’s begin with <a href="https://essenceofbuddhism.wordpress.com/2014/05/18/ajahn-chah-and-the-big-heavy-boulder/">a Buddhist parable</a> that I first heard from the incredible <a href="https://tim.blog/2023/07/28/jack-kornfield-3/">Jack Kornfield</a>.</p>
+<blockquote> <p><em>The old Master points to a big boulder and asks a disciple, “See that large rock over there?”</em></p> <p><em>“Yes”, says the disciple.</em></p> <p><em>“Do you think it’s heavy?” continues the Master.</em></p> <p><em>“Yes, it’s very heavy!” replies the student.</em></p> <p><em>“Only if you pick it up,” smiles the Master.</em></p> </blockquote>
+<p>Once again, the fundamental assumption behind self-help is often this: Something is not OK. Something is wrong. Something is not enough. Something needs fixing. If I can’t find it, I’ll create it.</p>
+<p>We’ve established this. But there is a follow-on assumption that matters a lot.</p>
+<p><em>If I fix the things that aren’t OK, all will be well. If I improve myself enough, if I only work hard enough, I can finally eliminate my suffering.</em></p>
+<p>I hate to inform you, but this doesn’t work. I’m also thrilled to inform you that this doesn’t work. You can stop picking up a lot of boulders.</p>
+<p>There is one book that most opened my eyes to this reframe – <a href="https://www.amazon.com/Already-Free-Buddhism-Psychotherapy-Liberation/dp/1622034112?tag=offsitoftimfe-20"><em>Already Free: Buddhism Meets Psychotherapy on the Path of Liberation</em></a> by Bruce Tift. It offers a terrifying but ultimately liberating realization: there is no perfect escape from suffering. It doesn’t exist. But there is a way to find your long-sought unclenching, and it lies in cultivating your skill of acceptance as much as that of improvement.</p>
+<p>Now, I can hear the chorus: <em>Has Tim gone soft? Given up the good fight? Is he telling everyone to chill after he himself red-lined and got the spoils? How convenient!</em> <em>And…</em></p>
+<p>Hold on a second. I’m telling you – intelligent acceptance is high-leverage. It’s probably one of the highest forms of leverage. This is an approach that helps preserve your energy for where it really matters. My early forays into Stoicism and <a href="https://tim.blog/2017/07/06/tao-of-seneca/">Seneca The Younger</a> helped set the conditions for my biggest wins from 2004-2010. Still, I only learned a small fraction of what I needed.</p>
+<p>So how do you cultivate your skill of acceptance without becoming complacent?</p>
+<p>This is a big question and what I love about Bruce’s book. Compared to a strictly Western or purely Eastern book, he blends them and offers a surgical guide to using <em>both</em> action and acceptance. You don’t have to be a bull in a china shop or a cow in the rain; there is a middle path. That middle path is where all the gold is buried.</p>
+<p>If the only tool you have is “self-improvement,” you’ll become a hammer looking for nails in a world that is 50% screws. I tried it. It can create the veneer of success, but it will leave your inner world in turmoil.</p>
+<p>Suffice to say, the dual dance is the most joyful. Upgrade your toolkit with that in mind. Read Bruce’s book. If it doesn’t click, try <a href="https://www.amazon.com/Radical-Acceptance-Embracing-Heart-Buddha/dp/0553380990/?tag=offsitoftimfe-20"><em>Radical Acceptance: Embracing Your Life with the Heart of a Buddha</em></a> by Tara Brach, which had a large impact on my life a decade before I found Bruce’s book. In a sense, <a href="https://tim.blog/2017/07/06/tao-of-seneca/">the writing of Seneca</a> prepared me for <a href="https://www.amazon.com/Radical-Acceptance-Embracing-Heart-Buddha/dp/0553380990/?tag=offsitoftimfe-20">Tara</a>, which then prepared me for <a href="https://www.amazon.com/Already-Free-Buddhism-Psychotherapy-Liberation/dp/1622034112?tag=offsitoftimfe-20">Bruce</a>. So grab them all and thank me later.</p>
+<p>If you want serenity, you need to be able to put the <a href="https://en.wikipedia.org/wiki/Serenity_Prayer#Versions">Serenity Prayer</a> into practice. Seriously, <a href="https://www.instagram.com/reels/DTyC9AgCak3/">I read it all the time</a>.</p>
+<h3><strong>MASLOW’S HAMBURGER OF NEEDS?</strong></h3>
+<blockquote> <p><strong>“The more one forgets himself—by giving himself to a cause to serve or another person to love—the more human he is and the more he actualizes himself. What is called ‘self-actualization’ is not an attainable aim at all, for the simple reason that the more one would strive for it, the more he would miss it. In other words, self-actualization is possible only as a side-effect of self-transcendence.”</strong><br/>― Viktor E. Frankl</p> </blockquote>
+<p>How can we easily keep ourselves on the right track?</p>
+<p>As I remind myself these days: <strong>It’s the relationships, stupid.</strong></p>
+<p>For a nice simple visual, let’s revise Maslow’s pyramid with all of this in mind. This is easy, as Maslow never drew his model as a rigid pyramid!</p>
+<p>He described “classes” of needs that were unfixed, overlapping, and that could reverse in order. And believe it or not, self-actualization was only ever for the “self-actualizing minority.” In the 1960s, his work was co-opted by consultants and corporate trainers who needed a progression to sell. <a href="https://qz.com/work/1588491/maslow-didnt-make-the-pyramid-that-changed-management-history">True story</a>.</p>
+<p>Given all this, and after decades of trial and error, here’s where I’ve landed:</p>
+<p><strong>Maslow’s Hamburger of Needs.</strong></p>
+<p>Ahhh… what? Not to worry. It’s the same good ol’ Maslow ingredients, but I think of it as a hamburger:</p>
+<figure class="article-figure"><img alt="" data-lazy-sizes="(max-width: 1000px) 100vw, 1000px" data-lazy-src="https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image-1.png?resize=1024%2C683&amp;ssl=1" data-lazy-srcset="https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image-1.png?resize=1024%2C683&amp;ssl=1 1024w, https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image-1.png?resize=300%2C200&amp;ssl=1 300w, https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image-1.png?resize=768%2C512&amp;ssl=1 768w, https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image-1.png?w=1536&amp;ssl=1 1536w" data-recalc-dims="1" src="https://i0.wp.com/tim.blog/wp-content/uploads/2026/03/image-1.png?resize=1024%2C683&amp;ssl=1" class="article-image"/></figure>
+<p>For our purposes, the meat, the whole point of the hamburger, is that middle layer: relationships. That is the center of life. The heartbeat.</p>
+<p>As luck would have it, when you improve the heartbeat, it also feeds everything else.</p>
+<p>You’ll notice that the meat contains Abe’s most-important addendum—the sixth level of self-transcendence. Focusing on things bigger than yourself is a critical piece of the ultimate puzzle. Faith, nature, family, meditation, causes that outlive you, etc. – take your pick. But be careful. If you do it to inflate the ego or impress others, it’s self-obsession again, not self-transcendence. If you need credit, it doesn’t count.</p>
+<p>Of course, it should go without saying but the top and bottom layers matter a lot. A hamburger is a giant mess without the bun. Friends will get sick of you crashing on their couch and eating their food.</p>
+<p>But the bread and dressing layers exist to serve the middle. That’s the payload. Everything is in service of the payload. And the payload circulates benefits back to the edges, and then the cycle repeats. Even if you think this is oversimplified claptrap, temporarily assuming it’s true will help you.</p>
+<p>What if nearly everything you focused on — calendar, habits, goals — aimed to improve your relational life somehow? What if you took this as a challenge for even a week? Your lens on the world changes dramatically.</p>
+<p>You say yes differently.<br/>
+You say no more clearly.<br/>
+Your to-do list for life slowly transforms.</p>
+<p><strong>What if all that you focused on, all that you do, had to improve that middle layer in some fashion?</strong></p>
+<p>It’s a damn hard question if you’ve been on the <em>self</em>-help train for a while. I get it.</p>
+<p>So let’s try something easier: <strong>What if it only changed how you approach your to-do list? Try hamburger-first each day for 1-2 weeks and tell me what happens. Add and do the things that improve your relational life FIRST. Nothing on the list? Create something. It could be as simple as cooking dinner for your spouse, complimenting at least three people a day for a week, or introducing yourself to the barista you see every morning. Getting started is how you get grooving.</strong></p>
+<h3><strong>ARE YOU DOING SELF-HELP, OR IS SELF-HELP DOING YOU?</strong></h3>
+<blockquote> <p><strong>For friendship makes prosperity more shining and lessens adversity by dividing and sharing it.</strong><br/>— Marcus Tullius Cicero</p> </blockquote>
+<p>In his <a href="https://tim.blog/2016/01/22/the-tao-of-seneca/"><em>Moral Letters to Lucilius</em></a>, Seneca the Younger famously wrote that “These individuals [who put money at the center of life] have riches just as we say that we ‘have a fever,’ when really the fever has us.”</p>
+<p>What if self-help is similar?</p>
+<p>Obsessing over the self never provides peace. It cannot make you whole, as you aren’t the whole. Becoming whole starts by putting down the rock you didn’t even know you were carrying.<br/>
+<em><br/>
+</em>Because at the end of the day—and at the end of a Montana night—the point was never yourself.</p>
+<p>It was never the pyramid.</p>
+<p>It was never the optimization.</p>
+<p>It was the people around the fire.</p>
+<h3>Share this:</h3>
+<ul data-sharing-events-added="true"><li><a data-shared="sharing-twitter-113812" href="https://tim.blog/2026/03/04/the-self-help-trap/?share=twitter&amp;nb=1"> Share on X (Opens in new window) X </a></li><li><a data-shared="sharing-facebook-113812" href="https://tim.blog/2026/03/04/the-self-help-trap/?share=facebook&amp;nb=1"> Share on Facebook (Opens in new window) Facebook </a></li><li><a data-shared="sharing-linkedin-113812" href="https://tim.blog/2026/03/04/the-self-help-trap/?share=linkedin&amp;nb=1"> Share on LinkedIn (Opens in new window) LinkedIn </a></li><li><a data-email-share-error-text="If you&#x27;re having problems sharing via email, you might not have email set up for your browser. You may need to create a new email yourself." data-email-share-error-title="Do you have email set up?" data-email-share-nonce="715f07735d" data-email-share-track-url="https://tim.blog/2026/03/04/the-self-help-trap/?share=email" data-shared="sharing-email-113812" href="mailto:?subject=%5BShared%20Post%5D%20The%20Self-Help%20Trap%3A%20What%2020%2B%20Years%20of%20%22Optimizing%22%20Has%20Taught%20Me&amp;body=https%3A%2F%2Ftim.blog%2F2026%2F03%2F04%2Fthe-self-help-trap%2F&amp;share=email&amp;nb=1"> Email a link to a friend (Opens in new window) Email </a></li><li><a href="https://tim.blog/2026/03/04/the-self-help-trap/#">More</a></li></ul></div>
+      
+    </article>
+    
+    <article>
+      <h1>My new book: Unfair Advantage</h1>
+      <div class="article-meta">
+        Shane Parrish (FS)
+        · 05 Nov 2026 · <a href="mailto:reader-forwarded-email/0774f9c015075352a1131ea0330af916">Source</a>
+      </div>
+      <div class="article-body"><div class="rw-email-parsed">
+ <p style="font-family:&#x27;Flecha S&#x27;, Charter, Garamond, &#x27;Book Antiqua&#x27;, Georgia, &#x27;Times New Roman&#x27;, serif;font-color:#111111;font-size:18px;line-height:150%">
+  Hi,
+ </p>
+ <p style="font-family:&#x27;Flecha S&#x27;, Charter, Garamond, &#x27;Book Antiqua&#x27;, Georgia, &#x27;Times New Roman&#x27;, serif;font-color:#111111;font-size:18px;line-height:150%">
+  I’m excited to share my next book with you:
+  <em style="font-family:&#x27;Flecha S&#x27;, Charter, Garamond, &#x27;Book Antiqua&#x27;, Georgia, &#x27;Times New Roman&#x27;, serif;font-color:#111111;font-size:18px;line-height:150%">
+   Unfair Advantage: Simple Choices That Position You to Win.
+  </em>
+ </p>
+ <p style="font-family:&#x27;Flecha S&#x27;, Charter, Garamond, &#x27;Book Antiqua&#x27;, Georgia, &#x27;Times New Roman&#x27;, serif;font-color:#111111;font-size:18px;line-height:150%">
+  After years of studying and interviewing people who achieve extraordinary results, I’ve come to appreciate how often what looks like talent begins with choices anyone could make.
+ </p>
+ <p style="font-family:&#x27;Flecha S&#x27;, Charter, Garamond, &#x27;Book Antiqua&#x27;, Georgia, &#x27;Times New Roman&#x27;, serif;font-color:#111111;font-size:18px;line-height:150%">
+  How carefully you prepare. Whether people can count on you. What you do with feedback. Which problems you’re willing to take on.
+ </p>
+ <p style="font-family:&#x27;Flecha S&#x27;, Charter, Garamond, &#x27;Book Antiqua&#x27;, Georgia, &#x27;Times New Roman&#x27;, serif;font-color:#111111;font-size:18px;line-height:150%">
+  Repeated over time, these choices build skills, trust, and a reputation that opens doors.
+ </p>
+ <p style="font-family:&#x27;Flecha S&#x27;, Charter, Garamond, &#x27;Book Antiqua&#x27;, Georgia, &#x27;Times New Roman&#x27;, serif;font-color:#111111;font-size:18px;line-height:150%">
+  <em style="font-family:&#x27;Flecha S&#x27;, Charter, Garamond, &#x27;Book Antiqua&#x27;, Georgia, &#x27;Times New Roman&#x27;, serif;font-color:#111111;font-size:18px;line-height:150%">
+   Unfair Advantage
+  </em>
+  contains 33 short, practical lessons to help you become more capable, earn greater responsibility, and put yourself in a stronger position before opportunity arrives.
+ </p>
+ <p style="font-family:&#x27;Flecha S&#x27;, Charter, Garamond, &#x27;Book Antiqua&#x27;, Georgia, &#x27;Times New Roman&#x27;, serif;font-color:#111111;font-size:18px;line-height:150%">
+  If you enjoyed
+  <em style="font-family:&#x27;Flecha S&#x27;, Charter, Garamond, &#x27;Book Antiqua&#x27;, Georgia, &#x27;Times New Roman&#x27;, serif;font-color:#111111;font-size:18px;line-height:150%">
+   Clear Thinking
+  </em>
+  , this book takes the next step: putting better decisions into practice in ways that build an advantage over time.
+ </p>
+ <p style="font-family:&#x27;Flecha S&#x27;, Charter, Garamond, &#x27;Book Antiqua&#x27;, Georgia, &#x27;Times New Roman&#x27;, serif;font-color:#111111;font-size:18px;line-height:150%">
+  To help you apply the ideas, I’ve also put together some preorder bonuses:
+ </p>
+ <ul style="font-family:&#x27;Flecha S&#x27;, Charter, Garamond, &#x27;Book Antiqua&#x27;, Georgia, &#x27;Times New Roman&#x27;, serif;font-color:#111111">
+  <li style="font-family:&#x27;Flecha S&#x27;, Charter, Garamond, &#x27;Book Antiqua&#x27;, Georgia, &#x27;Times New Roman&#x27;, serif;font-color:#111111;font-size:18px;line-height:150%">
+   <strong style="font-family:&#x27;Flecha S&#x27;, Charter, Garamond, &#x27;Book Antiqua&#x27;, Georgia, &#x27;Times New Roman&#x27;, serif;font-color:#111111;font-size:18px;line-height:150%">
+    Unfair Advantage at Work:
+   </strong>
+   Practical ways to earn trust, solve more valuable problems, and advance your career.
+  </li>
+  <li style="font-family:&#x27;Flecha S&#x27;, Charter, Garamond, &#x27;Book Antiqua&#x27;, Georgia, &#x27;Times New Roman&#x27;, serif;font-color:#111111;font-size:18px;line-height:150%">
+   <strong style="font-family:&#x27;Flecha S&#x27;, Charter, Garamond, &#x27;Book Antiqua&#x27;, Georgia, &#x27;Times New Roman&#x27;, serif;font-color:#111111;font-size:18px;line-height:150%">
+    How to Give Your Kids an Unfair Advantage:
+   </strong>
+   Help your children develop the habits and judgment they’ll carry into adulthood.
+  </li>
+  <li style="font-family:&#x27;Flecha S&#x27;, Charter, Garamond, &#x27;Book Antiqua&#x27;, Georgia, &#x27;Times New Roman&#x27;, serif;font-color:#111111;font-size:18px;line-height:150%">
+   <strong style="font-family:&#x27;Flecha S&#x27;, Charter, Garamond, &#x27;Book Antiqua&#x27;, Georgia, &#x27;Times New Roman&#x27;, serif;font-color:#111111;font-size:18px;line-height:150%">
+    The Unfair Advantage Cheat Sheet:
+   </strong>
+   All 33 principles in a concise reference you can return to.
+  </li>
+  <li style="font-family:&#x27;Flecha S&#x27;, Charter, Garamond, &#x27;Book Antiqua&#x27;, Georgia, &#x27;Times New Roman&#x27;, serif;font-color:#111111;font-size:18px;line-height:150%">
+   <strong style="font-family:&#x27;Flecha S&#x27;, Charter, Garamond, &#x27;Book Antiqua&#x27;, Georgia, &#x27;Times New Roman&#x27;, serif;font-color:#111111;font-size:18px;line-height:150%">
+    A live Q&amp;A
+   </strong>
+   : Join me live on Feb 27th where I answer your questions directly.
+  </li>
+ </ul>
+ <p style="font-family:&#x27;Flecha S&#x27;, Charter, Garamond, &#x27;Book Antiqua&#x27;, Georgia, &#x27;Times New Roman&#x27;, serif;font-color:#111111;font-size:18px;line-height:150%">
+  Preordering is the biggest way you can help me right now. Thank you.
+ </p>
+ <p style="font-family:&#x27;Flecha S&#x27;, Charter, Garamond, &#x27;Book Antiqua&#x27;, Georgia, &#x27;Times New Roman&#x27;, serif;font-color:#111111;font-size:18px;line-height:150%">
+  <strong style="font-family:&#x27;Flecha S&#x27;, Charter, Garamond, &#x27;Book Antiqua&#x27;, Georgia, &#x27;Times New Roman&#x27;, serif;font-color:#111111;font-size:18px;line-height:150%">
+   <a href="https://a4d65a79.click.convertkit-mail4.com/5quezv37zxh7h0p755zi6h99lz9p0fnhro8w/wnh2hghqd266wlh7hx/aHR0cHM6Ly9nZW5pLnVzL3VuZmFpcl9hZHZhbnRhZ2U=" style="font-family:&#x27;Flecha S&#x27;, Charter, Garamond, &#x27;Book Antiqua&#x27;, Georgia, &#x27;Times New Roman&#x27;, serif;font-color:#111111;font-size:18px;line-height:150%;color:#0875c1;text-decoration:underline" url-id="1901307093">
+    Preorder Unfair Advantage
+   </a>
+  </strong>
+ </p>
+ <p style="font-family:&#x27;Flecha S&#x27;, Charter, Garamond, &#x27;Book Antiqua&#x27;, Georgia, &#x27;Times New Roman&#x27;, serif;font-color:#111111;font-size:18px;line-height:150%">
+  <a href="https://a4d65a79.click.convertkit-mail4.com/5quezv37zxh7h0p755zi6h99lz9p0fnhro8w/08hwh9h246rrd8clh5/aHR0cHM6Ly9mcy5ibG9nL3VuZmFpci8jOn46dGV4dD1JbnRlcm5hdGlvbmFsJTIwRWRpdGlvbnMsLUVuZ2xpc2g=" style="font-family:&#x27;Flecha S&#x27;, Charter, Garamond, &#x27;Book Antiqua&#x27;, Georgia, &#x27;Times New Roman&#x27;, serif;font-color:#111111;font-size:18px;line-height:150%;color:#0875c1;text-decoration:underline" url-id="1901307095">
+   International orders
+  </a>
+ </p>
+ <p style="font-family:&#x27;Flecha S&#x27;, Charter, Garamond, &#x27;Book Antiqua&#x27;, Georgia, &#x27;Times New Roman&#x27;, serif;font-color:#111111;font-size:18px;line-height:150%">
+  Shane
+ </p>
+ <p style="font-family:&#x27;Flecha S&#x27;, Charter, Garamond, &#x27;Book Antiqua&#x27;, Georgia, &#x27;Times New Roman&#x27;, serif;font-color:#111111;font-size:18px;line-height:150%">
+  <em style="font-family:&#x27;Flecha S&#x27;, Charter, Garamond, &#x27;Book Antiqua&#x27;, Georgia, &#x27;Times New Roman&#x27;, serif;font-color:#111111;font-size:18px;line-height:150%">
+   P.S. After ordering,
+   <a href="https://a4d65a79.click.convertkit-mail4.com/5quezv37zxh7h0p755zi6h99lz9p0fnhro8w/vqh3hrho69rroxtghl/aHR0cHM6Ly9mcy5ibG9nL3VuZmFpcg==" style="font-family:&#x27;Flecha S&#x27;, Charter, Garamond, &#x27;Book Antiqua&#x27;, Georgia, &#x27;Times New Roman&#x27;, serif;font-color:#111111;font-size:18px;line-height:150%;color:#0875c1;text-decoration:underline" url-id="1901307097">
+    claim your free bonuses here.
+   </a>
+  </em>
+ </p></div></div>
+      
+    </article>
+    
+  </body>
+</html>
