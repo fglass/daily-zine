@@ -1,0 +1,469 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Fred Talks - 2026-11-08</title>
+    <style>
+      @page {
+        size: A5;
+        margin: 8mm 9mm 9mm;
+      }
+
+      :root {
+        color: #111;
+        font-family: "Times New Roman", Times, serif;
+        --body-text-size: 9.5pt;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        color: #111;
+        background: #fff;
+        font-family: "Times New Roman", Times, serif;
+        line-height: 1.45;
+      }
+
+      a,
+      a:visited {
+        color: #111;
+        text-decoration: underline;
+      }
+
+      .cover {
+        min-height: calc(210mm - 17mm);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        page-break-after: always;
+        border: 1px solid #111;
+        padding: 8mm;
+        background: #fff;
+      }
+
+      .toc-item-meta,
+      .article-meta {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .masthead {
+        margin: 0;
+        font-size: 40pt;
+        line-height: 0.95;
+        text-transform: uppercase;
+      }
+
+      .issue-date {
+        margin: 4mm 0 0;
+        font-size: 14pt;
+      }
+
+      .issue-date sup {
+        font-size: 0.58em;
+        vertical-align: super;
+        line-height: 0;
+      }
+
+      .cover-deck {
+        max-width: 90mm;
+        font-size: 12pt;
+        margin: 0;
+      }
+
+      .toc {
+        border-top: 3px solid #111;
+        padding-top: 6mm;
+      }
+
+      .toc h2 {
+        margin: 0 0 4mm;
+        font-size: 11pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .toc-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .toc-item {
+        padding: 3mm 0;
+        border-bottom: 1px solid rgba(17, 17, 17, 0.2);
+      }
+
+      .toc-item-title {
+        font-size: 12pt;
+        margin: 0 0 1mm;
+      }
+
+      .toc-item-meta {
+        font-size: 8pt;
+      }
+
+      .masthead-compact {
+        margin: 0 0 6mm;
+      }
+
+      .masthead-compact h1 {
+        margin: 0;
+        font-size: 22pt;
+        line-height: 1.1;
+        text-transform: uppercase;
+      }
+
+      .masthead-compact .issue-date {
+        margin: 2mm 0 0;
+        font-size: 11pt;
+      }
+
+      .toc-compact {
+        border-top: 1px solid #111;
+        border-bottom: 1px solid #111;
+        padding: 4mm 0;
+        margin: 0 0 8mm;
+      }
+
+      article + article {
+        margin-top: 10mm;
+        padding-top: 6mm;
+        border-top: 2px solid #111;
+      }
+
+      h1 {
+        margin: 0 0 2mm;
+        font-size: 18pt;
+        line-height: 1.1;
+      }
+
+      .article-meta {
+        font-size: 8.5pt;
+        margin-bottom: 6mm;
+        padding-bottom: 3mm;
+        border-bottom: 1px solid #111;
+      }
+
+      .article-body {
+        font-size: var(--body-text-size);
+        font-family: "Times New Roman", Times, serif;
+      }
+
+      .article-body p,
+      .article-body li,
+      .article-body blockquote,
+      .article-body dd,
+      .article-body dt {
+        margin: 0 0 4mm;
+        orphans: 3;
+        widows: 3;
+      }
+
+      .article-body ul,
+      .article-body ol,
+      .article-body dl {
+        margin: 0 0 4mm 5mm;
+        padding: 0;
+      }
+
+      .article-body h2,
+      .article-body h3,
+      .article-body h4 {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        margin: 7mm 0 3mm;
+        line-height: 1.2;
+      }
+
+      .article-body blockquote {
+        margin-left: 6mm;
+        padding-left: 4mm;
+        border-left: 2px solid #111;
+      }
+
+      .article-body .media-omitted {
+        margin: 0 0 4mm;
+        font-size: 8.5pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(17, 17, 17, 0.65);
+      }
+
+      .article-body figure,
+      .article-body .article-figure,
+      .article-body picture,
+      .article-body .article-picture {
+        display: block;
+        max-width: 72mm;
+        margin: 0 auto 4mm;
+        break-inside: avoid;
+      }
+
+      .article-body img,
+      .article-body .article-image {
+        display: block;
+        max-width: min(100%, 72mm);
+        max-height: 34mm;
+        height: auto;
+        width: auto;
+        object-fit: contain;
+        margin: 0 auto 3mm;
+      }
+
+      .article-body figcaption {
+        margin-top: 1.5mm;
+        font-size: 8.5pt;
+        line-height: 1.3;
+        color: rgba(17, 17, 17, 0.8);
+      }
+
+      .article-note {
+        margin-top: 6mm;
+        padding-top: 3mm;
+        border-top: 1px solid #111;
+        font-size: 9pt;
+        font-style: italic;
+      }
+
+      @media screen {
+        body {
+          padding: 2rem;
+          margin: 0 auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    
+    <header class="masthead-compact">
+      <h1>Fred Talks</h1>
+      <p class="issue-date">
+        8<sup>th</sup> November 2026
+      </p>
+    </header>
+
+    <nav class="toc toc-compact">
+      <h2>Contents</h2>
+      <ol class="toc-list">
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Writing as a thinking tool</div>
+          <div class="toc-item-meta">
+            noreply@blogger.com (Murat) · 1670 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Zen of AI Coding</div>
+          <div class="toc-item-meta">
+            Yoav Aviram · 1912 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Agentic Monitoring</div>
+          <div class="toc-item-meta">
+            Ben Congdon · 1924 words
+          </div>
+        </li>
+        
+      </ol>
+    </nav>
+    
+
+    
+    <article>
+      <h1>Writing as a thinking tool</h1>
+      <div class="article-meta">
+        noreply@blogger.com (Murat)
+        · 07 Nov 2026 · <a href="https://muratbuffalo.blogspot.com/2026/11/writing-as-thinking-tool.html">Source</a>
+      </div>
+      <div class="article-body"><p>In middle school I could not get through long passages no matter how hard I tried. I would read an entire page and find that nothing had registered, so I started taking notes out of desperation. This was the late 80s, and Tony Buzan's mind maps had just reached Turkey. This led me to produce pages and pages of notes that looked like spiderwebs. Creating those notes have helped me tremendously. I made sense of what I was reading by figuring out which branch they would hang off in my mind maps. I realized my pages were not for storing the information as much as they were for processing it.</p>
+<p>It took me another ten years to understand why this works so well. During a stretch of PhD procrastination, I read <a href="https://www.cs.cmu.edu/~mblum/research/pdf/grad.html">Manuel Blum's advice to graduate students</a>:</p>
+<blockquote><p>You are all computer scientists.</p><p>You know what FINITE AUTOMATA can do.</p><p>You know what TURING MACHINES can do.</p><p>For example, Finite Automata can add but not multiply.</p><p>Turing Machines can compute any computable function.</p><p>Turing machines are <b>incredibly more powerful</b> than Finite Automata.</p><p>Yet the only difference between a FA and a TM is that</p><p>the TM, unlike the FA, has paper and pencil.</p><p>Think about it.</p><p>It tells you something about the power of writing.</p><p>Without writing, you are reduced to a finite automaton.</p><p>With writing you have the extraordinary power of a Turing machine.</p></blockquote>
+<p>This is a crisp technical claim about which problems you can solve with writing. If you take the paper away, you downgrade yourself by an entire complexity class!</p>
+<p>I think this explains a lot about human history as well. Language let us externalize some of our thinking, and our species got smarter. Writing let us externalize even more of it, and we got smarter again. I suspect this is also why LLMs are as capable as they are: so much of our intelligence is already deposited in language that a model trained on it inherits a good deal of intelligence for free.</p>
+<h2>Out-of-core execution</h2>
+<p>When we write, we are externalizing our thinking onto paper, and that is what raises our capability to think bigger thoughts. I liken this to <a href="https://en.wikipedia.org/wiki/External_memory_algorithm">out-of-core execution, or external memory algorithms</a>.</p>
+<p>A good example of this for me is <a href="https://muratbuffalo.blogspot.com/2013/07/how-i-read-research-paper.html">reviewing a paper</a>. When I read a paper, I think I understand it, and then I sit down to write the review and find out I understood maybe 60% of it. While writing the review, I end up contextualizing the paper better, and get to understand it fully. And sometimes I even realize the ideas are bigger than the authors noticed, and they connect to many other things.</p>
+<p>Sometimes the unearthing goes further than understanding one paper. In 2018, <a href="https://muratbuffalo.blogspot.com/2018/03/anatomical-similarities-and-differences.html">I wrote a quick post about the anatomical similarities between Paxos and Nakamoto consensus</a>. I had not started with that thesis originally. I started writing, and the connections got clearer as I went, and that post became the seed for one of our research papers. This is not uncommon, <a href="https://muratbuffalo.blogspot.com/2018/05/book-review-accidental-genius-using.html">this is called freewriting</a>. This is what happens when you give the machine a tape.</p>
+<p>Writing is also the reason I remember anything. I refer back to my own blog constantly. Because I strained my brain writing those posts, rereading them re-fires the same neurons, and I reconstruct the understanding quickly. In this sense, the blog became my external memory. The thoughts I never wrote down do not stick well, because they were never fully thought.</p>
+<blockquote><p>If you think without writing, you only think you're thinking.</p><p>-- Leslie Lamport</p></blockquote>
+<h2>Writing in the age of LLMs</h2>
+<p>Is writing for thinking getting obsolete now since you can now argue anything with a model that has read everything?</p>
+<p>Well, the model has read everything except what is in your brain! It knows the literature, the standard framing, and the consensus. But it does not know your half-formed intuition about why the standard framing may be wrong for this particular case. AI made a lot of progress, but I don't trust an LLM to take the creative leap and make a new connection. I think that would require another AI breakthrough. So, if you open the chat immediately on anything, you lose the opportunity to write/think for yourself.</p>
+<p>This is a real problem, and <a href="https://alifeengineered.substack.com/p/on-the-death-of-amazons-writing-culture">it seems to be spreading quickly.</a> We have been celebrating Amazon's six-pager as a great example of writing-for-thinking. Bezos had said: "There is no way to write a six-page, narratively structured memo and not have clear thinking." Unfortunately, with LLMs, that sentence has stopped being true. You can now produce six pages with no thinking at all, and the six pages still look like evidence that the thinking happened.</p>
+<p>A model optimizing next-token probability cannot do your thinking. If you trust it to hold the pen, no thinking would get done. As everyone turns their thinking down and becomes a meat-proxy for generated text, if you still keep writing yourself, you would still be thinking for yourself. So <a href="https://muratbuffalo.blogspot.com/2026/08/the-safest-job-from-ai-may-be-writing.html">writing is now a comparative advantage</a>, and a widening one!</p>
+<p>Anyways, enough about why you should write. Here is my advice on how you should write.</p>
+<h2>Rule 1: Mess up</h2>
+<p>The first rule of writing club is to produce in bulk with no restraints at all. Don't criticize, don't fix the typos, don't write in full sentences if you don't feel like it. The goal in this phase is to just accumulate text and get to a zeroth draft you can work with.</p>
+<p><a href="https://muratbuffalo.blogspot.com/2019/03/book-review-draft-no-4-by-john-mcphee.html">McPhee argues best</a> for why getting anything down matters so much. Even if you had a bad writing session, it gave your mind something to work with. After you get something down, you can spot problems with it and think of better ways of phrasing things. But none of that happens without the drafted version to react against.</p>
+<p>This is also how research papers get written. Open a notes.org file and treat it as a lab notebook: write while you do the work, explore every tangent, produce without any pressure to be presentable. <a href="https://muratbuffalo.blogspot.com/2014/03/how-to-write-your-research-paper.html">In the Köroğlu post</a> I compared this to the foal fattened in a pitch-black stable before any training begins. The key part of that frame is the stable. During this phase you guard the idea from critics, including and especially yourself. Ideas start out fragile and easily squished. So suppress judgment for a while and see what the thing becomes.</p>
+<h2>Rule 2: Tidy up</h2>
+<p>Now you must become the critic, the editor. Forget that you wrote this. Imagine some other guy wrote it, and do a harsh review. Cut ruthlessly. Take delight in deleting text the way you would in deleting code. If you cannot bear to delete a good sentence, move it to a junk buffer at the bottom of the file so you can tell yourself you might bring it back. Spoiler: you won't.</p>
+<p>Don't be discouraged by how bad the first draft was. <a href="https://muratbuffalo.blogspot.com/2019/03/book-review-draft-no-4-by-john-mcphee.html">McPhee says</a> the way to do a piece of writing is three or four times over, never once. This is good news. Thinking in multiple drafts takes the pressure off: you don't have to be spontaneous, brilliant on the first pass, or finished today.</p>
+<p>I think the reason writing works so well for thinking is that it slows you down while keeping you on the problem. In that extra time, the insights and connections get room to surface. <a href="https://en.wikipedia.org/wiki/Chunking_(psychology)">Chunking</a>/<a href="https://muratbuffalo.blogspot.com/2023/09/beyond-code-tla-and-art-of-abstraction.html">abstracting</a> happens in the background. Editing is then the magic trick where you pretend you had an organized thought all along. It is the packaging of the product.</p>
+<h2>Rule 3: Keep it simple, plain, and succinct</h2>
+<p>I am an Elements of Style guy. <a href="https://muratbuffalo.blogspot.com/2010/09/writing-advice.html">Strunk and White got it right</a>, and their writing still reads fresh decades later. I adore Vonnegut too. His writing is simple as fuck and completely eloquent. It took a lot of balls to write that plainly. Complexity in prose is usually a place to hide sloppy thinking, or a way to weasel out of taking a stance. If you can't say it plainly, you probably haven't thought it through yet. And the way you think it through is by writing/editing.</p>
+<h2>Rule 4: Write without expectations</h2>
+<p><a href="https://muratbuffalo.blogspot.com/2024/03/why-i-blog.html">Write for yourself.</a> The audience I have in mind is me. If others read it, that is a bonus, but the motivation has to be intrinsic, because the external rewards are far too delayed and too random to steer on. Writing like no one is watching also frees you up, and you can decide afterwards how much to share. Get your dopamine hit from the writing itself, not from people reading or sharing what you wrote, as that is very unreliable.</p>
+<p>I have been writing and sharing on this blog since 2011, and around 2016 I started running into people at conferences who read it. I assumed it was a fluke, but it kept happening. Writing with a human voice turns out to get a lot of attention, and I am still surprised by how much. Paradoxically, you seem to get an audience only if you weren't doing it for the audience.</p>
+<h2>Rule 5: Put it on the schedule</h2>
+<p>You should stop trying to get inspiration to write and <a href="https://muratbuffalo.blogspot.com/2018/04/book-review-how-to-write-lot-practical.html">start scheduling it.</a> Waiting for inspiration doesn't work, instead, putting your butt on seat and writing breeds good ideas for writing.</p>
+<p>I find that keeping a posting schedule for the blog keeps me in "a writing frame of mind", which is really "a noticing frame of mind". Many weeks I tell myself a topic isn't interesting, but I start writing about it anyway, and then, what do you know, I am startled by the fount of interesting things that surfaces.</p>
+<p>I also feel relieved after writing something as the thought is out of my system, I have closure on it, and I have room to think new thoughts. If a week goes by without a post, I feel clogged. So put writing on the calendar and keep it there until it no longer needs to be on the calendar.</p></div>
+      
+    </article>
+    
+    <article>
+      <h1>Zen of AI Coding</h1>
+      <div class="article-meta">
+        Yoav Aviram
+        · 08 Mar 2026 · <a href="https://nonstructured.com/zen-of-ai-coding/">Source</a>
+      </div>
+      <div class="article-body"><p>Dedicated to all those who are sceptical about the significance of agentic coding, and to those who are not, and are wondering what it means for the future of their profession. The title is an homage to <a href="https://en.wikipedia.org/wiki/Zen_of_Python">Zen of Python</a> by Tim Peters. Unlike Tim, I am not a zen master. My only aim is to take stock of where we are and where we might be heading. I have been building with coding agents daily for the past year, and I also help teams adopt them without losing reliability or security.</p>
+<ol> <li>Software development is dead</li> <li>Code is cheap</li> <li>Refactoring easy</li> <li>So is repaying technical debt</li> <li>All bugs are shallow</li> <li>Create tight feedback loops</li> <li>Any stack is <em>your</em> stack</li> <li>Agents are not just for coding</li> <li>The context bottleneck is in your head</li> <li>Build for a changing world</li> <li>When considering Buy vs. Build, the answer, more often, is build</li> <li>Fast rubbish is still rubbish</li> <li>Software is a liability, a product is an asset</li> <li>Moats are more expensive</li> <li>Build for agents</li> <li>Anticipate modes of failure</li> </ol>
+<h4><strong>Software development is dead </strong></h4>
+<p>You do not need to write another line of code if you do not want to. Coding agents can accomplish most coding tasks with the right direction.</p>
+<p>Software development, as the act of manually producing code, is dying. A new discipline is being born. Your role in it is vital, but it is no longer centered on typing code. It is centered on framing problems, shaping context, defining constraints, and judging outcomes.</p>
+<p>The marginal cost of code is collapsing. That single fact changes everything that follows.</p>
+<h4><strong>Code is cheap</strong></h4>
+<p>The economics of software have changed.</p>
+<p>When coding is cheap, implementation stops being the constraint. You can build ten things in parallel. You cannot decide, validate, and ship ten things in parallel, at least not without changing the rest of the pipeline.</p>
+<p>Cost of delay shifts. It is no longer about developer days. It is about time stuck in other bottlenecks: product decisions, unclear requirements, security review, user testing, release processes, and operational risk. Agents can flood these queues. Inventory grows. Lead time grows. Delay becomes more expensive, not less.</p>
+<p>This changes prioritization. The highest leverage work is what unblocks shipping: tight feedback loops, tests, evals, guardrails, observability, and clear acceptance criteria. Anything that turns “we can build it” into “we can trust it”.</p>
+<p>Agents can help alleviate some of these bottlenecks. The challenge is applying them outside of coding (see Agents are not just for coding)</p>
+<h4><strong>Refactoring is easy</strong></h4>
+<p>The cost of changing your mind is lower than it has ever been. Architectural decisions that once felt permanent are now provisional.</p>
+<p>You chose React. Two months later, you regret it. Ask an agent to rewrite the project.</p>
+<p>Making imperfect decisions is no longer fatal. In fact, it can be productive. A flawed reference implementation provides better context than a pristine specification. Agents reason more effectively from concrete artifacts than from abstract intent.</p>
+<p>Rapid iteration is now the default mode. Over the last three months, we rebuilt our CMS four times from scratch, each with a different architecture. Each time we learned more about what we actually needed and what works.</p>
+<p>When code is cheap, you can run more small bets.</p>
+<h4><strong>So is repaying technical debt</strong></h4>
+<p>There is little excuse for stale dependencies or ignored security patches. Updating libraries, migrating APIs, modernizing patterns. These are prompts away.</p>
+<p>Prune your code regularly. Upgrade aggressively. Keep the surface clean.</p>
+<p>Technical debt has not disappeared. But the cost of servicing it has dropped. That changes the incentive structure. Neglect becomes less defensible.</p>
+<h4><strong>All bugs are shallow</strong></h4>
+<p><a href="https://en.wikipedia.org/wiki/Linus%27s_law">Linus’s law</a> states that “given enough eyeballs, all bugs are shallow.” Those eyeballs are now abundant.</p>
+<p>Ask one model to review your code. Ask another. They may find different issues. Ask them to fix what they find. Often they will succeed.</p>
+<p>How “dense” are bugs given a piece of code is a philosophical question. Bugs are not magically gone. Agents do not achieve perfection. From a practical perspective, however, the limiting factor is no longer the number of reviewers. It is the tightness of your feedback loops.</p>
+<p>The claim here is profound: comprehension of the codebase at the function level is no longer necessary. At the same time, relying entirely on the models is a recipe for disaster. You still have a job! (see: create tight feedback loops, anticipate modes of failure)</p>
+<p>Agents can sometimes one-shot a task.</p>
+<p>We’ve built agents that create a complete custom-made marketing website in one shot, but this is by far the exception. In most cases, agents operate best when iterating towards a well-defined goal, guided by feedback.</p>
+<p>Good tests are the first feedback loop. The agent will iterate until the tests pass. It is your responsibility to make sure the tests are adequate (by instructing the agent to create good ones) and to make sure the agent does not cheat (by weakening the tests or simply skipping them).</p>
+<p>Give your agent access to your CI to create a second feedback loop. Give it access to your server logs to create a third. Giving the agent away to visually inspect a UI is yet another example.</p>
+<p>Your job is to design environments where iteration converges toward correctness instead of drifting toward plausible nonsense.</p>
+<p>Velocity without feedback is chaos.</p>
+<h4><strong>Any stack is your stack</strong></h4>
+<p>Agents are competent across most major stacks where training data exists. Since you are not writing the code, your attachment to a specific stack becomes less relevant.</p>
+<p>Do not limit yourself to what you personally know. Your conceptual understanding transfers more than you think.</p>
+<p>When you lack terminology or domain knowledge, ask the agent to brief you. The barrier to entry into unfamiliar ecosystems is lower than it has ever been.</p>
+<h4><strong>Agents are not just for coding</strong></h4>
+<p>Coding is only the beginning.</p>
+<p>Agents can assist with business analysis, UX, infrastructure, operations, ad campaigns, analytics configuration, even accounting workflows.</p>
+<p>I migrated four WordPress blogs from an overpriced host to Hetzner in minutes after postponing the task for years. The blocker was never a technical difficulty. It was attention. Claude completed the task in 15 minutes.</p>
+<p>Agents reduce the activation energy required to execute tedious but valuable work.</p>
+<p>Grant access carefully. Limit scope. Audit results. Direction without oversight is reckless.</p>
+<h4><strong>The context bottleneck is in your head</strong></h4>
+<p>Context engineering has improved. Tooling has improved.</p>
+<p>Yet when running multiple agents in parallel, the real bottleneck is human coordination.</p>
+<p>You must track what each agent is doing. You must remember which assumptions were made. You know what questions to ask next.</p>
+<p>As agents become better at managing their own context, your ability to supervise them becomes the limiting factor.</p>
+<p>The constraint is no longer tokens. It is cognition.</p>
+<h4><strong>Build for a changing world</strong></h4>
+<p>New models. New capabilities. New frameworks. New skills.</p>
+<p>The ground shifts daily. Some models are better at reasoning. Some at coding. Some at translation.</p>
+<p>Flexibility is not optional. It must be built into your workflow and products. Both must be engineered for experimentation and adaptability.</p>
+<h4><strong>When considering Buy vs. Build, the answer, more often, is build</strong></h4>
+<p>When code was expensive, buying made sense. When code approaches zero marginal cost, the calculus changes.</p>
+<p>Every paid API is now a question. Could we replicate this internally? Should we?</p>
+<p>For our QA agent, we needed full-page screenshots of live sites. Many APIs offered this. Instead, we deployed Playwright to AWS Lambda, tailored to our needs, and hardened.</p>
+<p>This is not a blanket argument against SaaS. Maintenance, security, and scale still matter. But many small and medium services that once required vendors are now within reach.</p>
+<p>Some call this the <a href="https://www.forbes.com/sites/donmuir/2026/02/04/300-billion-evaporated-the-saaspocalypse-has-begun/">end of SaaS</a>.</p>
+<h4><strong>Fast rubbish is still rubbish</strong></h4>
+<p>Speed is intoxicating. It is also dangerous.</p>
+<p>You can generate enormous amounts of code quickly. But velocity and lines of code written were always terrible indicators of progress.</p>
+<p>Refactoring is cheap, but it is cheaper to detect flawed direction early.</p>
+<p>Discipline matters more, not less, when execution is frictionless.</p>
+<h4><strong>Software is a liability, a product is an asset</strong></h4>
+<p>Software costs money to maintain. It only becomes an asset when it produces value for someone.</p>
+<p>This was always true. It is harder to remember now because building is so easy.</p>
+<p>It is tricker then ever to resist the temptation to add features. Resist it. Build what is used. Kill what is not.</p>
+<p>Feature gaps close quickly. What once took years to replicate can now take months. What took months can now take days.</p>
+<p>A feature set is no longer a durable moat.</p>
+<p>Moats shift toward distribution, data, brand, network effects, regulation, and ecosystem integration.</p>
+<p>The barrier to entry falls. The barrier to defensibility rises.</p>
+<p>There is a new hierarchy.</p>
+<p>At the base are models (Opus 4.6, GPT-5.3-codex). On top of them sit agents (Claude Code, OpenClaw). On top of agents sit services.</p>
+<p>Today, agents use services designed for humans. It works, but it is inefficient. The next step is services designed for agents (<a href="https://www.moltbook.com/">Moltbook</a> being the harbinger).</p>
+<p>Make your services accessible to agents. Expose structured context. Provide machine-readable surfaces.</p>
+<p>Agentic commerce is emerging. In some cases, a markdown endpoint is enough. In others, the service itself must be designed agent-first.</p>
+<p>Agent-first is not a tooling choice. It is a product decision. It changes your interfaces, your reliability model, your metrics, and what you build next.</p>
+<p>We are building an agent-first CMS. If we succeed, humans will not need to use it, though they can.</p>
+<p>AX is the new UX</p>
+<p>Do not assume competence implies perfection.</p>
+<p>Like an engineer overseeing the construction of a bridge, your job is not to lay bricks. It is to ensure the structure does not collapse.</p>
+<p>Agents will make mistakes. They will drift off course. They will introduce subtle flaws. They will create security vulnerabilities. One of mine attempted to commit a .env file to git. They can be inventive in how they self-sabotage.</p>
+<p>Be one step ahead. Ask yourself how this could break. Where could it leak. What could it expose. What assumptions is the agent quietly making.</p>
+<p>Play the what-if game relentlessly. Then build guardrails.</p>
+<p>Automate checks. Lock down permissions. Isolate environments. Add monitoring. Create recovery paths. Make rollback trivial.</p>
+<p>Remember, code is cheap, and you have new superpowers. Build tools to allow you to probe deep, discover vulnerabilities, and test for anticipated failure modes. Design systems that expect failure and degrade gracefully.</p>
+<p>This is the distinction between software development and software engineering.</p>
+<p>I work with engineering and product teams adopting agents. The goal is simple: ship faster without lowering standards.</p>
+<p>I usually help in two ways:</p>
+<p><strong>Agent-first software engineering</strong><br/>
+We turn agents into part of the system, not a novelty. We design workflows, guardrails, and supporting tools so the team can delegate confidently.</p>
+<p>If you want to operationalize coding agents without turning your codebase into a casino, get in touch.</p>
+<p><strong>Agent-first product strategy</strong><br/>
+I help companies shift products from human-centric interfaces to agent-accessible, and where it makes sense, agents-first. That means clarifying what agents should be able to do, what constraints they must operate under, and what needs to change in your APIs, permissions, reliability model, and product surface area to support them.</p>
+<p>This typically results in an agent-access roadmap, an operating model, and a prioritized set of product changes that make agents a first-class user.</p>
+<p>I’m the co-founder of <a href="https://www.whiteboar.it/">WhiteBoar</a>, where AI agents build your brand and launch visually striking marketing websites, complete with professional multi-lingual content, in minutes, not months. Contact me at <a href="mailto:yoav@whiteboar.it">yoav@whiteboar.it</a>.</p></div>
+      
+    </article>
+    
+    <article>
+      <h1>Agentic Monitoring</h1>
+      <div class="article-meta">
+        Ben Congdon
+        · 23 Oct 2026 · <a href="https://link.mail.beehiiv.com/ss/c/u001.J3WaaJcD-G_P1A1xsf5CHqs7xs-O1BuVSGTZ9rHUyERnu1OLC6WPbdjO-YyEujHZjMSUsNCGJ1uZavTfSO9-Izhe5Rmmbx8kf9Ee_Gvc5fNA7fA6BBjUnGVd-W7NWrot8Bu_2iNxMtqPImGXhnPOfGAWbaT1tz6r0enba0prs33-Q656u2Xzy8GiJ37sHy80/4v4/_1oDCeWqRaiEbJhPeqbepw/h13/h001.yKKO_KfSrBWlPZGRPnbnFUQjmbmjfS-rxH_UfqA8aPQ">Source</a>
+      </div>
+      <div class="article-body"><p>A <a href="https://www.anthropic.com/engineering/redesigning-source-control">recent Anthropic blog post</a> contained a short paragraph, not at all the point of the post, which has been buzzing around my brain since I read it:</p>
+<blockquote> <p>A new level of operational excellence is possible. Our team uses Claude Tag heavily, which has helped us monitor each component of the system. For example, we created Slack channels where we tasked Claude with being obsessively focused on the health of a single component. We call these Claudes “superfans.” We have a scion-daemon superfan, a scion-cache superfan, an Antique merge queue superfan, and so on. They have access to our telemetry and logs, and act like an experienced engineer who has nothing better to do than to refresh charts and look for anything strange. We also have traditional alerts for all of our systems, but our superfans can detect subtle and novel issues that make these alerts seem one-dimensional by comparison.</p> </blockquote>
+<p>This is <em>so obviously</em> the path forward for software systems operations. I’ve been thinking about monitoring with agents for the past few weeks, and this paragraph crystallized some of those thoughts.</p>
+<p>Modern software systems, like the LLMs that write them, are becoming more “grown” than “designed”. Yes, human engineers often still give the high-level design and shape to the system, and yes, software systems (for now) are much more interpretable than LLMs – since you can just sit down and read the code, if you are so inclined. However, with the volume of code being written and shipped increasing exponentially, the amount of actual eyes-on-code knowledge that any human operator of a system has is decreasing.</p>
+<p>Systems monitoring was never <em>easy</em>. There is a whole industry of observability SaaS companies – <a href="https://sentry.io/">Sentry</a>, <a href="https://www.datadoghq.com/">Datadog</a>, <a href="https://www.splunk.com/">Splunk</a>, <a href="https://www.honeycomb.io/">Honeycomb</a>, to name a few. Observability is expensive.<sup><a href="https://benjamincongdon.me/blog/2026/10/19/Agentic-Monitoring/?aid=recXxmzxTKfqnPOZ0&amp;_bhlid=bed07809e80a1e2f13954b71d57198ebd383ae18#fn:1">1</a></sup> Doing it well requires a specialized human skill set and relies on building experience operating real systems at scale. One can really only develop these skills by working in industry. This is a domain that takes years to train junior engineers on.</p>
+<p>As with seemingly everything in the software industry in 2026, system monitoring is poised for a step change due to agents. I… am surprised I have not seen more people write about this, especially in the current milieu of “agent frenzy”. It’s right there in front of us all, and it <em>works</em>. There have been a bunch of startups trying to do the “AI SRE”, but very little writing from practitioners.</p>
+<p>But you don’t really need a full “AI SRE” to improve operational excellence, nor do you need a built-out SaaS product to do so. As of the Opus 5.5 / Astra class of models, with a bit of care, it’s entirely possible to make a good agent-driven monitoring system that “just works”.</p>
+<h3>Case study: change-point monitoring</h3>
+<p>I’ll ground this discussion in a problem that is near to my heart: production monitoring of change points, like binary releases and <a href="https://benjamincongdon.me/blog/2026/03/12/Feature-Flagging-at-Databricks/">config pushes</a>. The idea is that you want to do specialized, intensive monitoring around critical points of change to a system; these change points are more likely to trigger a regression, and thus if you monitor these events closely, you can limit its impact. To quote the clichéd line from the Google SRE book, “~70% of outages are due to changes in a live system”.</p>
+<p>This is a <a href="https://en.wikipedia.org/wiki/Wicked_problem">wicked problem</a>. I’ve been working on it in some form since 2023, and it’s been hard to get traction on. From talking with folks across the industry, I’ve learned there are ways to do change-point monitoring “well”, but these methods largely still rely on humans to do the right thing (e.g. tagging metrics/alerts diligently, defining precise signals, etc.) and require significant organizational investment.</p>
+<p>More specifically, achieving “takeoff” for change-point monitoring as a piece of platform engineering is hard because:</p>
+<ul> <li>Your first instinct may be to target highly motivated users who already have a good ops posture. However, these teams’ rollouts are already mostly safe, and you don’t actually raise the ops waterline much. The thing you’re selling here is <em>toil reduction</em>, which is “nice to have” but is not itself a first-order safety improvement. Precision is easier to achieve for highly motivated teams, but this means the change-point system is “competing” on recall and latency with traditional alerts.</li> <li>You can alternatively target the broad population of services. In other words, you go super wide and opt in “all services”, on a chosen subset of universal health metrics. In practice, most of these general health metrics are irreducibly noisy. This noise results in poor precision and alert fatigue.</li> <li>Prior to LLMs, there was a clear precision/latency tradeoff as well. Along this spectrum are: structured logs (precise, slow), metrics (coarse, fast), and alerts (even coarser, recall is pretty bad and precision is pretty bad, but “at least it’s something”).</li> </ul>
+<p>Shockingly, agents largely “just” solve this problem. Agents are happy to run copious queries, can write per-change queries on the fly, and will scan logs ad nauseam. As a result, you can get both good precision and recall for cheap. In the basic version of this setup, you just need the ability to connect your codebase (e.g. to reason about config consumption) and your observability stack (e.g. to view and monitor the live production state) to the agent.</p>
+<p>I’ve spiked a prototype of exactly this: an agent that proposes a monitoring plan based on the service code, a scaffold that executes that plan, and an agent that investigates triggered monitors, with an escalation path to humans. Even in this early prototype, I’ve been able to detect regressions in systems I have <em>zero</em> understanding of with precision and latency that would have been impossible a year ago.</p>
+<p>In my iteration on this, I’ve found that a pure agent loop is not the optimal shape for agentic monitors. Rather, a harness that allows the agent to write a spec of how to monitor, along with a deterministic system for running those specs, produces significantly cleaner signals with dramatically lower token usage. To the extent there is “secret sauce” in this pattern, it’s in the noise-reduction heuristics, the prompts that get the agent to write good specs, and a labeled eval set large enough to validate further tweaks.<sup><a href="https://benjamincongdon.me/blog/2026/10/19/Agentic-Monitoring/?aid=recXxmzxTKfqnPOZ0&amp;_bhlid=bed07809e80a1e2f13954b71d57198ebd383ae18#fn:2">2</a></sup></p>
+<h3>Agents are structurally well suited to monitoring</h3>
+<p>Two mindset shifts need to happen before this pattern can catch on:</p>
+<ol> <li>Agents actually can do a much better job at monitoring than humans.</li> <li>Monitoring agents need scaffolding, the same way the rest of the software development lifecycle had to adapt for coding agents. There hasn’t been a “Claude Code moment” for monitoring yet.</li> </ol>
+<p>Once you make these shifts, monitoring agents have several “unfair advantages” over human operators:</p>
+<ul> <li>Ability to track everything, 24/7. If tokens are cheap, then any regression in a metric you care about and any suspicious log line can be investigated – not just the events that would previously have risen above the “human attention cutline”. Agents don’t need to <a href="https://en.wikipedia.org/wiki/Follow-the-sun">“follow the sun”</a>.</li> <li>Ability to fan out and investigate several paths toward resolving a production problem. Agents can parallelize investigations when multiple things go wrong at once, and coordinate quickly. This is already my go-to for incident triage: I just launch a bunch of agents to investigate several potential threads or theorized incident causes. Right now, this is human-driven, but there’s really no reason it couldn’t be agent-initiated in the future. You can elastically scale up a fleet of incident responders. <ul> <li>We’re already seeing that this is becoming critical for security incidents. Teams/fleets/swarms of agents are being used for offensive cyberattacks, and defenders are beginning to build up similar defensive capabilities (e.g. OpenAI’s <a href="https://openai.com/index/expanding-daybreak-as-the-cyber-defense-window-narrows/">Daybreak Blue</a>, Anthropic’s <a href="https://www.anthropic.com/glasswing">Project Glasswing</a>, Google’s <a href="https://deepmind.google/fairwind-program/">Fairwind</a>).</li> </ul> </li> <li>Ability to respond faster to a problem than can a human. Agents can read code faster than humans. Agents can also query and digest metrics and log signals significantly faster. This speed doesn’t always translate into faster incident detection time; a human with a deep understanding of a system may still be faster at finding the right signal and intuiting the root causes. But to the extent that tacit knowledge can be recorded and made available to an agent, the agent will eventually beat the human on speed. <ul> <li>By extension, for systems where the human operator isn’t deeply experienced, the “time to understanding” is going to be shorter for an agent.</li> </ul> </li> </ul>
+<h3>“A new level of operational excellence is possible.”</h3>
+<p><strong>Be more diligent:</strong> You wouldn’t pay a full-time software engineer to look through all the Git commits for a service, pick out things to monitor, and make special short-term fast-trigger alerts just on those changes. However, for a couple cents per million tokens, it’s possible now, and will become an industry standard.</p>
+<p><strong>Continuously improve performance:</strong> Agents can monitor performance, look at heap dumps and stack traces and CPU profiles, and propose optimizations from the patterns they find. Put the proposed improvements behind A/B tests if necessary, and monitor as you would any other change to the service.</p>
+<p>In one instance, I observed that a few sessions of Astra/Opus investigation discovered 50% heap savings and 30% latency reduction in a common hot-path library that humans had already spent nontrivial effort to optimize. Once you give a sufficiently powerful LLM a VM and benchmarks to run, the “hill-climbing” ability of current-generation LLMs is remarkable.</p>
+<p><strong>Take action</strong>: Thus far, I’ve mostly been discussing “read-only” monitoring systems. Agents, of course, needn’t be “read-only”. With the right harness and guardrails in place, there’s definitely a future in which agents will be able to take front-line actions to remediate incidents. This could span anything from well-scoped operational tasks like resizing instances or rotating compute pools, to deterministic actions like rolling back a config change or binary, to open-ended tasks like root-causing bugs, proposing fixes, and redeploying on-the-fly. Obviously there is risk the more control you hand-over to the agent, but considering how much agent capabilities expanded over the course of the past 12 months, the amount of write-path work that can be responsibly handed over to agents is bound to increase. The promise of truly self-healing systems is exciting.</p>
+<p><strong>Cost is no longer a limitation.</strong> Luna/Haiku-class models<sup><a href="https://benjamincongdon.me/blog/2026/10/19/Agentic-Monitoring/?aid=recXxmzxTKfqnPOZ0&amp;_bhlid=bed07809e80a1e2f13954b71d57198ebd383ae18#fn:3">3</a></sup> are now competent graph-starers. A moderately large tech company could likely monitor its entire fleet for on the order of $100/day. Startup-scale fleets would be a small fraction of that. Compared to human labor, or even the cost of the infra that runs observability, this is trivial.</p>
+<p><strong>Create a virtuous cycle:</strong> If done well, agentic monitoring creates a positive feedback loop: coding agents allow you to ship more, monitoring agents allow you to support more systems, which in turn frees up human time to direct more things to ship. Humans increasingly spend time “building the <a href="https://en.wikipedia.org/wiki/Software_factory">factory</a>” or “tending the garden”.</p>
+<p>Agentic monitoring is worth investing in. It will soon be reckless not to have agents monitoring your systems. Until the rest of the industry catches up, getting started now affords an unfair advantage.</p>
+<ol> <li> <p>A set of optimizations my team recently completed saved us several million dollars in annualized observability cost, and… that was a mere fraction of what <em>just my team</em> spends on observability. <a href="https://benjamincongdon.me/blog/2026/10/19/Agentic-Monitoring/?aid=recXxmzxTKfqnPOZ0&amp;_bhlid=bed07809e80a1e2f13954b71d57198ebd383ae18#fnref:1">↩︎</a></p> </li> <li> <p>Much, much more could be written about the design of agentic monitoring harnesses. This is one of the clearest “we’re so early” feelings I’ve had in a while. General harnesses, like Anthropic’s “Claude Tag”, evidently already do a good job at agentic monitoring, per the original post. However, based on what I’ve seen, even a little monitoring-specific harness engineering picks up a lot of low-hanging fruit. <a href="https://benjamincongdon.me/blog/2026/10/19/Agentic-Monitoring/?aid=recXxmzxTKfqnPOZ0&amp;_bhlid=bed07809e80a1e2f13954b71d57198ebd383ae18#fnref:2">↩︎</a></p> </li> <li> <p>Here I mean GPT-6-Luna and Claude Haiku 5.5. <a href="https://benjamincongdon.me/blog/2026/10/19/Agentic-Monitoring/?aid=recXxmzxTKfqnPOZ0&amp;_bhlid=bed07809e80a1e2f13954b71d57198ebd383ae18#fnref:3">↩︎</a></p> </li> </ol></div>
+      
+    </article>
+    
+  </body>
+</html>
