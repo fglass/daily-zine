@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Fred Talks - 2026-11-09</title>
+    <style>
+      @page {
+        size: A5;
+        margin: 8mm 9mm 9mm;
+      }
+
+      :root {
+        color: #111;
+        font-family: "Times New Roman", Times, serif;
+        --body-text-size: 9.5pt;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        color: #111;
+        background: #fff;
+        font-family: "Times New Roman", Times, serif;
+        line-height: 1.45;
+      }
+
+      a,
+      a:visited {
+        color: #111;
+        text-decoration: underline;
+      }
+
+      .cover {
+        min-height: calc(210mm - 17mm);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        page-break-after: always;
+        border: 1px solid #111;
+        padding: 8mm;
+        background: #fff;
+      }
+
+      .toc-item-meta,
+      .article-meta {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .masthead {
+        margin: 0;
+        font-size: 40pt;
+        line-height: 0.95;
+        text-transform: uppercase;
+      }
+
+      .issue-date {
+        margin: 4mm 0 0;
+        font-size: 14pt;
+      }
+
+      .issue-date sup {
+        font-size: 0.58em;
+        vertical-align: super;
+        line-height: 0;
+      }
+
+      .cover-deck {
+        max-width: 90mm;
+        font-size: 12pt;
+        margin: 0;
+      }
+
+      .toc {
+        border-top: 3px solid #111;
+        padding-top: 6mm;
+      }
+
+      .toc h2 {
+        margin: 0 0 4mm;
+        font-size: 11pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .toc-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .toc-item {
+        padding: 3mm 0;
+        border-bottom: 1px solid rgba(17, 17, 17, 0.2);
+      }
+
+      .toc-item-title {
+        font-size: 12pt;
+        margin: 0 0 1mm;
+      }
+
+      .toc-item-meta {
+        font-size: 8pt;
+      }
+
+      .masthead-compact {
+        margin: 0 0 6mm;
+      }
+
+      .masthead-compact h1 {
+        margin: 0;
+        font-size: 22pt;
+        line-height: 1.1;
+        text-transform: uppercase;
+      }
+
+      .masthead-compact .issue-date {
+        margin: 2mm 0 0;
+        font-size: 11pt;
+      }
+
+      .toc-compact {
+        border-top: 1px solid #111;
+        border-bottom: 1px solid #111;
+        padding: 4mm 0;
+        margin: 0 0 8mm;
+      }
+
+      article + article {
+        margin-top: 10mm;
+        padding-top: 6mm;
+        border-top: 2px solid #111;
+      }
+
+      h1 {
+        margin: 0 0 2mm;
+        font-size: 18pt;
+        line-height: 1.1;
+      }
+
+      .article-meta {
+        font-size: 8.5pt;
+        margin-bottom: 6mm;
+        padding-bottom: 3mm;
+        border-bottom: 1px solid #111;
+      }
+
+      .article-body {
+        font-size: var(--body-text-size);
+        font-family: "Times New Roman", Times, serif;
+      }
+
+      .article-body p,
+      .article-body li,
+      .article-body blockquote,
+      .article-body dd,
+      .article-body dt {
+        margin: 0 0 4mm;
+        orphans: 3;
+        widows: 3;
+      }
+
+      .article-body ul,
+      .article-body ol,
+      .article-body dl {
+        margin: 0 0 4mm 5mm;
+        padding: 0;
+      }
+
+      .article-body h2,
+      .article-body h3,
+      .article-body h4 {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        margin: 7mm 0 3mm;
+        line-height: 1.2;
+      }
+
+      .article-body blockquote {
+        margin-left: 6mm;
+        padding-left: 4mm;
+        border-left: 2px solid #111;
+      }
+
+      .article-body .media-omitted {
+        margin: 0 0 4mm;
+        font-size: 8.5pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(17, 17, 17, 0.65);
+      }
+
+      .article-body figure,
+      .article-body .article-figure,
+      .article-body picture,
+      .article-body .article-picture {
+        display: block;
+        max-width: 72mm;
+        margin: 0 auto 4mm;
+        break-inside: avoid;
+      }
+
+      .article-body img,
+      .article-body .article-image {
+        display: block;
+        max-width: min(100%, 72mm);
+        max-height: 34mm;
+        height: auto;
+        width: auto;
+        object-fit: contain;
+        margin: 0 auto 3mm;
+      }
+
+      .article-body figcaption {
+        margin-top: 1.5mm;
+        font-size: 8.5pt;
+        line-height: 1.3;
+        color: rgba(17, 17, 17, 0.8);
+      }
+
+      .article-note {
+        margin-top: 6mm;
+        padding-top: 3mm;
+        border-top: 1px solid #111;
+        font-size: 9pt;
+        font-style: italic;
+      }
+
+      @media screen {
+        body {
+          padding: 2rem;
+          margin: 0 auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    
+    <header class="masthead-compact">
+      <h1>Fred Talks</h1>
+      <p class="issue-date">
+        9<sup>th</sup> November 2026
+      </p>
+    </header>
+
+    <nav class="toc toc-compact">
+      <h2>Contents</h2>
+      <ol class="toc-list">
+        
+        <li class="toc-item">
+          <div class="toc-item-title">The lies I used to tell myself</div>
+          <div class="toc-item-meta">
+            Cate Hall · 1900 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">A statistical approach to model evaluations</div>
+          <div class="toc-item-meta">
+            anthropic.com · 1598 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Ownership</div>
+          <div class="toc-item-meta">
+            Thorsten Ball · 1122 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Writing as a thinking tool</div>
+          <div class="toc-item-meta">
+            noreply@blogger.com (Murat) · 1670 words
+          </div>
+        </li>
+        
+      </ol>
+    </nav>
+    
+
+    
+    <article>
+      <h1>The lies I used to tell myself</h1>
+      <div class="article-meta">
+        Cate Hall
+        · 23 Jan 2026 · <a href="https://usefulfictions.substack.com/p/the-lies-i-used-to-tell-myself">Source</a>
+      </div>
+      <div class="article-body"><div><div class="captioned-image-container"><figure class="article-figure"><a class="image-link image2 is-viewable-img" href="https://substackcdn.com/image/fetch/$s_!petw!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fe40bf234-f1ac-498a-9f69-18ae8ad7a70f_1024x1024.png" target="_blank"><div class="image2-inset"><img alt="" class="sizing-normal article-image" height="1024" src="https://substackcdn.com/image/fetch/$s_!petw!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fe40bf234-f1ac-498a-9f69-18ae8ad7a70f_1024x1024.png" width="1024"/><div class="image-link-expand"><div class="pencraft pc-display-flex pc-gap-8 pc-reset"><button class="pencraft pc-reset pencraft icon-container restack-image" tabindex="0" type="button"></button><button class="pencraft pc-reset pencraft icon-container view-image" tabindex="0" type="button"></button></div></div></div></a></figure></div><h4>1. What doesn’t kill you makes you stronger.</h4><p>When I was 31, my husband of four years, who I loved more than my own life, left me completely out of the blue. We’d had an incredible, epic romance — drawn together like magnets, we married on our third date and spent the years that followed burrowing ever closer together. Maybe that was the problem — I can’t say for sure, because I never got a satisfying explanation out of him. One day I was the protagonist of a Princess Bride-worthy love story; 48 hours later, he moved out.</p><p>From the time we met, I had never contemplated the possibility of living without him, and I didn’t want to. I wanted to die for a long time — at least a couple of years. But as I slowly learned to sequester away thoughts of him and the emotions they brought up, I became convinced of a silver lining: The experience would make me impenetrable. If I survived it, I would know I could survive anything, and nothing would be able to hurt me again.</p><p>It took the better part of a decade and another deeply identity-shifting relationship, with the man who became my second husband, for me to see that I had it all wrong: Impenetrability means avoiding the parts of life that are most life-like. There’s a reason the visual metaphor for love is an arrow.</p><p>The near-fatal catastrophes of our lives don’t always make us stronger. Surviving one hard thing does provide evidence that you can survive other hard things, which is easy to <em>mistake</em> for getting stronger. But in reality they often just make us brittle, make us dissociate and flee from the situations that remind us we can be broken.</p><p></p><h4>2. When you know, you know.</h4><p>Mario Gabriele of the Generalist had a great <a href="https://www.generalist.com/p/observations-on-people-the-world?utm_source=post-email-title&amp;publication_id=15764&amp;post_id=177558144&amp;utm_campaign=email-post-title&amp;isFreemail=true&amp;r=hjebh&amp;triedRedirect=true">“50 Things” style post</a> a few months ago that I found myself nodding along to almost the whole way through. The glaring exception was Number 33: “Love is easy. The difference between bad relationships and meeting your spouse is not a matter of degree, but category. Compatibility is unignorable and effortless.”</p><p>I believed this completely, once. I’ve since come to believe that what’s unignorable and effortless is chemistry. Chemistry can be powerful enough to turn your life sideways, but it’s not the same thing as compatibility. Compatibility is litigated on the timescale of years and decades; it’s not a momentary feeling but a description of what happens during an extended course of change. Do you grow toward one another, or do you grow apart? Does the relationship help you move closer to the person you aspire to be?</p><p>I “just knew” with my first husband. I wasn’t sure with my second. Four years in, the signs have flipped.</p><p></p><h4>3. If it were a good idea, someone would be doing it already.</h4><p>There’s a belief, especially common among wonky types, that you don’t find $20 bills on the sidewalk — if an opportunity were real, someone would have seized it already. This sounds worldly and wise, but it’s actually a form of defensive thinking. It assumes the current way is best, that everything worth doing is being done.</p><p>In my experience, this is just false. When I started playing poker, I discovered that physical tells were basically a wide-open field — despite the fact that most pros believed the topic was played out. If you think you see an opportunity others have missed, you should have a story for why they’re missing it, and you should ask around to stress-test that story. But if no one can give you a satisfying reason, don’t assume one exists. Sometimes the answer really is just inertia or fear.</p><p></p><h4>4. If it’s worth doing, it’s worth doing well.</h4><p>Almost nothing is worth doing “well.” Many things can and should be done to a minimal standard of quality, because anything more is a <a href="https://usefulfictions.substack.com/p/fuck-willpower">waste of effort</a> that can be better allocated. The exceptions aren’t things that should be done “well,” but things that should be done to an exceptionally high standard, probably a much higher one than you see modeled by the people around you.</p><p>This is not semantics; most people really “do everything the way they do anything” — whether that’s in a low-effort or high-effort way. But the point of phoning it in on a lot of stuff is to save your energy to expend on the 1 in 1000 things that really matter … and then to actually spend it.</p><p>A recent example: I decided that I want to narrate my own audiobook for <em>You Can Just Do Things</em>. When I told a friend in the industry this and asked whether they knew any good coaches to work with, they said that hiring a coach wasn’t normal or necessary, because my publisher would decide based on a sample whether I was good enough at reading to do it, and if so give me a producer to work with day-of. But it “1 in 1000” matters to me whether the audiobook is so good no one would ever think of returning it on account of the narration, so I’m not interested in the normal-shaped solution that constitutes doing it “well,” I’m interested in the one that causes me to come to mind when someone asks <a href="https://substack.com/@usefulfictions/note/c-203076054?r=hjebh&amp;utm_source=notes-share-action&amp;utm_medium=web">this question</a>. In this case, that means hiring multiple coaches and practicing for months.</p><p></p><h4>5. If you like your job, you’re doing something wrong.</h4><p>Back when I was more alienated from my emotions, I thought about work like this: You have a budget of energy to spend, and the goal is to efficiently convert that energy into impact. You identify the activity that generates the highest impact per unit of energy, and then you spam that button for as many waking hours as you can stomach. Is it any wonder I was always <a href="https://usefulfictions.substack.com/p/burnout-is-breaking-a-sacred-pact">burning out</a>?</p><p>What I failed to understand is that energy is not fixed. It’s dramatically affected by what you choose to do — some activities increase your energy over time, others deplete it. This feels so obvious to me now that I feel kind of stupid including it here, but I know many people (they are endemic to the Bay Area) who still labor under the false belief. Whether you enjoy what you’re doing affects your ability to do it year in and year out, and dismissing this as “selfish” doesn’t make it untrue. As my husband puts it, the best use of effortful motivation is to engineer your life to require less of it.</p><p></p><h4>6. “All people are insane. They will do anything at any time, and God help anybody who looks for reasons.”</h4><p>This line, from Kurt Vonnegut, used to neatly encapsulate the way I understood other people — which is to say, not at all. Trying to figure out why people did what they did, or imagine what they’d do next, seemed like a fool’s errand. I was judgmental about it, too: I assumed this was a problem, not with me, but with everyone else.</p><p>I didn’t fundamentally move beyond this belief until recent years, when I came into contact with the Enneagram. I imagine there are other personality typing systems that can do something similar, but <a href="https://usefulfictions.substack.com/p/there-are-nine-wolves-inside-of-you">the Enneagram was magical for me</a> because it clued me into the fact that people can have very different motivational systems from my own that are still internally coherent and produce good things in the world.</p><p>People’s behavior was previously incomprehensible to me because I was imputing my own motivational system to them, trying to figure out what would cause me to act the way they did — essentially, concluding that <em>their </em>actions made no sense in light of <em>my </em>goals. But people have wildly diverse emotional hardware, which determines what’s rational for them. And my particular personality — independent, moralistic, systematic, challenge-seeking, competitive — is unusual, so I was especially poorly placed to measure others by the yardstick of myself.</p><p>This shift in perspective was dramatically good for me and for my relationships with other people. It let me see the ecosystem of psychologies as a kind of miracle — wow, it really does take all kinds — rather than a prompt for cosmic horror. And it gave me confidence that, if I invested in understanding people more deeply, they would eventually cease to be total mysteries, prone to bizarre and unreasonable behavior. As far as I can tell, this is the better part of emotional intelligence.</p><p></p><h4>7. Money can’t buy happiness.</h4><p>The good version of this advice is: You’ll still have to work at being happy, even if you’re rich. Money in your bank account won’t do it for you, and wealth comes with its own pathologies, like endless status-chasing. But the common gloss — that money stops mattering past some modest threshold — is basically false.</p><p>You may have heard there’s research showing money doesn’t buy happiness. That research was explosively popular precisely because it was counterintuitive — it betrayed the commonsense intuition that more money means more freedom, more options, more ability to help people you care about. Turns out it was also riddled with methodological problems. More recent work by Matthew Killingsworth (nominative determinism FTW), using large-scale studies that pinged participants about their happiness at random moments, found steady returns to well-being with rising income, no plateau in sight. The myth persists because it serves a psychological function: It helps people without money feel better about their situation, and helps the wealthy downplay their advantages. But it’s not true.</p><p></p><h4>8. Intuition is fake and rationality solves everything.</h4><p>I used to be horribly judgmental of people who made decisions based on intuition, as in, “I just do what feels right.” And then I noticed that whenever I overrode my intuitions, I made <em>terrible </em>decisions. I hired the wrong people, started projects with the wrong people, dated the wrong people, ate food that made me feel bad, did forms of exercise I found unfun and injurious. I don’t have a satisfying theory for why this is, but I know what happens: When I shift from emotional intuition to a logical story about a decision, it’s much easier for my reasoning to get hijacked by plausible-sounding directives that turn out to be nonsense.</p><p>It took me a long time to learn this, and that might have something to do with my training in law and poker. Overriding intuition in favor of explicit reasoning makes sense in contexts that reward systematic rationality, where you will get separated from your money if you count on gut feelings. But most of life isn’t a closed system with enumerated rules and clear outcomes. If you try to explicitly name all the factors that make someone a good friend or co-founder, you might come up with some good indicators, but your crude map will also mislead you about the territory.</p><p>This is why “wisdom is knowledge that can’t be transmitted.” Wise people have navigational skill, not a long list of rules.</p><p></p><p><em><strong><a href="https://mailchi.mp/44578760e686/book-preorder-signup">Sign up to be notified</a> when my book, You Can Just Do Things, is available for purchase.</strong></em></p></div></div>
+      
+    </article>
+    
+    <article>
+      <h1>A statistical approach to model evaluations</h1>
+      <div class="article-meta">
+        anthropic.com
+        · 14 Sep 2025 · <a href="https://www.anthropic.com/research/statistical-approach-to-model-evals">Source</a>
+      </div>
+      <div class="article-body"><p>Suppose an AI model outperforms another model on a benchmark of interest—testing its general knowledge, for example, or its ability to solve computer-coding questions. Is the difference in capabilities real, or could one model simply have gotten lucky in the choice of questions on the benchmark?</p>
+<p>With the amount of public interest in AI model evaluations—informally called “evals”—this question remains surprisingly understudied among the AI research community. This month, we published a <a href="https://arxiv.org/abs/2411.00640">new research paper</a> that attempts to answer the question rigorously. Drawing on statistical theory and the experiment design literature, the paper makes a number of recommendations to the AI research community for reporting eval results in a scientifically informative way. In this post, we briefly go over the reporting recommendations, and the logic behind them.</p>
+<h3>Recommendation #1: Use the Central Limit Theorem</h3>
+<p>Evals often consist of hundreds or thousands of unrelated questions. <a href="https://arxiv.org/abs/2009.03300v3">MMLU</a>, for instance, contains questions as diverse as:</p>
+<ul><li>Who discovered the first virus?</li><li>What is the inverse of 𝑓(𝑥)=4−5𝑥?</li><li>Who said that “Jurisprudence is the eye of law”?</li></ul>
+<p>To compute an overall eval score, each question is separately scored, and then the overall score is (usually) a simple average of these question scores. Typically, researchers focus their attention on this observed average. But in our paper, we argue that the real object of interest should not be the <em>observed</em> average, but rather the <em>theoretical</em> average across all possible questions. So if we imagine that eval questions were drawn from an unseen “question universe,” we can learn about the average score in that universe—that is, we can measure the underlying <em>skill</em>, independent of the “luck of the draw”—using statistical theory.</p>
+<figure class="article-figure"><img data-nimg="1" src="https://www.anthropic.com/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fb34871a36ad66fa0330e3ad6488ee87eb96bddda-2401x1260.png&amp;w=3840&amp;q=75" srcset="/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fb34871a36ad66fa0330e3ad6488ee87eb96bddda-2401x1260.png&amp;w=3840&amp;q=75 1x" class="article-image"/><figcaption>If we imagine that eval questions were drawn from a “question universe,” then eval scores will tend to follow a normal distribution, centered around the average score of all possible questions.</figcaption></figure>
+<p>This formulation buys us analytic robustness: if a new eval were to be created with questions having the same difficulty distribution as the original eval, we should generally expect our original conclusions to hold.</p>
+<p>In technical terms: under the fairly mild conditions of the <a href="https://en.wikipedia.org/wiki/Central_limit_theorem">Central Limit Theorem</a>, the mean values of several random samples taken from the same underlying distribution will tend to follow a <a href="https://en.wikipedia.org/wiki/Normal_distribution">normal distribution</a>. The standard deviation (or width) of that normal distribution is commonly known as the <a href="https://en.wikipedia.org/wiki/Standard_error">standard error of the mean</a>, or SEM. In our paper, we encourage researchers to report the SEM, derived from the Central Limit Theorem, alongside each calculated eval score—and we show researchers how to use the SEM to quantify the difference in theoretical means between two models. A 95% <a href="https://en.wikipedia.org/wiki/Confidence_interval">confidence interval</a> can be calculated from the SEM by adding and subtracting 1.96 × SEM from the mean score.</p>
+<h3>Recommendation #2: Cluster standard errors</h3>
+<p>Many evals violate the above assumption of independently selected questions, and instead consist of groups of closely related questions. For example, several questions in a reading-comprehension eval may ask about the same passage of text. Popular evals that follow this pattern include <a href="https://aclanthology.org/N19-1246/">DROP</a>, <a href="https://arxiv.org/abs/1808.07036">QuAC</a>, <a href="https://aclanthology.org/D17-1082/">RACE</a>, and <a href="https://arxiv.org/abs/1806.03822">SQuAD</a>.</p>
+<p>For these evals, each question’s selection from the “question universe” is no longer independent. Because including several questions about the same passage of text will yield less information than selecting the same number of questions about different passages of text, a naive application of the Central Limit Theorem to the case of non-independent questions will lead us to underestimate the standard error—and potentially mislead analysts into drawing incorrect conclusions from the data.</p>
+<p>Fortunately, the problem of <a href="https://en.wikipedia.org/wiki/Clustered_standard_errors">clustered standard errors</a> has been extensively studied in the social sciences. When the inclusion of questions is non-independent, we recommend clustering standard errors on the unit of <a href="https://en.wikipedia.org/wiki/Randomization">randomization</a> (for example, passage of text), and we provide applicable formulas in our paper.</p>
+<figure class="article-figure"><img data-nimg="1" src="https://www.anthropic.com/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Ff6f90f93dc66380904709a3ef4d63b92332871fd-2401x1260.png&amp;w=3840&amp;q=75" srcset="/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Ff6f90f93dc66380904709a3ef4d63b92332871fd-2401x1260.png&amp;w=3840&amp;q=75 1x" class="article-image"/><figcaption>If questions arrive in related clusters—a common pattern in reading-comprehension evals—eval scores will be more spread-out compared to the non-clustered case.</figcaption></figure>
+<p>In practice, we have found that clustered standard errors on popular evals can be over three times as large as naive standard errors. Ignoring question clustering may lead researchers to inadvertently detect a difference in model capabilities when in fact none exists.</p>
+<h3>Recommendation #3: Reduce variance within questions</h3>
+<p>Variance is a measurement of how spread-out a random variable is. The variance of an eval score is the square of the standard error of the mean, discussed above; this quantity depends on the amount of variance in the score on each individual eval question.</p>
+<p>A key insight of our paper is to decompose a model’s score on a particular question into two terms that are added together:</p>
+<ul><li>The mean score (the average score that the model would achieve if asked the same question an infinite number of times—even if the model might produce a different answer each time); and</li><li>A random component (the difference between a realized question score and the mean score for that question).</li></ul>
+<p>Thanks to the <a href="https://en.wikipedia.org/wiki/Law_of_total_variance">law of total variance</a>, reducing the variance in the random component directly leads to a smaller standard error of the overall mean, and thus greater statistical precision. Our paper highlights two strategies for reducing variance in the random component depending on whether or not the model is asked to think step by step before answering (a prompting technique known as CoT, or chain-of-thought reasoning).</p>
+<p>If an eval uses chain-of-thought reasoning, we recommend resampling answers from the same model several times, and using the question-level averages as the question scores fed into the Central Limit Theorem. We note that the <a href="https://github.com/UKGovernmentBEIS/inspect_ai/">Inspect framework</a> correctly computes standard errors in this way via its <a href="https://inspect.ai-safety-institute.org.uk/scorers.html#sec-reducing-epochs"><em>epochs</em> parameter</a>.</p>
+<figure class="article-figure"><img data-nimg="1" src="https://www.anthropic.com/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fefef59a06ddeb530fa15f31dc0937f28f70f655b-2401x1260.png&amp;w=3840&amp;q=75" srcset="/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fefef59a06ddeb530fa15f31dc0937f28f70f655b-2401x1260.png&amp;w=3840&amp;q=75 1x" class="article-image"/><figcaption>If a model produces answers non-deterministically, then generating (and grading) several answers per question will result in less spread-out eval scores.</figcaption></figure>
+<p>If the eval does not use chain-of-thought reasoning (i.e., its answers are not “path dependent”), we note that the random component in the score may often be eliminated altogether using next-token probabilities from the language model. For example, if the correct answer to a multiple-choice question is “B”, we would simply use the probability of the model producing the token “B” as the question score. We are not aware of an open-source evals framework which implements this technique.</p>
+<h3>Recommendation #4: Analyze paired differences</h3>
+<p>Eval scores don’t have any meaning on their own; they only make sense in relation to one another (one model outperforms another model, or ties another model, or outperforms a person). But could a measured difference between two models be due to the specific choice of questions in the eval, and randomness in the models’ answers? We can find out with a <a href="https://en.wikipedia.org/wiki/Student%27s_t-test">two-sample <em>t</em>-test</a>, using only the standard errors of the mean calculated from both eval scores.</p>
+<p>However, a two-sample test ignores the hidden structure inside eval data. Since the question list is shared across models, conducting a <a href="https://en.wikipedia.org/wiki/Paired_difference_test">paired-differences test</a> lets us eliminate the variance in question difficulty and focus on the variance in responses. In our paper, we show how the result of a paired-differences test will be related to the <a href="https://en.wikipedia.org/wiki/Pearson_correlation_coefficient">Pearson correlation coefficient</a> between two models’ question scores. When the correlation coefficient is higher, the standard error of the mean difference will be smaller.</p>
+<p>In practice, we find the correlation of question scores on popular evals between frontier models to be substantial—between 0.3 and 0.7 on a scale of −1 to +1. Put another way, frontier models have an overall tendency to get the same questions right and wrong. Paired-difference analysis thus represents a “free” variance reduction technique that is very well suited for AI model evals. Therefore, in the interest of extracting the clearest signal from the data, our paper recommends reporting pairwise information—mean differences, standard errors, confidence intervals, and correlations—whenever two or more models are being compared.</p>
+<h3>Recommendation #5: Use power analysis</h3>
+<p>The flip side of the statistical significance coin is statistical power, which is the ability of a statistical test to detect a difference between two models, assuming such a difference exists. If an eval doesn’t have very many questions, confidence intervals associated with any statistical tests will tend to be wide. This means that models will need to have a large underlying difference in capabilities in order to register a statistically significant result—and that small differences will likely go undetected. Power analysis refers to the mathematical relationship between observation count, <a href="https://en.wikipedia.org/wiki/Power_(statistics)">statistical power</a>, the <a href="https://en.wikipedia.org/wiki/False_positive_rate">false positive rate</a>, and the <a href="https://en.wikipedia.org/wiki/Effect_size">effect size</a> of interest.</p>
+<p>In our paper, we show how to apply concepts from power analysis to evals. Specifically, we show researchers how to formulate a hypothesis (such as <em>Model A outperforms Model B by 3 percentage points</em>) and calculate the number of questions that an eval should have in order to test this hypothesis against the null hypothesis (such as <em>Model A and Model B are tied</em>).</p>
+<p>We believe that power analysis will prove helpful to researchers in a number of situations. Our power formula will inform evaluators of models about the number of times to re-sample answers from questions (see Recommendation #3 above), as well as the number of questions that may be included in a random subsample while retaining the desired power properties. Researchers might use the power formula to conclude that an eval with a limited number of available questions is not worth running on a particular pair of models. Developers of new evals may wish to use the formula to help decide how many questions to include.</p>
+<h3>Conclusion</h3>
+<p>Statistics is the science of measurement in the presence of noise. Evals present a number of practical <a href="https://www.anthropic.com/news/evaluating-ai-systems">challenges</a>, and a true <a href="https://www.apolloresearch.ai/blog/we-need-a-science-of-evals">science of evals</a> remains underdeveloped. Statistics can only form one aspect of a science of evals—but a critical one, as an empirical science is only as good as its measuring tools. We hope that the recommendations in our paper <a href="https://arxiv.org/abs/2411.00640"><strong>Adding Error Bars to Evals: A Statistical Approach to Language Model Evaluations</strong></a> will help AI researchers calculate, interpret, and communicate eval numbers with greater precision and clarity than before—and we encourage researchers in the AI community to explore other techniques from experiment design so that they may understand more exactly all the things that they want to measure.</p></div>
+      
+    </article>
+    
+    <article>
+      <h1>Ownership</h1>
+      <div class="article-meta">
+        Thorsten Ball
+        · 08 Jul 2026 · <a href="https://registerspill.thorstenball.com/p/ownership">Source</a>
+      </div>
+      <div class="article-body"><div><h3>Thoughts on ownership I sent to the Amp team in internal note</h3><p><em>The following is an internal Slack message I sent to my Amp teammates after I had a conversation with one of them about ownership. It’s only lightly edited.<br/><br/>I <a href="https://x.com/thorstenball/status/2066907538499506349">shared it before</a>, but not here, because I didn’t think too much of it. Then today, someone said <a href="https://x.com/thorstenball/status/2074775146049474785">their CTO shared my post with them</a> and I thought: well, now I have to put it in the newsletter, don’t I? So here we are.</em></p><p><em>Below, after the Slack post, I added some thoughts on juniors on how I see this advice applying to them.</em></p><div class="captioned-image-container"><figure class="article-figure"><a class="image-link image2" href="https://substackcdn.com/image/fetch/$s_!uim-!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F450d3253-cf06-47ac-ad2e-688eef131f68.tif" target="_blank"><div class="image2-inset"><img alt="" class="sizing-normal article-image" height="22" src="https://substackcdn.com/image/fetch/$s_!uim-!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F450d3253-cf06-47ac-ad2e-688eef131f68.tif" width="693"/><div></div></div></a></figure></div><p>Just had a (great) conversation about ownership and engineering here and I realized that I often use the phrase “ownership” or allude to it, but haven’t explained what “ownership” means to me in a while.<br/><br/>So, ownership.</p><p>If I ask you “can you own this?” or “can you take care of this?” or “are you on it?” — what I’m doing is I’m asking you to <em>own</em> it, to own the solution of a problem from end to end. From “we have a problem” to “we don’t have to think about it again.”<br/><br/>That means, when you say that you’re owning something, the expectation is that you…</p><ul><li><p>Think about what the problem actually is. Maybe you already have a solution in mind, without having thought about what we’re actually trying to solve here. Maybe you think “the problem is that we need to migrate from using X to using Y”, but that’s not a problem, that’s a solution. The problem is likely something like “performance is bad”, “it’s not stable”, “it fails for customer x”. Maybe there’s other possible solutions to that? Think about those. What are the tradeoffs? What’s the best solution to go with considering these tradeoffs?</p></li><li><p>Think about edge cases. What are they? Which ones are important? Which ones can we ignore?</p></li><li><p>Think about failures. Network failures are a given, for example. How do we handle them? Retry? Well, how often? How long?</p></li><li><p>Think about data flow. How much data is involved here? Does data need to be migrated? Cleaned up? How can I get my hands on data to properly test this? What invariants are in the data? What assumptions do I have about the shape of the data that I haven’t confirmed yet?</p></li><li><p>Think about how you’d test this. How can I know that what I built is correct or not? Are tests enough? Do I need to manually poke at things? Is the difference visible on a screenshot or in a video?</p></li><li><p>How would we announce this? How do we communicate it? Can you picture it? How does it fit into the larger picture of our roadmap? Questions or concerns in that area — push back! ask!</p></li><li><p>Do the work, with precision, with care, with a sense of urgency, with calmness. Do not half-ass things. Before you merge, ask yourself: am I proud of this? would I show this to John Carmack and say “here’s what I built, under these constraints, with these tradeoffs?”</p></li><li><p>Test it manually. Yes, there’s automated tests. But in 99% of cases you can manually test or confirm that what you built works: you can run it yourself, you can ask an agent to run through test scenarios, you can poke at the data before and after, you can take screenshots, you can make a demo. Are you sure that what you did actually solves the problem?</p></li><li><p>Make sure it lands in production and <em>works in production</em>. Is it deployed? Did the deploy fail? Do you need to activate a feature flag? Does the feature flag work? Can you use it in production? Can you confirm it’s actually deployed?</p></li><li><p>If you think your colleagues needs to know about this change, because it’s new feature they should all test, or it’s a new convention in codebase, or maybe it’s a tricky thing everybody needs to be aware of, or something else: let them know! Do not underestimate peripheral vision: knowing that person X yesterday changed the behavior of how Z works might save person Y three hours of debugging today when a bug report related to Z comes in.</p></li><li><p>Do customers need to know? Who reported the bug? Who’s blocked? Let them know.</p></li><li><p>Does the world need to know? Announce that it’s out.</p></li><li><p>Are there follow-ups? Do you need to check on what you shipped in the logs? A week later maybe?</p></li></ul><p>Yes, that’s a lot. And there’s actually more, because I’m sure I forgot some stuff.<br/><br/>But that’s how you build a product in a small team. We don’t have PMs, we don’t have a Q&amp;A department. We’re small, but we’re <em>great</em>, we can do all of that.<br/><br/>And it’s always okay to ask for help, it’s okay to ask questions, it’s okay to redo things and triple-check. What’s not okay is to implicitly assume that someone else will do the things here that you haven’t thought about.</p><div class="captioned-image-container"><figure class="article-figure"><a class="image-link image2" href="https://substackcdn.com/image/fetch/$s_!__gY!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F394a7c97-4378-4e3d-9072-16d31ec47f61.tif" target="_blank"><div class="image2-inset"><img alt="" class="sizing-normal article-image" height="34" src="https://substackcdn.com/image/fetch/$s_!__gY!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F394a7c97-4378-4e3d-9072-16d31ec47f61.tif" width="717"/><div></div></div></a></figure></div><p><em>“How does this apply juniors? You can’t expect them to really do all of that?”</em></p><p>I’ve been asked these questions, or variations of them, after I shared the thoughts above and here’s my answer.</p><p>I do <em>not</em> expect juniors to <em>do</em> all of these things right away. But I would expect them to read through the list and <em>aspire</em> to one day be able to do all of these things. Until then, they can and should ask for help.</p><p>In fact, I don’t expect <em>anybody</em> to <em>always</em> do <em>all of these things</em> for <em>everything</em>. It’s a mental checklist of things to consider — problem, edge cases, tradeoffs, deployment, customers, messaging, … — but for quite a few things there aren’t edge cases to consider. Or big tradeoffs to weigh. Or deployment is a solved problem. And maybe someone else does the messaging for you.</p><p>And I imagine that most of these things you shouldn’t even consider when you work in a company with, say, 5000 employees. I’ve never worked in a company that large, only startups, so I can’t speak to how to successfully ship a software feature at Apple, end to end.</p><p>But when you work in a small company in which there’s only a single department, when you want to build things you’re proud of, when you work with me and you say own something, I expect you to keep these things in mind and run through them before you declare something as done.</p><div class="captioned-image-container"><figure class="article-figure"><a class="image-link image2" href="https://substackcdn.com/image/fetch/$s_!jAX5!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F4b50d509-3c6c-4db1-aea2-8f22bc60117c.tif" target="_blank"><div class="image2-inset"><img alt="" class="sizing-normal article-image" height="26" src="https://substackcdn.com/image/fetch/$s_!jAX5!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F4b50d509-3c6c-4db1-aea2-8f22bc60117c.tif" width="780"/><div></div></div></a></figure></div><div class="subscription-widget-wrap-editor"><div class="subscription-widget show-subscribe"><div class="preamble"><p class="cta-caption">You know what <em>you</em> should own? A subscription to this newsletter:</p></div></div></div></div></div>
+      
+    </article>
+    
+    <article>
+      <h1>Writing as a thinking tool</h1>
+      <div class="article-meta">
+        noreply@blogger.com (Murat)
+        · 07 Nov 2026 · <a href="https://muratbuffalo.blogspot.com/2026/11/writing-as-thinking-tool.html">Source</a>
+      </div>
+      <div class="article-body"><p>In middle school I could not get through long passages no matter how hard I tried. I would read an entire page and find that nothing had registered, so I started taking notes out of desperation. This was the late 80s, and Tony Buzan's mind maps had just reached Turkey. This led me to produce pages and pages of notes that looked like spiderwebs. Creating those notes have helped me tremendously. I made sense of what I was reading by figuring out which branch they would hang off in my mind maps. I realized my pages were not for storing the information as much as they were for processing it.</p>
+<p>It took me another ten years to understand why this works so well. During a stretch of PhD procrastination, I read <a href="https://www.cs.cmu.edu/~mblum/research/pdf/grad.html">Manuel Blum's advice to graduate students</a>:</p>
+<blockquote><p>You are all computer scientists.</p><p>You know what FINITE AUTOMATA can do.</p><p>You know what TURING MACHINES can do.</p><p>For example, Finite Automata can add but not multiply.</p><p>Turing Machines can compute any computable function.</p><p>Turing machines are <b>incredibly more powerful</b> than Finite Automata.</p><p>Yet the only difference between a FA and a TM is that</p><p>the TM, unlike the FA, has paper and pencil.</p><p>Think about it.</p><p>It tells you something about the power of writing.</p><p>Without writing, you are reduced to a finite automaton.</p><p>With writing you have the extraordinary power of a Turing machine.</p></blockquote>
+<p>This is a crisp technical claim about which problems you can solve with writing. If you take the paper away, you downgrade yourself by an entire complexity class!</p>
+<p>I think this explains a lot about human history as well. Language let us externalize some of our thinking, and our species got smarter. Writing let us externalize even more of it, and we got smarter again. I suspect this is also why LLMs are as capable as they are: so much of our intelligence is already deposited in language that a model trained on it inherits a good deal of intelligence for free.</p>
+<h2>Out-of-core execution</h2>
+<p>When we write, we are externalizing our thinking onto paper, and that is what raises our capability to think bigger thoughts. I liken this to <a href="https://en.wikipedia.org/wiki/External_memory_algorithm">out-of-core execution, or external memory algorithms</a>.</p>
+<p>A good example of this for me is <a href="https://muratbuffalo.blogspot.com/2013/07/how-i-read-research-paper.html">reviewing a paper</a>. When I read a paper, I think I understand it, and then I sit down to write the review and find out I understood maybe 60% of it. While writing the review, I end up contextualizing the paper better, and get to understand it fully. And sometimes I even realize the ideas are bigger than the authors noticed, and they connect to many other things.</p>
+<p>Sometimes the unearthing goes further than understanding one paper. In 2018, <a href="https://muratbuffalo.blogspot.com/2018/03/anatomical-similarities-and-differences.html">I wrote a quick post about the anatomical similarities between Paxos and Nakamoto consensus</a>. I had not started with that thesis originally. I started writing, and the connections got clearer as I went, and that post became the seed for one of our research papers. This is not uncommon, <a href="https://muratbuffalo.blogspot.com/2018/05/book-review-accidental-genius-using.html">this is called freewriting</a>. This is what happens when you give the machine a tape.</p>
+<p>Writing is also the reason I remember anything. I refer back to my own blog constantly. Because I strained my brain writing those posts, rereading them re-fires the same neurons, and I reconstruct the understanding quickly. In this sense, the blog became my external memory. The thoughts I never wrote down do not stick well, because they were never fully thought.</p>
+<blockquote><p>If you think without writing, you only think you're thinking.</p><p>-- Leslie Lamport</p></blockquote>
+<h2>Writing in the age of LLMs</h2>
+<p>Is writing for thinking getting obsolete now since you can now argue anything with a model that has read everything?</p>
+<p>Well, the model has read everything except what is in your brain! It knows the literature, the standard framing, and the consensus. But it does not know your half-formed intuition about why the standard framing may be wrong for this particular case. AI made a lot of progress, but I don't trust an LLM to take the creative leap and make a new connection. I think that would require another AI breakthrough. So, if you open the chat immediately on anything, you lose the opportunity to write/think for yourself.</p>
+<p>This is a real problem, and <a href="https://alifeengineered.substack.com/p/on-the-death-of-amazons-writing-culture">it seems to be spreading quickly.</a> We have been celebrating Amazon's six-pager as a great example of writing-for-thinking. Bezos had said: "There is no way to write a six-page, narratively structured memo and not have clear thinking." Unfortunately, with LLMs, that sentence has stopped being true. You can now produce six pages with no thinking at all, and the six pages still look like evidence that the thinking happened.</p>
+<p>A model optimizing next-token probability cannot do your thinking. If you trust it to hold the pen, no thinking would get done. As everyone turns their thinking down and becomes a meat-proxy for generated text, if you still keep writing yourself, you would still be thinking for yourself. So <a href="https://muratbuffalo.blogspot.com/2026/08/the-safest-job-from-ai-may-be-writing.html">writing is now a comparative advantage</a>, and a widening one!</p>
+<p>Anyways, enough about why you should write. Here is my advice on how you should write.</p>
+<h2>Rule 1: Mess up</h2>
+<p>The first rule of writing club is to produce in bulk with no restraints at all. Don't criticize, don't fix the typos, don't write in full sentences if you don't feel like it. The goal in this phase is to just accumulate text and get to a zeroth draft you can work with.</p>
+<p><a href="https://muratbuffalo.blogspot.com/2019/03/book-review-draft-no-4-by-john-mcphee.html">McPhee argues best</a> for why getting anything down matters so much. Even if you had a bad writing session, it gave your mind something to work with. After you get something down, you can spot problems with it and think of better ways of phrasing things. But none of that happens without the drafted version to react against.</p>
+<p>This is also how research papers get written. Open a notes.org file and treat it as a lab notebook: write while you do the work, explore every tangent, produce without any pressure to be presentable. <a href="https://muratbuffalo.blogspot.com/2014/03/how-to-write-your-research-paper.html">In the Köroğlu post</a> I compared this to the foal fattened in a pitch-black stable before any training begins. The key part of that frame is the stable. During this phase you guard the idea from critics, including and especially yourself. Ideas start out fragile and easily squished. So suppress judgment for a while and see what the thing becomes.</p>
+<h2>Rule 2: Tidy up</h2>
+<p>Now you must become the critic, the editor. Forget that you wrote this. Imagine some other guy wrote it, and do a harsh review. Cut ruthlessly. Take delight in deleting text the way you would in deleting code. If you cannot bear to delete a good sentence, move it to a junk buffer at the bottom of the file so you can tell yourself you might bring it back. Spoiler: you won't.</p>
+<p>Don't be discouraged by how bad the first draft was. <a href="https://muratbuffalo.blogspot.com/2019/03/book-review-draft-no-4-by-john-mcphee.html">McPhee says</a> the way to do a piece of writing is three or four times over, never once. This is good news. Thinking in multiple drafts takes the pressure off: you don't have to be spontaneous, brilliant on the first pass, or finished today.</p>
+<p>I think the reason writing works so well for thinking is that it slows you down while keeping you on the problem. In that extra time, the insights and connections get room to surface. <a href="https://en.wikipedia.org/wiki/Chunking_(psychology)">Chunking</a>/<a href="https://muratbuffalo.blogspot.com/2023/09/beyond-code-tla-and-art-of-abstraction.html">abstracting</a> happens in the background. Editing is then the magic trick where you pretend you had an organized thought all along. It is the packaging of the product.</p>
+<h2>Rule 3: Keep it simple, plain, and succinct</h2>
+<p>I am an Elements of Style guy. <a href="https://muratbuffalo.blogspot.com/2010/09/writing-advice.html">Strunk and White got it right</a>, and their writing still reads fresh decades later. I adore Vonnegut too. His writing is simple as fuck and completely eloquent. It took a lot of balls to write that plainly. Complexity in prose is usually a place to hide sloppy thinking, or a way to weasel out of taking a stance. If you can't say it plainly, you probably haven't thought it through yet. And the way you think it through is by writing/editing.</p>
+<h2>Rule 4: Write without expectations</h2>
+<p><a href="https://muratbuffalo.blogspot.com/2024/03/why-i-blog.html">Write for yourself.</a> The audience I have in mind is me. If others read it, that is a bonus, but the motivation has to be intrinsic, because the external rewards are far too delayed and too random to steer on. Writing like no one is watching also frees you up, and you can decide afterwards how much to share. Get your dopamine hit from the writing itself, not from people reading or sharing what you wrote, as that is very unreliable.</p>
+<p>I have been writing and sharing on this blog since 2011, and around 2016 I started running into people at conferences who read it. I assumed it was a fluke, but it kept happening. Writing with a human voice turns out to get a lot of attention, and I am still surprised by how much. Paradoxically, you seem to get an audience only if you weren't doing it for the audience.</p>
+<h2>Rule 5: Put it on the schedule</h2>
+<p>You should stop trying to get inspiration to write and <a href="https://muratbuffalo.blogspot.com/2018/04/book-review-how-to-write-lot-practical.html">start scheduling it.</a> Waiting for inspiration doesn't work, instead, putting your butt on seat and writing breeds good ideas for writing.</p>
+<p>I find that keeping a posting schedule for the blog keeps me in "a writing frame of mind", which is really "a noticing frame of mind". Many weeks I tell myself a topic isn't interesting, but I start writing about it anyway, and then, what do you know, I am startled by the fount of interesting things that surfaces.</p>
+<p>I also feel relieved after writing something as the thought is out of my system, I have closure on it, and I have room to think new thoughts. If a week goes by without a post, I feel clogged. So put writing on the calendar and keep it there until it no longer needs to be on the calendar.</p></div>
+      
+    </article>
+    
+  </body>
+</html>
