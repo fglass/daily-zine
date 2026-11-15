@@ -1,0 +1,724 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Fred Talks - 2026-11-15</title>
+    <style>
+      @page {
+        size: A5;
+        margin: 8mm 9mm 9mm;
+      }
+
+      :root {
+        color: #111;
+        font-family: "Times New Roman", Times, serif;
+        --body-text-size: 9.5pt;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        color: #111;
+        background: #fff;
+        font-family: "Times New Roman", Times, serif;
+        line-height: 1.45;
+      }
+
+      a,
+      a:visited {
+        color: #111;
+        text-decoration: underline;
+      }
+
+      .cover {
+        min-height: calc(210mm - 17mm);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        page-break-after: always;
+        border: 1px solid #111;
+        padding: 8mm;
+        background: #fff;
+      }
+
+      .toc-item-meta,
+      .article-meta {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .masthead {
+        margin: 0;
+        font-size: 40pt;
+        line-height: 0.95;
+        text-transform: uppercase;
+      }
+
+      .issue-date {
+        margin: 4mm 0 0;
+        font-size: 14pt;
+      }
+
+      .issue-date sup {
+        font-size: 0.58em;
+        vertical-align: super;
+        line-height: 0;
+      }
+
+      .cover-deck {
+        max-width: 90mm;
+        font-size: 12pt;
+        margin: 0;
+      }
+
+      .toc {
+        border-top: 3px solid #111;
+        padding-top: 6mm;
+      }
+
+      .toc h2 {
+        margin: 0 0 4mm;
+        font-size: 11pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .toc-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .toc-item {
+        padding: 3mm 0;
+        border-bottom: 1px solid rgba(17, 17, 17, 0.2);
+      }
+
+      .toc-item-title {
+        font-size: 12pt;
+        margin: 0 0 1mm;
+      }
+
+      .toc-item-meta {
+        font-size: 8pt;
+      }
+
+      .masthead-compact {
+        margin: 0 0 6mm;
+      }
+
+      .masthead-compact h1 {
+        margin: 0;
+        font-size: 22pt;
+        line-height: 1.1;
+        text-transform: uppercase;
+      }
+
+      .masthead-compact .issue-date {
+        margin: 2mm 0 0;
+        font-size: 11pt;
+      }
+
+      .toc-compact {
+        border-top: 1px solid #111;
+        border-bottom: 1px solid #111;
+        padding: 4mm 0;
+        margin: 0 0 8mm;
+      }
+
+      article + article {
+        margin-top: 10mm;
+        padding-top: 6mm;
+        border-top: 2px solid #111;
+      }
+
+      h1 {
+        margin: 0 0 2mm;
+        font-size: 18pt;
+        line-height: 1.1;
+      }
+
+      .article-meta {
+        font-size: 8.5pt;
+        margin-bottom: 6mm;
+        padding-bottom: 3mm;
+        border-bottom: 1px solid #111;
+      }
+
+      .article-body {
+        font-size: var(--body-text-size);
+        font-family: "Times New Roman", Times, serif;
+      }
+
+      .article-body p,
+      .article-body li,
+      .article-body blockquote,
+      .article-body dd,
+      .article-body dt {
+        margin: 0 0 4mm;
+        orphans: 3;
+        widows: 3;
+      }
+
+      .article-body ul,
+      .article-body ol,
+      .article-body dl {
+        margin: 0 0 4mm 5mm;
+        padding: 0;
+      }
+
+      .article-body h2,
+      .article-body h3,
+      .article-body h4 {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        margin: 7mm 0 3mm;
+        line-height: 1.2;
+      }
+
+      .article-body blockquote {
+        margin-left: 6mm;
+        padding-left: 4mm;
+        border-left: 2px solid #111;
+      }
+
+      .article-body .media-omitted {
+        margin: 0 0 4mm;
+        font-size: 8.5pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(17, 17, 17, 0.65);
+      }
+
+      .article-body figure,
+      .article-body .article-figure,
+      .article-body picture,
+      .article-body .article-picture {
+        display: block;
+        max-width: 72mm;
+        margin: 0 auto 4mm;
+        break-inside: avoid;
+      }
+
+      .article-body img,
+      .article-body .article-image {
+        display: block;
+        max-width: min(100%, 72mm);
+        max-height: 34mm;
+        height: auto;
+        width: auto;
+        object-fit: contain;
+        margin: 0 auto 3mm;
+      }
+
+      .article-body figcaption {
+        margin-top: 1.5mm;
+        font-size: 8.5pt;
+        line-height: 1.3;
+        color: rgba(17, 17, 17, 0.8);
+      }
+
+      .article-note {
+        margin-top: 6mm;
+        padding-top: 3mm;
+        border-top: 1px solid #111;
+        font-size: 9pt;
+        font-style: italic;
+      }
+
+      @media screen {
+        body {
+          padding: 2rem;
+          margin: 0 auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    
+    <header class="masthead-compact">
+      <h1>Fred Talks</h1>
+      <p class="issue-date">
+        15<sup>th</sup> November 2026
+      </p>
+    </header>
+
+    <nav class="toc toc-compact">
+      <h2>Contents</h2>
+      <ol class="toc-list">
+        
+        <li class="toc-item">
+          <div class="toc-item-title">What is Codemode</div>
+          <div class="toc-item-meta">
+            Armin Ronacher · 2870 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Every layer of review makes you 10x slower</div>
+          <div class="toc-item-meta">
+            Avery Pennarun · 2841 words
+          </div>
+        </li>
+        
+      </ol>
+    </nav>
+    
+
+    
+    <article>
+      <h1>What is Codemode</h1>
+      <div class="article-meta">
+        Armin Ronacher
+        · 06 Oct 2026 · <a href="https://lucumr.pocoo.org/2026/10/6/codemode/">Source</a>
+      </div>
+      <div class="article-body"><div><p>More than a year ago I wrote a few posts here that recommended people not to
+load custom tools into their context (or
+<a href="https://en.wikipedia.org/wiki/Model_Context_Protocol">MCP</a> servers) but to just
+use more scripts.  Most importantly I wrote that <a href="/2025/7/3/tools/">Code Is All You
+Need</a> and I wrote about that <a href="/2025/8/18/code-mcps/">MCP needs
+code</a>.  With Pi 1.0 we now added MCP support via Codemode
+which in some ways is a long time coming, but then also maybe somewhat
+surprising to some.  So I want to share some updated thoughts on this blog on
+what this all means.</p>
+<h2>What Are Tools</h2>
+<p>When a harness like Pi provides tools for an LLM to call, it does so by
+supplying some tool definitions which then translate into some token structure
+on the server side.  Whether a model is encouraged to call a tool is the result
+of the reinforcement learning process.  Something <a href="/2026/7/4/better-models-worse-tools/">I wrote about
+before</a> if you want to learn more.</p>
+<p>One of the reasons we strongly lean towards CLI and bash is because it allows
+easy composition of calls, and because the model also learns how the file system
+works when it’s trained.  So when it invokes a tool like <code>echo foo &gt; /tmp/test.txt</code> the model also learns that after that tool call, there is now a
+file called <code>test.txt</code> in <code>/tmp</code>.</p>
+<p>However bash has one fundamental limitation which is that it can only compose
+programs that run.  And there are some things, which are not programs, but
+native tools to the LLM and they sort of have to be.</p>
+<p>The most obvious example here is <code>read</code> or <code>view_image</code>. If a multimodal model
+needs to read an image, it cannot use <code>cat</code> for that because the harness needs
+to inject the actual image payload into the protocol of the LLM.</p>
+<p>Another quite vivid example are sub agents.  In order to spawn and orchestrate
+sub agents, it’s tricky to avoid tools that are provided by the harness.  While
+in theory the agent could provide a CLI tool that talks to the outer harness
+via environment variables and Unix sockets, it’s a rather crude process.  It
+however has another issue, and that is where the code runs.</p>
+<h2>Brains vs Hands</h2>
+<p>To better understand that, it’s important to think a bit more about where all the
+bits and pieces run.  There really usually are two different systems involved.
+The first is the brain, the harness: it runs on one machine. It’s trusted.  The
+second is <em>often</em> the same machine, but it’s really where the tools are
+executing: the hands.  In Pi we now call this the execution environment, but you
+can think of it as the target of all the operations.</p>
+<p>Crucially what is important for us, is that there is a dividing line between the
+harness brain and the target environment that runs bash and executes the tools.</p>
+<p>And splitting this in half has some really important consequences.  For a start
+it means that they are running on different file systems and they have different
+levels of trust.  If you for instance use a sandboxing solution <a href="https://earendil-works.github.io/gondolin/">like
+Gondolin</a> your bash stuff will be
+sandboxed just fine, but the harness itself will not be.</p>
+<h2>Orchestrating The Harness</h2>
+<p>Which brings us to what Codemode really does: it’s a way for the LLM to express
+and orchestrate complex operations on the harness side, but not the execution
+environment side. Codemode runs in the harness, in its own sandbox.  In case of
+Pi it’s running in QuickJS within a WASM runtime with intentional limitations:
+no network, no file system, no timers, limited RAM.  The only way is to call
+more tools.  You could also imagine that Codemode could run Scheme or some other
+language as well.</p>
+<p>If you are not familiar with Codemode, it’s basically just a way to issue
+tool calls from within some language, in our case JavaScript.  That allows you
+to compose those calls without necessarily going through the LLM’s context.
+Credit for naming goes to our friends at Cloudflare <a href="https://blog.cloudflare.com/code-mode/">who coined
+it</a>.</p>
+<p>For instance if you issue a bash call as a regular tool call in the LLM, then
+we only throw the trailing 2000 lines into the context and if the agent wants
+more, it needs to look at the overflow file itself.  If however the agent issues
+that invocation via Codemode, then the Codemode side gets larger outputs
+sent structurally.</p>
+<p>Most importantly, because Codemode is JavaScript the agent can express
+concurrent operations and basic workflows.  A common way in which you see agents
+now use this, is to first probe at 5-10 items from some tool response to see
+what it looks like, and to then write a Codemode script that processes the next
+n items.</p>
+<p>Codemode also allows you to throw state into the transcript!  That means that
+one Codemode invocation can stash away data, that the next call in the session
+can load again.  And remember: this is on the harness host, not the sandbox.</p>
+<p>In case of Pi, Codemode also allows you to issue calls that naturally do not
+make any sense in Pi’s traditional interface.  For instance if you want to
+generate images with an image model or you want to classify some text with a
+one shot classifier model, those Pi APIs are exposed via Codemode, but not via
+regular tools where they would just waste context.</p>
+<h2>What It Looks Like</h2>
+<p>So now that we talked a bunch about it, it’s probably worth being a bit more
+explicit about it.  Let’s walk ourselves through some invocations of Codemode
+of recent Pi sessions of mine.  Note that none of this code is human written.
+It’s from real sessions of Pi, just re-indented for your viewing pleasure.  The
+agent starts using Codemode automatically either because it’s a task where the
+model already naturally picks up that tool, or because a user asked it to.</p>
+<p>Note that Codemode is by default only enabled in Pi when MCP is enabled, but you
+can turn it on with <code>"defaultTools": ["+codemode"]</code> in the settings.  Just ask
+Pi to enable it for you.</p>
+<h3>Generating Images</h3>
+<p>Let’s start simple with image generation.  Image generation is a feature that Pi
+supports in the AI SDK core, but it’s not a tool that the agent can use.  In the
+past the only way to use image models has been to write a bespoke extension or
+to have the agent run node itself and use the internal image APIs.  However
+because we expose quite a few of the internal model APIs within Codemode, it
+means that the agent can use it:</p>
+<div class="highlight"><pre><span></span><span class="kd">const</span><span class="w"> </span><span class="p">[</span><span class="nx">painter</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">models</span><span class="p">.</span><span class="nx">getAvailableOfType</span><span class="p">(</span><span class="s2">"image"</span><span class="p">);</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">models</span><span class="p">.</span><span class="nx">generateImages</span><span class="p">(</span><span class="nx">painter</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">input</span><span class="o">:</span><span class="w"> </span><span class="p">[{</span><span class="w"> </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s2">"text"</span><span class="p">,</span><span class="w"> </span><span class="nx">text</span><span class="o">:</span><span class="w"> </span><span class="s2">"A cute little puppy sitting on a grassy "</span><span class="w"> </span><span class="o">+</span>
+<span class="w">    </span><span class="s2">"lawn, soft natural light, photorealistic"</span><span class="w"> </span><span class="p">}],</span>
+<span class="p">});</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">stopReason</span><span class="w"> </span><span class="o">!==</span><span class="w"> </span><span class="s2">"stop"</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nx">result</span><span class="p">.</span><span class="nx">errorMessage</span><span class="p">;</span>
+
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">const</span><span class="w"> </span><span class="nx">block</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nx">result</span><span class="p">.</span><span class="nx">output</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">block</span><span class="p">.</span><span class="nx">type</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s2">"image"</span><span class="p">)</span><span class="w"> </span><span class="nx">image</span><span class="p">(</span><span class="nx">block</span><span class="p">);</span>
+<span class="w">  </span><span class="k">else</span><span class="w"> </span><span class="nx">text</span><span class="p">(</span><span class="nx">block</span><span class="p">.</span><span class="nx">text</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+<p>Note that the call to <code>image()</code> sends the image back as image content to the
+LLM.  On the harness side it feeds it directly into both the agent, as well as
+onto disk as a temporary artifact in case the agent wants to be able to pass
+that image back to bash.</p>
+<h3>Classifying Things</h3>
+<p>Similar things apply to classifier models such as <a href="https://typesafe.ai/">Jev</a>.
+They also do not fit well into the workflows of an agent through the typical
+tools.  But rather than making a bespoke tool available, Codemode just allows
+the agent to reach into the AI SDK and invoke those directly.  Here you can see
+how Jev is used to mass process GitHub issues for a quick sentiment analysis:</p>
+<div class="highlight"><pre><span></span><span class="kd">const</span><span class="w"> </span><span class="nx">jev</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">models</span><span class="p">.</span><span class="nx">getModelOfType</span><span class="p">(</span><span class="s2">"classifier"</span><span class="p">,</span><span class="w"> </span><span class="s2">"typesafe"</span><span class="p">,</span><span class="w"> </span><span class="s2">"jev-latest"</span><span class="p">);</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">tools</span><span class="p">.</span><span class="nx">bash</span><span class="p">({</span>
+<span class="w">  </span><span class="nx">command</span><span class="o">:</span><span class="w"> </span><span class="s2">"gh issue list --state open --limit 100 "</span><span class="w"> </span><span class="o">+</span>
+<span class="w">    </span><span class="s2">"--json number,title,body,comments"</span><span class="p">,</span>
+<span class="p">});</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">issues</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">r</span><span class="p">.</span><span class="nx">output</span><span class="p">);</span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">results</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nb">Promise</span><span class="p">.</span><span class="nx">all</span><span class="p">(</span><span class="nx">issues</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="k">async</span><span class="w"> </span><span class="p">(</span><span class="nx">issue</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">models</span><span class="p">.</span><span class="nx">classify</span><span class="p">(</span><span class="nx">jev</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">state</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">title</span><span class="o">:</span><span class="w"> </span><span class="nx">issue</span><span class="p">.</span><span class="nx">title</span><span class="p">,</span>
+<span class="w">      </span><span class="nx">body</span><span class="o">:</span><span class="w"> </span><span class="p">(</span><span class="nx">issue</span><span class="p">.</span><span class="nx">body</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="s2">""</span><span class="p">).</span><span class="nx">slice</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">4000</span><span class="p">),</span>
+<span class="w">      </span><span class="nx">comments</span><span class="o">:</span><span class="w"> </span><span class="nx">issue</span><span class="p">.</span><span class="nx">comments</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="o">-</span><span class="mf">5</span><span class="p">).</span><span class="nx">map</span><span class="p">(</span><span class="nx">c</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">c</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">800</span><span class="p">)),</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nx">questions</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">sentiment</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s2">"choice"</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">instructions</span><span class="o">:</span><span class="w"> </span><span class="s2">"What is the overall sentiment of the author towards pi?"</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">criteria</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nx">positive</span><span class="o">:</span><span class="w"> </span><span class="s2">"Appreciative, happy, constructive praise"</span><span class="p">,</span>
+<span class="w">          </span><span class="nx">neutral</span><span class="o">:</span><span class="w"> </span><span class="s2">"Matter-of-fact report or request without emotion"</span><span class="p">,</span>
+<span class="w">          </span><span class="nx">negative</span><span class="o">:</span><span class="w"> </span><span class="s2">"Frustrated, annoyed, upset, or angry"</span><span class="p">,</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="nx">frustration</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s2">"score"</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">instructions</span><span class="o">:</span><span class="w"> </span><span class="s2">"How frustrated is the reporter?"</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">criteria</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"not at all"</span><span class="p">,</span><span class="w"> </span><span class="s2">"mildly"</span><span class="p">,</span><span class="w"> </span><span class="s2">"clearly frustrated"</span><span class="p">,</span><span class="w"> </span><span class="s2">"very angry"</span><span class="p">],</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="nx">kind</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s2">"choice"</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">instructions</span><span class="o">:</span><span class="w"> </span><span class="s2">"What kind of issue is this?"</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">criteria</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nx">bug</span><span class="o">:</span><span class="w"> </span><span class="s2">"Bug report or regression"</span><span class="p">,</span>
+<span class="w">          </span><span class="nx">feature</span><span class="o">:</span><span class="w"> </span><span class="s2">"Feature request or enhancement"</span><span class="p">,</span>
+<span class="w">          </span><span class="nx">question</span><span class="o">:</span><span class="w"> </span><span class="s2">"Question or support request"</span><span class="p">,</span>
+<span class="w">          </span><span class="nx">other</span><span class="o">:</span><span class="w"> </span><span class="s2">"Docs, discussion, meta, spam"</span><span class="p">,</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">  </span><span class="p">});</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">res</span><span class="p">.</span><span class="nx">stopReason</span><span class="w"> </span><span class="o">!==</span><span class="w"> </span><span class="s2">"stop"</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">n</span><span class="o">:</span><span class="w"> </span><span class="nx">issue</span><span class="p">.</span><span class="nx">number</span><span class="p">,</span><span class="w"> </span><span class="nx">title</span><span class="o">:</span><span class="w"> </span><span class="nx">issue</span><span class="p">.</span><span class="nx">title</span><span class="p">,</span><span class="w"> </span><span class="nx">error</span><span class="o">:</span><span class="w"> </span><span class="nx">res</span><span class="p">.</span><span class="nx">errorMessage</span><span class="w"> </span><span class="p">};</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">n</span><span class="o">:</span><span class="w"> </span><span class="nx">issue</span><span class="p">.</span><span class="nx">number</span><span class="p">,</span><span class="w"> </span><span class="nx">title</span><span class="o">:</span><span class="w"> </span><span class="nx">issue</span><span class="p">.</span><span class="nx">title</span><span class="p">,</span><span class="w"> </span><span class="p">...</span><span class="nx">res</span><span class="p">.</span><span class="nx">answers</span><span class="w"> </span><span class="p">};</span>
+<span class="p">}));</span>
+
+<span class="nx">store</span><span class="p">(</span><span class="s2">"sentiment_results"</span><span class="p">,</span><span class="w"> </span><span class="nx">results</span><span class="p">);</span>
+<span class="k">return</span><span class="w"> </span><span class="nx">results</span>
+<span class="w">  </span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">r</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="o">!</span><span class="nx">r</span><span class="p">.</span><span class="nx">error</span><span class="p">)</span>
+<span class="w">  </span><span class="p">.</span><span class="nx">sort</span><span class="p">((</span><span class="nx">a</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">b</span><span class="p">.</span><span class="nx">frustration</span><span class="p">.</span><span class="nx">score</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">a</span><span class="p">.</span><span class="nx">frustration</span><span class="p">.</span><span class="nx">score</span><span class="p">)</span>
+<span class="w">  </span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">12</span><span class="p">)</span>
+<span class="w">  </span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">r</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="sb">`#</span><span class="si">${</span><span class="nx">r</span><span class="p">.</span><span class="nx">n</span><span class="si">}</span><span class="sb"> </span><span class="si">${</span><span class="nx">r</span><span class="p">.</span><span class="nx">frustration</span><span class="p">.</span><span class="nx">score</span><span class="p">.</span><span class="nx">toFixed</span><span class="p">(</span><span class="mf">2</span><span class="p">)</span><span class="si">}</span><span class="sb"> [</span><span class="si">${</span><span class="nx">r</span><span class="p">.</span><span class="nx">kind</span><span class="p">.</span><span class="nx">choice</span><span class="si">}</span><span class="sb">] </span><span class="si">${</span><span class="nx">r</span><span class="p">.</span><span class="nx">title</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+</pre></div>
+<p>Note how in that above example we also call <code>store()</code> which dumps the result of
+that execution into the session transcript.  A future invocation of Codemode can
+thus read back that result if it wants to.</p>
+<p>The <code>Promise.all</code> here is fine, because Pi limits the total number of concurrent
+tool executions itself to four and maintains a queue for the rest.</p>
+<p>A more adventurous example is to use Jev to drive a game engine for debugging
+purposes:</p>
+<details>Codemode with Jev for Game Debugging
+<p>Here it knows about my <code>tankctl</code> command and it built itself quickly a minimal
+harness around it to drive a game loop to assist a user with debugging a
+problem. Note how it built a 30 step loop in which each step goes back to both
+the game engine to get a text dump of what’s going on, and then to Jev to
+determine what to do next:</p>
+<div class="highlight"><pre><span></span><span class="kd">const</span><span class="w"> </span><span class="nx">jev</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">models</span><span class="p">.</span><span class="nx">getModelOfType</span><span class="p">(</span><span class="s2">"classifier"</span><span class="p">,</span><span class="w"> </span><span class="s2">"typesafe"</span><span class="p">,</span><span class="w"> </span><span class="s2">"jev-latest"</span><span class="p">);</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">tank</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">(</span><span class="nx">cmd</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span>
+<span class="w">  </span><span class="p">(</span><span class="k">await</span><span class="w"> </span><span class="nx">tools</span><span class="p">.</span><span class="nx">bash</span><span class="p">({</span><span class="w"> </span><span class="nx">command</span><span class="o">:</span><span class="w"> </span><span class="sb">`tools/tankctl "</span><span class="si">${</span><span class="nx">cmd</span><span class="si">}</span><span class="sb">"`</span><span class="w"> </span><span class="p">})).</span><span class="nx">output</span><span class="p">;</span>
+<span class="k">await</span><span class="w"> </span><span class="nx">tank</span><span class="p">(</span><span class="s2">"start --map assets/maps/night_arena.map"</span><span class="p">);</span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">questions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">action</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s2">"choice"</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">instructions</span><span class="o">:</span><span class="w"> </span><span class="s2">"You control the tank '@' in a top-down tank game. "</span><span class="w"> </span><span class="o">+</span>
+<span class="w">      </span><span class="s2">"Choose the best next action."</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">criteria</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">attack</span><span class="o">:</span><span class="w"> </span><span class="s2">"an enemy has line of sight to you and you can fire at it"</span><span class="p">,</span>
+<span class="w">      </span><span class="nx">approach</span><span class="o">:</span><span class="w"> </span><span class="s2">"no enemy has line of sight; drive toward the nearest enemy"</span><span class="p">,</span>
+<span class="w">      </span><span class="nx">dodge</span><span class="o">:</span><span class="w"> </span><span class="s2">"an enemy shot is heading at you and will hit soon"</span><span class="p">,</span>
+<span class="w">      </span><span class="nx">powerup</span><span class="o">:</span><span class="w"> </span><span class="s2">"a powerup is close and no enemy threatens you"</span><span class="p">,</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="p">};</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">commandFor</span><span class="p">(</span><span class="nx">choice</span><span class="p">,</span><span class="w"> </span><span class="nx">st</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">st</span><span class="p">.</span><span class="nx">player</span><span class="p">;</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">enemy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">st</span><span class="p">.</span><span class="nx">enemies</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">e</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="o">!</span><span class="nx">e</span><span class="p">.</span><span class="nx">dead</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="nx">sort</span><span class="p">((</span><span class="nx">a</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">(</span><span class="nx">b</span><span class="p">.</span><span class="nx">los</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">a</span><span class="p">.</span><span class="nx">los</span><span class="p">)</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="p">(</span><span class="nx">a</span><span class="p">.</span><span class="nx">dist</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">b</span><span class="p">.</span><span class="nx">dist</span><span class="p">))[</span><span class="mf">0</span><span class="p">];</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">choice</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s2">"attack"</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">enemy</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="sb">`fire_at tank </span><span class="si">${</span><span class="nx">enemy</span><span class="p">.</span><span class="nx">id</span><span class="si">}</span><span class="sb">; frames 30 until clear,damage,kill`</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">choice</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s2">"dodge"</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// move perpendicular to the closest incoming shot</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">st</span><span class="p">.</span><span class="nx">projectiles</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">s</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="o">!</span><span class="nx">s</span><span class="p">.</span><span class="nx">yours</span><span class="p">)</span>
+<span class="w">      </span><span class="p">.</span><span class="nx">sort</span><span class="p">((</span><span class="nx">a</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">a</span><span class="p">.</span><span class="nx">eta</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">b</span><span class="p">.</span><span class="nx">eta</span><span class="p">)[</span><span class="mf">0</span><span class="p">];</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">dir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">s</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">abs</span><span class="p">(</span><span class="nx">s</span><span class="p">.</span><span class="nx">vel</span><span class="p">[</span><span class="mf">0</span><span class="p">])</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">abs</span><span class="p">(</span><span class="nx">s</span><span class="p">.</span><span class="nx">vel</span><span class="p">[</span><span class="mf">1</span><span class="p">])</span>
+<span class="w">      </span><span class="o">?</span><span class="w"> </span><span class="p">(</span><span class="nx">p</span><span class="p">.</span><span class="nx">pos</span><span class="p">[</span><span class="mf">1</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nx">s</span><span class="p">.</span><span class="nx">pos</span><span class="p">[</span><span class="mf">1</span><span class="p">]</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s2">"+down"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">"+up"</span><span class="p">)</span>
+<span class="w">      </span><span class="o">:</span><span class="w"> </span><span class="p">(</span><span class="nx">p</span><span class="p">.</span><span class="nx">pos</span><span class="p">[</span><span class="mf">0</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="p">(</span><span class="nx">s</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="nx">s</span><span class="p">.</span><span class="nx">pos</span><span class="p">[</span><span class="mf">0</span><span class="p">]</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s2">"+right"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">"+left"</span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="sb">`input </span><span class="si">${</span><span class="nx">dir</span><span class="si">}</span><span class="sb">; frames 20 until damage; input stop`</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">powerup</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">st</span><span class="p">.</span><span class="nx">powerups</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">u</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">u</span><span class="p">.</span><span class="nx">available</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="nx">sort</span><span class="p">((</span><span class="nx">a</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">a</span><span class="p">.</span><span class="nx">dist</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">b</span><span class="p">.</span><span class="nx">dist</span><span class="p">)[</span><span class="mf">0</span><span class="p">];</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">choice</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s2">"powerup"</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">powerup</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="sb">`goto </span><span class="si">${</span><span class="nx">powerup</span><span class="p">.</span><span class="nx">pos</span><span class="p">[</span><span class="mf">0</span><span class="p">]</span><span class="si">}</span><span class="sb"> </span><span class="si">${</span><span class="nx">powerup</span><span class="p">.</span><span class="nx">pos</span><span class="p">[</span><span class="mf">1</span><span class="p">]</span><span class="si">}</span><span class="sb"> 180`</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">enemy</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="sb">`goto </span><span class="si">${</span><span class="nx">enemy</span><span class="p">.</span><span class="nx">pos</span><span class="p">[</span><span class="mf">0</span><span class="p">]</span><span class="si">}</span><span class="sb"> </span><span class="si">${</span><span class="nx">enemy</span><span class="p">.</span><span class="nx">pos</span><span class="p">[</span><span class="mf">1</span><span class="p">]</span><span class="si">}</span><span class="sb"> 90`</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">log</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[];</span>
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">step</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">step</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">30</span><span class="p">;</span><span class="w"> </span><span class="nx">step</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">st</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="k">await</span><span class="w"> </span><span class="nx">tank</span><span class="p">(</span><span class="s2">"state"</span><span class="p">));</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">st</span><span class="p">.</span><span class="nx">state</span><span class="w"> </span><span class="o">!==</span><span class="w"> </span><span class="s2">"playing"</span><span class="p">)</span><span class="w"> </span><span class="k">break</span><span class="p">;</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">threats</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">st</span><span class="p">.</span><span class="nx">projectiles</span>
+<span class="w">    </span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">s</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="o">!</span><span class="nx">s</span><span class="p">.</span><span class="nx">yours</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">s</span><span class="p">.</span><span class="nx">miss_dist</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">1.5</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">s</span><span class="p">.</span><span class="nx">eta</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">1.5</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">s</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="sb">`incoming shot dist </span><span class="si">${</span><span class="nx">s</span><span class="p">.</span><span class="nx">dist</span><span class="si">}</span><span class="sb"> eta </span><span class="si">${</span><span class="nx">s</span><span class="p">.</span><span class="nx">eta</span><span class="si">}</span><span class="sb">s`</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="s2">"\n"</span><span class="p">)</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="s2">"no incoming shots"</span><span class="p">;</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">models</span><span class="p">.</span><span class="nx">classify</span><span class="p">(</span><span class="nx">jev</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">state</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">map</span><span class="o">:</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">tank</span><span class="p">(</span><span class="s2">"view 8"</span><span class="p">),</span><span class="w"> </span><span class="nx">threats</span><span class="p">,</span><span class="w"> </span><span class="nx">hp</span><span class="o">:</span><span class="w"> </span><span class="nx">st</span><span class="p">.</span><span class="nx">player</span><span class="p">.</span><span class="nx">hp</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="nx">questions</span><span class="p">,</span>
+<span class="w">  </span><span class="p">});</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">r</span><span class="p">.</span><span class="nx">stopReason</span><span class="w"> </span><span class="o">!==</span><span class="w"> </span><span class="s2">"stop"</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">log</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="sb">`#</span><span class="si">${</span><span class="nx">step</span><span class="si">}</span><span class="sb"> classifier error: </span><span class="si">${</span><span class="nx">r</span><span class="p">.</span><span class="nx">errorMessage</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+<span class="w">    </span><span class="k">break</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">choice</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">r</span><span class="p">.</span><span class="nx">answers</span><span class="p">.</span><span class="nx">action</span><span class="p">.</span><span class="nx">choice</span><span class="p">;</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">cmd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">commandFor</span><span class="p">(</span><span class="nx">choice</span><span class="p">,</span><span class="w"> </span><span class="nx">st</span><span class="p">);</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">cmd</span><span class="p">)</span><span class="w"> </span><span class="k">break</span><span class="p">;</span>
+<span class="w">  </span><span class="nx">log</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="sb">`#</span><span class="si">${</span><span class="nx">step</span><span class="si">}</span><span class="sb"> hp=</span><span class="si">${</span><span class="nx">st</span><span class="p">.</span><span class="nx">player</span><span class="p">.</span><span class="nx">hp</span><span class="si">}</span><span class="sb"> </span><span class="si">${</span><span class="nx">choice</span><span class="si">}</span><span class="sb"> -&gt; </span><span class="si">${</span><span class="k">await</span><span class="w"> </span><span class="nx">tank</span><span class="p">(</span><span class="nx">cmd</span><span class="p">)</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="k">return</span><span class="w"> </span><span class="nx">log</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="s2">"\n"</span><span class="p">);</span>
+</pre></div>
+</details>
+<h3>Calling MCP Servers</h3>
+<p>Lastly, Codemode obviously is great for calling MCP servers.  And because we
+do not actually expose any of the MCP tools to the LLM, the agent first uses
+provided APIs to issue a tool search within Codemode to discover what it might
+be able to do with the connected servers. This form of progressive discovery
+makes the whole MCP business work well enough for a lot of use cases today.</p>
+<p>Here for instance you can see the agent reach for the Sentry MCP straight away,
+even without discovering the tools, presumably because it has learned during the
+RL process already about what the Sentry MCP looks like.  But it learns from
+what we inject into the system prompt, that the Sentry server is available to
+begin with.  It’s not completely guessing here.</p>
+<div class="highlight"><pre><span></span><span class="kd">const</span><span class="w"> </span><span class="nx">orgs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">tools</span><span class="p">.</span><span class="nx">mcp__sentry__find_organizations</span><span class="p">({});</span>
+<span class="kd">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">organizations</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">orgs</span><span class="p">.</span><span class="nx">structuredContent</span><span class="p">;</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">results</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nb">Promise</span><span class="p">.</span><span class="nx">allSettled</span><span class="p">(</span><span class="nx">organizations</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">org</span><span class="w"> </span><span class="p">=&gt;</span>
+<span class="w">  </span><span class="nx">tools</span><span class="p">.</span><span class="nx">mcp__sentry__find_projects</span><span class="p">({</span>
+<span class="w">    </span><span class="nx">organizationSlug</span><span class="o">:</span><span class="w"> </span><span class="nx">org</span><span class="p">.</span><span class="nx">slug</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">regionUrl</span><span class="o">:</span><span class="w"> </span><span class="nx">org</span><span class="p">.</span><span class="nx">regionUrl</span><span class="p">,</span>
+<span class="w">  </span><span class="p">})</span>
+<span class="p">));</span>
+<span class="k">return</span><span class="w"> </span><span class="nx">organizations</span><span class="p">.</span><span class="nx">map</span><span class="p">((</span><span class="nx">org</span><span class="p">,</span><span class="w"> </span><span class="nx">i</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">results</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">r</span><span class="p">.</span><span class="nx">status</span><span class="w"> </span><span class="o">!==</span><span class="w"> </span><span class="s2">"fulfilled"</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">org</span><span class="o">:</span><span class="w"> </span><span class="nx">org</span><span class="p">.</span><span class="nx">slug</span><span class="p">,</span><span class="w"> </span><span class="nx">error</span><span class="o">:</span><span class="w"> </span><span class="nb">String</span><span class="p">(</span><span class="nx">r</span><span class="p">.</span><span class="nx">reason</span><span class="p">)</span><span class="w"> </span><span class="p">};</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">r</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">isError</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">org</span><span class="o">:</span><span class="w"> </span><span class="nx">org</span><span class="p">.</span><span class="nx">slug</span><span class="p">,</span><span class="w"> </span><span class="nx">error</span><span class="o">:</span><span class="w"> </span><span class="nx">r</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">content</span><span class="w"> </span><span class="p">};</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">org</span><span class="o">:</span><span class="w"> </span><span class="nx">org</span><span class="p">.</span><span class="nx">slug</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">projects</span><span class="o">:</span><span class="w"> </span><span class="nx">r</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">structuredContent</span><span class="p">.</span><span class="nx">projects</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">p</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">p</span><span class="p">.</span><span class="nx">slug</span><span class="p">),</span>
+<span class="w">  </span><span class="p">};</span>
+<span class="p">});</span>
+</pre></div>
+<h2>Modern MCP Is A Fight</h2>
+<p>I really don’t want to talk too much about MCP here, but MCP is in fact a
+protocol that greatly benefits from Codemode.  The problem in parts is that MCP
+in practice often targets harnesses that do not (yet?) use Codemode.  But the
+tide is shifting.  In the meantime, a temporary crutch has been to do what
+Cloudflare did, and do Codemode within the MCP server.  But now we have Codemode
+in Codemode which is pretty bad.  It means double JSON escaping, easy for
+smaller models to get confused by and the inner code cannot call the outer
+tools.  So if you for instance use the Cloudflare MCP servers in Pi, the agent
+needs to write JavaScript and funnel it through more JavaScript. This is really
+not optimal, but it’s also understandable that this is happening:</p>
+<div class="highlight"><pre><span></span><span class="kd">const</span><span class="w"> </span><span class="nx">accRes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">tools</span><span class="p">.</span><span class="nx">mcp__cloudflare__execute</span><span class="p">({</span>
+<span class="w">  </span><span class="nx">code</span><span class="o">:</span><span class="w"> </span><span class="sb">`async () =&gt; {</span>
+<span class="sb">    const r = await cloudflare.request({ method: "GET", path: "/accounts" });</span>
+<span class="sb">    return r.result.map(a =&gt; ({ id: a.id, name: a.name }));</span>
+<span class="sb">  }`</span><span class="p">,</span>
+<span class="p">});</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">accounts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">accRes</span><span class="p">.</span><span class="nx">content</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">c</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">c</span><span class="p">.</span><span class="nx">text</span><span class="p">).</span><span class="nx">join</span><span class="p">(</span><span class="s2">""</span><span class="p">));</span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">out</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[];</span>
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">const</span><span class="w"> </span><span class="nx">account</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nx">accounts</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">tools</span><span class="p">.</span><span class="nx">mcp__cloudflare__execute</span><span class="p">({</span>
+<span class="w">    </span><span class="nx">account_id</span><span class="o">:</span><span class="w"> </span><span class="nx">account</span><span class="p">.</span><span class="nx">id</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">code</span><span class="o">:</span><span class="w"> </span><span class="sb">`async () =&gt; {</span>
+<span class="sb">      const r = await cloudflare.request({</span>
+<span class="sb">        method: "GET",</span>
+<span class="sb">        path: \`/accounts/\${accountId}/workers/scripts\`,</span>
+<span class="sb">      });</span>
+<span class="sb">      return r.result.map(s =&gt; ({ id: s.id, modified: s.modified_on }));</span>
+<span class="sb">    }`</span><span class="p">,</span>
+<span class="w">  </span><span class="p">});</span>
+<span class="w">  </span><span class="nx">out</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span><span class="w"> </span><span class="nx">account</span><span class="o">:</span><span class="w"> </span><span class="nx">account</span><span class="p">.</span><span class="nx">name</span><span class="p">,</span><span class="w"> </span><span class="nx">workers</span><span class="o">:</span><span class="w"> </span><span class="nx">r</span><span class="p">.</span><span class="nx">content</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">c</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">c</span><span class="p">.</span><span class="nx">text</span><span class="p">).</span><span class="nx">join</span><span class="p">(</span><span class="s2">""</span><span class="p">)</span><span class="w"> </span><span class="p">});</span>
+<span class="p">}</span>
+<span class="k">return</span><span class="w"> </span><span class="nx">out</span><span class="p">;</span>
+</pre></div>
+<h2>MCP Desires</h2>
+<p>So to end things off: how well does Codemode work with MCP today?  Well … not
+amazingly well.  That’s because MCP servers are not really targeting harnesses
+that use Codemode yet (though at this point I think most harnesses support it).</p>
+<p>For this to work well some recommendations:</p>
+<ul>
+<li><strong>Structured content:</strong> Codemode wants calls to return some nicely
+formatted JSON.  So that needs to come back from the server, and many don’t
+do that yet.  The <code>outputSchema</code> system in MCP is great for that.</li>
+<li><strong>Consistent results:</strong> an interesting failure case is when an MCP server
+does not return consistent data.  For instance because it tries to token
+optimize things depending on how many items are in the result set.  This can
+cause an initial probe with 5 items to succeed, but then fail when the server
+returns the maximum batch size.</li>
+<li><strong>Large binary data:</strong> today MCP does not yet support large binary data
+so quite a few use cases that are really interesting do not work well at all
+yet.  You end up with all kinds of weird workarounds such as pre-signed URLs
+to allow file uploads then to happen through non MCP channels.</li>
+<li><strong>Composable tool search:</strong> the MCP server might know better than the MCP
+client which tool is appropriate for a task.  But there is no good mechanism
+today that allows a harness to fan out tool searches across multiple MCP
+servers.  It’s all emergent behavior and it does not scale well to multiple
+active servers.</li>
+</ul>
+<h2>Future of Codemode</h2>
+<p>So where does this leave us?  Is this a reversal of what I wrote a year ago
+where I encouraged CLIs?  I don’t think so.  In fact, the MCP ecosystem from my
+perspective picked up on exactly what we pointed out a year ago works: code.
+But Codemode goes beyond MCP in that it can act as a capable mechanism within
+the harness to express more freedom for the agent.</p>
+<p>There are however also some things that we still need to figure out.  For one,
+durability with Codemode is trickier.  We might have to adopt some ideas from
+durable workflow engines here to snapshot invocations.  Or maybe, something like
+Starlark is a better composition language than JavaScript given its
+deterministic nature.</p>
+<p>Images, binary data and just the inability of this pattern to work with smaller
+models is also something that needs to be fleshed out.  So it’s for sure not a
+perfect solution yet, but it’s quite a useful pattern that I expect us to
+leverage more.</p></div></div>
+      
+    </article>
+    
+    <article>
+      <h1>Every layer of review makes you 10x slower</h1>
+      <div class="article-meta">
+        Avery Pennarun
+        · 26 Mar 2026 · <a href="https://apenwarr.ca/log/20260316">Source</a>
+      </div>
+      <div class="article-body"><h2><a>2026-03-16 </a><a href="https://apenwarr.ca/log/20260316/20260316">»</a></h2>
+<p><b>Every layer of review makes you 10x slower</b></p>
+<p>We’ve all heard of those network effect laws: the value of a network goes up with the square of the number of members. Or the cost of communication goes up with the square of the number of members, or maybe it was n log n, or something like that, depending how you arrange the members. Anyway doubling a team doesn't double its speed; there’s coordination overhead. Exactly how much overhead depends on how badly you botch the org design.</p>
+<p>But there’s one rule of thumb that someone showed me decades ago, that has stuck with me ever since, because of how annoyingly true it is. The rule is annoying because it doesn’t <em>seem</em> like it should be true. There’s no theoretical basis for this claim that I’ve ever heard. And yet, every time I look for it, there it is.</p>
+<p>Here we go:</p>
+<p><b><strong>Every layer of approval makes a process 10x slower</strong></b></p>
+<p>I know what you're thinking. Come on, 10x? That’s a lot. It’s unfathomable. Surely we’re exaggerating.</p>
+<p>Nope.</p>
+<p>Just to be clear, we're counting “wall clock time” here rather than effort. Almost all the extra time is spent sitting and waiting.</p>
+<p>Look:</p>
+<ul> <li> <p>Code a simple bug fix<br/> 30 minutes</p> </li> <li> <p>Get it code reviewed by the peer next to you<br/> 300 minutes → 5 hours → half a day</p> </li> <li> <p>Get a design doc approved by your architects team first<br/> 50 hours → about a week</p> </li> <li> <p>Get it on some other team’s calendar to do all that<br/> (for example, if a customer requests a feature)<br/> 500 hours → 12 weeks → one fiscal quarter</p> </li> </ul>
+<p>I wish I could tell you that the next step up — 10 quarters or about 2.5 years — was too crazy to contemplate, but no. That’s the life of an executive sitting above a medium-sized team; I bump into it all the time even at a relatively small company like Tailscale if I want to change product direction. (And execs sitting above large teams can’t actually do work of their own at all. That's another story.)</p>
+<p><b><strong>AI can’t fix this</strong></b></p>
+<p>First of all, this isn’t a post about AI, because AI’s direct impact on this problem is minimal. Okay, so Claude can code it in 3 minutes instead of 30? That’s super, Claude, great work.</p>
+<p>Now you either get to spend 27 minutes reviewing the code yourself in a back-and-forth loop with the AI (this is actually kinda fun); or you save 27 minutes and submit unverified code to the code reviewer, who will still take 5 hours like before, but who will now be mad that you’re making them read the slop that you were too lazy to read yourself. Little of value was gained.</p>
+<p>Now now, you say, that’s not the value of agentic coding. You don’t use an agent on a 30-minute fix. You use it on a monstrosity week-long project that you and Claude can now do in a couple of hours! Now we’re talking. Except no, because the monstrosity is so big that your reviewer will be extra mad that you didn’t read it yourself, and it’s too big to review in one chunk so you have to slice it into new bite-sized chunks, each with a 5-hour review cycle. And there’s no design doc so there’s no intentional architecture, so eventually someone’s going to push back on that and here we go with the design doc review meeting, and now your monstrosity week-long project that you did in two hours is... oh. A week, again.</p>
+<p>I guess I could have called this post Systems Design 4 (or 5, or whatever I’m up to now, who knows, I’m writing this on a plane with no wifi) because yeah, you guessed it. It's Systems Design time again.</p>
+<p><b>The only way to sustainably go faster is fewer reviews</b></p>
+<p>It’s funny, everyone has been predicting the Singularity for decades now. The premise is we build systems that are so smart that they themselves can build the next system that is even smarter, that builds the next smarter one, and so on, and once we get that started, if they keep getting smarter faster enough, then the incremental time (t) to achieve a unit (u) of improvement goes to zero, so (u/t) goes to infinity and foom.</p>
+<p>Anyway, I have never believed in this theory for the simple reason we outlined above: the majority of time needed to get anything done is not actually the time doing it. It’s wall clock time. Waiting. Latency.</p>
+<p>And <a href="https://apenwarr.ca/log/20230415">you can’t overcome latency with brute force</a>.</p>
+<p>I know you want to. I know many of you now work at companies where the business model kinda depends on doing exactly that.</p>
+<p>Sorry.</p>
+<p><b>But you can’t just <em>not review</em> things!</b></p>
+<p>Ah, well, no, actually yeah. You really can’t.</p>
+<p>There are now many people who have seen the symptom: the start of the pipeline (AI generated code) is so much faster, but all the subsequent stages (reviews) are too slow! And so they intuit the obvious solution: stop reviewing then!</p>
+<p>The result might be slop, but if the slop is 100x cheaper, then it only needs to deliver 1% of the value per unit and it's still a fair trade. And if your value per unit is even a mere 2% of what it used to be, you’ve doubled your returns! Amazing.</p>
+<p>There are some pretty dumb assumptions underlying that theory; you can imagine them for yourself. Suffice it to say that this produces what I will call the AI Developer’s Descent Into Madness:</p>
+<ol> <li> <p>Whoa, I produced this prototype so fast! I have super powers!</p> </li> <li> <p>This prototype is getting buggy. I’ll tell the AI to fix the bugs.</p> </li> <li> <p>Hmm, every change now causes as many new bugs as it fixes.</p> </li> <li> <p>Aha! But if I have an AI agent also review the code, it can find its own bugs!</p> </li> <li> <p>Wait, why am I personally passing data back and forth between agents</p> </li> <li> <p>I need an agent framework</p> </li> <li> <p>I can have my agent write an agent framework!</p> </li> <li> <p>Return to step 1</p> </li> </ol>
+<p>It’s actually alarming how many friends and respected peers I’ve lost to this cycle already. Claude Code only got good maybe a few months ago, so this only recenlty started happening, so I assume they will emerge from the spiral eventually. I mean, I hope they will. We have no way of knowing.</p>
+<p><b>Why we review</b></p>
+<p>Anyway we know our symptom: the pipeline gets jammed up because of too much new code spewed into it at step 1. But what's the root cause of the clog? Why doesn’t the pipeline go faster?</p>
+<p>I said above that this isn’t an article about AI. Clearly I’m failing at that so far, but let’s bring it back to humans. It goes back to the annoyingly true observation I started with: every layer of review is 10x slower. As a society, we know this. Maybe you haven't seen it before now. But trust me: people who do org design for a living know that layers are expensive... and they still do it.</p>
+<p>As companies grow, they all end up with more and more layers of collaboration, review, and management. Why? Because otherwise mistakes get made, and mistakes are increasingly expensive at scale. The average value added by a new feature eventually becomes lower than the average value lost through the new bugs it causes. So, lacking a way to make features produce more value (wouldn't that be nice!), we try to at least reduce the damage.</p>
+<p>The more checks and controls we put in place, the slower we go, but the more monotonically the quality increases. And isn’t that the basis of <em>continuous improvement?</em></p>
+<p>Well, sort of. Monotonically increasing quality is on the right track. But “more checks and controls” went off the rails. That’s <em>only one way</em> to improve quality, and it's a fraught one.</p>
+<p><b>“Quality Assurance” reduces quality</b></p>
+<p>I wrote a few years ago about <a href="https://apenwarr.ca/log/20161226">W. E. Deming and the "new" philosophy around quality</a> that he popularized in Japanese auto manufacturing. (Eventually U.S. auto manufacturers more or less got the idea. So far the software industry hasn’t.)</p>
+<p>One of the effects he highlighted was the problem of a “QA” pass in a factory: build widgets, have an inspection/QA phase, reject widgets that fail QA. Of course, your inspectors probably miss some of the failures, so when in doubt, add a second QA phase after the first to catch the remaining ones, and so on.</p>
+<p>In a simplistic mathematical model this seems to make sense. (For example, if every QA pass catches 90% of defects, then after two QA passes you’ve reduced the number of defects by 100x. How awesome is that?)</p>
+<p>But in the reality of agentic humans, it’s not so simple. First of all, the incentives get weird. The second QA team basically serves to evaluate how well the first QA team is doing; if the first QA team keeps missing defects, fire them. Now, that second QA team has little incentive to produce that outcome for their friends. So maybe they don’t look too hard; after all, the first QA team missed the defect, it’s not unreasonable that we might miss it too.</p>
+<p>Furthermore, the first QA team knows there is a second QA team to catch any defects; if I don’t work too hard today, surely the second team will pick up the slack. That's why they're there!</p>
+<p>Also, the team making the widgets in the first place doesn’t check their work too carefully; that’s what the QA team is for! Why would I slow down the production of every widget by being careful, at a cost of say 20% more time, when there are only 10 defects in 100 and I can just eliminate them at the next step for only a 10% waste overhead? It only makes sense. Plus they'll fire me if I go 20% slower.</p>
+<p>To say nothing of a whole engineering redesign to improve quality, that would be super expensive and we could be designing all new widgets instead.</p>
+<p>Sound like any engineering departments you know?</p>
+<p>Well, this isn’t the right time to rehash Deming, but suffice it to say, he was on to something. And his techniques worked. You get things like the famous Toyota Production System where they eliminated the QA phase entirely, but gave everybody an “oh crap, stop the line, I found a defect!” button.</p>
+<p>Famously, US auto manufacturers tried to adopt the same system by installing the same “stop the line” buttons. Of course, nobody pushed those buttons. They were afraid of getting fired.</p>
+<p><b>Trust</b></p>
+<p>The basis of the Japanese system that worked, and the missing part of the American system that didn’t, is trust. Trust among individuals that your boss Really Truly Actually wants to know about every defect, and wants you to stop the line when you find one. Trust among managers that executives were serious about quality. Trust among executives that individuals, given a system that can work and has the right incentives, will produce quality work and spot their own defects, and push the stop button when they need to push it.</p>
+<p>But, one more thing: trust that the system <em>actually does work</em>. So first you need a system that will work.</p>
+<p><b>Fallibility</b></p>
+<p>AI coders are fallible; they write bad code, often. In this way, they are just like human programmers.</p>
+<p>Deming’s approach to manufacturing didn’t have any magic bullets. Alas, you can’t just follow his ten-step process and immediately get higher quality engineering. The secret is, you have to get your engineers to engineer higher quality into the whole system, from top to bottom, repeatedly. Continuously.</p>
+<p>Every time something goes wrong, you have to ask, “How did this happen?” and then do a whole post-mortem and the Five Whys (or however many Whys are in fashion nowadays) and fix the underlying Root Causes so that it doesn’t happen again. “The coder did it wrong” is never a root cause, only a symptom. Why was it possible for the coder to get it wrong?</p>
+<p>The job of a code reviewer isn't to review code. It's to figure out how to obsolete their code review comment, that whole class of comment, in all future cases, until you don't need their reviews at all anymore.</p>
+<p>(Think of the people who first created "go fmt" and how many stupid code review comments about whitespace are gone forever. Now that's engineering.)</p>
+<p>By the time your review catches a mistake, the mistake has already been made. The root cause happened already. You're too late.</p>
+<p><b>Modularity</b></p>
+<p>I wish I could tell you I had all the answers. Actually I don’t have much. If I did, I’d be first in line for the Singularity because it sounds kind of awesome.</p>
+<p>I think we’re going to be stuck with these systems pipeline problems for a long time. Review pipelines — layers of QA — don’t work. Instead, they make you slower while hiding root causes. Hiding causes makes them harder to fix.</p>
+<p>But, the call of AI coding is strong. That first, fast step in the pipeline is <em>so fast!</em> It really does feel like having super powers. I want more super powers. What are we going to do about it?</p>
+<p>Maybe we finally have a compelling enough excuse to fix the 20 years of problems hidden by code review culture, and replace it with a real culture of quality.</p>
+<p>I think the optimists have half of the right idea. Reducing review stages, even to an uncomfortable degree, is going to be needed. But you can’t just reduce review stages without something to replace them. That way lies the Ford Pinto or any recent Boeing aircraft.</p>
+<p>The complete package, the table flip, was what Deming brought to manufacturing. You can’t half-adopt a “total quality” system. You need to eliminate the reviews <em>and</em> obsolete them, in one step.</p>
+<p>How? You can fully adopt the new system, in small bites. What if some components of your system can be built the new way? Imagine an old-school U.S. auto manufacturer buying parts from Japanese suppliers; wow, these parts are so well made! Now I can start removing QA steps elsewhere because I can just assume the parts are going to work, and my job of "assemble a bigger widget from the parts" has a ton of its complexity removed.</p>
+<p>I like this view. I’ve always liked small beautiful things, that’s my own bias. But, you can assemble big beautiful things from small beautiful things.</p>
+<p>It’s a lot easier to build those individual beautiful things in small teams that trust each other, that know what quality looks like <em>to them</em>. They deliver their things to customer teams who can clearly explain what quality looks like <em>to them</em>. And on we go. Quality starts bottom-up, and spreads.</p>
+<p>I think small startups are going to do really well in this new world, probably better than ever. Startups already have fewer layers of review just because they have fewer people. Some startups will figure out how to produce high quality components quickly; others won't and will fail. Quality by natural selection?</p>
+<p>Bigger companies are gonna have a harder time, because their slow review systems are baked in, and deleting them would cause complete chaos.</p>
+<p>But, it’s not just about company size. I think engineering teams at any company can get smaller, and have better defined interfaces between them.</p>
+<p>Maybe you could have multiple teams inside a company competing to deliver the same component. Each one is just a few people and a few coding bots. Try it 100 ways and see who comes up with the best one. Again, quality by evolution. Code is cheap but good ideas are not. But now you can try out new ideas faster than ever.</p>
+<p>Maybe we’ll see a new optimal point on the <a href="https://tailscale.com/blog/modules-monoliths-and-microservices">monoliths-microservices continuum</a>. Microservices got a bad name because they were too micro; in the original terminology, a “micro” service was exactly the right size for a “two pizza team” to build and operate on their own. With AI, maybe it's one pizza and some tokens.</p>
+<p>What’s fun is you can also use this new, faster coding to experiment with different module <em>boundaries</em> faster. <em>Features</em> are still hard for lots of reasons, but refactoring and automated integration testing are things the AIs excel at. Try splitting out a module you were afraid to split out before. Maybe it'll add some lines of code. But suddenly lines of code are cheap, compared to the coordination overhead of a bigger team maintaining both parts.</p>
+<p>Every team has some monoliths that are a little too big, and too many layers of reviews. Maybe we won't get all the way to Singularity. But, we can engineer a much better world. Our problems are solvable.</p>
+<p>It just takes trust.</p>
+<p><b>Related</b></p>
+<p><a href="https://apenwarr.ca/log/20260316/20161226">Highlights on "quality," and Deming's work as it applies to software development</a> (2016)</p>
+<p><a href="https://apenwarr.ca/log/20260316/20251120">Systems design 3: LLMs and the semantic revolution</a> (2025)</p>
+<p><b>Unrelated</b></p>
+<p><a href="https://apenwarr.ca/log/20260316/20170928">SimSWE part 2: The perils of multitasking</a> (2017)</p></div>
+      
+    </article>
+    
+  </body>
+</html>
