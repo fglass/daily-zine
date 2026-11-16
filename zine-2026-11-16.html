@@ -1,0 +1,506 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Fred Talks - 2026-11-16</title>
+    <style>
+      @page {
+        size: A5;
+        margin: 8mm 9mm 9mm;
+      }
+
+      :root {
+        color: #111;
+        font-family: "Times New Roman", Times, serif;
+        --body-text-size: 9.5pt;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        color: #111;
+        background: #fff;
+        font-family: "Times New Roman", Times, serif;
+        line-height: 1.45;
+      }
+
+      a,
+      a:visited {
+        color: #111;
+        text-decoration: underline;
+      }
+
+      .cover {
+        min-height: calc(210mm - 17mm);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        page-break-after: always;
+        border: 1px solid #111;
+        padding: 8mm;
+        background: #fff;
+      }
+
+      .toc-item-meta,
+      .article-meta {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .masthead {
+        margin: 0;
+        font-size: 40pt;
+        line-height: 0.95;
+        text-transform: uppercase;
+      }
+
+      .issue-date {
+        margin: 4mm 0 0;
+        font-size: 14pt;
+      }
+
+      .issue-date sup {
+        font-size: 0.58em;
+        vertical-align: super;
+        line-height: 0;
+      }
+
+      .cover-deck {
+        max-width: 90mm;
+        font-size: 12pt;
+        margin: 0;
+      }
+
+      .toc {
+        border-top: 3px solid #111;
+        padding-top: 6mm;
+      }
+
+      .toc h2 {
+        margin: 0 0 4mm;
+        font-size: 11pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .toc-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .toc-item {
+        padding: 3mm 0;
+        border-bottom: 1px solid rgba(17, 17, 17, 0.2);
+      }
+
+      .toc-item-title {
+        font-size: 12pt;
+        margin: 0 0 1mm;
+      }
+
+      .toc-item-meta {
+        font-size: 8pt;
+      }
+
+      .masthead-compact {
+        margin: 0 0 6mm;
+      }
+
+      .masthead-compact h1 {
+        margin: 0;
+        font-size: 22pt;
+        line-height: 1.1;
+        text-transform: uppercase;
+      }
+
+      .masthead-compact .issue-date {
+        margin: 2mm 0 0;
+        font-size: 11pt;
+      }
+
+      .toc-compact {
+        border-top: 1px solid #111;
+        border-bottom: 1px solid #111;
+        padding: 4mm 0;
+        margin: 0 0 8mm;
+      }
+
+      article + article {
+        margin-top: 10mm;
+        padding-top: 6mm;
+        border-top: 2px solid #111;
+      }
+
+      h1 {
+        margin: 0 0 2mm;
+        font-size: 18pt;
+        line-height: 1.1;
+      }
+
+      .article-meta {
+        font-size: 8.5pt;
+        margin-bottom: 6mm;
+        padding-bottom: 3mm;
+        border-bottom: 1px solid #111;
+      }
+
+      .article-body {
+        font-size: var(--body-text-size);
+        font-family: "Times New Roman", Times, serif;
+      }
+
+      .article-body p,
+      .article-body li,
+      .article-body blockquote,
+      .article-body dd,
+      .article-body dt {
+        margin: 0 0 4mm;
+        orphans: 3;
+        widows: 3;
+      }
+
+      .article-body ul,
+      .article-body ol,
+      .article-body dl {
+        margin: 0 0 4mm 5mm;
+        padding: 0;
+      }
+
+      .article-body h2,
+      .article-body h3,
+      .article-body h4 {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        margin: 7mm 0 3mm;
+        line-height: 1.2;
+      }
+
+      .article-body blockquote {
+        margin-left: 6mm;
+        padding-left: 4mm;
+        border-left: 2px solid #111;
+      }
+
+      .article-body .media-omitted {
+        margin: 0 0 4mm;
+        font-size: 8.5pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(17, 17, 17, 0.65);
+      }
+
+      .article-body figure,
+      .article-body .article-figure,
+      .article-body picture,
+      .article-body .article-picture {
+        display: block;
+        max-width: 72mm;
+        margin: 0 auto 4mm;
+        break-inside: avoid;
+      }
+
+      .article-body img,
+      .article-body .article-image {
+        display: block;
+        max-width: min(100%, 72mm);
+        max-height: 34mm;
+        height: auto;
+        width: auto;
+        object-fit: contain;
+        margin: 0 auto 3mm;
+      }
+
+      .article-body figcaption {
+        margin-top: 1.5mm;
+        font-size: 8.5pt;
+        line-height: 1.3;
+        color: rgba(17, 17, 17, 0.8);
+      }
+
+      .article-note {
+        margin-top: 6mm;
+        padding-top: 3mm;
+        border-top: 1px solid #111;
+        font-size: 9pt;
+        font-style: italic;
+      }
+
+      @media screen {
+        body {
+          padding: 2rem;
+          margin: 0 auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    
+    <header class="masthead-compact">
+      <h1>Fred Talks</h1>
+      <p class="issue-date">
+        16<sup>th</sup> November 2026
+      </p>
+    </header>
+
+    <nav class="toc toc-compact">
+      <h2>Contents</h2>
+      <ol class="toc-list">
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Why Agents Are Soon Only Going to Have 1 Tool</div>
+          <div class="toc-item-meta">
+            Philipp Schmid · 1717 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">I like &#39;em thick</div>
+          <div class="toc-item-meta">
+            Adam Mastroianni · 3599 words
+          </div>
+        </li>
+        
+      </ol>
+    </nav>
+    
+
+    
+    <article>
+      <h1>Why Agents Are Soon Only Going to Have 1 Tool</h1>
+      <div class="article-meta">
+        Philipp Schmid
+        · 08 Nov 2026 · <a href="https://www.philschmid.de/code-mode">Source</a>
+      </div>
+      <div class="article-body"><p>For the past two years, building capable Agents meant designing tools, figuring out which actions help the model complete a task, deciding how granular each tool schema needs to be, or iterating on system instruction templates. This is changing. Agents are moving in the opposite direction by collapsing their entire tool catalog into <strong>one tool</strong>: <code>exec</code>.</p>
+<p>This is called <strong>Code Mode</strong> (or Programmatic Tool Calling). Instead of forcing the model to trigger tools one at a time across turns, the harness gives the model a single <code>exec(code)</code> tool. The model writes a short TypeScript or Python script that chains, combines, and awaits actions inside an isolated sandbox.</p>
+<figure class="article-figure"><img alt="Standard tool calling vs. Code Mode" src="https://www.philschmid.de/static/blog/code-mode/codemode-hero-comparison.png" class="article-image"/><figcaption>Standard tool calling vs. Code Mode</figcaption></figure>
+<p>To understand why agents are converging on a single <code>exec</code> tool, we should look at how tool calling evolved.</p>
+<p>Initially, we only gave agents a handful of tools because they couldn't reliably choose or filter across a large catalog. As models improved, we connected dozens of tools or MCP servers, but ran into context window limits. We solved that with tool search and <a href="https://www.philschmid.de/use-mcp-servers">progressive disclosure</a>, letting agents look up tools on demand.</p>
+<p>Even with dynamic tool loading, we still had dozens of individual tools, and were still stuck with the limitation of standard tool calling: <em>one</em> action per turn.</p>
+<p>In standard tool calling, the model generates a structured object (typically JSON) that defines a single action (or at best a flat batch of independent calls, like reading three files), waits for the raw output to come back, adds it into the prompt history, reasons again, and decides what to do next.</p>
+<p>From my own experience, we made a big jump recently in how reliably models can combine and chain dependent actions in a single pass:</p>
+<ul> <li><strong>Research and filtering:</strong> Instead of fetching a list of sources in Turn 1, reading them in Turn 2, and cross-referencing them in Turn 3, the model can write a script that queries the sources, filters out irrelevant hits, and extracts the exact answer in one step.</li> <li><strong>Multi-file edits and inline verification:</strong> Standard edit tools typically operate on one file per tool call. With Code Mode, the model can apply coordinated changes across multiple files, run a verification check, inspect the output, or branch on pass or fail inside the same script.</li> <li><strong>Browser and computer use:</strong> In UI automation, the chain of actions is often obvious: click a button, fill a form, wait for a selector, or paginate through a table in a loop. Instead of paying a full model round-trip for every click or keystroke, the model can script the entire sequence or loop in one turn and only return when the page state changes.</li> <li><strong>Parallel fan-out and sub-agents:</strong> When a task requires running 20 lookups or calling specialist sub-models in parallel and feeding those outputs into a second API, the model can <code>await Promise.all(...)</code>, transform the array, and call the next function without round-tripping through the LLM context window between steps.</li> </ul>
+<p>Several shifts came together to enable this. Frontier models are trained heavily on code, and providers have started post-training models for Code Mode. At the same time, MCP servers now increasingly ship <a href="https://modelcontextprotocol.io/specification/draft/server/tools#output-schema"><code>outputSchema</code></a> alongside <code>inputSchema</code>, giving the model upfront knowledge of return types so it can chain Tool A into Tool B inside the same script <em>before</em> seeing runtime output.</p>
+<p>Code Mode collapses the tool catalog into a single tool on the model surface: <code>exec(code)</code>.</p>
+<p>Instead of passing 80 separate JSON Schema tool objects to the model API, the agent compiles those schemas into compact type declarations (<code>declare namespace tools { ... }</code>). When the model needs to combine actions across external systems, it calls <code>exec</code> and writes a script that invokes <code>await tools.&lt;server&gt;.&lt;tool&gt;(args)</code>.</p>
+<figure data-rehype-pretty-code-figure="" class="article-figure"><pre data-language="typescript" data-theme="houston houston"><code data-language="typescript" data-theme="houston houston">// Pseudo-code: TypeScript declarations exposed to the model
+declare namespace tools {
+  namespace linear {
+    function listProjects(): Promise&lt;Array&lt;{ id: string; name: string }&gt;&gt;;
+    function listIssues(args: { projectId: string }): Promise&lt;Array&lt;{ id: string; title: string; assignee?: string }&gt;&gt;;
+    function archiveIssue(args: { id: string }): Promise&lt;{ ok: boolean }&gt;;
+  }
+}
+ 
+// Optional: when wrapping hundreds of tools, omit full namespaces upfront and expose
+// a global map in the sandbox that the model can iterate and filter over in code
+declare const ALL_TOOLS: Record&lt;string, { description: string; signature: string }&gt;;
+ 
+// Multimodal output helpers: only what is passed here enters the model context window
+declare function text(output: string): void;
+declare function image(data: string | Uint8Array, mimeType?: string): void;
+declare function audio(data: string | Uint8Array, mimeType?: string): void;
+ 
+// Cross-turn state helpers: persist data in host memory without paying token costs
+declare function store(key: string, value: unknown): void;
+declare function load&lt;T = unknown&gt;(key: string): T;</code></pre></figure>
+<p>To save context across a large catalog, we don't have to expose every tool directly. We can leverage principles we already built, like tool search, or expose a global <code>ALL_TOOLS</code> map inside the sandbox. Similarly, multimodal output helpers (<code>text()</code>, <code>image()</code>, <code>audio()</code>) let the script pass text, images, or audio directly back into the model's context window.</p>
+<figure data-rehype-pretty-code-figure="" class="article-figure"><pre data-language="typescript" data-theme="houston houston"><code data-language="typescript" data-theme="houston houston">// Pseudo-code: What the model emits inside a single exec() call
+const projects = await tools.linear.listProjects();
+const issueBatches = await Promise.all(
+  projects.map((p) =&gt; tools.linear.listIssues({ projectId: p.id }))
+);
+ 
+const unassigned = issueBatches.flat().filter((issue) =&gt; !issue.assignee);
+await Promise.all(unassigned.map((issue) =&gt; tools.linear.archiveIssue({ id: issue.id })));
+ 
+text(`Archived ${unassigned.length} unassigned issues across ${projects.length} projects.`);</code></pre></figure>
+<p><em>The sandbox executes all 55 underlying API calls, filters the payloads in memory, and returns only the one-line <code>text()</code> string (<code>"Archived 42 unassigned issues across 12 projects."</code>) to the model's context window.</em></p>
+<figure class="article-figure"><img alt="How the 1-tool architecture works" src="https://www.philschmid.de/static/blog/code-mode/codemode-proxy-arch.png" class="article-image"/><figcaption>How the 1-tool architecture works</figcaption></figure>
+<p>You can build a tool proxy in <a href="https://www.philschmid.de/superhuman-bash"><code>bash</code></a> too, but orchestrating tools inside a language runtime like JavaScript or Python can bring benefits that are harder to achieve in <code>bash</code> environments.</p>
+<ul> <li><strong>Typed functions:</strong> MCP servers and internal APIs map directly to typed <code>await tools.&lt;service&gt;.&lt;method&gt;(args)</code> calls with native objects, <code>Promise.all</code>, and <code>try</code>/<code>catch</code> error handling instead of fragile bash string escaping.</li> <li><strong>Multimodal context:</strong> A shell only returns stdout text. If a multimodal model wants to inspect an image, it cannot run <code>cat screenshot.png</code>, which is why <code>bash</code> harnesses still had to bolt on separate <code>read</code> or <code>view_media</code> tools. In an <code>exec</code> sandbox, calling <code>image(screenshot)</code> or <code>audio(clip)</code> tells the host runtime to attach the actual media part directly to the model's next turn.</li> <li><strong>Credential and policy proxy:</strong> Every <code>await tools.*</code> call crosses a structured bridge to the host runtime, which can inject OAuth tokens outside the sandbox, validate schemas, or pause for user confirmation on destructive calls.</li> <li><strong>State management:</strong> In standard tool calling, the prompt history is the only state store, so reusing a large query result in Turn 2 means keeping the raw JSON in the context window on every turn. Exposing a KV interface lets the agent persist state outside of the context window across turns.</li> </ul>
+<p>Here is a minimal, runnable pseudo example that provides <code>gemini-4-argon</code> with a single execution tool.</p>
+<figure data-rehype-pretty-code-figure="" class="article-figure"><pre data-language="typescript" data-theme="houston houston"><code data-language="typescript" data-theme="houston houston">import vm from "node:vm";
+import { GoogleGenAI } from "@google/genai";
+ 
+const client = new GoogleGenAI({});
+ 
+// Underlying host functions (e.g., MCP clients or internal APIs)
+const tools = {
+  listPRFiles: async ({ pr }: { pr: number }) =&gt; [
+    { path: "src/auth.ts", additions: 120 },
+    { path: "src/payments.ts", additions: 85 },
+    { path: "src/utils.ts", additions: 12 },
+    { path: "README.md", additions: 60 },
+  ],
+  runSecurityScan: async ({ path }: { path: string }) =&gt; ({
+    findings: path.includes("auth") ? ["Missing token expiry check"] : [],
+  }),
+  postPRComment: async ({ pr, body }: { pr: number; body: string }) =&gt; ({ posted: true }),
+};
+ 
+// 1. Expose a single `exec` tool with TypeScript .d.ts signatures
+const execTool = {
+  type: "function" as const,
+  name: "exec",
+  description: `Run an async JavaScript body in an isolated sandbox (no imports; call text() to output).
+Available globals:
+declare namespace tools {
+  function listPRFiles(args: { pr: number }): Promise&lt;Array&lt;{ path: string; additions: number }&gt;&gt;;
+  function runSecurityScan(args: { path: string }): Promise&lt;{ findings: string[] }&gt;;
+  function postPRComment(args: { pr: number; body: string }): Promise&lt;{ posted: boolean }&gt;;
+}
+declare function text(summary: string): void;`,
+  parameters: {
+    type: "object",
+    properties: { code: { type: "string" } },
+    required: ["code"],
+  },
+};
+ 
+// 2. Turn 1: Gemini 4 Argon emits a single script to fetch, filter, scan, and comment
+const turn1 = await client.interactions.create({
+  model: "gemini-4-argon",
+  input: "Scan all modified .ts files with &gt;50 additions in PR #42, post a PR comment with any findings, and output a 1-line summary.",
+  tools: [execTool],
+});
+ 
+// 3. Run the script in a separate context (use QuickJS or isolated-vm for untrusted code)
+const fcStep = turn1.steps?.find((s: any) =&gt; s.type === "function_call") as any;
+const output: string[] = [];
+await vm.runInNewContext(`(async () =&gt; {\n${fcStep.arguments.code}\n})()`, {
+  tools,
+  text: (msg: string) =&gt; output.push(msg),
+});
+ 
+// 4. Turn 2: Send only the 1-line summary back via previous_interaction_id
+const turn2 = await client.interactions.create({
+  model: "gemini-4-argon",
+  previous_interaction_id: turn1.id,
+  tools: [execTool],
+  input: [
+    {
+      type: "function_result",
+      name: fcStep.name,
+      call_id: fcStep.id,
+      result: [{ type: "text", text: output.join("\n") }],
+    },
+  ],
+});
+ 
+console.log(turn2.output_text);</code></pre></figure>
+<p>When <code>vm.runInNewContext</code> executes the script generated by <code>gemini-4-argon</code>:</p>
+<ol> <li>The script calls <code>await tools.listPRFiles({ pr: 42 })</code> and filters the list in memory down to the <code>.ts</code> files with more than 50 additions (<code>files.filter(f =&gt; f.path.endsWith(".ts") &amp;&amp; f.additions &gt; 50)</code>).</li> <li>It runs <code>tools.runSecurityScan</code> on just those matching files, checks whether any findings exist, posts the PR comment via <code>tools.postPRComment</code>, and emits a single line via <code>text()</code>.</li> <li>None of the intermediate file objects or raw scanner payloads ever enter the <code>gemini-4-argon</code> context window; only the one-line <code>output</code> summary is sent back in Turn 2.</li> </ol>
+<p>Across the ecosystem, coding agents and developer frameworks are converging on Code Mode as their default way to orchestrate tools.</p>
+<p>Harnesses like <a href="https://pi.dev">Pi</a>, <a href="https://factory.ai">Factory Droid</a>, and <a href="https://github.com/openai/codex">OpenAI Codex</a> now ship with or default to Code Mode. Factory switched Droid 1.0 to Code Mode, improving their <a href="https://www.tbench.ai">Terminal-Bench</a> 4 accuracy by +3.5 points and cutting model spend by 15%.</p>
+<p>Agent frameworks like <a href="https://ai.pydantic.dev">Pydantic AI</a>, <a href="https://www.langchain.com">LangChain</a>, or <a href="https://blog.cloudflare.com/code-mode/">Cloudflare's Agents SDK</a> support similar Code Mode tools already.</p>
+<p>Does this mean every agent will soon only have a single <code>exec</code> tool? Not necessarily. This is as much a research and product question as an <a href="https://www.philschmid.de/agent-harness-2026">agent harness engineering</a> one.</p>
+<p>When you start experimenting with Code Mode, you will also quickly notice that many of the tools, CLIs, and <a href="https://www.philschmid.de/agent-skills-tips">Agent Skills</a> we built might not integrate cleanly out of the box because they were optimized for <code>bash</code> and human-readable text rather than typed code execution.</p>
+<p>This might force you to take a step back and audit what your agent actually needs. Happy building!</p></div>
+      
+    </article>
+    
+    <article>
+      <h1>I like &#39;em thick</h1>
+      <div class="article-meta">
+        Adam Mastroianni
+        · 19 Sep 2026 · <a href="https://www.experimental-history.com/p/i-like-em-thick?r=qgnq&amp;utm_medium=ios&amp;triedRedirect=true">Source</a>
+      </div>
+      <div class="article-body"><p>Article voiceover</p>
+<p>0:00</p>
+<p>-22:42</p>
+<figure class="article-figure"><a data-component-name="Image2ToDOM" href="https://substackcdn.com/image/fetch/$s_!KGpc!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F56ced727-423b-4a20-b330-8769c728da1c_1146x1623.jpeg"><picture class="article-picture"><img alt="" data-attrs="{&quot;src&quot;:&quot;https://substack-post-media.s3.amazonaws.com/public/images/56ced727-423b-4a20-b330-8769c728da1c_1146x1623.jpeg&quot;,&quot;srcNoWatermark&quot;:null,&quot;fullscreen&quot;:null,&quot;imageSize&quot;:null,&quot;height&quot;:1623,&quot;width&quot;:1146,&quot;resizeWidth&quot;:554,&quot;bytes&quot;:249743,&quot;alt&quot;:null,&quot;title&quot;:null,&quot;type&quot;:&quot;image/jpeg&quot;,&quot;href&quot;:null,&quot;belowTheFold&quot;:false,&quot;topImage&quot;:true,&quot;internalRedirect&quot;:&quot;https://www.experimental-history.com/i/211640707?img=https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F56ced727-423b-4a20-b330-8769c728da1c_1146x1623.jpeg&quot;,&quot;isProcessing&quot;:false,&quot;align&quot;:null,&quot;offset&quot;:false}" sizes="100vw" src="https://substackcdn.com/image/fetch/$s_!KGpc!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F56ced727-423b-4a20-b330-8769c728da1c_1146x1623.jpeg" srcset="https://substackcdn.com/image/fetch/$s_!KGpc!,w_424,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F56ced727-423b-4a20-b330-8769c728da1c_1146x1623.jpeg 424w, https://substackcdn.com/image/fetch/$s_!KGpc!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F56ced727-423b-4a20-b330-8769c728da1c_1146x1623.jpeg 848w, https://substackcdn.com/image/fetch/$s_!KGpc!,w_1272,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F56ced727-423b-4a20-b330-8769c728da1c_1146x1623.jpeg 1272w, https://substackcdn.com/image/fetch/$s_!KGpc!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F56ced727-423b-4a20-b330-8769c728da1c_1146x1623.jpeg 1456w" class="article-image"/></picture></a><figcaption>photo cred: my dad</figcaption></figure>
+<p>I owe an apology to every English teacher I ever had. I always assumed that so-called “great” literature was a hoax, a punishment inflicted upon adolescents for the crime of being young. These books did not have anything special about them, and covering up that fact was simply a make-work exercise for former English majors, a sort of “jobs for snobs” program.</p>
+<p>I was wrong about this. There is such thing as greatness. More specifically, there is such thing as <em>thickness</em>. Great works of fiction—for that matter, great works of any art—unfurl in response to your attention. The more time you spend with them, the more you get out of them. That kind of responsiveness is so addicting that it can lead people to do crazy things, like try to teach literature to high schoolers.</p>
+<p>But thickness is tricky, because rewarding the careful reader often means repelling the casual one. And this is where I would like an apology in return from my English teachers, because while this might have been obvious to them, they never made it obvious to me.</p>
+<p>I was presented with art and literature as if it was self-explanatory, and that everything wonderful about it was plainly visible from the outside. But those works were much more like dark, winding caves with treasure stashed inside of them. My teachers were like, “Right, well, into the cave you go!” and I was like “But there’s nothing in there” and they were like “Entering the cave is 30% of your grade” and so I took a few steps into the darkness and I was like “Just as I suspected: an empty cave” and then I came trudging back out and pretended that I saw something.</p>
+<p>But if someone had outfitted me appropriately, if they warned me that you have to bring one of those crank-up flashlights and you might have to shimmy through some narrow antechambers and spelunk through some flooded passageways, but that eventually you would reach a room full of untold riches—well, maybe I would have actually tried.</p>
+<p>Instead, I had to learn about thickness by looking at a guy’s butt.</p>
+<h1><strong>SORRY TO BUTT IN</strong></h1>
+<p>For most of my life, I treated art museums like celebrity scavenger hunts. The point of visiting was to see in person the thing you had seen on a screen or in a book; the goal was collection rather than contemplation. And so I would power-walk through the galleries, scanning the placards for famous names, rushing over whenever one of my companions would hiss, “Oh, this one’s a Van Gogh!”</p>
+<p>This ended when I encountered <em>The Garden of Earthly Delights</em>, a triptych painted by the Dutch master Hieronymous Bosch. When I went to collect that one, I got stuck. I wanted to stand in front of it forever.</p>
+<figure class="article-figure"><a data-component-name="Image2ToDOM" href="https://substackcdn.com/image/fetch/$s_!Lf8A!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F1a14c305-fe5c-41c2-b29e-868348500139_1280x729.png"><picture class="article-picture"><img alt="" data-attrs="{&quot;src&quot;:&quot;https://substack-post-media.s3.amazonaws.com/public/images/1a14c305-fe5c-41c2-b29e-868348500139_1280x729.png&quot;,&quot;srcNoWatermark&quot;:null,&quot;fullscreen&quot;:null,&quot;imageSize&quot;:null,&quot;height&quot;:729,&quot;width&quot;:1280,&quot;resizeWidth&quot;:null,&quot;bytes&quot;:2072104,&quot;alt&quot;:null,&quot;title&quot;:null,&quot;type&quot;:&quot;image/png&quot;,&quot;href&quot;:null,&quot;belowTheFold&quot;:true,&quot;topImage&quot;:false,&quot;internalRedirect&quot;:&quot;https://www.experimental-history.com/i/211640707?img=https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F1a14c305-fe5c-41c2-b29e-868348500139_1280x729.png&quot;,&quot;isProcessing&quot;:false,&quot;align&quot;:null,&quot;offset&quot;:false}" sizes="100vw" src="https://substackcdn.com/image/fetch/$s_!Lf8A!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F1a14c305-fe5c-41c2-b29e-868348500139_1280x729.png" srcset="https://substackcdn.com/image/fetch/$s_!Lf8A!,w_424,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F1a14c305-fe5c-41c2-b29e-868348500139_1280x729.png 424w, https://substackcdn.com/image/fetch/$s_!Lf8A!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F1a14c305-fe5c-41c2-b29e-868348500139_1280x729.png 848w, https://substackcdn.com/image/fetch/$s_!Lf8A!,w_1272,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F1a14c305-fe5c-41c2-b29e-868348500139_1280x729.png 1272w, https://substackcdn.com/image/fetch/$s_!Lf8A!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F1a14c305-fe5c-41c2-b29e-868348500139_1280x729.png 1456w" class="article-image"/></picture></a></figure>
+<p>It’s a painting from 500 years in the past that looks like a painting from 500 years in the future. Every corner of it is filled with “freakish riddles” and “irresponsible phantasmagoria”, in the <a href="https://en.wikipedia.org/wiki/The_Garden_of_Earthly_Delights">words</a> of art critic Wilhelm Fränger. For example, what is going on with this dude?</p>
+<figure class="article-figure"><a data-component-name="Image2ToDOM" href="https://substackcdn.com/image/fetch/$s_!rUVv!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F03acfed6-20ca-48d1-8a77-0a026403ad4e_882x517.png"><picture class="article-picture"><img alt="" data-attrs="{&quot;src&quot;:&quot;https://substack-post-media.s3.amazonaws.com/public/images/03acfed6-20ca-48d1-8a77-0a026403ad4e_882x517.png&quot;,&quot;srcNoWatermark&quot;:null,&quot;fullscreen&quot;:null,&quot;imageSize&quot;:null,&quot;height&quot;:517,&quot;width&quot;:882,&quot;resizeWidth&quot;:null,&quot;bytes&quot;:812718,&quot;alt&quot;:null,&quot;title&quot;:null,&quot;type&quot;:&quot;image/png&quot;,&quot;href&quot;:null,&quot;belowTheFold&quot;:true,&quot;topImage&quot;:false,&quot;internalRedirect&quot;:&quot;https://www.experimental-history.com/i/211640707?img=https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F03acfed6-20ca-48d1-8a77-0a026403ad4e_882x517.png&quot;,&quot;isProcessing&quot;:false,&quot;align&quot;:null,&quot;offset&quot;:false}" sizes="100vw" src="https://substackcdn.com/image/fetch/$s_!rUVv!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F03acfed6-20ca-48d1-8a77-0a026403ad4e_882x517.png" srcset="https://substackcdn.com/image/fetch/$s_!rUVv!,w_424,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F03acfed6-20ca-48d1-8a77-0a026403ad4e_882x517.png 424w, https://substackcdn.com/image/fetch/$s_!rUVv!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F03acfed6-20ca-48d1-8a77-0a026403ad4e_882x517.png 848w, https://substackcdn.com/image/fetch/$s_!rUVv!,w_1272,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F03acfed6-20ca-48d1-8a77-0a026403ad4e_882x517.png 1272w, https://substackcdn.com/image/fetch/$s_!rUVv!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F03acfed6-20ca-48d1-8a77-0a026403ad4e_882x517.png 1456w" class="article-image"/></picture></a></figure>
+<p>Or this lil guy here?</p>
+<figure class="article-figure"><a data-component-name="Image2ToDOM" href="https://substackcdn.com/image/fetch/$s_!ZChW!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F5df6982f-37a7-4f20-8475-f48eeae3d9d1_818x597.png"><picture class="article-picture"><img alt="" data-attrs="{&quot;src&quot;:&quot;https://substack-post-media.s3.amazonaws.com/public/images/5df6982f-37a7-4f20-8475-f48eeae3d9d1_818x597.png&quot;,&quot;srcNoWatermark&quot;:null,&quot;fullscreen&quot;:null,&quot;imageSize&quot;:null,&quot;height&quot;:597,&quot;width&quot;:818,&quot;resizeWidth&quot;:null,&quot;bytes&quot;:971432,&quot;alt&quot;:null,&quot;title&quot;:null,&quot;type&quot;:&quot;image/png&quot;,&quot;href&quot;:null,&quot;belowTheFold&quot;:true,&quot;topImage&quot;:false,&quot;internalRedirect&quot;:&quot;https://www.experimental-history.com/i/211640707?img=https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F5df6982f-37a7-4f20-8475-f48eeae3d9d1_818x597.png&quot;,&quot;isProcessing&quot;:false,&quot;align&quot;:null,&quot;offset&quot;:false}" sizes="100vw" src="https://substackcdn.com/image/fetch/$s_!ZChW!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F5df6982f-37a7-4f20-8475-f48eeae3d9d1_818x597.png" srcset="https://substackcdn.com/image/fetch/$s_!ZChW!,w_424,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F5df6982f-37a7-4f20-8475-f48eeae3d9d1_818x597.png 424w, https://substackcdn.com/image/fetch/$s_!ZChW!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F5df6982f-37a7-4f20-8475-f48eeae3d9d1_818x597.png 848w, https://substackcdn.com/image/fetch/$s_!ZChW!,w_1272,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F5df6982f-37a7-4f20-8475-f48eeae3d9d1_818x597.png 1272w, https://substackcdn.com/image/fetch/$s_!ZChW!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F5df6982f-37a7-4f20-8475-f48eeae3d9d1_818x597.png 1456w" class="article-image"/></picture></a></figure>
+<p>In the third panel of the triptych, there’s a scene of some instruments, some naked dudes, and some kind of pink demon with an alarmingly long tongue. Look closely, and you’ll see one of the naked dudes has some music printed on his butt (helpfully, one of his friends is pointing at it, as if to say, “dude you have some music on your butt”).</p>
+<figure class="article-figure"><a data-component-name="Image2ToDOM" href="https://substackcdn.com/image/fetch/$s_!Lo_f!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F0a1c43e8-d4fa-45b8-9fc3-3aed7abec9a1_1093x673.png"><picture class="article-picture"><img alt="" data-attrs="{&quot;src&quot;:&quot;https://substack-post-media.s3.amazonaws.com/public/images/0a1c43e8-d4fa-45b8-9fc3-3aed7abec9a1_1093x673.png&quot;,&quot;srcNoWatermark&quot;:null,&quot;fullscreen&quot;:null,&quot;imageSize&quot;:null,&quot;height&quot;:673,&quot;width&quot;:1093,&quot;resizeWidth&quot;:null,&quot;bytes&quot;:1377540,&quot;alt&quot;:null,&quot;title&quot;:null,&quot;type&quot;:&quot;image/png&quot;,&quot;href&quot;:null,&quot;belowTheFold&quot;:true,&quot;topImage&quot;:false,&quot;internalRedirect&quot;:&quot;https://www.experimental-history.com/i/211640707?img=https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F0a1c43e8-d4fa-45b8-9fc3-3aed7abec9a1_1093x673.png&quot;,&quot;isProcessing&quot;:false,&quot;align&quot;:null,&quot;offset&quot;:false}" sizes="100vw" src="https://substackcdn.com/image/fetch/$s_!Lo_f!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F0a1c43e8-d4fa-45b8-9fc3-3aed7abec9a1_1093x673.png" srcset="https://substackcdn.com/image/fetch/$s_!Lo_f!,w_424,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F0a1c43e8-d4fa-45b8-9fc3-3aed7abec9a1_1093x673.png 424w, https://substackcdn.com/image/fetch/$s_!Lo_f!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F0a1c43e8-d4fa-45b8-9fc3-3aed7abec9a1_1093x673.png 848w, https://substackcdn.com/image/fetch/$s_!Lo_f!,w_1272,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F0a1c43e8-d4fa-45b8-9fc3-3aed7abec9a1_1093x673.png 1272w, https://substackcdn.com/image/fetch/$s_!Lo_f!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F0a1c43e8-d4fa-45b8-9fc3-3aed7abec9a1_1093x673.png 1456w" class="article-image"/></picture></a></figure>
+<p>In 2014, a student at Oklahoma Christian University named Amelia Hamrick noticed the butt music and decided to transcribe it, record it, and post it to her blog, catapulting her to instant worldwide fame.</p>
+<figure class="article-figure"><a data-component-name="Image2ToDOM" href="https://substackcdn.com/image/fetch/$s_!NCXt!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fa3934369-422c-4967-8a0a-5d1ef5be970d_2368x1226.png"><picture class="article-picture"><img alt="" data-attrs="{&quot;src&quot;:&quot;https://substack-post-media.s3.amazonaws.com/public/images/a3934369-422c-4967-8a0a-5d1ef5be970d_2368x1226.png&quot;,&quot;srcNoWatermark&quot;:null,&quot;fullscreen&quot;:null,&quot;imageSize&quot;:null,&quot;height&quot;:754,&quot;width&quot;:1456,&quot;resizeWidth&quot;:null,&quot;bytes&quot;:3645257,&quot;alt&quot;:null,&quot;title&quot;:null,&quot;type&quot;:&quot;image/png&quot;,&quot;href&quot;:null,&quot;belowTheFold&quot;:true,&quot;topImage&quot;:false,&quot;internalRedirect&quot;:&quot;https://www.experimental-history.com/i/211640707?img=https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fa3934369-422c-4967-8a0a-5d1ef5be970d_2368x1226.png&quot;,&quot;isProcessing&quot;:false,&quot;align&quot;:null,&quot;offset&quot;:false}" sizes="100vw" src="https://substackcdn.com/image/fetch/$s_!NCXt!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fa3934369-422c-4967-8a0a-5d1ef5be970d_2368x1226.png" srcset="https://substackcdn.com/image/fetch/$s_!NCXt!,w_424,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fa3934369-422c-4967-8a0a-5d1ef5be970d_2368x1226.png 424w, https://substackcdn.com/image/fetch/$s_!NCXt!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fa3934369-422c-4967-8a0a-5d1ef5be970d_2368x1226.png 848w, https://substackcdn.com/image/fetch/$s_!NCXt!,w_1272,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fa3934369-422c-4967-8a0a-5d1ef5be970d_2368x1226.png 1272w, https://substackcdn.com/image/fetch/$s_!NCXt!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fa3934369-422c-4967-8a0a-5d1ef5be970d_2368x1226.png 1456w" class="article-image"/></picture></a><figcaption>You can listen to her version <a href="https://www.youtube.com/watch?v=tBVuNerzdGg">here</a>, though of course <a href="https://www.youtube.com/watch?v=OnrICy3Bc2U">it sounds better played on the hurdy-gurdy</a>.</figcaption></figure>
+<p>When I started writing this section, I intended to include this fact as a fun little Easter egg—look how thick this painting is, that it goes to the trouble of writing an actual song on a guy’s hiney!</p>
+<p>But it turns out I got this all wrong, and the painting was even thicker than I thought. While researching the story, I stumbled upon <a href="https://earlymusicmuse.com/bosch1/">three</a> <a href="https://earlymusicmuse.com/bosch2/">magisterial</a> <a href="https://earlymusicmuse.com/bosch3/">blog posts</a> by Ian Pittman, an expert on medieval music. He argues:</p>
+<ol><li><p>Hamrick was not the first to resurrect the butt music. It was also done by <a href="https://voxvulgaris.bandcamp.com/album/the-shape-of-medieval-music-to-come">the Swedish group Vox Vulgaris in 2003</a>, <a href="https://www.youtube.com/watch?v=0t1xlpYHIaQ">Atrium Musicae in 1978</a> (from the LP <em>Codex Gluteo</em>), and, according to a now-deleted angry comment, by some art history professors in 1981 and 1961, whose erasure from this story has left them quite, if you will, butthurt.</p></li><li><p>The butt music is not music at all. It lacks a clef, the notes are spaced out randomly, and one of the staffs has a different number of lines. If you try to turn it into a coherent song, you’re basically making things up—or as we would call it if an LLM did it, <em>hallucinating</em>. (Perhaps this is why every rendition of the butt music has sounded so different.)</p></li><li><p>Bosch <em>intended </em>the butt music to be unplayable. If you look across his works, understand the context of his life, and spend a little extra time inspecting <em>The Garden of Earthly Delights</em>, you realize that Bosch thought secular music was a one-way ticket to hell. (Church music was a-ok, as long as it was for the glory of god and not the glory of the players.) That’s why he depicted so many musicians being tortured: one of them is trapped inside a drum that’s being beaten by some kind of raccoon demon, another is being crucified on a harp, and the butt music guy himself is being crushed by a giant lute. For Bosch, putting actual music on a guy’s ass would be like the FBI handing out copies of the <em>Anarchist Cookbook</em>.</p></li></ol>
+<p>So the butt music is not a secret, but a warning: “If you play music outside of a church context, demons will torture you for eternity.” I find this funny, because I grew up amidst a moral panic over rap music; just imagine growing up in a moral panic over <em>all </em>music. “Oh, your heart will go on, Celine Dion? No, your heart will be torn from your chest and fed to the slavering servants of Beelzebub.”</p>
+<h1><strong>THICK OR TREAT</strong></h1>
+<p>So that’s what thickness <em>looks </em>like, but what <em>is </em>it? What makes something thick?</p>
+<p>There is no straightforward answer to this question, which is what makes thickness both rare and remarkable in the first place. But I think there are four thickening agents worth considering:</p>
+<h3><em>1. Roads not taken.</em></h3>
+<p>Thick art bears the marks of approaches attempted and discarded, a pile of scraps larger than the finished project. For example, here are four versions of the same idea from the artist Hokusai, one produced when he was 33, another when he was 44, another at 46, and another when he was 72, which is the one you’ll recognize.<a data-component-name="FootnoteAnchorToDOM" href="#footnote-1" id="footnote-anchor-1"><sup> [1] </sup></a></p>
+<figure data-component-name="ImageGallery" data-drag-handle="true" class="article-figure"><picture class="article-picture"><img alt="" sizes="100vw" src="https://substackcdn.com/image/fetch/$s_!L0wB!,w_720,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fac658ddf-127c-4c2c-b6f4-fb46886f5ef9_660x435.png" srcset="https://substackcdn.com/image/fetch/$s_!L0wB!,w_424,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fac658ddf-127c-4c2c-b6f4-fb46886f5ef9_660x435.png 424w, https://substackcdn.com/image/fetch/$s_!L0wB!,w_720,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fac658ddf-127c-4c2c-b6f4-fb46886f5ef9_660x435.png 720w" class="article-image"/></picture><picture class="article-picture"><img alt="" sizes="100vw" src="https://substackcdn.com/image/fetch/$s_!stt5!,w_720,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F9e95023f-c131-46d6-aafd-880879d2d793_660x419.png" srcset="https://substackcdn.com/image/fetch/$s_!stt5!,w_424,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F9e95023f-c131-46d6-aafd-880879d2d793_660x419.png 424w, https://substackcdn.com/image/fetch/$s_!stt5!,w_720,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F9e95023f-c131-46d6-aafd-880879d2d793_660x419.png 720w" class="article-image"/></picture><picture class="article-picture"><img alt="" sizes="100vw" src="https://substackcdn.com/image/fetch/$s_!f9LX!,w_720,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fe3e3107d-e606-4780-a9e5-146888c74c58_660x483.png" srcset="https://substackcdn.com/image/fetch/$s_!f9LX!,w_424,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fe3e3107d-e606-4780-a9e5-146888c74c58_660x483.png 424w, https://substackcdn.com/image/fetch/$s_!f9LX!,w_720,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fe3e3107d-e606-4780-a9e5-146888c74c58_660x483.png 720w" class="article-image"/></picture><picture class="article-picture"><img alt="" sizes="100vw" src="https://substackcdn.com/image/fetch/$s_!rYPO!,w_720,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F49dcef99-9a04-47e6-acf8-9ba1650f3d0f_660x455.png" srcset="https://substackcdn.com/image/fetch/$s_!rYPO!,w_424,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F49dcef99-9a04-47e6-acf8-9ba1650f3d0f_660x455.png 424w, https://substackcdn.com/image/fetch/$s_!rYPO!,w_720,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F49dcef99-9a04-47e6-acf8-9ba1650f3d0f_660x455.png 720w" class="article-image"/></picture></figure>
+<h3><em>2. Leaving the egg out of the cake mix.</em></h3>
+<p>The Betty Crocker Corporation could put just egg powder into their cake mix, but they don’t, because <a href="https://online.ucpress.edu/gastronomica/article/26/1/73/216809/Sweet-RuinCakes-and-the-Visual-Culture-of-Anxiety?utm_source=chatgpt.com">cracking an egg into a bowl allows people to pretend that they’re baking</a>. When you present your grandma with a birthday cake, you want to feel like “I made this for you, O Beloved Grandmama” and not like “I dumped a bag of dust into a bowl and heated it up so open wide you old biddy.”</p>
+<p>Thick art is like that: it gives you an egg to crack. It leaves space for some essential ingredient you bring yourself, so that the real action happens in your mind, rather than on the page or the canvas or the screen.</p>
+<p>This effect is often too subtle to demonstrate in a single bullet point, but here’s an accessible example. <em>The 11th Hour </em>by Graeme Base reads like a normal children’s book at first—oh look here are some beautiful pictures of animals, look at them playing board games, how nice, etc.</p>
+<figure class="article-figure"><a data-component-name="Image2ToDOM" href="https://substackcdn.com/image/fetch/$s_!ceLL!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F160e6b58-923c-48f0-8486-0356e18d552a_429x590.png"><picture class="article-picture"><img alt="" data-attrs="{&quot;src&quot;:&quot;https://substack-post-media.s3.amazonaws.com/public/images/160e6b58-923c-48f0-8486-0356e18d552a_429x590.png&quot;,&quot;srcNoWatermark&quot;:null,&quot;fullscreen&quot;:null,&quot;imageSize&quot;:null,&quot;height&quot;:590,&quot;width&quot;:429,&quot;resizeWidth&quot;:null,&quot;bytes&quot;:557145,&quot;alt&quot;:null,&quot;title&quot;:null,&quot;type&quot;:&quot;image/png&quot;,&quot;href&quot;:null,&quot;belowTheFold&quot;:true,&quot;topImage&quot;:false,&quot;internalRedirect&quot;:&quot;https://www.experimental-history.com/i/211640707?img=https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F160e6b58-923c-48f0-8486-0356e18d552a_429x590.png&quot;,&quot;isProcessing&quot;:false,&quot;align&quot;:null,&quot;offset&quot;:false}" sizes="100vw" src="https://substackcdn.com/image/fetch/$s_!ceLL!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F160e6b58-923c-48f0-8486-0356e18d552a_429x590.png" srcset="https://substackcdn.com/image/fetch/$s_!ceLL!,w_424,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F160e6b58-923c-48f0-8486-0356e18d552a_429x590.png 424w, https://substackcdn.com/image/fetch/$s_!ceLL!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F160e6b58-923c-48f0-8486-0356e18d552a_429x590.png 848w, https://substackcdn.com/image/fetch/$s_!ceLL!,w_1272,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F160e6b58-923c-48f0-8486-0356e18d552a_429x590.png 1272w, https://substackcdn.com/image/fetch/$s_!ceLL!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F160e6b58-923c-48f0-8486-0356e18d552a_429x590.png 1456w" class="article-image"/></picture></a></figure>
+<p>Only at the end of the story do you realize that a crime has been taking place under your nose the whole time, and that the clues are hidden in the details of the pictures you’ve just been paging through. The real experience of the book is <em>re</em>-reading the book with this in mind.</p>
+<h3><em>3. Reasons</em></h3>
+<p>Why <em>this</em> word, <em>this</em> scene, <em>this</em> character, and not some other one? Thin art has no answers; thick art does. Sometimes these reasons are known to the artist, and sometimes they are not, much to the delight and employment of Freudians everywhere.</p>
+<p>For example, did you know there’s lots of ears in Hamlet? There’s the poison-in-the-ear thing, of course, and characters are always eavesdropping on each other and exhorting each other to listen, but there’s also a lot of talk about ears (“in the porches of my ears”) and number of odd ear-based metaphors (“the whole ear of Denmark”, “like a mildewed ear”). Whether Shakespeare did this on purpose because he had some kind of ear fetish, whether the muse whispered it to him in his sleep (and through what orifice?), and whether any reader notices it—these are all beside the point. The recurrence of these themes and images creates a depth that can be felt even if it isn’t known, and <a href="https://extra.shu.ac.uk/emls/11-3/greeham2.htm">endlessly explored</a> if it is.<a data-component-name="FootnoteAnchorToDOM" href="#footnote-2" id="footnote-anchor-2"><sup> [2] </sup></a></p>
+<h3><em>4. Blood sacrifice</em></h3>
+<p>Humans are mortal, for now. This means all of our actions incur opportunity costs, and so the greater the cost paid to create a work of art, the thicker it can get. There’s no guarantee this will happen, of course, and that risk is part of the thrill.</p>
+<p>The Met Cloisters has these wooden altarpieces from the 1400s that draw your attention immediately, I think because the mind can subconsciously calculate the time it must have taken to carve them, and it sends a signal back to the eyes: <em>important</em>. You know that you are not just seeing a work of art, but the expenditure of a life.</p>
+<figure class="article-figure"><a data-component-name="Image2ToDOM" href="https://substackcdn.com/image/fetch/$s_!05QH!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F752edf6a-60a5-4c3a-bf21-f883bb094665_1200x1200.png"><picture class="article-picture"><img alt="" data-attrs="{&quot;src&quot;:&quot;https://substack-post-media.s3.amazonaws.com/public/images/752edf6a-60a5-4c3a-bf21-f883bb094665_1200x1200.png&quot;,&quot;srcNoWatermark&quot;:null,&quot;fullscreen&quot;:null,&quot;imageSize&quot;:null,&quot;height&quot;:1200,&quot;width&quot;:1200,&quot;resizeWidth&quot;:null,&quot;bytes&quot;:2189344,&quot;alt&quot;:null,&quot;title&quot;:null,&quot;type&quot;:&quot;image/png&quot;,&quot;href&quot;:null,&quot;belowTheFold&quot;:true,&quot;topImage&quot;:false,&quot;internalRedirect&quot;:&quot;https://www.experimental-history.com/i/211640707?img=https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F752edf6a-60a5-4c3a-bf21-f883bb094665_1200x1200.png&quot;,&quot;isProcessing&quot;:false,&quot;align&quot;:null,&quot;offset&quot;:false}" sizes="100vw" src="https://substackcdn.com/image/fetch/$s_!05QH!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F752edf6a-60a5-4c3a-bf21-f883bb094665_1200x1200.png" srcset="https://substackcdn.com/image/fetch/$s_!05QH!,w_424,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F752edf6a-60a5-4c3a-bf21-f883bb094665_1200x1200.png 424w, https://substackcdn.com/image/fetch/$s_!05QH!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F752edf6a-60a5-4c3a-bf21-f883bb094665_1200x1200.png 848w, https://substackcdn.com/image/fetch/$s_!05QH!,w_1272,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F752edf6a-60a5-4c3a-bf21-f883bb094665_1200x1200.png 1272w, https://substackcdn.com/image/fetch/$s_!05QH!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F752edf6a-60a5-4c3a-bf21-f883bb094665_1200x1200.png 1456w" class="article-image"/></picture></a><figcaption>(<a href="https://www.metmuseum.org/art/collection/search/471989">source</a>)</figcaption></figure>
+<p>Here’s an even more haunting example. I once saw the magician duo Penn and Teller perform live, and at the end of the show, Penn told us he was going to swallow fire. As he dipped the torch in gasoline, he <a href="https://www.smithsonianmag.com/arts-culture/penn-jillette-reveals-the-secrets-of-fire-eating-132787272/">explained</a> that what he was about to show us is not a trick. Magicians are always saying things like that, but in this case it’s true: there is no sleight of hand the protects the fire-eater from the flames. They get blisters and burns, the fuel drips down their esophagus and poisons them, they suck the hydrocarbons into their lungs and contract “<a href="https://sci-hub.ru/10.1111/j.1440-1673.2007.01892.x">fire-eater’s pneumonia</a>”. To watch someone eat fire is to watch someone shorten their lifespan for your entertainment.</p>
+<p>“When you leave the theater tonight, you’re going to ask yourselves, ‘How did they do it?’”, Penn said as he lit the torch. “Instead, I’d like you to ask yourselves, ‘<em>Why </em>did they do it?’“ And then he reared his head back and swallowed the flame.</p>
+<h1><strong>SLIM PICKINGS</strong></h1>
+<p>The other way to understand thickness is to study its absence.</p>
+<p>Guys who work in bike shops like to joke about <em><a href="https://www.theguardian.com/environment/2007/dec/13/ethicalliving.lifeandhealth">bicycle-shaped objects</a></em>—sure, that mass-produced hunk of metal and plastic has a seat, pedals, wheels, and handlebars, but that doesn’t mean it’s a <em>bike</em>. When the materials are so cheap and the construction is so slapdash, it deserves another name entirely.</p>
+<p>This terminology comes in handy, because it turns out there are also movie-shaped objects and book-shaped objects, art-shaped objects and thought-shaped objects. Just because a series of pictures flickered across the screen and the credits followed, that doesn’t mean it was a <em>movie</em>. Just because it’s printed out and bound in cardboard, that doesn’t mean it’s a <em>book</em>. There is an additional essence that is necessary to turn something from the shape of a thing into the actual thing, and the difference between having and lacking that essence is the difference between a corpse and a person.</p>
+<p>This essence is what makes fiction worth reading in the first place, but it’s hard to capture in a paragraph, so let me show you some nonfiction instead, where you can spot the thinness in an instant. Here’s a passage from a self-help book that a friend sent me recently:</p>
+<blockquote><p>You are built to perform under pressure and that is exactly what you will do. Reminding yourself of this changes the meaning of those signs of stress that might otherwise be seen as “symptoms” of a problem. In fact, research shows that simply reminding someone that their performance improves under pressure improves their actual performance by 33 percent (Jamieson et al., 2018).</p></blockquote>
+<p>These sentences crumble immediately upon inspection. First of all, there’s something embarrassing and grating about getting generic encouragement from a book—you don’t know me! Maybe I am not “built to perform under pressure”! I might be a pathetic weakling who is destined to choke at the pivotal moment. What then?</p>
+<p>Plus, the facts here are brittle. I looked up the paper in question and could not find this “33 percent” number anywhere. Maybe it’s made up? And what is “performance”, anyway? Performance on <em>anything</em>? Surely not; the studies cited in the paper are mainly about taking multiple-choice tests.<a data-component-name="FootnoteAnchorToDOM" href="#footnote-3" id="footnote-anchor-3"><sup> [3] </sup></a> This is exactly the kind of finding that rises to prominence thanks to one small and flawed experiment, attracts a bunch of excited research, gets wildly overgeneralized under the handwavy phrase “studies show”, and then shrivels under a wave of debunkings and non-replications, such that after years of work, the whole thing ends with an <a href="https://www.experimental-history.com/p/nothing-ever-dies-it-merely-becomes">embarrassed shrug</a>. (Unsurprisingly, there is <a href="https://www.nature.com/articles/s41598-024-58408-w">some evidence of publication bias</a> for this “built to perform under pressure” effect.)</p>
+<p>Reading a book like this feels like wandering through a Potemkin village. Touch any of the ideas, and they tip over.</p>
+<p>In nonfiction, it might seem like the solution for puffery is pedantry, as if thickness comes from presenting every relevant fact in agonizing detail. But it doesn’t, just as thickness in fiction doesn’t come from describing every object in the room before you let the characters open their mouths. Instead, thickness comes from surfacing a few facts well, and in such a way that you realize the existence of entire universes of additional facts that <em>could </em>be known.</p>
+<p>For example, here’s a short passage from Jane Jacobs’ <em>The Death and Life of Great American Cities</em>:</p>
+<blockquote><p>[City planners] operate on the premise that city people seek the sight of emptiness, obvious order and quiet. Nothing could be less true. People’s love of watching activity and other people is constantly evident in cities everywhere. This trait reaches an almost ludicrous extreme on upper Broadway in New York, where [...] benches have been placed behind big concrete buffers and on any day when the weather is even barely tolerable these benches are filled with people at block after block after block, watching the pedestrians who cross the mall in front of them, watching the traffic, watching the people on the busy sidewalks, watching each other.</p></blockquote>
+<p>Jacobs notes that further north, near Columbia University, the streets are quieter, the pedestrians are more orderly, the traffic is calmer...and the benches are empty. “I have tried them and can see why,” Jacobs says. “No place could be more boring.”<a data-component-name="FootnoteAnchorToDOM" href="#footnote-4" id="footnote-anchor-4"><sup> [4] </sup></a></p>
+<p>There are a lot of threads here, so I’ll pick just one. Jacobs is pointing out a fact that millions of people observe every day, but almost none of them notice. Including me! I once lived on those boring blocks that Jacobs describes, and although I noticed something amiss—I would tell friends I lived in “the dead zone of Manhattan”—I never understood why. Nor do I think psychologists really have an answer for <em>what </em>motivates people to sit on benches and watch other humans go by. What <a href="https://www.experimental-history.com/p/new-paradigm-for-psychology-just">drive is this satisfying</a>?</p>
+<h1><strong>THEY TOOK OUR SNOBS</strong></h1>
+<p>There is a danger, of course, in seeking and praising thickness, one that even I understood when I was a barely-sentient teenager. If you allow for the existence of secret treasures that can only be accessed with effort and analysis, then you empower the elitists and the snobs. “Buddy, don’t even <em>talk </em>to me until you’ve been in the cave!”</p>
+<p>But look around. The snobs are in <a href="https://www.experimental-history.com/p/stop-eating-lady-gagas-oreos">full retreat</a>. We have swung the pendulum so far toward poptimism, toward the blinkered idea that all <em>art</em> is equal because all <em>humans</em> are equal, toward the ethos that guilty pleasures are simply pleasures, that I’m not sure if we can ever swing it back.</p>
+<p>Erasing the line between the thick and the thin has left us defenseless against slop at the exact moment of its onslaught. Everyone can sense there’s something amiss with the prose that comes out of the machines, but we lack the language to talk about it, and so we’ve converged on the idea that slop simply means using too many em dashes, bullet points, and line breaks.</p>
+<p>No, what separates substance from slop is thickness. Slop holds no secrets; it signifies nothing. Under scrutiny, it evaporates. All it can offer is bottomlessness—sure, there’s nothing on, but at least there are infinite channels!</p>
+<p>That’s why I’m neither surprised nor dismayed when <a href="https://www.astralcodexten.com/p/how-did-you-do-on-the-ai-art-turing">studies</a> <a href="https://www.nature.com/articles/s41598-024-76900-1">find</a> that people prefer AI art to human art. Of course they do! In the short term, thinness prevails. When people are making snap judgments, they want pretty flowers, poems that rhyme, pleasing pablum, the simulacrum of thought.<a data-component-name="FootnoteAnchorToDOM" href="#footnote-5" id="footnote-anchor-5"><sup> [5] </sup></a> But none of these last. The real question is not “which of these things looks nicer when you look at them for two seconds?” but “which of these things will stand the test of time?” Which of them will people fly across the world to see? Which of them will drive people so mad they’ll major in the <em>humanities</em>?</p>
+<p>This kind of quality can only be proven by longevity. Which answers another question I had when I was scowling in the back of English class: why do we have to spend so much time reading <em>old </em>stuff? And the answer is: this is the only stuff that we can be sure is any good. Great works of art, like successful genes, convince humans to keep passing them on. If something has survived for centuries, then there’s probably something to it. We’re not still brewing Bronze Age beer and we’re not still sailing Bronze Age ships, but we are still telling Bronze Age stories, and this warrants our attention.</p>
+<h1><strong>SUNO THANK YOU</strong></h1>
+<p>Speaking of longevity, remember a few months ago, when everyone was Studio Ghibli-fying all the pictures in their camera roll? Well, why did they stop? Why are those millions of images gathering dust in a data center while people continue to watch actual Studio Ghibli films? Why is it that Suno can AI-generate you any kind of music you want, but if you go on the Suno Reddit, you’ll find a running joke that no one can stand anyone’s Suno music but their own—a quality that, I can’t help but mention, also applies to farts?</p>
+<p>The slop-acalypse that so many of us fear, when people will stop looking at anything made by humans and only look at things made by machines—why hasn’t that happened yet? Do the models need another million tokens? Are we still looking for the right prompts? Or could it be that we are attempting to mass-produce something that cannot be mass-produced?</p>
+<figure class="article-figure"><a data-component-name="Image2ToDOM" href="https://substackcdn.com/image/fetch/$s_!XUm-!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F64bb4c7c-65fa-4ce3-8097-43ac92714842_739x415.png"><picture class="article-picture"><img alt="" data-attrs="{&quot;src&quot;:&quot;https://substack-post-media.s3.amazonaws.com/public/images/64bb4c7c-65fa-4ce3-8097-43ac92714842_739x415.png&quot;,&quot;srcNoWatermark&quot;:null,&quot;fullscreen&quot;:null,&quot;imageSize&quot;:null,&quot;height&quot;:415,&quot;width&quot;:739,&quot;resizeWidth&quot;:null,&quot;bytes&quot;:312695,&quot;alt&quot;:null,&quot;title&quot;:null,&quot;type&quot;:&quot;image/png&quot;,&quot;href&quot;:null,&quot;belowTheFold&quot;:true,&quot;topImage&quot;:false,&quot;internalRedirect&quot;:&quot;https://www.experimental-history.com/i/211640707?img=https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F64bb4c7c-65fa-4ce3-8097-43ac92714842_739x415.png&quot;,&quot;isProcessing&quot;:false,&quot;align&quot;:null,&quot;offset&quot;:false}" sizes="100vw" src="https://substackcdn.com/image/fetch/$s_!XUm-!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F64bb4c7c-65fa-4ce3-8097-43ac92714842_739x415.png" srcset="https://substackcdn.com/image/fetch/$s_!XUm-!,w_424,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F64bb4c7c-65fa-4ce3-8097-43ac92714842_739x415.png 424w, https://substackcdn.com/image/fetch/$s_!XUm-!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F64bb4c7c-65fa-4ce3-8097-43ac92714842_739x415.png 848w, https://substackcdn.com/image/fetch/$s_!XUm-!,w_1272,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F64bb4c7c-65fa-4ce3-8097-43ac92714842_739x415.png 1272w, https://substackcdn.com/image/fetch/$s_!XUm-!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F64bb4c7c-65fa-4ce3-8097-43ac92714842_739x415.png 1456w" class="article-image"/></picture></a><figcaption>On the left: @clayohr on twitter. On the right: Francisco Goya.</figcaption></figure>
+<p>Regardless, people keep trying. About once a week, I get a pitch from some AI startup that wants to automate some part of my writing. The most recent one says it’s “built for credible thinkers who have a book’s worth of ideas but not the time it typically takes to write one”.</p>
+<p>I’m sorry, but if you’re building or using a tool like this, then you’ve got slop for brains. There is no such thing as having a “book’s worth of ideas” that are all ready to go except for the small matter of choosing the right words and putting them in the right order.</p>
+<p>I know exactly the feeling that these slop-trepeneurs are preying on, because I feel it all the time: I’ve got these thoughts in my head, and boy oh boy they’re good ones, all-timers, really, and it’s so annoying that I have to spend all this time making the words sound good, when the ideas behind the words are <em>already </em>so good!</p>
+<p>But this is an illusion. The ideas are not already good. They need to be thickened. I understand why it’s tempting to force a machine do the hard part for you, but it can’t, and the hard part is the only part worth doing anyway. Making something thick—that’s a lot of pressure! But remember: you were built to perform under pressure, and that’s just what you’ll do.</p>
+<p><a href="#footnote-anchor-1" id="footnote-1">1 [find in text]</a></p>
+<p>These images come from <a href="https://mag.japaaan.com/archives/62662">this article</a>, which was referenced in <a href="https://twitter.com/tkasasagi/status/1045032454371696640?ref_src=twsrc%5Etfw%7Ctwcamp%5Etweetembed%7Ctwterm%5E1045032454371696640&amp;ref_url=http%3A%2F%2Fdigg.com%2F2018%2Fhokusai-great-wave-evolution-twitter">this tweet</a>, which was picked up in <a href="https://visakanv.substack.com/p/are-you-serious">this post</a>, which is where I found it.</p>
+<p><a href="#footnote-anchor-2" id="footnote-2">2 [find in text]</a></p>
+<p>I first learned of this example from <a data-attrs="{&quot;name&quot;:&quot;Nabeel S. Qureshi&quot;,&quot;id&quot;:2558153,&quot;type&quot;:&quot;user&quot;,&quot;url&quot;:null,&quot;photo_url&quot;:&quot;https://substackcdn.com/image/fetch/$s_!k_G_!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F8a47c299-86f1-4f15-9378-ec1b2dd8f2f3_380x346.jpeg&quot;,&quot;uuid&quot;:&quot;63548c10-cd23-410e-9407-e0b635274034&quot;}" data-component-name="MentionUser" href="https://open.substack.com/users/2558153-nabeel-s-qureshi?utm_source=mentions">Nabeel S. Qureshi</a>’s <a href="https://nabeelqu.substack.com/">What Makes Art Great?</a>, which is another good take on this topic.</p>
+<p><a href="#footnote-anchor-3" id="footnote-3">3 [find in text]</a></p>
+<p>Also, those studies did not remind participants “that their performance improves under pressure”—they told participants that feeling anxious during a test doesn’t mean you will necessarily perform worse, and it <em>might</em> make you perform better.</p>
+<p><a href="#footnote-anchor-4" id="footnote-4">4 [find in text]</a></p>
+<p>p. 37</p>
+<p><a href="#footnote-anchor-5" id="footnote-5">5 [find in text]</a></p>
+<p>For another take on this, see <a data-attrs="{&quot;name&quot;:&quot;Max Read&quot;,&quot;id&quot;:238208,&quot;type&quot;:&quot;user&quot;,&quot;url&quot;:null,&quot;photo_url&quot;:&quot;https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fe9de95ab-cc9d-45d6-a5fb-b4a53111dad9_3088x2316.jpeg&quot;,&quot;uuid&quot;:&quot;e8df7c08-0e67-498c-9d7f-3712f502ff8d&quot;}" data-component-name="MentionUser" href="https://open.substack.com/users/238208-max-read?utm_source=mentions">Max Read</a>’s “<a href="https://maxread.substack.com/p/people-prefer-ai-art-because-people">People prefer A.I. art because people prefer bad art</a>”.</p>
+<h3>OR: an apology to my English teachers</h3></div>
+      
+    </article>
+    
+  </body>
+</html>
