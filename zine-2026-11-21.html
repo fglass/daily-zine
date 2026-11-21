@@ -1,0 +1,532 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Fred Talks - 2026-11-21</title>
+    <style>
+      @page {
+        size: A5;
+        margin: 8mm 9mm 9mm;
+      }
+
+      :root {
+        color: #111;
+        font-family: "Times New Roman", Times, serif;
+        --body-text-size: 9.5pt;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        color: #111;
+        background: #fff;
+        font-family: "Times New Roman", Times, serif;
+        line-height: 1.45;
+      }
+
+      a,
+      a:visited {
+        color: #111;
+        text-decoration: underline;
+      }
+
+      .cover {
+        min-height: calc(210mm - 17mm);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        page-break-after: always;
+        border: 1px solid #111;
+        padding: 8mm;
+        background: #fff;
+      }
+
+      .toc-item-meta,
+      .article-meta {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .masthead {
+        margin: 0;
+        font-size: 40pt;
+        line-height: 0.95;
+        text-transform: uppercase;
+      }
+
+      .issue-date {
+        margin: 4mm 0 0;
+        font-size: 14pt;
+      }
+
+      .issue-date sup {
+        font-size: 0.58em;
+        vertical-align: super;
+        line-height: 0;
+      }
+
+      .cover-deck {
+        max-width: 90mm;
+        font-size: 12pt;
+        margin: 0;
+      }
+
+      .toc {
+        border-top: 3px solid #111;
+        padding-top: 6mm;
+      }
+
+      .toc h2 {
+        margin: 0 0 4mm;
+        font-size: 11pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .toc-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .toc-item {
+        padding: 3mm 0;
+        border-bottom: 1px solid rgba(17, 17, 17, 0.2);
+      }
+
+      .toc-item-title {
+        font-size: 12pt;
+        margin: 0 0 1mm;
+      }
+
+      .toc-item-meta {
+        font-size: 8pt;
+      }
+
+      .masthead-compact {
+        margin: 0 0 6mm;
+      }
+
+      .masthead-compact h1 {
+        margin: 0;
+        font-size: 22pt;
+        line-height: 1.1;
+        text-transform: uppercase;
+      }
+
+      .masthead-compact .issue-date {
+        margin: 2mm 0 0;
+        font-size: 11pt;
+      }
+
+      .toc-compact {
+        border-top: 1px solid #111;
+        border-bottom: 1px solid #111;
+        padding: 4mm 0;
+        margin: 0 0 8mm;
+      }
+
+      article + article {
+        margin-top: 10mm;
+        padding-top: 6mm;
+        border-top: 2px solid #111;
+      }
+
+      h1 {
+        margin: 0 0 2mm;
+        font-size: 18pt;
+        line-height: 1.1;
+      }
+
+      .article-meta {
+        font-size: 8.5pt;
+        margin-bottom: 6mm;
+        padding-bottom: 3mm;
+        border-bottom: 1px solid #111;
+      }
+
+      .article-body {
+        font-size: var(--body-text-size);
+        font-family: "Times New Roman", Times, serif;
+      }
+
+      .article-body p,
+      .article-body li,
+      .article-body blockquote,
+      .article-body dd,
+      .article-body dt {
+        margin: 0 0 4mm;
+        orphans: 3;
+        widows: 3;
+      }
+
+      .article-body ul,
+      .article-body ol,
+      .article-body dl {
+        margin: 0 0 4mm 5mm;
+        padding: 0;
+      }
+
+      .article-body h2,
+      .article-body h3,
+      .article-body h4 {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        margin: 7mm 0 3mm;
+        line-height: 1.2;
+      }
+
+      .article-body blockquote {
+        margin-left: 6mm;
+        padding-left: 4mm;
+        border-left: 2px solid #111;
+      }
+
+      .article-body .media-omitted {
+        margin: 0 0 4mm;
+        font-size: 8.5pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(17, 17, 17, 0.65);
+      }
+
+      .article-body figure,
+      .article-body .article-figure,
+      .article-body picture,
+      .article-body .article-picture {
+        display: block;
+        max-width: 72mm;
+        margin: 0 auto 4mm;
+        break-inside: avoid;
+      }
+
+      .article-body img,
+      .article-body .article-image {
+        display: block;
+        max-width: min(100%, 72mm);
+        max-height: 34mm;
+        height: auto;
+        width: auto;
+        object-fit: contain;
+        margin: 0 auto 3mm;
+      }
+
+      .article-body figcaption {
+        margin-top: 1.5mm;
+        font-size: 8.5pt;
+        line-height: 1.3;
+        color: rgba(17, 17, 17, 0.8);
+      }
+
+      .article-note {
+        margin-top: 6mm;
+        padding-top: 3mm;
+        border-top: 1px solid #111;
+        font-size: 9pt;
+        font-style: italic;
+      }
+
+      @media screen {
+        body {
+          padding: 2rem;
+          margin: 0 auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    
+    <header class="masthead-compact">
+      <h1>Fred Talks</h1>
+      <p class="issue-date">
+        21<sup>st</sup> November 2026
+      </p>
+    </header>
+
+    <nav class="toc toc-compact">
+      <h2>Contents</h2>
+      <ol class="toc-list">
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Every layer of review makes you 10x slower</div>
+          <div class="toc-item-meta">
+            Avery Pennarun · 2841 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Why Agents Are Soon Only Going to Have 1 Tool</div>
+          <div class="toc-item-meta">
+            Philipp Schmid · 1717 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">What requirements don&#39;t you have?</div>
+          <div class="toc-item-meta">
+            seangoedecke.com RSS feed · 945 words
+          </div>
+        </li>
+        
+      </ol>
+    </nav>
+    
+
+    
+    <article>
+      <h1>Every layer of review makes you 10x slower</h1>
+      <div class="article-meta">
+        Avery Pennarun
+        · 26 Mar 2026 · <a href="https://apenwarr.ca/log/20260316">Source</a>
+      </div>
+      <div class="article-body"><h2><a>2026-03-16 </a><a href="https://apenwarr.ca/log/20260316/20260316">»</a></h2>
+<p><b>Every layer of review makes you 10x slower</b></p>
+<p>We’ve all heard of those network effect laws: the value of a network goes up with the square of the number of members. Or the cost of communication goes up with the square of the number of members, or maybe it was n log n, or something like that, depending how you arrange the members. Anyway doubling a team doesn't double its speed; there’s coordination overhead. Exactly how much overhead depends on how badly you botch the org design.</p>
+<p>But there’s one rule of thumb that someone showed me decades ago, that has stuck with me ever since, because of how annoyingly true it is. The rule is annoying because it doesn’t <em>seem</em> like it should be true. There’s no theoretical basis for this claim that I’ve ever heard. And yet, every time I look for it, there it is.</p>
+<p>Here we go:</p>
+<p><b><strong>Every layer of approval makes a process 10x slower</strong></b></p>
+<p>I know what you're thinking. Come on, 10x? That’s a lot. It’s unfathomable. Surely we’re exaggerating.</p>
+<p>Nope.</p>
+<p>Just to be clear, we're counting “wall clock time” here rather than effort. Almost all the extra time is spent sitting and waiting.</p>
+<p>Look:</p>
+<ul> <li> <p>Code a simple bug fix<br/> 30 minutes</p> </li> <li> <p>Get it code reviewed by the peer next to you<br/> 300 minutes → 5 hours → half a day</p> </li> <li> <p>Get a design doc approved by your architects team first<br/> 50 hours → about a week</p> </li> <li> <p>Get it on some other team’s calendar to do all that<br/> (for example, if a customer requests a feature)<br/> 500 hours → 12 weeks → one fiscal quarter</p> </li> </ul>
+<p>I wish I could tell you that the next step up — 10 quarters or about 2.5 years — was too crazy to contemplate, but no. That’s the life of an executive sitting above a medium-sized team; I bump into it all the time even at a relatively small company like Tailscale if I want to change product direction. (And execs sitting above large teams can’t actually do work of their own at all. That's another story.)</p>
+<p><b><strong>AI can’t fix this</strong></b></p>
+<p>First of all, this isn’t a post about AI, because AI’s direct impact on this problem is minimal. Okay, so Claude can code it in 3 minutes instead of 30? That’s super, Claude, great work.</p>
+<p>Now you either get to spend 27 minutes reviewing the code yourself in a back-and-forth loop with the AI (this is actually kinda fun); or you save 27 minutes and submit unverified code to the code reviewer, who will still take 5 hours like before, but who will now be mad that you’re making them read the slop that you were too lazy to read yourself. Little of value was gained.</p>
+<p>Now now, you say, that’s not the value of agentic coding. You don’t use an agent on a 30-minute fix. You use it on a monstrosity week-long project that you and Claude can now do in a couple of hours! Now we’re talking. Except no, because the monstrosity is so big that your reviewer will be extra mad that you didn’t read it yourself, and it’s too big to review in one chunk so you have to slice it into new bite-sized chunks, each with a 5-hour review cycle. And there’s no design doc so there’s no intentional architecture, so eventually someone’s going to push back on that and here we go with the design doc review meeting, and now your monstrosity week-long project that you did in two hours is... oh. A week, again.</p>
+<p>I guess I could have called this post Systems Design 4 (or 5, or whatever I’m up to now, who knows, I’m writing this on a plane with no wifi) because yeah, you guessed it. It's Systems Design time again.</p>
+<p><b>The only way to sustainably go faster is fewer reviews</b></p>
+<p>It’s funny, everyone has been predicting the Singularity for decades now. The premise is we build systems that are so smart that they themselves can build the next system that is even smarter, that builds the next smarter one, and so on, and once we get that started, if they keep getting smarter faster enough, then the incremental time (t) to achieve a unit (u) of improvement goes to zero, so (u/t) goes to infinity and foom.</p>
+<p>Anyway, I have never believed in this theory for the simple reason we outlined above: the majority of time needed to get anything done is not actually the time doing it. It’s wall clock time. Waiting. Latency.</p>
+<p>And <a href="https://apenwarr.ca/log/20230415">you can’t overcome latency with brute force</a>.</p>
+<p>I know you want to. I know many of you now work at companies where the business model kinda depends on doing exactly that.</p>
+<p>Sorry.</p>
+<p><b>But you can’t just <em>not review</em> things!</b></p>
+<p>Ah, well, no, actually yeah. You really can’t.</p>
+<p>There are now many people who have seen the symptom: the start of the pipeline (AI generated code) is so much faster, but all the subsequent stages (reviews) are too slow! And so they intuit the obvious solution: stop reviewing then!</p>
+<p>The result might be slop, but if the slop is 100x cheaper, then it only needs to deliver 1% of the value per unit and it's still a fair trade. And if your value per unit is even a mere 2% of what it used to be, you’ve doubled your returns! Amazing.</p>
+<p>There are some pretty dumb assumptions underlying that theory; you can imagine them for yourself. Suffice it to say that this produces what I will call the AI Developer’s Descent Into Madness:</p>
+<ol> <li> <p>Whoa, I produced this prototype so fast! I have super powers!</p> </li> <li> <p>This prototype is getting buggy. I’ll tell the AI to fix the bugs.</p> </li> <li> <p>Hmm, every change now causes as many new bugs as it fixes.</p> </li> <li> <p>Aha! But if I have an AI agent also review the code, it can find its own bugs!</p> </li> <li> <p>Wait, why am I personally passing data back and forth between agents</p> </li> <li> <p>I need an agent framework</p> </li> <li> <p>I can have my agent write an agent framework!</p> </li> <li> <p>Return to step 1</p> </li> </ol>
+<p>It’s actually alarming how many friends and respected peers I’ve lost to this cycle already. Claude Code only got good maybe a few months ago, so this only recenlty started happening, so I assume they will emerge from the spiral eventually. I mean, I hope they will. We have no way of knowing.</p>
+<p><b>Why we review</b></p>
+<p>Anyway we know our symptom: the pipeline gets jammed up because of too much new code spewed into it at step 1. But what's the root cause of the clog? Why doesn’t the pipeline go faster?</p>
+<p>I said above that this isn’t an article about AI. Clearly I’m failing at that so far, but let’s bring it back to humans. It goes back to the annoyingly true observation I started with: every layer of review is 10x slower. As a society, we know this. Maybe you haven't seen it before now. But trust me: people who do org design for a living know that layers are expensive... and they still do it.</p>
+<p>As companies grow, they all end up with more and more layers of collaboration, review, and management. Why? Because otherwise mistakes get made, and mistakes are increasingly expensive at scale. The average value added by a new feature eventually becomes lower than the average value lost through the new bugs it causes. So, lacking a way to make features produce more value (wouldn't that be nice!), we try to at least reduce the damage.</p>
+<p>The more checks and controls we put in place, the slower we go, but the more monotonically the quality increases. And isn’t that the basis of <em>continuous improvement?</em></p>
+<p>Well, sort of. Monotonically increasing quality is on the right track. But “more checks and controls” went off the rails. That’s <em>only one way</em> to improve quality, and it's a fraught one.</p>
+<p><b>“Quality Assurance” reduces quality</b></p>
+<p>I wrote a few years ago about <a href="https://apenwarr.ca/log/20161226">W. E. Deming and the "new" philosophy around quality</a> that he popularized in Japanese auto manufacturing. (Eventually U.S. auto manufacturers more or less got the idea. So far the software industry hasn’t.)</p>
+<p>One of the effects he highlighted was the problem of a “QA” pass in a factory: build widgets, have an inspection/QA phase, reject widgets that fail QA. Of course, your inspectors probably miss some of the failures, so when in doubt, add a second QA phase after the first to catch the remaining ones, and so on.</p>
+<p>In a simplistic mathematical model this seems to make sense. (For example, if every QA pass catches 90% of defects, then after two QA passes you’ve reduced the number of defects by 100x. How awesome is that?)</p>
+<p>But in the reality of agentic humans, it’s not so simple. First of all, the incentives get weird. The second QA team basically serves to evaluate how well the first QA team is doing; if the first QA team keeps missing defects, fire them. Now, that second QA team has little incentive to produce that outcome for their friends. So maybe they don’t look too hard; after all, the first QA team missed the defect, it’s not unreasonable that we might miss it too.</p>
+<p>Furthermore, the first QA team knows there is a second QA team to catch any defects; if I don’t work too hard today, surely the second team will pick up the slack. That's why they're there!</p>
+<p>Also, the team making the widgets in the first place doesn’t check their work too carefully; that’s what the QA team is for! Why would I slow down the production of every widget by being careful, at a cost of say 20% more time, when there are only 10 defects in 100 and I can just eliminate them at the next step for only a 10% waste overhead? It only makes sense. Plus they'll fire me if I go 20% slower.</p>
+<p>To say nothing of a whole engineering redesign to improve quality, that would be super expensive and we could be designing all new widgets instead.</p>
+<p>Sound like any engineering departments you know?</p>
+<p>Well, this isn’t the right time to rehash Deming, but suffice it to say, he was on to something. And his techniques worked. You get things like the famous Toyota Production System where they eliminated the QA phase entirely, but gave everybody an “oh crap, stop the line, I found a defect!” button.</p>
+<p>Famously, US auto manufacturers tried to adopt the same system by installing the same “stop the line” buttons. Of course, nobody pushed those buttons. They were afraid of getting fired.</p>
+<p><b>Trust</b></p>
+<p>The basis of the Japanese system that worked, and the missing part of the American system that didn’t, is trust. Trust among individuals that your boss Really Truly Actually wants to know about every defect, and wants you to stop the line when you find one. Trust among managers that executives were serious about quality. Trust among executives that individuals, given a system that can work and has the right incentives, will produce quality work and spot their own defects, and push the stop button when they need to push it.</p>
+<p>But, one more thing: trust that the system <em>actually does work</em>. So first you need a system that will work.</p>
+<p><b>Fallibility</b></p>
+<p>AI coders are fallible; they write bad code, often. In this way, they are just like human programmers.</p>
+<p>Deming’s approach to manufacturing didn’t have any magic bullets. Alas, you can’t just follow his ten-step process and immediately get higher quality engineering. The secret is, you have to get your engineers to engineer higher quality into the whole system, from top to bottom, repeatedly. Continuously.</p>
+<p>Every time something goes wrong, you have to ask, “How did this happen?” and then do a whole post-mortem and the Five Whys (or however many Whys are in fashion nowadays) and fix the underlying Root Causes so that it doesn’t happen again. “The coder did it wrong” is never a root cause, only a symptom. Why was it possible for the coder to get it wrong?</p>
+<p>The job of a code reviewer isn't to review code. It's to figure out how to obsolete their code review comment, that whole class of comment, in all future cases, until you don't need their reviews at all anymore.</p>
+<p>(Think of the people who first created "go fmt" and how many stupid code review comments about whitespace are gone forever. Now that's engineering.)</p>
+<p>By the time your review catches a mistake, the mistake has already been made. The root cause happened already. You're too late.</p>
+<p><b>Modularity</b></p>
+<p>I wish I could tell you I had all the answers. Actually I don’t have much. If I did, I’d be first in line for the Singularity because it sounds kind of awesome.</p>
+<p>I think we’re going to be stuck with these systems pipeline problems for a long time. Review pipelines — layers of QA — don’t work. Instead, they make you slower while hiding root causes. Hiding causes makes them harder to fix.</p>
+<p>But, the call of AI coding is strong. That first, fast step in the pipeline is <em>so fast!</em> It really does feel like having super powers. I want more super powers. What are we going to do about it?</p>
+<p>Maybe we finally have a compelling enough excuse to fix the 20 years of problems hidden by code review culture, and replace it with a real culture of quality.</p>
+<p>I think the optimists have half of the right idea. Reducing review stages, even to an uncomfortable degree, is going to be needed. But you can’t just reduce review stages without something to replace them. That way lies the Ford Pinto or any recent Boeing aircraft.</p>
+<p>The complete package, the table flip, was what Deming brought to manufacturing. You can’t half-adopt a “total quality” system. You need to eliminate the reviews <em>and</em> obsolete them, in one step.</p>
+<p>How? You can fully adopt the new system, in small bites. What if some components of your system can be built the new way? Imagine an old-school U.S. auto manufacturer buying parts from Japanese suppliers; wow, these parts are so well made! Now I can start removing QA steps elsewhere because I can just assume the parts are going to work, and my job of "assemble a bigger widget from the parts" has a ton of its complexity removed.</p>
+<p>I like this view. I’ve always liked small beautiful things, that’s my own bias. But, you can assemble big beautiful things from small beautiful things.</p>
+<p>It’s a lot easier to build those individual beautiful things in small teams that trust each other, that know what quality looks like <em>to them</em>. They deliver their things to customer teams who can clearly explain what quality looks like <em>to them</em>. And on we go. Quality starts bottom-up, and spreads.</p>
+<p>I think small startups are going to do really well in this new world, probably better than ever. Startups already have fewer layers of review just because they have fewer people. Some startups will figure out how to produce high quality components quickly; others won't and will fail. Quality by natural selection?</p>
+<p>Bigger companies are gonna have a harder time, because their slow review systems are baked in, and deleting them would cause complete chaos.</p>
+<p>But, it’s not just about company size. I think engineering teams at any company can get smaller, and have better defined interfaces between them.</p>
+<p>Maybe you could have multiple teams inside a company competing to deliver the same component. Each one is just a few people and a few coding bots. Try it 100 ways and see who comes up with the best one. Again, quality by evolution. Code is cheap but good ideas are not. But now you can try out new ideas faster than ever.</p>
+<p>Maybe we’ll see a new optimal point on the <a href="https://tailscale.com/blog/modules-monoliths-and-microservices">monoliths-microservices continuum</a>. Microservices got a bad name because they were too micro; in the original terminology, a “micro” service was exactly the right size for a “two pizza team” to build and operate on their own. With AI, maybe it's one pizza and some tokens.</p>
+<p>What’s fun is you can also use this new, faster coding to experiment with different module <em>boundaries</em> faster. <em>Features</em> are still hard for lots of reasons, but refactoring and automated integration testing are things the AIs excel at. Try splitting out a module you were afraid to split out before. Maybe it'll add some lines of code. But suddenly lines of code are cheap, compared to the coordination overhead of a bigger team maintaining both parts.</p>
+<p>Every team has some monoliths that are a little too big, and too many layers of reviews. Maybe we won't get all the way to Singularity. But, we can engineer a much better world. Our problems are solvable.</p>
+<p>It just takes trust.</p>
+<p><b>Related</b></p>
+<p><a href="https://apenwarr.ca/log/20260316/20161226">Highlights on "quality," and Deming's work as it applies to software development</a> (2016)</p>
+<p><a href="https://apenwarr.ca/log/20260316/20251120">Systems design 3: LLMs and the semantic revolution</a> (2025)</p>
+<p><b>Unrelated</b></p>
+<p><a href="https://apenwarr.ca/log/20260316/20170928">SimSWE part 2: The perils of multitasking</a> (2017)</p></div>
+      
+    </article>
+    
+    <article>
+      <h1>Why Agents Are Soon Only Going to Have 1 Tool</h1>
+      <div class="article-meta">
+        Philipp Schmid
+        · 08 Nov 2026 · <a href="https://www.philschmid.de/code-mode">Source</a>
+      </div>
+      <div class="article-body"><p>For the past two years, building capable Agents meant designing tools, figuring out which actions help the model complete a task, deciding how granular each tool schema needs to be, or iterating on system instruction templates. This is changing. Agents are moving in the opposite direction by collapsing their entire tool catalog into <strong>one tool</strong>: <code>exec</code>.</p>
+<p>This is called <strong>Code Mode</strong> (or Programmatic Tool Calling). Instead of forcing the model to trigger tools one at a time across turns, the harness gives the model a single <code>exec(code)</code> tool. The model writes a short TypeScript or Python script that chains, combines, and awaits actions inside an isolated sandbox.</p>
+<figure class="article-figure"><img alt="Standard tool calling vs. Code Mode" src="https://www.philschmid.de/static/blog/code-mode/codemode-hero-comparison.png" class="article-image"/><figcaption>Standard tool calling vs. Code Mode</figcaption></figure>
+<p>To understand why agents are converging on a single <code>exec</code> tool, we should look at how tool calling evolved.</p>
+<p>Initially, we only gave agents a handful of tools because they couldn't reliably choose or filter across a large catalog. As models improved, we connected dozens of tools or MCP servers, but ran into context window limits. We solved that with tool search and <a href="https://www.philschmid.de/use-mcp-servers">progressive disclosure</a>, letting agents look up tools on demand.</p>
+<p>Even with dynamic tool loading, we still had dozens of individual tools, and were still stuck with the limitation of standard tool calling: <em>one</em> action per turn.</p>
+<p>In standard tool calling, the model generates a structured object (typically JSON) that defines a single action (or at best a flat batch of independent calls, like reading three files), waits for the raw output to come back, adds it into the prompt history, reasons again, and decides what to do next.</p>
+<p>From my own experience, we made a big jump recently in how reliably models can combine and chain dependent actions in a single pass:</p>
+<ul> <li><strong>Research and filtering:</strong> Instead of fetching a list of sources in Turn 1, reading them in Turn 2, and cross-referencing them in Turn 3, the model can write a script that queries the sources, filters out irrelevant hits, and extracts the exact answer in one step.</li> <li><strong>Multi-file edits and inline verification:</strong> Standard edit tools typically operate on one file per tool call. With Code Mode, the model can apply coordinated changes across multiple files, run a verification check, inspect the output, or branch on pass or fail inside the same script.</li> <li><strong>Browser and computer use:</strong> In UI automation, the chain of actions is often obvious: click a button, fill a form, wait for a selector, or paginate through a table in a loop. Instead of paying a full model round-trip for every click or keystroke, the model can script the entire sequence or loop in one turn and only return when the page state changes.</li> <li><strong>Parallel fan-out and sub-agents:</strong> When a task requires running 20 lookups or calling specialist sub-models in parallel and feeding those outputs into a second API, the model can <code>await Promise.all(...)</code>, transform the array, and call the next function without round-tripping through the LLM context window between steps.</li> </ul>
+<p>Several shifts came together to enable this. Frontier models are trained heavily on code, and providers have started post-training models for Code Mode. At the same time, MCP servers now increasingly ship <a href="https://modelcontextprotocol.io/specification/draft/server/tools#output-schema"><code>outputSchema</code></a> alongside <code>inputSchema</code>, giving the model upfront knowledge of return types so it can chain Tool A into Tool B inside the same script <em>before</em> seeing runtime output.</p>
+<p>Code Mode collapses the tool catalog into a single tool on the model surface: <code>exec(code)</code>.</p>
+<p>Instead of passing 80 separate JSON Schema tool objects to the model API, the agent compiles those schemas into compact type declarations (<code>declare namespace tools { ... }</code>). When the model needs to combine actions across external systems, it calls <code>exec</code> and writes a script that invokes <code>await tools.&lt;server&gt;.&lt;tool&gt;(args)</code>.</p>
+<figure data-rehype-pretty-code-figure="" class="article-figure"><pre data-language="typescript" data-theme="houston houston"><code data-language="typescript" data-theme="houston houston">// Pseudo-code: TypeScript declarations exposed to the model
+declare namespace tools {
+  namespace linear {
+    function listProjects(): Promise&lt;Array&lt;{ id: string; name: string }&gt;&gt;;
+    function listIssues(args: { projectId: string }): Promise&lt;Array&lt;{ id: string; title: string; assignee?: string }&gt;&gt;;
+    function archiveIssue(args: { id: string }): Promise&lt;{ ok: boolean }&gt;;
+  }
+}
+ 
+// Optional: when wrapping hundreds of tools, omit full namespaces upfront and expose
+// a global map in the sandbox that the model can iterate and filter over in code
+declare const ALL_TOOLS: Record&lt;string, { description: string; signature: string }&gt;;
+ 
+// Multimodal output helpers: only what is passed here enters the model context window
+declare function text(output: string): void;
+declare function image(data: string | Uint8Array, mimeType?: string): void;
+declare function audio(data: string | Uint8Array, mimeType?: string): void;
+ 
+// Cross-turn state helpers: persist data in host memory without paying token costs
+declare function store(key: string, value: unknown): void;
+declare function load&lt;T = unknown&gt;(key: string): T;</code></pre></figure>
+<p>To save context across a large catalog, we don't have to expose every tool directly. We can leverage principles we already built, like tool search, or expose a global <code>ALL_TOOLS</code> map inside the sandbox. Similarly, multimodal output helpers (<code>text()</code>, <code>image()</code>, <code>audio()</code>) let the script pass text, images, or audio directly back into the model's context window.</p>
+<figure data-rehype-pretty-code-figure="" class="article-figure"><pre data-language="typescript" data-theme="houston houston"><code data-language="typescript" data-theme="houston houston">// Pseudo-code: What the model emits inside a single exec() call
+const projects = await tools.linear.listProjects();
+const issueBatches = await Promise.all(
+  projects.map((p) =&gt; tools.linear.listIssues({ projectId: p.id }))
+);
+ 
+const unassigned = issueBatches.flat().filter((issue) =&gt; !issue.assignee);
+await Promise.all(unassigned.map((issue) =&gt; tools.linear.archiveIssue({ id: issue.id })));
+ 
+text(`Archived ${unassigned.length} unassigned issues across ${projects.length} projects.`);</code></pre></figure>
+<p><em>The sandbox executes all 55 underlying API calls, filters the payloads in memory, and returns only the one-line <code>text()</code> string (<code>"Archived 42 unassigned issues across 12 projects."</code>) to the model's context window.</em></p>
+<figure class="article-figure"><img alt="How the 1-tool architecture works" src="https://www.philschmid.de/static/blog/code-mode/codemode-proxy-arch.png" class="article-image"/><figcaption>How the 1-tool architecture works</figcaption></figure>
+<p>You can build a tool proxy in <a href="https://www.philschmid.de/superhuman-bash"><code>bash</code></a> too, but orchestrating tools inside a language runtime like JavaScript or Python can bring benefits that are harder to achieve in <code>bash</code> environments.</p>
+<ul> <li><strong>Typed functions:</strong> MCP servers and internal APIs map directly to typed <code>await tools.&lt;service&gt;.&lt;method&gt;(args)</code> calls with native objects, <code>Promise.all</code>, and <code>try</code>/<code>catch</code> error handling instead of fragile bash string escaping.</li> <li><strong>Multimodal context:</strong> A shell only returns stdout text. If a multimodal model wants to inspect an image, it cannot run <code>cat screenshot.png</code>, which is why <code>bash</code> harnesses still had to bolt on separate <code>read</code> or <code>view_media</code> tools. In an <code>exec</code> sandbox, calling <code>image(screenshot)</code> or <code>audio(clip)</code> tells the host runtime to attach the actual media part directly to the model's next turn.</li> <li><strong>Credential and policy proxy:</strong> Every <code>await tools.*</code> call crosses a structured bridge to the host runtime, which can inject OAuth tokens outside the sandbox, validate schemas, or pause for user confirmation on destructive calls.</li> <li><strong>State management:</strong> In standard tool calling, the prompt history is the only state store, so reusing a large query result in Turn 2 means keeping the raw JSON in the context window on every turn. Exposing a KV interface lets the agent persist state outside of the context window across turns.</li> </ul>
+<p>Here is a minimal, runnable pseudo example that provides <code>gemini-4-argon</code> with a single execution tool.</p>
+<figure data-rehype-pretty-code-figure="" class="article-figure"><pre data-language="typescript" data-theme="houston houston"><code data-language="typescript" data-theme="houston houston">import vm from "node:vm";
+import { GoogleGenAI } from "@google/genai";
+ 
+const client = new GoogleGenAI({});
+ 
+// Underlying host functions (e.g., MCP clients or internal APIs)
+const tools = {
+  listPRFiles: async ({ pr }: { pr: number }) =&gt; [
+    { path: "src/auth.ts", additions: 120 },
+    { path: "src/payments.ts", additions: 85 },
+    { path: "src/utils.ts", additions: 12 },
+    { path: "README.md", additions: 60 },
+  ],
+  runSecurityScan: async ({ path }: { path: string }) =&gt; ({
+    findings: path.includes("auth") ? ["Missing token expiry check"] : [],
+  }),
+  postPRComment: async ({ pr, body }: { pr: number; body: string }) =&gt; ({ posted: true }),
+};
+ 
+// 1. Expose a single `exec` tool with TypeScript .d.ts signatures
+const execTool = {
+  type: "function" as const,
+  name: "exec",
+  description: `Run an async JavaScript body in an isolated sandbox (no imports; call text() to output).
+Available globals:
+declare namespace tools {
+  function listPRFiles(args: { pr: number }): Promise&lt;Array&lt;{ path: string; additions: number }&gt;&gt;;
+  function runSecurityScan(args: { path: string }): Promise&lt;{ findings: string[] }&gt;;
+  function postPRComment(args: { pr: number; body: string }): Promise&lt;{ posted: boolean }&gt;;
+}
+declare function text(summary: string): void;`,
+  parameters: {
+    type: "object",
+    properties: { code: { type: "string" } },
+    required: ["code"],
+  },
+};
+ 
+// 2. Turn 1: Gemini 4 Argon emits a single script to fetch, filter, scan, and comment
+const turn1 = await client.interactions.create({
+  model: "gemini-4-argon",
+  input: "Scan all modified .ts files with &gt;50 additions in PR #42, post a PR comment with any findings, and output a 1-line summary.",
+  tools: [execTool],
+});
+ 
+// 3. Run the script in a separate context (use QuickJS or isolated-vm for untrusted code)
+const fcStep = turn1.steps?.find((s: any) =&gt; s.type === "function_call") as any;
+const output: string[] = [];
+await vm.runInNewContext(`(async () =&gt; {\n${fcStep.arguments.code}\n})()`, {
+  tools,
+  text: (msg: string) =&gt; output.push(msg),
+});
+ 
+// 4. Turn 2: Send only the 1-line summary back via previous_interaction_id
+const turn2 = await client.interactions.create({
+  model: "gemini-4-argon",
+  previous_interaction_id: turn1.id,
+  tools: [execTool],
+  input: [
+    {
+      type: "function_result",
+      name: fcStep.name,
+      call_id: fcStep.id,
+      result: [{ type: "text", text: output.join("\n") }],
+    },
+  ],
+});
+ 
+console.log(turn2.output_text);</code></pre></figure>
+<p>When <code>vm.runInNewContext</code> executes the script generated by <code>gemini-4-argon</code>:</p>
+<ol> <li>The script calls <code>await tools.listPRFiles({ pr: 42 })</code> and filters the list in memory down to the <code>.ts</code> files with more than 50 additions (<code>files.filter(f =&gt; f.path.endsWith(".ts") &amp;&amp; f.additions &gt; 50)</code>).</li> <li>It runs <code>tools.runSecurityScan</code> on just those matching files, checks whether any findings exist, posts the PR comment via <code>tools.postPRComment</code>, and emits a single line via <code>text()</code>.</li> <li>None of the intermediate file objects or raw scanner payloads ever enter the <code>gemini-4-argon</code> context window; only the one-line <code>output</code> summary is sent back in Turn 2.</li> </ol>
+<p>Across the ecosystem, coding agents and developer frameworks are converging on Code Mode as their default way to orchestrate tools.</p>
+<p>Harnesses like <a href="https://pi.dev">Pi</a>, <a href="https://factory.ai">Factory Droid</a>, and <a href="https://github.com/openai/codex">OpenAI Codex</a> now ship with or default to Code Mode. Factory switched Droid 1.0 to Code Mode, improving their <a href="https://www.tbench.ai">Terminal-Bench</a> 4 accuracy by +3.5 points and cutting model spend by 15%.</p>
+<p>Agent frameworks like <a href="https://ai.pydantic.dev">Pydantic AI</a>, <a href="https://www.langchain.com">LangChain</a>, or <a href="https://blog.cloudflare.com/code-mode/">Cloudflare's Agents SDK</a> support similar Code Mode tools already.</p>
+<p>Does this mean every agent will soon only have a single <code>exec</code> tool? Not necessarily. This is as much a research and product question as an <a href="https://www.philschmid.de/agent-harness-2026">agent harness engineering</a> one.</p>
+<p>When you start experimenting with Code Mode, you will also quickly notice that many of the tools, CLIs, and <a href="https://www.philschmid.de/agent-skills-tips">Agent Skills</a> we built might not integrate cleanly out of the box because they were optimized for <code>bash</code> and human-readable text rather than typed code execution.</p>
+<p>This might force you to take a step back and audit what your agent actually needs. Happy building!</p></div>
+      
+    </article>
+    
+    <article>
+      <h1>What requirements don&#39;t you have?</h1>
+      <div class="article-meta">
+        seangoedecke.com RSS feed
+        · 19 Oct 2026 · <a href="https://seangoedecke.com/what-requirements-dont-you-have/">Source</a>
+      </div>
+      <div class="article-body"><div><section><p>When designing software, the requirements you don’t have are as important as the requirements you do. Identifying what you can compromise on — what can be slow, or stale, or inflexible — is usually the key to an elegant design.</p>
+<h3>Elegant systems drop some requirements<a aria-label="elegant systems drop some requirements permalink" href="#elegant-systems-drop-some-requirements"><p class="media-omitted">[SVG OMITTED]</p></a></h3>
+<p>For instance, take preforking web servers like <a href="https://github.com/defunkt/unicorn/">Unicorn</a>. Because they lack the feature of shared mutable state between server instances, they can run each server in its own process, which provides isolation for free. Because Unicorn specifically ignores the problem of slow client handling<sup></sup>, it can queue requests directly on Unix sockets, drastically simplifying the implementation.</p>
+<p>Because <a href="https://aws.amazon.com/s3">S3</a> does not support atomic multi-key updates — you cannot update multiple blobs in a single transaction — it can store data at the blob level however it chooses. That makes it much faster, since reads and writes don’t have to cross storage partitions, and much easier to scale, since less coordination means fewer sources of truth.</p>
+<p><a href="https://github.com/statsd/statsd">StatsD</a> uses UDP by default, which means it doesn’t guarantee that every piece of data you send makes it into storage. In exchange for dropping that requirement, it incurs much less network overhead, which is a big advantage for a stats aggregation service that’s constantly shoveling data over the wire.</p>
+<p>The general design approach of fanning out data to an edge cache buys a lot of speed and scaling by dropping the requirement that data must always be up-to-date. <a href="https://www.sqlite.org/">SQLite</a> buys operational simplicity — it can run out of a single file! — by dropping the requirement of concurrent writes. By accepting <a href="https://cursor.com/blog/git-at-any-scale">high tail latency</a><sup></sup>, Cursor can scale their distributed git backend more easily. Well-designed systems turn their weaknesses into strengths.</p>
+<h3>Why dropping requirements is hard<a aria-label="why dropping requirements is hard permalink" href="#why-dropping-requirements-is-hard"><p class="media-omitted">[SVG OMITTED]</p></a></h3>
+<p>Anyone who’s spent time designing real-world software (or who’s studied <a href="https://en.wikipedia.org/wiki/CAP_theorem">distributed systems</a>) knows that system design is a process of compromise. If you attempt to satisfy every single potential requirement — speed, concurrency, up-to-date data, a simple interface, supporting complex user behaviors — you will fail to design a working system at all.</p>
+<p>Figuring out what requirements you can relax is difficult because <strong>it combines both business and technical expertise</strong>. It is technically challenging to identify precisely the level of staleness that a particular design change will allow; it is likewise challenging from a business perspective to determine whether that level of staleness is acceptable to users.</p>
+<p>In most cases, an engineer who understands the technical side must try and explain it to a product manager, who can make a judgement on the business side. But this is a very difficult partnership to get right. Engineers and PMs have different incentives and little ability to check each other’s work, which makes it hard to <a href="https://seangoedecke.com/working-with-product-managers/#why-its-so-hard-to-build-trust">build trust</a>. Without trust, the product manager is liable to avoid giving any ground at all<sup></sup>, which leaves the design in an impossible state.</p>
+<p>This is an underappreciated reason why solo developers or startups can sometimes run rings around larger companies. Because the technical and business decisions are united in a single person, they can make design tradeoffs that would be impossible for a large company, enabling them to build systems that are far more elegant and powerful.</p>
+<h3>Working with LLMs<a aria-label="working with llms permalink" href="#working-with-llms"><p class="media-omitted">[SVG OMITTED]</p></a></h3>
+<p>Knowing what requirements you don’t have becomes far more important when working with coding agents. Frontier models are very capable, but they have all gone through the purifying flames of <a href="https://rlvrbook.com/">RLVR</a>: like high-achieving schoolchildren, they are obsessed with satisfying the Grader. On top of that, they have very little business context compared to an experienced human. That often manifests as them catching correctness or consistency “bugs” that are really just hypothetical unsatisfied requirements.</p>
+<p>For instance, it’s not uncommon for an LLM to casually introduce a mutex or other concurrency mechanism to ensure that two pieces of semi-related data are kept in sync, even if not told to do so. I’ve seen LLMs add weird checks in the middle of request handling to ensure that some already-checked piece of data hasn’t changed mid-flight, even if that wouldn’t successfully prevent the feared <a href="https://en.wikipedia.org/wiki/Time-of-check_to_time-of-use">TOCTOU</a> bug<sup></sup>. LLMs are obsessed with edge cases like “what if the current user loses their admin status in the middle of us handling one of their admin requests?”<sup></sup>, or “what if the cache in storage partition A is updated a nanosecond before the one in storage partition B, leading some users to see different data?“. Particularly if run in a loop or told to “make no mistakes”, they will pile on cases like these until they’ve transformed your four-line change into a thousand-line monster.</p>
+<p>This is why I’m confused by some people’s claims that <a href="https://newsletter.pragmaticengineer.com/p/what-is-happening-with-code-reviews">code review is dead</a>. About half the time I review a large AI-generated change, I notice some unnecessary requirement that makes the diff more complex. When I dig deeper, the LLM invariably introduced this requirement on its own.</p>
+<p>When working with a cache, I will often spell out in my prompt that I don’t mind the data sometimes being stale or briefly inconsistent between cache instances. When reviewing Golang code, the first thing I do is scan for added mutexes or layers of indirection that don’t look necessary to me.</p>
+<p>If you allow requirements like these to propagate unchecked through a codebase, they will petrify the system over time. The whole thing will be such a mess of checking and re-checking and holding locks and enforcing consistency that it cannot be scaled at all. Keeping systems elegant requires a ruthless focus: on accepting stale data or occasional tail latency, on avoiding all but critical instances of coordination, and in general on figuring out what requirements you <em>don’t</em> have to satisfy.</p></section></div></div>
+      
+    </article>
+    
+  </body>
+</html>
