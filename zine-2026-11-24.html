@@ -1,0 +1,740 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Fred Talks - 2026-11-24</title>
+    <style>
+      @page {
+        size: A5;
+        margin: 8mm 9mm 9mm;
+      }
+
+      :root {
+        color: #111;
+        font-family: "Times New Roman", Times, serif;
+        --body-text-size: 9.5pt;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        color: #111;
+        background: #fff;
+        font-family: "Times New Roman", Times, serif;
+        line-height: 1.45;
+      }
+
+      a,
+      a:visited {
+        color: #111;
+        text-decoration: underline;
+      }
+
+      .cover {
+        min-height: calc(210mm - 17mm);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        page-break-after: always;
+        border: 1px solid #111;
+        padding: 8mm;
+        background: #fff;
+      }
+
+      .toc-item-meta,
+      .article-meta {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .masthead {
+        margin: 0;
+        font-size: 40pt;
+        line-height: 0.95;
+        text-transform: uppercase;
+      }
+
+      .issue-date {
+        margin: 4mm 0 0;
+        font-size: 14pt;
+      }
+
+      .issue-date sup {
+        font-size: 0.58em;
+        vertical-align: super;
+        line-height: 0;
+      }
+
+      .cover-deck {
+        max-width: 90mm;
+        font-size: 12pt;
+        margin: 0;
+      }
+
+      .toc {
+        border-top: 3px solid #111;
+        padding-top: 6mm;
+      }
+
+      .toc h2 {
+        margin: 0 0 4mm;
+        font-size: 11pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .toc-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .toc-item {
+        padding: 3mm 0;
+        border-bottom: 1px solid rgba(17, 17, 17, 0.2);
+      }
+
+      .toc-item-title {
+        font-size: 12pt;
+        margin: 0 0 1mm;
+      }
+
+      .toc-item-meta {
+        font-size: 8pt;
+      }
+
+      .masthead-compact {
+        margin: 0 0 6mm;
+      }
+
+      .masthead-compact h1 {
+        margin: 0;
+        font-size: 22pt;
+        line-height: 1.1;
+        text-transform: uppercase;
+      }
+
+      .masthead-compact .issue-date {
+        margin: 2mm 0 0;
+        font-size: 11pt;
+      }
+
+      .toc-compact {
+        border-top: 1px solid #111;
+        border-bottom: 1px solid #111;
+        padding: 4mm 0;
+        margin: 0 0 8mm;
+      }
+
+      article + article {
+        margin-top: 10mm;
+        padding-top: 6mm;
+        border-top: 2px solid #111;
+      }
+
+      h1 {
+        margin: 0 0 2mm;
+        font-size: 18pt;
+        line-height: 1.1;
+      }
+
+      .article-meta {
+        font-size: 8.5pt;
+        margin-bottom: 6mm;
+        padding-bottom: 3mm;
+        border-bottom: 1px solid #111;
+      }
+
+      .article-body {
+        font-size: var(--body-text-size);
+        font-family: "Times New Roman", Times, serif;
+      }
+
+      .article-body p,
+      .article-body li,
+      .article-body blockquote,
+      .article-body dd,
+      .article-body dt {
+        margin: 0 0 4mm;
+        orphans: 3;
+        widows: 3;
+      }
+
+      .article-body ul,
+      .article-body ol,
+      .article-body dl {
+        margin: 0 0 4mm 5mm;
+        padding: 0;
+      }
+
+      .article-body h2,
+      .article-body h3,
+      .article-body h4 {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        margin: 7mm 0 3mm;
+        line-height: 1.2;
+      }
+
+      .article-body blockquote {
+        margin-left: 6mm;
+        padding-left: 4mm;
+        border-left: 2px solid #111;
+      }
+
+      .article-body .media-omitted {
+        margin: 0 0 4mm;
+        font-size: 8.5pt;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(17, 17, 17, 0.65);
+      }
+
+      .article-body figure,
+      .article-body .article-figure,
+      .article-body picture,
+      .article-body .article-picture {
+        display: block;
+        max-width: 72mm;
+        margin: 0 auto 4mm;
+        break-inside: avoid;
+      }
+
+      .article-body img,
+      .article-body .article-image {
+        display: block;
+        max-width: min(100%, 72mm);
+        max-height: 34mm;
+        height: auto;
+        width: auto;
+        object-fit: contain;
+        margin: 0 auto 3mm;
+      }
+
+      .article-body figcaption {
+        margin-top: 1.5mm;
+        font-size: 8.5pt;
+        line-height: 1.3;
+        color: rgba(17, 17, 17, 0.8);
+      }
+
+      .article-note {
+        margin-top: 6mm;
+        padding-top: 3mm;
+        border-top: 1px solid #111;
+        font-size: 9pt;
+        font-style: italic;
+      }
+
+      @media screen {
+        body {
+          padding: 2rem;
+          margin: 0 auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    
+    <header class="masthead-compact">
+      <h1>Fred Talks</h1>
+      <p class="issue-date">
+        24<sup>th</sup> November 2026
+      </p>
+    </header>
+
+    <nav class="toc toc-compact">
+      <h2>Contents</h2>
+      <ol class="toc-list">
+        
+        <li class="toc-item">
+          <div class="toc-item-title">What is Codemode</div>
+          <div class="toc-item-meta">
+            Armin Ronacher · 2870 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Building always-on agents</div>
+          <div class="toc-item-meta">
+            William Hu · 2215 words
+          </div>
+        </li>
+        
+        <li class="toc-item">
+          <div class="toc-item-title">Control the ideas, not the code</div>
+          <div class="toc-item-meta">
+            antirez.com · 1245 words
+          </div>
+        </li>
+        
+      </ol>
+    </nav>
+    
+
+    
+    <article>
+      <h1>What is Codemode</h1>
+      <div class="article-meta">
+        Armin Ronacher
+        · 06 Oct 2026 · <a href="https://lucumr.pocoo.org/2026/10/6/codemode/">Source</a>
+      </div>
+      <div class="article-body"><div><p>More than a year ago I wrote a few posts here that recommended people not to
+load custom tools into their context (or
+<a href="https://en.wikipedia.org/wiki/Model_Context_Protocol">MCP</a> servers) but to just
+use more scripts.  Most importantly I wrote that <a href="/2025/7/3/tools/">Code Is All You
+Need</a> and I wrote about that <a href="/2025/8/18/code-mcps/">MCP needs
+code</a>.  With Pi 1.0 we now added MCP support via Codemode
+which in some ways is a long time coming, but then also maybe somewhat
+surprising to some.  So I want to share some updated thoughts on this blog on
+what this all means.</p>
+<h2>What Are Tools</h2>
+<p>When a harness like Pi provides tools for an LLM to call, it does so by
+supplying some tool definitions which then translate into some token structure
+on the server side.  Whether a model is encouraged to call a tool is the result
+of the reinforcement learning process.  Something <a href="/2026/7/4/better-models-worse-tools/">I wrote about
+before</a> if you want to learn more.</p>
+<p>One of the reasons we strongly lean towards CLI and bash is because it allows
+easy composition of calls, and because the model also learns how the file system
+works when it’s trained.  So when it invokes a tool like <code>echo foo &gt; /tmp/test.txt</code> the model also learns that after that tool call, there is now a
+file called <code>test.txt</code> in <code>/tmp</code>.</p>
+<p>However bash has one fundamental limitation which is that it can only compose
+programs that run.  And there are some things, which are not programs, but
+native tools to the LLM and they sort of have to be.</p>
+<p>The most obvious example here is <code>read</code> or <code>view_image</code>. If a multimodal model
+needs to read an image, it cannot use <code>cat</code> for that because the harness needs
+to inject the actual image payload into the protocol of the LLM.</p>
+<p>Another quite vivid example are sub agents.  In order to spawn and orchestrate
+sub agents, it’s tricky to avoid tools that are provided by the harness.  While
+in theory the agent could provide a CLI tool that talks to the outer harness
+via environment variables and Unix sockets, it’s a rather crude process.  It
+however has another issue, and that is where the code runs.</p>
+<h2>Brains vs Hands</h2>
+<p>To better understand that, it’s important to think a bit more about where all the
+bits and pieces run.  There really usually are two different systems involved.
+The first is the brain, the harness: it runs on one machine. It’s trusted.  The
+second is <em>often</em> the same machine, but it’s really where the tools are
+executing: the hands.  In Pi we now call this the execution environment, but you
+can think of it as the target of all the operations.</p>
+<p>Crucially what is important for us, is that there is a dividing line between the
+harness brain and the target environment that runs bash and executes the tools.</p>
+<p>And splitting this in half has some really important consequences.  For a start
+it means that they are running on different file systems and they have different
+levels of trust.  If you for instance use a sandboxing solution <a href="https://earendil-works.github.io/gondolin/">like
+Gondolin</a> your bash stuff will be
+sandboxed just fine, but the harness itself will not be.</p>
+<h2>Orchestrating The Harness</h2>
+<p>Which brings us to what Codemode really does: it’s a way for the LLM to express
+and orchestrate complex operations on the harness side, but not the execution
+environment side. Codemode runs in the harness, in its own sandbox.  In case of
+Pi it’s running in QuickJS within a WASM runtime with intentional limitations:
+no network, no file system, no timers, limited RAM.  The only way is to call
+more tools.  You could also imagine that Codemode could run Scheme or some other
+language as well.</p>
+<p>If you are not familiar with Codemode, it’s basically just a way to issue
+tool calls from within some language, in our case JavaScript.  That allows you
+to compose those calls without necessarily going through the LLM’s context.
+Credit for naming goes to our friends at Cloudflare <a href="https://blog.cloudflare.com/code-mode/">who coined
+it</a>.</p>
+<p>For instance if you issue a bash call as a regular tool call in the LLM, then
+we only throw the trailing 2000 lines into the context and if the agent wants
+more, it needs to look at the overflow file itself.  If however the agent issues
+that invocation via Codemode, then the Codemode side gets larger outputs
+sent structurally.</p>
+<p>Most importantly, because Codemode is JavaScript the agent can express
+concurrent operations and basic workflows.  A common way in which you see agents
+now use this, is to first probe at 5-10 items from some tool response to see
+what it looks like, and to then write a Codemode script that processes the next
+n items.</p>
+<p>Codemode also allows you to throw state into the transcript!  That means that
+one Codemode invocation can stash away data, that the next call in the session
+can load again.  And remember: this is on the harness host, not the sandbox.</p>
+<p>In case of Pi, Codemode also allows you to issue calls that naturally do not
+make any sense in Pi’s traditional interface.  For instance if you want to
+generate images with an image model or you want to classify some text with a
+one shot classifier model, those Pi APIs are exposed via Codemode, but not via
+regular tools where they would just waste context.</p>
+<h2>What It Looks Like</h2>
+<p>So now that we talked a bunch about it, it’s probably worth being a bit more
+explicit about it.  Let’s walk ourselves through some invocations of Codemode
+of recent Pi sessions of mine.  Note that none of this code is human written.
+It’s from real sessions of Pi, just re-indented for your viewing pleasure.  The
+agent starts using Codemode automatically either because it’s a task where the
+model already naturally picks up that tool, or because a user asked it to.</p>
+<p>Note that Codemode is by default only enabled in Pi when MCP is enabled, but you
+can turn it on with <code>"defaultTools": ["+codemode"]</code> in the settings.  Just ask
+Pi to enable it for you.</p>
+<h3>Generating Images</h3>
+<p>Let’s start simple with image generation.  Image generation is a feature that Pi
+supports in the AI SDK core, but it’s not a tool that the agent can use.  In the
+past the only way to use image models has been to write a bespoke extension or
+to have the agent run node itself and use the internal image APIs.  However
+because we expose quite a few of the internal model APIs within Codemode, it
+means that the agent can use it:</p>
+<div class="highlight"><pre><span></span><span class="kd">const</span><span class="w"> </span><span class="p">[</span><span class="nx">painter</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">models</span><span class="p">.</span><span class="nx">getAvailableOfType</span><span class="p">(</span><span class="s2">"image"</span><span class="p">);</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">models</span><span class="p">.</span><span class="nx">generateImages</span><span class="p">(</span><span class="nx">painter</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">input</span><span class="o">:</span><span class="w"> </span><span class="p">[{</span><span class="w"> </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s2">"text"</span><span class="p">,</span><span class="w"> </span><span class="nx">text</span><span class="o">:</span><span class="w"> </span><span class="s2">"A cute little puppy sitting on a grassy "</span><span class="w"> </span><span class="o">+</span>
+<span class="w">    </span><span class="s2">"lawn, soft natural light, photorealistic"</span><span class="w"> </span><span class="p">}],</span>
+<span class="p">});</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">stopReason</span><span class="w"> </span><span class="o">!==</span><span class="w"> </span><span class="s2">"stop"</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nx">result</span><span class="p">.</span><span class="nx">errorMessage</span><span class="p">;</span>
+
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">const</span><span class="w"> </span><span class="nx">block</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nx">result</span><span class="p">.</span><span class="nx">output</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">block</span><span class="p">.</span><span class="nx">type</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s2">"image"</span><span class="p">)</span><span class="w"> </span><span class="nx">image</span><span class="p">(</span><span class="nx">block</span><span class="p">);</span>
+<span class="w">  </span><span class="k">else</span><span class="w"> </span><span class="nx">text</span><span class="p">(</span><span class="nx">block</span><span class="p">.</span><span class="nx">text</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+<p>Note that the call to <code>image()</code> sends the image back as image content to the
+LLM.  On the harness side it feeds it directly into both the agent, as well as
+onto disk as a temporary artifact in case the agent wants to be able to pass
+that image back to bash.</p>
+<h3>Classifying Things</h3>
+<p>Similar things apply to classifier models such as <a href="https://typesafe.ai/">Jev</a>.
+They also do not fit well into the workflows of an agent through the typical
+tools.  But rather than making a bespoke tool available, Codemode just allows
+the agent to reach into the AI SDK and invoke those directly.  Here you can see
+how Jev is used to mass process GitHub issues for a quick sentiment analysis:</p>
+<div class="highlight"><pre><span></span><span class="kd">const</span><span class="w"> </span><span class="nx">jev</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">models</span><span class="p">.</span><span class="nx">getModelOfType</span><span class="p">(</span><span class="s2">"classifier"</span><span class="p">,</span><span class="w"> </span><span class="s2">"typesafe"</span><span class="p">,</span><span class="w"> </span><span class="s2">"jev-latest"</span><span class="p">);</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">tools</span><span class="p">.</span><span class="nx">bash</span><span class="p">({</span>
+<span class="w">  </span><span class="nx">command</span><span class="o">:</span><span class="w"> </span><span class="s2">"gh issue list --state open --limit 100 "</span><span class="w"> </span><span class="o">+</span>
+<span class="w">    </span><span class="s2">"--json number,title,body,comments"</span><span class="p">,</span>
+<span class="p">});</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">issues</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">r</span><span class="p">.</span><span class="nx">output</span><span class="p">);</span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">results</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nb">Promise</span><span class="p">.</span><span class="nx">all</span><span class="p">(</span><span class="nx">issues</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="k">async</span><span class="w"> </span><span class="p">(</span><span class="nx">issue</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">models</span><span class="p">.</span><span class="nx">classify</span><span class="p">(</span><span class="nx">jev</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">state</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">title</span><span class="o">:</span><span class="w"> </span><span class="nx">issue</span><span class="p">.</span><span class="nx">title</span><span class="p">,</span>
+<span class="w">      </span><span class="nx">body</span><span class="o">:</span><span class="w"> </span><span class="p">(</span><span class="nx">issue</span><span class="p">.</span><span class="nx">body</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="s2">""</span><span class="p">).</span><span class="nx">slice</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">4000</span><span class="p">),</span>
+<span class="w">      </span><span class="nx">comments</span><span class="o">:</span><span class="w"> </span><span class="nx">issue</span><span class="p">.</span><span class="nx">comments</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="o">-</span><span class="mf">5</span><span class="p">).</span><span class="nx">map</span><span class="p">(</span><span class="nx">c</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">c</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">800</span><span class="p">)),</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nx">questions</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">sentiment</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s2">"choice"</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">instructions</span><span class="o">:</span><span class="w"> </span><span class="s2">"What is the overall sentiment of the author towards pi?"</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">criteria</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nx">positive</span><span class="o">:</span><span class="w"> </span><span class="s2">"Appreciative, happy, constructive praise"</span><span class="p">,</span>
+<span class="w">          </span><span class="nx">neutral</span><span class="o">:</span><span class="w"> </span><span class="s2">"Matter-of-fact report or request without emotion"</span><span class="p">,</span>
+<span class="w">          </span><span class="nx">negative</span><span class="o">:</span><span class="w"> </span><span class="s2">"Frustrated, annoyed, upset, or angry"</span><span class="p">,</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="nx">frustration</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s2">"score"</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">instructions</span><span class="o">:</span><span class="w"> </span><span class="s2">"How frustrated is the reporter?"</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">criteria</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"not at all"</span><span class="p">,</span><span class="w"> </span><span class="s2">"mildly"</span><span class="p">,</span><span class="w"> </span><span class="s2">"clearly frustrated"</span><span class="p">,</span><span class="w"> </span><span class="s2">"very angry"</span><span class="p">],</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="nx">kind</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s2">"choice"</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">instructions</span><span class="o">:</span><span class="w"> </span><span class="s2">"What kind of issue is this?"</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">criteria</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nx">bug</span><span class="o">:</span><span class="w"> </span><span class="s2">"Bug report or regression"</span><span class="p">,</span>
+<span class="w">          </span><span class="nx">feature</span><span class="o">:</span><span class="w"> </span><span class="s2">"Feature request or enhancement"</span><span class="p">,</span>
+<span class="w">          </span><span class="nx">question</span><span class="o">:</span><span class="w"> </span><span class="s2">"Question or support request"</span><span class="p">,</span>
+<span class="w">          </span><span class="nx">other</span><span class="o">:</span><span class="w"> </span><span class="s2">"Docs, discussion, meta, spam"</span><span class="p">,</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">  </span><span class="p">});</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">res</span><span class="p">.</span><span class="nx">stopReason</span><span class="w"> </span><span class="o">!==</span><span class="w"> </span><span class="s2">"stop"</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">n</span><span class="o">:</span><span class="w"> </span><span class="nx">issue</span><span class="p">.</span><span class="nx">number</span><span class="p">,</span><span class="w"> </span><span class="nx">title</span><span class="o">:</span><span class="w"> </span><span class="nx">issue</span><span class="p">.</span><span class="nx">title</span><span class="p">,</span><span class="w"> </span><span class="nx">error</span><span class="o">:</span><span class="w"> </span><span class="nx">res</span><span class="p">.</span><span class="nx">errorMessage</span><span class="w"> </span><span class="p">};</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">n</span><span class="o">:</span><span class="w"> </span><span class="nx">issue</span><span class="p">.</span><span class="nx">number</span><span class="p">,</span><span class="w"> </span><span class="nx">title</span><span class="o">:</span><span class="w"> </span><span class="nx">issue</span><span class="p">.</span><span class="nx">title</span><span class="p">,</span><span class="w"> </span><span class="p">...</span><span class="nx">res</span><span class="p">.</span><span class="nx">answers</span><span class="w"> </span><span class="p">};</span>
+<span class="p">}));</span>
+
+<span class="nx">store</span><span class="p">(</span><span class="s2">"sentiment_results"</span><span class="p">,</span><span class="w"> </span><span class="nx">results</span><span class="p">);</span>
+<span class="k">return</span><span class="w"> </span><span class="nx">results</span>
+<span class="w">  </span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">r</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="o">!</span><span class="nx">r</span><span class="p">.</span><span class="nx">error</span><span class="p">)</span>
+<span class="w">  </span><span class="p">.</span><span class="nx">sort</span><span class="p">((</span><span class="nx">a</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">b</span><span class="p">.</span><span class="nx">frustration</span><span class="p">.</span><span class="nx">score</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">a</span><span class="p">.</span><span class="nx">frustration</span><span class="p">.</span><span class="nx">score</span><span class="p">)</span>
+<span class="w">  </span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">12</span><span class="p">)</span>
+<span class="w">  </span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">r</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="sb">`#</span><span class="si">${</span><span class="nx">r</span><span class="p">.</span><span class="nx">n</span><span class="si">}</span><span class="sb"> </span><span class="si">${</span><span class="nx">r</span><span class="p">.</span><span class="nx">frustration</span><span class="p">.</span><span class="nx">score</span><span class="p">.</span><span class="nx">toFixed</span><span class="p">(</span><span class="mf">2</span><span class="p">)</span><span class="si">}</span><span class="sb"> [</span><span class="si">${</span><span class="nx">r</span><span class="p">.</span><span class="nx">kind</span><span class="p">.</span><span class="nx">choice</span><span class="si">}</span><span class="sb">] </span><span class="si">${</span><span class="nx">r</span><span class="p">.</span><span class="nx">title</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+</pre></div>
+<p>Note how in that above example we also call <code>store()</code> which dumps the result of
+that execution into the session transcript.  A future invocation of Codemode can
+thus read back that result if it wants to.</p>
+<p>The <code>Promise.all</code> here is fine, because Pi limits the total number of concurrent
+tool executions itself to four and maintains a queue for the rest.</p>
+<p>A more adventurous example is to use Jev to drive a game engine for debugging
+purposes:</p>
+<details>Codemode with Jev for Game Debugging
+<p>Here it knows about my <code>tankctl</code> command and it built itself quickly a minimal
+harness around it to drive a game loop to assist a user with debugging a
+problem. Note how it built a 30 step loop in which each step goes back to both
+the game engine to get a text dump of what’s going on, and then to Jev to
+determine what to do next:</p>
+<div class="highlight"><pre><span></span><span class="kd">const</span><span class="w"> </span><span class="nx">jev</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">models</span><span class="p">.</span><span class="nx">getModelOfType</span><span class="p">(</span><span class="s2">"classifier"</span><span class="p">,</span><span class="w"> </span><span class="s2">"typesafe"</span><span class="p">,</span><span class="w"> </span><span class="s2">"jev-latest"</span><span class="p">);</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">tank</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">(</span><span class="nx">cmd</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span>
+<span class="w">  </span><span class="p">(</span><span class="k">await</span><span class="w"> </span><span class="nx">tools</span><span class="p">.</span><span class="nx">bash</span><span class="p">({</span><span class="w"> </span><span class="nx">command</span><span class="o">:</span><span class="w"> </span><span class="sb">`tools/tankctl "</span><span class="si">${</span><span class="nx">cmd</span><span class="si">}</span><span class="sb">"`</span><span class="w"> </span><span class="p">})).</span><span class="nx">output</span><span class="p">;</span>
+<span class="k">await</span><span class="w"> </span><span class="nx">tank</span><span class="p">(</span><span class="s2">"start --map assets/maps/night_arena.map"</span><span class="p">);</span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">questions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">action</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s2">"choice"</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">instructions</span><span class="o">:</span><span class="w"> </span><span class="s2">"You control the tank '@' in a top-down tank game. "</span><span class="w"> </span><span class="o">+</span>
+<span class="w">      </span><span class="s2">"Choose the best next action."</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">criteria</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">attack</span><span class="o">:</span><span class="w"> </span><span class="s2">"an enemy has line of sight to you and you can fire at it"</span><span class="p">,</span>
+<span class="w">      </span><span class="nx">approach</span><span class="o">:</span><span class="w"> </span><span class="s2">"no enemy has line of sight; drive toward the nearest enemy"</span><span class="p">,</span>
+<span class="w">      </span><span class="nx">dodge</span><span class="o">:</span><span class="w"> </span><span class="s2">"an enemy shot is heading at you and will hit soon"</span><span class="p">,</span>
+<span class="w">      </span><span class="nx">powerup</span><span class="o">:</span><span class="w"> </span><span class="s2">"a powerup is close and no enemy threatens you"</span><span class="p">,</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="p">};</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">commandFor</span><span class="p">(</span><span class="nx">choice</span><span class="p">,</span><span class="w"> </span><span class="nx">st</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">st</span><span class="p">.</span><span class="nx">player</span><span class="p">;</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">enemy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">st</span><span class="p">.</span><span class="nx">enemies</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">e</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="o">!</span><span class="nx">e</span><span class="p">.</span><span class="nx">dead</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="nx">sort</span><span class="p">((</span><span class="nx">a</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">(</span><span class="nx">b</span><span class="p">.</span><span class="nx">los</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">a</span><span class="p">.</span><span class="nx">los</span><span class="p">)</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="p">(</span><span class="nx">a</span><span class="p">.</span><span class="nx">dist</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">b</span><span class="p">.</span><span class="nx">dist</span><span class="p">))[</span><span class="mf">0</span><span class="p">];</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">choice</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s2">"attack"</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">enemy</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="sb">`fire_at tank </span><span class="si">${</span><span class="nx">enemy</span><span class="p">.</span><span class="nx">id</span><span class="si">}</span><span class="sb">; frames 30 until clear,damage,kill`</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">choice</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s2">"dodge"</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// move perpendicular to the closest incoming shot</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">st</span><span class="p">.</span><span class="nx">projectiles</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">s</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="o">!</span><span class="nx">s</span><span class="p">.</span><span class="nx">yours</span><span class="p">)</span>
+<span class="w">      </span><span class="p">.</span><span class="nx">sort</span><span class="p">((</span><span class="nx">a</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">a</span><span class="p">.</span><span class="nx">eta</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">b</span><span class="p">.</span><span class="nx">eta</span><span class="p">)[</span><span class="mf">0</span><span class="p">];</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">dir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">s</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">abs</span><span class="p">(</span><span class="nx">s</span><span class="p">.</span><span class="nx">vel</span><span class="p">[</span><span class="mf">0</span><span class="p">])</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">abs</span><span class="p">(</span><span class="nx">s</span><span class="p">.</span><span class="nx">vel</span><span class="p">[</span><span class="mf">1</span><span class="p">])</span>
+<span class="w">      </span><span class="o">?</span><span class="w"> </span><span class="p">(</span><span class="nx">p</span><span class="p">.</span><span class="nx">pos</span><span class="p">[</span><span class="mf">1</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nx">s</span><span class="p">.</span><span class="nx">pos</span><span class="p">[</span><span class="mf">1</span><span class="p">]</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s2">"+down"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">"+up"</span><span class="p">)</span>
+<span class="w">      </span><span class="o">:</span><span class="w"> </span><span class="p">(</span><span class="nx">p</span><span class="p">.</span><span class="nx">pos</span><span class="p">[</span><span class="mf">0</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="p">(</span><span class="nx">s</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="nx">s</span><span class="p">.</span><span class="nx">pos</span><span class="p">[</span><span class="mf">0</span><span class="p">]</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s2">"+right"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">"+left"</span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="sb">`input </span><span class="si">${</span><span class="nx">dir</span><span class="si">}</span><span class="sb">; frames 20 until damage; input stop`</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">powerup</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">st</span><span class="p">.</span><span class="nx">powerups</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">u</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">u</span><span class="p">.</span><span class="nx">available</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="nx">sort</span><span class="p">((</span><span class="nx">a</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">a</span><span class="p">.</span><span class="nx">dist</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">b</span><span class="p">.</span><span class="nx">dist</span><span class="p">)[</span><span class="mf">0</span><span class="p">];</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">choice</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s2">"powerup"</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">powerup</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="sb">`goto </span><span class="si">${</span><span class="nx">powerup</span><span class="p">.</span><span class="nx">pos</span><span class="p">[</span><span class="mf">0</span><span class="p">]</span><span class="si">}</span><span class="sb"> </span><span class="si">${</span><span class="nx">powerup</span><span class="p">.</span><span class="nx">pos</span><span class="p">[</span><span class="mf">1</span><span class="p">]</span><span class="si">}</span><span class="sb"> 180`</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">enemy</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="sb">`goto </span><span class="si">${</span><span class="nx">enemy</span><span class="p">.</span><span class="nx">pos</span><span class="p">[</span><span class="mf">0</span><span class="p">]</span><span class="si">}</span><span class="sb"> </span><span class="si">${</span><span class="nx">enemy</span><span class="p">.</span><span class="nx">pos</span><span class="p">[</span><span class="mf">1</span><span class="p">]</span><span class="si">}</span><span class="sb"> 90`</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">log</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[];</span>
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">step</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">step</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">30</span><span class="p">;</span><span class="w"> </span><span class="nx">step</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">st</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="k">await</span><span class="w"> </span><span class="nx">tank</span><span class="p">(</span><span class="s2">"state"</span><span class="p">));</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">st</span><span class="p">.</span><span class="nx">state</span><span class="w"> </span><span class="o">!==</span><span class="w"> </span><span class="s2">"playing"</span><span class="p">)</span><span class="w"> </span><span class="k">break</span><span class="p">;</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">threats</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">st</span><span class="p">.</span><span class="nx">projectiles</span>
+<span class="w">    </span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">s</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="o">!</span><span class="nx">s</span><span class="p">.</span><span class="nx">yours</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">s</span><span class="p">.</span><span class="nx">miss_dist</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">1.5</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">s</span><span class="p">.</span><span class="nx">eta</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">1.5</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">s</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="sb">`incoming shot dist </span><span class="si">${</span><span class="nx">s</span><span class="p">.</span><span class="nx">dist</span><span class="si">}</span><span class="sb"> eta </span><span class="si">${</span><span class="nx">s</span><span class="p">.</span><span class="nx">eta</span><span class="si">}</span><span class="sb">s`</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="s2">"\n"</span><span class="p">)</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="s2">"no incoming shots"</span><span class="p">;</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">models</span><span class="p">.</span><span class="nx">classify</span><span class="p">(</span><span class="nx">jev</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">state</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">map</span><span class="o">:</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">tank</span><span class="p">(</span><span class="s2">"view 8"</span><span class="p">),</span><span class="w"> </span><span class="nx">threats</span><span class="p">,</span><span class="w"> </span><span class="nx">hp</span><span class="o">:</span><span class="w"> </span><span class="nx">st</span><span class="p">.</span><span class="nx">player</span><span class="p">.</span><span class="nx">hp</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="nx">questions</span><span class="p">,</span>
+<span class="w">  </span><span class="p">});</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">r</span><span class="p">.</span><span class="nx">stopReason</span><span class="w"> </span><span class="o">!==</span><span class="w"> </span><span class="s2">"stop"</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">log</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="sb">`#</span><span class="si">${</span><span class="nx">step</span><span class="si">}</span><span class="sb"> classifier error: </span><span class="si">${</span><span class="nx">r</span><span class="p">.</span><span class="nx">errorMessage</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+<span class="w">    </span><span class="k">break</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">choice</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">r</span><span class="p">.</span><span class="nx">answers</span><span class="p">.</span><span class="nx">action</span><span class="p">.</span><span class="nx">choice</span><span class="p">;</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">cmd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">commandFor</span><span class="p">(</span><span class="nx">choice</span><span class="p">,</span><span class="w"> </span><span class="nx">st</span><span class="p">);</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">cmd</span><span class="p">)</span><span class="w"> </span><span class="k">break</span><span class="p">;</span>
+<span class="w">  </span><span class="nx">log</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="sb">`#</span><span class="si">${</span><span class="nx">step</span><span class="si">}</span><span class="sb"> hp=</span><span class="si">${</span><span class="nx">st</span><span class="p">.</span><span class="nx">player</span><span class="p">.</span><span class="nx">hp</span><span class="si">}</span><span class="sb"> </span><span class="si">${</span><span class="nx">choice</span><span class="si">}</span><span class="sb"> -&gt; </span><span class="si">${</span><span class="k">await</span><span class="w"> </span><span class="nx">tank</span><span class="p">(</span><span class="nx">cmd</span><span class="p">)</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="k">return</span><span class="w"> </span><span class="nx">log</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="s2">"\n"</span><span class="p">);</span>
+</pre></div>
+</details>
+<h3>Calling MCP Servers</h3>
+<p>Lastly, Codemode obviously is great for calling MCP servers.  And because we
+do not actually expose any of the MCP tools to the LLM, the agent first uses
+provided APIs to issue a tool search within Codemode to discover what it might
+be able to do with the connected servers. This form of progressive discovery
+makes the whole MCP business work well enough for a lot of use cases today.</p>
+<p>Here for instance you can see the agent reach for the Sentry MCP straight away,
+even without discovering the tools, presumably because it has learned during the
+RL process already about what the Sentry MCP looks like.  But it learns from
+what we inject into the system prompt, that the Sentry server is available to
+begin with.  It’s not completely guessing here.</p>
+<div class="highlight"><pre><span></span><span class="kd">const</span><span class="w"> </span><span class="nx">orgs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">tools</span><span class="p">.</span><span class="nx">mcp__sentry__find_organizations</span><span class="p">({});</span>
+<span class="kd">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">organizations</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">orgs</span><span class="p">.</span><span class="nx">structuredContent</span><span class="p">;</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">results</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nb">Promise</span><span class="p">.</span><span class="nx">allSettled</span><span class="p">(</span><span class="nx">organizations</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">org</span><span class="w"> </span><span class="p">=&gt;</span>
+<span class="w">  </span><span class="nx">tools</span><span class="p">.</span><span class="nx">mcp__sentry__find_projects</span><span class="p">({</span>
+<span class="w">    </span><span class="nx">organizationSlug</span><span class="o">:</span><span class="w"> </span><span class="nx">org</span><span class="p">.</span><span class="nx">slug</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">regionUrl</span><span class="o">:</span><span class="w"> </span><span class="nx">org</span><span class="p">.</span><span class="nx">regionUrl</span><span class="p">,</span>
+<span class="w">  </span><span class="p">})</span>
+<span class="p">));</span>
+<span class="k">return</span><span class="w"> </span><span class="nx">organizations</span><span class="p">.</span><span class="nx">map</span><span class="p">((</span><span class="nx">org</span><span class="p">,</span><span class="w"> </span><span class="nx">i</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">results</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">r</span><span class="p">.</span><span class="nx">status</span><span class="w"> </span><span class="o">!==</span><span class="w"> </span><span class="s2">"fulfilled"</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">org</span><span class="o">:</span><span class="w"> </span><span class="nx">org</span><span class="p">.</span><span class="nx">slug</span><span class="p">,</span><span class="w"> </span><span class="nx">error</span><span class="o">:</span><span class="w"> </span><span class="nb">String</span><span class="p">(</span><span class="nx">r</span><span class="p">.</span><span class="nx">reason</span><span class="p">)</span><span class="w"> </span><span class="p">};</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">r</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">isError</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">org</span><span class="o">:</span><span class="w"> </span><span class="nx">org</span><span class="p">.</span><span class="nx">slug</span><span class="p">,</span><span class="w"> </span><span class="nx">error</span><span class="o">:</span><span class="w"> </span><span class="nx">r</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">content</span><span class="w"> </span><span class="p">};</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">org</span><span class="o">:</span><span class="w"> </span><span class="nx">org</span><span class="p">.</span><span class="nx">slug</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">projects</span><span class="o">:</span><span class="w"> </span><span class="nx">r</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">structuredContent</span><span class="p">.</span><span class="nx">projects</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">p</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">p</span><span class="p">.</span><span class="nx">slug</span><span class="p">),</span>
+<span class="w">  </span><span class="p">};</span>
+<span class="p">});</span>
+</pre></div>
+<h2>Modern MCP Is A Fight</h2>
+<p>I really don’t want to talk too much about MCP here, but MCP is in fact a
+protocol that greatly benefits from Codemode.  The problem in parts is that MCP
+in practice often targets harnesses that do not (yet?) use Codemode.  But the
+tide is shifting.  In the meantime, a temporary crutch has been to do what
+Cloudflare did, and do Codemode within the MCP server.  But now we have Codemode
+in Codemode which is pretty bad.  It means double JSON escaping, easy for
+smaller models to get confused by and the inner code cannot call the outer
+tools.  So if you for instance use the Cloudflare MCP servers in Pi, the agent
+needs to write JavaScript and funnel it through more JavaScript. This is really
+not optimal, but it’s also understandable that this is happening:</p>
+<div class="highlight"><pre><span></span><span class="kd">const</span><span class="w"> </span><span class="nx">accRes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">tools</span><span class="p">.</span><span class="nx">mcp__cloudflare__execute</span><span class="p">({</span>
+<span class="w">  </span><span class="nx">code</span><span class="o">:</span><span class="w"> </span><span class="sb">`async () =&gt; {</span>
+<span class="sb">    const r = await cloudflare.request({ method: "GET", path: "/accounts" });</span>
+<span class="sb">    return r.result.map(a =&gt; ({ id: a.id, name: a.name }));</span>
+<span class="sb">  }`</span><span class="p">,</span>
+<span class="p">});</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">accounts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">accRes</span><span class="p">.</span><span class="nx">content</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">c</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">c</span><span class="p">.</span><span class="nx">text</span><span class="p">).</span><span class="nx">join</span><span class="p">(</span><span class="s2">""</span><span class="p">));</span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">out</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[];</span>
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">const</span><span class="w"> </span><span class="nx">account</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nx">accounts</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">tools</span><span class="p">.</span><span class="nx">mcp__cloudflare__execute</span><span class="p">({</span>
+<span class="w">    </span><span class="nx">account_id</span><span class="o">:</span><span class="w"> </span><span class="nx">account</span><span class="p">.</span><span class="nx">id</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">code</span><span class="o">:</span><span class="w"> </span><span class="sb">`async () =&gt; {</span>
+<span class="sb">      const r = await cloudflare.request({</span>
+<span class="sb">        method: "GET",</span>
+<span class="sb">        path: \`/accounts/\${accountId}/workers/scripts\`,</span>
+<span class="sb">      });</span>
+<span class="sb">      return r.result.map(s =&gt; ({ id: s.id, modified: s.modified_on }));</span>
+<span class="sb">    }`</span><span class="p">,</span>
+<span class="w">  </span><span class="p">});</span>
+<span class="w">  </span><span class="nx">out</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span><span class="w"> </span><span class="nx">account</span><span class="o">:</span><span class="w"> </span><span class="nx">account</span><span class="p">.</span><span class="nx">name</span><span class="p">,</span><span class="w"> </span><span class="nx">workers</span><span class="o">:</span><span class="w"> </span><span class="nx">r</span><span class="p">.</span><span class="nx">content</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">c</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">c</span><span class="p">.</span><span class="nx">text</span><span class="p">).</span><span class="nx">join</span><span class="p">(</span><span class="s2">""</span><span class="p">)</span><span class="w"> </span><span class="p">});</span>
+<span class="p">}</span>
+<span class="k">return</span><span class="w"> </span><span class="nx">out</span><span class="p">;</span>
+</pre></div>
+<h2>MCP Desires</h2>
+<p>So to end things off: how well does Codemode work with MCP today?  Well … not
+amazingly well.  That’s because MCP servers are not really targeting harnesses
+that use Codemode yet (though at this point I think most harnesses support it).</p>
+<p>For this to work well some recommendations:</p>
+<ul>
+<li><strong>Structured content:</strong> Codemode wants calls to return some nicely
+formatted JSON.  So that needs to come back from the server, and many don’t
+do that yet.  The <code>outputSchema</code> system in MCP is great for that.</li>
+<li><strong>Consistent results:</strong> an interesting failure case is when an MCP server
+does not return consistent data.  For instance because it tries to token
+optimize things depending on how many items are in the result set.  This can
+cause an initial probe with 5 items to succeed, but then fail when the server
+returns the maximum batch size.</li>
+<li><strong>Large binary data:</strong> today MCP does not yet support large binary data
+so quite a few use cases that are really interesting do not work well at all
+yet.  You end up with all kinds of weird workarounds such as pre-signed URLs
+to allow file uploads then to happen through non MCP channels.</li>
+<li><strong>Composable tool search:</strong> the MCP server might know better than the MCP
+client which tool is appropriate for a task.  But there is no good mechanism
+today that allows a harness to fan out tool searches across multiple MCP
+servers.  It’s all emergent behavior and it does not scale well to multiple
+active servers.</li>
+</ul>
+<h2>Future of Codemode</h2>
+<p>So where does this leave us?  Is this a reversal of what I wrote a year ago
+where I encouraged CLIs?  I don’t think so.  In fact, the MCP ecosystem from my
+perspective picked up on exactly what we pointed out a year ago works: code.
+But Codemode goes beyond MCP in that it can act as a capable mechanism within
+the harness to express more freedom for the agent.</p>
+<p>There are however also some things that we still need to figure out.  For one,
+durability with Codemode is trickier.  We might have to adopt some ideas from
+durable workflow engines here to snapshot invocations.  Or maybe, something like
+Starlark is a better composition language than JavaScript given its
+deterministic nature.</p>
+<p>Images, binary data and just the inability of this pattern to work with smaller
+models is also something that needs to be fleshed out.  So it’s for sure not a
+perfect solution yet, but it’s quite a useful pattern that I expect us to
+leverage more.</p></div></div>
+      
+    </article>
+    
+    <article>
+      <h1>Building always-on agents</h1>
+      <div class="article-meta">
+        William Hu
+        · 22 Nov 2026 · <a href="https://claude.com/resources/articles/building-always-on-agents/">Source</a>
+      </div>
+      <div class="article-body"><p>Over the past few months, we’ve seen a resurgence of always-on agents.</p>
+<p>Always-on agents are stateful and proactive, meaning they manage context across sessions and take actions without direct supervision. Underneath, they run on the same <a href="https://www.anthropic.com/research/building-effective-agents">core loop</a> as other agents. The difference is the surrounding architecture, which is built from primitives that control when the agents wake up, what carries over between runs, and how their work reaches the user.</p>
+<p>The resurgence is largely due to recent model advancements, which have made always-on agents more practical to run. First, the latest models have better judgment: they’re more reliable at understanding user intent and knowing when to check in. Second, intelligence is becoming cheaper, with long-horizon tasks benefiting the most. For example, on <a href="https://platform.claude.com/docs/en/about-claude/models/optimizing-for-cost-and-intelligence">one long-horizon coding benchmark</a>, Opus 5.5 cost 78% less per solved task than Opus 5, compared with 40% less on typical workloads.</p>
+<p>Customers have started to ask us how to integrate this type of experience into their own products. Some companies want to make their existing agents more proactive, while others are looking to build them from the ground up.</p>
+<p>This post breaks down the primitives behind always-on agents and walks through how they fit together.</p>
+<h2>The cycle behind the always-on agent</h2>
+<p>An always-on agent is not actually “always on.” This is just a description of the user experience.</p>
+<p>In reality, the agent spends most of its time asleep, waking up periodically to do work. Each stretch of work is called a <strong>run</strong>: the agent receives an event, completes its task, and then saves information about what happened. A run works inside a <strong>session</strong>, which is the transcript of messages and tool calls. Once the run is finished, the agent goes back to sleep, and the cycle repeats indefinitely.</p>
+<figure class="article-figure"><img alt="Animated diagram of an always-on agent’s timeline: long stretches asleep with no tokens spent, broken by brief runs. Each run has four steps: an event arrives, a session starts, the agent loop runs, and the run writes back to stored state that carries over between runs." src="https://assets.claude.com/5dc803bf06d6e92e4aecae762da096626e2fa9ec.gif" class="article-image"/><figcaption>Animated diagram of an always-on agent’s timeline: long stretches asleep with no tokens spent, broken by brief runs. Each run has four steps: an event arrives, a session starts, the agent loop runs, and the run writes back to stored state that carries over between runs.</figcaption></figure>
+<h2>The core primitives</h2>
+<p>The surrounding architecture of an always-on agent has five core primitives: an event inbox, timers, memory, permissions, and an outbox. Let’s take a look at each.</p>
+<h3>Event inbox</h3>
+<p>Most AI agents only run when the user sends a message. In contrast, always-on agents can be triggered by many types of events, including webhooks, scheduled tasks, and background jobs.</p>
+<p>One tempting approach is to have each event source call the agent directly, but that has a few failure modes. For example, two events arriving at the same time can start competing runs, and a crash can lose an event entirely.</p>
+<p>This is where the event inbox comes in. Instead of calling the agent, every source sends an event to an inbox, where a worker picks it up.</p>
+<p>The simplest version has three components:</p>
+<ul><li>A durable list of events, usually a database table;</li><li>A handler, usually an HTTP endpoint, that writes events to the list; and</li><li>A worker, usually a background service, that reads from the list.</li></ul>
+<p>The inbox should track the status of each event, and events can be deduplicated based on unique identifiers from the source. A relational database works well for the inbox, with every event appended as a new row. We recommend starting with one inbox per user, but you can split this further if you need more parallelism.</p>
+<figure class="article-figure"><img alt="Diagram of the event inbox. A handler (an HTTP endpoint) writes each event to the inbox, a database table that tracks status and drops duplicates, and wakes the worker. The worker reads what’s pending, starts the run, waits for it to finish, and marks the events done." src="https://assets.claude.com/bb08543a505cea3a24c88c718ceec4405e9c0a79.png" class="article-image"/><figcaption>Diagram of the event inbox. A handler (an HTTP endpoint) writes each event to the inbox, a database table that tracks status and drops duplicates, and wakes the worker. The worker reads what’s pending, starts the run, waits for it to finish, and marks the events done.</figcaption></figure>
+<p>When a new event comes in, the handler writes the event to the inbox and wakes the worker. The worker reads whatever is pending and starts a run. Events that continue earlier work, such as a reply from the user, resume an existing session, while everything else starts a new session.</p>
+<p>From there, the worker passes the events to the agent loop, waits for the run to finish, and marks the corresponding events as done. The implementation details can get tricky, so here are a few best practices:</p>
+<ul><li><strong>The handler should acknowledge events quickly</strong>. Some sources, such as webhook providers, treat slow responses as failures. The handler can still run lightweight checks, but any deeper verification, such as checking for prompt injection, should be done during the run.</li><li><strong>The inbox should be the source of truth</strong>. When the worker is woken up, it should pull the latest events from the inbox first. That way, if the worker dies mid-run, a new one can pick up the same event and retry.</li><li><strong>An inbox should only have one active worker at a time</strong>. This prevents two runs from duplicating work or overwriting each other. When a new event shows up mid-run, you can either push it to the next run, fold it into the current run, or interrupt and restart.</li><li><strong>The worker should batch pending events together.</strong> For example, if the user sends several messages in a row, the worker can merge them into a single run, so the agent only needs to reply once.</li></ul>
+<h3>Timers</h3>
+<p>Together with the event inbox, timers let always-on agents be proactive. Timers generally fall into one of two categories: follow-ups or schedules. A follow-up is a deadline that the agent sets for itself, such as checking in on a reply. A schedule, on the other hand, is a recurring task that happens on a known cadence, such as a daily newsletter.</p>
+<p>Timers live in their own durable store, usually another database table, separate from the inbox. The inbox should only hold events that are ready to be worked on. A follow-up and a schedule can share a similar schema, but a schedule needs to track its recurrence as well.</p>
+<figure class="article-figure"><img alt="Diagram of timers. A run sets a timer in a database table, either a follow-up set by the agent or a schedule set by the user. A scheduler finds what’s due and adds an event to the event inbox, which starts the next run." src="https://assets.claude.com/c16694e6d979a2ace84d03da0544297b7245c0a8.png" class="article-image"/><figcaption>Diagram of timers. A run sets a timer in a database table, either a follow-up set by the agent or a schedule set by the user. A scheduler finds what’s due and adds an event to the event inbox, which starts the next run.</figcaption></figure>
+<p>A timer doesn’t initiate a run on its own. Instead, a scheduler, usually a background service, polls the store at a fixed interval and fires anything that’s due. On each pass, the scheduler:</p>
+<ol><li>Scans the store and finds timers that are due.</li><li>Updates each timer based on its category.<ol><li>A follow-up should be marked as done.</li><li>A schedule should get its due time updated to the next occurrence.</li></ol></li><li>Adds an event to the inbox and wakes the worker.</li></ol>
+<p>For the scheduler, you can either build your own service or use a durable execution engine.</p>
+<h3>Memory</h3>
+<p>Always-on agents work across many disjointed runs and rely on memory to maintain continuity.</p>
+<p>Similar to the event inbox and timers, memory should have its own store. In our products, such as Claude Code’s <a href="https://code.claude.com/docs/en/memory">auto memory</a> and the Messages API’s <a href="https://platform.claude.com/docs/en/agents-and-tools/tool-use/memory-tool">memory tool</a>, this is implemented as a directory of files. For an always-on agent, the directories should map to durable storage, usually a database or an object store. This way memories outlive the worker.</p>
+<p>As a rule of thumb, memory should only hold what the agent can’t look up again. If something already lives in another system, such as an issue tracker, you should save a pointer instead. Here is a breakdown of the types of memory an always-on agent should store:</p>
+<ul><li><strong>User instructions:</strong> Any instructions from the user about agent behavior should be saved in their own file and loaded at the start of every run. The user won’t always be around to steer the agent, so the instructions have to carry over between runs.</li><li><strong>User notes:</strong> The agent should save what it’s learned about the user, such as their role, their preferences, or any corrections they’ve given. You can start with one file and move to several small files as the notes grow. In the latter case, only an index is loaded at the start of each run, but the agent can pull the individual files into context when it needs more details.</li><li><strong>Past messages:</strong> The agent should keep track of what it’s already told the user so nothing is repeated. It can either store this in a separate file that’s loaded at the start of each run, or have the worker load the agent’s last few messages with the user.</li><li><strong>Task progress:</strong> For each ongoing task, the agent should keep a progress file that covers what’s been done and what’s left. Any new run can then read that file and pick up where the previous run left off. Similar to user notes, only an index is loaded at the start of each run, but the agent can pull the individual files into context when it needs more details.</li></ul>
+<p>The diagram below shows one example setup.</p>
+<figure class="article-figure"><img alt="Diagram of an example memory setup as a directory of files. instructions.md, index.md, and reported.md are loaded at the start of every run, while the notes/ and progress/ folders are read when needed. The agent writes to memory during the run." src="https://assets.claude.com/e5d209d7ef9b3455dec8a27b777dc12bdf806699.png" class="article-image"/><figcaption>Diagram of an example memory setup as a directory of files. instructions.md, index.md, and reported.md are loaded at the start of every run, while the notes/ and progress/ folders are read when needed. The agent writes to memory during the run.</figcaption></figure>
+<p>All of the above describes memory that’s saved during a run. You can also add dreaming, which reviews past sessions to curate memories. Dreaming can replace outdated entries and find patterns that only show up across many runs. If you’re interested in learning more, our <a href="https://www.anthropic.com/research/components-of-agent-memory">post on agent memory</a> covers this in more detail.</p>
+<h4>Inside the context window</h4>
+<p>Before doing any work, the agent loads the system prompt, tool definitions, and memory files. This initial context “overhead” is included in every run, so we recommend keeping it lean and using <a href="https://platform.claude.com/docs/en/build-with-claude/prompt-caching">prompt caching</a> to lower costs.</p>
+<p>A new session starts only with this context overhead and the events that triggered the run. An existing session, on the other hand, brings back the messages and tool calls from its earlier runs.</p>
+<p>If a session becomes too long, you can either <a href="https://platform.claude.com/docs/en/build-with-claude/compaction">compact the older messages</a> or start a new session. Both approaches lose detail, so anything that needs to persist should be saved to memory along the way.</p>
+<figure class="article-figure"><img alt="Animated chart of context used over time. A fixed band for the system prompt, tools, and memory is present on every run. An existing session brings back its whole transcript and grows until compaction turns the older transcript into a summary." src="https://assets.claude.com/a96968e69e3a08b53412bfb6fd2e5c5118407afc.gif" class="article-image"/><figcaption>Animated chart of context used over time. A fixed band for the system prompt, tools, and memory is present on every run. An existing session brings back its whole transcript and grows until compaction turns the older transcript into a summary.</figcaption></figure>
+<h3>Permissions</h3>
+<p>Permissions are where always-on agents carry the most risk. A run holds the user’s access and, by design, operates unattended. For each tool call, the agent needs to decide whether to proceed on its own, block it, or wait for approval.</p>
+<p>The components for permissions are the same ones other agents use:</p>
+<ul><li><strong>Credential store:</strong> Always-on agents often need sensitive user credentials like passwords or access tokens to be useful. The <a href="https://code.claude.com/docs/en/agent-sdk/secure-deployment#credential-management">recommended pattern</a> is a proxy outside the agent’s environment that adds credentials to outgoing requests. The agent sends requests without credentials, and the proxy injects the real credentials before forwarding.</li><li><strong>Auto mode:</strong> An always-on agent should be able to work without constant user input. We’ve already tackled a version of this problem with <a href="https://www.anthropic.com/research/claude-code-auto-mode">auto mode</a> in Claude Code. Auto mode uses classifiers to review higher-risk actions and block the ones they identify as dangerous so Claude can find a safer approach. User review, however, is still necessary for the most important decisions.</li><li><strong>Deferred tool calls:</strong> In Claude Code, <a href="https://code.claude.com/docs/en/hooks#defer-a-tool-call-for-later">a hook can defer a tool call</a> and wait for additional input from the user. The same pattern applies to always-on agents, which may need clarification or approval before taking certain actions. When a call is deferred, the run ends and the session is saved mid-call. The request is shown to the user (e.g., through an interactive card built with <a href="https://modelcontextprotocol.io/extensions/apps/overview">MCP Apps</a>), and their answer comes back as an event in the inbox. That event starts a new run, which resumes the saved session with the user’s input. While the deferred call waits for a response, the worker can pick up other events, so the agent isn’t blocked.</li></ul>
+<h3>Outbox</h3>
+<p>With most AI agents, the response is streamed to the user as it’s generated, so they can follow along as Claude reasons through the problem, calls tools, and writes its answer.</p>
+<p>Always-on agents, on the other hand, do most of their work in the background. The user gets the outcome and a few details, rather than the entire step-by-step breakdown.</p>
+<figure class="article-figure"><img alt="Diagram of the outbox. A run ends with nothing to say, a send tool call, or a deferred tool call that asks the user. Messages go to the outbox, a database table, and a dispatcher delivers them to the user. A deferred request can go through the outbox or be shown in your own interface." src="https://assets.claude.com/700b5f3a446f22493c0307ec65751b6b2f82ccb7.png" class="article-image"/><figcaption>Diagram of the outbox. A run ends with nothing to say, a send tool call, or a deferred tool call that asks the user. Messages go to the outbox, a database table, and a dispatcher delivers them to the user. A deferred request can go through the outbox or be shown in your own interface.</figcaption></figure>
+<p>A run can end in one of three ways:</p>
+<ul><li>The agent sends a message to the outbox,</li><li>The agent decides that nothing needs to be sent, or</li><li>The agent uses a deferred tool call to request permission or additional input.</li></ul>
+<p>Most always-on agents can get by with a “send” tool that delivers the message directly to the user. You only need a formal outbox when you want to pace your agent’s messages or allow your agent to recover from errors.</p>
+<p>The outbox is a separate table of outgoing messages, analogous to the event inbox. There’s also a dispatcher, usually a background service, that’s analogous to the worker. The dispatcher reads the pending messages, decides what to deliver, and sends those to the user. A request from a deferred tool call can either go through the outbox or be shown directly in the interface.</p>
+<p>Beyond delivery, it’s important to tune how many messages the agent sends. An agent that sends too many becomes noisy, while an agent that doesn’t send enough misses things that the user needs to know. We recommend building evals to find the right balance. In practice, it’s better for the agent to start quiet and then earn more of the user’s attention over time.</p>
+<h2>How everything fits together</h2>
+<p>Here is how the five primitives fit together:</p>
+<figure class="article-figure"><img alt="Animated diagram of how the five primitives fit together. Timers and the event inbox start a run, the run works with memory and permissions inside a session, and the outbox delivers messages to the user, whose answer comes back as an event." src="https://assets.claude.com/9f8df7b2dcc9d4637d27f37dae6e40a2a5851c8a.gif" class="article-image"/><figcaption>Animated diagram of how the five primitives fit together. Timers and the event inbox start a run, the run works with memory and permissions inside a session, and the outbox delivers messages to the user, whose answer comes back as an event.</figcaption></figure>
+<p>Every run starts with an event from the inbox, whether it’s a user message, a webhook, or a timer. When the worker picks up an event, it kicks off a run and wakes the agent in a new or existing session. The agent reads its memory to get a baseline, works within its permissions to take actions, and then updates its memory with anything it has learned. Once the run is finished, the agent pushes a row to the outbox, and the dispatcher delivers the message to the user.</p>
+<p>Together, these form a cycle. A run can set a timer that wakes the agent again later, and when the user replies to a message, their answer comes back as an event in the inbox. Each run is brief, but the cycle keeps going indefinitely, and that’s what makes the agent feel like it’s always on.</p>
+<h2>Acknowledgements</h2>
+<p><em>Written by William Hu. Special thanks to Rodrigo Olivares and Michael Segner for their contributions.</em></p></div>
+      
+    </article>
+    
+    <article>
+      <h1>Control the ideas, not the code</h1>
+      <div class="article-meta">
+        antirez.com
+        · 18 Jul 2026 · <a href="https://antirez.com/news/169">Source</a>
+      </div>
+      <div class="article-body"><pre>Look at the past history of this blog. There are many blog posts about programming with AI, a few of them date back to January 2024 (like this: <a href="https://antirez.com/news/140">https://antirez.com/news/140</a>). I’m a relatively well regarded programmer, after all. I don’t have the need to still be in the “loop” as a old man that seeks for relevance, I recently rejoined Redis, and now I also am developing a new open source software for local LLM inference that received a good welcome in the community. Why I keep doing this, of saying what people don’t want to hear? Why I keep announcing how future programming will be by default? Because I feel the urge of lowering the impact for people less prepared to the change than me, often younger than me, and that, unlikely me, didn’t see many of those things coming (In 2022 I published, before ChatGPT existed, a book preannouncing many things that now happened and other things that I believe *will* happen, so I feel like I can say this without sounding egocentric).
+
+So mine is a trick. People feel more and more programming is completely modified by AI and don’t know what they should do, if they can really start coding in a completely different way, without looking much at the code as their main output. They feel like they are betraying their own field. So my intention is to arrive and say “look at me, In can write code, you know, I’m not hiding behind AI: yet, things changed, it’s not your weakness, it’s not that you are AI-pilled. It is just that our field is evolving in an incredible *and* painful (but also joyful) direction”.
+
+This is why yesterday, on X, I said that I believe many programmers at this point have less impact they could have because they look at the code. I truly believe into that. And note that this does not mean to vibe code something just asking for the final product. The point is: if you control the ideas of your software, looking at the code itself is suboptimal and often pointless. For the following reasons:
+
+1. You can now generate a lot of code, even *not* accounting for the LLM code verbosity (that is also effect of not being able to instruct them well, for most of the part). How are you supposed to review 5k lines of code every day?
+
+2. LLMs are very good at writing locally optimal code, and are worse (but improving) with big ideas. What’s the point of scanning function by function, line by line? Instead you should prompt the design you have in mind, sometimes ask “how is exactly the design of that part? How does it work?”, and evaluate if it is the right model. It is much faster.
+
+3. The working day is 8 hours. If you read the code, it is a tradeoff. You are doing less of what today is the most important part of your job, that is, asking yourself: what I’m doing with this software? What are the new directions I want to take? And also, think at new ideas, features, optimizations tricks. And doing a lot of QA.
+
+Controlling the ideas. Do you remember this phrasing from the Mythical Man Month? Well, a book from the 70s tells us more things about the current software era than many of the things that were said from 2000 to 2020. Why people that now protest against AI were not horrified by the state of software in the last decade? The level of slop we touched during recent years, before AI, is unbelievable. I’ll say you another thing. What is slop? With DwarfStar I implemented an inference for two LLMs (DeepSeek v4 and GLM 5.2) in a completely automated way, but: try it yourself, you will discover you can’t just say “implement XYZ” and see it working. You have to understand how things work, what is the best design, how to reach a certain level of performance. Then I compared the implementation, for correctness, to other systems, finding that other implementations sometimes contained more errors. I researched more, and found that the local inference world is full of subtle errors that accumulate and damage the model output, issues in the attention implementation causing performance slopes after the context is over a certain limit because indexed attention implementations are broken (do more work than they should, for instance), and so forth. This is the result of a domain that is very complicated to handle, fast changing, with models that are slightly different one from the other in the inference graph being released every day. It’s an unfair game for developers. Well: AI helps a lot with that. There are many domains where rigorous engineering (in the design side) and testing is *far* better than writing a GPU kernel by hand (or reading it). So are we sure most of that resistance it is not ideological?
+
+Matteo Collina yesterday asked me, in reply to my tweet: but didn’t you say that you check all the AI generated code for Redis? And this is a good question indeed. Yes, I do, but this is, at this point, something I *need* to do but that I believe to be mostly pointless, partially once GPT 5.5 was released, but now with Fable and GPT 5.6 Sol even more. Yes: I identify things that I don’t like how they are coded, but if I open other Redis files written by other Redis contributors there is *far worse*, and not since they are not good coders, but because it is a matter of taste. I write very clean code since I want it to be readable, so during the implementation of Redis Arrays I operated changes. I’m doing it again for the 50% memory saving optimization of Redis sorted sets, a PR that I’ll submit soon. But I do not feel this is useful anymore. Nobody should anymore look at this code, but only at the ideas the code contain. I continued to do it out of respect for users. Redis is at this point a commonly useful thing, and many programmers will open files and modify stuff by hand. But if I had my hands free, you know what I would do, instead? Use all the time that the review is taking me to do more QA, to think at the next optimization idea and apply it, and to use LLMs to write a DESIGN.md file where each data structure is described in human language, with the ideas it contains, the implementation tricks, the design. That, in the future, is going to be much more useful. Do you want to modify sorted sets? You open the file, read the design, then you own the ideas. You can open your agent and ask it what to do with the right mental model. This is a lot more useful than reviewing the code.
+
+Fable and GPT 5.6 reviews to the sorted sets memory saving are going to spot ways more errors and subtle race conditions that my review is going to uncover. Yet I’ll do it. But for the majority of software projects, all this does not make sense anymore. Focus on controlling the ideas, instead. Focus on quality, testing, and having an idea of the software you want to ship. The world changed and it is painful, but also full of opportunities to improve a software world that was already completely rotten.</pre>
+<p>:</p></div>
+      
+    </article>
+    
+  </body>
+</html>
